@@ -20,7 +20,9 @@ class Generator {
 	this(string locale, string fallback, string[] toOverride) {
         this.toOverride = toOverride;
 		if(locale == "en") {
-			this.output = `module faked.base;
+			this.output = `
+///
+module faked.base;
 
 import std.datetime;
 import std.exception : enforce;
@@ -36,11 +38,13 @@ struct Currency {
     }
 }
 
+///
 struct BBan {
     string type;
     long count;
 }
 
+///
 struct IbanFormat {
     string country;
     long total;
@@ -48,6 +52,7 @@ struct IbanFormat {
     string format;
 }
 
+///
 struct IbanData {
     dchar[] alpha;
     string[] pattern10;
@@ -56,6 +61,7 @@ struct IbanData {
     string[] iso3166;
 }
 
+///
 class Faker {
 @safe:
 	import std.random;
@@ -66,20 +72,25 @@ class Faker {
     import std.range : iota, take, repeat;
     import std.algorithm : map, joiner;
 
+	///
 	Random rnd;
 
+	///
 	this(int seed) {
 		this.rnd = Random(seed);
 	}
 
+	///
     string addressLatitude() {
         return to!string(uniform(-90.0, 90.0, this.rnd));
     }
 
+	///
     string addressLongitude() {
         return to!string(uniform(-90.0, 90.0, this.rnd));
     }
 
+	///
     string fianceAccount(size_t length = 8) {
         string s;
         foreach(i; 0 .. length) {
@@ -88,6 +99,7 @@ class Faker {
         return digitBuild(s);
     }
 
+	///
     string fianceRoutingNumber() {
         import std.conv : to;
         import std.math : ceil;
@@ -109,6 +121,7 @@ class Faker {
 		return routingNumber ~ to!string((ceil(sum / 10.0) * 10 - sum));
     }
 
+	///
     string financeMask(size_t length = 4, bool parents = true,
             bool ellipsis = true)
     {
@@ -131,6 +144,7 @@ class Faker {
         return tmp;
     }
 
+	///
     string financeBitcoinAddress() {
         import std.conv : to;
         static enum data =
@@ -145,6 +159,7 @@ class Faker {
         return ret;
     }
 
+	///
     string loremSentance(size_t length = size_t.max) {
 		import std.algorithm : copy;
         length = length == size_t.max || length == 0
@@ -168,6 +183,7 @@ class Faker {
         return f ~ ret;
     }
 
+	///
     string loremSentances(size_t length = size_t.max) {
         import std.algorithm : map, joiner;
         import std.range : iota;
@@ -182,6 +198,7 @@ class Faker {
             .to!string();
     }
 
+	///
     string loremParagraph(size_t length = size_t.max) {
         length = length == size_t.max || length == 0
             ? uniform(2, 6, this.rnd)
@@ -190,6 +207,7 @@ class Faker {
         return loremSentances(length + uniform(0, 3, this.rnd));
     }
 
+	///
     string loremParagraphs(size_t length = size_t.max) {
         import std.algorithm : map, joiner;
         import std.range : iota;
@@ -203,6 +221,7 @@ class Faker {
             .to!string();
     }
 
+	///
     string loremText(size_t length = size_t.max) {
         length = length == size_t.max || length == 0
             ? uniform(2, 6, this.rnd)
@@ -231,27 +250,32 @@ class Faker {
         return app.data();
     }
 
+	///
     string phoneNumber() {
         return this.digitBuild(this.phoneNumberFormats());
     }
 
+	///
     string commerceProductName() {
         return this.commerceProductNameAdjective() ~
               this.commerceProductNameMaterial() ~ " " ~
               this.commerceProductNameProduct();
     }
 
+	///
     string companyCatchPhrase() {
         return companyAdjective() ~ " "
             ~ companyDescriptor() ~ " "
             ~ companyNoun();
     }
 
+	//
     string companyBs() {
         return companyBsVerb() ~ " " ~ companyBsAdjective() ~ " " ~
             companyBsNoun();
     }
 
+	///
     string internetUserName(string firstname = "", string lastname = "") {
         firstname = firstname.empty ? this.nameFirstName() : firstname;
         lastname = lastname.empty ? this.nameLastName() : lastname;
@@ -276,11 +300,12 @@ class Faker {
         return ret.replace("'", "").replace(" ", "");
     }
 
-
+	///
     string internetProtocol() {
         return choice(["http", "https"], this.rnd);
     }
 
+	///
     string internetDomainWord() {
         import std.uni : isAlphaNum;
         import std.utf : byDchar;
@@ -292,14 +317,17 @@ class Faker {
             .to!string();
     }
 
+	///
     string internetDomainName() {
         return this.internetDomainWord() ~ "." ~ this.internetDomainSuffix();
     }
 
+	///
     string internetUrl() {
         return this.internetProtocol() ~ "://" ~ this.internetDomainName();
     }
 
+	///
     string internetIPv4() {
         int[4] t;
         foreach(i; 0 .. t.length) {
@@ -309,8 +337,8 @@ class Faker {
         return t[].map!(a => to!string(a)).joiner(".").to!string();
     }
 
+	///
     string internetIPv6() {
-
         static enum elem = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
              "a", "b", "c", "d", "e", "f"];
 
@@ -320,6 +348,7 @@ class Faker {
             .to!string();
     }
 
+	///
     string internetColor(int baseRed255 = 0, int baseGreen255 = 0,
             int baseBlue255 = 0)
     {
@@ -335,14 +364,17 @@ class Faker {
             (blueStr.length == 1 ? "0": "") ~ blueStr;
     }
 
+	///
     string internetPassword(bool strong = false) {
         return strong ? "Password" : "password";
     }
 
+	///
     string vehicle() {
         return this.vehicleManufacturer() ~ " " ~ this.vehicleModel();
     }
 
+	///
     string vehicleVin() {
         return (this.helperAlphaNum(10) ~ this.helperAlpha(1, true)
             ~ this.helperAlphaNum(1)
@@ -350,6 +382,7 @@ class Faker {
             ).toUpper();
     }
 
+	///
     string helperAlpha(size_t count = 1, bool upperCase = false) @trusted {
         static enum data = to!(dchar[])(['a', 'b', 'c', 'd', 'e', 'f', 'g',
 			'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
@@ -358,6 +391,7 @@ class Faker {
 		return iota(count).map!(a => choice(data, this.rnd)).to!string();
     }
 
+	///
     string helperAlphaNum(size_t count = 1) @trusted {
         static enum data = to!(dchar[])(['0', '1', '2', '3', '4', '5', '6', '7',
 			'8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
@@ -366,6 +400,7 @@ class Faker {
 		return iota(count).map!(a => choice(data, this.rnd)).to!string();
     }
 
+	///
     string helperHexaDecimal(size_t count = 1) @trusted {
         static enum data = to!(dchar[])(['0', '1', '2', '3', '4', '5', '6',
 			'7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'A', 'B', 'C', 'D',
@@ -374,10 +409,12 @@ class Faker {
 		return iota(count).map!(a => choice(data, this.rnd)).to!string();
     }
 
+	///
     string passportNumber() {
         return helperHexaDecimal(9);
     }
 
+	///
     DateTime datePast(size_t years = 10, DateTime refDate =
             cast(DateTime)Clock.currTime())
     {
@@ -385,6 +422,7 @@ class Faker {
                     this.rnd));
     }
 
+	///
     DateTime dateFuture(size_t years = 10, DateTime refDate =
             cast(DateTime)Clock.currTime())
     {
@@ -392,6 +430,7 @@ class Faker {
                     this.rnd));
     }
 
+	///
     DateTime dateBetween(DateTime begin, DateTime end) {
         enforce(begin <= end, "begin must be <= end");
         Duration d = end - begin;
@@ -399,6 +438,7 @@ class Faker {
         return begin + dur!("hours")(uniform(0, hours, this.rnd));
     }
 
+	///
 	string ukNationalInsuranceNumber() {
 		auto app = appender!string();
 
@@ -419,6 +459,7 @@ class Faker {
 		return app.data;
 	}
 
+	///
 	string nameGenderBinary() {
 		return choice(["Man", "Woman"], this.rnd);
 	}
@@ -429,11 +470,13 @@ class Faker {
                     buildIbanData()
                 );
 		} else {
-            this.output = format(`module faked.faker_%1$s;
+            this.output = format(`///
+module faked.faker_%1$s;
 
 import faked.base;
 %3$s
 
+///
 class Faker_%1$s : Faker%2$s {
 @safe:
 	import std.random;
@@ -441,6 +484,7 @@ class Faker_%1$s : Faker%2$s {
 	import std.format;
 	import std.conv : to;
 
+	///
 	this(int seed) {
         super(seed);
 	}
@@ -455,6 +499,7 @@ class Faker_%1$s : Faker%2$s {
 
         if(locale == "en") {
             this.output ~= `
+	///
 	string digitBuild(string s, dchar sym = '#') {
 		auto app = appender!string();
 		for(size_t idx = 0; idx < s.length; ++idx) {
@@ -483,6 +528,7 @@ class Faker_%1$s : Faker%2$s {
 		return app.data;
 	}
 
+	///
     string replaceChars(string s) {
         static enum alpha = to!(dchar[])("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 		auto app = appender!string();
@@ -496,6 +542,7 @@ class Faker_%1$s : Faker%2$s {
 		return app.data;
     }
 
+	///
     string replaceSymbols(string str) {
         static enum alpha = to!(dchar[])([
             'A','B','C','D','E','F','G','H','I','J','K','L',
@@ -535,7 +582,7 @@ class Faker_%1$s : Faker%2$s {
     }
 
     string buildStringImpl(string name, string data, string retType = "string") {
-        string n = format("\t%s%s %s() {\n" ~
+        string n = format("\t///\n\t%s%s %s() {\n" ~
             "\t\tstatic enum data = [\n\t\t%s\n\t\t];\n" ~
 		    "\t\treturn choice(data, this.rnd);\n" ~
 		    "\t}\n\n", this.getOverrideString(name), retType, name, data);
@@ -576,6 +623,7 @@ class Faker_%1$s : Faker%2$s {
 
     string[] buildIbanAndBic() {
         string tmp =`
+	///
     string financeBIC() {
         enum string[] vowels = ["A", "E", "I", "O", "U"];
         int prob = uniform(0, 100, this.rnd);
@@ -589,6 +637,7 @@ class Faker_%1$s : Faker%2$s {
                 this.replaceSymbols("###") : "");
     }
 
+	///
     long mod97(string digitStr) {
         long m = 0;
         for(long i = 0; i < digitStr.length; i++) {
@@ -597,6 +646,7 @@ class Faker_%1$s : Faker%2$s {
         return m;
     }
 
+	///
     string toDigitString(string str) {
         import std.uni;
         auto app = appender!string();
@@ -619,7 +669,7 @@ class Faker_%1$s : Faker%2$s {
         //});
     }
 
-    // TODO IBAN generation looks broken
+    /// TODO IBAN generation looks broken
     string financeIBAN(bool fourSpace = false) {
         auto ibanFormat = choice(ibanData.formats, this.rnd);
         auto app = appender!string();
@@ -686,6 +736,7 @@ class Faker_%1$s : Faker%2$s {
         string[] ret;
 
         string tmp = `
+	///
     string fianaceCreditCardCVV() {
         string ret;
         for(int i = 0; i < 3; ++i) {
@@ -695,6 +746,7 @@ class Faker_%1$s : Faker%2$s {
     }
 `;
         tmp ~= format(`
+	///
     string financeCreditCard() {
         switch(uniform(0, %s, this.rnd)) {
 `, sub.subs.length - 2);
@@ -722,7 +774,7 @@ class Faker_%1$s : Faker%2$s {
 			if(tl.type == Type.digit) {
                 string fname = "financeCreditCard" ~ to!string(toUpper(key[0]))
                     ~ key[1 ..  $].camelCase();
-		        tmp = format("\t%sstring %s() {\n",
+		        tmp = format("\t///\n\t%sstring %s() {\n",
                         this.getOverrideString(fname), fname
 
                     );
@@ -772,7 +824,7 @@ class Faker_%1$s : Faker%2$s {
 	string buildDigits(string name, string postfix, string[] lines) {
 		string fname = name ~ "_" ~ postfix;
 		fname = fname.camelCase();
-		string n = format("\t%sstring %s() {\n",
+		string n = format("\t///\n\t%sstring %s() {\n",
                 this.getOverrideString(fname), fname
             );
 		n ~= format("\t\tstatic enum data = [\n\t\t%(%s,\n\t\t%)\n\t\t];\n",
@@ -788,7 +840,7 @@ class Faker_%1$s : Faker%2$s {
 	string buildCall(string name, string postfix, string[] lines) {
 		string fname = name ~ "_" ~ postfix;
 		fname = fname.camelCase();
-		string n = format("\t%sstring %s() {\n", this.getOverrideString(fname),
+		string n = format("\t///\n\t%sstring %s() {\n", this.getOverrideString(fname),
                 fname
             );
 		if(lines.length > 1) {
