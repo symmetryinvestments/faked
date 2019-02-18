@@ -1,0 +1,10 @@
+{
+	"authors": [
+		"Robert Schadek"
+	],
+	"copyright": "Copyright © 2019 Symmetry Investments",
+	"description": "D library to create fake data",
+	"license": "MIT",
+	"name": "faked",
+    "targetType": "library"
+}

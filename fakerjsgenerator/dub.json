@@ -1,0 +1,12 @@
+{
+	"authors": [
+		"Robert Schadek"
+	],
+	"dependencies" : {
+		"string-transform-d": "~>1.0.0"
+	},
+	"copyright": "Copyright © Symmetry Investments",
+	"description": "Program that reads faker.js and builds D data out of it",
+	"license": "GPL3",
+	"name": "fakerjsgenerator"
+}

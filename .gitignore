@@ -20,5 +20,17 @@ docs.json
 __dummy.html
 docs/
 
+# Some libs
+/faked
+faked.so
+faked.dylib
+faked.dll
+faked.a
+faked.lib
+faked-test-*
+*.exe
+*.o
+*.obj
+
 # Code coverage
 *.lst

@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/fakerjsgenerator
+fakerjsgenerator.so
+fakerjsgenerator.dylib
+fakerjsgenerator.dll
+fakerjsgenerator.a
+fakerjsgenerator.lib
+fakerjsgenerator-test-*
+*.exe
+*.o
+*.obj
+*.lst
