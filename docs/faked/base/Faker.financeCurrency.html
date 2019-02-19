@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Function Faker.financeCurrency</title>
+		<link rel="stylesheet" type="text/css" href="../../styles/ddox.css"/>
+		<link rel="stylesheet" href="../../prettify/prettify.css" type="text/css"/>
+		<script type="text/javascript" src="../../scripts/jquery.js">/**/</script><script type="text/javascript" src="../../scripts/ddox.js">/**/</script>
+	</head>
+	<body onload="setupDdox();">
+		<nav id="main-nav">
+			<noscript>
+				<p style="color: red">The search functionality needs JavaScript enabled</p>
+			</noscript>
+			<div id="symbolSearchPane" style="display: none">
+				<form action="#" method="GET">
+					<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(40);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();"/>
+				</form>
+				<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="../../symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../";
+$('#symbolSearchPane').show();</script>
+			</div>
+			<ul class="tree-view">
+				<li class="tree-view ">
+					<div class="package ">faked
+					</div>
+			<ul class="tree-view">
+				<li>
+					<div class="module selected">
+						<a href="../../faked/base.html">base</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_af_za.html">faker_af_za</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_de.html">faker_de</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_de_at.html">faker_de_at</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_de_ch.html">faker_de_ch</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_el.html">faker_el</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_en_au.html">faker_en_au</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_en_au_ocker.html">faker_en_au_ocker</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_en_bork.html">faker_en_bork</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_en_ca.html">faker_en_ca</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_en_gb.html">faker_en_gb</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_en_ie.html">faker_en_ie</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_en_ind.html">faker_en_ind</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_en_us.html">faker_en_us</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_en_za.html">faker_en_za</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_es.html">faker_es</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_fr.html">faker_fr</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_fr_ca.html">faker_fr_ca</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_fr_ch.html">faker_fr_ch</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_ge.html">faker_ge</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_id_id.html">faker_id_id</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_it.html">faker_it</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_ja.html">faker_ja</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_ko.html">faker_ko</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_lv.html">faker_lv</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_nb_no.html">faker_nb_no</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_nep.html">faker_nep</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_nl.html">faker_nl</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_nl_be.html">faker_nl_be</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_pl.html">faker_pl</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_pt_br.html">faker_pt_br</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_pt_pt.html">faker_pt_pt</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_ro.html">faker_ro</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_ru.html">faker_ru</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_sv.html">faker_sv</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_tr.html">faker_tr</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_uk.html">faker_uk</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_vi.html">faker_vi</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_zh_cn.html">faker_zh_cn</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_zh_tw.html">faker_zh_tw</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../faked/faker_zu_za.html">faker_zu_za</a>
+					</div>
+				</li>
+			</ul>
+				</li>
+			</ul>
+		</nav>
+		<div id="main-contents">
+			<h1>Function Faker.financeCurrency</h1><p></p>
+			<div class="prototype">
+				<code class="lang-d">
+					<div class="single-prototype">
+			<span class="pln">faked<wbr/></span><span class="pun">.</span><span class="pln">base<wbr/></span><span class="pun">.</span><span class="typ">Currency</span> <span class="pln">financeCurrency</span><span class="pun">(</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">@safe</span><span class="pun">;</span>
+					</div>
+				</code>
+			</div>
+			
+			
+			<footer>
+				<table class="license-info">
+					<tr>
+						<th>Authors</th>
+						<td>
+							
+						</td>
+					</tr>
+					<tr>
+						<th>Copyright</th>
+						<td>
+							
+						</td>
+					</tr>
+					<tr>
+						<th>License</th>
+						<td>
+							
+						</td>
+					</tr>
+				</table>
+				<p class="faint">Generated using the DDOX documentation generator</p>
+			</footer>
+		</div>
+	</body>
+</html>
