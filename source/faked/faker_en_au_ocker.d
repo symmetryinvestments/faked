@@ -113,12 +113,12 @@ class Faker_en_au_ocker : Faker {
 
 	///
 	override string addressStreetName() {
-		return format("%s", addressStreetRoot());
+		return format!"%s"(addressStreetRoot());
 	}
 
 	///
 	override string addressCity() {
-		return format("%s", addressCityPrefix());
+		return format!"%s"(addressCityPrefix());
 	}
 
 	///

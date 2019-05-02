@@ -271,7 +271,7 @@ class Faker_fr_ch : Faker {
 
 	///
 	override string addressCity() {
-		return format("%s", addressCityName());
+		return format!"%s"(addressCityName());
 	}
 
 	///

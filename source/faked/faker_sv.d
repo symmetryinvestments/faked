@@ -36,11 +36,11 @@ class Faker_sv : Faker {
 	override string companyName() {
 		switch(uniform(0, 3, this.rnd)) {
 			case 0:
-				return format("%s %s", nameLastName(), companySuffix());
+				return format!"%s %s"(nameLastName(), companySuffix());
 			case 1:
-				return format("%s-%s", nameLastName(), nameLastName());
+				return format!"%s-%s"(nameLastName(), nameLastName());
 			case 2:
-				return format("%s, %s %s", nameLastName(), nameLastName(), companySuffix());
+				return format!"%s, %s %s"(nameLastName(), nameLastName(), companySuffix());
 			default: assert(false);
 		}
 	}
@@ -49,21 +49,21 @@ class Faker_sv : Faker {
 	override string nameName() {
 		switch(uniform(0, 8, this.rnd)) {
 			case 0:
-				return format("%s %s", nameFirstNameWomen(), nameLastName());
+				return format!"%s %s"(nameFirstNameWomen(), nameLastName());
 			case 1:
-				return format("%s %s", nameFirstNameMen(), nameLastName());
+				return format!"%s %s"(nameFirstNameMen(), nameLastName());
 			case 2:
-				return format("%s %s", nameFirstNameWomen(), nameLastName());
+				return format!"%s %s"(nameFirstNameWomen(), nameLastName());
 			case 3:
-				return format("%s %s", nameFirstNameMen(), nameLastName());
+				return format!"%s %s"(nameFirstNameMen(), nameLastName());
 			case 4:
-				return format("%s %s", nameFirstNameWomen(), nameLastName());
+				return format!"%s %s"(nameFirstNameWomen(), nameLastName());
 			case 5:
-				return format("%s %s", nameFirstNameMen(), nameLastName());
+				return format!"%s %s"(nameFirstNameMen(), nameLastName());
 			case 6:
-				return format("%s %s %s", namePrefix(), nameFirstNameMen(), nameLastName());
+				return format!"%s %s %s"(namePrefix(), nameFirstNameMen(), nameLastName());
 			case 7:
-				return format("%s %s %s", namePrefix(), nameFirstNameWomen(), nameLastName());
+				return format!"%s %s %s"(namePrefix(), nameFirstNameWomen(), nameLastName());
 			default: assert(false);
 		}
 	}
@@ -599,7 +599,7 @@ class Faker_sv : Faker {
 
 	///
 	override string addressStreetAddress() {
-		return format("%s %s", addressStreetName(), addressBuildingNumber());
+		return format!"%s %s"(addressStreetName(), addressBuildingNumber());
 	}
 
 	///
@@ -720,20 +720,20 @@ class Faker_sv : Faker {
 	override string addressStreetName() {
 		switch(uniform(0, 4, this.rnd)) {
 			case 0:
-				return format("%s%s", addressStreetRoot(), addressStreetSuffix());
+				return format!"%s%s"(addressStreetRoot(), addressStreetSuffix());
 			case 1:
-				return format("%s %s%s", addressStreetPrefix(), addressStreetRoot(), addressStreetSuffix());
+				return format!"%s %s%s"(addressStreetPrefix(), addressStreetRoot(), addressStreetSuffix());
 			case 2:
-				return format("%s%s", nameFirstName(), addressCommonStreetSuffix());
+				return format!"%s%s"(nameFirstName(), addressCommonStreetSuffix());
 			case 3:
-				return format("%s%s", nameLastName(), addressCommonStreetSuffix());
+				return format!"%s%s"(nameLastName(), addressCommonStreetSuffix());
 			default: assert(false);
 		}
 	}
 
 	///
 	override string addressCity() {
-		return format("%s%s", addressCityPrefix(), addressCitySuffix());
+		return format!"%s%s"(addressCityPrefix(), addressCitySuffix());
 	}
 
 	///
@@ -787,7 +787,7 @@ class Faker_sv : Faker {
 
 	///
 	override string teamName() {
-		return format("%s %s", addressCity(), teamSuffix());
+		return format!"%s %s"(addressCity(), teamSuffix());
 	}
 
 	///

@@ -319,9 +319,9 @@ class Faker_el : Faker {
 	override string appAuthor() {
 		switch(uniform(0, 2, this.rnd)) {
 			case 0:
-				return format("%s", nameName());
+				return format!"%s"(nameName());
 			case 1:
-				return format("%s", companyName());
+				return format!"%s"(companyName());
 			default: assert(false);
 		}
 	}
@@ -607,11 +607,11 @@ class Faker_el : Faker {
 	override string companyName() {
 		switch(uniform(0, 3, this.rnd)) {
 			case 0:
-				return format("%s %s", nameLastName(), companySuffix());
+				return format!"%s %s"(nameLastName(), companySuffix());
 			case 1:
-				return format("%s-%s", nameLastName(), nameLastName());
+				return format!"%s-%s"(nameLastName(), nameLastName());
 			case 2:
-				return format("%s, %s and %s", nameLastName(), nameLastName(), nameLastName());
+				return format!"%s, %s and %s"(nameLastName(), nameLastName(), nameLastName());
 			default: assert(false);
 		}
 	}
@@ -1116,17 +1116,17 @@ class Faker_el : Faker {
 	override string nameName() {
 		switch(uniform(0, 6, this.rnd)) {
 			case 0:
-				return format("%s %s %s", namePrefix(), nameFirstName(), nameLastName());
+				return format!"%s %s %s"(namePrefix(), nameFirstName(), nameLastName());
 			case 1:
-				return format("%s %s %s", nameFirstName(), nameLastName(), nameSuffix());
+				return format!"%s %s %s"(nameFirstName(), nameLastName(), nameSuffix());
 			case 2:
-				return format("%s %s", nameFirstName(), nameLastName());
+				return format!"%s %s"(nameFirstName(), nameLastName());
 			case 3:
-				return format("%s %s", nameFirstName(), nameLastName());
+				return format!"%s %s"(nameFirstName(), nameLastName());
 			case 4:
-				return format("%s %s", nameFirstName(), nameLastName());
+				return format!"%s %s"(nameFirstName(), nameLastName());
 			case 5:
-				return format("%s %s", nameFirstName(), nameLastName());
+				return format!"%s %s"(nameFirstName(), nameLastName());
 			default: assert(false);
 		}
 	}
@@ -1448,7 +1448,7 @@ class Faker_el : Faker {
 
 	///
 	override string teamName() {
-		return format("%s %s", addressState(), teamCreature());
+		return format!"%s %s"(addressState(), teamCreature());
 	}
 
 	///

@@ -176,17 +176,17 @@ class Faker_nl : Faker {
 	override string nameName() {
 		switch(uniform(0, 6, this.rnd)) {
 			case 0:
-				return format("%s %s %s", namePrefix(), nameFirstName(), nameLastName());
+				return format!"%s %s %s"(namePrefix(), nameFirstName(), nameLastName());
 			case 1:
-				return format("%s %s %s", nameFirstName(), nameLastName(), nameSuffix());
+				return format!"%s %s %s"(nameFirstName(), nameLastName(), nameSuffix());
 			case 2:
-				return format("%s %s", nameFirstName(), nameLastName());
+				return format!"%s %s"(nameFirstName(), nameLastName());
 			case 3:
-				return format("%s %s", nameFirstName(), nameLastName());
+				return format!"%s %s"(nameFirstName(), nameLastName());
 			case 4:
-				return format("%s %s %s", nameFirstName(), nameTussenvoegsel(), nameLastName());
+				return format!"%s %s %s"(nameFirstName(), nameTussenvoegsel(), nameLastName());
 			case 5:
-				return format("%s %s %s", nameFirstName(), nameTussenvoegsel(), nameLastName());
+				return format!"%s %s %s"(nameFirstName(), nameTussenvoegsel(), nameLastName());
 			default: assert(false);
 		}
 	}
@@ -505,7 +505,7 @@ class Faker_nl : Faker {
 
 	///
 	override string addressStreetAddress() {
-		return format("%s %s", addressStreetName(), addressBuildingNumber());
+		return format!"%s %s"(addressStreetName(), addressBuildingNumber());
 	}
 
 	///
@@ -3073,9 +3073,9 @@ class Faker_nl : Faker {
 	override string addressStreetName() {
 		switch(uniform(0, 2, this.rnd)) {
 			case 0:
-				return format("%s%s", nameFirstName(), addressStreetSuffix());
+				return format!"%s%s"(nameFirstName(), addressStreetSuffix());
 			case 1:
-				return format("%s%s", nameLastName(), addressStreetSuffix());
+				return format!"%s%s"(nameLastName(), addressStreetSuffix());
 			default: assert(false);
 		}
 	}
@@ -3084,9 +3084,9 @@ class Faker_nl : Faker {
 	override string addressCity() {
 		switch(uniform(0, 2, this.rnd)) {
 			case 0:
-				return format("%s%s", addressCityPrefix(), addressCitySuffix());
+				return format!"%s%s"(addressCityPrefix(), addressCitySuffix());
 			case 1:
-				return format("%s", addressCityPrefix());
+				return format!"%s"(addressCityPrefix());
 			default: assert(false);
 		}
 	}

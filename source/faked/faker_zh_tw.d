@@ -75,7 +75,7 @@ class Faker_zh_tw : Faker {
 
 	///
 	override string addressStreetAddress() {
-		return format("%s%s號", addressStreetName(), addressBuildingNumber());
+		return format!"%s%s號"(addressStreetName(), addressBuildingNumber());
 	}
 
 	///
@@ -116,12 +116,12 @@ class Faker_zh_tw : Faker {
 
 	///
 	override string addressStreetName() {
-		return format("%s%s", nameLastName(), addressStreetSuffix());
+		return format!"%s%s"(nameLastName(), addressStreetSuffix());
 	}
 
 	///
 	override string addressCity() {
-		return format("%s%s", addressCityPrefix(), addressCitySuffix());
+		return format!"%s%s"(addressCityPrefix(), addressCitySuffix());
 	}
 
 	///
@@ -384,7 +384,7 @@ class Faker_zh_tw : Faker {
 
 	///
 	override string nameName() {
-		return format("%s%s", nameFirstName(), nameLastName());
+		return format!"%s%s"(nameFirstName(), nameLastName());
 	}
 
 }

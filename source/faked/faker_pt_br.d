@@ -443,11 +443,11 @@ class Faker_pt_br : Faker {
 	override string companyName() {
 		switch(uniform(0, 3, this.rnd)) {
 			case 0:
-				return format("%s %s", nameLastName(), companySuffix());
+				return format!"%s %s"(nameLastName(), companySuffix());
 			case 1:
-				return format("%s-%s", nameLastName(), nameLastName());
+				return format!"%s-%s"(nameLastName(), nameLastName());
 			case 2:
-				return format("%s, %s e %s", nameLastName(), nameLastName(), nameLastName());
+				return format!"%s, %s e %s"(nameLastName(), nameLastName(), nameLastName());
 			default: assert(false);
 		}
 	}

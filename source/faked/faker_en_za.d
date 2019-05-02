@@ -434,7 +434,7 @@ class Faker_en_za : Faker {
 
 	///
 	override string addressCity() {
-		return format("%s", addressCityPrefix());
+		return format!"%s"(addressCityPrefix());
 	}
 
 	///
@@ -485,9 +485,9 @@ class Faker_en_za : Faker {
 	override string nameName() {
 		switch(uniform(0, 2, this.rnd)) {
 			case 0:
-				return format("%s %s", nameFirstName(), nameLastName());
+				return format!"%s %s"(nameFirstName(), nameLastName());
 			case 1:
-				return format("%s %s", nameLastName(), nameFirstName());
+				return format!"%s %s"(nameLastName(), nameFirstName());
 			default: assert(false);
 		}
 	}

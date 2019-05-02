@@ -862,7 +862,7 @@ class Faker_%1$s : Faker%2$s {
 	}
 
 	string buildCallImpl(string line, string prefix) {
-		string ret = "return format(\"";
+		string ret = "return format!\"";
 		bool inCall = false;
 		string tmp;
 		string[] calls;
@@ -885,7 +885,7 @@ class Faker_%1$s : Faker%2$s {
 				line.popFront();
 			}
 		}
-		ret ~= "\", ";
+		ret ~= "\"(";
 		ret ~= to!string(calls
 				//.map!(a => prefix ~ "_" ~ to!char(toLower(a[0])) ~ a[1 ..$])
 				.map!(a => callReplace(a, prefix))

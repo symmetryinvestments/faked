@@ -143,7 +143,7 @@ class Faker_vi : Faker {
 
 	///
 	override string companyName() {
-		return format("%s %s", companyPrefix(), nameLastName());
+		return format!"%s %s"(companyPrefix(), nameLastName());
 	}
 
 	///
@@ -263,11 +263,11 @@ class Faker_vi : Faker {
 	override string nameName() {
 		switch(uniform(0, 3, this.rnd)) {
 			case 0:
-				return format("%s %s", nameFirstName(), nameLastName());
+				return format!"%s %s"(nameFirstName(), nameLastName());
 			case 1:
-				return format("%s %s %s", nameFirstName(), nameLastName(), nameLastName());
+				return format!"%s %s %s"(nameFirstName(), nameLastName(), nameLastName());
 			case 2:
-				return format("%s %s %s %s", nameFirstName(), nameLastName(), nameLastName(), nameLastName());
+				return format!"%s %s %s %s"(nameFirstName(), nameLastName(), nameLastName(), nameLastName());
 			default: assert(false);
 		}
 	}
@@ -430,7 +430,7 @@ class Faker_vi : Faker {
 
 	///
 	override string addressCity() {
-		return format("%s", addressCityRoot());
+		return format!"%s"(addressCityRoot());
 	}
 
 	///
