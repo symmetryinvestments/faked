@@ -19,22 +19,22 @@ class Faker_ja : Faker {
 	}
 
 	///
-	override string cellPhoneFormats() {
-		static enum data = [
-		"090-####-####",
-		"080-####-####",
-		"070-####-####"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
 	override string phoneNumberFormats() {
 		static enum data = [
 		"0####-#-####",
 		"0###-##-####",
 		"0##-###-####",
 		"0#-####-####"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		static enum data = [
+		"090-####-####",
+		"080-####-####",
+		"070-####-####"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -207,33 +207,6 @@ class Faker_ja : Faker {
 	}
 
 	///
-	override string nameLastName() {
-		static enum data = [
-		"佐藤",
-		"鈴木",
-		"高橋",
-		"田中",
-		"渡辺",
-		"伊藤",
-		"山本",
-		"中村",
-		"小林",
-		"加藤",
-		"吉田",
-		"山田",
-		"佐々木",
-		"山口",
-		"斎藤",
-		"松本",
-		"井上",
-		"木村",
-		"林",
-		"清水"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string nameFirstName() {
 		static enum data = [
 		"大翔",
@@ -257,6 +230,33 @@ class Faker_ja : Faker {
 		"心愛",
 		"愛菜",
 		"美咲"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameLastName() {
+		static enum data = [
+		"佐藤",
+		"鈴木",
+		"高橋",
+		"田中",
+		"渡辺",
+		"伊藤",
+		"山本",
+		"中村",
+		"小林",
+		"加藤",
+		"吉田",
+		"山田",
+		"佐々木",
+		"山口",
+		"斎藤",
+		"松本",
+		"井上",
+		"木村",
+		"林",
+		"清水"
 		];
 		return choice(data, this.rnd);
 	}

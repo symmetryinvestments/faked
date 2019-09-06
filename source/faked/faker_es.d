@@ -1323,6 +1323,22 @@ class Faker_es : Faker {
 	}
 
 	///
+	override string commerceColor() {
+		static enum data = [
+		"Rojo",
+		"Azul",
+		"Negro",
+		"Gris",
+		"Blanco",
+		"Amarillo",
+		"Verde",
+		"Morado",
+		"Violeta"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string commerceProductNameAdjective() {
 		static enum data = [
 		"Pequeño",
@@ -1391,22 +1407,6 @@ class Faker_es : Faker {
 	}
 
 	///
-	override string commerceColor() {
-		static enum data = [
-		"Rojo",
-		"Azul",
-		"Negro",
-		"Gris",
-		"Blanco",
-		"Amarillo",
-		"Verde",
-		"Morado",
-		"Violeta"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string commerceDepartment() {
 		static enum data = [
 		"Librería",
@@ -1452,6 +1452,30 @@ class Faker_es : Faker {
 		"Nav",
 		"Vas",
 		"Mur"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressState() {
+		static enum data = [
+		"Andalucía",
+		"Aragón",
+		"Principado de Asturias",
+		"Baleares",
+		"Canarias",
+		"Cantabria",
+		"Castilla-La Mancha",
+		"Castilla y León",
+		"Cataluña",
+		"Comunidad Valenciana",
+		"Extremadura",
+		"Galicia",
+		"La Rioja",
+		"Comunidad de Madrid",
+		"Navarra",
+		"País Vasco",
+		"Región de Murcia"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1514,25 +1538,9 @@ class Faker_es : Faker {
 	}
 
 	///
-	override string addressState() {
+	override string addressDefaultCountry() {
 		static enum data = [
-		"Andalucía",
-		"Aragón",
-		"Principado de Asturias",
-		"Baleares",
-		"Canarias",
-		"Cantabria",
-		"Castilla-La Mancha",
-		"Castilla y León",
-		"Cataluña",
-		"Comunidad Valenciana",
-		"Extremadura",
-		"Galicia",
-		"La Rioja",
-		"Comunidad de Madrid",
-		"Navarra",
-		"País Vasco",
-		"Región de Murcia"
+		"España"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1546,14 +1554,6 @@ class Faker_es : Faker {
 				return format!"%s%s %s"(addressStreetName(), addressBuildingNumber(), addressSecondaryAddress());
 			default: assert(false);
 		}
-	}
-
-	///
-	override string addressDefaultCountry() {
-		static enum data = [
-		"España"
-		];
-		return choice(data, this.rnd);
 	}
 
 	///

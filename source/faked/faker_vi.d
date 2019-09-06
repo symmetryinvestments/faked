@@ -147,6 +147,39 @@ class Faker_vi : Faker {
 	}
 
 	///
+	override string nameFirstName() {
+		static enum data = [
+		"Phạm",
+		"Nguyễn",
+		"Trần",
+		"Lê",
+		"Lý",
+		"Hoàng",
+		"Phan",
+		"Vũ",
+		"Tăng",
+		"Đặng",
+		"Bùi",
+		"Đỗ",
+		"Hồ",
+		"Ngô",
+		"Dương",
+		"Đào",
+		"Đoàn",
+		"Vương",
+		"Trịnh",
+		"Đinh",
+		"Lâm",
+		"Phùng",
+		"Mai",
+		"Tô",
+		"Trương",
+		"Hà"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string nameLastName() {
 		static enum data = [
 		"Nam",
@@ -227,39 +260,6 @@ class Faker_vi : Faker {
 	}
 
 	///
-	override string nameFirstName() {
-		static enum data = [
-		"Phạm",
-		"Nguyễn",
-		"Trần",
-		"Lê",
-		"Lý",
-		"Hoàng",
-		"Phan",
-		"Vũ",
-		"Tăng",
-		"Đặng",
-		"Bùi",
-		"Đỗ",
-		"Hồ",
-		"Ngô",
-		"Dương",
-		"Đào",
-		"Đoàn",
-		"Vương",
-		"Trịnh",
-		"Đinh",
-		"Lâm",
-		"Phùng",
-		"Mai",
-		"Tô",
-		"Trương",
-		"Hà"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string nameName() {
 		switch(uniform(0, 3, this.rnd)) {
 			case 0:
@@ -273,73 +273,8 @@ class Faker_vi : Faker {
 	}
 
 	///
-	string addressCityRoot() {
-		static enum data = [
-		"Bắc Giang",
-		"Bắc Kạn",
-		"Bắc Ninh",
-		"Cao Bằng",
-		"Điện Biên",
-		"Hà Giang",
-		"Hà Nam",
-		"Hà Tây",
-		"Hải Dương",
-		"TP Hải Phòng",
-		"Hòa Bình",
-		"Hưng Yên",
-		"Lai Châu",
-		"Lào Cai",
-		"Lạng Sơn",
-		"Nam Định",
-		"Ninh Bình",
-		"Phú Thọ",
-		"Quảng Ninh",
-		"Sơn La",
-		"Thái Bình",
-		"Thái Nguyên",
-		"Tuyên Quang",
-		"Vĩnh Phúc",
-		"Yên Bái",
-		"TP Đà Nẵng",
-		"Bình Định",
-		"Đắk Lắk",
-		"Đắk Nông",
-		"Gia Lai",
-		"Hà Tĩnh",
-		"Khánh Hòa",
-		"Kon Tum",
-		"Nghệ An",
-		"Phú Yên",
-		"Quảng Bình",
-		"Quảng Nam",
-		"Quảng Ngãi",
-		"Quảng Trị",
-		"Thanh Hóa",
-		"Thừa Thiên Huế",
-		"TP TP. Hồ Chí Minh",
-		"An Giang",
-		"Bà Rịa Vũng Tàu",
-		"Bạc Liêu",
-		"Bến Tre",
-		"Bình Dương",
-		"Bình Phước",
-		"Bình Thuận",
-		"Cà Mau",
-		"TP Cần Thơ",
-		"Đồng Nai",
-		"Đồng Tháp",
-		"Hậu Giang",
-		"Kiên Giang",
-		"Lâm Đồng",
-		"Long An",
-		"Ninh Thuận",
-		"Sóc Trăng",
-		"Tây Ninh",
-		"Tiền Giang",
-		"Trà Vinh",
-		"Vĩnh Long"
-		];
-		return choice(data, this.rnd);
+	override string addressCity() {
+		return format!"%s"(addressCityRoot());
 	}
 
 	///
@@ -429,21 +364,73 @@ class Faker_vi : Faker {
 	}
 
 	///
-	override string addressCity() {
-		return format!"%s"(addressCityRoot());
-	}
-
-	///
-	override string cellPhoneFormats() {
+	string addressCityRoot() {
 		static enum data = [
-		"074## ######",
-		"075## ######",
-		"076## ######",
-		"077## ######",
-		"078## ######",
-		"079## ######"
+		"Bắc Giang",
+		"Bắc Kạn",
+		"Bắc Ninh",
+		"Cao Bằng",
+		"Điện Biên",
+		"Hà Giang",
+		"Hà Nam",
+		"Hà Tây",
+		"Hải Dương",
+		"TP Hải Phòng",
+		"Hòa Bình",
+		"Hưng Yên",
+		"Lai Châu",
+		"Lào Cai",
+		"Lạng Sơn",
+		"Nam Định",
+		"Ninh Bình",
+		"Phú Thọ",
+		"Quảng Ninh",
+		"Sơn La",
+		"Thái Bình",
+		"Thái Nguyên",
+		"Tuyên Quang",
+		"Vĩnh Phúc",
+		"Yên Bái",
+		"TP Đà Nẵng",
+		"Bình Định",
+		"Đắk Lắk",
+		"Đắk Nông",
+		"Gia Lai",
+		"Hà Tĩnh",
+		"Khánh Hòa",
+		"Kon Tum",
+		"Nghệ An",
+		"Phú Yên",
+		"Quảng Bình",
+		"Quảng Nam",
+		"Quảng Ngãi",
+		"Quảng Trị",
+		"Thanh Hóa",
+		"Thừa Thiên Huế",
+		"TP TP. Hồ Chí Minh",
+		"An Giang",
+		"Bà Rịa Vũng Tàu",
+		"Bạc Liêu",
+		"Bến Tre",
+		"Bình Dương",
+		"Bình Phước",
+		"Bình Thuận",
+		"Cà Mau",
+		"TP Cần Thơ",
+		"Đồng Nai",
+		"Đồng Tháp",
+		"Hậu Giang",
+		"Kiên Giang",
+		"Lâm Đồng",
+		"Long An",
+		"Ninh Thuận",
+		"Sóc Trăng",
+		"Tây Ninh",
+		"Tiền Giang",
+		"Trà Vinh",
+		"Vĩnh Long"
 		];
-		return this.digitBuild(choice(data, this.rnd));
+		return choice(data, this.rnd);
 	}
 
 	///
@@ -464,6 +451,19 @@ class Faker_vi : Faker {
 		"01### #####",
 		"0500 ######",
 		"0800 ######"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		static enum data = [
+		"074## ######",
+		"075## ######",
+		"076## ######",
+		"077## ######",
+		"078## ######",
+		"079## ######"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}

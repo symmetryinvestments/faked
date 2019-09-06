@@ -29,45 +29,6 @@ class Faker_en_ind : Faker {
 	}
 
 	///
-	override string internetFreeEmail() {
-		static enum data = [
-		"gmail.com",
-		"yahoo.co.in",
-		"hotmail.com"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"in",
-		"com",
-		"biz",
-		"info",
-		"name",
-		"net",
-		"org",
-		"co.in"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		static enum data = [
-		"Pvt Ltd",
-		"Limited",
-		"Ltd",
-		"and Sons",
-		"Corp",
-		"Group",
-		"Brothers"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressStateAbbr() {
 		static enum data = [
 		"AN",
@@ -173,97 +134,40 @@ class Faker_en_ind : Faker {
 	}
 
 	///
-	override string nameLastName() {
+	override string companySuffix() {
 		static enum data = [
-		"Abbott",
-		"Achari",
-		"Acharya",
-		"Adiga",
-		"Agarwal",
-		"Ahluwalia",
-		"Ahuja",
-		"Arora",
-		"Asan",
-		"Bandopadhyay",
-		"Banerjee",
-		"Bharadwaj",
-		"Bhat",
-		"Butt",
-		"Bhattacharya",
-		"Bhattathiri",
-		"Chaturvedi",
-		"Chattopadhyay",
-		"Chopra",
-		"Desai",
-		"Deshpande",
-		"Devar",
-		"Dhawan",
-		"Dubashi",
-		"Dutta",
-		"Dwivedi",
-		"Embranthiri",
-		"Ganaka",
-		"Gandhi",
-		"Gill",
-		"Gowda",
-		"Guha",
-		"Guneta",
-		"Gupta",
-		"Iyer",
-		"Iyengar",
-		"Jain",
-		"Jha",
-		"Johar",
-		"Joshi",
-		"Kakkar",
-		"Kaniyar",
-		"Kapoor",
-		"Kaul",
-		"Kaur",
-		"Khan",
-		"Khanna",
-		"Khatri",
-		"Kocchar",
-		"Mahajan",
-		"Malik",
-		"Marar",
-		"Menon",
-		"Mehra",
-		"Mehrotra",
-		"Mishra",
-		"Mukhopadhyay",
-		"Nayar",
-		"Naik",
-		"Nair",
-		"Nambeesan",
-		"Namboothiri",
-		"Nehru",
-		"Pandey",
-		"Panicker",
-		"Patel",
-		"Patil",
-		"Pilla",
-		"Pillai",
-		"Pothuvaal",
-		"Prajapat",
-		"Rana",
-		"Reddy",
-		"Saini",
-		"Sethi",
-		"Shah",
-		"Sharma",
-		"Shukla",
-		"Singh",
-		"Sinha",
-		"Somayaji",
-		"Tagore",
-		"Talwar",
-		"Tandon",
-		"Trivedi",
-		"Varrier",
-		"Varma",
-		"Varman",
-		"Verma"
+		"Pvt Ltd",
+		"Limited",
+		"Ltd",
+		"and Sons",
+		"Corp",
+		"Group",
+		"Brothers"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetFreeEmail() {
+		static enum data = [
+		"gmail.com",
+		"yahoo.co.in",
+		"hotmail.com"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		static enum data = [
+		"in",
+		"com",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org",
+		"co.in"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1033,6 +937,102 @@ class Faker_en_ind : Faker {
 		"Yogendra",
 		"Yoginder",
 		"Yogesh"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameLastName() {
+		static enum data = [
+		"Abbott",
+		"Achari",
+		"Acharya",
+		"Adiga",
+		"Agarwal",
+		"Ahluwalia",
+		"Ahuja",
+		"Arora",
+		"Asan",
+		"Bandopadhyay",
+		"Banerjee",
+		"Bharadwaj",
+		"Bhat",
+		"Butt",
+		"Bhattacharya",
+		"Bhattathiri",
+		"Chaturvedi",
+		"Chattopadhyay",
+		"Chopra",
+		"Desai",
+		"Deshpande",
+		"Devar",
+		"Dhawan",
+		"Dubashi",
+		"Dutta",
+		"Dwivedi",
+		"Embranthiri",
+		"Ganaka",
+		"Gandhi",
+		"Gill",
+		"Gowda",
+		"Guha",
+		"Guneta",
+		"Gupta",
+		"Iyer",
+		"Iyengar",
+		"Jain",
+		"Jha",
+		"Johar",
+		"Joshi",
+		"Kakkar",
+		"Kaniyar",
+		"Kapoor",
+		"Kaul",
+		"Kaur",
+		"Khan",
+		"Khanna",
+		"Khatri",
+		"Kocchar",
+		"Mahajan",
+		"Malik",
+		"Marar",
+		"Menon",
+		"Mehra",
+		"Mehrotra",
+		"Mishra",
+		"Mukhopadhyay",
+		"Nayar",
+		"Naik",
+		"Nair",
+		"Nambeesan",
+		"Namboothiri",
+		"Nehru",
+		"Pandey",
+		"Panicker",
+		"Patel",
+		"Patil",
+		"Pilla",
+		"Pillai",
+		"Pothuvaal",
+		"Prajapat",
+		"Rana",
+		"Reddy",
+		"Saini",
+		"Sethi",
+		"Shah",
+		"Sharma",
+		"Shukla",
+		"Singh",
+		"Sinha",
+		"Somayaji",
+		"Tagore",
+		"Talwar",
+		"Tandon",
+		"Trivedi",
+		"Varrier",
+		"Varma",
+		"Varman",
+		"Verma"
 		];
 		return choice(data, this.rnd);
 	}

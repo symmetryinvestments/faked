@@ -574,6 +574,40 @@ class Faker_pt_pt : Faker {
 	}
 
 	///
+	override string commerceColor() {
+		static enum data = [
+		"vermelho",
+		"verde",
+		"azul",
+		"amarelo",
+		"roxo",
+		"branco",
+		"preto",
+		"laranja",
+		"rosa",
+		"cinzento",
+		"castanho",
+		"violeta",
+		"turquesa",
+		"bronzeado",
+		"salmão",
+		"ameixa",
+		"orquídea",
+		"magenta",
+		"lima",
+		"marfim",
+		"índigo",
+		"ouro",
+		"fúcsia",
+		"ciano",
+		"azure",
+		"lavanda",
+		"prata"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string commerceProductNameAdjective() {
 		static enum data = [
 		"Pequeno",
@@ -642,40 +676,6 @@ class Faker_pt_pt : Faker {
 		"Salada",
 		"Salsichas",
 		"Batatas Fritas"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceColor() {
-		static enum data = [
-		"vermelho",
-		"verde",
-		"azul",
-		"amarelo",
-		"roxo",
-		"branco",
-		"preto",
-		"laranja",
-		"rosa",
-		"cinzento",
-		"castanho",
-		"violeta",
-		"turquesa",
-		"bronzeado",
-		"salmão",
-		"ameixa",
-		"orquídea",
-		"magenta",
-		"lima",
-		"marfim",
-		"índigo",
-		"ouro",
-		"fúcsia",
-		"ciano",
-		"azure",
-		"lavanda",
-		"prata"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1121,11 +1121,6 @@ class Faker_pt_pt : Faker {
 	}
 
 	///
-	override string addressStreetAddress() {
-		return format!"%s %s"(addressStreetName(), addressBuildingNumber());
-	}
-
-	///
 	override string addressDirection() {
 		static enum data = [
 		"Norte",
@@ -1165,6 +1160,11 @@ class Faker_pt_pt : Faker {
 		"Viela"
 		];
 		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressStreetAddress() {
+		return format!"%s %s"(addressStreetName(), addressBuildingNumber());
 	}
 
 	///

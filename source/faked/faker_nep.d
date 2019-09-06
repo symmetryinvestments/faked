@@ -162,52 +162,6 @@ class Faker_nep : Faker {
 	}
 
 	///
-	override string nameLastName() {
-		static enum data = [
-		"Adhikari",
-		"Aryal",
-		"Baral",
-		"Basnet",
-		"Bastola",
-		"Basynat",
-		"Bhandari",
-		"Bhattarai",
-		"Chettri",
-		"Devkota",
-		"Dhakal",
-		"Dongol",
-		"Ghale",
-		"Gurung",
-		"Gyawali",
-		"Hamal",
-		"Jung",
-		"KC",
-		"Kafle",
-		"Karki",
-		"Khadka",
-		"Koirala",
-		"Lama",
-		"Limbu",
-		"Magar",
-		"Maharjan",
-		"Niroula",
-		"Pandey",
-		"Pradhan",
-		"Rana",
-		"Raut",
-		"Sai",
-		"Shai",
-		"Shakya",
-		"Sherpa",
-		"Shrestha",
-		"Subedi",
-		"Tamang",
-		"Thapa"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string nameFirstName() {
 		static enum data = [
 		"Aarav",
@@ -265,6 +219,52 @@ class Faker_nep : Faker {
 		"Suraj",
 		"Susan",
 		"Sushant"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameLastName() {
+		static enum data = [
+		"Adhikari",
+		"Aryal",
+		"Baral",
+		"Basnet",
+		"Bastola",
+		"Basynat",
+		"Bhandari",
+		"Bhattarai",
+		"Chettri",
+		"Devkota",
+		"Dhakal",
+		"Dongol",
+		"Ghale",
+		"Gurung",
+		"Gyawali",
+		"Hamal",
+		"Jung",
+		"KC",
+		"Kafle",
+		"Karki",
+		"Khadka",
+		"Koirala",
+		"Lama",
+		"Limbu",
+		"Magar",
+		"Maharjan",
+		"Niroula",
+		"Pandey",
+		"Pradhan",
+		"Rana",
+		"Raut",
+		"Sai",
+		"Shai",
+		"Shakya",
+		"Sherpa",
+		"Shrestha",
+		"Subedi",
+		"Tamang",
+		"Thapa"
 		];
 		return choice(data, this.rnd);
 	}

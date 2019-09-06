@@ -19,19 +19,6 @@ class Faker_zu_za : Faker {
 	}
 
 	///
-	override string cellPhoneFormats() {
-		static enum data = [
-		"082 ### ####",
-		"084 ### ####",
-		"083 ### ####",
-		"065 ### ####",
-		"082#######",
-		"082 #######"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
 	override string phoneNumberFormats() {
 		static enum data = [
 		"01# ### #####",
@@ -48,15 +35,16 @@ class Faker_zu_za : Faker {
 	}
 
 	///
-	override string internetDomainSuffix() {
+	override string cellPhoneFormats() {
 		static enum data = [
-		"co.za",
-		"com",
-		"org.za",
-		"info",
-		"net.za"
+		"082 ### ####",
+		"084 ### ####",
+		"083 ### ####",
+		"065 ### ####",
+		"082#######",
+		"082 #######"
 		];
-		return choice(data, this.rnd);
+		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
@@ -65,6 +53,18 @@ class Faker_zu_za : Faker {
 		"Pty Ltd",
 		"Ltd",
 		"CC"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		static enum data = [
+		"co.za",
+		"com",
+		"org.za",
+		"info",
+		"net.za"
 		];
 		return choice(data, this.rnd);
 	}
@@ -82,113 +82,6 @@ class Faker_zu_za : Faker {
 	override string addressDefaultCountry() {
 		static enum data = [
 		"South Africa"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameLastName() {
-		static enum data = [
-		"Bengu",
-		"Bhengu",
-		"Buthelezi",
-		"Bhuyeni",
-		"Bhembe",
-		"Bhengani",
-		"Bayeni",
-		"Chiliza",
-		"Cele",
-		"Cebekhulu",
-		"Dingiswayo",
-		"Dlamini",
-		"Dube",
-		"Fuze",
-		"Gwacela",
-		"Gigaba",
-		"Gumede",
-		"Guliwe",
-		"Gwala",
-		"Gama",
-		"Gumede",
-		"Hlongwa",
-		"Luthuli",
-		"Msibi",
-		"Mthethwa",
-		"Mashinini",
-		"Ndebele",
-		"Ngubane",
-		"Nondlela",
-		"Nzimande",
-		"Radebe",
-		"Seme",
-		"Senzangakhona",
-		"Sondisa",
-		"Zuma",
-		"Dhlomo",
-		"Nhleko",
-		"Mabizela",
-		"Khumalo",
-		"Kunene",
-		"Khawula",
-		"Khuzwayo",
-		"Lamula",
-		"Lembede",
-		"Lamula",
-		"Mkhatshwa",
-		"Moseley",
-		"Mavundla",
-		"Magoza",
-		"Malinga",
-		"Mbatha",
-		"Mqwebu",
-		"Mbende",
-		"Maduma",
-		"Mgenge",
-		"Mehloluhlaza",
-		"Maphisa",
-		"Mfeka",
-		"Mfumu",
-		"Musi",
-		"Mtolo",
-		"Nonyana",
-		"Ngema",
-		"Ngwazi",
-		"Nozulu",
-		"Ntombela",
-		"Ntanzi",
-		"Mbuso",
-		"Ngcolosi",
-		"Gabhezi",
-		"Nsele",
-		"Nyanda",
-		"Thusi",
-		"Mbatha",
-		"Biyela",
-		"Gumede",
-		"Nomvethe",
-		"Ndandali",
-		"Ncusi",
-		"Sibiya",
-		"Siyaya",
-		"Sothole",
-		"Sokhela",
-		"Sithuli",
-		"Shezi",
-		"Siwele",
-		"Tshabalala",
-		"Thoyana",
-		"Thumbeza",
-		"Delazy",
-		"Zungu",
-		"Mthembu",
-		"Vilakazi",
-		"Vezi",
-		"Mabhida",
-		"Wosiyane",
-		"Yengwa",
-		"Zondo",
-		"Zondi",
-		"Zubane"
 		];
 		return choice(data, this.rnd);
 	}
@@ -296,6 +189,113 @@ class Faker_zu_za : Faker {
 		"Themba",
 		"Zenzele",
 		"Ndleleni"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameLastName() {
+		static enum data = [
+		"Bengu",
+		"Bhengu",
+		"Buthelezi",
+		"Bhuyeni",
+		"Bhembe",
+		"Bhengani",
+		"Bayeni",
+		"Chiliza",
+		"Cele",
+		"Cebekhulu",
+		"Dingiswayo",
+		"Dlamini",
+		"Dube",
+		"Fuze",
+		"Gwacela",
+		"Gigaba",
+		"Gumede",
+		"Guliwe",
+		"Gwala",
+		"Gama",
+		"Gumede",
+		"Hlongwa",
+		"Luthuli",
+		"Msibi",
+		"Mthethwa",
+		"Mashinini",
+		"Ndebele",
+		"Ngubane",
+		"Nondlela",
+		"Nzimande",
+		"Radebe",
+		"Seme",
+		"Senzangakhona",
+		"Sondisa",
+		"Zuma",
+		"Dhlomo",
+		"Nhleko",
+		"Mabizela",
+		"Khumalo",
+		"Kunene",
+		"Khawula",
+		"Khuzwayo",
+		"Lamula",
+		"Lembede",
+		"Lamula",
+		"Mkhatshwa",
+		"Moseley",
+		"Mavundla",
+		"Magoza",
+		"Malinga",
+		"Mbatha",
+		"Mqwebu",
+		"Mbende",
+		"Maduma",
+		"Mgenge",
+		"Mehloluhlaza",
+		"Maphisa",
+		"Mfeka",
+		"Mfumu",
+		"Musi",
+		"Mtolo",
+		"Nonyana",
+		"Ngema",
+		"Ngwazi",
+		"Nozulu",
+		"Ntombela",
+		"Ntanzi",
+		"Mbuso",
+		"Ngcolosi",
+		"Gabhezi",
+		"Nsele",
+		"Nyanda",
+		"Thusi",
+		"Mbatha",
+		"Biyela",
+		"Gumede",
+		"Nomvethe",
+		"Ndandali",
+		"Ncusi",
+		"Sibiya",
+		"Siyaya",
+		"Sothole",
+		"Sokhela",
+		"Sithuli",
+		"Shezi",
+		"Siwele",
+		"Tshabalala",
+		"Thoyana",
+		"Thumbeza",
+		"Delazy",
+		"Zungu",
+		"Mthembu",
+		"Vilakazi",
+		"Vezi",
+		"Mabhida",
+		"Wosiyane",
+		"Yengwa",
+		"Zondo",
+		"Zondi",
+		"Zubane"
 		];
 		return choice(data, this.rnd);
 	}

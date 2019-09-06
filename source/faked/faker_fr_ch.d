@@ -41,6 +41,19 @@ class Faker_fr_ch : Faker {
 	}
 
 	///
+	override string internetDomainSuffix() {
+		static enum data = [
+		"com",
+		"net",
+		"biz",
+		"ch",
+		"ch",
+		"ch"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	string addressCityName() {
 		static enum data = [
 		"Aarau",
@@ -286,19 +299,6 @@ class Faker_fr_ch : Faker {
 	override string addressCountryCode() {
 		static enum data = [
 		"CH"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"com",
-		"net",
-		"biz",
-		"ch",
-		"ch",
-		"ch"
 		];
 		return choice(data, this.rnd);
 	}

@@ -54,6 +54,18 @@ class Faker_en_gb : Faker {
 	}
 
 	///
+	override string internetDomainSuffix() {
+		static enum data = [
+		"co.uk",
+		"com",
+		"biz",
+		"info",
+		"name"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	string addressUkCountry() {
 		static enum data = [
 		"England",
@@ -148,18 +160,6 @@ class Faker_en_gb : Faker {
 		"West Yorkshire",
 		"Wiltshire",
 		"Worcestershire"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"co.uk",
-		"com",
-		"biz",
-		"info",
-		"name"
 		];
 		return choice(data, this.rnd);
 	}

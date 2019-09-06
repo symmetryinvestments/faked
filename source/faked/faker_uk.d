@@ -338,14 +338,22 @@ class Faker_uk : Faker {
 	}
 
 	///
+	override string addressDefaultCountry() {
+		static enum data = [
+		"Україна"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressStreetAddress() {
 		return format!"%s, %s"(addressStreetName(), addressBuildingNumber());
 	}
 
 	///
-	override string addressDefaultCountry() {
+	override string addressCitySuffix() {
 		static enum data = [
-		"Україна"
+		"град"
 		];
 		return choice(data, this.rnd);
 	}
@@ -361,14 +369,6 @@ class Faker_uk : Faker {
 		"площа",
 		"пров.",
 		"провулок"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCitySuffix() {
-		static enum data = [
-		"град"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1108,29 +1108,6 @@ class Faker_uk : Faker {
 	}
 
 	///
-	override string nameName() {
-		switch(uniform(0, 8, this.rnd)) {
-			case 0:
-				return format!"%s %s"(nameMaleFirstName(), nameMaleLastName());
-			case 1:
-				return format!"%s %s"(nameMaleLastName(), nameMaleFirstName());
-			case 2:
-				return format!"%s %s %s"(nameMaleFirstName(), nameMaleMiddleName(), nameMaleLastName());
-			case 3:
-				return format!"%s %s %s"(nameMaleLastName(), nameMaleFirstName(), nameMaleMiddleName());
-			case 4:
-				return format!"%s %s"(nameFemaleFirstName(), nameFemaleLastName());
-			case 5:
-				return format!"%s %s"(nameFemaleLastName(), nameFemaleFirstName());
-			case 6:
-				return format!"%s %s %s"(nameFemaleFirstName(), nameFemaleMiddleName(), nameFemaleLastName());
-			case 7:
-				return format!"%s %s %s"(nameFemaleLastName(), nameFemaleFirstName(), nameFemaleMiddleName());
-			default: assert(false);
-		}
-	}
-
-	///
 	override string nameFemaleFirstName() {
 		static enum data = [
 		"Аврелія",
@@ -1328,6 +1305,29 @@ class Faker_uk : Faker {
 		"Ярослава"
 		];
 		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameName() {
+		switch(uniform(0, 8, this.rnd)) {
+			case 0:
+				return format!"%s %s"(nameMaleFirstName(), nameMaleLastName());
+			case 1:
+				return format!"%s %s"(nameMaleLastName(), nameMaleFirstName());
+			case 2:
+				return format!"%s %s %s"(nameMaleFirstName(), nameMaleMiddleName(), nameMaleLastName());
+			case 3:
+				return format!"%s %s %s"(nameMaleLastName(), nameMaleFirstName(), nameMaleMiddleName());
+			case 4:
+				return format!"%s %s"(nameFemaleFirstName(), nameFemaleLastName());
+			case 5:
+				return format!"%s %s"(nameFemaleLastName(), nameFemaleFirstName());
+			case 6:
+				return format!"%s %s %s"(nameFemaleFirstName(), nameFemaleMiddleName(), nameFemaleLastName());
+			case 7:
+				return format!"%s %s %s"(nameFemaleLastName(), nameFemaleFirstName(), nameFemaleMiddleName());
+			default: assert(false);
+		}
 	}
 
 	///

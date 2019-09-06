@@ -40,6 +40,262 @@ class Faker_fr : Faker {
 	}
 
 	///
+	string addressCityName() {
+		static enum data = [
+		"Paris",
+		"Marseille",
+		"Lyon",
+		"Toulouse",
+		"Nice",
+		"Nantes",
+		"Strasbourg",
+		"Montpellier",
+		"Bordeaux",
+		"Lille13",
+		"Rennes",
+		"Reims",
+		"Le Havre",
+		"Saint-Étienne",
+		"Toulon",
+		"Grenoble",
+		"Dijon",
+		"Angers",
+		"Saint-Denis",
+		"Villeurbanne",
+		"Le Mans",
+		"Aix-en-Provence",
+		"Brest",
+		"Nîmes",
+		"Limoges",
+		"Clermont-Ferrand",
+		"Tours",
+		"Amiens",
+		"Metz",
+		"Perpignan",
+		"Besançon",
+		"Orléans",
+		"Boulogne-Billancourt",
+		"Mulhouse",
+		"Rouen",
+		"Caen",
+		"Nancy",
+		"Saint-Denis",
+		"Saint-Paul",
+		"Montreuil",
+		"Argenteuil",
+		"Roubaix",
+		"Dunkerque14",
+		"Tourcoing",
+		"Nanterre",
+		"Avignon",
+		"Créteil",
+		"Poitiers",
+		"Fort-de-France",
+		"Courbevoie",
+		"Versailles",
+		"Vitry-sur-Seine",
+		"Colombes",
+		"Pau",
+		"Aulnay-sous-Bois",
+		"Asnières-sur-Seine",
+		"Rueil-Malmaison",
+		"Saint-Pierre",
+		"Antibes",
+		"Saint-Maur-des-Fossés",
+		"Champigny-sur-Marne",
+		"La Rochelle",
+		"Aubervilliers",
+		"Calais",
+		"Cannes",
+		"Le Tampon",
+		"Béziers",
+		"Colmar",
+		"Bourges",
+		"Drancy",
+		"Mérignac",
+		"Saint-Nazaire",
+		"Valence",
+		"Ajaccio",
+		"Issy-les-Moulineaux",
+		"Villeneuve-d'Ascq",
+		"Levallois-Perret",
+		"Noisy-le-Grand",
+		"Quimper",
+		"La Seyne-sur-Mer",
+		"Antony",
+		"Troyes",
+		"Neuilly-sur-Seine",
+		"Sarcelles",
+		"Les Abymes",
+		"Vénissieux",
+		"Clichy",
+		"Lorient",
+		"Pessac",
+		"Ivry-sur-Seine",
+		"Cergy",
+		"Cayenne",
+		"Niort",
+		"Chambéry",
+		"Montauban",
+		"Saint-Quentin",
+		"Villejuif",
+		"Hyères",
+		"Beauvais",
+		"Cholet"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressState() {
+		static enum data = [
+		"Alsace",
+		"Aquitaine",
+		"Auvergne",
+		"Basse-Normandie",
+		"Bourgogne",
+		"Bretagne",
+		"Centre",
+		"Champagne-Ardenne",
+		"Corse",
+		"Franche-Comté",
+		"Haute-Normandie",
+		"Île-de-France",
+		"Languedoc-Roussillon",
+		"Limousin",
+		"Lorraine",
+		"Midi-Pyrénées",
+		"Nord-Pas-de-Calais",
+		"Pays de la Loire",
+		"Picardie",
+		"Poitou-Charentes",
+		"Provence-Alpes-Côte d'Azur",
+		"Rhône-Alpes"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressDefaultCountry() {
+		static enum data = [
+		"France"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressStreetAddress() {
+		return format!"%s %s"(addressBuildingNumber(), addressStreetName());
+	}
+
+	///
+	string addressStreetPrefix() {
+		static enum data = [
+		"Allée",
+		"Voie",
+		"Rue",
+		"Avenue",
+		"Boulevard",
+		"Quai",
+		"Passage",
+		"Impasse",
+		"Place"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressStreetName() {
+		return format!"%s %s"(addressStreetPrefix(), addressStreetSuffix());
+	}
+
+	///
+	override string addressCity() {
+		return format!"%s"(addressCityName());
+	}
+
+	///
+	override string addressPostcode() {
+		static enum data = [
+		"#####"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressStreetSuffix() {
+		static enum data = [
+		"de l'Abbaye",
+		"Adolphe Mille",
+		"d'Alésia",
+		"d'Argenteuil",
+		"d'Assas",
+		"du Bac",
+		"de Paris",
+		"La Boétie",
+		"Bonaparte",
+		"de la Bûcherie",
+		"de Caumartin",
+		"Charlemagne",
+		"du Chat-qui-Pêche",
+		"de la Chaussée-d'Antin",
+		"du Dahomey",
+		"Dauphine",
+		"Delesseux",
+		"du Faubourg Saint-Honoré",
+		"du Faubourg-Saint-Denis",
+		"de la Ferronnerie",
+		"des Francs-Bourgeois",
+		"des Grands Augustins",
+		"de la Harpe",
+		"du Havre",
+		"de la Huchette",
+		"Joubert",
+		"Laffitte",
+		"Lepic",
+		"des Lombards",
+		"Marcadet",
+		"Molière",
+		"Monsieur-le-Prince",
+		"de Montmorency",
+		"Montorgueil",
+		"Mouffetard",
+		"de Nesle",
+		"Oberkampf",
+		"de l'Odéon",
+		"d'Orsel",
+		"de la Paix",
+		"des Panoramas",
+		"Pastourelle",
+		"Pierre Charron",
+		"de la Pompe",
+		"de Presbourg",
+		"de Provence",
+		"de Richelieu",
+		"de Rivoli",
+		"des Rosiers",
+		"Royale",
+		"d'Abbeville",
+		"Saint-Honoré",
+		"Saint-Bernard",
+		"Saint-Denis",
+		"Saint-Dominique",
+		"Saint-Jacques",
+		"Saint-Séverin",
+		"des Saussaies",
+		"de Seine",
+		"de Solférino",
+		"Du Sommerard",
+		"de Tilsitt",
+		"Vaneau",
+		"de Vaugirard",
+		"de la Victoire",
+		"Zadkine"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string companyBsVerb() {
 		static enum data = [
 		"implement",
@@ -377,21 +633,6 @@ class Faker_fr : Faker {
 	}
 
 	///
-	override string companySuffix() {
-		static enum data = [
-		"SARL",
-		"SA",
-		"EURL",
-		"SAS",
-		"SEM",
-		"SCOP",
-		"GIE",
-		"EI"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string companyAdjective() {
 		static enum data = [
 		"Adaptive",
@@ -499,6 +740,21 @@ class Faker_fr : Faker {
 	}
 
 	///
+	override string companySuffix() {
+		static enum data = [
+		"SARL",
+		"SA",
+		"EURL",
+		"SAS",
+		"SEM",
+		"SCOP",
+		"GIE",
+		"EI"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string companyName() {
 		switch(uniform(0, 2, this.rnd)) {
 			case 0:
@@ -577,262 +833,6 @@ class Faker_fr : Faker {
 		"compelling",
 		"holistic",
 		"rich"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressCityName() {
-		static enum data = [
-		"Paris",
-		"Marseille",
-		"Lyon",
-		"Toulouse",
-		"Nice",
-		"Nantes",
-		"Strasbourg",
-		"Montpellier",
-		"Bordeaux",
-		"Lille13",
-		"Rennes",
-		"Reims",
-		"Le Havre",
-		"Saint-Étienne",
-		"Toulon",
-		"Grenoble",
-		"Dijon",
-		"Angers",
-		"Saint-Denis",
-		"Villeurbanne",
-		"Le Mans",
-		"Aix-en-Provence",
-		"Brest",
-		"Nîmes",
-		"Limoges",
-		"Clermont-Ferrand",
-		"Tours",
-		"Amiens",
-		"Metz",
-		"Perpignan",
-		"Besançon",
-		"Orléans",
-		"Boulogne-Billancourt",
-		"Mulhouse",
-		"Rouen",
-		"Caen",
-		"Nancy",
-		"Saint-Denis",
-		"Saint-Paul",
-		"Montreuil",
-		"Argenteuil",
-		"Roubaix",
-		"Dunkerque14",
-		"Tourcoing",
-		"Nanterre",
-		"Avignon",
-		"Créteil",
-		"Poitiers",
-		"Fort-de-France",
-		"Courbevoie",
-		"Versailles",
-		"Vitry-sur-Seine",
-		"Colombes",
-		"Pau",
-		"Aulnay-sous-Bois",
-		"Asnières-sur-Seine",
-		"Rueil-Malmaison",
-		"Saint-Pierre",
-		"Antibes",
-		"Saint-Maur-des-Fossés",
-		"Champigny-sur-Marne",
-		"La Rochelle",
-		"Aubervilliers",
-		"Calais",
-		"Cannes",
-		"Le Tampon",
-		"Béziers",
-		"Colmar",
-		"Bourges",
-		"Drancy",
-		"Mérignac",
-		"Saint-Nazaire",
-		"Valence",
-		"Ajaccio",
-		"Issy-les-Moulineaux",
-		"Villeneuve-d'Ascq",
-		"Levallois-Perret",
-		"Noisy-le-Grand",
-		"Quimper",
-		"La Seyne-sur-Mer",
-		"Antony",
-		"Troyes",
-		"Neuilly-sur-Seine",
-		"Sarcelles",
-		"Les Abymes",
-		"Vénissieux",
-		"Clichy",
-		"Lorient",
-		"Pessac",
-		"Ivry-sur-Seine",
-		"Cergy",
-		"Cayenne",
-		"Niort",
-		"Chambéry",
-		"Montauban",
-		"Saint-Quentin",
-		"Villejuif",
-		"Hyères",
-		"Beauvais",
-		"Cholet"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressState() {
-		static enum data = [
-		"Alsace",
-		"Aquitaine",
-		"Auvergne",
-		"Basse-Normandie",
-		"Bourgogne",
-		"Bretagne",
-		"Centre",
-		"Champagne-Ardenne",
-		"Corse",
-		"Franche-Comté",
-		"Haute-Normandie",
-		"Île-de-France",
-		"Languedoc-Roussillon",
-		"Limousin",
-		"Lorraine",
-		"Midi-Pyrénées",
-		"Nord-Pas-de-Calais",
-		"Pays de la Loire",
-		"Picardie",
-		"Poitou-Charentes",
-		"Provence-Alpes-Côte d'Azur",
-		"Rhône-Alpes"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressStreetAddress() {
-		return format!"%s %s"(addressBuildingNumber(), addressStreetName());
-	}
-
-	///
-	override string addressDefaultCountry() {
-		static enum data = [
-		"France"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressStreetPrefix() {
-		static enum data = [
-		"Allée",
-		"Voie",
-		"Rue",
-		"Avenue",
-		"Boulevard",
-		"Quai",
-		"Passage",
-		"Impasse",
-		"Place"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressStreetName() {
-		return format!"%s %s"(addressStreetPrefix(), addressStreetSuffix());
-	}
-
-	///
-	override string addressCity() {
-		return format!"%s"(addressCityName());
-	}
-
-	///
-	override string addressPostcode() {
-		static enum data = [
-		"#####"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressStreetSuffix() {
-		static enum data = [
-		"de l'Abbaye",
-		"Adolphe Mille",
-		"d'Alésia",
-		"d'Argenteuil",
-		"d'Assas",
-		"du Bac",
-		"de Paris",
-		"La Boétie",
-		"Bonaparte",
-		"de la Bûcherie",
-		"de Caumartin",
-		"Charlemagne",
-		"du Chat-qui-Pêche",
-		"de la Chaussée-d'Antin",
-		"du Dahomey",
-		"Dauphine",
-		"Delesseux",
-		"du Faubourg Saint-Honoré",
-		"du Faubourg-Saint-Denis",
-		"de la Ferronnerie",
-		"des Francs-Bourgeois",
-		"des Grands Augustins",
-		"de la Harpe",
-		"du Havre",
-		"de la Huchette",
-		"Joubert",
-		"Laffitte",
-		"Lepic",
-		"des Lombards",
-		"Marcadet",
-		"Molière",
-		"Monsieur-le-Prince",
-		"de Montmorency",
-		"Montorgueil",
-		"Mouffetard",
-		"de Nesle",
-		"Oberkampf",
-		"de l'Odéon",
-		"d'Orsel",
-		"de la Paix",
-		"des Panoramas",
-		"Pastourelle",
-		"Pierre Charron",
-		"de la Pompe",
-		"de Presbourg",
-		"de Provence",
-		"de Richelieu",
-		"de Rivoli",
-		"des Rosiers",
-		"Royale",
-		"d'Abbeville",
-		"Saint-Honoré",
-		"Saint-Bernard",
-		"Saint-Denis",
-		"Saint-Dominique",
-		"Saint-Jacques",
-		"Saint-Séverin",
-		"des Saussaies",
-		"de Seine",
-		"de Solférino",
-		"Du Sommerard",
-		"de Tilsitt",
-		"Vaneau",
-		"de Vaugirard",
-		"de la Victoire",
-		"Zadkine"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1130,6 +1130,102 @@ class Faker_fr : Faker {
 	}
 
 	///
+	override string nameFirstName() {
+		static enum data = [
+		"Enzo",
+		"Lucas",
+		"Mathis",
+		"Nathan",
+		"Thomas",
+		"Hugo",
+		"Théo",
+		"Tom",
+		"Louis",
+		"Raphaël",
+		"Clément",
+		"Léo",
+		"Mathéo",
+		"Maxime",
+		"Alexandre",
+		"Antoine",
+		"Yanis",
+		"Paul",
+		"Baptiste",
+		"Alexis",
+		"Gabriel",
+		"Arthur",
+		"Jules",
+		"Ethan",
+		"Noah",
+		"Quentin",
+		"Axel",
+		"Evan",
+		"Mattéo",
+		"Romain",
+		"Valentin",
+		"Maxence",
+		"Noa",
+		"Adam",
+		"Nicolas",
+		"Julien",
+		"Mael",
+		"Pierre",
+		"Rayan",
+		"Victor",
+		"Mohamed",
+		"Adrien",
+		"Kylian",
+		"Sacha",
+		"Benjamin",
+		"Léa",
+		"Clara",
+		"Manon",
+		"Chloé",
+		"Camille",
+		"Ines",
+		"Sarah",
+		"Jade",
+		"Lola",
+		"Anaïs",
+		"Lucie",
+		"Océane",
+		"Lilou",
+		"Marie",
+		"Eva",
+		"Romane",
+		"Lisa",
+		"Zoe",
+		"Julie",
+		"Mathilde",
+		"Louise",
+		"Juliette",
+		"Clémence",
+		"Célia",
+		"Laura",
+		"Lena",
+		"Maëlys",
+		"Charlotte",
+		"Ambre",
+		"Maeva",
+		"Pauline",
+		"Lina",
+		"Jeanne",
+		"Lou",
+		"Noémie",
+		"Justine",
+		"Louna",
+		"Elisa",
+		"Alice",
+		"Emilie",
+		"Carla",
+		"Maëlle",
+		"Alicia",
+		"Mélissa"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string nameLastName() {
 		static enum data = [
 		"Martin",
@@ -1282,102 +1378,6 @@ class Faker_fr : Faker {
 		"Barre",
 		"Marty",
 		"Cousin"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameFirstName() {
-		static enum data = [
-		"Enzo",
-		"Lucas",
-		"Mathis",
-		"Nathan",
-		"Thomas",
-		"Hugo",
-		"Théo",
-		"Tom",
-		"Louis",
-		"Raphaël",
-		"Clément",
-		"Léo",
-		"Mathéo",
-		"Maxime",
-		"Alexandre",
-		"Antoine",
-		"Yanis",
-		"Paul",
-		"Baptiste",
-		"Alexis",
-		"Gabriel",
-		"Arthur",
-		"Jules",
-		"Ethan",
-		"Noah",
-		"Quentin",
-		"Axel",
-		"Evan",
-		"Mattéo",
-		"Romain",
-		"Valentin",
-		"Maxence",
-		"Noa",
-		"Adam",
-		"Nicolas",
-		"Julien",
-		"Mael",
-		"Pierre",
-		"Rayan",
-		"Victor",
-		"Mohamed",
-		"Adrien",
-		"Kylian",
-		"Sacha",
-		"Benjamin",
-		"Léa",
-		"Clara",
-		"Manon",
-		"Chloé",
-		"Camille",
-		"Ines",
-		"Sarah",
-		"Jade",
-		"Lola",
-		"Anaïs",
-		"Lucie",
-		"Océane",
-		"Lilou",
-		"Marie",
-		"Eva",
-		"Romane",
-		"Lisa",
-		"Zoe",
-		"Julie",
-		"Mathilde",
-		"Louise",
-		"Juliette",
-		"Clémence",
-		"Célia",
-		"Laura",
-		"Lena",
-		"Maëlys",
-		"Charlotte",
-		"Ambre",
-		"Maeva",
-		"Pauline",
-		"Lina",
-		"Jeanne",
-		"Lou",
-		"Noémie",
-		"Justine",
-		"Louna",
-		"Elisa",
-		"Alice",
-		"Emilie",
-		"Carla",
-		"Maëlle",
-		"Alicia",
-		"Mélissa"
 		];
 		return choice(data, this.rnd);
 	}

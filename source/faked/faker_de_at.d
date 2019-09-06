@@ -19,17 +19,6 @@ class Faker_de_at : Faker {
 	}
 
 	///
-	override string cellPhoneFormats() {
-		static enum data = [
-		"+43-6##-#######",
-		"06##-########",
-		"+436#########",
-		"06##########"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
 	override string phoneNumberFormats() {
 		static enum data = [
 		"01 #######",
@@ -40,6 +29,17 @@ class Faker_de_at : Faker {
 		"0#########",
 		"+43-####-####",
 		"+43 ########"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		static enum data = [
+		"+43-6##-#######",
+		"06##-########",
+		"+436#########",
+		"06##########"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -83,6 +83,31 @@ class Faker_de_at : Faker {
 				return format!"%s, %s und %s"(nameLastName(), nameLastName(), nameLastName());
 			default: assert(false);
 		}
+	}
+
+	///
+	override string internetFreeEmail() {
+		static enum data = [
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		static enum data = [
+		"com",
+		"info",
+		"name",
+		"net",
+		"org",
+		"de",
+		"ch",
+		"at"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
@@ -724,47 +749,14 @@ class Faker_de_at : Faker {
 	}
 
 	///
-	override string internetFreeEmail() {
+	string nameNobilityTitlePrefix() {
 		static enum data = [
-		"gmail.com",
-		"yahoo.com",
-		"hotmail.com"
+		"zu",
+		"von",
+		"vom",
+		"von der"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"com",
-		"info",
-		"name",
-		"net",
-		"org",
-		"de",
-		"ch",
-		"at"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameName() {
-		switch(uniform(0, 6, this.rnd)) {
-			case 0:
-				return format!"%s %s %s"(namePrefix(), nameFirstName(), nameLastName());
-			case 1:
-				return format!"%s %s %s"(nameFirstName(), nameNobilityTitlePrefix(), nameLastName());
-			case 2:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 3:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 4:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 5:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			default: assert(false);
-		}
 	}
 
 	///
@@ -3634,14 +3626,22 @@ class Faker_de_at : Faker {
 	}
 
 	///
-	string nameNobilityTitlePrefix() {
-		static enum data = [
-		"zu",
-		"von",
-		"vom",
-		"von der"
-		];
-		return choice(data, this.rnd);
+	override string nameName() {
+		switch(uniform(0, 6, this.rnd)) {
+			case 0:
+				return format!"%s %s %s"(namePrefix(), nameFirstName(), nameLastName());
+			case 1:
+				return format!"%s %s %s"(nameFirstName(), nameNobilityTitlePrefix(), nameLastName());
+			case 2:
+				return format!"%s %s"(nameFirstName(), nameLastName());
+			case 3:
+				return format!"%s %s"(nameFirstName(), nameLastName());
+			case 4:
+				return format!"%s %s"(nameFirstName(), nameLastName());
+			case 5:
+				return format!"%s %s"(nameFirstName(), nameLastName());
+			default: assert(false);
+		}
 	}
 
 }

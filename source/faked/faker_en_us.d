@@ -599,6 +599,30 @@ class Faker_en_us : Faker {
 	}
 
 	///
+	override string internetDomainSuffix() {
+		static enum data = [
+		"com",
+		"us",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressDefaultCountry() {
+		static enum data = [
+		"United States",
+		"United States of America",
+		"USA"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressPostcodeByState() {
 		static enum data = [
 		"AK:{",
@@ -809,30 +833,6 @@ class Faker_en_us : Faker {
 		"min:82001",
 		"max:83128",
 		"}"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressDefaultCountry() {
-		static enum data = [
-		"United States",
-		"United States of America",
-		"USA"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"com",
-		"us",
-		"biz",
-		"info",
-		"name",
-		"net",
-		"org"
 		];
 		return choice(data, this.rnd);
 	}

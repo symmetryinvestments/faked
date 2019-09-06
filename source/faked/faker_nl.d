@@ -19,179 +19,6 @@ class Faker_nl : Faker {
 	}
 
 	///
-	string nameTussenvoegsel() {
-		static enum data = [
-		"van",
-		"van de",
-		"van den",
-		"van 't",
-		"van het",
-		"de",
-		"den"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameSuffix() {
-		static enum data = [
-		"Jr.",
-		"Sr.",
-		"I",
-		"II",
-		"III",
-		"IV",
-		"V"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string namePrefix() {
-		static enum data = [
-		"Dhr.",
-		"Mevr. Dr.",
-		"Bsc",
-		"Msc",
-		"Prof."
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameFirstName() {
-		static enum data = [
-		"Amber",
-		"Anna",
-		"Anne",
-		"Anouk",
-		"Bas",
-		"Bram",
-		"Britt",
-		"Daan",
-		"Emma",
-		"Eva",
-		"Femke",
-		"Finn",
-		"Fleur",
-		"Iris",
-		"Isa",
-		"Jan",
-		"Jasper",
-		"Jayden",
-		"Jesse",
-		"Johannes",
-		"Julia",
-		"Julian",
-		"Kevin",
-		"Lars",
-		"Lieke",
-		"Lisa",
-		"Lotte",
-		"Lucas",
-		"Luuk",
-		"Maud",
-		"Max",
-		"Mike",
-		"Milan",
-		"Nick",
-		"Niels",
-		"Noa",
-		"Rick",
-		"Roos",
-		"Ruben",
-		"Sander",
-		"Sanne",
-		"Sem",
-		"Sophie",
-		"Stijn",
-		"Sven",
-		"Thijs",
-		"Thijs",
-		"Thomas",
-		"Tim",
-		"Tom"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameLastName() {
-		static enum data = [
-		"Bakker",
-		"Beek",
-		"Berg",
-		"Boer",
-		"Bos",
-		"Bosch",
-		"Brink",
-		"Broek",
-		"Brouwer",
-		"Bruin",
-		"Dam",
-		"Dekker",
-		"Dijk",
-		"Dijkstra",
-		"Graaf",
-		"Groot",
-		"Haan",
-		"Hendriks",
-		"Heuvel",
-		"Hoek",
-		"Jacobs",
-		"Jansen",
-		"Janssen",
-		"Jong",
-		"Klein",
-		"Kok",
-		"Koning",
-		"Koster",
-		"Leeuwen",
-		"Linden",
-		"Maas",
-		"Meer",
-		"Meijer",
-		"Mulder",
-		"Peters",
-		"Ruiter",
-		"Schouten",
-		"Smit",
-		"Smits",
-		"Stichting",
-		"Veen",
-		"Ven",
-		"Vermeulen",
-		"Visser",
-		"Vliet",
-		"Vos",
-		"Vries",
-		"Wal",
-		"Willems",
-		"Wit"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameName() {
-		switch(uniform(0, 6, this.rnd)) {
-			case 0:
-				return format!"%s %s %s"(namePrefix(), nameFirstName(), nameLastName());
-			case 1:
-				return format!"%s %s %s"(nameFirstName(), nameLastName(), nameSuffix());
-			case 2:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 3:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 4:
-				return format!"%s %s %s"(nameFirstName(), nameTussenvoegsel(), nameLastName());
-			case 5:
-				return format!"%s %s %s"(nameFirstName(), nameTussenvoegsel(), nameLastName());
-			default: assert(false);
-		}
-	}
-
-	///
 	override string phoneNumberFormats() {
 		static enum data = [
 		"(####) ######",
@@ -203,12 +30,20 @@ class Faker_nl : Faker {
 	}
 
 	///
-	override string companySuffix() {
+	override string addressState() {
 		static enum data = [
-		"BV",
-		"V.O.F.",
-		"Group",
-		"en Zonen"
+		"Noord-Holland",
+		"Zuid-Holland",
+		"Utrecht",
+		"Zeeland",
+		"Overijssel",
+		"Gelderland",
+		"Drenthe",
+		"Friesland",
+		"Groningen",
+		"Noord-Brabant",
+		"Limburg",
+		"Flevoland"
 		];
 		return choice(data, this.rnd);
 	}
@@ -472,25 +307,6 @@ class Faker_nl : Faker {
 		"Zuid-Korea",
 		"Zweden",
 		"Zwitserland"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressState() {
-		static enum data = [
-		"Noord-Holland",
-		"Zuid-Holland",
-		"Utrecht",
-		"Zeeland",
-		"Overijssel",
-		"Gelderland",
-		"Drenthe",
-		"Friesland",
-		"Groningen",
-		"Noord-Brabant",
-		"Limburg",
-		"Flevoland"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3122,6 +2938,38 @@ class Faker_nl : Faker {
 	}
 
 	///
+	override string companySuffix() {
+		static enum data = [
+		"BV",
+		"V.O.F.",
+		"Group",
+		"en Zonen"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetFreeEmail() {
+		static enum data = [
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		static enum data = [
+		"nl",
+		"com",
+		"net",
+		"org"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string loremWords() {
 		static enum data = [
 		"alias",
@@ -3378,22 +3226,174 @@ class Faker_nl : Faker {
 	}
 
 	///
-	override string internetFreeEmail() {
+	override string nameName() {
+		switch(uniform(0, 6, this.rnd)) {
+			case 0:
+				return format!"%s %s %s"(namePrefix(), nameFirstName(), nameLastName());
+			case 1:
+				return format!"%s %s %s"(nameFirstName(), nameLastName(), nameSuffix());
+			case 2:
+				return format!"%s %s"(nameFirstName(), nameLastName());
+			case 3:
+				return format!"%s %s"(nameFirstName(), nameLastName());
+			case 4:
+				return format!"%s %s %s"(nameFirstName(), nameTussenvoegsel(), nameLastName());
+			case 5:
+				return format!"%s %s %s"(nameFirstName(), nameTussenvoegsel(), nameLastName());
+			default: assert(false);
+		}
+	}
+
+	///
+	override string nameSuffix() {
 		static enum data = [
-		"gmail.com",
-		"yahoo.com",
-		"hotmail.com"
+		"Jr.",
+		"Sr.",
+		"I",
+		"II",
+		"III",
+		"IV",
+		"V"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string internetDomainSuffix() {
+	override string namePrefix() {
 		static enum data = [
-		"nl",
-		"com",
-		"net",
-		"org"
+		"Dhr.",
+		"Mevr. Dr.",
+		"Bsc",
+		"Msc",
+		"Prof."
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameFirstName() {
+		static enum data = [
+		"Amber",
+		"Anna",
+		"Anne",
+		"Anouk",
+		"Bas",
+		"Bram",
+		"Britt",
+		"Daan",
+		"Emma",
+		"Eva",
+		"Femke",
+		"Finn",
+		"Fleur",
+		"Iris",
+		"Isa",
+		"Jan",
+		"Jasper",
+		"Jayden",
+		"Jesse",
+		"Johannes",
+		"Julia",
+		"Julian",
+		"Kevin",
+		"Lars",
+		"Lieke",
+		"Lisa",
+		"Lotte",
+		"Lucas",
+		"Luuk",
+		"Maud",
+		"Max",
+		"Mike",
+		"Milan",
+		"Nick",
+		"Niels",
+		"Noa",
+		"Rick",
+		"Roos",
+		"Ruben",
+		"Sander",
+		"Sanne",
+		"Sem",
+		"Sophie",
+		"Stijn",
+		"Sven",
+		"Thijs",
+		"Thijs",
+		"Thomas",
+		"Tim",
+		"Tom"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameLastName() {
+		static enum data = [
+		"Bakker",
+		"Beek",
+		"Berg",
+		"Boer",
+		"Bos",
+		"Bosch",
+		"Brink",
+		"Broek",
+		"Brouwer",
+		"Bruin",
+		"Dam",
+		"Dekker",
+		"Dijk",
+		"Dijkstra",
+		"Graaf",
+		"Groot",
+		"Haan",
+		"Hendriks",
+		"Heuvel",
+		"Hoek",
+		"Jacobs",
+		"Jansen",
+		"Janssen",
+		"Jong",
+		"Klein",
+		"Kok",
+		"Koning",
+		"Koster",
+		"Leeuwen",
+		"Linden",
+		"Maas",
+		"Meer",
+		"Meijer",
+		"Mulder",
+		"Peters",
+		"Ruiter",
+		"Schouten",
+		"Smit",
+		"Smits",
+		"Stichting",
+		"Veen",
+		"Ven",
+		"Vermeulen",
+		"Visser",
+		"Vliet",
+		"Vos",
+		"Vries",
+		"Wal",
+		"Willems",
+		"Wit"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string nameTussenvoegsel() {
+		static enum data = [
+		"van",
+		"van de",
+		"van den",
+		"van 't",
+		"van het",
+		"de",
+		"den"
 		];
 		return choice(data, this.rnd);
 	}

@@ -43,16 +43,16 @@ class Faker_nb_no : Faker {
 	}
 
 	///
-	override string addressStreetAddress() {
-		return format!"%s %s"(addressStreetName(), addressBuildingNumber());
-	}
-
-	///
 	override string addressDefaultCountry() {
 		static enum data = [
 		"Norge"
 		];
 		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressStreetAddress() {
+		return format!"%s %s"(addressStreetName(), addressBuildingNumber());
 	}
 
 	///
@@ -360,170 +360,6 @@ class Faker_nb_no : Faker {
 	}
 
 	///
-	override string nameLastName() {
-		static enum data = [
-		"Johansen",
-		"Hansen",
-		"Andersen",
-		"Kristiansen",
-		"Larsen",
-		"Olsen",
-		"Solberg",
-		"Andresen",
-		"Pedersen",
-		"Nilsen",
-		"Berg",
-		"Halvorsen",
-		"Karlsen",
-		"Svendsen",
-		"Jensen",
-		"Haugen",
-		"Martinsen",
-		"Eriksen",
-		"Sørensen",
-		"Johnsen",
-		"Myhrer",
-		"Johannessen",
-		"Nielsen",
-		"Hagen",
-		"Pettersen",
-		"Bakke",
-		"Skuterud",
-		"Løken",
-		"Gundersen",
-		"Strand",
-		"Jørgensen",
-		"Kvarme",
-		"Røed",
-		"Sæther",
-		"Stensrud",
-		"Moe",
-		"Kristoffersen",
-		"Jakobsen",
-		"Holm",
-		"Aas",
-		"Lie",
-		"Moen",
-		"Andreassen",
-		"Vedvik",
-		"Nguyen",
-		"Jacobsen",
-		"Torgersen",
-		"Ruud",
-		"Krogh",
-		"Christiansen",
-		"Bjerke",
-		"Aalerud",
-		"Borge",
-		"Sørlie",
-		"Berge",
-		"Østli",
-		"Ødegård",
-		"Torp",
-		"Henriksen",
-		"Haukelidsæter",
-		"Fjeld",
-		"Danielsen",
-		"Aasen",
-		"Fredriksen",
-		"Dahl",
-		"Berntsen",
-		"Arnesen",
-		"Wold",
-		"Thoresen",
-		"Solheim",
-		"Skoglund",
-		"Bakken",
-		"Amundsen",
-		"Solli",
-		"Smogeli",
-		"Kristensen",
-		"Glosli",
-		"Fossum",
-		"Evensen",
-		"Eide",
-		"Carlsen",
-		"Østby",
-		"Vegge",
-		"Tangen",
-		"Smedsrud",
-		"Olstad",
-		"Lunde",
-		"Kleven",
-		"Huseby",
-		"Bjørnstad",
-		"Ryan",
-		"Rasmussen",
-		"Nygård",
-		"Nordskaug",
-		"Nordby",
-		"Mathisen",
-		"Hopland",
-		"Gran",
-		"Finstad",
-		"Edvardsen"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string nameFeminineName() {
-		static enum data = [
-		"Emma",
-		"Sara",
-		"Thea",
-		"Ida",
-		"Julie",
-		"Nora",
-		"Emilie",
-		"Ingrid",
-		"Hanna",
-		"Maria",
-		"Sofie",
-		"Anna",
-		"Malin",
-		"Amalie",
-		"Vilde",
-		"Frida",
-		"Andrea",
-		"Tuva",
-		"Victoria",
-		"Mia",
-		"Karoline",
-		"Mathilde",
-		"Martine",
-		"Linnea",
-		"Marte",
-		"Hedda",
-		"Marie",
-		"Helene",
-		"Silje",
-		"Leah",
-		"Maja",
-		"Elise",
-		"Oda",
-		"Kristine",
-		"Aurora",
-		"Kaja",
-		"Camilla",
-		"Mari",
-		"Maren",
-		"Mina",
-		"Selma",
-		"Jenny",
-		"Celine",
-		"Eline",
-		"Sunniva",
-		"Natalie",
-		"Tiril",
-		"Synne",
-		"Sandra",
-		"Madeleine"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string nameFirstName() {
 		static enum data = [
 		"Emma",
@@ -631,6 +467,63 @@ class Faker_nb_no : Faker {
 	}
 
 	///
+	string nameFeminineName() {
+		static enum data = [
+		"Emma",
+		"Sara",
+		"Thea",
+		"Ida",
+		"Julie",
+		"Nora",
+		"Emilie",
+		"Ingrid",
+		"Hanna",
+		"Maria",
+		"Sofie",
+		"Anna",
+		"Malin",
+		"Amalie",
+		"Vilde",
+		"Frida",
+		"Andrea",
+		"Tuva",
+		"Victoria",
+		"Mia",
+		"Karoline",
+		"Mathilde",
+		"Martine",
+		"Linnea",
+		"Marte",
+		"Hedda",
+		"Marie",
+		"Helene",
+		"Silje",
+		"Leah",
+		"Maja",
+		"Elise",
+		"Oda",
+		"Kristine",
+		"Aurora",
+		"Kaja",
+		"Camilla",
+		"Mari",
+		"Maren",
+		"Mina",
+		"Selma",
+		"Jenny",
+		"Celine",
+		"Eline",
+		"Sunniva",
+		"Natalie",
+		"Tiril",
+		"Synne",
+		"Sandra",
+		"Madeleine"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string nameName() {
 		switch(uniform(0, 6, this.rnd)) {
 			case 0:
@@ -647,6 +540,113 @@ class Faker_nb_no : Faker {
 				return format!"%s %s"(nameFirstName(), nameLastName());
 			default: assert(false);
 		}
+	}
+
+	///
+	override string nameLastName() {
+		static enum data = [
+		"Johansen",
+		"Hansen",
+		"Andersen",
+		"Kristiansen",
+		"Larsen",
+		"Olsen",
+		"Solberg",
+		"Andresen",
+		"Pedersen",
+		"Nilsen",
+		"Berg",
+		"Halvorsen",
+		"Karlsen",
+		"Svendsen",
+		"Jensen",
+		"Haugen",
+		"Martinsen",
+		"Eriksen",
+		"Sørensen",
+		"Johnsen",
+		"Myhrer",
+		"Johannessen",
+		"Nielsen",
+		"Hagen",
+		"Pettersen",
+		"Bakke",
+		"Skuterud",
+		"Løken",
+		"Gundersen",
+		"Strand",
+		"Jørgensen",
+		"Kvarme",
+		"Røed",
+		"Sæther",
+		"Stensrud",
+		"Moe",
+		"Kristoffersen",
+		"Jakobsen",
+		"Holm",
+		"Aas",
+		"Lie",
+		"Moen",
+		"Andreassen",
+		"Vedvik",
+		"Nguyen",
+		"Jacobsen",
+		"Torgersen",
+		"Ruud",
+		"Krogh",
+		"Christiansen",
+		"Bjerke",
+		"Aalerud",
+		"Borge",
+		"Sørlie",
+		"Berge",
+		"Østli",
+		"Ødegård",
+		"Torp",
+		"Henriksen",
+		"Haukelidsæter",
+		"Fjeld",
+		"Danielsen",
+		"Aasen",
+		"Fredriksen",
+		"Dahl",
+		"Berntsen",
+		"Arnesen",
+		"Wold",
+		"Thoresen",
+		"Solheim",
+		"Skoglund",
+		"Bakken",
+		"Amundsen",
+		"Solli",
+		"Smogeli",
+		"Kristensen",
+		"Glosli",
+		"Fossum",
+		"Evensen",
+		"Eide",
+		"Carlsen",
+		"Østby",
+		"Vegge",
+		"Tangen",
+		"Smedsrud",
+		"Olstad",
+		"Lunde",
+		"Kleven",
+		"Huseby",
+		"Bjørnstad",
+		"Ryan",
+		"Rasmussen",
+		"Nygård",
+		"Nordskaug",
+		"Nordby",
+		"Mathisen",
+		"Hopland",
+		"Gran",
+		"Finstad",
+		"Edvardsen"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///

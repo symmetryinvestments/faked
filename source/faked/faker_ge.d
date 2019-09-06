@@ -19,22 +19,6 @@ class Faker_ge : Faker {
 	}
 
 	///
-	override string cellPhoneFormats() {
-		static enum data = [
-		"(+995 32) 2-##-##-##",
-		"032-2-##-##-##",
-		"032-2-######",
-		"032-2-###-###",
-		"032 2 ## ## ##",
-		"032 2 ######",
-		"2 ## ## ##",
-		"2######",
-		"2 ### ###"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
 	override string phoneNumberFormats() {
 		static enum data = [
 		"5##-###-###",
@@ -59,6 +43,84 @@ class Faker_ge : Faker {
 		"(+995) 5## ### ###"
 		];
 		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		static enum data = [
+		"(+995 32) 2-##-##-##",
+		"032-2-##-##-##",
+		"032-2-######",
+		"032-2-###-###",
+		"032 2 ## ## ##",
+		"032 2 ######",
+		"2 ## ## ##",
+		"2######",
+		"2 ### ###"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string companySuffix() {
+		static enum data = [
+		"ჯგუფი",
+		"და კომპანია",
+		"სტუდია",
+		"გრუპი"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string companyPrefix() {
+		static enum data = [
+		"შპს",
+		"სს",
+		"ააიპ",
+		"სსიპ"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companyName() {
+		switch(uniform(0, 5, this.rnd)) {
+			case 0:
+				return format!"%s %s"(companyPrefix(), nameFirstName());
+			case 1:
+				return format!"%s %s"(companyPrefix(), nameLastName());
+			case 2:
+				return format!"%s %s %s"(companyPrefix(), nameLastName(), companySuffix());
+			case 3:
+				return format!"%s %s %s"(companyPrefix(), nameFirstName(), companySuffix());
+			case 4:
+				return format!"%s %s-%s"(companyPrefix(), nameLastName(), nameLastName());
+			default: assert(false);
+		}
+	}
+
+	///
+	override string internetFreeEmail() {
+		static enum data = [
+		"gmail.com",
+		"yahoo.com",
+		"posta.ge"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		static enum data = [
+		"ge",
+		"com",
+		"net",
+		"org",
+		"com.ge",
+		"org.ge"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
@@ -477,16 +539,16 @@ class Faker_ge : Faker {
 	}
 
 	///
-	override string addressStreetAddress() {
-		return format!"%s %s"(addressStreetName(), addressBuildingNumber());
-	}
-
-	///
 	override string addressDefaultCountry() {
 		static enum data = [
 		"საქართველო"
 		];
 		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressStreetAddress() {
+		return format!"%s %s"(addressStreetName(), addressBuildingNumber());
 	}
 
 	///
@@ -984,68 +1046,6 @@ class Faker_ge : Faker {
 		"ქუჩა",
 		"ჩიხი",
 		"ხეივანი"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		static enum data = [
-		"ჯგუფი",
-		"და კომპანია",
-		"სტუდია",
-		"გრუპი"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string companyPrefix() {
-		static enum data = [
-		"შპს",
-		"სს",
-		"ააიპ",
-		"სსიპ"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyName() {
-		switch(uniform(0, 5, this.rnd)) {
-			case 0:
-				return format!"%s %s"(companyPrefix(), nameFirstName());
-			case 1:
-				return format!"%s %s"(companyPrefix(), nameLastName());
-			case 2:
-				return format!"%s %s %s"(companyPrefix(), nameLastName(), companySuffix());
-			case 3:
-				return format!"%s %s %s"(companyPrefix(), nameFirstName(), companySuffix());
-			case 4:
-				return format!"%s %s-%s"(companyPrefix(), nameLastName(), nameLastName());
-			default: assert(false);
-		}
-	}
-
-	///
-	override string internetFreeEmail() {
-		static enum data = [
-		"gmail.com",
-		"yahoo.com",
-		"posta.ge"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"ge",
-		"com",
-		"net",
-		"org",
-		"com.ge",
-		"org.ge"
 		];
 		return choice(data, this.rnd);
 	}

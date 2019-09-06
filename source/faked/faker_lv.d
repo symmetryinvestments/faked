@@ -1844,6 +1844,36 @@ class Faker_lv : Faker {
 	}
 
 	///
+	override string commerceColor() {
+		static enum data = [
+		"sarkana",
+		"zaļa",
+		"zila",
+		"dzeltena",
+		"ruda",
+		"zaļgan-zila",
+		"balta",
+		"melna",
+		"oranža",
+		"rozā",
+		"pelēka",
+		"sarkan-brūna",
+		"violeta",
+		"gaišzila",
+		"zeltaina",
+		"debess-zila",
+		"olīv",
+		"purpura",
+		"krēma",
+		"zelta",
+		"красно-пурпурный",
+		"lillā",
+		"sudrabaina"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string commerceProductNameAdjective() {
 		static enum data = [
 		"Mazs",
@@ -1900,36 +1930,6 @@ class Faker_lv : Faker {
 		"plāksteris",
 		"telefons",
 		"pončiks"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceColor() {
-		static enum data = [
-		"sarkana",
-		"zaļa",
-		"zila",
-		"dzeltena",
-		"ruda",
-		"zaļgan-zila",
-		"balta",
-		"melna",
-		"oranža",
-		"rozā",
-		"pelēka",
-		"sarkan-brūna",
-		"violeta",
-		"gaišzila",
-		"zeltaina",
-		"debess-zila",
-		"olīv",
-		"purpura",
-		"krēma",
-		"zelta",
-		"красно-пурпурный",
-		"lillā",
-		"sudrabaina"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2041,6 +2041,41 @@ class Faker_lv : Faker {
 		"Viļaka",
 		"Viļāni",
 		"Zilupe"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressState() {
+		static enum data = [
+		"Aizkraukles raj.",
+		"Alūksnes raj.",
+		"Baltijas jūra",
+		"Balvu raj.",
+		"Bauskas raj.",
+		"Cēsu raj.",
+		"Daugavpils raj.",
+		"Dobeles raj.",
+		"Gulbenes raj.",
+		"Jēkabpils raj.",
+		"Jelgavas raj.",
+		"Jūrmala",
+		"Krāslavas raj.",
+		"Kuldīgas raj.",
+		"Liepājas raj.",
+		"Limbažu raj.",
+		"Ludzas raj.",
+		"Madonas raj.",
+		"Ogres raj.",
+		"Preiļu raj.",
+		"Rēzeknes raj.",
+		"Rīga un Rīgas raj.",
+		"Saldus raj.",
+		"Talsu raj.",
+		"Tukuma raj.",
+		"Valkas raj.",
+		"Valmieras raj.",
+		"Ventspils raj."
 		];
 		return choice(data, this.rnd);
 	}
@@ -2224,41 +2259,6 @@ class Faker_lv : Faker {
 		"Jemena",
 		"Zambija",
 		"Zimbabve"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressState() {
-		static enum data = [
-		"Aizkraukles raj.",
-		"Alūksnes raj.",
-		"Baltijas jūra",
-		"Balvu raj.",
-		"Bauskas raj.",
-		"Cēsu raj.",
-		"Daugavpils raj.",
-		"Dobeles raj.",
-		"Gulbenes raj.",
-		"Jēkabpils raj.",
-		"Jelgavas raj.",
-		"Jūrmala",
-		"Krāslavas raj.",
-		"Kuldīgas raj.",
-		"Liepājas raj.",
-		"Limbažu raj.",
-		"Ludzas raj.",
-		"Madonas raj.",
-		"Ogres raj.",
-		"Preiļu raj.",
-		"Rēzeknes raj.",
-		"Rīga un Rīgas raj.",
-		"Saldus raj.",
-		"Talsu raj.",
-		"Tukuma raj.",
-		"Valkas raj.",
-		"Valmieras raj.",
-		"Ventspils raj."
 		];
 		return choice(data, this.rnd);
 	}

@@ -403,6 +403,30 @@ class Faker_pt_br : Faker {
 	}
 
 	///
+	override string companySuffix() {
+		static enum data = [
+		"S.A.",
+		"LTDA",
+		"e Associados",
+		"Comércio"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companyName() {
+		switch(uniform(0, 3, this.rnd)) {
+			case 0:
+				return format!"%s %s"(nameLastName(), companySuffix());
+			case 1:
+				return format!"%s-%s"(nameLastName(), nameLastName());
+			case 2:
+				return format!"%s, %s e %s"(nameLastName(), nameLastName(), nameLastName());
+			default: assert(false);
+		}
+	}
+
+	///
 	override string internetFreeEmail() {
 		static enum data = [
 		"gmail.com",
@@ -426,30 +450,6 @@ class Faker_pt_br : Faker {
 		"org"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		static enum data = [
-		"S.A.",
-		"LTDA",
-		"e Associados",
-		"Comércio"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyName() {
-		switch(uniform(0, 3, this.rnd)) {
-			case 0:
-				return format!"%s %s"(nameLastName(), companySuffix());
-			case 1:
-				return format!"%s-%s"(nameLastName(), nameLastName());
-			case 2:
-				return format!"%s, %s e %s"(nameLastName(), nameLastName(), nameLastName());
-			default: assert(false);
-		}
 	}
 
 	///
@@ -730,35 +730,6 @@ class Faker_pt_br : Faker {
 	}
 
 	///
-	override string nameLastName() {
-		static enum data = [
-		"Silva",
-		"Souza",
-		"Carvalho",
-		"Santos",
-		"Reis",
-		"Xavier",
-		"Franco",
-		"Braga",
-		"Macedo",
-		"Batista",
-		"Barros",
-		"Moraes",
-		"Costa",
-		"Pereira",
-		"Carvalho",
-		"Melo",
-		"Saraiva",
-		"Nogueira",
-		"Oliveira",
-		"Martins",
-		"Moreira",
-		"Albuquerque"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string nameFirstName() {
 		static enum data = [
 		"Alessandro",
@@ -852,6 +823,35 @@ class Faker_pt_br : Faker {
 		"Yuri",
 		"Washington",
 		"Warley"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameLastName() {
+		static enum data = [
+		"Silva",
+		"Souza",
+		"Carvalho",
+		"Santos",
+		"Reis",
+		"Xavier",
+		"Franco",
+		"Braga",
+		"Macedo",
+		"Batista",
+		"Barros",
+		"Moraes",
+		"Costa",
+		"Pereira",
+		"Carvalho",
+		"Melo",
+		"Saraiva",
+		"Nogueira",
+		"Oliveira",
+		"Martins",
+		"Moreira",
+		"Albuquerque"
 		];
 		return choice(data, this.rnd);
 	}

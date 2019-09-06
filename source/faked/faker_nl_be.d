@@ -35,17 +35,6 @@ class Faker_nl_be : Faker_nl {
 	}
 
 	///
-	override string companySuffix() {
-		static enum data = [
-		"NV",
-		"BVBA",
-		"CVBA",
-		"VZW"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressStateAbbr() {
 		static enum data = [
 		"WVL",
@@ -1282,6 +1271,17 @@ class Faker_nl_be : Faker_nl {
 	}
 
 	///
+	override string companySuffix() {
+		static enum data = [
+		"NV",
+		"BVBA",
+		"CVBA",
+		"VZW"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string internetFreeEmail() {
 		static enum data = [
 		"gmail.com",
@@ -1321,45 +1321,6 @@ class Faker_nl_be : Faker_nl {
 		"Ir.",
 		"Ing.",
 		"Prof."
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameLastName() {
-		static enum data = [
-		"Claes",
-		"Claeys",
-		"Declerck",
-		"Declercq",
-		"Decock",
-		"Decoster",
-		"Desmet",
-		"Devos",
-		"Dewilde",
-		"Gielen",
-		"Goossens",
-		"Hermans",
-		"Jacobs",
-		"Janssen",
-		"Janssens",
-		"Lemmens",
-		"Maes",
-		"Martens",
-		"Mertens",
-		"Michiels",
-		"Peeters",
-		"Smet",
-		"Smets",
-		"Thijs",
-		"Vandamme",
-		"Vandenberghe",
-		"Vandenbroeck",
-		"Vandevelde",
-		"Verhaeghe",
-		"Verstraete",
-		"Willems",
-		"Wouters"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1567,6 +1528,45 @@ class Faker_nl_be : Faker_nl {
 		"Sterre",
 		"Maud",
 		"Chloe"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameLastName() {
+		static enum data = [
+		"Claes",
+		"Claeys",
+		"Declerck",
+		"Declercq",
+		"Decock",
+		"Decoster",
+		"Desmet",
+		"Devos",
+		"Dewilde",
+		"Gielen",
+		"Goossens",
+		"Hermans",
+		"Jacobs",
+		"Janssen",
+		"Janssens",
+		"Lemmens",
+		"Maes",
+		"Martens",
+		"Mertens",
+		"Michiels",
+		"Peeters",
+		"Smet",
+		"Smets",
+		"Thijs",
+		"Vandamme",
+		"Vandenberghe",
+		"Vandenbroeck",
+		"Vandevelde",
+		"Verhaeghe",
+		"Verstraete",
+		"Willems",
+		"Wouters"
 		];
 		return choice(data, this.rnd);
 	}

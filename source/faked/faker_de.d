@@ -316,22 +316,14 @@ class Faker_de : Faker {
 	}
 
 	///
-	override string nameName() {
-		switch(uniform(0, 6, this.rnd)) {
-			case 0:
-				return format!"%s %s %s"(namePrefix(), nameFirstName(), nameLastName());
-			case 1:
-				return format!"%s %s %s"(nameFirstName(), nameNobilityTitlePrefix(), nameLastName());
-			case 2:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 3:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 4:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 5:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			default: assert(false);
-		}
+	string nameNobilityTitlePrefix() {
+		static enum data = [
+		"zu",
+		"von",
+		"vom",
+		"von der"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
@@ -3203,14 +3195,22 @@ class Faker_de : Faker {
 	}
 
 	///
-	string nameNobilityTitlePrefix() {
-		static enum data = [
-		"zu",
-		"von",
-		"vom",
-		"von der"
-		];
-		return choice(data, this.rnd);
+	override string nameName() {
+		switch(uniform(0, 6, this.rnd)) {
+			case 0:
+				return format!"%s %s %s"(namePrefix(), nameFirstName(), nameLastName());
+			case 1:
+				return format!"%s %s %s"(nameFirstName(), nameNobilityTitlePrefix(), nameLastName());
+			case 2:
+				return format!"%s %s"(nameFirstName(), nameLastName());
+			case 3:
+				return format!"%s %s"(nameFirstName(), nameLastName());
+			case 4:
+				return format!"%s %s"(nameFirstName(), nameLastName());
+			case 5:
+				return format!"%s %s"(nameFirstName(), nameLastName());
+			default: assert(false);
+		}
 	}
 
 	///
@@ -3232,6 +3232,29 @@ class Faker_de : Faker {
 		"ST",
 		"SH",
 		"TH"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressState() {
+		static enum data = [
+		"Baden-Württemberg",
+		"Bayern",
+		"Berlin",
+		"Brandenburg",
+		"Bremen",
+		"Hamburg",
+		"Hessen",
+		"Mecklenburg-Vorpommern",
+		"Niedersachsen",
+		"Nordrhein-Westfalen",
+		"Rheinland-Pfalz",
+		"Saarland",
+		"Sachsen",
+		"Sachsen-Anhalt",
+		"Schleswig-Holstein",
+		"Thüringen"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3476,29 +3499,6 @@ class Faker_de : Faker {
 		"Westsahara",
 		"Zentralafrikanische Republik",
 		"Zypern"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressState() {
-		static enum data = [
-		"Baden-Württemberg",
-		"Bayern",
-		"Berlin",
-		"Brandenburg",
-		"Bremen",
-		"Hamburg",
-		"Hessen",
-		"Mecklenburg-Vorpommern",
-		"Niedersachsen",
-		"Nordrhein-Westfalen",
-		"Rheinland-Pfalz",
-		"Saarland",
-		"Sachsen",
-		"Sachsen-Anhalt",
-		"Schleswig-Holstein",
-		"Thüringen"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4610,21 +4610,21 @@ class Faker_de : Faker {
 	}
 
 	///
-	override string cellPhoneFormats() {
-		static enum data = [
-		"+49-1##-#######",
-		"+49-1###-########"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
 	override string phoneNumberFormats() {
 		static enum data = [
 		"(0###) #########",
 		"(0####) #######",
 		"+49-###-#######",
 		"+49-####-########"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		static enum data = [
+		"+49-1##-#######",
+		"+49-1###-########"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}

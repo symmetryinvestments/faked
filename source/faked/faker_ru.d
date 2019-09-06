@@ -95,6 +95,30 @@ class Faker_ru : Faker {
 	}
 
 	///
+	override string hackerAdjective() {
+		static enum data = [
+		"вспомогательный",
+		"основной",
+		"внутренний",
+		"цифровой",
+		"свободно-распростроняемый",
+		"виртуальный",
+		"кросс-платформенный",
+		"излишний",
+		"онлайн",
+		"сенсорный",
+		"многобайтный",
+		"беспроводной",
+		"1080-пиксельный",
+		"нейронный",
+		"оптический",
+		"твердотельный",
+		"мобильный"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string hackerVerb() {
 		static enum data = [
 		"сохранить",
@@ -119,30 +143,6 @@ class Faker_ru : Faker {
 		"запрограммировать",
 		"перезагрузить",
 		"разобрать"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string hackerAdjective() {
-		static enum data = [
-		"вспомогательный",
-		"основной",
-		"внутренний",
-		"цифровой",
-		"свободно-распростроняемый",
-		"виртуальный",
-		"кросс-платформенный",
-		"излишний",
-		"онлайн",
-		"сенсорный",
-		"многобайтный",
-		"беспроводной",
-		"1080-пиксельный",
-		"нейронный",
-		"оптический",
-		"твердотельный",
-		"мобильный"
 		];
 		return choice(data, this.rnd);
 	}
@@ -995,6 +995,44 @@ class Faker_ru : Faker {
 	}
 
 	///
+	override string commerceColor() {
+		static enum data = [
+		"красный",
+		"зеленый",
+		"синий",
+		"желтый",
+		"багровый",
+		"мятный",
+		"зеленовато-голубой",
+		"белый",
+		"черный",
+		"оранжевый",
+		"розовый",
+		"серый",
+		"красно-коричневый",
+		"фиолетовый",
+		"бирюзовый",
+		"желто-коричневый",
+		"небесно голубой",
+		"оранжево-розовый",
+		"темно-фиолетовый",
+		"орхидный",
+		"оливковый",
+		"пурпурный",
+		"лимонный",
+		"кремовый",
+		"сине-фиолетовый",
+		"золотой",
+		"красно-пурпурный",
+		"голубой",
+		"лазурный",
+		"лиловый",
+		"серебряный"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string commerceProductNameAdjective() {
 		static enum data = [
 		"Маленький",
@@ -1054,44 +1092,6 @@ class Faker_ru : Faker {
 		"Кошелек",
 		"Портмоне",
 		"Ботинок"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceColor() {
-		static enum data = [
-		"красный",
-		"зеленый",
-		"синий",
-		"желтый",
-		"багровый",
-		"мятный",
-		"зеленовато-голубой",
-		"белый",
-		"черный",
-		"оранжевый",
-		"розовый",
-		"серый",
-		"красно-коричневый",
-		"фиолетовый",
-		"бирюзовый",
-		"желто-коричневый",
-		"небесно голубой",
-		"оранжево-розовый",
-		"темно-фиолетовый",
-		"орхидный",
-		"оливковый",
-		"пурпурный",
-		"лимонный",
-		"кремовый",
-		"сине-фиолетовый",
-		"золотой",
-		"красно-пурпурный",
-		"голубой",
-		"лазурный",
-		"лиловый",
-		"серебряный"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1491,16 +1491,16 @@ class Faker_ru : Faker {
 	}
 
 	///
-	override string addressStreetAddress() {
-		return format!"%s, %s"(addressStreetName(), addressBuildingNumber());
-	}
-
-	///
 	override string addressDefaultCountry() {
 		static enum data = [
 		"Россия"
 		];
 		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressStreetAddress() {
+		return format!"%s, %s"(addressStreetName(), addressBuildingNumber());
 	}
 
 	///
@@ -1636,17 +1636,17 @@ class Faker_ru : Faker {
 	}
 
 	///
-	override string addressSecondaryAddress() {
+	override string addressPostcode() {
 		static enum data = [
-		"кв. ###"
+		"######"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	override string addressPostcode() {
+	override string addressSecondaryAddress() {
 		static enum data = [
-		"######"
+		"кв. ###"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}

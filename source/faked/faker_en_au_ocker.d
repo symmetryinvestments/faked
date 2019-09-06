@@ -216,37 +216,6 @@ class Faker_en_au_ocker : Faker {
 	}
 
 	///
-	override string nameLastName() {
-		static enum data = [
-		"Smith",
-		"Jones",
-		"Williams",
-		"Brown",
-		"Wilson",
-		"Taylor",
-		"Morton",
-		"White",
-		"Martin",
-		"Anderson",
-		"Thompson",
-		"Nguyen",
-		"Thomas",
-		"Walker",
-		"Harris",
-		"Lee",
-		"Ryan",
-		"Robinson",
-		"Kelly",
-		"King",
-		"Rausch",
-		"Ridge",
-		"Connolly",
-		"LeQuesne"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string nameFirstName() {
 		static enum data = [
 		"Charlotte",
@@ -366,6 +335,37 @@ class Faker_en_au_ocker : Faker {
 		"Johno",
 		"Shano",
 		"Shazza"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameLastName() {
+		static enum data = [
+		"Smith",
+		"Jones",
+		"Williams",
+		"Brown",
+		"Wilson",
+		"Taylor",
+		"Morton",
+		"White",
+		"Martin",
+		"Anderson",
+		"Thompson",
+		"Nguyen",
+		"Thomas",
+		"Walker",
+		"Harris",
+		"Lee",
+		"Ryan",
+		"Robinson",
+		"Kelly",
+		"King",
+		"Rausch",
+		"Ridge",
+		"Connolly",
+		"LeQuesne"
 		];
 		return choice(data, this.rnd);
 	}

@@ -154,6 +154,123 @@ class Faker_it : Faker {
 	}
 
 	///
+	override string addressState() {
+		static enum data = [
+		"Agrigento",
+		"Alessandria",
+		"Ancona",
+		"Aosta",
+		"Arezzo",
+		"Ascoli Piceno",
+		"Asti",
+		"Avellino",
+		"Bari",
+		"Barletta-Andria-Trani",
+		"Belluno",
+		"Benevento",
+		"Bergamo",
+		"Biella",
+		"Bologna",
+		"Bolzano",
+		"Brescia",
+		"Brindisi",
+		"Cagliari",
+		"Caltanissetta",
+		"Campobasso",
+		"Carbonia-Iglesias",
+		"Caserta",
+		"Catania",
+		"Catanzaro",
+		"Chieti",
+		"Como",
+		"Cosenza",
+		"Cremona",
+		"Crotone",
+		"Cuneo",
+		"Enna",
+		"Fermo",
+		"Ferrara",
+		"Firenze",
+		"Foggia",
+		"Forlì-Cesena",
+		"Frosinone",
+		"Genova",
+		"Gorizia",
+		"Grosseto",
+		"Imperia",
+		"Isernia",
+		"La Spezia",
+		"L'Aquila",
+		"Latina",
+		"Lecce",
+		"Lecco",
+		"Livorno",
+		"Lodi",
+		"Lucca",
+		"Macerata",
+		"Mantova",
+		"Massa-Carrara",
+		"Matera",
+		"Messina",
+		"Milano",
+		"Modena",
+		"Monza e della Brianza",
+		"Napoli",
+		"Novara",
+		"Nuoro",
+		"Olbia-Tempio",
+		"Oristano",
+		"Padova",
+		"Palermo",
+		"Parma",
+		"Pavia",
+		"Perugia",
+		"Pesaro e Urbino",
+		"Pescara",
+		"Piacenza",
+		"Pisa",
+		"Pistoia",
+		"Pordenone",
+		"Potenza",
+		"Prato",
+		"Ragusa",
+		"Ravenna",
+		"Reggio Calabria",
+		"Reggio Emilia",
+		"Rieti",
+		"Rimini",
+		"Roma",
+		"Rovigo",
+		"Salerno",
+		"Medio Campidano",
+		"Sassari",
+		"Savona",
+		"Siena",
+		"Siracusa",
+		"Sondrio",
+		"Taranto",
+		"Teramo",
+		"Terni",
+		"Torino",
+		"Ogliastra",
+		"Trapani",
+		"Trento",
+		"Treviso",
+		"Trieste",
+		"Udine",
+		"Varese",
+		"Venezia",
+		"Verbano-Cusio-Ossola",
+		"Vercelli",
+		"Verona",
+		"Vibo Valentia",
+		"Vicenza",
+		"Viterbo"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressCountry() {
 		static enum data = [
 		"Afghanistan",
@@ -402,118 +519,9 @@ class Faker_it : Faker {
 	}
 
 	///
-	override string addressState() {
+	override string addressDefaultCountry() {
 		static enum data = [
-		"Agrigento",
-		"Alessandria",
-		"Ancona",
-		"Aosta",
-		"Arezzo",
-		"Ascoli Piceno",
-		"Asti",
-		"Avellino",
-		"Bari",
-		"Barletta-Andria-Trani",
-		"Belluno",
-		"Benevento",
-		"Bergamo",
-		"Biella",
-		"Bologna",
-		"Bolzano",
-		"Brescia",
-		"Brindisi",
-		"Cagliari",
-		"Caltanissetta",
-		"Campobasso",
-		"Carbonia-Iglesias",
-		"Caserta",
-		"Catania",
-		"Catanzaro",
-		"Chieti",
-		"Como",
-		"Cosenza",
-		"Cremona",
-		"Crotone",
-		"Cuneo",
-		"Enna",
-		"Fermo",
-		"Ferrara",
-		"Firenze",
-		"Foggia",
-		"Forlì-Cesena",
-		"Frosinone",
-		"Genova",
-		"Gorizia",
-		"Grosseto",
-		"Imperia",
-		"Isernia",
-		"La Spezia",
-		"L'Aquila",
-		"Latina",
-		"Lecce",
-		"Lecco",
-		"Livorno",
-		"Lodi",
-		"Lucca",
-		"Macerata",
-		"Mantova",
-		"Massa-Carrara",
-		"Matera",
-		"Messina",
-		"Milano",
-		"Modena",
-		"Monza e della Brianza",
-		"Napoli",
-		"Novara",
-		"Nuoro",
-		"Olbia-Tempio",
-		"Oristano",
-		"Padova",
-		"Palermo",
-		"Parma",
-		"Pavia",
-		"Perugia",
-		"Pesaro e Urbino",
-		"Pescara",
-		"Piacenza",
-		"Pisa",
-		"Pistoia",
-		"Pordenone",
-		"Potenza",
-		"Prato",
-		"Ragusa",
-		"Ravenna",
-		"Reggio Calabria",
-		"Reggio Emilia",
-		"Rieti",
-		"Rimini",
-		"Roma",
-		"Rovigo",
-		"Salerno",
-		"Medio Campidano",
-		"Sassari",
-		"Savona",
-		"Siena",
-		"Siracusa",
-		"Sondrio",
-		"Taranto",
-		"Teramo",
-		"Terni",
-		"Torino",
-		"Ogliastra",
-		"Trapani",
-		"Trento",
-		"Treviso",
-		"Trieste",
-		"Udine",
-		"Varese",
-		"Venezia",
-		"Verbano-Cusio-Ossola",
-		"Vercelli",
-		"Verona",
-		"Vibo Valentia",
-		"Vicenza",
-		"Viterbo"
+		"Italia"
 		];
 		return choice(data, this.rnd);
 	}
@@ -527,14 +535,6 @@ class Faker_it : Faker {
 				return format!"%s %s, %s"(addressStreetName(), addressBuildingNumber(), addressSecondaryAddress());
 			default: assert(false);
 		}
-	}
-
-	///
-	override string addressDefaultCountry() {
-		static enum data = [
-		"Italia"
-		];
-		return choice(data, this.rnd);
 	}
 
 	///
@@ -612,34 +612,6 @@ class Faker_it : Faker {
 		"Contrada",
 		"Rotonda",
 		"Incrocio"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetFreeEmail() {
-		static enum data = [
-		"gmail.com",
-		"yahoo.com",
-		"hotmail.com",
-		"email.it",
-		"libero.it",
-		"yahoo.it"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"com",
-		"com",
-		"com",
-		"net",
-		"org",
-		"it",
-		"it",
-		"it"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1022,6 +994,34 @@ class Faker_it : Faker {
 		"collaborative",
 		"olistiche",
 		"ricche"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetFreeEmail() {
+		static enum data = [
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com",
+		"email.it",
+		"libero.it",
+		"yahoo.it"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		static enum data = [
+		"com",
+		"com",
+		"com",
+		"net",
+		"org",
+		"it",
+		"it",
+		"it"
 		];
 		return choice(data, this.rnd);
 	}

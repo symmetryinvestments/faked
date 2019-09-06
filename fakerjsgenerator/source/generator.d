@@ -466,7 +466,7 @@ class Faker {
 
 `;
 
-            this.output ~= format("\tstatic enum IbanData ibanData = %s;",
+            this.output ~= format("\tstatic IbanData ibanData = %s;",
                     buildIbanData()
                 );
 		} else {

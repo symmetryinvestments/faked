@@ -30,32 +30,6 @@ class Faker_en_au : Faker {
 	}
 
 	///
-	override string companySuffix() {
-		static enum data = [
-		"Pty Ltd",
-		"and Sons",
-		"Corp",
-		"Group",
-		"Brothers",
-		"Partners"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"com.au",
-		"com",
-		"net.au",
-		"net",
-		"org.au",
-		"org"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressStateAbbr() {
 		static enum data = [
 		"NSW",
@@ -153,6 +127,32 @@ class Faker_en_au : Faker {
 		"##"
 		];
 		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string companySuffix() {
+		static enum data = [
+		"Pty Ltd",
+		"and Sons",
+		"Corp",
+		"Group",
+		"Brothers",
+		"Partners"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		static enum data = [
+		"com.au",
+		"com",
+		"net.au",
+		"net",
+		"org.au",
+		"org"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///

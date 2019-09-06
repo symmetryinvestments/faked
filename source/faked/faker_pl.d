@@ -3240,16 +3240,16 @@ class Faker_pl : Faker {
 	}
 
 	///
-	override string addressStreetAddress() {
-		return format!"%s %s"(addressStreetName(), addressBuildingNumber());
-	}
-
-	///
 	override string addressDefaultCountry() {
 		static enum data = [
 		"Polska"
 		];
 		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressStreetAddress() {
+		return format!"%s %s"(addressStreetName(), addressBuildingNumber());
 	}
 
 	///
@@ -3282,18 +3282,18 @@ class Faker_pl : Faker {
 	}
 
 	///
-	override string addressSecondaryAddress() {
+	override string addressPostcode() {
 		static enum data = [
-		"Apt. ###",
-		"Suite ###"
+		"##-###"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	override string addressPostcode() {
+	override string addressSecondaryAddress() {
 		static enum data = [
-		"##-###"
+		"Apt. ###",
+		"Suite ###"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}

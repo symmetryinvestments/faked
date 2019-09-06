@@ -46,6 +46,23 @@ class Faker_sv : Faker {
 	}
 
 	///
+	string nameFirstNameMen() {
+		static enum data = [
+		"Erik",
+		"Lars",
+		"Karl",
+		"Anders",
+		"Per",
+		"Johan",
+		"Nils",
+		"Lennart",
+		"Emil",
+		"Hans"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string nameName() {
 		switch(uniform(0, 8, this.rnd)) {
 			case 0:
@@ -66,23 +83,6 @@ class Faker_sv : Faker {
 				return format!"%s %s %s"(namePrefix(), nameFirstNameWomen(), nameLastName());
 			default: assert(false);
 		}
-	}
-
-	///
-	string nameFirstNameMen() {
-		static enum data = [
-		"Erik",
-		"Lars",
-		"Karl",
-		"Anders",
-		"Per",
-		"Johan",
-		"Nils",
-		"Lennart",
-		"Emil",
-		"Hans"
-		];
-		return choice(data, this.rnd);
 	}
 
 	///
@@ -108,6 +108,40 @@ class Faker_sv : Faker {
 		"Persson",
 		"Svensson",
 		"Gustafsson"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string nameFirstNameWomen() {
+		static enum data = [
+		"Astrid",
+		"Anna",
+		"Alice",
+		"Amanda",
+		"Ann",
+		"Agneta",
+		"Anette",
+		"Anneli",
+		"Alexandra",
+		"Agnes",
+		"Anne",
+		"Alva",
+		"Alma",
+		"Angelica",
+		"Ann-Marie",
+		"Maria",
+		"Margareta",
+		"Elisabeth",
+		"Eva",
+		"Birgitta",
+		"Kristina",
+		"Karin",
+		"Elisabet",
+		"Marie",
+		"Lotta",
+		"Ronja",
+		"Veronica"
 		];
 		return choice(data, this.rnd);
 	}
@@ -218,35 +252,23 @@ class Faker_sv : Faker {
 	}
 
 	///
-	string nameFirstNameWomen() {
+	override string commerceColor() {
 		static enum data = [
-		"Astrid",
-		"Anna",
-		"Alice",
-		"Amanda",
-		"Ann",
-		"Agneta",
-		"Anette",
-		"Anneli",
-		"Alexandra",
-		"Agnes",
-		"Anne",
-		"Alva",
-		"Alma",
-		"Angelica",
-		"Ann-Marie",
-		"Maria",
-		"Margareta",
-		"Elisabeth",
-		"Eva",
-		"Birgitta",
-		"Kristina",
-		"Karin",
-		"Elisabet",
-		"Marie",
-		"Lotta",
-		"Ronja",
-		"Veronica"
+		"vit",
+		"silver",
+		"grå",
+		"svart",
+		"röd",
+		"grön",
+		"blå",
+		"gul",
+		"lila",
+		"indigo",
+		"guld",
+		"brun",
+		"rosa",
+		"purpur",
+		"korall"
 		];
 		return choice(data, this.rnd);
 	}
@@ -296,28 +318,6 @@ class Faker_sv : Faker {
 		"Table",
 		"Shoes",
 		"Hat"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceColor() {
-		static enum data = [
-		"vit",
-		"silver",
-		"grå",
-		"svart",
-		"röd",
-		"grön",
-		"blå",
-		"gul",
-		"lila",
-		"indigo",
-		"guld",
-		"brun",
-		"rosa",
-		"purpur",
-		"korall"
 		];
 		return choice(data, this.rnd);
 	}
@@ -598,11 +598,6 @@ class Faker_sv : Faker {
 	}
 
 	///
-	override string addressStreetAddress() {
-		return format!"%s %s"(addressStreetName(), addressBuildingNumber());
-	}
-
-	///
 	override string addressDefaultCountry() {
 		static enum data = [
 		"Sverige"
@@ -611,16 +606,8 @@ class Faker_sv : Faker {
 	}
 
 	///
-	string addressStreetPrefix() {
-		static enum data = [
-		"Västra",
-		"Östra",
-		"Norra",
-		"Södra",
-		"Övre",
-		"Undre"
-		];
-		return choice(data, this.rnd);
+	override string addressStreetAddress() {
+		return format!"%s %s"(addressStreetName(), addressBuildingNumber());
 	}
 
 	///
@@ -645,6 +632,19 @@ class Faker_sv : Faker {
 		"torp",
 		"fred",
 		"vik"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string addressStreetPrefix() {
+		static enum data = [
+		"Västra",
+		"Östra",
+		"Norra",
+		"Södra",
+		"Övre",
+		"Undre"
 		];
 		return choice(data, this.rnd);
 	}
@@ -737,18 +737,18 @@ class Faker_sv : Faker {
 	}
 
 	///
-	override string addressSecondaryAddress() {
+	override string addressPostcode() {
 		static enum data = [
-		"Lgh. ###",
-		"Hus ###"
+		"#####"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	override string addressPostcode() {
+	override string addressSecondaryAddress() {
 		static enum data = [
-		"#####"
+		"Lgh. ###",
+		"Hus ###"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -800,19 +800,19 @@ class Faker_sv : Faker {
 	}
 
 	///
-	override string cellPhoneFormats() {
-		static enum data = [
-		"#{common_cell_prefix}-###-####"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	string cellPhoneCommonCellPrefix() {
 		static enum data = [
 		"56",
 		"62",
 		"59"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string cellPhoneFormats() {
+		static enum data = [
+		"#{common_cell_prefix}-###-####"
 		];
 		return choice(data, this.rnd);
 	}
