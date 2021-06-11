@@ -282,7 +282,7 @@ class Faker_sv : Faker {
 		"Intelligent",
 		"Söt",
 		"Otrolig",
-		"Fatastisk",
+		"Fantastisk",
 		"Praktisk",
 		"Slimmad",
 		"Grym"
@@ -298,8 +298,8 @@ class Faker_sv : Faker {
 		"Trä",
 		"Betong",
 		"Plast",
-		"Bomul",
-		"Grnit",
+		"Bomull",
+		"Granit",
 		"Gummi",
 		"Latex"
 		];
@@ -313,11 +313,11 @@ class Faker_sv : Faker {
 		"Bil",
 		"Dator",
 		"Handskar",
-		"Pants",
-		"Shirt",
-		"Table",
-		"Shoes",
-		"Hat"
+		"Byxor",
+		"Skjorta",
+		"Bord",
+		"Skor",
+		"Hatt"
 		];
 		return choice(data, this.rnd);
 	}

@@ -1963,7 +1963,7 @@ class Faker_lv : Faker {
 	}
 
 	///
-	string addressCityName() {
+	override string addressCityName() {
 		static enum data = [
 		"Ainaži",
 		"Aizkraukle",

@@ -19,440 +19,6 @@ class Faker_pt_br : Faker {
 	}
 
 	///
-	override string phoneNumberFormats() {
-		static enum data = [
-		"(##) ####-####",
-		"+55 (##) ####-####",
-		"(##) #####-####"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressStateAbbr() {
-		static enum data = [
-		"AC",
-		"AL",
-		"AP",
-		"AM",
-		"BA",
-		"CE",
-		"DF",
-		"ES",
-		"GO",
-		"MA",
-		"MT",
-		"MS",
-		"PA",
-		"PB",
-		"PR",
-		"PE",
-		"PI",
-		"RJ",
-		"RN",
-		"RS",
-		"RO",
-		"RR",
-		"SC",
-		"SP"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressState() {
-		static enum data = [
-		"Acre",
-		"Alagoas",
-		"Amapá",
-		"Amazonas",
-		"Bahia",
-		"Ceará",
-		"Distrito Federal",
-		"Espírito Santo",
-		"Goiás",
-		"Maranhão",
-		"Mato Grosso",
-		"Mato Grosso do Sul",
-		"Minas Gerais",
-		"Pará",
-		"Paraíba",
-		"Paraná",
-		"Pernambuco",
-		"Piauí",
-		"Rio de Janeiro",
-		"Rio Grande do Norte",
-		"Rio Grande do Sul",
-		"Rondônia",
-		"Roraima",
-		"Santa Catarina",
-		"São Paulo",
-		"Sergipe",
-		"Tocantins"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCountry() {
-		static enum data = [
-		"Afeganistão",
-		"Albânia",
-		"Algéria",
-		"Samoa",
-		"Andorra",
-		"Angola",
-		"Anguilla",
-		"Antigua and Barbada",
-		"Argentina",
-		"Armênia",
-		"Aruba",
-		"Austrália",
-		"Áustria",
-		"Alzerbajão",
-		"Bahamas",
-		"Barém",
-		"Bangladesh",
-		"Barbado",
-		"Belgrado",
-		"Bélgica",
-		"Belize",
-		"Benin",
-		"Bermuda",
-		"Bhutan",
-		"Bolívia",
-		"Bôsnia",
-		"Botuasuna",
-		"Bouvetoia",
-		"Brasil",
-		"Arquipélago de Chagos",
-		"Ilhas Virgens",
-		"Brunei",
-		"Bulgária",
-		"Burkina Faso",
-		"Burundi",
-		"Cambójia",
-		"Camarões",
-		"Canadá",
-		"Cabo Verde",
-		"Ilhas Caiman",
-		"República da África Central",
-		"Chad",
-		"Chile",
-		"China",
-		"Ilhas Natal",
-		"Ilhas Cocos",
-		"Colômbia",
-		"Comoros",
-		"Congo",
-		"Ilhas Cook",
-		"Costa Rica",
-		"Costa do Marfim",
-		"Croácia",
-		"Cuba",
-		"Cyprus",
-		"República Tcheca",
-		"Dinamarca",
-		"Djibouti",
-		"Dominica",
-		"República Dominicana",
-		"Equador",
-		"Egito",
-		"El Salvador",
-		"Guiné Equatorial",
-		"Eritrea",
-		"Estônia",
-		"Etiópia",
-		"Ilhas Faroe",
-		"Malvinas",
-		"Fiji",
-		"Finlândia",
-		"França",
-		"Guiné Francesa",
-		"Polinésia Francesa",
-		"Gabão",
-		"Gâmbia",
-		"Georgia",
-		"Alemanha",
-		"Gana",
-		"Gibraltar",
-		"Grécia",
-		"Groelândia",
-		"Granada",
-		"Guadalupe",
-		"Guano",
-		"Guatemala",
-		"Guernsey",
-		"Guiné",
-		"Guiné-Bissau",
-		"Guiana",
-		"Haiti",
-		"Heard Island and McDonald Islands",
-		"Vaticano",
-		"Honduras",
-		"Hong Kong",
-		"Hungria",
-		"Iceland",
-		"Índia",
-		"Indonésia",
-		"Irã",
-		"Iraque",
-		"Irlanda",
-		"Ilha de Man",
-		"Israel",
-		"Itália",
-		"Jamaica",
-		"Japão",
-		"Jersey",
-		"Jordânia",
-		"Cazaquistão",
-		"Quênia",
-		"Kiribati",
-		"Coreia do Norte",
-		"Coreia do Sul",
-		"Kuwait",
-		"Kyrgyz Republic",
-		"República Democrática de Lao People",
-		"Latvia",
-		"Líbano",
-		"Lesotho",
-		"Libéria",
-		"Libyan Arab Jamahiriya",
-		"Liechtenstein",
-		"Lituânia",
-		"Luxemburgo",
-		"Macao",
-		"Macedônia",
-		"Madagascar",
-		"Malawi",
-		"Malásia",
-		"Maldives",
-		"Mali",
-		"Malta",
-		"Ilhas Marshall",
-		"Martinica",
-		"Mauritânia",
-		"Mauritius",
-		"Mayotte",
-		"México",
-		"Micronésia",
-		"Moldova",
-		"Mônaco",
-		"Mongólia",
-		"Montenegro",
-		"Montserrat",
-		"Marrocos",
-		"Moçambique",
-		"Myanmar",
-		"Namibia",
-		"Nauru",
-		"Nepal",
-		"Antilhas Holandesas",
-		"Holanda",
-		"Nova Caledonia",
-		"Nova Zelândia",
-		"Nicarágua",
-		"Nigéria",
-		"Niue",
-		"Ilha Norfolk",
-		"Northern Mariana Islands",
-		"Noruega",
-		"Oman",
-		"Paquistão",
-		"Palau",
-		"Território da Palestina",
-		"Panamá",
-		"Nova Guiné Papua",
-		"Paraguai",
-		"Peru",
-		"Filipinas",
-		"Polônia",
-		"Portugal",
-		"Puerto Rico",
-		"Qatar",
-		"Romênia",
-		"Rússia",
-		"Ruanda",
-		"São Bartolomeu",
-		"Santa Helena",
-		"Santa Lúcia",
-		"Saint Martin",
-		"Saint Pierre and Miquelon",
-		"Saint Vincent and the Grenadines",
-		"Samoa",
-		"San Marino",
-		"Sao Tomé e Príncipe",
-		"Arábia Saudita",
-		"Senegal",
-		"Sérvia",
-		"Seychelles",
-		"Serra Leoa",
-		"Singapura",
-		"Eslováquia",
-		"Eslovênia",
-		"Ilhas Salomão",
-		"Somália",
-		"África do Sul",
-		"South Georgia and the South Sandwich Islands",
-		"Spanha",
-		"Sri Lanka",
-		"Sudão",
-		"Suriname",
-		"Svalbard & Jan Mayen Islands",
-		"Swaziland",
-		"Suécia",
-		"Suíça",
-		"Síria",
-		"Taiwan",
-		"Tajiquistão",
-		"Tanzânia",
-		"Tailândia",
-		"Timor-Leste",
-		"Togo",
-		"Tokelau",
-		"Tonga",
-		"Trinidá e Tobago",
-		"Tunísia",
-		"Turquia",
-		"Turcomenistão",
-		"Turks and Caicos Islands",
-		"Tuvalu",
-		"Uganda",
-		"Ucrânia",
-		"Emirados Árabes Unidos",
-		"Reino Unido",
-		"Estados Unidos da América",
-		"Estados Unidos das Ilhas Virgens",
-		"Uruguai",
-		"Uzbequistão",
-		"Vanuatu",
-		"Venezuela",
-		"Vietnã",
-		"Wallis and Futuna",
-		"Sahara",
-		"Yemen",
-		"Zâmbia",
-		"Zimbábue"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressDefaultCountry() {
-		static enum data = [
-		"Brasil"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCitySuffix() {
-		static enum data = [
-		"do Descoberto",
-		"de Nossa Senhora",
-		"do Norte",
-		"do Sul"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCityPrefix() {
-		static enum data = [
-		"Nova",
-		"Velha",
-		"Grande",
-		"Vila",
-		"Município de"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressBuildingNumber() {
-		static enum data = [
-		"#####",
-		"####",
-		"###"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressPostcode() {
-		static enum data = [
-		"#####",
-		"#####-###"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressStreetSuffix() {
-		static enum data = [
-		"Rua",
-		"Avenida",
-		"Travessa",
-		"Ponte",
-		"Alameda",
-		"Marginal",
-		"Viela",
-		"Rodovia"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		static enum data = [
-		"S.A.",
-		"LTDA",
-		"e Associados",
-		"Comércio"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyName() {
-		switch(uniform(0, 3, this.rnd)) {
-			case 0:
-				return format!"%s %s"(nameLastName(), companySuffix());
-			case 1:
-				return format!"%s-%s"(nameLastName(), nameLastName());
-			case 2:
-				return format!"%s, %s e %s"(nameLastName(), nameLastName(), nameLastName());
-			default: assert(false);
-		}
-	}
-
-	///
-	override string internetFreeEmail() {
-		static enum data = [
-		"gmail.com",
-		"yahoo.com",
-		"hotmail.com",
-		"live.com",
-		"bol.com.br"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"br",
-		"com",
-		"biz",
-		"info",
-		"name",
-		"net",
-		"org"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string loremWords() {
 		static enum data = [
 		"alias",
@@ -709,6 +275,126 @@ class Faker_pt_br : Faker {
 	}
 
 	///
+	override string companySuffix() {
+		static enum data = [
+		"S.A.",
+		"LTDA",
+		"EIRELI",
+		"e Associados",
+		"Comércio"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companyName() {
+		switch(uniform(0, 3, this.rnd)) {
+			case 0:
+				return format!"%s %s"(nameLastName(), companySuffix());
+			case 1:
+				return format!"%s-%s"(nameLastName(), nameLastName());
+			case 2:
+				return format!"%s, %s e %s"(nameLastName(), nameLastName(), nameLastName());
+			default: assert(false);
+		}
+	}
+
+	///
+	override string nameMaleFirstName() {
+		static enum data = [
+		"Alessandro",",
+		"Alexandre",",
+		"Anthony",",
+		"Antônio",",
+		"Arthur",",
+		"Benjamin",",
+		"Benício",",
+		"Bernardo",",
+		"Breno",",
+		"Bryan",",
+		"Caio",",
+		"Calebe",",
+		"Carlos",",
+		"Cauã",",
+		"César",",
+		"Daniel",",
+		"Danilo",",
+		"Davi",",
+		"Davi Lucca",",
+		"Deneval",",
+		"Eduardo",",
+		"Elísio",",
+		"Emanuel",",
+		"Enzo",",
+		"Enzo Gabriel",",
+		"Fabiano",",
+		"Fabrício",",
+		"Feliciano",",
+		"Felipe",",
+		"Frederico",",
+		"Fábio",",
+		"Félix",",
+		"Gabriel",",
+		"Gael",",
+		"Guilherme",",
+		"Gustavo",",
+		"Gúbio",",
+		"Heitor",",
+		"Henrique",",
+		"Hugo",",
+		"Hélio",",
+		"Isaac",",
+		"Joaquim",",
+		"João",",
+		"João Lucas",",
+		"João Miguel",",
+		"João Pedro",",
+		"Júlio",",
+		"Júlio César",",
+		"Kléber",",
+		"Ladislau",",
+		"Leonardo",",
+		"Lorenzo",",
+		"Lucas",",
+		"Lucca",",
+		"Marcelo",",
+		"Marcos",",
+		"Matheus",",
+		"Miguel",",
+		"Murilo",",
+		"Nataniel",",
+		"Nicolas",",
+		"Noah",",
+		"Norberto",",
+		"Pablo",",
+		"Paulo",",
+		"Pedro",",
+		"Pedro Henrique",",
+		"Pietro",",
+		"Rafael",",
+		"Raul",",
+		"Ricardo",",
+		"Roberto",",
+		"Salvador",",
+		"Samuel",",
+		"Silas",",
+		"Sirineu",",
+		"Tertuliano",",
+		"Théo",",
+		"Vicente",",
+		"Vitor",",
+		"Víctor",",
+		"Warley",",
+		"Washington",",
+		"Yago",",
+		"Yango",",
+		"Yuri",",
+		"Ígor""
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string nameSuffix() {
 		static enum data = [
 		"Jr.",
@@ -719,110 +405,177 @@ class Faker_pt_br : Faker {
 	}
 
 	///
-	override string namePrefix() {
-		static enum data = [
-		"Sr.",
-		"Sra.",
-		"Srta.",
-		"Dr."
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string nameFirstName() {
 		static enum data = [
-		"Alessandro",
 		"Alessandra",
+		"Alessandro",
 		"Alexandre",
+		"Alice",
 		"Aline",
+		"Alícia",
+		"Ana Clara",
+		"Ana Júlia",
+		"Ana Laura",
+		"Ana Luiza",
+		"Anthony",
+		"Antonella",
 		"Antônio",
+		"Arthur",
+		"Beatriz",
+		"Benjamin",
+		"Benício",
+		"Bernardo",
 		"Breno",
 		"Bruna",
-		"Carlos",
+		"Bryan",
+		"Caio",
+		"Calebe",
 		"Carla",
-		"Célia",
+		"Carlos",
+		"Cauã",
 		"Cecília",
+		"Clara",
+		"Célia",
 		"César",
-		"Danilo",
 		"Dalila",
+		"Daniel",
+		"Danilo",
+		"Davi",
+		"Davi Lucca",
 		"Deneval",
-		"Eduardo",
 		"Eduarda",
-		"Esther",
+		"Eduardo",
+		"Elisa",
+		"Eloá",
 		"Elísio",
-		"Fábio",
-		"Fabrício",
-		"Fabrícia",
-		"Félix",
-		"Felícia",
-		"Feliciano",
-		"Frederico",
+		"Emanuel",
+		"Emanuelly",
+		"Enzo",
+		"Enzo Gabriel",
+		"Esther",
 		"Fabiano",
-		"Gustavo",
+		"Fabrícia",
+		"Fabrício",
+		"Feliciano",
+		"Felipe",
+		"Felícia",
+		"Frederico",
+		"Fábio",
+		"Félix",
+		"Gabriel",
+		"Gael",
+		"Giovanna",
 		"Guilherme",
+		"Gustavo",
 		"Gúbio",
 		"Heitor",
-		"Hélio",
+		"Helena",
+		"Heloísa",
+		"Henrique",
 		"Hugo",
+		"Hélio",
+		"Isaac",
 		"Isabel",
 		"Isabela",
-		"Ígor",
-		"João",
-		"Joana",
-		"Júlio César",
-		"Júlio",
-		"Júlia",
+		"Isabella",
+		"Isabelly",
+		"Isadora",
+		"Isis",
 		"Janaína",
+		"Joana",
+		"Joaquim",
+		"João",
+		"João Lucas",
+		"João Miguel",
+		"João Pedro",
+		"Júlia",
+		"Júlio",
+		"Júlio César",
 		"Karla",
 		"Kléber",
-		"Lucas",
-		"Lorena",
-		"Lorraine",
-		"Larissa",
 		"Ladislau",
-		"Marcos",
-		"Meire",
-		"Marcelo",
+		"Lara",
+		"Larissa",
+		"Laura",
+		"Lavínia",
+		"Leonardo",
+		"Liz",
+		"Lorena",
+		"Lorenzo",
+		"Lorraine",
+		"Lucas",
+		"Lucca",
+		"Luiza",
+		"Lívia",
+		"Maitê",
+		"Manuela",
 		"Marcela",
+		"Marcelo",
+		"Marcos",
 		"Margarida",
-		"Mércia",
-		"Márcia",
-		"Marli",
-		"Morgana",
 		"Maria",
-		"Norberto",
-		"Natália",
+		"Maria Alice",
+		"Maria Cecília",
+		"Maria Clara",
+		"Maria Eduarda",
+		"Maria Helena",
+		"Maria Júlia",
+		"Maria Luiza",
+		"Mariana",
+		"Marina",
+		"Marli",
+		"Matheus",
+		"Meire",
+		"Melissa",
+		"Miguel",
+		"Morgana",
+		"Murilo",
+		"Márcia",
+		"Mércia",
 		"Nataniel",
+		"Natália",
+		"Nicolas",
+		"Noah",
+		"Norberto",
 		"Núbia",
 		"Ofélia",
-		"Paulo",
-		"Paula",
 		"Pablo",
+		"Paula",
+		"Paulo",
 		"Pedro",
-		"Raul",
+		"Pedro Henrique",
+		"Pietro",
 		"Rafael",
 		"Rafaela",
+		"Raul",
+		"Rebeca",
 		"Ricardo",
-		"Roberto",
 		"Roberta",
-		"Sílvia",
-		"Sílvia",
-		"Silas",
-		"Suélen",
-		"Sara",
+		"Roberto",
 		"Salvador",
+		"Samuel",
+		"Sara",
+		"Sarah",
+		"Silas",
 		"Sirineu",
+		"Sophia",
+		"Suélen",
+		"Sílvia",
 		"Talita",
 		"Tertuliano",
+		"Théo",
+		"Valentina",
 		"Vicente",
-		"Víctor",
+		"Vitor",
 		"Vitória",
-		"Yango",
-		"Yago",
-		"Yuri",
+		"Víctor",
+		"Warley",
 		"Washington",
-		"Warley"
+		"Yago",
+		"Yango",
+		"Yasmin",
+		"Yuri",
+		"Ígor"
 		];
 		return choice(data, this.rnd);
 	}
@@ -852,6 +605,672 @@ class Faker_pt_br : Faker {
 		"Martins",
 		"Moreira",
 		"Albuquerque"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameName() {
+		switch(uniform(0, 6, this.rnd)) {
+			case 0:
+				return format!"%s %s %s"(namePrefix(), nameFirstName(), nameLastName());
+			case 1:
+				return format!"%s %s %s"(nameFirstName(), nameLastName(), nameSuffix());
+			case 2:
+				return format!"%s %s"(nameFirstName(), nameLastName());
+			case 3:
+				return format!"%s %s"(nameFirstName(), nameLastName());
+			case 4:
+				return format!"%s %s"(nameMaleFirstName(), nameLastName());
+			case 5:
+				return format!"%s %s"(nameFemaleFirstName(), nameLastName());
+			default: assert(false);
+		}
+	}
+
+	///
+	override string nameFemaleFirstName() {
+		static enum data = [
+		"Alessandra",",
+		"Alice",",
+		"Aline",",
+		"Alícia",",
+		"Ana Clara",",
+		"Ana Júlia",",
+		"Ana Laura",",
+		"Ana Luiza",",
+		"Antonella",",
+		"Beatriz",",
+		"Bruna",",
+		"Carla",",
+		"Cecília",",
+		"Clara",",
+		"Célia",",
+		"Dalila",",
+		"Eduarda",",
+		"Elisa",",
+		"Eloá",",
+		"Emanuelly",",
+		"Esther",",
+		"Fabrícia",",
+		"Felícia",",
+		"Giovanna",",
+		"Helena",",
+		"Heloísa",",
+		"Isabel",",
+		"Isabela",",
+		"Isabella",",
+		"Isabelly",",
+		"Isis",",
+		"Janaína",",
+		"Joana",",
+		"Júlia",",
+		"Karla",",
+		"Lara",",
+		"Larissa",",
+		"Laura",",
+		"Lavínia",",
+		"Liz",",
+		"Lorena",",
+		"Lorraine",",
+		"Luiza",",
+		"Lívia",",
+		"Maitê",",
+		"Manuela",",
+		"Marcela",",
+		"Margarida",",
+		"Maria",",
+		"Maria Alice",",
+		"Maria Cecília",",
+		"Maria Clara",",
+		"Maria Eduarda",",
+		"Maria Helena",",
+		"Maria Júlia",",
+		"Maria Luiza",",
+		"Mariana",",
+		"Marina",",
+		"Marli",",
+		"Meire",",
+		"Melissa",",
+		"Morgana",",
+		"Márcia",",
+		"Mércia",",
+		"Natália",",
+		"Núbia",",
+		"Ofélia",",
+		"Paula",",
+		"Rafaela",",
+		"Rebeca",",
+		"Roberta",",
+		"Sara",",
+		"Sarah",",
+		"Sophia",",
+		"Suélen",",
+		"Sílvia",",
+		"Talita",",
+		"Valentina",",
+		"Vitória",",
+		"Yasmin""
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string namePrefix() {
+		static enum data = [
+		"Sr.",
+		"Sra.",
+		"Srta.",
+		"Dr.",
+		"Dra."
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string commerceColor() {
+		static enum data = [
+		"amarelo",
+		"âmbar",
+		"ametista",
+		"azul",
+		"azul celeste",
+		"azul marinho",
+		"azul petróleo",
+		"açafrão",
+		"bordô",
+		"bronze",
+		"caramelo",
+		"castanho",
+		"cenoura",
+		"cinza",
+		"cobre",
+		"coral",
+		"dourado",
+		"escarlate",
+		"esmeralda",
+		"ferrugem",
+		"fuligem",
+		"fúchsia",
+		"grená",
+		"índigo",
+		"jade",
+		"laranja",
+		"lilás",
+		"limão",
+		"madeira",
+		"magenta",
+		"marrom",
+		"ouro",
+		"pele",
+		"prata",
+		"preto",
+		"púrpura",
+		"rosa",
+		"roxo",
+		"salmão",
+		"turquesa",
+		"verde",
+		"verde lima",
+		"verde-azulado",
+		"vermelho",
+		"violeta"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string commerceProductNameAdjective() {
+		static enum data = [
+		"Pequeno",
+		"Ergonômico",
+		"Rústico",
+		"Inteligente",
+		"Lindo",
+		"Incrível",
+		"Fantástico",
+		"Prático",
+		"Lustroso",
+		"Impressionante",
+		"Genérico",
+		"Feito à mão",
+		"Licenciado",
+		"Refinado",
+		"Sem marca",
+		"Gostoso"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string commerceProductNameMaterial() {
+		static enum data = [
+		"Aço",
+		"Madeira",
+		"Concreto",
+		"Plástico",
+		"Algodão",
+		"Granito",
+		"Borracha",
+		"Metal",
+		"Macio",
+		"Fresco",
+		"Congelado"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string commerceProductNameProduct() {
+		static enum data = [
+		"Cadeira",
+		"Carro",
+		"Computador",
+		"Teclado",
+		"Mouse",
+		"Bicicleta",
+		"Bola",
+		"Luvas",
+		"Calças",
+		"Camiseta",
+		"Mesa",
+		"Sapatos",
+		"Chapéu",
+		"Toalhas",
+		"Sabonete",
+		"Atum",
+		"Frango",
+		"Peixe",
+		"Queijo",
+		"Bacon",
+		"Pizza",
+		"Salada",
+		"Salsicha",
+		"Salgadinhos"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string commerceDepartment() {
+		static enum data = [
+		"Livros",
+		"Filmes",
+		"Música",
+		"Jogos",
+		"Eletrônicos",
+		"Computadores",
+		"Casa",
+		"Jardim",
+		"Ferramentas",
+		"Mercearia",
+		"Saúde",
+		"Beleza",
+		"Brinquedos",
+		"Crianças",
+		"Bebê",
+		"Roupas",
+		"Sapatos",
+		"Jóias",
+		"Esportes",
+		"Turismo",
+		"Automotivo",
+		"Industrial"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressStateAbbr() {
+		static enum data = [
+		"AC",
+		"AL",
+		"AP",
+		"AM",
+		"BA",
+		"CE",
+		"DF",
+		"ES",
+		"GO",
+		"MA",
+		"MT",
+		"MS",
+		"MG",
+		"PA",
+		"PB",
+		"PR",
+		"PE",
+		"PI",
+		"RJ",
+		"RN",
+		"RS",
+		"RO",
+		"RR",
+		"SC",
+		"SP",
+		"SE",
+		"TO"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressState() {
+		static enum data = [
+		"Acre",
+		"Alagoas",
+		"Amapá",
+		"Amazonas",
+		"Bahia",
+		"Ceará",
+		"Distrito Federal",
+		"Espírito Santo",
+		"Goiás",
+		"Maranhão",
+		"Mato Grosso",
+		"Mato Grosso do Sul",
+		"Minas Gerais",
+		"Pará",
+		"Paraíba",
+		"Paraná",
+		"Pernambuco",
+		"Piauí",
+		"Rio de Janeiro",
+		"Rio Grande do Norte",
+		"Rio Grande do Sul",
+		"Rondônia",
+		"Roraima",
+		"Santa Catarina",
+		"São Paulo",
+		"Sergipe",
+		"Tocantins"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressCountry() {
+		static enum data = [
+		"Afeganistão",
+		"Albânia",
+		"Algéria",
+		"Samoa",
+		"Andorra",
+		"Angola",
+		"Anguila",
+		"Antigua and Barbada",
+		"Argentina",
+		"Armênia",
+		"Aruba",
+		"Austrália",
+		"Áustria",
+		"Azerbaijão",
+		"Bahamas",
+		"Barém",
+		"Bangladesh",
+		"Barbados",
+		"Bélgica",
+		"Belize",
+		"Benin",
+		"Bermuda",
+		"Butão",
+		"Bolívia",
+		"Bôsnia",
+		"Botsuana",
+		"Ilha Bouvet",
+		"Brasil",
+		"Arquipélago de Chagos",
+		"Ilhas Virgens",
+		"Brunei",
+		"Bulgária",
+		"Burkina Faso",
+		"Burundi",
+		"Camboja",
+		"Camarões",
+		"Canadá",
+		"Cabo Verde",
+		"Ilhas Caiman",
+		"República da África Central",
+		"Chade",
+		"Chile",
+		"China",
+		"Ilha do Natal",
+		"Ilhas Cocos",
+		"Colômbia",
+		"Comores",
+		"Congo",
+		"Ilhas Cook",
+		"Costa Rica",
+		"Costa do Marfim",
+		"Croácia",
+		"Cuba",
+		"Chipre",
+		"República Tcheca",
+		"Dinamarca",
+		"Jibuti",
+		"Dominica",
+		"República Dominicana",
+		"Equador",
+		"Egito",
+		"El Salvador",
+		"Guiné Equatorial",
+		"Eritreia",
+		"Estônia",
+		"Etiópia",
+		"Ilhas Faroe",
+		"Malvinas",
+		"Fiji",
+		"Finlândia",
+		"França",
+		"Guiné Francesa",
+		"Polinésia Francesa",
+		"Gabão",
+		"Gâmbia",
+		"Georgia",
+		"Alemanha",
+		"Gana",
+		"Gibraltar",
+		"Grécia",
+		"Groelândia",
+		"Granada",
+		"Guadalupe",
+		"Guatemala",
+		"Guernesey",
+		"Guiné",
+		"Guiné-Bissau",
+		"Guiana",
+		"Haiti",
+		"Ilhas Heard e McDonald",
+		"Vaticano",
+		"Honduras",
+		"Hong Kong",
+		"Hungria",
+		"Islândia",
+		"Índia",
+		"Indonésia",
+		"Irã",
+		"Iraque",
+		"Irlanda",
+		"Ilha de Man",
+		"Israel",
+		"Itália",
+		"Jamaica",
+		"Japão",
+		"Jersey",
+		"Jordânia",
+		"Cazaquistão",
+		"Quênia",
+		"Quiribati",
+		"Coreia do Norte",
+		"Coreia do Sul",
+		"Kuwait",
+		"Quirguistão",
+		"Laos",
+		"Latvia",
+		"Líbano",
+		"Lesoto",
+		"Libéria",
+		"Líbia",
+		"Liechtenstein",
+		"Lituânia",
+		"Luxemburgo",
+		"Macao",
+		"Macedônia",
+		"Madagascar",
+		"Malawi",
+		"Malásia",
+		"Maldives",
+		"Mali",
+		"Malta",
+		"Ilhas Marshall",
+		"Martinica",
+		"Mauritânia",
+		"Maurícia",
+		"Maiote",
+		"México",
+		"Micronésia",
+		"Moldávia",
+		"Mônaco",
+		"Mongólia",
+		"Montenegro",
+		"Montserrat",
+		"Marrocos",
+		"Moçambique",
+		"Myanmar",
+		"Namibia",
+		"Nauru",
+		"Nepal",
+		"Antilhas Holandesas",
+		"Holanda",
+		"Nova Caledonia",
+		"Nova Zelândia",
+		"Nicarágua",
+		"Nigéria",
+		"Niue",
+		"Ilha Norfolk",
+		"Marianas Setentrionais",
+		"Noruega",
+		"Omã",
+		"Paquistão",
+		"Palau",
+		"Território da Palestina",
+		"Panamá",
+		"Papua-Nova Guiné",
+		"Paraguai",
+		"Peru",
+		"Filipinas",
+		"Polônia",
+		"Portugal",
+		"Porto Rico",
+		"Qatar",
+		"Romênia",
+		"Rússia",
+		"Ruanda",
+		"São Bartolomeu",
+		"Santa Helena",
+		"Santa Lúcia",
+		"São Martinho",
+		"São Pedro e Miquelão",
+		"São Vicente e Granadinas",
+		"Samoa",
+		"San Marino",
+		"Sao Tomé e Príncipe",
+		"Arábia Saudita",
+		"Senegal",
+		"Sérvia",
+		"Seicheles",
+		"Serra Leoa",
+		"Singapura",
+		"Eslováquia",
+		"Eslovênia",
+		"Ilhas Salomão",
+		"Somália",
+		"África do Sul",
+		"Ilhas Geórgia do Sul e Sandwich do Sul",
+		"Espanha",
+		"Sri Lanka",
+		"Sudão",
+		"Suriname",
+		"Ilhas Svalbard & Jan Mayen",
+		"Suazilândia",
+		"Suécia",
+		"Suíça",
+		"Síria",
+		"Taiwan",
+		"Tajiquistão",
+		"Tanzânia",
+		"Tailândia",
+		"Timor-Leste",
+		"Togo",
+		"Toquelau",
+		"Tonga",
+		"Trinidad e Tobago",
+		"Tunísia",
+		"Turquia",
+		"Turcomenistão",
+		"Turcas e Caicos",
+		"Tuvalu",
+		"Uganda",
+		"Ucrânia",
+		"Emirados Árabes Unidos",
+		"Reino Unido",
+		"Estados Unidos da América",
+		"Estados Unidos das Ilhas Virgens",
+		"Uruguai",
+		"Uzbequistão",
+		"Vanuatu",
+		"Venezuela",
+		"Vietnã",
+		"Wallis e Futuna",
+		"Iêmen",
+		"Zâmbia",
+		"Zimbábue"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressDefaultCountry() {
+		static enum data = [
+		"Brasil"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressCitySuffix() {
+		static enum data = [
+		"do Descoberto",
+		"de Nossa Senhora",
+		"do Norte",
+		"do Sul"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressBuildingNumber() {
+		static enum data = [
+		"#####",
+		"####",
+		"###"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressPostcode() {
+		static enum data = [
+		"#####-###"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressStreetSuffix() {
+		static enum data = [
+		"Rua",
+		"Avenida",
+		"Travessa",
+		"Alameda",
+		"Marginal",
+		"Rodovia"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string phoneNumberFormats() {
+		static enum data = [
+		"(##) ####-####",
+		"+55 (##) ####-####",
+		"(##) #####-####"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string internetFreeEmail() {
+		static enum data = [
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com",
+		"live.com",
+		"bol.com.br"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		static enum data = [
+		"br",
+		"com",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org"
 		];
 		return choice(data, this.rnd);
 	}

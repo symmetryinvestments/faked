@@ -54,7 +54,7 @@ class Faker_fr_ch : Faker {
 	}
 
 	///
-	string addressCityName() {
+	override string addressCityName() {
 		static enum data = [
 		"Aarau",
 		"Adliswil",

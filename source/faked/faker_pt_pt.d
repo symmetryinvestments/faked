@@ -710,7 +710,7 @@ class Faker_pt_pt : Faker {
 	}
 
 	///
-	string addressCityName() {
+	override string addressCityName() {
 		static enum data = [
 		"Abrantes",
 		"Agualva-Cacém",
@@ -1184,7 +1184,9 @@ class Faker_pt_pt : Faker {
 	override string phoneNumberFormats() {
 		static enum data = [
 		"+351 2########",
+		"+351 3########",
 		"+351 91#######",
+		"+351 92#######",
 		"+351 93#######",
 		"+351 96#######"
 		];

@@ -387,7 +387,7 @@ class Faker_de_at : Faker {
 	}
 
 	///
-	string addressCityName() {
+	override string addressCityName() {
 		static enum data = [
 		"Aigen im Mühlkreis",
 		"Allerheiligen bei Wildon",

@@ -124,7 +124,7 @@ class Faker_ge : Faker {
 	}
 
 	///
-	string addressCityName() {
+	override string addressCityName() {
 		static enum data = [
 		"აბასთუმანი",
 		"აბაშა",

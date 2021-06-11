@@ -1234,7 +1234,7 @@ class Faker_nl_be : Faker_nl {
 			case 0:
 				return format!"%s"(addressCityPrefix());
 			case 1:
-				return format!"%s}%s"(addressCityPrefix(), addressCitySuffix());
+				return format!"%s%s"(addressCityPrefix(), addressCitySuffix());
 			default: assert(false);
 		}
 	}

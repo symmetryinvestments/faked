@@ -325,6 +325,29 @@ class Faker_es : Faker {
 	}
 
 	///
+	override string nameMaleFirstName() {
+		static enum data = [
+		"Josep",
+		"Ángel",
+		"Daniel",
+		"Manuel",
+		"Pedro",
+		"Salvador",
+		"Rubén",
+		"Iván",
+		"Miguel",
+		"Jorge",
+		"Sergi",
+		"Josep",
+		"Ricardo",
+		"Carles",
+		"Jordi",
+		"Manuel"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string nameSuffix() {
 		static enum data = [
 		"Jr.",
@@ -338,16 +361,6 @@ class Faker_es : Faker {
 		"DDS",
 		"PhD",
 		"DVM"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string namePrefix() {
-		static enum data = [
-		"Sr.",
-		"Sra.",
-		"Sta."
 		];
 		return choice(data, this.rnd);
 	}
@@ -1320,6 +1333,34 @@ class Faker_es : Faker {
 				return format!"%s %s %s"(nameFirstName(), nameLastName(), nameLastName());
 			default: assert(false);
 		}
+	}
+
+	///
+	override string nameFemaleFirstName() {
+		static enum data = [
+		"Marta",
+		"Andrea",
+		"Ana",
+		"Anni",
+		"Laura",
+		"Maica",
+		"Laura",
+		"Lorena",
+		"Matilde",
+		"Jennifer",
+		"Roser"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string namePrefix() {
+		static enum data = [
+		"Sr.",
+		"Sra.",
+		"Sta."
+		];
+		return choice(data, this.rnd);
 	}
 
 	///

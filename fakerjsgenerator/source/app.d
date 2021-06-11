@@ -1,5 +1,6 @@
 module fakerjsgenerator;
 
+import std.algorithm;
 import std.array;
 import std.stdio;
 import std.process;
@@ -7,7 +8,7 @@ import std.format;
 import std.conv : to;
 import std.exception : enforce;
 import std.file : dirEntries, SpanMode, isDir, readText, isFile, exists,
-       mkdirRecurse;
+       mkdirRecurse, read;
 import std.algorithm;
 import std.string;
 import std.regex;
@@ -23,15 +24,27 @@ void main() {
 	FakerData[] locales = scrapeFakers();
     mkdirRecurse(outputDir);
 
-    auto list = [
+    auto oldList = [
         "af_ZA", "de", "en_CA", "en_US", /*"fa",*/ "ge", "ko", "nl", "pt_PT",
         "sv", "zh_CN", /*"ar",*/ "de_AT", "en_AU", "en_GB", "en_ZA", "fr", "id_ID",
-        "lv", "nl_BE", "ro", "tr", "zh_TW", /*"az",*/ "de_CH", "en_au_ocker",
+        "lv", "nl_BE", "ro", "tr", "zh_TW", /*"az",*/ "de_CH", "en_AU_ocker",
         "en_IE", "es", "fr_CA", "it", "nb_NO", "pl", "ru", "uk", "zu_ZA",
-        /*"cz",*/ "el", "en_BORK", "en_IND", /*"es_MX",*/ "fr_CH", "ja", "nep",
+        /*"cz",*/ "el", "en_BORK", "en_IND", /*"es_MX",*/ "fr_CH", "ja",
         "pt_BR", /*"sk",*/ "vi"
+    ].sort.array;
 
-    ];
+	auto list = [
+		/*"az",*/ /*"ar",*/ /*"cz",*/ "de", "de_AT", "de_CH", "en_AU", "en_AU_ocker",
+		"en_BORK", "en_CA", "en_GB", "en_IE", "en_IND", "en_US", "en_ZA", "es",
+		/*"es_MX",*/ /*"fa",*/ "fi", "fr", "fr_CA", "fr_CH", "ge", "hy", "hr", "id_ID",
+		"it", "ja", "ko", "nb_NO", "ne", "nl", "nl_BE", "pl", "pt_BR", "pt_PT",
+		"ro", "ru", /*"sk",*/ "sv", "tr", "uk", "vi", "zh_CN", "zh_TW", "af_ZA",
+		"el", "lv", "zu_ZA"
+
+	].sort.array;
+
+	writefln("LIST OLDLIST\n%s", setDifference(list, oldList));
+	writefln("OLDLIST LIST\n%s", setDifference(oldList, list));
 
     auto en = locales.find!(a => a.locale == "en").front;
     string[] methods = buildFile("en", en, []);
@@ -46,9 +59,8 @@ void main() {
     ];
     methods = methods.sort.uniq.array;
 
-    writefln("%(%s\n%)", methods);
+    //writefln("%(%s\n%)", methods);
     foreach(ll; list) {
-        writeln(ll);
 	    auto f = locales.find!(a => a.locale == ll);
         assert(!f.empty, ll);
         buildFile(ll, f.front, methods);
@@ -124,6 +136,10 @@ string[] buildFile(string ll, FakerData entry, string[] toOverride) {
                     methods ~= gen.buildCommerceProductName(d.data);
                     continue;
                 }
+				if(d.data.canFind("concat(")) {
+					writeln("\n\nTODO\nTODO\n\n");
+					continue;
+				}
 				//write(key, ".", sub, " ");
 				TypeLines tl = jssplit(d.data);
 				//writeln(tl.type);
@@ -279,7 +295,8 @@ FakerData scrapeFaker(string foldername) {
 				if(isFile(g.name)) {
 					string s = g.name;
 					s = s[s.lastIndexOf("/") + 1 .. $ - 3];
-					entry.subs[s] = new Direct(readText(g.name));
+					auto t = cast(string)read(g.name);
+					entry.subs[s] = new Direct(t);
 				} else {
 					auto sub = new Sub();
 					sub.index = readText(g.name ~ "/index.js");
@@ -321,7 +338,7 @@ void buildFallback(FakerData fd) {
 			if(!m.empty) {
 				string f = m.front.hit.strip("'");
 				assert(f == fd.locale,
-					format("%s %s", fd.locale, f)
+					format("%s %s %s", fd.locale, f, t)
 				);
 				m.popFront();
 				f = m.front.hit.strip("'");

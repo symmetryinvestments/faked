@@ -65,8 +65,10 @@ TypeLines jssplit(string input) {
 		//writeln("\t\tshort");
 		return TypeLines(Type.undefined, []);
 	}
-	assert(lines.front.startsWith("module[\"exports\"] = "),
-			lines.front ~ "\n" ~ input);
+	assert(lines.front.startsWith("module[\"exports\"] = ")
+				|| lines.front.startsWith("module.exports = ")
+				|| lines.front.startsWith("module['exports'] = ")
+			, lines.front ~ "\n" ~ input);
 	lines = lines[1 .. $];
 	//writeln(lines);
 	assert(lines.back.startsWith("];")

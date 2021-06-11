@@ -15,10 +15,12 @@ import iban;
 class Generator {
     import fakerjsgenerator;
 	string output;
+	string locale;
     string[] toOverride;
 
 	this(string locale, string fallback, string[] toOverride) {
         this.toOverride = toOverride;
+		this.locale = locale;
 		if(locale == "en") {
 			this.output = `
 ///
@@ -811,11 +813,23 @@ class Faker_%1$s : Faker%2$s {
     }
 
 	string buildString(string name, string postfix, string[] lines) {
+		import std.utf : byUTF;
 		string fname = name ~ "_" ~ postfix;
 		fname = fname.camelCase();
 
+		//writefln("%s %s", fname, this.locale);
+		string[] nlines;
+		foreach(idx, ref line; lines) {
+			try {
+				string s = line.byUTF!dchar().to!string();
+				nlines ~= s;
+			} catch(Throwable t) {
+				writefln("%s %s", idx, line);
+			}
+		}
+
         this.buildStringImpl(fname,
-			lines.map!(a => "\"" ~ a ~ "\"").joiner(",\n\t\t").to!string()
+			nlines.map!(a => "\"" ~ a ~ "\"").joiner(",\n\t\t").to!string()
         );
 
         return fname;
