@@ -813,7 +813,7 @@ class Faker_%1$s : Faker%2$s {
     }
 
 	string buildString(string name, string postfix, string[] lines) {
-		import std.utf : byUTF;
+		import std.utf : byUTF, replacementDchar;
 		string fname = name ~ "_" ~ postfix;
 		fname = fname.camelCase();
 
@@ -821,7 +821,10 @@ class Faker_%1$s : Faker%2$s {
 		string[] nlines;
 		foreach(idx, ref line; lines) {
 			try {
-				string s = line.byUTF!dchar().to!string();
+				string s = line.byUTF!dchar()
+					.filter!(it => it != replacementDchar)
+					.to!string();
+				writefln("'%s'", s);
 				nlines ~= s;
 			} catch(Throwable t) {
 				writefln("%s %s", idx, line);
@@ -829,7 +832,9 @@ class Faker_%1$s : Faker%2$s {
 		}
 
         this.buildStringImpl(fname,
-			nlines.map!(a => "\"" ~ a ~ "\"").joiner(",\n\t\t").to!string()
+			nlines.map!(a => "\"" ~ a ~ "\"")
+				.joiner(",\n\t\t")
+				.to!string()
         );
 
         return fname;
