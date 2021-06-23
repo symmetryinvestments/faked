@@ -48,8 +48,8 @@ void main() {
 
     auto en = locales.find!(a => a.locale == "en").front;
     string[] methods = buildFile("en", en, []);
-    methods ~= ["addressLatitude", "addressLongitude", "fianceAccount",
-        "fianceRoutingNumber", "financeMask", "financeBitcoinAddress",
+    methods ~= ["addressLatitude", "addressLongitude", "financeAccount",
+        "financeRoutingNumber", "financeMask", "financeBitcoinAddress",
         "phoneNumber", "commerceProductName", "companyCatchPhrase",
         "companyBs", "internetUserName", "internetProtocol",
         "internetDomainWord", "internetDomainName", "internetUrl",
