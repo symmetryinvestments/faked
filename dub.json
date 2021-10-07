@@ -3,7 +3,7 @@
 		"Robert Schadek"
 	],
 	"copyright": "Copyright © 2019 Symmetry Investments",
-	"description": "D library to create fake data",
+	"description": "Library to create fake data based on faker.js (generate names, emails, addresses and much more)",
 	"license": "MIT",
 	"name": "faked",
     "targetType": "library"
