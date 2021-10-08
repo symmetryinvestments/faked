@@ -1546,10 +1546,10 @@ class Faker_id_id : Faker {
 	///
 	override string internetFreeEmail() {
 		static enum data = [
-		"'gmail.com'",
-		"'yahoo.com'",
-		"'gmail.co.id'",
-		"'yahoo.co.id'"
+		"'gmail.com",
+		"'yahoo.com",
+		"'gmail.co.id",
+		"'yahoo.co.id"
 		];
 		return choice(data, this.rnd);
 	}

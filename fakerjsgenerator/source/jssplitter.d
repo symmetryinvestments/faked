@@ -57,7 +57,7 @@ struct TypeLines {
 
 TypeLines jssplit(string input) {
 	string[] lines = split(input, "\n")
-		.map!(a => a.strip("\", \t\n"))
+		.map!(a => a.strip("\", \t\n\r"))
 		.filter!(a => !a.empty && !a.startsWith("//"))
 		.array;
 
@@ -69,7 +69,14 @@ TypeLines jssplit(string input) {
 				|| lines.front.startsWith("module.exports = ")
 				|| lines.front.startsWith("module['exports'] = ")
 			, lines.front ~ "\n" ~ input);
-	lines = lines[1 .. $];
+	lines = lines[1 .. $]
+		.map!(a => {
+			if(a[$ - 1] == '\'') {
+				a = a[0 .. $ - 1];
+			}
+			return a;
+		}())
+		.array;
 	//writeln(lines);
 	assert(lines.back.startsWith("];")
             || lines.back.startsWith("}")

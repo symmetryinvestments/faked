@@ -821,7 +821,7 @@ class Faker_%1$s : Faker%2$s {
 		string[] nlines;
 		foreach(idx, ref line; lines) {
 			try {
-				string s = line.byUTF!dchar()
+				string s = line.replace("\r\n", "\n").byUTF!dchar()
 					.filter!(it => it != replacementDchar)
 					.to!string();
 				writefln("'%s'", s);
