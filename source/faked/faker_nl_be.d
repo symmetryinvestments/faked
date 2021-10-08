@@ -87,9 +87,9 @@ class Faker_nl_be : Faker_nl {
 	///
 	override string addressCityPrefix() {
 		static enum data = [
-		"'s Herenelderen",
-		"'s-Gravenvoeren",
-		"'s-Gravenwezel",
+		"s Herenelderen",
+		"s-Gravenvoeren",
+		"s-Gravenwezel",
 		"Aaigem",
 		"Aalbeke",
 		"Aalst",

@@ -842,9 +842,9 @@ class Faker_hy : Faker {
 	///
 	override string addressCitySuffix() {
 		static enum data = [
-		"'ակերտ",
-		"'աշեն",
-		"'աշատ"
+		"ակերտ",
+		"աշեն",
+		"աշատ"
 		];
 		return choice(data, this.rnd);
 	}

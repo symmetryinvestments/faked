@@ -50,13 +50,20 @@ Type findType(string[] lines) {
 	return type;
 }
 
+string removeLicense(string code) {
+	if(code.startsWith("/*")) {
+		code = code[code.indexOf("*/", 2) + 2 .. $].stripLeft();
+	}
+	return code;
+}
+
 struct TypeLines {
 	Type type;
 	string[] lines;
 }
 
 TypeLines jssplit(string input) {
-	string[] lines = split(input, "\n")
+	string[] lines = split(input.removeLicense(), "\n")
 		.map!(a => a.strip("\", \t\n\r"))
 		.filter!(a => !a.empty && !a.startsWith("//"))
 		.array;
@@ -71,8 +78,11 @@ TypeLines jssplit(string input) {
 			, lines.front ~ "\n" ~ input);
 	lines = lines[1 .. $]
 		.map!(a => {
-			if(a[$ - 1] == '\'') {
+			if(!a.empty && a[$ - 1] == '\'') {
 				a = a[0 .. $ - 1];
+			}
+			if(!a.empty && a[0] == '\'') {
+				a = a[1 .. $];
 			}
 			return a;
 		}())
