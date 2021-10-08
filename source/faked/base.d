@@ -70,7 +70,7 @@ class Faker {
     }
 
 	///
-    string fianceAccount(size_t length = 8) {
+    string financeAccount(size_t length = 8) {
         string s;
         foreach(i; 0 .. length) {
             s ~= "#";
@@ -79,7 +79,7 @@ class Faker {
     }
 
 	///
-    string fianceRoutingNumber() {
+    string financeRoutingNumber() {
         import std.conv : to;
         import std.math : ceil;
 		auto routingNumber = digitBuild("########");

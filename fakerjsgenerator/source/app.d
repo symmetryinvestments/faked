@@ -165,8 +165,8 @@ string[] buildFile(string ll, FakerData entry, string[] toOverride) {
 
     if(ll == "en") {
         methods ~= gen.buildIbanAndBic();
-        methods ~= ["addressLatitude", "addressLongitude", "fianceAccount",
-                "fianceRoutingNumber", "financeMask", "financeBitcoinAddress",
+        methods ~= ["addressLatitude", "addressLongitude", "financeAccount",
+                "financeRoutingNumber", "financeMask", "financeBitcoinAddress",
                 "loremSentance", "loremSentances", "loremParagraph",
                 "loremParagraphs", "loremText", "phoneNumber"];
     }
