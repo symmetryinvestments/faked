@@ -19,34 +19,32 @@ class Faker_en_au_ocker : Faker {
 	}
 
 	///
-	override string phoneNumberFormats() {
-		static enum data = [
-		"0# #### ####",
-		"+61 # #### ####",
-		"04## ### ###",
-		"+61 4## ### ###"
+	override string internetDomainSuffix() {
+		auto data = [
+		"com.au', 'com', 'net.au', 'net', 'org.au', 'org'"
 		];
-		return this.digitBuild(choice(data, this.rnd));
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"Pty Ltd', 'and Sons', 'Corp', 'Group', 'Brothers', 'Partners'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressStateAbbr() {
-		static enum data = [
-		"NSW",
-		"QLD",
-		"NT",
-		"SA",
-		"WA",
-		"TAS",
-		"ACT",
-		"VIC"
+		auto data = [
+		"NSW', 'QLD', 'NT', 'SA', 'WA', 'TAS', 'ACT', 'VIC'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressState() {
-		static enum data = [
+		auto data = [
 		"New South Wales",
 		"Queensland",
 		"Northern Territory",
@@ -54,22 +52,23 @@ class Faker_en_au_ocker : Faker {
 		"Western Australia",
 		"Tasmania",
 		"Australian Capital Territory",
-		"Victoria"
+		"Victoria",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressDefaultCountry() {
-		static enum data = [
-		"Australia"
+		auto data = [
+		"Australia'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCityPrefix() {
-		static enum data = [
+		auto data = [
 		"Bondi",
 		"Burleigh Heads",
 		"Carlton",
@@ -81,73 +80,58 @@ class Faker_en_au_ocker : Faker {
 		"Stones Corner",
 		"St Kilda",
 		"Surry Hills",
-		"Yarra Valley"
+		"Yarra Valley",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	string addressRegion() {
-		static enum data = [
+		auto data = [
 		"South East Queensland",
 		"Wide Bay Burnett",
 		"Margaret River",
 		"Port Pirie",
 		"Gippsland",
 		"Elizabeth",
-		"Barossa"
+		"Barossa",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	string addressStreetRoot() {
-		static enum data = [
+	string addressStreetName() {
+		auto data = [
 		"Ramsay Street",
 		"Bonnie Doon",
 		"Cavill Avenue",
-		"Queen Street"
+		"Queen Street",
+		""
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressStreetName() {
-		return format!"%s"(addressStreetRoot());
-	}
-
-	///
-	override string addressCity() {
-		return format!"%s"(addressCityPrefix());
 	}
 
 	///
 	override string addressBuildingNumber() {
-		static enum data = [
-		"####",
-		"###",
-		"##"
+		auto data = [
+		"####', '###', '##'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressPostcode() {
-		static enum data = [
-		"0###",
-		"2###",
-		"3###",
-		"4###",
-		"5###",
-		"6###",
-		"7###"
+		auto data = [
+		"0###', '2###', '3###', '4###', '5###', '6###', '7###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressStreetSuffix() {
-		static enum data = [
+		auto data = [
 		"Avenue",
 		"Boulevard",
 		"Circle",
@@ -184,40 +168,55 @@ class Faker_en_au_ocker : Faker {
 		"Track",
 		"Trail",
 		"View Rd",
-		"Way"
+		"Way",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string companySuffix() {
-		static enum data = [
-		"Pty Ltd",
-		"and Sons",
-		"Corp",
-		"Group",
-		"Brothers",
-		"Partners"
+	override string nameLastName() {
+		auto data = [
+		"Smith",
+		"Jones",
+		"Williams",
+		"Brown",
+		"Wilson",
+		"Taylor",
+		"Morton",
+		"White",
+		"Martin",
+		"Anderson",
+		"Thompson",
+		"Nguyen",
+		"Thomas",
+		"Walker",
+		"Harris",
+		"Lee",
+		"Ryan",
+		"Robinson",
+		"Kelly",
+		"King",
+		"Rausch",
+		"Ridge",
+		"Connolly",
+		"LeQuesne",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"com.au",
-		"com",
-		"net.au",
-		"net",
-		"org.au",
-		"org"
+	string nameOckerFirstName() {
+		auto data = [
+		"Bazza', 'Bluey', 'Davo', 'Johno', 'Shano', 'Shazza'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameFirstName() {
-		static enum data = [
+		auto data = [
 		"Charlotte",
 		"Ava",
 		"Chloe",
@@ -321,51 +320,8 @@ class Faker_en_au_ocker : Faker {
 		"Tom",
 		"Nigel",
 		"Matt",
-		"Sean"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string nameOckerFirstName() {
-		static enum data = [
-		"Bazza",
-		"Bluey",
-		"Davo",
-		"Johno",
-		"Shano",
-		"Shazza"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameLastName() {
-		static enum data = [
-		"Smith",
-		"Jones",
-		"Williams",
-		"Brown",
-		"Wilson",
-		"Taylor",
-		"Morton",
-		"White",
-		"Martin",
-		"Anderson",
-		"Thompson",
-		"Nguyen",
-		"Thomas",
-		"Walker",
-		"Harris",
-		"Lee",
-		"Ryan",
-		"Robinson",
-		"Kelly",
-		"King",
-		"Rausch",
-		"Ridge",
-		"Connolly",
-		"LeQuesne"
+		"Sean",
+		""
 		];
 		return choice(data, this.rnd);
 	}

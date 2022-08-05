@@ -19,29 +19,107 @@ class Faker_uk : Faker {
 	}
 
 	///
-	override string phoneNumberFormats() {
-		static enum data = [
-		"(044) ###-##-##",
-		"(050) ###-##-##",
-		"(063) ###-##-##",
-		"(066) ###-##-##",
-		"(073) ###-##-##",
-		"(091) ###-##-##",
-		"(092) ###-##-##",
-		"(093) ###-##-##",
-		"(094) ###-##-##",
-		"(095) ###-##-##",
-		"(096) ###-##-##",
-		"(097) ###-##-##",
-		"(098) ###-##-##",
-		"(099) ###-##-##"
+	override string internetFreeEmail() {
+		auto data = [
+		"ukr.net",
+		"ex.ua",
+		"e-mail.ua",
+		"i.ua",
+		"meta.ua",
+		"yandex.ua",
+		"gmail.com",
+		""
 		];
-		return this.digitBuild(choice(data, this.rnd));
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"cherkassy.ua",
+		"cherkasy.ua",
+		"ck.ua",
+		"cn.ua",
+		"com.ua",
+		"crimea.ua",
+		"cv.ua",
+		"dn.ua",
+		"dnepropetrovsk.ua",
+		"dnipropetrovsk.ua",
+		"donetsk.ua",
+		"dp.ua",
+		"if.ua",
+		"in.ua",
+		"ivano-frankivsk.ua",
+		"kh.ua",
+		"kharkiv.ua",
+		"kharkov.ua",
+		"kherson.ua",
+		"khmelnitskiy.ua",
+		"kiev.ua",
+		"kirovograd.ua",
+		"km.ua",
+		"kr.ua",
+		"ks.ua",
+		"lg.ua",
+		"lt.ua",
+		"lugansk.ua",
+		"lutsk.ua",
+		"lutsk.net",
+		"lviv.ua",
+		"mk.ua",
+		"net.ua",
+		"nikolaev.ua",
+		"od.ua",
+		"odessa.ua",
+		"org.ua",
+		"pl.ua",
+		"pl.ua",
+		"poltava.ua",
+		"rovno.ua",
+		"rv.ua",
+		"sebastopol.ua",
+		"sm.ua",
+		"sumy.ua",
+		"te.ua",
+		"ternopil.ua",
+		"ua",
+		"uz.ua",
+		"uzhgorod.ua",
+		"vinnica.ua",
+		"vn.ua",
+		"volyn.net",
+		"volyn.ua",
+		"yalta.ua",
+		"zaporizhzhe.ua",
+		"zhitomir.ua",
+		"zp.ua",
+		"zt.ua",
+		"укр",
+		""
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"Постач', 'Торг', 'Пром', 'Трейд', 'Збут'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string companyPrefix() {
+		auto data = [
+		"ТОВ', 'ПАТ', 'ПрАТ', 'ТДВ', 'КТ', 'ПТ', 'ДП', 'ФОП'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCityName() {
-		static enum data = [
+		auto data = [
 		"Алчевськ",
 		"Артемівськ",
 		"Бердичів",
@@ -98,14 +176,15 @@ class Faker_uk : Faker {
 		"Чернівці",
 		"Чернігів",
 		"Шостка",
-		"Ялта"
+		"Ялта",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressState() {
-		static enum data = [
+		auto data = [
 		"АР Крим",
 		"Вінницька область",
 		"Волинська область",
@@ -132,14 +211,15 @@ class Faker_uk : Faker {
 		"Чернівецька область",
 		"Чернігівська область",
 		"Київ",
-		"Севастополь"
+		"Севастополь",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCountry() {
-		static enum data = [
+		auto data = [
 		"Австралія",
 		"Австрія",
 		"Азербайджан",
@@ -332,35 +412,23 @@ class Faker_uk : Faker {
 		"Швеція",
 		"Шрі-Ланка",
 		"Ямайка",
-		"Японія"
+		"Японія",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressDefaultCountry() {
-		static enum data = [
-		"Україна"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressStreetAddress() {
-		return format!"%s, %s"(addressStreetName(), addressBuildingNumber());
-	}
-
-	///
-	override string addressCitySuffix() {
-		static enum data = [
-		"град"
+		auto data = [
+		"Україна'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	string addressStreetPrefix() {
-		static enum data = [
+		auto data = [
 		"вул.",
 		"вулиця",
 		"пр.",
@@ -368,14 +436,31 @@ class Faker_uk : Faker {
 		"пл.",
 		"площа",
 		"пров.",
-		"провулок"
+		"провулок",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	string addressStreetTitle() {
-		static enum data = [
+	override string addressCitySuffix() {
+		auto data = [
+		"град'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressCityPrefix() {
+		auto data = [
+		"Південний', 'Північний', 'Східний', 'Західний'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string addressStreetName() {
+		auto data = [
 		"Зелена",
 		"Молодіжна",
 		"Городоцька",
@@ -388,202 +473,47 @@ class Faker_uk : Faker {
 		"Брюховичів",
 		"Винників",
 		"Рудного",
-		"Коліївщини"
+		"Коліївщини",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressCityPrefix() {
-		static enum data = [
-		"Південний",
-		"Північний",
-		"Східний",
-		"Західний"
+	override string addressBuildingNumber() {
+		auto data = [
+		"#', '##', '###'"
 		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressStreetName() {
-		switch(uniform(0, 2, this.rnd)) {
-			case 0:
-				return format!"%s %s"(addressStreetPrefix(), addressStreetTitle());
-			case 1:
-				return format!"%s %s"(addressStreetTitle(), addressStreetSuffix());
-			default: assert(false);
-		}
-	}
-
-	///
-	override string addressCity() {
-		switch(uniform(0, 2, this.rnd)) {
-			case 0:
-				return format!"%s"(addressCityName());
-			case 1:
-				return format!"%s %s"(addressCityPrefix(), nameMaleFirstName());
-			default: assert(false);
-		}
+		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressPostcode() {
-		static enum data = [
-		"#####"
+		auto data = [
+		"#####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressSecondaryAddress() {
-		static enum data = [
-		"кв. ###"
+		auto data = [
+		"кв. ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressStreetSuffix() {
-		static enum data = [
-		"майдан"
+		auto data = [
+		"майдан'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string companySuffix() {
-		static enum data = [
-		"Постач",
-		"Торг",
-		"Пром",
-		"Трейд",
-		"Збут"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string companyPrefix() {
-		static enum data = [
-		"ТОВ",
-		"ПАТ",
-		"ПрАТ",
-		"ТДВ",
-		"КТ",
-		"ПТ",
-		"ДП",
-		"ФОП"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyName() {
-		switch(uniform(0, 8, this.rnd)) {
-			case 0:
-				return format!"%s %s"(companyPrefix(), nameFemaleFirstName());
-			case 1:
-				return format!"%s %s"(companyPrefix(), nameMaleFirstName());
-			case 2:
-				return format!"%s %s"(companyPrefix(), nameMaleLastName());
-			case 3:
-				return format!"%s %s%s"(companyPrefix(), companySuffix(), companySuffix());
-			case 4:
-				return format!"%s %s%s%s"(companyPrefix(), companySuffix(), companySuffix(), companySuffix());
-			case 5:
-				return format!"%s %s%s"(companyPrefix(), addressCityName(), companySuffix());
-			case 6:
-				return format!"%s %s%s%s"(companyPrefix(), addressCityName(), companySuffix(), companySuffix());
-			case 7:
-				return format!"%s %s%s%s%s"(companyPrefix(), addressCityName(), companySuffix(), companySuffix(), companySuffix());
-			default: assert(false);
-		}
-	}
-
-	///
-	override string internetFreeEmail() {
-		static enum data = [
-		"ukr.net",
-		"ex.ua",
-		"e-mail.ua",
-		"i.ua",
-		"meta.ua",
-		"yandex.ua",
-		"gmail.com"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"cherkassy.ua",
-		"cherkasy.ua",
-		"ck.ua",
-		"cn.ua",
-		"com.ua",
-		"crimea.ua",
-		"cv.ua",
-		"dn.ua",
-		"dnepropetrovsk.ua",
-		"dnipropetrovsk.ua",
-		"donetsk.ua",
-		"dp.ua",
-		"if.ua",
-		"in.ua",
-		"ivano-frankivsk.ua",
-		"kh.ua",
-		"kharkiv.ua",
-		"kharkov.ua",
-		"kherson.ua",
-		"khmelnitskiy.ua",
-		"kiev.ua",
-		"kirovograd.ua",
-		"km.ua",
-		"kr.ua",
-		"ks.ua",
-		"lg.ua",
-		"lt.ua",
-		"lugansk.ua",
-		"lutsk.ua",
-		"lutsk.net",
-		"lviv.ua",
-		"mk.ua",
-		"net.ua",
-		"nikolaev.ua",
-		"od.ua",
-		"odessa.ua",
-		"org.ua",
-		"pl.ua",
-		"pl.ua",
-		"poltava.ua",
-		"rovno.ua",
-		"rv.ua",
-		"sebastopol.ua",
-		"sm.ua",
-		"sumy.ua",
-		"te.ua",
-		"ternopil.ua",
-		"ua",
-		"uz.ua",
-		"uzhgorod.ua",
-		"vinnica.ua",
-		"vn.ua",
-		"volyn.net",
-		"volyn.ua",
-		"yalta.ua",
-		"zaporizhzhe.ua",
-		"zhitomir.ua",
-		"zp.ua",
-		"zt.ua",
-		"укр"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string nameFemaleMiddleName() {
-		static enum data = [
+	override string nameFemaleMiddleName() {
+		auto data = [
 		"Адамівна",
 		"Азарівна",
 		"Алевтинівна",
@@ -699,14 +629,15 @@ class Faker_uk : Faker {
 		"Устимівна",
 		"Юріївна",
 		"Юхимівна",
-		"Ярославівна"
+		"Ярославівна",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	string nameMaleMiddleName() {
-		static enum data = [
+	override string nameMaleMiddleName() {
+		auto data = [
 		"Адамович",
 		"Азарович",
 		"Алевтинович",
@@ -822,14 +753,15 @@ class Faker_uk : Faker {
 		"Устимович",
 		"Юрійович",
 		"Юхимович",
-		"Ярославович"
+		"Ярославович",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameMaleFirstName() {
-		static enum data = [
+		auto data = [
 		"Августин",
 		"Аврелій",
 		"Адам",
@@ -1024,14 +956,15 @@ class Faker_uk : Faker {
 		"Яромил",
 		"Яромир",
 		"Ярополк",
-		"Ярослав"
+		"Ярослав",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameSuffix() {
-		static enum data = [
+		auto data = [
 		"проф.",
 		"доц.",
 		"докт. пед. наук",
@@ -1049,67 +982,15 @@ class Faker_uk : Faker {
 		"канд. і. наук",
 		"канд. юрид. наук",
 		"канд. техн. наук",
-		"канд. психол. наук"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameTitleDescriptor() {
-		static enum data = [
-		"Головний",
-		"Генеральний",
-		"Провідний",
-		"Національний",
-		"Регіональний",
-		"Обласний",
-		"Районний",
-		"Глобальний",
-		"Міжнародний",
-		"Центральний"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameTitleJob() {
-		static enum data = [
-		"інженер",
-		"агент",
-		"адміністратор",
-		"аналітик",
-		"архітектор",
-		"дизайнер",
-		"керівник",
-		"консультант",
-		"координатор",
-		"менеджер",
-		"планувальник",
-		"помічник",
-		"розробник",
-		"спеціаліст",
-		"співробітник",
-		"технік"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameTitleLevel() {
-		static enum data = [
-		"маркетинговий",
-		"оптимізаційний",
-		"страховий",
-		"функціональний",
-		"інтеграційний",
-		"логістичний"
+		"канд. психол. наук",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameFemaleFirstName() {
-		static enum data = [
+		auto data = [
 		"Аврелія",
 		"Аврора",
 		"Агапія",
@@ -1302,37 +1183,15 @@ class Faker_uk : Faker {
 		"Юхимія",
 		"Яна",
 		"Ярина",
-		"Ярослава"
+		"Ярослава",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string nameName() {
-		switch(uniform(0, 8, this.rnd)) {
-			case 0:
-				return format!"%s %s"(nameMaleFirstName(), nameMaleLastName());
-			case 1:
-				return format!"%s %s"(nameMaleLastName(), nameMaleFirstName());
-			case 2:
-				return format!"%s %s %s"(nameMaleFirstName(), nameMaleMiddleName(), nameMaleLastName());
-			case 3:
-				return format!"%s %s %s"(nameMaleLastName(), nameMaleFirstName(), nameMaleMiddleName());
-			case 4:
-				return format!"%s %s"(nameFemaleFirstName(), nameFemaleLastName());
-			case 5:
-				return format!"%s %s"(nameFemaleLastName(), nameFemaleFirstName());
-			case 6:
-				return format!"%s %s %s"(nameFemaleFirstName(), nameFemaleMiddleName(), nameFemaleLastName());
-			case 7:
-				return format!"%s %s %s"(nameFemaleLastName(), nameFemaleFirstName(), nameFemaleMiddleName());
-			default: assert(false);
-		}
-	}
-
-	///
 	string nameMaleLastName() {
-		static enum data = [
+		auto data = [
 		"Андрухович",
 		"Бабух",
 		"Балабан",
@@ -1571,14 +1430,15 @@ class Faker_uk : Faker {
 		"Ярмак",
 		"Яцишин",
 		"Яцьків",
-		"Ящук"
+		"Ящук",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	string nameFemaleLastName() {
-		static enum data = [
+		auto data = [
 		"Андрухович",
 		"Бабух",
 		"Балабан",
@@ -1808,16 +1668,16 @@ class Faker_uk : Faker {
 		"Ярмак",
 		"Яцишина",
 		"Яцьків",
-		"Ящук"
+		"Ящук",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string namePrefix() {
-		static enum data = [
-		"Пан",
-		"Пані"
+		auto data = [
+		"Пан', 'Пані'"
 		];
 		return choice(data, this.rnd);
 	}

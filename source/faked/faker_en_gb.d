@@ -19,77 +19,32 @@ class Faker_en_gb : Faker {
 	}
 
 	///
-	override string phoneNumberFormats() {
-		static enum data = [
-		"01#### #####",
-		"01### ######",
-		"01#1 ### ####",
-		"011# ### ####",
-		"02# #### ####",
-		"03## ### ####",
-		"055 #### ####",
-		"056 #### ####",
-		"0800 ### ####",
-		"08## ### ####",
-		"09## ### ####",
-		"016977 ####",
-		"01### #####",
-		"0500 ######",
-		"0800 ######"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string cellPhoneFormats() {
-		static enum data = [
-		"074## ######",
-		"075## ######",
-		"076## ######",
-		"077## ######",
-		"078## ######",
-		"079## ######"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"co.uk",
-		"com",
-		"biz",
-		"info",
-		"name"
+	override string addressDefaultCountry() {
+		auto data = [
+		"England', 'Scotland', 'Wales', 'Northern Ireland'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	string addressUkCountry() {
-		static enum data = [
-		"England",
-		"Scotland",
-		"Wales",
-		"Northern Ireland"
+		auto data = [
+		"England', 'Scotland', 'Wales', 'Northern Ireland'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressDefaultCountry() {
-		static enum data = [
-		"England",
-		"Scotland",
-		"Wales",
-		"Northern Ireland"
+	override string addressPostcode() {
+		auto data = [
+		"??# #??', '??## #??'"
 		];
-		return choice(data, this.rnd);
+		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressCounty() {
-		static enum data = [
+		auto data = [
 		"Avon",
 		"Bedfordshire",
 		"Berkshire",
@@ -159,7 +114,35 @@ class Faker_en_gb : Faker {
 		"West Sussex",
 		"West Yorkshire",
 		"Wiltshire",
-		"Worcestershire"
+		"Worcestershire",
+		""
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"ac.uk",
+		"biz",
+		"co",
+		"co.uk",
+		"com",
+		"cymru",
+		"gov.uk",
+		"info",
+		"london",
+		"ltd.uk",
+		"me.uk",
+		"name",
+		"nhs.uk",
+		"org.uk",
+		"plc.uk",
+		"sch.uk",
+		"scot",
+		"uk",
+		"wales",
+		""
 		];
 		return choice(data, this.rnd);
 	}

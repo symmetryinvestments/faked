@@ -585,7 +585,7 @@ class Faker_%1$s : Faker%2$s {
 
     string buildStringImpl(string name, string data, string retType = "string") {
         string n = format("\t///\n\t%s%s %s() {\n" ~
-            "\t\tstatic enum data = [\n\t\t%s\n\t\t];\n" ~
+            "\t\tauto data = [\n\t\t%s\n\t\t];\n" ~
 		    "\t\treturn choice(data, this.rnd);\n" ~
 		    "\t}\n\n", this.getOverrideString(name), retType, name, data);
         this.output ~= n;
@@ -739,7 +739,7 @@ class Faker_%1$s : Faker%2$s {
 
         string tmp = `
 	///
-    string fianaceCreditCardCVV() {
+    string financeCreditCardCVV() {
         string ret;
         for(int i = 0; i < 3; ++i) {
             ret ~= to!string(uniform(0, 3, this.rnd));
@@ -780,7 +780,7 @@ class Faker_%1$s : Faker%2$s {
                         this.getOverrideString(fname), fname
 
                     );
-		        tmp ~= format("\t\tstatic enum data = [\n\t\t%(%s,\n\t\t%)\n\t\t];\n",
+		        tmp ~= format("\t\tauto data = [\n\t\t%(%s,\n\t\t%)\n\t\t];\n",
                         tl.lines
                     );
 		        tmp ~= "\t\treturn this.digitBuild(choice(data, this.rnd));\n";
@@ -793,7 +793,7 @@ class Faker_%1$s : Faker%2$s {
             }
 
         }
-        return ret ~ ["fianaceCreditCardCVV", "financeCreditCard"];
+        return ret ~ ["financeCreditCardCVV", "financeCreditCard"];
     }
 
 	string[] buildCommerceProductName(string data) {
@@ -821,7 +821,9 @@ class Faker_%1$s : Faker%2$s {
 		string[] nlines;
 		foreach(idx, ref line; lines) {
 			try {
-				string s = line.replace("\r\n", "\n").byUTF!dchar()
+				string s = line.replace("\r\n", "\n")
+					.replace("\"", "\\\"")
+					.byUTF!dchar()
 					.filter!(it => it != replacementDchar)
 					.to!string();
 				writefln("'%s'", s);
@@ -846,7 +848,7 @@ class Faker_%1$s : Faker%2$s {
 		string n = format("\t///\n\t%sstring %s() {\n",
                 this.getOverrideString(fname), fname
             );
-		n ~= format("\t\tstatic enum data = [\n\t\t%(%s,\n\t\t%)\n\t\t];\n",
+		n ~= format("\t\tauto data = [\n\t\t%(%s,\n\t\t%)\n\t\t];\n",
                 lines
             );
 		n ~= "\t\treturn this.digitBuild(choice(data, this.rnd));\n";

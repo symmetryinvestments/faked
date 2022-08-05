@@ -20,7 +20,7 @@ class Faker_lv : Faker {
 
 	///
 	override string loremWords() {
-		static enum data = [
+		auto data = [
 		"ā",
 		"āb",
 		"āččūšāmūš",
@@ -204,14 +204,15 @@ class Faker_lv : Faker {
 		"voļūptātēm",
 		"voļūptātēš",
 		"voļūptātībūš",
-		"voļūptātūm"
+		"voļūptātūm",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string loremSupplemental() {
-		static enum data = [
+		auto data = [
 		"ābbās",
 		"ābduco",
 		"ābēo",
@@ -1051,55 +1052,31 @@ class Faker_lv : Faker {
 		"vulpēs",
 		"vultīculus",
 		"vultūosus",
-		"xīphīās"
+		"xīphīās",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string companySuffix() {
-		static enum data = [
-		"un partneri",
-		"holdings",
-		"grupa",
-		"aģentūra"
+		auto data = [
+		"un partneri', 'holdings', 'grupa', 'aģentūra'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	string companyPrefix() {
-		static enum data = [
-		"SIA",
-		"AS",
-		"IU",
-		"Bezp.Org.",
-		"Firma",
-		"Biedrība"
+		auto data = [
+		"SIA', 'AS', 'IU', 'Bezp.Org.', 'Firma', 'Biedrība'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string companyName() {
-		switch(uniform(0, 5, this.rnd)) {
-			case 0:
-				return format!"%s %s"(companyPrefix(), nameMaleLastName());
-			case 1:
-				return format!"%s %s %s"(companyPrefix(), nameMaleLastName(), companySuffix());
-			case 2:
-				return format!"%s %s %s"(companyPrefix(), nameFemaleLastName(), companySuffix());
-			case 3:
-				return format!"%s un %s"(nameMaleLastName(), nameMaleLastName());
-			case 4:
-				return format!"%s, %s un %s"(nameMaleLastName(), nameMaleLastName(), nameMaleLastName());
-			default: assert(false);
-		}
-	}
-
-	///
 	override string nameMaleFirstName() {
-		static enum data = [
+		auto data = [
 		"Ainārs",
 		"Alfrēds",
 		"Aloīzs",
@@ -1190,108 +1167,23 @@ class Faker_lv : Faker {
 		"Voldemārs",
 		"Zigfrīds",
 		"Zigmārs",
-		"Žanis"
+		"Žanis",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameSuffix() {
-		static enum data = [
-		"k-dze",
-		"kundze"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameTitleDescriptor() {
-		static enum data = [
-		"Galvenais",
-		"Vecākais",
-		"Tiešo",
-		"Korporatīvās",
-		"Produktu",
-		"Reģionālās",
-		"Rajona",
-		"Klientu",
-		"Investīciju",
-		"Starptautiskās",
-		"Iekšējās",
-		"Personu"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameTitleJob() {
-		static enum data = [
-		"uzraugs",
-		"vadītājs",
-		"pārstāvis",
-		"oficieris",
-		"menedžers",
-		"inženieris",
-		"speciālists",
-		"direktors",
-		"koordinators",
-		"administrators",
-		"arhitekts",
-		"analītiķis",
-		"dizainers",
-		"plānotājs",
-		"pārraugs",
-		"tehniķis",
-		"izstrādātājs",
-		"producents",
-		"konsultants",
-		"asistents",
-		"aģents",
-		"stratēģis"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameTitleLevel() {
-		static enum data = [
-		"risinājumu",
-		"programmu",
-		"drošības",
-		"izpētes",
-		"mārketinga",
-		"vadības",
-		"izveides",
-		"integrāciju",
-		"funkcionalitātes",
-		"taktikas",
-		"identitātes",
-		"tirgus",
-		"grupas",
-		"nodaļas",
-		"pielietojumu",
-		"optimizācijas",
-		"operāciju",
-		"infrastruktūras",
-		"intraneta",
-		"sakaru",
-		"kvalitātes",
-		"mobilitātes",
-		"kontu",
-		"datu",
-		"kreatīvais",
-		"konfigurācijas",
-		"grāmatojumu",
-		"sadarbības",
-		"lietojamības",
-		"mērījumu"
+		auto data = [
+		"k-dze', 'kundze'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameFemaleFirstName() {
-		static enum data = [
+		auto data = [
 		"Aīda",
 		"Akvelīna",
 		"Albertīne",
@@ -1396,14 +1288,15 @@ class Faker_lv : Faker {
 		"Žanete",
 		"Žanna",
 		"Ženija",
-		"Žubīte"
+		"Žubīte",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	string nameMaleLastName() {
-		static enum data = [
+		auto data = [
 		"Aigars",
 		"Alksnis",
 		"Andersons",
@@ -1612,14 +1505,15 @@ class Faker_lv : Faker {
 		"Gasjūns",
 		"Pauļuks",
 		"Sosārs",
-		"Meškūns"
+		"Meškūns",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	string nameFemaleLastName() {
-		static enum data = [
+		auto data = [
 		"Aigare",
 		"Alksne",
 		"Andersone",
@@ -1828,115 +1722,23 @@ class Faker_lv : Faker {
 		"Gasjūne",
 		"Pauļuka",
 		"Sosāre",
-		"Meškūne"
+		"Meškūne",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string namePrefix() {
-		static enum data = [
-		"Prof.",
-		"Dr.",
-		"Biedrs"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceColor() {
-		static enum data = [
-		"sarkana",
-		"zaļa",
-		"zila",
-		"dzeltena",
-		"ruda",
-		"zaļgan-zila",
-		"balta",
-		"melna",
-		"oranža",
-		"rozā",
-		"pelēka",
-		"sarkan-brūna",
-		"violeta",
-		"gaišzila",
-		"zeltaina",
-		"debess-zila",
-		"olīv",
-		"purpura",
-		"krēma",
-		"zelta",
-		"красно-пурпурный",
-		"lillā",
-		"sudrabaina"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductNameAdjective() {
-		static enum data = [
-		"Mazs",
-		"Ergonomisks",
-		"Raupjš",
-		"Vieds",
-		"Lielisks",
-		"Neticams",
-		"Fantastisks",
-		"Praktisks",
-		"Spalvains",
-		"Ciets",
-		"Mīksts",
-		"Rūgts"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductNameMaterial() {
-		static enum data = [
-		"dzelzs",
-		"koka",
-		"betona",
-		"plastmasas",
-		"kokvilnas",
-		"granīta",
-		"gumijas"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductNameProduct() {
-		static enum data = [
-		"krēsls",
-		"auto",
-		"dators",
-		"siksna",
-		"gredzens",
-		"galds",
-		"džemperis",
-		"zābaks",
-		"kažoks",
-		"radio",
-		"skaļrunis",
-		"monitors",
-		"televizors",
-		"skapis",
-		"ritenis",
-		"plakāts",
-		"ceļarullis",
-		"nazis",
-		"plāksteris",
-		"telefons",
-		"pončiks"
+		auto data = [
+		"Prof.', 'Dr.', 'Biedrs'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string commerceDepartment() {
-		static enum data = [
+		auto data = [
 		"Grāmatu",
 		"Filmu",
 		"Mūzikas",
@@ -1957,14 +1759,15 @@ class Faker_lv : Faker {
 		"Sporta",
 		"Tūrisma",
 		"Auto",
-		"Rūpniecības"
+		"Rūpniecības",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCityName() {
-		static enum data = [
+		auto data = [
 		"Ainaži",
 		"Aizkraukle",
 		"Aizpute",
@@ -2040,14 +1843,15 @@ class Faker_lv : Faker {
 		"Viesīte",
 		"Viļaka",
 		"Viļāni",
-		"Zilupe"
+		"Zilupe",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressState() {
-		static enum data = [
+		auto data = [
 		"Aizkraukles raj.",
 		"Alūksnes raj.",
 		"Baltijas jūra",
@@ -2075,14 +1879,15 @@ class Faker_lv : Faker {
 		"Tukuma raj.",
 		"Valkas raj.",
 		"Valmieras raj.",
-		"Ventspils raj."
+		"Ventspils raj.",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCountry() {
-		static enum data = [
+		auto data = [
 		"Andora",
 		"Apvienotie Arābu Emirāti",
 		"Afganistāna",
@@ -2258,33 +2063,23 @@ class Faker_lv : Faker {
 		"Vjetnama",
 		"Jemena",
 		"Zambija",
-		"Zimbabve"
+		"Zimbabve",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressDefaultCountry() {
-		static enum data = [
-		"Latvija"
+		auto data = [
+		"Latvija'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressStreetAddress() {
-		switch(uniform(0, 2, this.rnd)) {
-			case 0:
-				return format!"%s %s"(addressStreetName(), addressBuildingNumber());
-			case 1:
-				return format!"%s %s %s"(addressStreetName(), addressBuildingNumber(), addressSecondaryAddress());
-			default: assert(false);
-		}
-	}
-
-	///
-	string addressStreetTitle() {
-		static enum data = [
+	string addressStreetName() {
+		auto data = [
 		"13. janvāra",
 		"Admirāļu",
 		"Airītes",
@@ -2631,84 +2426,94 @@ class Faker_lv : Faker {
 		"Zvārtavas",
 		"Žaņa Lipkes",
 		"Žīguru",
-		"Žubīšu"
+		"Žubīšu",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressStreetName() {
-		return format!"%s %s"(addressStreetTitle(), addressStreetSuffix());
-	}
-
-	///
-	override string addressCity() {
-		return format!"%s"(addressCityName());
-	}
-
-	///
 	override string addressBuildingNumber() {
-		static enum data = [
-		"###",
-		"##"
+		auto data = [
+		"###', '##'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressPostcode() {
-		static enum data = [
-		"LV####",
-		"LV-####"
+		auto data = [
+		"LV####', 'LV-####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressSecondaryAddress() {
-		static enum data = [
-		"dz. ###",
-		"- ###"
+		auto data = [
+		"dz. ###', '- ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressStreetSuffix() {
-		static enum data = [
-		"iela",
-		"bulvāris",
-		"gatve",
-		"gāte",
-		"laukums",
-		"dambis"
+		auto data = [
+		"iela', 'bulvāris', 'gatve', 'gāte', 'laukums', 'dambis'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string phoneNumberFormats() {
-		static enum data = [
-		"(371)6#######",
-		"+371 6#######",
-		"6#######"
+	override string colorHuman() {
+		auto data = [
+		"sarkana",
+		"zaļa",
+		"zila",
+		"dzeltena",
+		"ruda",
+		"zaļgan-zila",
+		"balta",
+		"melna",
+		"oranža",
+		"rozā",
+		"pelēka",
+		"sarkan-brūna",
+		"violeta",
+		"gaišzila",
+		"zeltaina",
+		"debess-zila",
+		"olīv",
+		"purpura",
+		"krēma",
+		"zelta",
+		"красно-пурпурный",
+		"lillā",
+		"sudrabaina",
+		""
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string phoneNumberFormats() {
+		auto data = [
+		"(371)6#######', '+371 6#######', '6#######'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	override string cellPhoneFormats() {
-		static enum data = [
-		"2#######",
-		"(371) 2#######",
-		"+371 2#######"
+	string cellPhoneFormats() {
+		auto data = [
+		"2#######', '(371) 2#######', '+371 2#######'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string internetFreeEmail() {
-		static enum data = [
+		auto data = [
 		"inbox.lv",
 		"one.lv",
 		"mail.lv",
@@ -2716,19 +2521,16 @@ class Faker_lv : Faker {
 		"apollo.lv",
 		"yahoo.com",
 		"hotmail.com",
-		"gmail.com"
+		"gmail.com",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string internetDomainSuffix() {
-		static enum data = [
-		"lv",
-		"com",
-		"info",
-		"net",
-		"org"
+		auto data = [
+		"lv', 'com', 'info', 'net', 'org'"
 		];
 		return choice(data, this.rnd);
 	}

@@ -19,18 +19,64 @@ class Faker_ne : Faker {
 	}
 
 	///
-	override string phoneNumberFormats() {
-		static enum data = [
-		"##-#######",
-		"+977-#-#######",
-		"+977########"
+	string phoneNumberFormats() {
+		auto data = [
+		"##-#######', '+977-#-#######', '+977########'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
+	override string internetFreeEmail() {
+		auto data = [
+		"worldlink.com.np', 'gmail.com', 'yahoo.com', 'hotmail.com'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"np', 'com', 'info', 'net', 'org'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"Pvt Ltd', 'Group', 'Ltd', 'Limited'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressCityName() {
+		auto data = [
+		"Bhaktapur",
+		"Biratnagar",
+		"Birendranagar",
+		"Birgunj",
+		"Butwal",
+		"Damak",
+		"Dharan",
+		"Gaur",
+		"Gorkha",
+		"Hetauda",
+		"Itahari",
+		"Janakpur",
+		"Kathmandu",
+		"Lahan",
+		"Nepalgunj",
+		"Pokhara",
+		""
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressState() {
-		static enum data = [
+		auto data = [
 		"Baglung",
 		"Banke",
 		"Bara",
@@ -83,87 +129,70 @@ class Faker_ne : Faker {
 		"Surket",
 		"Syangja",
 		"Tanahu",
-		"Terhathum"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressPostcode() {
-		static enum data = [
-		"0"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCity() {
-		static enum data = [
-		"Bhaktapur",
-		"Biratnagar",
-		"Birendranagar",
-		"Birgunj",
-		"Butwal",
-		"Damak",
-		"Dharan",
-		"Gaur",
-		"Gorkha",
-		"Hetauda",
-		"Itahari",
-		"Janakpur",
-		"Kathmandu",
-		"Lahan",
-		"Nepalgunj",
-		"Pokhara"
+		"Terhathum",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressDefaultCountry() {
-		static enum data = [
-		"Nepal"
+		auto data = [
+		"Nepal'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string companySuffix() {
-		static enum data = [
-		"Pvt Ltd",
-		"Group",
-		"Ltd",
-		"Limited"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetFreeEmail() {
-		static enum data = [
-		"worldlink.com.np",
-		"gmail.com",
-		"yahoo.com",
-		"hotmail.com"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"np",
-		"com",
-		"info",
-		"net",
-		"org"
+	override string nameLastName() {
+		auto data = [
+		"Adhikari",
+		"Aryal",
+		"Baral",
+		"Basnet",
+		"Bastola",
+		"Basynat",
+		"Bhandari",
+		"Bhattarai",
+		"Chettri",
+		"Devkota",
+		"Dhakal",
+		"Dongol",
+		"Ghale",
+		"Gurung",
+		"Gyawali",
+		"Hamal",
+		"Jung",
+		"KC",
+		"Kafle",
+		"Karki",
+		"Khadka",
+		"Koirala",
+		"Lama",
+		"Limbu",
+		"Magar",
+		"Maharjan",
+		"Niroula",
+		"Pandey",
+		"Pradhan",
+		"Rana",
+		"Raut",
+		"Sai",
+		"Shai",
+		"Shakya",
+		"Sherpa",
+		"Shrestha",
+		"Subedi",
+		"Tamang",
+		"Thapa",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameFirstName() {
-		static enum data = [
+		auto data = [
 		"Aarav",
 		"Ajita",
 		"Amit",
@@ -218,53 +247,8 @@ class Faker_ne : Faker {
 		"Sunita",
 		"Suraj",
 		"Susan",
-		"Sushant"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameLastName() {
-		static enum data = [
-		"Adhikari",
-		"Aryal",
-		"Baral",
-		"Basnet",
-		"Bastola",
-		"Basynat",
-		"Bhandari",
-		"Bhattarai",
-		"Chettri",
-		"Devkota",
-		"Dhakal",
-		"Dongol",
-		"Ghale",
-		"Gurung",
-		"Gyawali",
-		"Hamal",
-		"Jung",
-		"KC",
-		"Kafle",
-		"Karki",
-		"Khadka",
-		"Koirala",
-		"Lama",
-		"Limbu",
-		"Magar",
-		"Maharjan",
-		"Niroula",
-		"Pandey",
-		"Pradhan",
-		"Rana",
-		"Raut",
-		"Sai",
-		"Shai",
-		"Shakya",
-		"Sherpa",
-		"Shrestha",
-		"Subedi",
-		"Tamang",
-		"Thapa"
+		"Sushant",
+		""
 		];
 		return choice(data, this.rnd);
 	}

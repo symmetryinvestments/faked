@@ -68,16 +68,31 @@ TypeLines jssplit(string input) {
 		.filter!(a => !a.empty && !a.startsWith("//"))
 		.array;
 
-	if(lines.length < 3) {
-		//writeln("\t\tshort");
-		return TypeLines(Type.undefined, []);
-	}
-	assert(lines.front.startsWith("module[\"exports\"] = ")
-				|| lines.front.startsWith("module.exports = ")
-				|| lines.front.startsWith("module['exports'] = ")
-			, lines.front ~ "\n" ~ input);
-	lines = lines[1 .. $]
-		.map!(a => {
+	//if(lines.length < 3) {
+	//	//writeln("\t\tshort");
+	//	return TypeLines(Type.undefined, []);
+	//}
+	string[] prefixes = [ "module[\"exports\"] = "
+		, "module.exports = "
+		, "module['exports'] = "
+		, "export default ["
+		, "export default Object.freeze(["
+		, "export default {"
+	];
+	auto pf = prefixes.find!((a,b) => b.startsWith(a))(lines.front);
+	assert(!pf.empty, lines.front);
+	lines[0] = lines[0][pf.front.length .. $].strip();
+	writeln(lines[0]);
+	//assert(lines.front.startsWith("module[\"exports\"] = ")
+	//			|| lines.front.startsWith("module.exports = ")
+	//			|| lines.front.startsWith("module['exports'] = ")
+	//			|| lines.front.startsWith("export default [")
+	//			|| lines.front.startsWith("export default Object.freeze([")
+	//			|| lines.front.startsWith("export default {")
+	//		, lines.front ~ "\n" ~ input);
+	lines = lines[0 .. $]
+		.filter!(l => !l.empty)
+		.map!((a) => {
 			if(!a.empty && a[$ - 1] == '\'') {
 				a = a[0 .. $ - 1];
 			}
@@ -88,11 +103,10 @@ TypeLines jssplit(string input) {
 		}())
 		.array;
 	//writeln(lines);
-	assert(lines.back.startsWith("];")
-            || lines.back.startsWith("}")
-            || lines.back.startsWith("]"),
-			lines.back ~ "\n" ~ input);
-	lines = lines[0 .. $ - 1];
+	auto postFixes = ["];", "}", "};", "]", "]);"];
+	auto psx = postFixes.find!((a,b) => b.endsWith(a))(lines.back);
+	assert(!psx.empty, lines.back);
+	lines.back = lines.back[0 .. $ - psx.front.length].strip();
 
 	Type type = findType(lines);
 	if(type == Type.unknown) {

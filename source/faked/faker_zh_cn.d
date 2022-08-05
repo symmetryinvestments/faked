@@ -19,18 +19,16 @@ class Faker_zh_cn : Faker {
 	}
 
 	///
-	override string phoneNumberFormats() {
-		static enum data = [
-		"0##-########",
-		"0###-########",
-		"1##########"
+	string phoneNumberFormats() {
+		auto data = [
+		"0##-########', '0###-########', '1##########'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressStateAbbr() {
-		static enum data = [
+		auto data = [
 		"京",
 		"沪",
 		"津",
@@ -64,14 +62,15 @@ class Faker_zh_cn : Faker {
 		"台",
 		"琼",
 		"港",
-		"澳"
+		"澳",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressState() {
-		static enum data = [
+		auto data = [
 		"北京市",
 		"上海市",
 		"天津市",
@@ -105,27 +104,23 @@ class Faker_zh_cn : Faker {
 		"台湾省",
 		"海南省",
 		"香港",
-		"澳门"
+		"澳门",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressDefaultCountry() {
-		static enum data = [
-		"中国"
+		auto data = [
+		"中国'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressStreetAddress() {
-		return format!"%s%s号"(addressStreetName(), addressBuildingNumber());
-	}
-
-	///
 	override string addressCitySuffix() {
-		static enum data = [
+		auto data = [
 		"沙市",
 		"京市",
 		"宁市",
@@ -144,14 +139,15 @@ class Faker_zh_cn : Faker {
 		"南市",
 		"徽市",
 		"林市",
-		"头市"
+		"头市",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCityPrefix() {
-		static enum data = [
+		auto data = [
 		"长",
 		"上",
 		"南",
@@ -172,47 +168,158 @@ class Faker_zh_cn : Faker {
 		"济",
 		"安",
 		"吉",
-		"包"
+		"包",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressStreetName() {
-		return format!"%s%s"(nameLastName(), addressStreetSuffix());
-	}
-
-	///
-	override string addressCity() {
-		return format!"%s%s"(addressCityPrefix(), addressCitySuffix());
+	override string addressBuildingNumber() {
+		auto data = [
+		"#####', '####', '###', '##', '#'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressPostcode() {
-		static enum data = [
-		"######"
+		auto data = [
+		"######'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressStreetSuffix() {
-		static enum data = [
-		"巷",
-		"街",
-		"路",
-		"桥",
-		"侬",
-		"旁",
-		"中心",
-		"栋"
+		auto data = [
+		"巷', '街', '路', '桥', '侬', '旁', '中心', '栋'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameLastName() {
+		auto data = [
+		"王",
+		"李",
+		"张",
+		"刘",
+		"陈",
+		"杨",
+		"黄",
+		"吴",
+		"赵",
+		"周",
+		"徐",
+		"孙",
+		"马",
+		"朱",
+		"胡",
+		"林",
+		"郭",
+		"何",
+		"高",
+		"罗",
+		"郑",
+		"梁",
+		"谢",
+		"宋",
+		"唐",
+		"许",
+		"邓",
+		"冯",
+		"韩",
+		"曹",
+		"曾",
+		"彭",
+		"萧",
+		"蔡",
+		"潘",
+		"田",
+		"董",
+		"袁",
+		"于",
+		"余",
+		"叶",
+		"蒋",
+		"杜",
+		"苏",
+		"魏",
+		"程",
+		"吕",
+		"丁",
+		"沈",
+		"任",
+		"姚",
+		"卢",
+		"傅",
+		"钟",
+		"姜",
+		"崔",
+		"谭",
+		"廖",
+		"范",
+		"汪",
+		"陆",
+		"金",
+		"石",
+		"戴",
+		"贾",
+		"韦",
+		"夏",
+		"邱",
+		"方",
+		"侯",
+		"邹",
+		"熊",
+		"孟",
+		"秦",
+		"白",
+		"江",
+		"阎",
+		"薛",
+		"尹",
+		"段",
+		"雷",
+		"黎",
+		"史",
+		"龙",
+		"陶",
+		"贺",
+		"顾",
+		"毛",
+		"郝",
+		"龚",
+		"邵",
+		"万",
+		"钱",
+		"严",
+		"赖",
+		"覃",
+		"洪",
+		"武",
+		"莫",
+		"孔",
+		"欧阳",
+		"慕容",
+		"司马",
+		"令狐",
+		"仲孙",
+		"钟离",
+		"长孙",
+		"宇文",
+		"司徒",
+		"鲜于",
+		"司空",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameFirstName() {
-		static enum data = [
+		auto data = [
 		"绍齐",
 		"博文",
 		"梓晨",
@@ -346,121 +453,10 @@ class Faker_zh_cn : Faker {
 		"琪",
 		"浩",
 		"航",
-		"彬"
+		"彬",
+		""
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameLastName() {
-		static enum data = [
-		"王",
-		"李",
-		"张",
-		"刘",
-		"陈",
-		"杨",
-		"黄",
-		"吴",
-		"赵",
-		"周",
-		"徐",
-		"孙",
-		"马",
-		"朱",
-		"胡",
-		"林",
-		"郭",
-		"何",
-		"高",
-		"罗",
-		"郑",
-		"梁",
-		"谢",
-		"宋",
-		"唐",
-		"许",
-		"邓",
-		"冯",
-		"韩",
-		"曹",
-		"曾",
-		"彭",
-		"萧",
-		"蔡",
-		"潘",
-		"田",
-		"董",
-		"袁",
-		"于",
-		"余",
-		"叶",
-		"蒋",
-		"杜",
-		"苏",
-		"魏",
-		"程",
-		"吕",
-		"丁",
-		"沈",
-		"任",
-		"姚",
-		"卢",
-		"傅",
-		"钟",
-		"姜",
-		"崔",
-		"谭",
-		"廖",
-		"范",
-		"汪",
-		"陆",
-		"金",
-		"石",
-		"戴",
-		"贾",
-		"韦",
-		"夏",
-		"邱",
-		"方",
-		"侯",
-		"邹",
-		"熊",
-		"孟",
-		"秦",
-		"白",
-		"江",
-		"阎",
-		"薛",
-		"尹",
-		"段",
-		"雷",
-		"黎",
-		"史",
-		"龙",
-		"陶",
-		"贺",
-		"顾",
-		"毛",
-		"郝",
-		"龚",
-		"邵",
-		"万",
-		"钱",
-		"严",
-		"赖",
-		"覃",
-		"洪",
-		"武",
-		"莫",
-		"孔"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameName() {
-		return format!"%s%s"(nameFirstName(), nameLastName());
 	}
 
 }

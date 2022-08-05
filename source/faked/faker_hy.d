@@ -20,7 +20,7 @@ class Faker_hy : Faker {
 
 	///
 	override string loremWords() {
-		static enum data = [
+		auto data = [
 		"տարի",
 		"որ",
 		"փոխեց",
@@ -209,33 +209,15 @@ class Faker_hy : Faker {
 		"նույն",
 		"նավակում",
 		"նույնքան",
-		"անպաշտպան"
+		"անպաշտպան",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string nameName() {
-		switch(uniform(0, 6, this.rnd)) {
-			case 0:
-				return format!"%s %s %s"(namePrefix(), nameFirstName(), nameLastName());
-			case 1:
-				return format!"%s %s %s"(nameFirstName(), nameLastName(), nameSuffix());
-			case 2:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 3:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 4:
-				return format!"%s %s"(nameMaleFirstName(), nameLastName());
-			case 5:
-				return format!"%s %s"(nameFemaleFirstName(), nameLastName());
-			default: assert(false);
-		}
-	}
-
-	///
-	override string nameFirstName() {
-		static enum data = [
+	override string nameFemaleFirstName() {
+		auto data = [
 		"Մարիա",
 		"Նարե",
 		"Մանե",
@@ -282,58 +264,14 @@ class Faker_hy : Faker {
 		"Լիա",
 		"Նարինե",
 		"Լուսինե",
-		"Դավիթ",
-		"Նարեկ",
-		"Ալեքս",
-		"Տիգրան",
-		"Հայկ",
-		"Գոռ",
-		"Արթուր",
-		"Արմեն",
-		"Մարկ",
-		"Էրիկ",
-		"Արամ",
-		"Սամվել",
-		"Արման",
-		"Ալեն",
-		"Աշոտ",
-		"Արեն",
-		"Գագիկ",
-		"Դանիել",
-		"Արեգ",
-		"Ռոբերտ",
-		"Արտյոմ",
-		"Արսեն",
-		"Միքայել",
-		"Սարգիս",
-		"Հովհաննես",
-		"Վահե",
-		"Կարեն",
-		"Գևորգ",
-		"Լևոն",
-		"Վարդան",
-		"Ռուբեն",
-		"Սուրեն",
-		"Հակոբ",
-		"Մհեր",
-		"Անդրանիկ",
-		"Ավետ",
-		"Գրիգոր",
-		"Ռաֆայել",
-		"Ալեքսանդր",
-		"Մոնթե",
-		"Հարություն",
-		"Էդուարդ",
-		"Ալբերտ",
-		"Գարիկ",
-		"Համլետ"
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameLastName() {
-		static enum data = [
+		auto data = [
 		"Հարությունյան",
 		"Սարգսյան",
 		"Հովհաննիսյան",
@@ -425,66 +363,15 @@ class Faker_hy : Faker {
 		"Գաբրիելյան",
 		"Ներսիսյան",
 		"Մնացականյան",
-		"Մովսիսյան"
+		"Մովսիսյան",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string nameMaleFirstName() {
-		static enum data = [
-		"Դավիթ",
-		"Նարեկ",
-		"Ալեքս",
-		"Տիգրան",
-		"Հայկ",
-		"Գոռ",
-		"Արթուր",
-		"Արմեն",
-		"Մարկ",
-		"Էրիկ",
-		"Արամ",
-		"Սամվել",
-		"Արման",
-		"Ալեն",
-		"Աշոտ",
-		"Արեն",
-		"Գագիկ",
-		"Դանիել",
-		"Արեգ",
-		"Ռոբերտ",
-		"Արտյոմ",
-		"Արսեն",
-		"Միքայել",
-		"Սարգիս",
-		"Հովհաննես",
-		"Վահե",
-		"Կարեն",
-		"Գևորգ",
-		"Լևոն",
-		"Վարդան",
-		"Ռուբեն",
-		"Սուրեն",
-		"Հակոբ",
-		"Մհեր",
-		"Անդրանիկ",
-		"Ավետ",
-		"Գրիգոր",
-		"Ռաֆայել",
-		"Ալեքսանդր",
-		"Մոնթե",
-		"Հարություն",
-		"Էդուարդ",
-		"Ալբերտ",
-		"Գարիկ",
-		"Համլետ"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameFemaleFirstName() {
-		static enum data = [
+	override string nameFirstName() {
+		auto data = [
 		"Մարիա",
 		"Նարե",
 		"Մանե",
@@ -530,14 +417,113 @@ class Faker_hy : Faker {
 		"Կարինա",
 		"Լիա",
 		"Նարինե",
-		"Լուսինե"
+		"Լուսինե",
+		"Դավիթ",
+		"Նարեկ",
+		"Ալեքս",
+		"Տիգրան",
+		"Հայկ",
+		"Գոռ",
+		"Արթուր",
+		"Արմեն",
+		"Մարկ",
+		"Էրիկ",
+		"Արամ",
+		"Սամվել",
+		"Արման",
+		"Ալեն",
+		"Աշոտ",
+		"Արեն",
+		"Գագիկ",
+		"Դանիել",
+		"Արեգ",
+		"Ռոբերտ",
+		"Արտյոմ",
+		"Արսեն",
+		"Միքայել",
+		"Սարգիս",
+		"Հովհաննես",
+		"Վահե",
+		"Կարեն",
+		"Գևորգ",
+		"Լևոն",
+		"Վարդան",
+		"Ռուբեն",
+		"Սուրեն",
+		"Հակոբ",
+		"Մհեր",
+		"Անդրանիկ",
+		"Ավետ",
+		"Գրիգոր",
+		"Ռաֆայել",
+		"Ալեքսանդր",
+		"Մոնթե",
+		"Հարություն",
+		"Էդուարդ",
+		"Ալբերտ",
+		"Գարիկ",
+		"Համլետ",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string commerceColor() {
-		static enum data = [
+	override string nameMaleFirstName() {
+		auto data = [
+		"Դավիթ",
+		"Նարեկ",
+		"Ալեքս",
+		"Տիգրան",
+		"Հայկ",
+		"Գոռ",
+		"Արթուր",
+		"Արմեն",
+		"Մարկ",
+		"Էրիկ",
+		"Արամ",
+		"Սամվել",
+		"Արման",
+		"Ալեն",
+		"Աշոտ",
+		"Արեն",
+		"Գագիկ",
+		"Դանիել",
+		"Արեգ",
+		"Ռոբերտ",
+		"Արտյոմ",
+		"Արսեն",
+		"Միքայել",
+		"Սարգիս",
+		"Հովհաննես",
+		"Վահե",
+		"Կարեն",
+		"Գևորգ",
+		"Լևոն",
+		"Վարդան",
+		"Ռուբեն",
+		"Սուրեն",
+		"Հակոբ",
+		"Մհեր",
+		"Անդրանիկ",
+		"Ավետ",
+		"Գրիգոր",
+		"Ռաֆայել",
+		"Ալեքսանդր",
+		"Մոնթե",
+		"Հարություն",
+		"Էդուարդ",
+		"Ալբերտ",
+		"Գարիկ",
+		"Համլետ",
+		""
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
 		"կարմիր",
 		"կանաչ",
 		"կապույտ",
@@ -549,14 +535,15 @@ class Faker_hy : Faker {
 		"վարդագույն",
 		"մոխրագույն",
 		"երկնագույն",
-		"ոսկեգույն"
+		"ոսկեգույն",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressState() {
-		static enum data = [
+		auto data = [
 		"Արագածոտն",
 		"Արարատ",
 		"Արմավիր",
@@ -575,14 +562,15 @@ class Faker_hy : Faker {
 		"Մարտունի",
 		"Շահումյան",
 		"Շուշի",
-		"Քաշաթաղ"
+		"Քաշաթաղ",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCountry() {
-		static enum data = [
+		auto data = [
 		"ԱՄՆ",
 		"Ադրբեջան",
 		"Ալբանիա",
@@ -811,22 +799,23 @@ class Faker_hy : Faker {
 		"Ֆիջի",
 		"Ֆոլկլենդյան կղզիներ",
 		"Ֆրանսիա",
-		"Ֆրանսիական Պոլինեզիա"
+		"Ֆրանսիական Պոլինեզիա",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressDefaultCountry() {
-		static enum data = [
-		"Արցախի Հանրապետություն"
+		auto data = [
+		"Արցախի Հանրապետություն'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressDirection() {
-		static enum data = [
+		auto data = [
 		"Հյուսիսային",
 		"Արևելյան",
 		"Հարավային",
@@ -834,91 +823,64 @@ class Faker_hy : Faker {
 		"Հյուսիսարևելյան",
 		"Հյուսիսարևմտյան",
 		"Հարավարևելյան",
-		"Հարավարևմտյան"
+		"Հարավարևմտյան",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCitySuffix() {
-		static enum data = [
-		"ակերտ",
-		"աշեն",
-		"աշատ"
+		auto data = [
+		"ակերտ', 'աշեն', 'աշատ'"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressStreetAddress() {
-		return format!"%s %s"(addressStreetName(), addressBuildingNumber());
 	}
 
 	///
 	override string addressCityPrefix() {
-		static enum data = [
-		"Հյուսիսային",
-		"Արևելյան",
-		"Արևմտյան",
-		"Հարավային",
-		"Նոր"
+		auto data = [
+		"Հյուսիսային', 'Արևելյան', 'Արևմտյան', 'Հարավային', 'Նոր'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressStreetName() {
-		return format!"%s %s"(nameLastName(), addressStreetSuffix());
-	}
-
-	///
-	override string addressCity() {
-		switch(uniform(0, 2, this.rnd)) {
-			case 0:
-				return format!"%s %s"(addressCityPrefix(), nameLastName());
-			case 1:
-				return format!"%s%s"(nameLastName(), addressCitySuffix());
-			default: assert(false);
-		}
+	override string addressBuildingNumber() {
+		auto data = [
+		"###', '###/#', '##', '##/#', '#', '#/#'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressSecondaryAddress() {
-		static enum data = [
-		"Բն. ###",
-		"Տուն ###"
+		auto data = [
+		"Բն. ###', 'Տուն ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressStreetSuffix() {
-		static enum data = [
-		"փողոց",
-		"պողոտա"
+		auto data = [
+		"փողոց', ' պողոտա'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string phoneNumberFormats() {
-		static enum data = [
-		"+374 ## ######",
-		"+374 ### #####"
+	string phoneNumberFormats() {
+		auto data = [
+		"+374 ## ######', '+374 ### #####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string internetDomainSuffix() {
-		static enum data = [
-		"com",
-		"biz",
-		"info",
-		"name",
-		"net",
-		"org",
-		"am"
+		auto data = [
+		"com', 'biz', 'info', 'name', 'net', 'org', 'am'"
 		];
 		return choice(data, this.rnd);
 	}

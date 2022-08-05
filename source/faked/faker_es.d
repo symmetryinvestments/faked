@@ -19,214 +19,8 @@ class Faker_es : Faker {
 	}
 
 	///
-	override string companyName() {
-		switch(uniform(0, 4, this.rnd)) {
-			case 0:
-				return format!"%s %s"(nameLastName(), companySuffix());
-			case 1:
-				return format!"%s y %s"(nameLastName(), nameLastName());
-			case 2:
-				return format!"%s %s %s"(nameLastName(), nameLastName(), companySuffix());
-			case 3:
-				return format!"%s, %s y %s Asociados"(nameLastName(), nameLastName(), nameLastName());
-			default: assert(false);
-		}
-	}
-
-	///
-	override string companyAdjective() {
-		static enum data = [
-		"Adaptativo",
-		"Avanzado",
-		"Asimilado",
-		"Automatizado",
-		"Equilibrado",
-		"Centrado en el negocio",
-		"Centralizado",
-		"Clonado",
-		"Compatible",
-		"Configurable",
-		"Multi grupo",
-		"Multi plataforma",
-		"Centrado en el usuario",
-		"Configurable",
-		"Descentralizado",
-		"Digitalizado",
-		"Distribuido",
-		"Diverso",
-		"Reducido",
-		"Mejorado",
-		"Para toda la empresa",
-		"Ergonómico",
-		"Exclusivo",
-		"Expandido",
-		"Extendido",
-		"Cara a cara",
-		"Enfocado",
-		"Totalmente configurable",
-		"Fundamental",
-		"Orígenes",
-		"Horizontal",
-		"Implementado",
-		"Innovador",
-		"Integrado",
-		"Intuitivo",
-		"Inverso",
-		"Gestionado",
-		"Obligatorio",
-		"Monitorizado",
-		"Multi canal",
-		"Multi lateral",
-		"Multi capa",
-		"En red",
-		"Orientado a objetos",
-		"Open-source",
-		"Operativo",
-		"Optimizado",
-		"Opcional",
-		"Orgánico",
-		"Organizado",
-		"Perseverando",
-		"Persistente",
-		"en fases",
-		"Polarizado",
-		"Pre-emptivo",
-		"Proactivo",
-		"Enfocado a benficios",
-		"Profundo",
-		"Programable",
-		"Progresivo",
-		"Public-key",
-		"Enfocado en la calidad",
-		"Reactivo",
-		"Realineado",
-		"Re-contextualizado",
-		"Re-implementado",
-		"Reducido",
-		"Ingeniería inversa",
-		"Robusto",
-		"Fácil",
-		"Seguro",
-		"Auto proporciona",
-		"Compartible",
-		"Intercambiable",
-		"Sincronizado",
-		"Orientado a equipos",
-		"Total",
-		"Universal",
-		"Mejorado",
-		"Actualizable",
-		"Centrado en el usuario",
-		"Amigable",
-		"Versatil",
-		"Virtual",
-		"Visionario"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		static enum data = [
-		"S.L.",
-		"e Hijos",
-		"S.A.",
-		"Hermanos"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyDescriptor() {
-		static enum data = [
-		"24 horas",
-		"24/7",
-		"3rd generación",
-		"4th generación",
-		"5th generación",
-		"6th generación",
-		"analizada",
-		"asimétrica",
-		"asíncrona",
-		"monitorizada por red",
-		"bidireccional",
-		"bifurcada",
-		"generada por el cliente",
-		"cliente servidor",
-		"coherente",
-		"cohesiva",
-		"compuesto",
-		"sensible al contexto",
-		"basado en el contexto",
-		"basado en contenido",
-		"dedicada",
-		"generado por la demanda",
-		"didactica",
-		"direccional",
-		"discreta",
-		"dinámica",
-		"potenciada",
-		"acompasada",
-		"ejecutiva",
-		"explícita",
-		"tolerante a fallos",
-		"innovadora",
-		"amplio ábanico",
-		"global",
-		"heurística",
-		"alto nivel",
-		"holística",
-		"homogénea",
-		"hibrida",
-		"incremental",
-		"intangible",
-		"interactiva",
-		"intermedia",
-		"local",
-		"logística",
-		"maximizada",
-		"metódica",
-		"misión crítica",
-		"móbil",
-		"modular",
-		"motivadora",
-		"multimedia",
-		"multiestado",
-		"multitarea",
-		"nacional",
-		"basado en necesidades",
-		"neutral",
-		"nueva generación",
-		"no-volátil",
-		"orientado a objetos",
-		"óptima",
-		"optimizada",
-		"radical",
-		"tiempo real",
-		"recíproca",
-		"regional",
-		"escalable",
-		"secundaria",
-		"orientada a soluciones",
-		"estable",
-		"estatica",
-		"sistemática",
-		"sistémica",
-		"tangible",
-		"terciaria",
-		"transicional",
-		"uniforme",
-		"valor añadido",
-		"vía web",
-		"defectos cero",
-		"tolerancia cero"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string companyNoun() {
-		static enum data = [
+		auto data = [
 		"habilidad",
 		"acceso",
 		"adaptador",
@@ -319,14 +113,205 @@ class Faker_es : Faker {
 		"caja de herramientas",
 		"utilización",
 		"website",
-		"fuerza de trabajo"
+		"fuerza de trabajo",
+		""
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companyAdjective() {
+		auto data = [
+		"Adaptativo",
+		"Avanzado",
+		"Asimilado",
+		"Automatizado",
+		"Equilibrado",
+		"Centrado en el negocio",
+		"Centralizado",
+		"Clonado",
+		"Compatible",
+		"Configurable",
+		"Multi grupo",
+		"Multi plataforma",
+		"Centrado en el usuario",
+		"Configurable",
+		"Descentralizado",
+		"Digitalizado",
+		"Distribuido",
+		"Diverso",
+		"Reducido",
+		"Mejorado",
+		"Para toda la empresa",
+		"Ergonómico",
+		"Exclusivo",
+		"Expandido",
+		"Extendido",
+		"Cara a cara",
+		"Enfocado",
+		"Totalmente configurable",
+		"Fundamental",
+		"Orígenes",
+		"Horizontal",
+		"Implementado",
+		"Innovador",
+		"Integrado",
+		"Intuitivo",
+		"Inverso",
+		"Gestionado",
+		"Obligatorio",
+		"Monitorizado",
+		"Multi canal",
+		"Multi lateral",
+		"Multi capa",
+		"En red",
+		"Orientado a objetos",
+		"Open-source",
+		"Operativo",
+		"Optimizado",
+		"Opcional",
+		"Orgánico",
+		"Organizado",
+		"Perseverando",
+		"Persistente",
+		"en fases",
+		"Polarizado",
+		"Pre-emptivo",
+		"Proactivo",
+		"Enfocado a benficios",
+		"Profundo",
+		"Programable",
+		"Progresivo",
+		"Public-key",
+		"Enfocado en la calidad",
+		"Reactivo",
+		"Realineado",
+		"Re-contextualizado",
+		"Re-implementado",
+		"Reducido",
+		"Ingeniería inversa",
+		"Robusto",
+		"Fácil",
+		"Seguro",
+		"Auto proporciona",
+		"Compartible",
+		"Intercambiable",
+		"Sincronizado",
+		"Orientado a equipos",
+		"Total",
+		"Universal",
+		"Mejorado",
+		"Actualizable",
+		"Centrado en el usuario",
+		"Amigable",
+		"Versatil",
+		"Virtual",
+		"Visionario",
+		""
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"S.L.', 'e Hijos', 'S.A.', 'Hermanos'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companyDescriptor() {
+		auto data = [
+		"24 horas",
+		"24/7",
+		"3rd generación",
+		"4th generación",
+		"5th generación",
+		"6th generación",
+		"analizada",
+		"asimétrica",
+		"asíncrona",
+		"monitorizada por red",
+		"bidireccional",
+		"bifurcada",
+		"generada por el cliente",
+		"cliente servidor",
+		"coherente",
+		"cohesiva",
+		"compuesto",
+		"sensible al contexto",
+		"basado en el contexto",
+		"basado en contenido",
+		"dedicada",
+		"generado por la demanda",
+		"didactica",
+		"direccional",
+		"discreta",
+		"dinámica",
+		"potenciada",
+		"acompasada",
+		"ejecutiva",
+		"explícita",
+		"tolerante a fallos",
+		"innovadora",
+		"amplio ábanico",
+		"global",
+		"heurística",
+		"alto nivel",
+		"holística",
+		"homogénea",
+		"hibrida",
+		"incremental",
+		"intangible",
+		"interactiva",
+		"intermedia",
+		"local",
+		"logística",
+		"maximizada",
+		"metódica",
+		"misión crítica",
+		"móbil",
+		"modular",
+		"motivadora",
+		"multimedia",
+		"multiestado",
+		"multitarea",
+		"nacional",
+		"basado en necesidades",
+		"neutral",
+		"nueva generación",
+		"no-volátil",
+		"orientado a objetos",
+		"óptima",
+		"optimizada",
+		"radical",
+		"tiempo real",
+		"recíproca",
+		"regional",
+		"escalable",
+		"secundaria",
+		"orientada a soluciones",
+		"estable",
+		"estatica",
+		"sistemática",
+		"sistémica",
+		"tangible",
+		"terciaria",
+		"transicional",
+		"uniforme",
+		"valor añadido",
+		"vía web",
+		"defectos cero",
+		"tolerancia cero",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameMaleFirstName() {
-		static enum data = [
+		auto data = [
 		"Josep",
 		"Ángel",
 		"Daniel",
@@ -342,14 +327,15 @@ class Faker_es : Faker {
 		"Ricardo",
 		"Carles",
 		"Jordi",
-		"Manuel"
+		"Manuel",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameSuffix() {
-		static enum data = [
+		auto data = [
 		"Jr.",
 		"Sr.",
 		"I",
@@ -360,233 +346,15 @@ class Faker_es : Faker {
 		"MD",
 		"DDS",
 		"PhD",
-		"DVM"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameFirstName() {
-		static enum data = [
-		"Adán",
-		"Agustín",
-		"Alberto",
-		"Alejandro",
-		"Alfonso",
-		"Alfredo",
-		"Andrés",
-		"Antonio",
-		"Armando",
-		"Arturo",
-		"Benito",
-		"Benjamín",
-		"Bernardo",
-		"Carlos",
-		"César",
-		"Claudio",
-		"Clemente",
-		"Cristián",
-		"Cristóbal",
-		"Daniel",
-		"David",
-		"Diego",
-		"Eduardo",
-		"Emilio",
-		"Enrique",
-		"Ernesto",
-		"Esteban",
-		"Federico",
-		"Felipe",
-		"Fernando",
-		"Francisco",
-		"Gabriel",
-		"Gerardo",
-		"Germán",
-		"Gilberto",
-		"Gonzalo",
-		"Gregorio",
-		"Guillermo",
-		"Gustavo",
-		"Hernán",
-		"Homero",
-		"Horacio",
-		"Hugo",
-		"Ignacio",
-		"Jacobo",
-		"Jaime",
-		"Javier",
-		"Jerónimo",
-		"Jesús",
-		"Joaquín",
-		"Jorge",
-		"Jorge Luis",
-		"José",
-		"José Eduardo",
-		"José Emilio",
-		"José Luis",
-		"José María",
-		"Juan",
-		"Juan Carlos",
-		"Julio",
-		"Julio César",
-		"Lorenzo",
-		"Lucas",
-		"Luis",
-		"Luis Miguel",
-		"Manuel",
-		"Marco Antonio",
-		"Marcos",
-		"Mariano",
-		"Mario",
-		"Martín",
-		"Mateo",
-		"Miguel",
-		"Miguel Ángel",
-		"Nicolás",
-		"Octavio",
-		"Óscar",
-		"Pablo",
-		"Patricio",
-		"Pedro",
-		"Rafael",
-		"Ramiro",
-		"Ramón",
-		"Raúl",
-		"Ricardo",
-		"Roberto",
-		"Rodrigo",
-		"Rubén",
-		"Salvador",
-		"Samuel",
-		"Sancho",
-		"Santiago",
-		"Sergio",
-		"Teodoro",
-		"Timoteo",
-		"Tomás",
-		"Vicente",
-		"Víctor",
-		"Adela",
-		"Adriana",
-		"Alejandra",
-		"Alicia",
-		"Amalia",
-		"Ana",
-		"Ana Luisa",
-		"Ana María",
-		"Andrea",
-		"Anita",
-		"Ángela",
-		"Antonia",
-		"Ariadna",
-		"Barbara",
-		"Beatriz",
-		"Berta",
-		"Blanca",
-		"Caridad",
-		"Carla",
-		"Carlota",
-		"Carmen",
-		"Carolina",
-		"Catalina",
-		"Cecilia",
-		"Clara",
-		"Claudia",
-		"Concepción",
-		"Conchita",
-		"Cristina",
-		"Daniela",
-		"Débora",
-		"Diana",
-		"Dolores",
-		"Lola",
-		"Dorotea",
-		"Elena",
-		"Elisa",
-		"Eloisa",
-		"Elsa",
-		"Elvira",
-		"Emilia",
-		"Esperanza",
-		"Estela",
-		"Ester",
-		"Eva",
-		"Florencia",
-		"Francisca",
-		"Gabriela",
-		"Gloria",
-		"Graciela",
-		"Guadalupe",
-		"Guillermina",
-		"Inés",
-		"Irene",
-		"Isabel",
-		"Isabela",
-		"Josefina",
-		"Juana",
-		"Julia",
-		"Laura",
-		"Leonor",
-		"Leticia",
-		"Lilia",
-		"Lorena",
-		"Lourdes",
-		"Lucía",
-		"Luisa",
-		"Luz",
-		"Magdalena",
-		"Manuela",
-		"Marcela",
-		"Margarita",
-		"María",
-		"María del Carmen",
-		"María Cristina",
-		"María Elena",
-		"María Eugenia",
-		"María José",
-		"María Luisa",
-		"María Soledad",
-		"María Teresa",
-		"Mariana",
-		"Maricarmen",
-		"Marilú",
-		"Marisol",
-		"Marta",
-		"Mayte",
-		"Mercedes",
-		"Micaela",
-		"Mónica",
-		"Natalia",
-		"Norma",
-		"Olivia",
-		"Patricia",
-		"Pilar",
-		"Ramona",
-		"Raquel",
-		"Rebeca",
-		"Reina",
-		"Rocío",
-		"Rosa",
-		"Rosalia",
-		"Rosario",
-		"Sara",
-		"Silvia",
-		"Sofía",
-		"Soledad",
-		"Sonia",
-		"Susana",
-		"Teresa",
-		"Verónica",
-		"Victoria",
-		"Virginia",
-		"Yolanda"
+		"DVM",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameLastName() {
-		static enum data = [
+		auto data = [
 		"Abeyta",
 		"Abrego",
 		"Abreu",
@@ -1210,134 +978,235 @@ class Faker_es : Faker {
 		"Zayas",
 		"Zelaya",
 		"Zepeda",
-		"Zúñiga"
+		"Zúñiga",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string nameTitleDescriptor() {
-		static enum data = [
-		"Jefe",
-		"Senior",
-		"Directo",
-		"Corporativo",
-		"Dinánmico",
-		"Futuro",
-		"Producto",
-		"Nacional",
-		"Regional",
-		"Distrito",
-		"Central",
-		"Global",
-		"Cliente",
-		"Inversor",
-		"International",
-		"Heredado",
-		"Adelante",
-		"Interno",
-		"Humano",
-		"Gerente",
-		"Director"
+	override string nameFirstName() {
+		auto data = [
+		"Adán",
+		"Agustín",
+		"Alberto",
+		"Alejandro",
+		"Alfonso",
+		"Alfredo",
+		"Andrés",
+		"Antonio",
+		"Armando",
+		"Arturo",
+		"Benito",
+		"Benjamín",
+		"Bernardo",
+		"Carlos",
+		"César",
+		"Claudio",
+		"Clemente",
+		"Cristián",
+		"Cristóbal",
+		"Daniel",
+		"David",
+		"Diego",
+		"Eduardo",
+		"Emilio",
+		"Enrique",
+		"Ernesto",
+		"Esteban",
+		"Federico",
+		"Felipe",
+		"Fernando",
+		"Francisco",
+		"Gabriel",
+		"Gerardo",
+		"Germán",
+		"Gilberto",
+		"Gonzalo",
+		"Gregorio",
+		"Guillermo",
+		"Gustavo",
+		"Hernán",
+		"Homero",
+		"Horacio",
+		"Hugo",
+		"Ignacio",
+		"Jacobo",
+		"Jaime",
+		"Javier",
+		"Jerónimo",
+		"Jesús",
+		"Joaquín",
+		"Jorge",
+		"Jorge Luis",
+		"José",
+		"José Eduardo",
+		"José Emilio",
+		"José Luis",
+		"José María",
+		"Juan",
+		"Juan Carlos",
+		"Julio",
+		"Julio César",
+		"Lorenzo",
+		"Lucas",
+		"Luis",
+		"Luis Miguel",
+		"Manuel",
+		"Marco Antonio",
+		"Marcos",
+		"Mariano",
+		"Mario",
+		"Martín",
+		"Mateo",
+		"Miguel",
+		"Miguel Ángel",
+		"Nicolás",
+		"Octavio",
+		"Óscar",
+		"Pablo",
+		"Patricio",
+		"Pedro",
+		"Rafael",
+		"Ramiro",
+		"Ramón",
+		"Raúl",
+		"Ricardo",
+		"Roberto",
+		"Rodrigo",
+		"Rubén",
+		"Salvador",
+		"Samuel",
+		"Sancho",
+		"Santiago",
+		"Sergio",
+		"Teodoro",
+		"Timoteo",
+		"Tomás",
+		"Vicente",
+		"Víctor",
+		"Adela",
+		"Adriana",
+		"Alejandra",
+		"Alicia",
+		"Amalia",
+		"Ana",
+		"Ana Luisa",
+		"Ana María",
+		"Andrea",
+		"Anita",
+		"Ángela",
+		"Antonia",
+		"Ariadna",
+		"Barbara",
+		"Beatriz",
+		"Berta",
+		"Blanca",
+		"Caridad",
+		"Carla",
+		"Carlota",
+		"Carmen",
+		"Carolina",
+		"Catalina",
+		"Cecilia",
+		"Clara",
+		"Claudia",
+		"Concepción",
+		"Conchita",
+		"Cristina",
+		"Daniela",
+		"Débora",
+		"Diana",
+		"Dolores",
+		"Lola",
+		"Dorotea",
+		"Elena",
+		"Elisa",
+		"Eloisa",
+		"Elsa",
+		"Elvira",
+		"Emilia",
+		"Esperanza",
+		"Estela",
+		"Ester",
+		"Eva",
+		"Florencia",
+		"Francisca",
+		"Gabriela",
+		"Gloria",
+		"Graciela",
+		"Guadalupe",
+		"Guillermina",
+		"Inés",
+		"Irene",
+		"Isabel",
+		"Isabela",
+		"Josefina",
+		"Juana",
+		"Julia",
+		"Laura",
+		"Leonor",
+		"Leticia",
+		"Lilia",
+		"Lorena",
+		"Lourdes",
+		"Lucía",
+		"Luisa",
+		"Luz",
+		"Magdalena",
+		"Manuela",
+		"Marcela",
+		"Margarita",
+		"María",
+		"María del Carmen",
+		"María Cristina",
+		"María Elena",
+		"María Eugenia",
+		"María José",
+		"María Luisa",
+		"María Soledad",
+		"María Teresa",
+		"Mariana",
+		"Maricarmen",
+		"Marilú",
+		"Marisol",
+		"Marta",
+		"Mayte",
+		"Mercedes",
+		"Micaela",
+		"Mónica",
+		"Natalia",
+		"Norma",
+		"Olivia",
+		"Patricia",
+		"Pilar",
+		"Ramona",
+		"Raquel",
+		"Rebeca",
+		"Reina",
+		"Rocío",
+		"Rosa",
+		"Rosalia",
+		"Rosario",
+		"Sara",
+		"Silvia",
+		"Sofía",
+		"Soledad",
+		"Sonia",
+		"Susana",
+		"Teresa",
+		"Verónica",
+		"Victoria",
+		"Virginia",
+		"Yolanda",
+		""
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameTitleJob() {
-		static enum data = [
-		"Supervisor",
-		"Asociado",
-		"Ejecutivo",
-		"Relacciones",
-		"Oficial",
-		"Gerente",
-		"Ingeniero",
-		"Especialista",
-		"Director",
-		"Coordinador",
-		"Administrador",
-		"Arquitecto",
-		"Analista",
-		"Diseñador",
-		"Planificador",
-		"Técnico",
-		"Funcionario",
-		"Desarrollador",
-		"Productor",
-		"Consultor",
-		"Asistente",
-		"Facilitador",
-		"Agente",
-		"Representante",
-		"Estratega"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameTitleLevel() {
-		static enum data = [
-		"Soluciones",
-		"Programa",
-		"Marca",
-		"Seguridada",
-		"Investigación",
-		"Marketing",
-		"Normas",
-		"Implementación",
-		"Integración",
-		"Funcionalidad",
-		"Respuesta",
-		"Paradigma",
-		"Tácticas",
-		"Identidad",
-		"Mercados",
-		"Grupo",
-		"División",
-		"Aplicaciones",
-		"Optimización",
-		"Operaciones",
-		"Infraestructura",
-		"Intranet",
-		"Comunicaciones",
-		"Web",
-		"Calidad",
-		"Seguro",
-		"Mobilidad",
-		"Cuentas",
-		"Datos",
-		"Creativo",
-		"Configuración",
-		"Contabilidad",
-		"Interacciones",
-		"Factores",
-		"Usabilidad",
-		"Métricas"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameName() {
-		switch(uniform(0, 5, this.rnd)) {
-			case 0:
-				return format!"%s %s %s %s"(namePrefix(), nameFirstName(), nameLastName(), nameLastName());
-			case 1:
-				return format!"%s %s %s"(nameFirstName(), nameLastName(), nameLastName());
-			case 2:
-				return format!"%s %s %s"(nameFirstName(), nameLastName(), nameLastName());
-			case 3:
-				return format!"%s %s %s"(nameFirstName(), nameLastName(), nameLastName());
-			case 4:
-				return format!"%s %s %s"(nameFirstName(), nameLastName(), nameLastName());
-			default: assert(false);
-		}
 	}
 
 	///
 	override string nameFemaleFirstName() {
-		static enum data = [
+		auto data = [
 		"Marta",
 		"Andrea",
 		"Ana",
@@ -1348,108 +1217,23 @@ class Faker_es : Faker {
 		"Lorena",
 		"Matilde",
 		"Jennifer",
-		"Roser"
+		"Roser",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string namePrefix() {
-		static enum data = [
-		"Sr.",
-		"Sra.",
-		"Sta."
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceColor() {
-		static enum data = [
-		"Rojo",
-		"Azul",
-		"Negro",
-		"Gris",
-		"Blanco",
-		"Amarillo",
-		"Verde",
-		"Morado",
-		"Violeta"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductNameAdjective() {
-		static enum data = [
-		"Pequeño",
-		"Ergonómico",
-		"Rústico",
-		"Inteligente",
-		"Increible",
-		"Fantástico",
-		"Práctico",
-		"Sorprendente",
-		"Genérico",
-		"Artesanal",
-		"Hecho a mano",
-		"Guapo",
-		"Guapa",
-		"Refinado",
-		"Sabroso"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductNameMaterial() {
-		static enum data = [
-		"Acero",
-		"Madera",
-		"Plástico",
-		"Algodón",
-		"Granito",
-		"Metal",
-		"Ladrillo",
-		"Hormigon"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductNameProduct() {
-		static enum data = [
-		"Silla",
-		"Coche",
-		"Ordenador",
-		"Teclado",
-		"Raton",
-		"Bicicleta",
-		"Pelota",
-		"Guantes",
-		"Pantalones",
-		"Camiseta",
-		"Mesa",
-		"Zapatos",
-		"Gorro",
-		"Toallas",
-		"Sopa",
-		"Atún",
-		"Pollo",
-		"Pescado",
-		"Queso",
-		"Bacon",
-		"Pizza",
-		"Ensalada",
-		"Salchichas",
-		"Patatas fritas"
+		auto data = [
+		"Sr.', 'Sra.', 'Sta.'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string commerceDepartment() {
-		static enum data = [
+		auto data = [
 		"Librería",
 		"Deportes",
 		"Videojuegos",
@@ -1468,14 +1252,15 @@ class Faker_es : Faker {
 		"Cine",
 		"Música",
 		"Hogar",
-		"Decoración"
+		"Decoración",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressStateAbbr() {
-		static enum data = [
+		auto data = [
 		"And",
 		"Ara",
 		"Ast",
@@ -1492,14 +1277,15 @@ class Faker_es : Faker {
 		"Mad",
 		"Nav",
 		"Vas",
-		"Mur"
+		"Mur",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressState() {
-		static enum data = [
+		auto data = [
 		"Andalucía",
 		"Aragón",
 		"Principado de Asturias",
@@ -1516,14 +1302,15 @@ class Faker_es : Faker {
 		"Comunidad de Madrid",
 		"Navarra",
 		"País Vasco",
-		"Región de Murcia"
+		"Región de Murcia",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	string addressProvince() {
-		static enum data = [
+		auto data = [
 		"Álava",
 		"Albacete",
 		"Alicante",
@@ -1573,33 +1360,15 @@ class Faker_es : Faker {
 		"Valladolid",
 		"Vizcaya",
 		"Zamora",
-		"Zaragoza"
+		"Zaragoza",
+		""
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressDefaultCountry() {
-		static enum data = [
-		"España"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressStreetAddress() {
-		switch(uniform(0, 2, this.rnd)) {
-			case 0:
-				return format!"%s%s"(addressStreetName(), addressBuildingNumber());
-			case 1:
-				return format!"%s%s %s"(addressStreetName(), addressBuildingNumber(), addressSecondaryAddress());
-			default: assert(false);
-		}
 	}
 
 	///
 	override string addressCountry() {
-		static enum data = [
+		auto data = [
 		"Afganistán",
 		"Albania",
 		"Argelia",
@@ -1779,14 +1548,23 @@ class Faker_es : Faker {
 		"Vietnam",
 		"Yemen",
 		"Zambia",
-		"Zimbabwe"
+		"Zimbabwe",
+		""
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"España'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCityPrefix() {
-		static enum data = [
+		auto data = [
 		"Parla",
 		"Telde",
 		"Baracaldo",
@@ -1915,14 +1693,15 @@ class Faker_es : Faker {
 		"Alcobendas",
 		"Reus",
 		"Calahorra",
-		"Inca"
+		"Inca",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressTimeZone() {
-		static enum data = [
+		auto data = [
 		"Pacífico/Midway",
 		"Pacífico/Pago_Pago",
 		"Pacífico/Honolulu",
@@ -2065,47 +1844,39 @@ class Faker_es : Faker {
 		"Pacífico/Auckland",
 		"Pacífico/Tongatapu",
 		"Pacífico/Fakaofo",
-		"Pacífico/Apia"
+		"Pacífico/Apia",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressStreetName() {
-		switch(uniform(0, 2, this.rnd)) {
-			case 0:
-				return format!"%s %s"(addressStreetSuffix(), nameFirstName());
-			case 1:
-				return format!"%s %s %s"(addressStreetSuffix(), nameFirstName(), nameLastName());
-			default: assert(false);
-		}
-	}
-
-	///
-	override string addressCity() {
-		return format!"%s"(addressCityPrefix());
+	override string addressBuildingNumber() {
+		auto data = [
+		"s/n.', ', #', ', ##', ' #', ' ##'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressPostcode() {
-		static enum data = [
-		"#####"
+		auto data = [
+		"#####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressSecondaryAddress() {
-		static enum data = [
-		"Esc. ###",
-		"Puerta ###"
+		auto data = [
+		"Esc. ###', 'Puerta ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressStreetSuffix() {
-		static enum data = [
+		auto data = [
 		"Aldea",
 		"Apartamento",
 		"Arrabal",
@@ -2175,51 +1946,57 @@ class Faker_es : Faker {
 		"Travesía",
 		"Urbanización",
 		"Vía",
-		"Vía Pública"
+		"Vía Pública",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string phoneNumberFormats() {
-		static enum data = [
-		"9##-###-###",
-		"9##.###.###",
-		"9## ### ###",
-		"9########"
+	override string colorHuman() {
+		auto data = [
+		"Rojo",
+		"Azul",
+		"Negro",
+		"Gris",
+		"Blanco",
+		"Amarillo",
+		"Verde",
+		"Morado",
+		"Violeta",
+		""
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string phoneNumberFormats() {
+		auto data = [
+		"9##-###-###', '9##.###.###', '9## ### ###', '9########'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	override string cellPhoneFormats() {
-		static enum data = [
-		"6##-###-###",
-		"6##.###.###",
-		"6## ### ###",
-		"6########"
+	string cellPhoneFormats() {
+		auto data = [
+		"6##-###-###', '6##.###.###', '6## ### ###', '6########'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string internetFreeEmail() {
-		static enum data = [
-		"gmail.com",
-		"yahoo.com",
-		"hotmail.com"
+		auto data = [
+		"gmail.com', 'yahoo.com', 'hotmail.com'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string internetDomainSuffix() {
-		static enum data = [
-		"com",
-		"es",
-		"info",
-		"com.es",
-		"org"
+		auto data = [
+		"com', 'es', 'info', 'com.es', 'org'"
 		];
 		return choice(data, this.rnd);
 	}

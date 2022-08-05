@@ -20,7 +20,7 @@ class Faker_en_bork : Faker {
 
 	///
 	override string loremWords() {
-		static enum data = [
+		auto data = [
 		"Boot",
 		"I",
 		"Nu",
@@ -123,7 +123,8 @@ class Faker_en_bork : Faker {
 		"vhu",
 		"yuoo",
 		"zee",
-		"zeere-a"
+		"zeere-a",
+		""
 		];
 		return choice(data, this.rnd);
 	}

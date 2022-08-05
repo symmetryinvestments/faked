@@ -19,43 +19,16 @@ class Faker_fr_ca : Faker {
 	}
 
 	///
-	override string phoneNumberFormats() {
-		static enum data = [
-		"### ###-####",
-		"1 ### ###-####",
-		"### ###-####, poste ###"
+	string phoneNumberFormats() {
+		auto data = [
+		"### ###-####', '1 ### ###-####', '### ###-####, poste ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	override string internetFreeEmail() {
-		static enum data = [
-		"gmail.com",
-		"yahoo.ca",
-		"hotmail.com"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"qc.ca",
-		"ca",
-		"com",
-		"biz",
-		"info",
-		"name",
-		"net",
-		"org"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressStateAbbr() {
-		static enum data = [
+		auto data = [
 		"AB",
 		"BC",
 		"MB",
@@ -68,14 +41,15 @@ class Faker_fr_ca : Faker {
 		"PE",
 		"QC",
 		"SK",
-		"YK"
+		"YK",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressState() {
-		static enum data = [
+		auto data = [
 		"Alberta",
 		"Colombie-Britannique",
 		"Manitoba",
@@ -88,14 +62,15 @@ class Faker_fr_ca : Faker {
 		"Île-du-Prince-Édouard",
 		"Québec",
 		"Saskatchewan",
-		"Yukon"
+		"Yukon",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressPostcode() {
-		static enum data = [
+		auto data = [
 		"A#? #?#",
 		"B#? #?#",
 		"C#? #?#",
@@ -113,15 +88,32 @@ class Faker_fr_ca : Faker {
 		"T#? #?#",
 		"V#? #?#",
 		"X#? #?#",
-		"Y#? #?#"
+		"Y#? #?#",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressDefaultCountry() {
-		static enum data = [
-		"Canada"
+		auto data = [
+		"Canada'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com', 'yahoo.ca', 'hotmail.com'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"qc.ca', 'ca', 'com', 'biz', 'info', 'name', 'net', 'org'"
 		];
 		return choice(data, this.rnd);
 	}

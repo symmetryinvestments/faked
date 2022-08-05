@@ -19,66 +19,48 @@ class Faker_ko : Faker {
 	}
 
 	///
-	override string phoneNumberFormats() {
-		static enum data = [
-		"0#-#####-####",
-		"0##-###-####",
-		"0##-####-####"
+	string phoneNumberFormats() {
+		auto data = [
+		"0#-#####-####', '0##-###-####', '0##-####-####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	override string addressStateAbbr() {
-		static enum data = [
-		"강원",
-		"경기",
-		"경남",
-		"경북",
-		"광주",
-		"대구",
-		"대전",
-		"부산",
-		"서울",
-		"울산",
-		"인천",
-		"전남",
-		"전북",
-		"제주",
-		"충남",
-		"충북",
-		"세종"
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com', 'yahoo.co.kr', 'hanmail.net', 'naver.com'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressState() {
-		static enum data = [
-		"강원",
-		"경기",
-		"경남",
-		"경북",
-		"광주",
-		"대구",
-		"대전",
-		"부산",
-		"서울",
-		"울산",
-		"인천",
-		"전남",
-		"전북",
-		"제주",
-		"충남",
-		"충북",
-		"세종"
+	override string internetDomainSuffix() {
+		auto data = [
+		"co.kr', 'com', 'biz', 'info', 'ne.kr', 'net', 'or.kr', 'org'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"연구소', '게임즈', '그룹', '전자', '물산', '코리아'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string companyPrefix() {
+		auto data = [
+		"주식회사', '한국'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCityName() {
-		static enum data = [
+		auto data = [
 		"강릉",
 		"양양",
 		"인제",
@@ -106,24 +88,80 @@ class Faker_ko : Faker {
 		"용산",
 		"부평",
 		"강화",
-		"수성"
+		"수성",
+		"수원",
+		"속초",
+		"전주",
+		"목포",
+		"분당",
+		"안양",
+		"시흥",
+		""
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressState() {
+		auto data = [
+		"강원",
+		"경기",
+		"경남",
+		"경북",
+		"광주",
+		"대구",
+		"대전",
+		"부산",
+		"서울",
+		"울산",
+		"인천",
+		"전남",
+		"전북",
+		"제주",
+		"충남",
+		"충북",
+		"세종",
+		""
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressStateAbbr() {
+		auto data = [
+		"강원",
+		"경기",
+		"경남",
+		"경북",
+		"광주",
+		"대구",
+		"대전",
+		"부산",
+		"서울",
+		"울산",
+		"인천",
+		"전남",
+		"전북",
+		"제주",
+		"충남",
+		"충북",
+		"세종",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCitySuffix() {
-		static enum data = [
-		"구",
-		"시",
-		"군"
+		auto data = [
+		"구', '시', '군'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	string addressStreetRoot() {
-		static enum data = [
+	string addressStreetName() {
+		auto data = [
 		"상계",
 		"화곡",
 		"신정",
@@ -131,18 +169,15 @@ class Faker_ko : Faker {
 		"잠실",
 		"면목",
 		"주안",
-		"안양",
 		"중",
 		"정왕",
 		"구로",
 		"신월",
 		"연산",
-		"부평",
 		"창",
 		"만수",
 		"중계",
 		"검단",
-		"시흥",
 		"상도",
 		"방배",
 		"장유",
@@ -151,102 +186,33 @@ class Faker_ko : Faker {
 		"신길",
 		"행신",
 		"대명",
-		"동탄"
+		"동탄",
+		"판교",
+		"연무",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressStreetName() {
-		return format!"%s%s"(addressStreetRoot(), addressStreetSuffix());
-	}
-
-	///
-	override string addressCity() {
-		return format!"%s%s"(addressCityName(), addressCitySuffix());
-	}
-
-	///
 	override string addressPostcode() {
-		static enum data = [
-		"###-###",
-		"#####"
+		auto data = [
+		"###-###', '#####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressStreetSuffix() {
-		static enum data = [
-		"읍",
-		"면",
-		"동"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		static enum data = [
-		"연구소",
-		"게임즈",
-		"그룹",
-		"전자",
-		"물산",
-		"코리아"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string companyPrefix() {
-		static enum data = [
-		"주식회사",
-		"한국"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyName() {
-		switch(uniform(0, 2, this.rnd)) {
-			case 0:
-				return format!"%s %s"(companyPrefix(), nameFirstName());
-			case 1:
-				return format!"%s %s"(nameFirstName(), companySuffix());
-			default: assert(false);
-		}
-	}
-
-	///
-	override string internetFreeEmail() {
-		static enum data = [
-		"gmail.com",
-		"yahoo.co.kr",
-		"hanmail.net",
-		"naver.com"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"co.kr",
-		"com",
-		"biz",
-		"info",
-		"ne.kr",
-		"net",
-		"or.kr",
-		"org"
+		auto data = [
+		"읍', '면', '동'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string loremWords() {
-		static enum data = [
+		auto data = [
 		"국가는",
 		"법률이",
 		"정하는",
@@ -289,7 +255,7 @@ class Faker_ko : Faker {
 		"같은",
 		"효력을",
 		"가진다.",
-		"다만",
+		"다만,",
 		"현행범인인",
 		"경우와",
 		"장기",
@@ -332,7 +298,7 @@ class Faker_ko : Faker {
 		"아니하는",
 		"행위로",
 		"소추되지",
-		"아니하며",
+		"아니하며,",
 		"동일한",
 		"범죄에",
 		"대하여",
@@ -374,14 +340,140 @@ class Faker_ko : Faker {
 		"국내법과",
 		"같은",
 		"효력을",
-		"가진다."
+		"가진다.",
+		""
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameLastName() {
+		auto data = [
+		"김",
+		"이",
+		"박",
+		"최",
+		"정",
+		"강",
+		"조",
+		"윤",
+		"장",
+		"임",
+		"오",
+		"한",
+		"신",
+		"서",
+		"권",
+		"황",
+		"안",
+		"송",
+		"류",
+		"홍",
+		"유",
+		"전",
+		"양",
+		"고",
+		"문",
+		"손",
+		"배",
+		"백",
+		"허",
+		"노",
+		"심",
+		"하",
+		"주",
+		"구",
+		"곽",
+		"성",
+		"차",
+		"우",
+		"진",
+		"민",
+		"나",
+		"지",
+		"엄",
+		"변",
+		"채",
+		"원",
+		"방",
+		"천",
+		"공",
+		"현",
+		"함",
+		"여",
+		"염",
+		"석",
+		"추",
+		"도",
+		"소",
+		"설",
+		"선",
+		"마",
+		"길",
+		"연",
+		"위",
+		"표",
+		"명",
+		"기",
+		"반",
+		"라",
+		"왕",
+		"금",
+		"옥",
+		"육",
+		"인",
+		"맹",
+		"제",
+		"모",
+		"남",
+		"탁",
+		"국",
+		"어",
+		"경",
+		"은",
+		"편",
+		"용",
+		"예",
+		"봉",
+		"사",
+		"부",
+		"황",
+		"가",
+		"복",
+		"태",
+		"목",
+		"형",
+		"피",
+		"두",
+		"감",
+		"호",
+		"제",
+		"음",
+		"빈",
+		"동",
+		"온",
+		"사",
+		"시",
+		"범",
+		"선",
+		"좌",
+		"팽",
+		"승",
+		"간",
+		"상",
+		"갈",
+		"서",
+		"단",
+		"견",
+		"당",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameFirstName() {
-		static enum data = [
+		auto data = [
 		"서연",
 		"민서",
 		"서현",
@@ -3395,138 +3487,11 @@ class Faker_ko : Faker {
 		"종국",
 		"형건",
 		"경륜",
-		"민광"
+		"민광",
+		"슬희",
+		""
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameLastName() {
-		static enum data = [
-		"김",
-		"이",
-		"박",
-		"최",
-		"정",
-		"강",
-		"조",
-		"윤",
-		"장",
-		"임",
-		"오",
-		"한",
-		"신",
-		"서",
-		"권",
-		"황",
-		"안",
-		"송",
-		"류",
-		"홍",
-		"유",
-		"전",
-		"양",
-		"고",
-		"문",
-		"손",
-		"배",
-		"백",
-		"허",
-		"노",
-		"심",
-		"하",
-		"주",
-		"구",
-		"곽",
-		"성",
-		"차",
-		"우",
-		"진",
-		"민",
-		"나",
-		"지",
-		"엄",
-		"변",
-		"채",
-		"원",
-		"방",
-		"천",
-		"공",
-		"현",
-		"함",
-		"여",
-		"염",
-		"석",
-		"추",
-		"도",
-		"소",
-		"설",
-		"선",
-		"마",
-		"길",
-		"연",
-		"위",
-		"표",
-		"명",
-		"기",
-		"반",
-		"라",
-		"왕",
-		"금",
-		"옥",
-		"육",
-		"인",
-		"맹",
-		"제",
-		"모",
-		"남",
-		"탁",
-		"국",
-		"어",
-		"경",
-		"은",
-		"편",
-		"용",
-		"예",
-		"봉",
-		"사",
-		"부",
-		"황",
-		"가",
-		"복",
-		"태",
-		"목",
-		"형",
-		"피",
-		"두",
-		"감",
-		"호",
-		"제",
-		"음",
-		"빈",
-		"동",
-		"온",
-		"사",
-		"시",
-		"범",
-		"선",
-		"좌",
-		"팽",
-		"승",
-		"간",
-		"상",
-		"갈",
-		"서",
-		"단",
-		"견",
-		"당"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameName() {
-		return format!"%s %s"(nameLastName(), nameFirstName());
 	}
 
 }

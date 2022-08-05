@@ -19,23 +19,124 @@ class Faker_fi : Faker {
 	}
 
 	///
-	override string nameName() {
-		switch(uniform(0, 4, this.rnd)) {
-			case 0:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 1:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 2:
-				return format!"%s %s"(nameMaleFirstName(), nameLastName());
-			case 3:
-				return format!"%s %s"(nameFemaleFirstName(), nameLastName());
-			default: assert(false);
-		}
+	override string nameFemaleFirstName() {
+		auto data = [
+		"Aino",
+		"Anja",
+		"Anna",
+		"Anne",
+		"Anneli",
+		"Annikki",
+		"Eeva",
+		"Elina",
+		"Elisabet",
+		"Emilia",
+		"Eveliina",
+		"Hanna",
+		"Hannele",
+		"Helena",
+		"Inkeri",
+		"Irmeli",
+		"Johanna",
+		"Kaarina",
+		"Karoliina",
+		"Katariina",
+		"Kristiina",
+		"Kyllikki",
+		"Laura",
+		"Leena",
+		"Liisa",
+		"Maarit",
+		"Maija",
+		"Mari",
+		"Maria",
+		"Marika",
+		"Marja",
+		"Marjatta",
+		"Minna",
+		"Orvokki",
+		"Pauliina",
+		"Pirjo",
+		"Pirkko",
+		"Päivi",
+		"Riitta",
+		"Ritva",
+		"Sari",
+		"Satu",
+		"Sinikka",
+		"Sofia",
+		"Susanna",
+		"Tarja",
+		"Tellervo",
+		"Tiina",
+		"Tuula",
+		"Tuulikki",
+		""
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameLastName() {
+		auto data = [
+		"Aaltonen",
+		"Ahonen",
+		"Anttila",
+		"Hakala",
+		"Heikkilä",
+		"Heikkinen",
+		"Heinonen",
+		"Hiltunen",
+		"Hirvonen",
+		"Hämäläinen",
+		"Jokinen",
+		"Järvinen",
+		"Kallio",
+		"Karjalainen",
+		"Kinnunen",
+		"Koivisto",
+		"Korhonen",
+		"Koskinen",
+		"Laakso",
+		"Laaksonen",
+		"Lahtinen",
+		"Laine",
+		"Laitinen",
+		"Lehtinen",
+		"Lehto",
+		"Lehtonen",
+		"Leinonen",
+		"Leppänen",
+		"Manninen",
+		"Mattila",
+		"Miettinen",
+		"Mustonen",
+		"Mäkelä",
+		"Mäkinen",
+		"Niemi",
+		"Nieminen",
+		"Ojala",
+		"Pitkänen",
+		"Rantanen",
+		"Räsänen",
+		"Saarinen",
+		"Salminen",
+		"Salo",
+		"Salonen",
+		"Savolainen",
+		"Toivonen",
+		"Tuominen",
+		"Turunen",
+		"Virtanen",
+		"Väisänen",
+		""
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameFirstName() {
-		static enum data = [
+		auto data = [
 		"Aleksi",
 		"Antero",
 		"Antti",
@@ -135,71 +236,15 @@ class Faker_fi : Faker {
 		"Tellervo",
 		"Tiina",
 		"Tuula",
-		"Tuulikki"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameLastName() {
-		static enum data = [
-		"Aaltonen",
-		"Ahonen",
-		"Anttila",
-		"Hakala",
-		"Heikkilä",
-		"Heikkinen",
-		"Heinonen",
-		"Hiltunen",
-		"Hirvonen",
-		"Hämäläinen",
-		"Jokinen",
-		"Järvinen",
-		"Kallio",
-		"Karjalainen",
-		"Kinnunen",
-		"Koivisto",
-		"Korhonen",
-		"Koskinen",
-		"Laakso",
-		"Laaksonen",
-		"Lahtinen",
-		"Laine",
-		"Laitinen",
-		"Lehtinen",
-		"Lehto",
-		"Lehtonen",
-		"Leinonen",
-		"Leppänen",
-		"Manninen",
-		"Mattila",
-		"Miettinen",
-		"Mustonen",
-		"Mäkelä",
-		"Mäkinen",
-		"Niemi",
-		"Nieminen",
-		"Ojala",
-		"Pitkänen",
-		"Rantanen",
-		"Räsänen",
-		"Saarinen",
-		"Salminen",
-		"Salo",
-		"Salonen",
-		"Savolainen",
-		"Toivonen",
-		"Tuominen",
-		"Turunen",
-		"Virtanen",
-		"Väisänen"
+		"Tuulikki",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameMaleFirstName() {
-		static enum data = [
+		auto data = [
 		"Aleksi",
 		"Antero",
 		"Antti",
@@ -249,64 +294,8 @@ class Faker_fi : Faker {
 		"Tuomas",
 		"Valtteri",
 		"Veikko",
-		"Ville"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameFemaleFirstName() {
-		static enum data = [
-		"Aino",
-		"Anja",
-		"Anna",
-		"Anne",
-		"Anneli",
-		"Annikki",
-		"Eeva",
-		"Elina",
-		"Elisabet",
-		"Emilia",
-		"Eveliina",
-		"Hanna",
-		"Hannele",
-		"Helena",
-		"Inkeri",
-		"Irmeli",
-		"Johanna",
-		"Kaarina",
-		"Karoliina",
-		"Katariina",
-		"Kristiina",
-		"Kyllikki",
-		"Laura",
-		"Leena",
-		"Liisa",
-		"Maarit",
-		"Maija",
-		"Mari",
-		"Maria",
-		"Marika",
-		"Marja",
-		"Marjatta",
-		"Minna",
-		"Orvokki",
-		"Pauliina",
-		"Pirjo",
-		"Pirkko",
-		"Päivi",
-		"Riitta",
-		"Ritva",
-		"Sari",
-		"Satu",
-		"Sinikka",
-		"Sofia",
-		"Susanna",
-		"Tarja",
-		"Tellervo",
-		"Tiina",
-		"Tuula",
-		"Tuulikki"
+		"Ville",
+		""
 		];
 		return choice(data, this.rnd);
 	}

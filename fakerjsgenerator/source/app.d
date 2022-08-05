@@ -39,7 +39,7 @@ void main() {
 		/*"es_MX",*/ /*"fa",*/ "fi", "fr", "fr_CA", "fr_CH", "ge", "hy", "hr", "id_ID",
 		"it", "ja", "ko", "nb_NO", "ne", "nl", "nl_BE", "pl", "pt_BR", "pt_PT",
 		"ro", "ru", /*"sk",*/ "sv", "tr", "uk", "vi", "zh_CN", "zh_TW", "af_ZA",
-		"el", "lv", "zu_ZA"
+		/*"el",*/ "lv", "zu_ZA"
 
 	].sort.array;
 
@@ -141,6 +141,7 @@ string[] buildFile(string ll, FakerData entry, string[] toOverride) {
 					continue;
 				}
 				//write(key, ".", sub, " ");
+				//writefln("%s %s %s %s", __LINE__, ll, key, sub);
 				TypeLines tl = jssplit(d.data);
 				//writeln(tl.type);
 				if(tl.type == Type.strings) {
@@ -182,7 +183,7 @@ string[] buildFile(string ll, FakerData entry, string[] toOverride) {
     return methods.sort.array;
 }
 
-const fakerFolder = "faker.js";
+const fakerFolder = "faker";
 
 const string[] ignoreListLocals = ["fa"];
 const string[] ignoreEntries = ["system"];
@@ -251,7 +252,7 @@ void cloneFaker() {
 	}
 
 	auto rslt = executeShell(
-            "git clone --depth=1 https://github.com/Marak/faker.js.git"
+            "git clone --depth=1 https://github.com/faker-js/faker.git"
         );
 	enforce(rslt.status == 0,
 		format("Failed to clone faker.js with message %s %s", rslt.status,
@@ -261,7 +262,7 @@ void cloneFaker() {
 
 FakerData[] scrapeFakers() {
 	FakerData[] ret;
-	const fakerLocales = fakerFolder ~ "/lib/locales/";
+	const fakerLocales = fakerFolder ~ "/src/locales/";
 
 	outer: foreach(f; dirEntries(fakerLocales, SpanMode.shallow)) {
 		foreach(ig; ignoreListLocals) {
@@ -269,8 +270,10 @@ FakerData[] scrapeFakers() {
 				continue outer;
 			}
 		}
-		ret ~= scrapeFaker(f.name);
-		buildFallback(ret.back);
+		if(isDir(f.name)) {
+			ret ~= scrapeFaker(f.name);
+			buildFallback(ret.back);
+		}
 	}
 	return ret;
 }
@@ -282,7 +285,7 @@ FakerData scrapeFaker(string foldername) {
 
 	foreach(f; dirEntries(foldername, SpanMode.shallow)) {
 		Entry entry;
-		if(f.name.endsWith("index.js")) {
+		if(f.name.endsWith("index.ts")) {
 			string iFile = "./" ~ f.name;
 			assert(isFile(iFile));
 			entry.index = readText(iFile);
@@ -290,7 +293,7 @@ FakerData scrapeFaker(string foldername) {
 		}
 		if(isDir(f.name)) {
 			foreach(g; dirEntries(f, SpanMode.shallow)
-					.filter!(a => !a.name.canFind("index.js")))
+					.filter!(a => !a.name.canFind("index.ts")))
 			{
 				if(isFile(g.name)) {
 					string s = g.name;
@@ -299,9 +302,9 @@ FakerData scrapeFaker(string foldername) {
 					entry.subs[s] = new Direct(t);
 				} else {
 					auto sub = new Sub();
-					sub.index = readText(g.name ~ "/index.js");
+					sub.index = readText(g.name ~ "/index.ts");
 					foreach(h; dirEntries(g.name, SpanMode.shallow)
-							.filter!(a => !a.name.canFind("index.js")))
+							.filter!(a => !a.name.canFind("index.ts")))
 					{
 						string sh = h.name;
 						sh = sh[sh.lastIndexOf("/") + 1 .. $ - 3];
@@ -324,7 +327,7 @@ enum r2 = r"'(\w*)'";
 auto re = regex(r2);
 
 void buildFallback(FakerData fd) {
-	string t = fakerFolder ~ "/locale/" ~ fd.locale ~ ".js";
+	string t = fakerFolder ~ "/locale/" ~ fd.locale ~ ".ts";
 	if(!exists(t)) {
 		return;
 	}

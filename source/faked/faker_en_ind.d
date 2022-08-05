@@ -19,137 +19,39 @@ class Faker_en_ind : Faker {
 	}
 
 	///
-	override string phoneNumberFormats() {
-		static enum data = [
-		"+919##-###-####",
-		"+919#########",
-		"+91-9##-#######",
-		"+918##-###-####",
-		"+918#########",
-		"+91-8##-#######",
-		"+917##-###-####",
-		"+917#########",
-		"+91-7##-#######",
-		"+916##-###-####",
-		"+916#########",
-		"+91-6##-#######"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressStateAbbr() {
-		static enum data = [
-		"AN",
-		"AP",
-		"AR",
-		"AS",
-		"BR",
-		"CH",
-		"CG",
-		"DN",
-		"DD",
-		"DL",
-		"GA",
-		"GJ",
-		"HR",
-		"HP",
-		"JK",
-		"JH",
-		"KA",
-		"KL",
-		"LD",
-		"MP",
-		"MH",
-		"MN",
-		"ML",
-		"MZ",
-		"NL",
-		"OD",
-		"PY",
-		"PB",
-		"RJ",
-		"SK",
-		"TN",
-		"TS",
-		"TR",
-		"UP",
-		"UK",
-		"WB"
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com', 'yahoo.co.in', 'hotmail.com'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressState() {
-		static enum data = [
-		"Andaman and Nicobar Islands",
-		"Andra Pradesh",
-		"Arunachal Pradesh",
-		"Assam",
-		"Bihar",
-		"Chandigarh",
-		"Chhattisgarh",
-		"Dadar and Nagar Haveli",
-		"Daman and Diu",
-		"Delhi",
-		"Goa",
-		"Gujarat",
-		"Haryana",
-		"Himachal Pradesh",
-		"Jammu and Kashmir",
-		"Jharkhand",
-		"Karnataka",
-		"Kerala",
-		"Lakshadweep",
-		"Madya Pradesh",
-		"Maharashtra",
-		"Manipur",
-		"Meghalaya",
-		"Mizoram",
-		"Nagaland",
-		"Odisha",
-		"Pondicherr",
-		"Punjab",
-		"Rajasthan",
-		"Sikkim",
-		"Tamil Nadu",
-		"Telangana",
-		"Tripura",
-		"Uttar Pradesh",
-		"Uttarakhand",
-		"West Bengal"
+	override string internetDomainSuffix() {
+		auto data = [
+		"in', 'com', 'biz', 'info', 'name', 'net', 'org', 'co.in'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressPostcode() {
-		static enum data = [
-		"### ###"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressCity() {
-		return format!"%s"(addressCityName());
-	}
-
-	///
-	override string addressDefaultCountry() {
-		static enum data = [
-		"India",
-		"Indian Republic",
-		"Bharat",
-		"Hindustan"
+	override string companySuffix() {
+		auto data = [
+		"Pvt Ltd",
+		"Limited",
+		"Ltd",
+		"and Sons",
+		"Corp",
+		"Group",
+		"Brothers",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCityName() {
-		static enum data = [
+		auto data = [
 		"Achalpur",
 		"Achhnera",
 		"Adalaj",
@@ -349,7 +251,7 @@ class Faker_en_ind : Faker {
 		"Haldwani-cum-Kathgodam",
 		"Hansi",
 		"Hapur",
-		"Hardoi",
+		"Hardoi ",
 		"Hardwar",
 		"Hazaribag",
 		"Hindupur",
@@ -1366,53 +1268,219 @@ class Faker_en_ind : Faker {
 		"Zamania",
 		"Zira",
 		"Zirakpur",
-		"Zunheboto"
+		"Zunheboto",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string companySuffix() {
-		static enum data = [
-		"Pvt Ltd",
-		"Limited",
-		"Ltd",
-		"and Sons",
-		"Corp",
-		"Group",
-		"Brothers"
+	override string addressState() {
+		auto data = [
+		"Andaman and Nicobar Islands",
+		"Andra Pradesh",
+		"Arunachal Pradesh",
+		"Assam",
+		"Bihar",
+		"Chandigarh",
+		"Chhattisgarh",
+		"Dadar and Nagar Haveli",
+		"Daman and Diu",
+		"Delhi",
+		"Goa",
+		"Gujarat",
+		"Haryana",
+		"Himachal Pradesh",
+		"Jammu and Kashmir",
+		"Jharkhand",
+		"Karnataka",
+		"Kerala",
+		"Lakshadweep",
+		"Madya Pradesh",
+		"Maharashtra",
+		"Manipur",
+		"Meghalaya",
+		"Mizoram",
+		"Nagaland",
+		"Odisha",
+		"Pondicherr",
+		"Punjab",
+		"Rajasthan",
+		"Sikkim",
+		"Tamil Nadu",
+		"Telangana",
+		"Tripura",
+		"Uttar Pradesh",
+		"Uttarakhand",
+		"West Bengal",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string internetFreeEmail() {
-		static enum data = [
-		"gmail.com",
-		"yahoo.co.in",
-		"hotmail.com"
+	override string addressStateAbbr() {
+		auto data = [
+		"AN",
+		"AP",
+		"AR",
+		"AS",
+		"BR",
+		"CH",
+		"CG",
+		"DN",
+		"DD",
+		"DL",
+		"GA",
+		"GJ",
+		"HR",
+		"HP",
+		"JK",
+		"JH",
+		"KA",
+		"KL",
+		"LD",
+		"MP",
+		"MH",
+		"MN",
+		"ML",
+		"MZ",
+		"NL",
+		"OD",
+		"PY",
+		"PB",
+		"RJ",
+		"SK",
+		"TN",
+		"TS",
+		"TR",
+		"UP",
+		"UK",
+		"WB",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"in",
-		"com",
-		"biz",
-		"info",
-		"name",
-		"net",
-		"org",
-		"co.in"
+	override string addressDefaultCountry() {
+		auto data = [
+		"India', 'Indian Republic', 'Bharat', 'Hindustan'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressPostcode() {
+		auto data = [
+		"### ###'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string nameLastName() {
+		auto data = [
+		"Abbott",
+		"Achari",
+		"Acharya",
+		"Adiga",
+		"Agarwal",
+		"Ahluwalia",
+		"Ahuja",
+		"Arora",
+		"Asan",
+		"Bandopadhyay",
+		"Banerjee",
+		"Bharadwaj",
+		"Bhat",
+		"Butt",
+		"Bhadresha",
+		"Bhattacharya",
+		"Bhattathiri",
+		"Chaturvedi",
+		"Chattopadhyay",
+		"Chopra",
+		"Desai",
+		"Deshpande",
+		"Devar",
+		"Dhawan",
+		"Dubashi",
+		"Dutta",
+		"Dwivedi",
+		"Embranthiri",
+		"Ganaka",
+		"Gandhi",
+		"Gill",
+		"Gowda",
+		"Guha",
+		"Guneta",
+		"Gupta",
+		"Iyer",
+		"Iyengar",
+		"Jain",
+		"Jangid",
+		"Jha",
+		"Johar",
+		"Joshi",
+		"Kakkar",
+		"Kaniyar",
+		"Kapoor",
+		"Kaul",
+		"Kaur",
+		"Khan",
+		"Khanna",
+		"Khatri",
+		"Kocchar",
+		"Mahajan",
+		"Malik",
+		"Marar",
+		"Menon",
+		"Mehra",
+		"Mehrotra",
+		"Mishra",
+		"Mukhopadhyay",
+		"Nayar",
+		"Naik",
+		"Nair",
+		"Nambeesan",
+		"Namboothiri",
+		"Nehru",
+		"Pandey",
+		"Panicker",
+		"Patel",
+		"Patil",
+		"Pilla",
+		"Pillai",
+		"Pothuvaal",
+		"Prajapat",
+		"Rana",
+		"Reddy",
+		"Saini",
+		"Sethi",
+		"Shah",
+		"Sharma",
+		"Shukla",
+		"Singh",
+		"Sinha",
+		"Somayaji",
+		"Suthar",
+		"Tagore",
+		"Talwar",
+		"Tandon",
+		"Trivedi",
+		"Varrier",
+		"Varma",
+		"Varman",
+		"Verma",
+		""
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameFirstName() {
-		static enum data = [
+		auto data = [
 		"Aadrika",
 		"Aanandinii",
 		"Aaratrika",
@@ -2174,103 +2242,8 @@ class Faker_en_ind : Faker {
 		"Vyas",
 		"Yogendra",
 		"Yoginder",
-		"Yogesh"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameLastName() {
-		static enum data = [
-		"Abbott",
-		"Achari",
-		"Acharya",
-		"Adiga",
-		"Agarwal",
-		"Ahluwalia",
-		"Ahuja",
-		"Arora",
-		"Asan",
-		"Bandopadhyay",
-		"Banerjee",
-		"Bharadwaj",
-		"Bhat",
-		"Butt",
-		"Bhattacharya",
-		"Bhattathiri",
-		"Chaturvedi",
-		"Chattopadhyay",
-		"Chopra",
-		"Desai",
-		"Deshpande",
-		"Devar",
-		"Dhawan",
-		"Dubashi",
-		"Dutta",
-		"Dwivedi",
-		"Embranthiri",
-		"Ganaka",
-		"Gandhi",
-		"Gill",
-		"Gowda",
-		"Guha",
-		"Guneta",
-		"Gupta",
-		"Iyer",
-		"Iyengar",
-		"Jain",
-		"Jha",
-		"Johar",
-		"Joshi",
-		"Kakkar",
-		"Kaniyar",
-		"Kapoor",
-		"Kaul",
-		"Kaur",
-		"Khan",
-		"Khanna",
-		"Khatri",
-		"Kocchar",
-		"Mahajan",
-		"Malik",
-		"Marar",
-		"Menon",
-		"Mehra",
-		"Mehrotra",
-		"Mishra",
-		"Mukhopadhyay",
-		"Nayar",
-		"Naik",
-		"Nair",
-		"Nambeesan",
-		"Namboothiri",
-		"Nehru",
-		"Pandey",
-		"Panicker",
-		"Patel",
-		"Patil",
-		"Pilla",
-		"Pillai",
-		"Pothuvaal",
-		"Prajapat",
-		"Rana",
-		"Reddy",
-		"Saini",
-		"Sethi",
-		"Shah",
-		"Sharma",
-		"Shukla",
-		"Singh",
-		"Sinha",
-		"Somayaji",
-		"Tagore",
-		"Talwar",
-		"Tandon",
-		"Trivedi",
-		"Varrier",
-		"Varma",
-		"Varman",
-		"Verma"
+		"Yogesh",
+		""
 		];
 		return choice(data, this.rnd);
 	}
