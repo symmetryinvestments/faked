@@ -123,8 +123,7 @@ class Faker_vi : Faker {
 		"ruộng",
 		"đồng",
 		"quê",
-		"hương",
-		""
+		"hương"
 		];
 		return choice(data, this.rnd);
 	}
@@ -137,8 +136,7 @@ class Faker_vi : Faker {
 		"Cty",
 		"Cửa hàng",
 		"Trung tâm",
-		"Chi nhánh",
-		""
+		"Chi nhánh"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1455,8 +1453,7 @@ class Faker_vi : Faker {
 		"Đông Vy",
 		"Đơn Thuần",
 		"Đức Hạnh",
-		"Ấu Lăng",
-		""
+		"Ấu Lăng"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1489,8 +1486,7 @@ class Faker_vi : Faker {
 		"Mai",
 		"Tô",
 		"Trương",
-		"Hà",
-		""
+		"Hà"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2722,8 +2718,7 @@ class Faker_vi : Faker {
 		"Xuân Vũ",
 		"Yên Bằng",
 		"Yên Bình",
-		"Yên Sơn",
-		""
+		"Yên Sơn"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2793,8 +2788,7 @@ class Faker_vi : Faker {
 		"Tuyên Quang",
 		"Vĩnh Long",
 		"Vĩnh Phúc",
-		"Yên Bái",
-		""
+		"Yên Bái"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2994,8 +2988,7 @@ class Faker_vi : Faker {
 		"Ý",
 		"Yemen",
 		"Zambia",
-		"Zimbabwe",
-		""
+		"Zimbabwe"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3017,9 +3010,22 @@ class Faker_vi : Faker {
 	}
 
 	///
-	string phoneNumberFormats() {
+	override string phoneNumberFormats() {
 		auto data = [
-		"02# #### ####', '02## #### ####'"
+		"02# #### ####",
+		"02## #### ####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"03# ### ####",
+		"05# ### ####",
+		"07# ### ####",
+		"08# ### ####",
+		"09# ### ####"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -3027,7 +3033,11 @@ class Faker_vi : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"com', 'net', 'info', 'vn', 'com.vn'"
+		"com",
+		"net",
+		"info",
+		"vn",
+		"com.vn'"
 		];
 		return choice(data, this.rnd);
 	}

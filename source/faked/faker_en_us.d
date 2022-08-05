@@ -303,8 +303,7 @@ class Faker_en_us : Faker {
 		"980",
 		"984",
 		"985",
-		"989",
-		""
+		"989"
 		];
 		return choice(data, this.rnd);
 	}
@@ -594,8 +593,7 @@ class Faker_en_us : Faker {
 		"980",
 		"984",
 		"985",
-		"989",
-		""
+		"989"
 		];
 		return choice(data, this.rnd);
 	}
@@ -603,7 +601,9 @@ class Faker_en_us : Faker {
 	///
 	override string addressDefaultCountry() {
 		auto data = [
-		"United States', 'United States of America', 'USA'"
+		"United States",
+		"United States of America",
+		"USA'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -611,7 +611,13 @@ class Faker_en_us : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"com', 'us', 'biz', 'info', 'name', 'net', 'org'"
+		"com",
+		"us",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}

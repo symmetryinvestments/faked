@@ -269,8 +269,7 @@ class Faker_nl : Faker {
 		"maiores",
 		"doloribus",
 		"asperiores",
-		"repellat",
-		""
+		"repellat"
 		];
 		return choice(data, this.rnd);
 	}
@@ -284,8 +283,7 @@ class Faker_nl : Faker {
 		"NV",
 		"Bedrijf",
 		"en Zonen",
-		"Combinatie",
-		""
+		"Combinatie"
 		];
 		return choice(data, this.rnd);
 	}
@@ -314,8 +312,7 @@ class Faker_nl : Faker {
 		"cruciale",
 		"kostbare",
 		"verwaarloosde",
-		"smakelijke",
-		""
+		"smakelijke"
 		];
 		return choice(data, this.rnd);
 	}
@@ -342,8 +339,7 @@ class Faker_nl : Faker {
 		"herstarten",
 		"ontleden",
 		"in stukjes snijden",
-		"analyseren",
-		""
+		"analyseren"
 		];
 		return choice(data, this.rnd);
 	}
@@ -376,8 +372,7 @@ class Faker_nl : Faker {
 		"bus",
 		"stroomkring",
 		"condensator",
-		"matrix",
-		""
+		"matrix"
 		];
 		return choice(data, this.rnd);
 	}
@@ -971,8 +966,7 @@ class Faker_nl : Faker {
 		"Levi",
 		"Lucas",
 		"Daan",
-		"Noah",
-		""
+		"Noah"
 		];
 		return choice(data, this.rnd);
 	}
@@ -980,7 +974,13 @@ class Faker_nl : Faker {
 	///
 	string nameTussenvoegsel() {
 		auto data = [
-		"van', 'van de', 'van den', \"van 't\", 'van het', 'de', 'den'"
+		"van",
+		"van de",
+		"van den",
+		"van 't",
+		"van het",
+		"de",
+		"den'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -988,7 +988,13 @@ class Faker_nl : Faker {
 	///
 	override string nameSuffix() {
 		auto data = [
-		"Jr.', 'Sr.', 'I', 'II', 'III', 'IV', 'V'"
+		"Jr.",
+		"Sr.",
+		"I",
+		"II",
+		"III",
+		"IV",
+		"V'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1045,8 +1051,7 @@ class Faker_nl : Faker {
 		"Vries",
 		"Wal",
 		"Willems",
-		"Wit",
-		""
+		"Wit"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1103,8 +1108,7 @@ class Faker_nl : Faker {
 		"Thijs",
 		"Thomas",
 		"Tim",
-		"Tom",
-		""
+		"Tom"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1625,8 +1629,7 @@ class Faker_nl : Faker {
 		"Zoë",
 		"Sophie",
 		"Mila",
-		"Emma",
-		""
+		"Emma"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1634,7 +1637,11 @@ class Faker_nl : Faker {
 	///
 	override string namePrefix() {
 		auto data = [
-		"Dhr.', 'Mevr. Dr.', 'Bsc', 'Msc', 'Prof.'"
+		"Dhr.",
+		"Mevr. Dr.",
+		"Bsc",
+		"Msc",
+		"Prof.'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1663,8 +1670,7 @@ class Faker_nl : Faker {
 		"Sport",
 		"Verzorging",
 		"Auto",
-		"Industrieel",
-		""
+		"Industrieel"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1683,8 +1689,7 @@ class Faker_nl : Faker {
 		"Groningen",
 		"Noord-Brabant",
 		"Limburg",
-		"Flevoland",
-		""
+		"Flevoland"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1945,8 +1950,7 @@ class Faker_nl : Faker {
 		"Zuid-Afrika",
 		"Zuid-Korea",
 		"Zweden",
-		"Zwitserland",
-		""
+		"Zwitserland"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2007,9 +2011,7 @@ class Faker_nl : Faker {
 		"wijk",
 		"woud",
 		"woude",
-		"zijl",
-		"",
-		""
+		"zijl"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4517,8 +4519,7 @@ class Faker_nl : Faker {
 		"Zwiggelte",
 		"Zwijn",
 		"Zwinderen",
-		"Zwolle",
-		""
+		"Zwolle"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4534,7 +4535,10 @@ class Faker_nl : Faker {
 	///
 	override string addressSecondaryAddress() {
 		auto data = [
-		"1 hoog', '2 hoog', '3 hoog', '3 hoog achter'"
+		"1 hoog",
+		"2 hoog",
+		"3 hoog",
+		"3 hoog achter'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4542,7 +4546,13 @@ class Faker_nl : Faker {
 	///
 	override string addressStreetSuffix() {
 		auto data = [
-		"straat', 'laan', 'weg', 'plantsoen', 'park', 'gracht', 'dijk'"
+		"straat",
+		"laan",
+		"weg",
+		"plantsoen",
+		"park",
+		"gracht",
+		"dijk'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4585,16 +4595,18 @@ class Faker_nl : Faker {
 		"cyaan",
 		"azuurblauw",
 		"lavendel",
-		"zilver",
-		""
+		"zilver"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	string phoneNumberFormats() {
+	override string phoneNumberFormats() {
 		auto data = [
-		"(####) ######', '##########', '06########', '06 #### ####'"
+		"(####) ######",
+		"##########",
+		"06########",
+		"06 #### ####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -4602,7 +4614,9 @@ class Faker_nl : Faker {
 	///
 	override string internetFreeEmail() {
 		auto data = [
-		"gmail.com', 'yahoo.com', 'hotmail.com'"
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4610,7 +4624,11 @@ class Faker_nl : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"nl', 'com', 'net', 'org', 'eu'"
+		"nl",
+		"com",
+		"net",
+		"org",
+		"eu'"
 		];
 		return choice(data, this.rnd);
 	}

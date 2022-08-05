@@ -19,9 +19,57 @@ class Faker_id_id : Faker {
 	}
 
 	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"02# #### ###",
+		"02## #### ###",
+		"03## #### ###",
+		"04## #### ###",
+		"05## #### ###",
+		"06## #### ###",
+		"07## #### ###",
+		"09## #### ###",
+		"02# #### ####",
+		"02## #### ####",
+		"03## #### ####",
+		"04## #### ####",
+		"05## #### ####",
+		"06## #### ####",
+		"07## #### ####",
+		"09## #### ####",
+		"08## ### ###",
+		"08## #### ###",
+		"08## #### ####",
+		"(+62) 8## ### ###",
+		"(+62) 2# #### ###",
+		"(+62) 2## #### ###",
+		"(+62) 3## #### ###",
+		"(+62) 4## #### ###",
+		"(+62) 5## #### ###",
+		"(+62) 6## #### ###",
+		"(+62) 7## #### ###",
+		"(+62) 8## #### ###",
+		"(+62) 9## #### ###",
+		"(+62) 2# #### ####",
+		"(+62) 2## #### ####",
+		"(+62) 3## #### ####",
+		"(+62) 4## #### ####",
+		"(+62) 5## #### ####",
+		"(+62) 6## #### ####",
+		"(+62) 7## #### ####",
+		"(+62) 8## #### ####",
+		"(+62) 9## #### ####"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string internetFreeEmail() {
 		auto data = [
-		"gmail.com', 'yahoo.com', 'gmail.co.id', 'yahoo.co.id'"
+		"gmail.com",
+		"yahoo.com",
+		"gmail.co.id",
+		"yahoo.co.id'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -51,8 +99,7 @@ class Faker_id_id : Faker {
 		"net.id",
 		"biz.id",
 		"desa.id",
-		"ponpes.id",
-		""
+		"ponpes.id"
 		];
 		return choice(data, this.rnd);
 	}
@@ -60,7 +107,8 @@ class Faker_id_id : Faker {
 	///
 	override string companySuffix() {
 		auto data = [
-		"(Persero) Tbk', 'Tbk'"
+		"(Persero) Tbk",
+		"Tbk'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -68,7 +116,11 @@ class Faker_id_id : Faker {
 	///
 	string companyPrefix() {
 		auto data = [
-		"PT', 'CV', 'UD', 'PD', 'Perum'"
+		"PT",
+		"CV",
+		"UD",
+		"PD",
+		"Perum'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -302,8 +354,7 @@ class Faker_id_id : Faker {
 		"Negara,Bali",
 		"Singaraja",
 		"Tabanan",
-		"Bangli",
-		""
+		"Bangli"
 		];
 		return choice(data, this.rnd);
 	}
@@ -344,8 +395,7 @@ class Faker_id_id : Faker {
 		"Maluku",
 		"Maluku Utara",
 		"Papua Barat",
-		"Papua",
-		""
+		"Papua"
 		];
 		return choice(data, this.rnd);
 	}
@@ -361,17 +411,16 @@ class Faker_id_id : Faker {
 	///
 	string addressStreetPrefix() {
 		auto data = [
-		"Ds.', 'Dk.', 'Gg.', 'Jln.', 'Jr.', 'Kpg.', 'Ki.', 'Psr.'"
+		"Ds.",
+		"Dk.",
+		"Gg.",
+		"Jln.",
+		"Jr.",
+		"Kpg.",
+		"Ki.",
+		"Psr.'"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressBuildingNumber() {
-		auto data = [
-		"##', '#'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
@@ -878,8 +927,7 @@ class Faker_id_id : Faker {
 		"Yusuf",
 		"Yosef",
 		"Yono",
-		"Yoga",
-		""
+		"Yoga"
 		];
 		return choice(data, this.rnd);
 	}
@@ -906,8 +954,7 @@ class Faker_id_id : Faker {
 		"M.TI.",
 		"M.Pd",
 		"M.Farm",
-		"M.Ak",
-		""
+		"M.Ak"
 		];
 		return choice(data, this.rnd);
 	}
@@ -915,7 +962,10 @@ class Faker_id_id : Faker {
 	///
 	string nameFemaleTitle() {
 		auto data = [
-		"dr.', 'drg.', 'Dr.', 'Hj.'"
+		"dr.",
+		"drg.",
+		"Dr.",
+		"Hj.'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1187,8 +1237,7 @@ class Faker_id_id : Faker {
 		"Zulaikha",
 		"Zamira",
 		"Zelda",
-		"Zelaya",
-		""
+		"Zelaya"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1346,8 +1395,7 @@ class Faker_id_id : Faker {
 		"Yulianto",
 		"Yanuar",
 		"Yudhistira",
-		"Zulkarnain",
-		""
+		"Zulkarnain"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1463,16 +1511,7 @@ class Faker_id_id : Faker {
 		"Wulandari",
 		"Wastuti",
 		"Zulaika",
-		"Zahrah",
-		""
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string namePrefix() {
-		auto data = [
-		""
+		"Zahrah"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1480,7 +1519,12 @@ class Faker_id_id : Faker {
 	///
 	string nameMaleTitle() {
 		auto data = [
-		"dr.', 'drg.', 'Dr.', 'Drs.', 'Ir.', 'H.'"
+		"dr.",
+		"drg.",
+		"Dr.",
+		"Drs.",
+		"Ir.",
+		"H.'"
 		];
 		return choice(data, this.rnd);
 	}

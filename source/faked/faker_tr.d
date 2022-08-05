@@ -269,8 +269,7 @@ class Faker_tr : Faker {
 		"maiores",
 		"doloribus",
 		"asperiores",
-		"repellat",
-		""
+		"repellat"
 		];
 		return choice(data, this.rnd);
 	}
@@ -691,8 +690,7 @@ class Faker_tr : Faker {
 		"Zülal",
 		"Züleyha",
 		"Zeliha",
-		"Zümrüt",
-		""
+		"Zümrüt"
 		];
 		return choice(data, this.rnd);
 	}
@@ -700,7 +698,10 @@ class Faker_tr : Faker {
 	///
 	override string namePrefix() {
 		auto data = [
-		"Bay', 'Bayan', 'Dr.', 'Prof. Dr.'"
+		"Bay",
+		"Bayan",
+		"Dr.",
+		"Prof. Dr.'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -905,8 +906,7 @@ class Faker_tr : Faker {
 		"Özkara",
 		"Özkök ",
 		"Öztonga",
-		"Öztuna",
-		""
+		"Öztuna"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1644,8 +1644,7 @@ class Faker_tr : Faker {
 		"Kıvanç",
 		"Kıvılcım",
 		"Kızdurmuş",
-		"Kızılalma",
-		""
+		"Kızılalma"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2404,8 +2403,7 @@ class Faker_tr : Faker {
 		"Ziver",
 		"Ziya",
 		"Ziyad",
-		"Zübeyr",
-		""
+		"Zübeyr"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2414,18 +2412,33 @@ class Faker_tr : Faker {
 	override string commerceProductDescription() {
 		auto data = [
 		"Gün boyu konfor ve destek için yapıştırılmış siyah deri ve PVC dolgulu koltuk ve sırt ile kaplanmış ergonomik yönetici koltuğu",
-		"Otomobil düzeni, motorun arkasına monte edilmiş transaks tipi şanzımanlar ve dört tekerlekten çekiş ile bir ön motor tasarımından oluşur",
-		"Yeni ABC 13 9370, 13.3, 5. Nesil CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-		"Dev Byte'ın ince ve basit Maple Oyun Klavyesi, şık bir gövde ve akıllı işlevsellik için 7 Renkli RGB LED Arka Aydınlatma ile birlikte gelir",
-		"Apollotech B340, güvenilir bağlantıya, 12 aylık pil ömrüne ve modern tasarıma sahip uygun fiyatlı bir kablosuz faredir",
-		"Nagasaki Lander, 1984 ABC800J ile başlayan birkaç Nagasaki spor bisiklet serisinin ticari markasıdır",
+		"Otomobil düzeni",
+		"motorun arkasına monte edilmiş transaks tipi şanzımanlar ve dört tekerlekten çekiş ile bir ön motor tasarımından oluşur",
+		"Yeni ABC 13 9370",
+		"13.3",
+		"5. Nesil CoreA5-8250U",
+		"8GB RAM",
+		"256GB SSD",
+		"power UHD Graphics",
+		"OS 10 Home",
+		"OS Office A & J 2016",
+		"Dev Byte'ın ince ve basit Maple Oyun Klavyesi",
+		"şık bir gövde ve akıllı işlevsellik için 7 Renkli RGB LED Arka Aydınlatma ile birlikte gelir",
+		"Apollotech B340",
+		"güvenilir bağlantıya",
+		"12 aylık pil ömrüne ve modern tasarıma sahip uygun fiyatlı bir kablosuz faredir",
+		"Nagasaki Lander",
+		"1984 ABC800J ile başlayan birkaç Nagasaki spor bisiklet serisinin ticari markasıdır",
 		"Futbol Antrenman Ve Rekreasyon Amaçlı İyidir",
 		"Karbonit ağ kaleci eldivenleri ergonomik olarak kolay oturacak şekilde tasarlanmıştır",
-		"Boston'un en gelişmiş kompresyon aşınması teknolojisi, kas oksijenlenmesini artırır, aktif kasları stabilize eder",
+		"Boston'un en gelişmiş kompresyon aşınması teknolojisi",
+		"kas oksijenlenmesini artırır",
+		"aktif kasları stabilize eder",
 		"Yeni forma gömlek çeşitleri sizi göz önünde bulundurarak tasarlandı. Sizi farklı kılacak kesimler ve stiller ile",
 		"Doğal bileşenlerin heyecan verici bir karışımına sahip güzel Apple Naturalé serisi. %100 Doğal İçeriğin İyiliği ile",
-		"Andy ayakkabılar, trendlerin yanı sıra dayanıklılığı da göz önünde bulundurarak tasarlandı, en şık ayakkabı ve sandalet yelpazesi",
-		""
+		"Andy ayakkabılar",
+		"trendlerin yanı sıra dayanıklılığı da göz önünde bulundurarak tasarlandı",
+		"en şık ayakkabı ve sandalet yelpazesi"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2454,8 +2467,7 @@ class Faker_tr : Faker {
 		"Spor Dalları",
 		"Açık Hava",
 		"Otomotiv",
-		"Sanayi",
-		""
+		"Sanayi"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2543,8 +2555,7 @@ class Faker_tr : Faker {
 		"Karabük",
 		"Kilis",
 		"Osmaniye",
-		"Düzce",
-		""
+		"Düzce"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2558,11 +2569,13 @@ class Faker_tr : Faker {
 		"Amerikan Samoa",
 		"Andorra",
 		"Angola",
-		"Anguilla, İngiltere",
+		"Anguilla",
+		"İngiltere",
 		"Antigua ve Barbuda",
 		"Arjantin",
 		"Arnavutluk",
-		"Aruba, Hollanda",
+		"Aruba",
+		"Hollanda",
 		"Avustralya",
 		"Avusturya",
 		"Azerbaycan",
@@ -2573,7 +2586,8 @@ class Faker_tr : Faker {
 		"Belçika",
 		"Belize",
 		"Benin",
-		"Bermuda, İngiltere",
+		"Bermuda",
+		"İngiltere",
 		"Beyaz Rusya",
 		"Bhutan",
 		"Birleşik Arap Emirlikleri",
@@ -2587,10 +2601,13 @@ class Faker_tr : Faker {
 		"Burkina Faso",
 		"Burundi",
 		"Cape Verde",
-		"Cayman Adaları, İngiltere",
-		"Cebelitarık, İngiltere",
+		"Cayman Adaları",
+		"İngiltere",
+		"Cebelitarık",
+		"İngiltere",
 		"Cezayir",
-		"Christmas Adası , Avusturalya",
+		"Christmas Adası",
+		"Avusturalya",
 		"Cibuti",
 		"Çad",
 		"Çek Cumhuriyeti",
@@ -2613,7 +2630,8 @@ class Faker_tr : Faker {
 		"Filipinler",
 		"Filistin",
 		"Finlandiya",
-		"Folkland Adaları, İngiltere",
+		"Folkland Adaları",
+		"İngiltere",
 		"Fransa",
 		"Fransız Guyanası",
 		"Fransız Güney Eyaletleri (Kerguelen Adaları)",
@@ -2626,12 +2644,15 @@ class Faker_tr : Faker {
 		"Gine-Bissau",
 		"Grenada",
 		"Grönland",
-		"Guadalup, Fransa",
-		"Guam, Amerika",
+		"Guadalup",
+		"Fransa",
+		"Guam",
+		"Amerika",
 		"Guatemala",
 		"Guyana",
 		"Güney Afrika",
-		"Güney Georgia ve Güney Sandviç Adaları, İngiltere",
+		"Güney Georgia ve Güney Sandviç Adaları",
+		"İngiltere",
 		"Güney Kıbrıs Rum Yönetimi",
 		"Güney Kore",
 		"Gürcistan H",
@@ -2653,7 +2674,8 @@ class Faker_tr : Faker {
 		"İzlanda",
 		"Jamaika",
 		"Japonya",
-		"Johnston Atoll, Amerika",
+		"Johnston Atoll",
+		"Amerika",
 		"K.K.T.C.",
 		"Kamboçya",
 		"Kamerun",
@@ -2695,12 +2717,15 @@ class Faker_tr : Faker {
 		"Mali",
 		"Malta",
 		"Marşal Adaları",
-		"Martinik, Fransa",
+		"Martinik",
+		"Fransa",
 		"Mauritius",
-		"Mayotte, Fransa",
+		"Mayotte",
+		"Fransa",
 		"Meksika",
 		"Mısır",
-		"Midway Adaları, Amerika",
+		"Midway Adaları",
+		"Amerika",
 		"Mikronezya",
 		"Moğolistan",
 		"Moldavya",
@@ -2714,27 +2739,34 @@ class Faker_tr : Faker {
 		"Nijer",
 		"Nijerya",
 		"Nikaragua",
-		"Niue, Yeni Zelanda",
+		"Niue",
+		"Yeni Zelanda",
 		"Norveç",
 		"Orta Afrika Cumhuriyeti",
 		"Özbekistan",
 		"Pakistan",
 		"Palau Adaları",
-		"Palmyra Atoll, Amerika",
+		"Palmyra Atoll",
+		"Amerika",
 		"Panama",
 		"Papua Yeni Gine",
 		"Paraguay",
 		"Peru",
 		"Polonya",
 		"Portekiz",
-		"Porto Riko, Amerika",
-		"Reunion, Fransa",
+		"Porto Riko",
+		"Amerika",
+		"Reunion",
+		"Fransa",
 		"Romanya",
 		"Ruanda",
 		"Rusya Federasyonu",
-		"Saint Helena, İngiltere",
-		"Saint Martin, Fransa",
-		"Saint Pierre ve Miquelon, Fransa",
+		"Saint Helena",
+		"İngiltere",
+		"Saint Martin",
+		"Fransa",
+		"Saint Pierre ve Miquelon",
+		"Fransa",
 		"Samoa",
 		"San Marino",
 		"Santa Kitts ve Nevis",
@@ -2755,7 +2787,8 @@ class Faker_tr : Faker {
 		"Surinam",
 		"Suriye",
 		"Suudi Arabistan",
-		"Svalbard, Norveç",
+		"Svalbard",
+		"Norveç",
 		"Svaziland",
 		"Şili",
 		"Tacikistan",
@@ -2766,7 +2799,8 @@ class Faker_tr : Faker {
 		"Tonga",
 		"Trinidad ve Tobago",
 		"Tunus",
-		"Turks ve Caicos Adaları, İngiltere",
+		"Turks ve Caicos Adaları",
+		"İngiltere",
 		"Tuvalu",
 		"Türkiye",
 		"Türkmenistan",
@@ -2775,20 +2809,24 @@ class Faker_tr : Faker {
 		"Umman",
 		"Uruguay",
 		"Ürdün",
-		"Vallis ve Futuna, Fransa",
+		"Vallis ve Futuna",
+		"Fransa",
 		"Vanuatu",
 		"Venezuela",
 		"Vietnam",
-		"Virgin Adaları, Amerika",
-		"Virgin Adaları, İngiltere",
-		"Wake Adaları, Amerika",
+		"Virgin Adaları",
+		"Amerika",
+		"Virgin Adaları",
+		"İngiltere",
+		"Wake Adaları",
+		"Amerika",
 		"Yemen",
-		"Yeni Kaledonya, Fransa",
+		"Yeni Kaledonya",
+		"Fransa",
 		"Yeni Zelanda",
 		"Yunanistan",
 		"Zambiya",
-		"Zimbabve",
-		""
+		"Zimbabve"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2844,18 +2882,9 @@ class Faker_tr : Faker {
 		"Bayır Sokak",
 		"Kerimoğlu Sokak",
 		"Nalbant Sokak",
-		"Bandak Sokak",
-		""
+		"Bandak Sokak"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressBuildingNumber() {
-		auto data = [
-		"###', '##', '#', '##a', '##b', '##c'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
@@ -2899,16 +2928,16 @@ class Faker_tr : Faker {
 		"camgöbeği",
 		"masmavi",
 		"lavanta",
-		"gümüş",
-		""
+		"gümüş"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	string phoneNumberFormats() {
+	override string phoneNumberFormats() {
 		auto data = [
-		"+90-###-###-##-##', '+90-###-###-#-###'"
+		"+90-###-###-##-##",
+		"+90-###-###-#-###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -3012,16 +3041,31 @@ class Faker_tr : Faker {
 		"432",
 		"226",
 		"354",
-		"372",
-		""
+		"372"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"+90-53#-###-##-##",
+		"+90-54#-###-##-##",
+		"+90-55#-###-##-##",
+		"+90-50#-###-##-##"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"com.tr', 'com', 'biz', 'info', 'name', 'gov.tr'"
+		"com.tr",
+		"com",
+		"biz",
+		"info",
+		"name",
+		"gov.tr'"
 		];
 		return choice(data, this.rnd);
 	}

@@ -209,8 +209,7 @@ class Faker_hy : Faker {
 		"նույն",
 		"նավակում",
 		"նույնքան",
-		"անպաշտպան",
-		""
+		"անպաշտպան"
 		];
 		return choice(data, this.rnd);
 	}
@@ -263,8 +262,7 @@ class Faker_hy : Faker {
 		"Կարինա",
 		"Լիա",
 		"Նարինե",
-		"Լուսինե",
-		""
+		"Լուսինե"
 		];
 		return choice(data, this.rnd);
 	}
@@ -363,8 +361,7 @@ class Faker_hy : Faker {
 		"Գաբրիելյան",
 		"Ներսիսյան",
 		"Մնացականյան",
-		"Մովսիսյան",
-		""
+		"Մովսիսյան"
 		];
 		return choice(data, this.rnd);
 	}
@@ -462,8 +459,7 @@ class Faker_hy : Faker {
 		"Էդուարդ",
 		"Ալբերտ",
 		"Գարիկ",
-		"Համլետ",
-		""
+		"Համլետ"
 		];
 		return choice(data, this.rnd);
 	}
@@ -515,8 +511,7 @@ class Faker_hy : Faker {
 		"Էդուարդ",
 		"Ալբերտ",
 		"Գարիկ",
-		"Համլետ",
-		""
+		"Համլետ"
 		];
 		return choice(data, this.rnd);
 	}
@@ -535,8 +530,7 @@ class Faker_hy : Faker {
 		"վարդագույն",
 		"մոխրագույն",
 		"երկնագույն",
-		"ոսկեգույն",
-		""
+		"ոսկեգույն"
 		];
 		return choice(data, this.rnd);
 	}
@@ -562,8 +556,7 @@ class Faker_hy : Faker {
 		"Մարտունի",
 		"Շահումյան",
 		"Շուշի",
-		"Քաշաթաղ",
-		""
+		"Քաշաթաղ"
 		];
 		return choice(data, this.rnd);
 	}
@@ -799,8 +792,7 @@ class Faker_hy : Faker {
 		"Ֆիջի",
 		"Ֆոլկլենդյան կղզիներ",
 		"Ֆրանսիա",
-		"Ֆրանսիական Պոլինեզիա",
-		""
+		"Ֆրանսիական Պոլինեզիա"
 		];
 		return choice(data, this.rnd);
 	}
@@ -823,8 +815,7 @@ class Faker_hy : Faker {
 		"Հյուսիսարևելյան",
 		"Հյուսիսարևմտյան",
 		"Հարավարևելյան",
-		"Հարավարևմտյան",
-		""
+		"Հարավարևմտյան"
 		];
 		return choice(data, this.rnd);
 	}
@@ -832,7 +823,9 @@ class Faker_hy : Faker {
 	///
 	override string addressCitySuffix() {
 		auto data = [
-		"ակերտ', 'աշեն', 'աշատ'"
+		"ակերտ",
+		"աշեն",
+		"աշատ'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -840,23 +833,20 @@ class Faker_hy : Faker {
 	///
 	override string addressCityPrefix() {
 		auto data = [
-		"Հյուսիսային', 'Արևելյան', 'Արևմտյան', 'Հարավային', 'Նոր'"
+		"Հյուսիսային",
+		"Արևելյան",
+		"Արևմտյան",
+		"Հարավային",
+		"Նոր'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressBuildingNumber() {
-		auto data = [
-		"###', '###/#', '##', '##/#', '#', '#/#'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
 	override string addressSecondaryAddress() {
 		auto data = [
-		"Բն. ###', 'Տուն ###'"
+		"Բն. ###",
+		"Տուն ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -864,15 +854,17 @@ class Faker_hy : Faker {
 	///
 	override string addressStreetSuffix() {
 		auto data = [
-		"փողոց', ' պողոտա'"
+		" փողոց",
+		"պողոտա'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	string phoneNumberFormats() {
+	override string phoneNumberFormats() {
 		auto data = [
-		"+374 ## ######', '+374 ### #####'"
+		"+374 ## ######",
+		"+374 ### #####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -880,7 +872,13 @@ class Faker_hy : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"com', 'biz', 'info', 'name', 'net', 'org', 'am'"
+		"com",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org",
+		"am'"
 		];
 		return choice(data, this.rnd);
 	}

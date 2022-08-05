@@ -8,6 +8,12 @@ public import faked.base;
 public import faked.faker_af_za;
 
 ///
+public import faked.faker_az;
+
+///
+public import faked.faker_cz;
+
+///
 public import faked.faker_de;
 
 ///
@@ -15,6 +21,9 @@ public import faked.faker_de_at;
 
 ///
 public import faked.faker_de_ch;
+
+///
+public import faked.faker_el;
 
 ///
 public import faked.faker_en_au;
@@ -32,10 +41,16 @@ public import faked.faker_en_ca;
 public import faked.faker_en_gb;
 
 ///
+public import faked.faker_en_gh;
+
+///
 public import faked.faker_en_ie;
 
 ///
 public import faked.faker_en_ind;
+
+///
+public import faked.faker_en_ng;
 
 ///
 public import faked.faker_en_us;
@@ -47,10 +62,16 @@ public import faked.faker_en_za;
 public import faked.faker_es;
 
 ///
+public import faked.faker_es_mx;
+
+///
 public import faked.faker_fi;
 
 ///
 public import faked.faker_fr;
+
+///
+public import faked.faker_fr_be;
 
 ///
 public import faked.faker_fr_ca;
@@ -62,7 +83,13 @@ public import faked.faker_fr_ch;
 public import faked.faker_ge;
 
 ///
+public import faked.faker_he;
+
+///
 public import faked.faker_hr;
+
+///
+public import faked.faker_hu;
 
 ///
 public import faked.faker_hy;
@@ -81,6 +108,9 @@ public import faked.faker_ko;
 
 ///
 public import faked.faker_lv;
+
+///
+public import faked.faker_mk;
 
 ///
 public import faked.faker_nb_no;
@@ -108,6 +138,9 @@ public import faked.faker_ro;
 
 ///
 public import faked.faker_ru;
+
+///
+public import faked.faker_sk;
 
 ///
 public import faked.faker_sv;

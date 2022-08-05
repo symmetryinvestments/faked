@@ -19,17 +19,22 @@ class Faker_ja : Faker {
 	}
 
 	///
-	string phoneNumberFormats() {
+	override string phoneNumberFormats() {
 		auto data = [
-		"0####-#-####', '0###-##-####', '0##-###-####', '0#-####-####'"
+		"0####-#-####",
+		"0###-##-####",
+		"0##-###-####",
+		"0#-####-####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	string cellPhoneFormats() {
+	override string cellPhoneFormats() {
 		auto data = [
-		"090-####-####', '080-####-####', '070-####-####'"
+		"090-####-####",
+		"080-####-####",
+		"070-####-####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -83,8 +88,7 @@ class Faker_ja : Faker {
 		"44",
 		"45",
 		"46",
-		"47",
-		""
+		"47"
 		];
 		return choice(data, this.rnd);
 	}
@@ -138,8 +142,7 @@ class Faker_ja : Faker {
 		"大分県",
 		"宮崎県",
 		"鹿児島県",
-		"沖縄県",
-		""
+		"沖縄県"
 		];
 		return choice(data, this.rnd);
 	}
@@ -313,8 +316,7 @@ class Faker_ja : Faker {
 		"イエメン",
 		"ザイール",
 		"ザンビア",
-		"ジンバブエ",
-		""
+		"ジンバブエ"
 		];
 		return choice(data, this.rnd);
 	}
@@ -322,7 +324,10 @@ class Faker_ja : Faker {
 	///
 	override string addressCitySuffix() {
 		auto data = [
-		"市', '区', '町', '村'"
+		"市",
+		"区",
+		"町",
+		"村'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -330,7 +335,13 @@ class Faker_ja : Faker {
 	///
 	override string addressCityPrefix() {
 		auto data = [
-		"北', '東', '西', '南', '新', '湖', '港'"
+		"北",
+		"東",
+		"西",
+		"南",
+		"新",
+		"湖",
+		"港'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -854,8 +865,7 @@ class Faker_ja : Faker {
 		"けいけんしゃ",
 		"きょうふ",
 		"せいぞう",
-		"きんく",
-		""
+		"きんく"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1368,8 +1378,7 @@ class Faker_ja : Faker {
 		"ふねんごみ",
 		"ふねんゴミ",
 		"鎮める",
-		"しゅくん",
-		""
+		"しゅくん"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1521,8 +1530,7 @@ class Faker_ja : Faker {
 		"愛菜",
 		"桜",
 		"心結",
-		"美結",
-		""
+		"美結"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1549,8 +1557,7 @@ class Faker_ja : Faker {
 		"井上",
 		"木村",
 		"林",
-		"清水",
-		""
+		"清水"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1578,8 +1585,7 @@ class Faker_ja : Faker {
 		"結菜",
 		"心愛",
 		"愛菜",
-		"美咲",
-		""
+		"美咲"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1721,8 +1727,7 @@ class Faker_ja : Faker {
 		"智也",
 		"竜",
 		"悠希",
-		"歩夢",
-		""
+		"歩夢"
 		];
 		return choice(data, this.rnd);
 	}

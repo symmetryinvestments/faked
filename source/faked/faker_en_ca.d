@@ -19,6 +19,29 @@ class Faker_en_ca : Faker {
 	}
 
 	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"!##-!##-####",
+		"(!##)!##-####",
+		"!##.!##.####",
+		"1-!##-###-####",
+		"!##-!##-#### x###",
+		"(!##)!##-#### x###",
+		"1-!##-!##-#### x###",
+		"!##.!##.#### x###",
+		"!##-!##-#### x####",
+		"(!##)!##-#### x####",
+		"1-!##-!##-#### x####",
+		"!##.!##.#### x####",
+		"!##-!##-#### x#####",
+		"(!##)!##-#### x#####",
+		"1-!##-!##-#### x#####",
+		"!##.!##.#### x#####"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressCityName() {
 		auto data = [
 		"Argentia",
@@ -241,8 +264,7 @@ class Faker_en_ca : Faker {
 		"Yarmouth",
 		"Yellowknife",
 		"York",
-		"York Factory",
-		""
+		"York Factory"
 		];
 		return choice(data, this.rnd);
 	}
@@ -262,8 +284,7 @@ class Faker_en_ca : Faker {
 		"Prince Edward Island",
 		"Quebec",
 		"Saskatchewan",
-		"Yukon",
-		""
+		"Yukon"
 		];
 		return choice(data, this.rnd);
 	}
@@ -283,8 +304,7 @@ class Faker_en_ca : Faker {
 		"PE",
 		"QC",
 		"SK",
-		"YT",
-		""
+		"YT"
 		];
 		return choice(data, this.rnd);
 	}
@@ -317,8 +337,7 @@ class Faker_en_ca : Faker {
 		"T#? #?#",
 		"V#? #?#",
 		"X#? #?#",
-		"Y#? #?#",
-		""
+		"Y#? #?#"
 		];
 		return choice(data, this.rnd);
 	}
@@ -326,7 +345,9 @@ class Faker_en_ca : Faker {
 	///
 	override string internetFreeEmail() {
 		auto data = [
-		"gmail.com', 'yahoo.ca', 'hotmail.com'"
+		"gmail.com",
+		"yahoo.ca",
+		"hotmail.com'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -334,7 +355,13 @@ class Faker_en_ca : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"ca', 'com', 'biz', 'info', 'name', 'net', 'org'"
+		"ca",
+		"com",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}

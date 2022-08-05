@@ -70,8 +70,7 @@ class Faker_fi : Faker {
 		"Tellervo",
 		"Tiina",
 		"Tuula",
-		"Tuulikki",
-		""
+		"Tuulikki"
 		];
 		return choice(data, this.rnd);
 	}
@@ -128,8 +127,7 @@ class Faker_fi : Faker {
 		"Tuominen",
 		"Turunen",
 		"Virtanen",
-		"Väisänen",
-		""
+		"Väisänen"
 		];
 		return choice(data, this.rnd);
 	}
@@ -236,8 +234,7 @@ class Faker_fi : Faker {
 		"Tellervo",
 		"Tiina",
 		"Tuula",
-		"Tuulikki",
-		""
+		"Tuulikki"
 		];
 		return choice(data, this.rnd);
 	}
@@ -294,8 +291,7 @@ class Faker_fi : Faker {
 		"Tuomas",
 		"Valtteri",
 		"Veikko",
-		"Ville",
-		""
+		"Ville"
 		];
 		return choice(data, this.rnd);
 	}

@@ -235,11 +235,11 @@ class Faker {
     }
 
 	///
-    string commerceProductName() {
-        return this.commerceProductNameAdjective() ~
-              this.commerceProductNameMaterial() ~ " " ~
-              this.commerceProductNameProduct();
-    }
+    //string commerceProductName() {
+    //    return this.commerceProductNameAdjective() ~
+    //          this.commerceProductNameMaterial() ~ " " ~
+    //          this.commerceProductNameProduct();
+    //}
 
 	///
     string companyCatchPhrase() {
@@ -1264,8 +1264,7 @@ class Faker {
 		"maiores",
 		"doloribus",
 		"asperiores",
-		"repellat",
-		""
+		"repellat"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2112,8 +2111,7 @@ class Faker {
 		"vulpes",
 		"vulticulus",
 		"vultuosus",
-		"xiphias",
-		""
+		"xiphias"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2121,7 +2119,10 @@ class Faker {
 	///
 	string financeTransactionType() {
 		auto data = [
-		"deposit', 'withdrawal', 'payment', 'invoice'"
+		"deposit",
+		"withdrawal",
+		"payment",
+		"invoice'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2129,7 +2130,176 @@ class Faker {
 	///
 	Currency financeCurrency() {
 		auto data = [
-		
+		Currency("North Korean Won", "KPW", "₩"),
+		Currency("Zambian Kwacha", "ZMK", ""),
+		Currency("Somoni", "TJS", ""),
+		Currency("Liberian Dollar", "LRD", "$"),
+		Currency("New Taiwan Dollar", "TWD", "NT$"),
+		Currency("Baht", "THB", "฿"),
+		Currency("Riel", "KHR", "៛"),
+		Currency("Malaysian Ringgit", "MYR", "RM"),
+		Currency("Afghani", "AFN", "؋"),
+		Currency("Rupiah", "IDR", "Rp"),
+		Currency("Brunei Dollar", "BND", "$"),
+		Currency("Bermudian Dollar (customarily known as Bermuda Dollar)", "BMD", "$"),
+		Currency("Euro", "EUR", "€"),
+		Currency("Peso Uruguayo", "UYU", "$U"),
+		Currency("Chilean Peso", "CLP", "$"),
+		Currency("Norwegian Krone", "NOK", "kr"),
+		Currency("Tugrik", "MNT", "₮"),
+		Currency("Saudi Riyal", "SAR", "﷼"),
+		Currency("Yuan Renminbi", "CNY", "¥"),
+		Currency("Ethiopian Birr", "ETB", ""),
+		Currency("Lari", "GEL", ""),
+		Currency("Lilangeni", "SZL", ""),
+		Currency("Syrian Pound", "SYP", "£"),
+		Currency("Aruban Guilder", "AWG", "ƒ"),
+		Currency("New Leu", "RON", "lei"),
+		Currency("Jamaican Dollar", "JMD", "J$"),
+		Currency("Malagasy Ariary", "MGA", ""),
+		Currency("Moroccan Dirham", "MAD", ""),
+		Currency("Libyan Dinar", "LYD", ""),
+		Currency("Vatu", "VUV", ""),
+		Currency("Canadian Dollar", "CAD", "$"),
+		Currency("Danish Krone", "DKK", "kr"),
+		Currency("Pound Sterling", "GBP", "£"),
+		Currency("Ouguiya", "MRO", ""),
+		Currency("Pula", "BWP", "P"),
+		Currency("Sudanese Pound", "SDG", ""),
+		Currency("Russian Ruble", "RUB", "руб"),
+		Currency("Zimbabwe Dollar", "ZWL", ""),
+		Currency("Cayman Islands Dollar", "KYD", "$"),
+		Currency("Nuevo Sol", "PEN", "S/."),
+		Currency("Bolivar Fuerte", "VEF", "Bs"),
+		Currency("Platinum", "XPT", ""),
+		Currency("Tanzanian Shilling", "TZS", ""),
+		Currency("Lesotho Loti", "LSL", ""),
+		Currency("Argentine Peso", "ARS", "$"),
+		Currency("Hong Kong Dollar", "HKD", "$"),
+		Currency("Boliviano boliviano", "BOB", "Bs"),
+		Currency("Comoro Franc", "KMF", ""),
+		Currency("Djibouti Franc", "DJF", ""),
+		Currency("Pa\"anga", "TOP", ""),
+		Currency("Nakfa", "ERN", ""),
+		Currency("Kwacha", "MWK", ""),
+		Currency("Brazilian Real", "BRL", "R$"),
+		Currency("Cuban Peso Convertible", "CUC", "$"),
+		Currency("Hryvnia", "UAH", "₴"),
+		Currency("Namibia Dollar", "NAD", "N$"),
+		Currency("Rufiyaa", "MVR", ""),
+		Currency("Bhutanese Ngultrum", "BTN", "Nu"),
+		Currency("Taka", "BDT", ""),
+		Currency("East Caribbean Dollar", "XCD", "$"),
+		Currency("Fiji Dollar", "FJD", "$"),
+		Currency("Lempira", "HNL", "L"),
+		Currency("Lithuanian Litas", "LTL", "Lt"),
+		Currency("Bond Markets Units European Composite Unit (EURCO)", "XBA", ""),
+		Currency("Somali Shilling", "SOS", "S"),
+		Currency("Algerian Dinar", "DZD", ""),
+		Currency("Kroon", "EEK", ""),
+		Currency("Zloty", "PLN", "zł"),
+		Currency("Solomon Islands Dollar", "SBD", "$"),
+		Currency("Kina", "PGK", ""),
+		Currency("Bahamian Dollar", "BSD", "$"),
+		Currency("Naira", "NGN", "₦"),
+		Currency("Uganda Shilling", "UGX", ""),
+		Currency("Latvian Lats", "LVL", "Ls"),
+		Currency("Cordoba Oro", "NIO", "C$"),
+		Currency("European Unit of Account 17(E.U.A.-17)", "XBD", ""),
+		Currency("Serbian Dinar", "RSD", "Дин."),
+		Currency("Swedish Krona", "SEK", "kr"),
+		Currency("Iceland Krona", "ISK", "kr"),
+		Currency("Yemeni Rial", "YER", "﷼"),
+		Currency("Iranian Rial", "IRR", "﷼"),
+		Currency("Gibraltar Pound", "GIP", "£"),
+		Currency("Leone", "SLL", ""),
+		Currency("UAE Dirham", "AED", ""),
+		Currency("Pakistan Rupee", "PKR", "₨"),
+		Currency("Azerbaijanian Manat", "AZN", "ман"),
+		Currency("El Salvador Colon", "SVC", "₡"),
+		Currency("Trinidad and Tobago Dollar", "TTD", "TT$"),
+		Currency("Mexican Peso", "MXN", "$"),
+		Currency("Dobra", "STN", "Db"),
+		Currency("Congolese Franc", "CDF", ""),
+		Currency("Singapore Dollar", "SGD", "$"),
+		Currency("Quetzal", "GTQ", "Q"),
+		Currency("Dominican Peso", "DOP", "RD$"),
+		Currency("Cuban Peso", "CUP", "₱"),
+		Currency("Kenyan Shilling", "KES", ""),
+		Currency("CFP Franc", "XPF", ""),
+		Currency("Costa Rican Colon", "CRC", "₡"),
+		Currency("Saint Helena Pound", "SHP", "£"),
+		Currency("Kip", "LAK", "₭"),
+		Currency("Lek", "ALL", "Lek"),
+		Currency("Belize Dollar", "BZD", "BZ$"),
+		Currency("Qatari Rial", "QAR", "﷼"),
+		Currency("Forint", "HUF", "Ft"),
+		Currency("Kwanza", "AOA", ""),
+		Currency("Yen", "JPY", "¥"),
+		Currency("Palladium", "XPD", ""),
+		Currency("Colombian Peso", "COP", "$"),
+		Currency("Kuwaiti Dinar", "KWD", ""),
+		Currency("Rand", "ZAR", "R"),
+		Currency("Egyptian Pound", "EGP", "£"),
+		Currency("Iraqi Dinar", "IQD", ""),
+		Currency("Metical", "MZN", "MT"),
+		Currency("Lebanese Pound", "LBP", "£"),
+		Currency("Belarussian Ruble", "BYR", "p."),
+		Currency("Guarani", "PYG", "Gs"),
+		Currency("Indian Rupee", "INR", "₹"),
+		Currency("Codes specifically reserved for testing purposes", "XTS", ""),
+		Currency("Barbados Dollar", "BBD", "$"),
+		Currency("Mauritius Rupee", "MUR", "₨"),
+		Currency("Bulgarian Lev", "BGN", "лв"),
+		Currency("Tunisian Dinar", "TND", ""),
+		Currency("Guyana Dollar", "GYD", "$"),
+		Currency("Convertible Marks", "BAM", "KM"),
+		Currency("European Monetary Unit (E.M.U.-6)", "XBB", ""),
+		Currency("European Unit of Account 9(E.U.A.-9)", "XBC", ""),
+		Currency("Guinea Franc", "GNF", ""),
+		Currency("Dalasi", "GMD", ""),
+		Currency("Czech Koruna", "CZK", "Kč"),
+		Currency("Surinam Dollar", "SRD", "$"),
+		Currency("Pataca", "MOP", ""),
+		Currency("Swiss Franc", "CHF", "CHF"),
+		Currency("UIC-Franc", "XFU", ""),
+		Currency("Denar", "MKD", "ден"),
+		Currency("Kyat", "MMK", ""),
+		Currency("CFA Franc BEAC", "XAF", ""),
+		Currency("Rial Omani", "OMR", "﷼"),
+		Currency("Australian Dollar", "AUD", "$"),
+		Currency("Won", "KRW", "₩"),
+		Currency("CFA Franc BCEAO", "XOF", ""),
+		Currency("Cape Verde Escudo", "CVE", ""),
+		Currency("New Zealand Dollar", "NZD", "$"),
+		Currency("Moldovan Leu", "MDL", ""),
+		Currency("Bahraini Dinar", "BHD", ""),
+		Currency("Manat", "TMT", ""),
+		Currency("Gourde", "HTG", ""),
+		Currency("Cedi", "GHS", ""),
+		Currency("Nepalese Rupee", "NPR", "₨"),
+		Currency("Seychelles Rupee", "SCR", "₨"),
+		Currency("New Israeli Sheqel", "ILS", "₪"),
+		Currency("Jordanian Dinar", "JOD", ""),
+		Currency("Som", "KGS", "лв"),
+		Currency("Rwanda Franc", "RWF", ""),
+		Currency("Burundi Franc", "BIF", ""),
+		Currency("Croatian Kuna", "HRK", "kn"),
+		Currency("Armenian Dram", "AMD", ""),
+		Currency("Sri Lanka Rupee", "LKR", "₨"),
+		Currency("Tenge", "KZT", "лв"),
+		Currency("Tala", "WST", ""),
+		Currency("Uzbekistan Sum", "UZS", "лв"),
+		Currency("Balboa", "PAB", "B/."),
+		Currency("Silver", "XAG", ""),
+		Currency("Dong", "VND", "₫"),
+		Currency("US Dollar", "USD", "$"),
+		Currency("Gold", "XAU", ""),
+		Currency("Turkish Lira", "TRY", "₺"),
+		Currency("SDR", "XDR", ""),
+		Currency("Netherlands Antillian Guilder", "ANG", "ƒ"),
+		Currency("Falkland Islands Pound", "FKP", "£"),
+		Currency("Philippine Peso", "PHP", "Php")
 		];
 		return choice(data, this.rnd);
 	}
@@ -2144,8 +2314,7 @@ class Faker {
 		"Home Loan",
 		"Credit Card",
 		"Auto Loan",
-		"Personal Loan",
-		""
+		"Personal Loan"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2189,6 +2358,16 @@ class Faker {
     }
 
 	///
+	string financeCreditCardJcb() {
+		auto data = [
+		"3528-####-####-###L",
+		"3529-####-####-###L",
+		"35[3-8]#-####-####-###L"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	string financeCreditCardInstapayment() {
 		auto data = [
 		"63[7-9]#-####-####-###L'"
@@ -2197,9 +2376,53 @@ class Faker {
 	}
 
 	///
+	string financeCreditCardDiscover() {
+		auto data = [
+		"6011-####-####-###L",
+		"65##-####-####-###L",
+		"64[4-9]#-####-####-###L",
+		"6011-62##-####-####-###L",
+		"65##-62##-####-####-###L",
+		"64[4-9]#-62##-####-####-###L"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	string financeCreditCardSwitch() {
+		auto data = [
+		"6759-####-####-###L",
+		"6759-####-####-####-#L",
+		"6759-####-####-####-##L"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	string financeCreditCardDinersClub() {
+		auto data = [
+		"30[0-5]#-######-###L",
+		"36##-######-###L",
+		"54##-####-####-###L"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	string financeCreditCardSolo() {
+		auto data = [
+		"6767-####-####-###L",
+		"6767-####-####-####-#L",
+		"6767-####-####-####-##L"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	string financeCreditCardMastercard() {
 		auto data = [
-		"5[1-5]##-####-####-###L', '6771-89##-####-###L'"
+		"5[1-5]##-####-####-###L",
+		"6771-89##-####-###L'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -2207,7 +2430,8 @@ class Faker {
 	///
 	string financeCreditCardVisa() {
 		auto data = [
-		"4###########L', '4###-####-####-###L'"
+		"4###########L",
+		"4###-####-####-###L'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -2215,7 +2439,8 @@ class Faker {
 	///
 	string financeCreditCardAmericanExpress() {
 		auto data = [
-		"34##-######-####L', '37##-######-####L'"
+		"34##-######-####L",
+		"37##-######-####L'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -2567,8 +2792,7 @@ class Faker {
 		"Zaniskari",
 		"Žemaitukas",
 		"Zhemaichu",
-		"Zweibrücker",
-		""
+		"Zweibrücker"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2607,7 +2831,8 @@ class Faker {
 		"Brazilian tuco-tuco",
 		"Bridge's degu",
 		"Brown hairy dwarf porcupine",
-		"Budin's chinchilla rat, A. budini",
+		"Budin's chinchilla rat",
+		"A. budini",
 		"Cape porcupine",
 		"Catamarca tuco-tuco",
 		"Cavia",
@@ -2760,8 +2985,7 @@ class Faker {
 		"Tympanoctomys",
 		"Uspallata chinchilla rat",
 		"White-toothed tuco-tuco",
-		"Wolffsohn's viscacha",
-		""
+		"Wolffsohn's viscacha"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2775,8 +2999,7 @@ class Faker {
 		"Northeast Congo Lion",
 		"Masai Lion",
 		"Transvaal lion",
-		"Cape lion",
-		""
+		"Cape lion"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3280,8 +3503,7 @@ class Faker {
 		"Xiasi Dog",
 		"Xoloitzcuintli",
 		"Yakutian Laika",
-		"Yorkshire Terrier",
-		""
+		"Yorkshire Terrier"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3807,8 +4029,7 @@ class Faker {
 		"Zedit",
 		"Breed",
 		"Żubroń",
-		"Zebu",
-		""
+		"Zebu"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3864,8 +4085,7 @@ class Faker {
 		"Silver Marten",
 		"Standard Chinchilla",
 		"Tan",
-		"Thrianta",
-		""
+		"Thrianta"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3926,8 +4146,7 @@ class Faker {
 		"La Plata Dolphin",
 		"Southern Bottlenose Whale",
 		"Longman's Beaked Whale",
-		"Arnoux's Beaked Whale",
-		""
+		"Arnoux's Beaked Whale"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3958,8 +4177,7 @@ class Faker {
 		"Saltwater Crocodile",
 		"Siamese Crocodile",
 		"Gharial",
-		"Tomistoma",
-		""
+		"Tomistoma"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4021,8 +4239,7 @@ class Faker {
 		"Tonkinese",
 		"Toyger",
 		"Turkish Angora",
-		"Turkish Van",
-		""
+		"Turkish Van"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4192,7 +4409,8 @@ class Faker {
 		"Paradise flying snake",
 		"Twin-Barred tree snake",
 		"Banded Flying Snake",
-		"Fox snake, three species of Pantherophis",
+		"Fox snake",
+		"three species of Pantherophis",
 		"Forest flame snake",
 		"Garter snake",
 		"Checkered garter snake",
@@ -4482,7 +4700,8 @@ class Faker {
 		"Titanboa",
 		"Urutu",
 		"Vine snake",
-		"Asian Vine Snake, Whip Snake",
+		"Asian Vine Snake",
+		"Whip Snake",
 		"American Vine Snake",
 		"Mexican vine snake",
 		"Viper",
@@ -4610,8 +4829,7 @@ class Faker {
 		"Longnosed worm snake",
 		"Wutu",
 		"Yarara",
-		"Zebra snake",
-		""
+		"Zebra snake"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5532,8 +5750,7 @@ class Faker {
 		"Evening Grosbeak",
 		"Hawfinch",
 		"House Sparrow",
-		"Eurasian Tree Sparrow",
-		""
+		"Eurasian Tree Sparrow"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5548,8 +5765,7 @@ class Faker {
 		"American black bear",
 		"Asian black bear",
 		"Brown bear",
-		"Polar bear",
-		""
+		"Polar bear"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5569,8 +5785,7 @@ class Faker {
 		"bird",
 		"fish",
 		"rabbit",
-		"horse",
-		""
+		"horse"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5673,8 +5888,7 @@ class Faker {
 		"Blue swimming crab",
 		"Pacific sand lance",
 		"Pacific sandlance",
-		"Goldstripe sardinella",
-		""
+		"Goldstripe sardinella"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5811,8 +6025,7 @@ class Faker {
 		"Wool sower gall maker",
 		"Yellow and black potter wasp",
 		"Yellow Crazy Ant",
-		"Yellow-horned horntail",
-		""
+		"Yellow-horned horntail"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5820,7 +6033,11 @@ class Faker {
 	///
 	string appVersion() {
 		auto data = [
-		"0.#.#', '0.##', '#.##', '#.#', '#.#.#'"
+		"0.#.#",
+		"0.##",
+		"#.##",
+		"#.#",
+		"#.#.#'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -5889,8 +6106,7 @@ class Faker {
 		"Ronstring",
 		"Zathin",
 		"Duobam",
-		"Keylex",
-		""
+		"Keylex"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5957,8 +6173,7 @@ class Faker {
 		"matrix",
 		"productize",
 		"redefine",
-		"recontextualize",
-		""
+		"recontextualize"
 		];
 		return choice(data, this.rnd);
 	}
@@ -6010,8 +6225,7 @@ class Faker {
 		"experiences",
 		"web services",
 		"methodologies",
-		"blockchains",
-		""
+		"blockchains"
 		];
 		return choice(data, this.rnd);
 	}
@@ -6119,8 +6333,7 @@ class Faker {
 		"well-modulated",
 		"zero administration",
 		"zero defect",
-		"zero tolerance",
-		""
+		"zero tolerance"
 		];
 		return choice(data, this.rnd);
 	}
@@ -6231,8 +6444,7 @@ class Faker {
 		"toolset",
 		"utilisation",
 		"website",
-		"workforce",
-		""
+		"workforce"
 		];
 		return choice(data, this.rnd);
 	}
@@ -6339,8 +6551,7 @@ class Faker {
 		"Versatile",
 		"Virtual",
 		"Visionary",
-		"Vision-oriented",
-		""
+		"Vision-oriented"
 		];
 		return choice(data, this.rnd);
 	}
@@ -6348,7 +6559,10 @@ class Faker {
 	///
 	string companySuffix() {
 		auto data = [
-		"Inc', 'and Sons', 'LLC', 'Group'"
+		"Inc",
+		"and Sons",
+		"LLC",
+		"Group'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -6420,8 +6634,7 @@ class Faker {
 		"collaborative",
 		"compelling",
 		"holistic",
-		"rich",
-		""
+		"rich"
 		];
 		return choice(data, this.rnd);
 	}
@@ -6444,8 +6657,7 @@ class Faker {
 		"synthesizing",
 		"transmitting",
 		"programming",
-		"parsing",
-		""
+		"parsing"
 		];
 		return choice(data, this.rnd);
 	}
@@ -6470,8 +6682,7 @@ class Faker {
 		"neural",
 		"optical",
 		"solid state",
-		"mobile",
-		""
+		"mobile"
 		];
 		return choice(data, this.rnd);
 	}
@@ -6496,8 +6707,7 @@ class Faker {
 		"transmit",
 		"program",
 		"reboot",
-		"parse",
-		""
+		"parse"
 		];
 		return choice(data, this.rnd);
 	}
@@ -6546,8 +6756,7 @@ class Faker {
 		"UTF8",
 		"VGA",
 		"XML",
-		"XSS",
-		""
+		"XSS"
 		];
 		return choice(data, this.rnd);
 	}
@@ -6578,8 +6787,7 @@ class Faker {
 		"bus",
 		"circuit",
 		"capacitor",
-		"matrix",
-		""
+		"matrix"
 		];
 		return choice(data, this.rnd);
 	}
@@ -6674,8 +6882,7 @@ class Faker {
 		"{",
 		"name: 'sievert",
 		"symbol: 'Sv",
-		"}",
-		""
+		"}"
 		];
 		return choice(data, this.rnd);
 	}
@@ -7272,8 +7479,7 @@ class Faker {
 		"symbol: 'Og",
 		"name: 'Oganesson",
 		"atomicNumber: 118",
-		"}",
-		""
+		"}"
 		];
 		return choice(data, this.rnd);
 	}
@@ -7490,8 +7696,7 @@ class Faker {
 		"Xena",
 		"Zaylee",
 		"Zion",
-		"Zoe",
-		""
+		"Zoe"
 		];
 		return choice(data, this.rnd);
 	}
@@ -7596,8 +7801,7 @@ class Faker {
 		"Wison",
 		"Wyatt",
 		"Ziggy",
-		"Zyair",
-		""
+		"Zyair"
 		];
 		return choice(data, this.rnd);
 	}
@@ -8104,8 +8308,7 @@ class Faker {
 		"Marlon",
 		"Emanuel",
 		"Jerald",
-		"Edmond",
-		""
+		"Edmond"
 		];
 		return choice(data, this.rnd);
 	}
@@ -8123,8 +8326,7 @@ class Faker {
 		"MD",
 		"DDS",
 		"PhD",
-		"DVM",
-		""
+		"DVM"
 		];
 		return choice(data, this.rnd);
 	}
@@ -8605,8 +8807,7 @@ class Faker {
 		"Zemlak",
 		"Ziemann",
 		"Zieme",
-		"Zulauf",
-		""
+		"Zulauf"
 		];
 		return choice(data, this.rnd);
 	}
@@ -11620,8 +11821,7 @@ class Faker {
 		"Zoila",
 		"Zola",
 		"Zora",
-		"Zula",
-		""
+		"Zula"
 		];
 		return choice(data, this.rnd);
 	}
@@ -12128,8 +12328,7 @@ class Faker {
 		"Ollie",
 		"Jaime",
 		"Winifred",
-		"Kristie",
-		""
+		"Kristie"
 		];
 		return choice(data, this.rnd);
 	}
@@ -12212,8 +12411,7 @@ class Faker {
 		"Two-spirit person",
 		"Two-spirit",
 		"Woman",
-		"Xenogender",
-		""
+		"Xenogender"
 		];
 		return choice(data, this.rnd);
 	}
@@ -12282,8 +12480,7 @@ class Faker {
 		"Shawn",
 		"Shiloh",
 		"Skyler",
-		"Taylor",
-		""
+		"Taylor"
 		];
 		return choice(data, this.rnd);
 	}
@@ -12291,7 +12488,8 @@ class Faker {
 	///
 	string nameBinaryGender() {
 		auto data = [
-		"Female', 'Male'"
+		"Female",
+		"Male'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -12299,7 +12497,11 @@ class Faker {
 	///
 	string namePrefix() {
 		auto data = [
-		"Mr.', 'Mrs.', 'Ms.', 'Miss', 'Dr.'"
+		"Mr.",
+		"Mrs.",
+		"Ms.",
+		"Miss",
+		"Dr.'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -12368,8 +12570,7 @@ class Faker {
 		"wherever",
 		"which",
 		"who",
-		"yet",
-		""
+		"yet"
 		];
 		return choice(data, this.rnd);
 	}
@@ -19177,8 +19378,7 @@ class Faker {
 		"zoologist",
 		"zoology",
 		"zoot-suit",
-		"zucchini",
-		""
+		"zucchini"
 		];
 		return choice(data, this.rnd);
 	}
@@ -20532,8 +20732,7 @@ class Faker {
 		"zany",
 		"zealous",
 		"zesty",
-		"zigzag",
-		""
+		"zigzag"
 		];
 		return choice(data, this.rnd);
 	}
@@ -20587,8 +20786,7 @@ class Faker {
 		"er",
 		"ick",
 		"oof",
-		"um",
-		""
+		"um"
 		];
 		return choice(data, this.rnd);
 	}
@@ -20704,8 +20902,7 @@ class Faker {
 		"with",
 		"within",
 		"without",
-		"worth",
-		""
+		"worth"
 		];
 		return choice(data, this.rnd);
 	}
@@ -21038,8 +21235,7 @@ class Faker {
 		"yearningly",
 		"yesterday",
 		"yieldingly",
-		"youthfully",
-		""
+		"youthfully"
 		];
 		return choice(data, this.rnd);
 	}
@@ -27103,8 +27299,7 @@ class Faker {
 		"zing",
 		"zip",
 		"zone",
-		"zoom",
-		""
+		"zoom"
 		];
 		return choice(data, this.rnd);
 	}
@@ -27113,18 +27308,29 @@ class Faker {
 	string commerceProductDescription() {
 		auto data = [
 		"Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-		"The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-		"New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+		"The automobile layout consists of a front-engine design",
+		"with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+		"New ABC 13 9370",
+		"13.3",
+		"5th Gen CoreA5-8250U",
+		"8GB RAM",
+		"256GB SSD",
+		"power UHD Graphics",
+		"OS 10 Home",
+		"OS Office A & J 2016",
 		"The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-		"The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-		"The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+		"The Apollotech B340 is an affordable wireless mouse with reliable connectivity",
+		"12 months battery life and modern design",
+		"The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes",
+		"that started with the 1984 ABC800J",
 		"The Football Is Good For Training And Recreational Purposes",
 		"Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-		"Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+		"Boston's most advanced compression wear technology increases muscle oxygenation",
+		"stabilizes active muscles",
 		"New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
 		"The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-		"Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-		""
+		"Andy shoes are designed to keeping in mind durability as well as trends",
+		"the most stylish range of shoes & sandals"
 		];
 		return choice(data, this.rnd);
 	}
@@ -27153,8 +27359,7 @@ class Faker {
 		"Sports",
 		"Outdoors",
 		"Automotive",
-		"Industrial",
-		""
+		"Industrial"
 		];
 		return choice(data, this.rnd);
 	}
@@ -28161,8 +28366,7 @@ class Faker {
 		"Youngstown",
 		"Yuba City",
 		"Yucaipa",
-		"Yuma",
-		""
+		"Yuma"
 		];
 		return choice(data, this.rnd);
 	}
@@ -28219,8 +28423,7 @@ class Faker {
 		"Washington",
 		"West Virginia",
 		"Wisconsin",
-		"Wyoming",
-		""
+		"Wyoming"
 		];
 		return choice(data, this.rnd);
 	}
@@ -28465,14 +28668,15 @@ class Faker {
 		"Vanuatu",
 		"Venezuela",
 		"Vietnam",
-		"Virgin Islands, British",
-		"Virgin Islands, U.S.",
+		"Virgin Islands",
+		"British",
+		"Virgin Islands",
+		"U.S.",
 		"Wallis and Futuna",
 		"Western Sahara",
 		"Yemen",
 		"Zambia",
-		"Zimbabwe",
-		""
+		"Zimbabwe"
 		];
 		return choice(data, this.rnd);
 	}
@@ -28529,8 +28733,7 @@ class Faker {
 		"WA",
 		"WV",
 		"WI",
-		"WY",
-		""
+		"WY"
 		];
 		return choice(data, this.rnd);
 	}
@@ -28553,8 +28756,7 @@ class Faker {
 		"Northeast",
 		"Northwest",
 		"Southeast",
-		"Southwest",
-		""
+		"Southwest"
 		];
 		return choice(data, this.rnd);
 	}
@@ -28811,8 +29013,7 @@ class Faker {
 		"IDN",
 		"UKR",
 		"QAT",
-		"MOZ",
-		""
+		"MOZ"
 		];
 		return choice(data, this.rnd);
 	}
@@ -28843,8 +29044,7 @@ class Faker {
 		"haven",
 		"side",
 		"shire",
-		"worth",
-		""
+		"worth"
 		];
 		return choice(data, this.rnd);
 	}
@@ -28852,7 +29052,14 @@ class Faker {
 	///
 	string addressDirectionAbbr() {
 		auto data = [
-		"N', 'E', 'S', 'W', 'NE', 'NW', 'SE', 'SW'"
+		"N",
+		"E",
+		"S",
+		"W",
+		"NE",
+		"NW",
+		"SE",
+		"SW'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -28867,8 +29074,7 @@ class Faker {
 		"New",
 		"Lake",
 		"Port",
-		"Fort",
-		""
+		"Fort"
 		];
 		return choice(data, this.rnd);
 	}
@@ -28881,8 +29087,7 @@ class Faker {
 		"Berkshire",
 		"Borders",
 		"Buckinghamshire",
-		"Cambridgeshire",
-		""
+		"Cambridgeshire"
 		];
 		return choice(data, this.rnd);
 	}
@@ -29032,8 +29237,7 @@ class Faker {
 		"Pacific/Auckland",
 		"Pacific/Tongatapu",
 		"Pacific/Fakaofo",
-		"Pacific/Apia",
-		""
+		"Pacific/Apia"
 		];
 		return choice(data, this.rnd);
 	}
@@ -29289,8 +29493,7 @@ class Faker {
 		"YT",
 		"ZA",
 		"ZM",
-		"ZW",
-		""
+		"ZW"
 		];
 		return choice(data, this.rnd);
 	}
@@ -29298,7 +29501,9 @@ class Faker {
 	///
 	string addressBuildingNumber() {
 		auto data = [
-		"#####', '####', '###'"
+		"#####",
+		"####",
+		"###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -29306,7 +29511,8 @@ class Faker {
 	///
 	string addressPostcode() {
 		auto data = [
-		"#####', '#####-####'"
+		"#####",
+		"#####-####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -29314,7 +29520,8 @@ class Faker {
 	///
 	string addressSecondaryAddress() {
 		auto data = [
-		"Apt. ###', 'Suite ###'"
+		"Apt. ###",
+		"Suite ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -29546,8 +29753,7 @@ class Faker {
 		"Way",
 		"Ways",
 		"Well",
-		"Wells",
-		""
+		"Wells"
 		];
 		return choice(data, this.rnd);
 	}
@@ -30554,8 +30760,7 @@ class Faker {
 		"Honky Tonk",
 		"Be Bop a Lula",
 		"Two Hearts",
-		"Paper Planes",
-		""
+		"Paper Planes"
 		];
 		return choice(data, this.rnd);
 	}
@@ -30580,8 +30785,7 @@ class Faker {
 		"Stage And Screen",
 		"Blues",
 		"Non Music",
-		"Rap",
-		""
+		"Rap"
 		];
 		return choice(data, this.rnd);
 	}
@@ -30629,8 +30833,7 @@ class Faker {
 		"HKS",
 		"LMS",
 		"RG",
-		"RGK",
-		""
+		"RGK"
 		];
 		return choice(data, this.rnd);
 	}
@@ -30668,8 +30871,7 @@ class Faker {
 		"cyan",
 		"azure",
 		"lavender",
-		"silver",
-		""
+		"silver"
 		];
 		return choice(data, this.rnd);
 	}
@@ -30700,8 +30902,7 @@ class Faker {
 		"enum",
 		"set",
 		"geometry",
-		"point",
-		""
+		"point"
 		];
 		return choice(data, this.rnd);
 	}
@@ -30722,8 +30923,7 @@ class Faker {
 		"avatar",
 		"status",
 		"createdAt",
-		"updatedAt",
-		""
+		"updatedAt"
 		];
 		return choice(data, this.rnd);
 	}
@@ -30737,8 +30937,7 @@ class Faker {
 		"ascii_bin",
 		"ascii_general_ci",
 		"cp1250_bin",
-		"cp1250_general_ci",
-		""
+		"cp1250_general_ci"
 		];
 		return choice(data, this.rnd);
 	}
@@ -30746,7 +30945,12 @@ class Faker {
 	///
 	string databaseEngine() {
 		auto data = [
-		"InnoDB', 'MyISAM', 'MEMORY', 'CSV', 'BLACKHOLE', 'ARCHIVE'"
+		"InnoDB",
+		"MyISAM",
+		"MEMORY",
+		"CSV",
+		"BLACKHOLE",
+		"ARCHIVE'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -30820,16 +31024,56 @@ class Faker {
 		"witches",
 		"worshipers",
 		"zombies",
-		"druids",
-		""
+		"druids"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
+	string phoneNumberFormats() {
+		auto data = [
+		"!##-!##-####",
+		"(!##) !##-####",
+		"1-!##-!##-####",
+		"!##.!##.####",
+		"!##-!##-####",
+		"(!##) !##-####",
+		"1-!##-!##-####",
+		"!##.!##.####",
+		"!##-!##-#### x###",
+		"(!##) !##-#### x###",
+		"1-!##-!##-#### x###",
+		"!##.!##.#### x###",
+		"!##-!##-#### x####",
+		"(!##) !##-#### x####",
+		"1-!##-!##-#### x####",
+		"!##.!##.#### x####",
+		"!##-!##-#### x#####",
+		"(!##) !##-#### x#####",
+		"1-!##-!##-#### x#####",
+		"!##.!##.#### x#####"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	string cellPhoneFormats() {
+		auto data = [
+		"###-###-####",
+		"(###) ###-####",
+		"1-###-###-####",
+		"###.###.####"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	string vehicleFuel() {
 		auto data = [
-		"Diesel', 'Electric', 'Gasoline', 'Hybrid'"
+		"Diesel",
+		"Electric",
+		"Gasoline",
+		"Hybrid'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -30868,8 +31112,7 @@ class Faker {
 		"Tesla",
 		"Toyota",
 		"Volkswagen",
-		"Volvo",
-		""
+		"Volvo"
 		];
 		return choice(data, this.rnd);
 	}
@@ -30887,8 +31130,7 @@ class Faker {
 		"Passenger Van",
 		"SUV",
 		"Sedan",
-		"Wagon",
-		""
+		"Wagon"
 		];
 		return choice(data, this.rnd);
 	}
@@ -30913,8 +31155,7 @@ class Faker {
 		"Touring Bicycle",
 		"Track/Fixed-Gear Bicycle",
 		"Triathlon/Time Trial Bicycle",
-		"Tricycle",
-		""
+		"Tricycle"
 		];
 		return choice(data, this.rnd);
 	}
@@ -30981,8 +31222,7 @@ class Faker {
 		"Fortwo",
 		"V90",
 		"XC90",
-		"CX-9",
-		""
+		"CX-9"
 		];
 		return choice(data, this.rnd);
 	}
@@ -30990,7 +31230,10 @@ class Faker {
 	///
 	string businessCreditCardExpiryDates() {
 		auto data = [
-		"2011-10-12', '2012-11-12', '2015-11-11', '2013-9-12'"
+		"2011-10-12",
+		"2012-11-12",
+		"2015-11-11",
+		"2013-9-12'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -30998,7 +31241,10 @@ class Faker {
 	///
 	string businessCreditCardTypes() {
 		auto data = [
-		"visa', 'mastercard', 'americanexpress', 'discover'"
+		"visa",
+		"mastercard",
+		"americanexpress",
+		"discover'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -31009,8 +31255,7 @@ class Faker {
 		"1234-2121-1221-1211",
 		"1212-1221-1121-1234",
 		"1211-1221-1234-2201",
-		"1228-1221-1221-1431",
-		""
+		"1228-1221-1221-1431"
 		];
 		return choice(data, this.rnd);
 	}
@@ -31018,7 +31263,9 @@ class Faker {
 	///
 	string internetFreeEmail() {
 		auto data = [
-		"gmail.com', 'yahoo.com', 'hotmail.com'"
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -31026,7 +31273,12 @@ class Faker {
 	///
 	string internetDomainSuffix() {
 		auto data = [
-		"com', 'biz', 'info', 'name', 'net', 'org'"
+		"com",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -31034,7 +31286,9 @@ class Faker {
 	///
 	string internetExampleEmail() {
 		auto data = [
-		"example.org', 'example.com', 'example.net'"
+		"example.org",
+		"example.com",
+		"example.net'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -32291,8 +32545,7 @@ class Faker {
 		"zaki3d_128.jpg",
 		"zauerkraut_128.jpg",
 		"zforrester_128.jpg",
-		"zvchkelly_128.jpg",
-		""
+		"zvchkelly_128.jpg"
 		];
 		return choice(data, this.rnd);
 	}

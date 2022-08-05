@@ -19,9 +19,11 @@ class Faker_ko : Faker {
 	}
 
 	///
-	string phoneNumberFormats() {
+	override string phoneNumberFormats() {
 		auto data = [
-		"0#-#####-####', '0##-###-####', '0##-####-####'"
+		"0#-#####-####",
+		"0##-###-####",
+		"0##-####-####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -29,7 +31,10 @@ class Faker_ko : Faker {
 	///
 	override string internetFreeEmail() {
 		auto data = [
-		"gmail.com', 'yahoo.co.kr', 'hanmail.net', 'naver.com'"
+		"gmail.com",
+		"yahoo.co.kr",
+		"hanmail.net",
+		"naver.com'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -37,7 +42,14 @@ class Faker_ko : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"co.kr', 'com', 'biz', 'info', 'ne.kr', 'net', 'or.kr', 'org'"
+		"co.kr",
+		"com",
+		"biz",
+		"info",
+		"ne.kr",
+		"net",
+		"or.kr",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -45,7 +57,12 @@ class Faker_ko : Faker {
 	///
 	override string companySuffix() {
 		auto data = [
-		"연구소', '게임즈', '그룹', '전자', '물산', '코리아'"
+		"연구소",
+		"게임즈",
+		"그룹",
+		"전자",
+		"물산",
+		"코리아'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -53,7 +70,8 @@ class Faker_ko : Faker {
 	///
 	string companyPrefix() {
 		auto data = [
-		"주식회사', '한국'"
+		"주식회사",
+		"한국'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -95,8 +113,7 @@ class Faker_ko : Faker {
 		"목포",
 		"분당",
 		"안양",
-		"시흥",
-		""
+		"시흥"
 		];
 		return choice(data, this.rnd);
 	}
@@ -120,8 +137,7 @@ class Faker_ko : Faker {
 		"제주",
 		"충남",
 		"충북",
-		"세종",
-		""
+		"세종"
 		];
 		return choice(data, this.rnd);
 	}
@@ -145,8 +161,7 @@ class Faker_ko : Faker {
 		"제주",
 		"충남",
 		"충북",
-		"세종",
-		""
+		"세종"
 		];
 		return choice(data, this.rnd);
 	}
@@ -154,7 +169,9 @@ class Faker_ko : Faker {
 	///
 	override string addressCitySuffix() {
 		auto data = [
-		"구', '시', '군'"
+		"구",
+		"시",
+		"군'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -188,8 +205,7 @@ class Faker_ko : Faker {
 		"대명",
 		"동탄",
 		"판교",
-		"연무",
-		""
+		"연무"
 		];
 		return choice(data, this.rnd);
 	}
@@ -197,7 +213,8 @@ class Faker_ko : Faker {
 	///
 	override string addressPostcode() {
 		auto data = [
-		"###-###', '#####'"
+		"###-###",
+		"#####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -205,7 +222,9 @@ class Faker_ko : Faker {
 	///
 	override string addressStreetSuffix() {
 		auto data = [
-		"읍', '면', '동'"
+		"읍",
+		"면",
+		"동'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -340,8 +359,7 @@ class Faker_ko : Faker {
 		"국내법과",
 		"같은",
 		"효력을",
-		"가진다.",
-		""
+		"가진다."
 		];
 		return choice(data, this.rnd);
 	}
@@ -465,8 +483,7 @@ class Faker_ko : Faker {
 		"서",
 		"단",
 		"견",
-		"당",
-		""
+		"당"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3488,8 +3505,7 @@ class Faker_ko : Faker {
 		"형건",
 		"경륜",
 		"민광",
-		"슬희",
-		""
+		"슬희"
 		];
 		return choice(data, this.rnd);
 	}

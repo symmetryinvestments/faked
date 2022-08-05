@@ -209,8 +209,7 @@ class Faker_ru : Faker {
 		"широкому",
 		"экономической",
 		"эксперимент",
-		"этих",
-		""
+		"этих"
 		];
 		return choice(data, this.rnd);
 	}
@@ -227,8 +226,7 @@ class Faker_ru : Faker {
 		"Сбыт",
 		"Снаб",
 		"Торг",
-		"Трейд",
-		""
+		"Трейд"
 		];
 		return choice(data, this.rnd);
 	}
@@ -247,8 +245,7 @@ class Faker_ru : Faker {
 		"ОАО",
 		"ПАО",
 		"ТСЖ",
-		"ФГУП",
-		""
+		"ФГУП"
 		];
 		return choice(data, this.rnd);
 	}
@@ -274,8 +271,7 @@ class Faker_ru : Faker {
 		"синтез",
 		"передача",
 		"программирование",
-		"разбор",
-		""
+		"разбор"
 		];
 		return choice(data, this.rnd);
 	}
@@ -299,8 +295,7 @@ class Faker_ru : Faker {
 		"нейронный",
 		"оптический",
 		"твердотельный",
-		"мобильный",
-		""
+		"мобильный"
 		];
 		return choice(data, this.rnd);
 	}
@@ -329,8 +324,7 @@ class Faker_ru : Faker {
 		"передать",
 		"запрограммировать",
 		"перезагрузить",
-		"разобрать",
-		""
+		"разобрать"
 		];
 		return choice(data, this.rnd);
 	}
@@ -367,8 +361,7 @@ class Faker_ru : Faker {
 		"PNG",
 		"SAS",
 		"JSON",
-		"XSS",
-		""
+		"XSS"
 		];
 		return choice(data, this.rnd);
 	}
@@ -402,8 +395,7 @@ class Faker_ru : Faker {
 		"блок разведения",
 		"канал",
 		"конденсатор",
-		"оператор",
-		""
+		"оператор"
 		];
 		return choice(data, this.rnd);
 	}
@@ -490,8 +482,7 @@ class Faker_ru : Faker {
 		"Эльдаровна",
 		"Юльевна",
 		"Юрьевна",
-		"Яковлевна",
-		""
+		"Яковлевна"
 		];
 		return choice(data, this.rnd);
 	}
@@ -631,8 +622,7 @@ class Faker_ru : Faker {
 		"Юльевич",
 		"Яковлевич",
 		"Якубович",
-		"Ярославович",
-		""
+		"Ярославович"
 		];
 		return choice(data, this.rnd);
 	}
@@ -960,16 +950,7 @@ class Faker_ru : Faker {
 		"Якуб",
 		"Януарий",
 		"Ярополк",
-		"Ярослав",
-		""
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameSuffix() {
-		auto data = [
-		""
+		"Ярослав"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1056,8 +1037,7 @@ class Faker_ru : Faker {
 		"Фёкла",
 		"Элеонора",
 		"Эмилия",
-		"Юлия",
-		""
+		"Юлия"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1314,8 +1294,7 @@ class Faker_ru : Faker {
 		"Силин",
 		"Меркушев",
 		"Лыткин",
-		"Туров",
-		""
+		"Туров"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1572,16 +1551,7 @@ class Faker_ru : Faker {
 		"Силина",
 		"Меркушева",
 		"Лыткина",
-		"Турова",
-		""
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string namePrefix() {
-		auto data = [
-		""
+		"Турова"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1612,8 +1582,7 @@ class Faker_ru : Faker {
 		"Галантерея",
 		"Меха",
 		"Пряжа",
-		"промышленное",
-		""
+		"промышленное"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1950,7 +1919,8 @@ class Faker_ru : Faker {
 		"Морозовск",
 		"Моршанск",
 		"Москва",
-		"Москва, МГУ",
+		"Москва",
+		"МГУ",
 		"Мостовской",
 		"Муравленко",
 		"Мураши",
@@ -2269,8 +2239,7 @@ class Faker_ru : Faker {
 		"Ясный (Оренб.)",
 		"Яхрома",
 		"Яшалта",
-		"Яшкуль",
-		""
+		"Яшкуль"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2361,8 +2330,7 @@ class Faker_ru : Faker {
 		"Чувашская Республика",
 		"Чукотский автономный округ",
 		"Ямало-ненецкий автономный округ",
-		"Ярославская область",
-		""
+		"Ярославская область"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2579,8 +2547,7 @@ class Faker_ru : Faker {
 		"Эфиопия",
 		"Южно-Африканская Республика",
 		"Ямайка",
-		"Япония",
-		""
+		"Япония"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2892,8 +2859,7 @@ class Faker_ru : Faker {
 		"Лунная",
 		"Высотная",
 		"Рязанская",
-		"Малиновая",
-		""
+		"Малиновая"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2932,8 +2898,7 @@ class Faker_ru : Faker {
 		"площадь",
 		"пл.",
 		"улица",
-		"ул.",
-		""
+		"ул."
 		];
 		return choice(data, this.rnd);
 	}
@@ -2971,14 +2936,13 @@ class Faker_ru : Faker {
 		"голубой",
 		"лазурный",
 		"лиловый",
-		"серебряный",
-		""
+		"серебряный"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	string phoneNumberFormats() {
+	override string phoneNumberFormats() {
 		auto data = [
 		"(9##)###-##-##'"
 		];
@@ -2993,8 +2957,7 @@ class Faker_ru : Faker {
 		"mail.ru",
 		"gmail.com",
 		"yahoo.com",
-		"hotmail.com",
-		""
+		"hotmail.com"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3023,8 +2986,7 @@ class Faker_ru : Faker {
 		"москва",
 		"онлайн",
 		"рф",
-		"сайт",
-		""
+		"сайт"
 		];
 		return choice(data, this.rnd);
 	}

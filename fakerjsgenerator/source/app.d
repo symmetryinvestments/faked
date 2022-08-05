@@ -24,33 +24,32 @@ void main() {
 	FakerData[] locales = scrapeFakers();
     mkdirRecurse(outputDir);
 
-    auto oldList = [
-        "af_ZA", "de", "en_CA", "en_US", /*"fa",*/ "ge", "ko", "nl", "pt_PT",
-        "sv", "zh_CN", /*"ar",*/ "de_AT", "en_AU", "en_GB", "en_ZA", "fr", "id_ID",
-        "lv", "nl_BE", "ro", "tr", "zh_TW", /*"az",*/ "de_CH", "en_AU_ocker",
-        "en_IE", "es", "fr_CA", "it", "nb_NO", "pl", "ru", "uk", "zu_ZA",
-        /*"cz",*/ "el", "en_BORK", "en_IND", /*"es_MX",*/ "fr_CH", "ja",
-        "pt_BR", /*"sk",*/ "vi"
-    ].sort.array;
-
+	/+
 	auto list = [
 		/*"az",*/ /*"ar",*/ /*"cz",*/ "de", "de_AT", "de_CH", "en_AU", "en_AU_ocker",
 		"en_BORK", "en_CA", "en_GB", "en_IE", "en_IND", "en_US", "en_ZA", "es",
 		/*"es_MX",*/ /*"fa",*/ "fi", "fr", "fr_CA", "fr_CH", "ge", "hy", "hr", "id_ID",
 		"it", "ja", "ko", "nb_NO", "ne", "nl", "nl_BE", "pl", "pt_BR", "pt_PT",
 		"ro", "ru", /*"sk",*/ "sv", "tr", "uk", "vi", "zh_CN", "zh_TW", "af_ZA",
-		/*"el",*/ "lv", "zu_ZA"
+		"el", "lv", "zu_ZA"
 
 	].sort.array;
+	+/
 
-	writefln("LIST OLDLIST\n%s", setDifference(list, oldList));
-	writefln("OLDLIST LIST\n%s", setDifference(oldList, list));
+	auto list =
+		[ "af_ZA", "de_AT", "en_AU_ocker", "en_IE", "es", "fr_BE", "hr", "it"
+		, "nb_NO", "pt_BR", "sv", "zh_CN" , /*"ar",*/ "de_CH", "en_BORK", "en_IND"
+		, "es_MX", "fr_CA", "hu", "ja", "ne", "pt_PT", "tr", "zh_TW", "az"
+		, "el", "en_CA", "en_NG", /*"fa",*/ "fr_CH", "hy", "ko", "nl", "ro", "uk"
+		, "zu_ZA", "cz", /*"en",*/ "en_GB", "en_US", "fi", "ge", "id_ID", "lv"
+		, "nl_BE", "ru", /*"ur",*/ "de", "en_AU", "en_GH", "en_ZA", "fr", "he"
+		, "mk", "pl", "sk", "vi"].sort.array;
 
     auto en = locales.find!(a => a.locale == "en").front;
     string[] methods = buildFile("en", en, []);
     methods ~= ["addressLatitude", "addressLongitude", "financeAccount",
         "financeRoutingNumber", "financeMask", "financeBitcoinAddress",
-        "phoneNumber", "commerceProductName", "companyCatchPhrase",
+        /*"phoneNumber", "commerceProductName",*/ "companyCatchPhrase",
         "companyBs", "internetUserName", "internetProtocol",
         "internetDomainWord", "internetDomainName", "internetUrl",
         "internetIPv4", "internetIPv6", "internetColor", "internetPassword",
@@ -142,7 +141,7 @@ string[] buildFile(string ll, FakerData entry, string[] toOverride) {
 				}
 				//write(key, ".", sub, " ");
 				//writefln("%s %s %s %s", __LINE__, ll, key, sub);
-				TypeLines tl = jssplit(d.data);
+				TypeLines tl = jssplit(d.data, ll ~ " " ~ key ~ " " ~ sub);
 				//writeln(tl.type);
 				if(tl.type == Type.strings) {
 					methods ~= gen.buildString(key, sub, tl.lines);

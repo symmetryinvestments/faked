@@ -19,9 +19,33 @@ class Faker_de_ch : Faker {
 	}
 
 	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"0800 ### ###",
+		"0800 ## ## ##",
+		"0## ### ## ##",
+		"0## ### ## ##",
+		"+41 ## ### ## ##",
+		"0900 ### ###",
+		"076 ### ## ##",
+		"+4178 ### ## ##",
+		"0041 79 ### ## ##"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"com', 'net', 'biz', 'ch', 'de', 'li', 'at', 'ch', 'ch'"
+		"com",
+		"net",
+		"biz",
+		"ch",
+		"de",
+		"li",
+		"at",
+		"ch",
+		"ch'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -36,8 +60,7 @@ class Faker_de_ch : Faker {
 		"& Co.",
 		"Gruppe",
 		"LLC",
-		"Inc.",
-		""
+		"Inc."
 		];
 		return choice(data, this.rnd);
 	}
@@ -144,8 +167,7 @@ class Faker_de_ch : Faker {
 		"Wädenswil",
 		"Yverdon-les-Bains",
 		"Zug",
-		"Zürich",
-		""
+		"Zürich"
 		];
 		return choice(data, this.rnd);
 	}
@@ -178,8 +200,7 @@ class Faker_de_ch : Faker {
 		"Waadt",
 		"Wallis",
 		"Zug",
-		"Zürich",
-		""
+		"Zürich"
 		];
 		return choice(data, this.rnd);
 	}
@@ -212,8 +233,7 @@ class Faker_de_ch : Faker {
 		"VD",
 		"VS",
 		"ZG",
-		"ZH",
-		""
+		"ZH"
 		];
 		return choice(data, this.rnd);
 	}
@@ -229,15 +249,42 @@ class Faker_de_ch : Faker {
 	///
 	override string addressCountryCode() {
 		auto data = [
-		"CH', 'CH', 'CH', 'DE', 'AT', 'US', 'LI', 'US', 'HK', 'VN'"
+		"CH",
+		"CH",
+		"CH",
+		"DE",
+		"AT",
+		"US",
+		"LI",
+		"US",
+		"HK",
+		"VN'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
+	override string addressPostcode() {
+		auto data = [
+		"1###",
+		"2###",
+		"3###",
+		"4###",
+		"5###",
+		"6###",
+		"7###",
+		"8###",
+		"9###"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string namePrefix() {
 		auto data = [
-		"Hr.', 'Fr.', 'Dr.'"
+		"Hr.",
+		"Fr.",
+		"Dr.'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -453,8 +500,7 @@ class Faker_de_ch : Faker {
 		"Zimmermann",
 		"Zingg",
 		"Zollinger",
-		"Zürcher",
-		""
+		"Zürcher"
 		];
 		return choice(data, this.rnd);
 	}
@@ -797,8 +843,7 @@ class Faker_de_ch : Faker {
 		"Yolande",
 		"Yves",
 		"Yvette",
-		"Yvonne",
-		""
+		"Yvonne"
 		];
 		return choice(data, this.rnd);
 	}

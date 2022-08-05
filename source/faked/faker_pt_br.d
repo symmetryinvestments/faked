@@ -269,8 +269,7 @@ class Faker_pt_br : Faker {
 		"maiores",
 		"doloribus",
 		"asperiores",
-		"repellat",
-		""
+		"repellat"
 		];
 		return choice(data, this.rnd);
 	}
@@ -278,7 +277,11 @@ class Faker_pt_br : Faker {
 	///
 	override string companySuffix() {
 		auto data = [
-		"S.A.', 'LTDA', 'EIRELI', 'e Associados', 'Comércio'"
+		"S.A.",
+		"LTDA",
+		"EIRELI",
+		"e Associados",
+		"Comércio'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -373,8 +376,7 @@ class Faker_pt_br : Faker {
 		"Yago",
 		"Yango",
 		"Yuri",
-		"Ígor",
-		""
+		"Ígor"
 		];
 		return choice(data, this.rnd);
 	}
@@ -382,7 +384,9 @@ class Faker_pt_br : Faker {
 	///
 	override string nameSuffix() {
 		auto data = [
-		"Jr.', 'Neto', 'Filho'"
+		"Jr.",
+		"Neto",
+		"Filho'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -411,8 +415,7 @@ class Faker_pt_br : Faker {
 		"Oliveira",
 		"Martins",
 		"Moreira",
-		"Albuquerque",
-		""
+		"Albuquerque"
 		];
 		return choice(data, this.rnd);
 	}
@@ -588,8 +591,7 @@ class Faker_pt_br : Faker {
 		"Yango",
 		"Yasmin",
 		"Yuri",
-		"Ígor",
-		""
+		"Ígor"
 		];
 		return choice(data, this.rnd);
 	}
@@ -676,8 +678,7 @@ class Faker_pt_br : Faker {
 		"Talita",
 		"Valentina",
 		"Vitória",
-		"Yasmin",
-		""
+		"Yasmin"
 		];
 		return choice(data, this.rnd);
 	}
@@ -685,7 +686,8 @@ class Faker_pt_br : Faker {
 	///
 	override string nameBinaryGender() {
 		auto data = [
-		"Feminino', 'Masculino'"
+		"Feminino",
+		"Masculino'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -693,7 +695,11 @@ class Faker_pt_br : Faker {
 	///
 	override string namePrefix() {
 		auto data = [
-		"Sr.', 'Sra.', 'Srta.', 'Dr.', 'Dra.'"
+		"Sr.",
+		"Sra.",
+		"Srta.",
+		"Dr.",
+		"Dra.'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -722,8 +728,7 @@ class Faker_pt_br : Faker {
 		"Esportes",
 		"Turismo",
 		"Automotivo",
-		"Industrial",
-		""
+		"Industrial"
 		];
 		return choice(data, this.rnd);
 	}
@@ -757,8 +762,7 @@ class Faker_pt_br : Faker {
 		"SC",
 		"SP",
 		"SE",
-		"TO",
-		""
+		"TO"
 		];
 		return choice(data, this.rnd);
 	}
@@ -792,8 +796,7 @@ class Faker_pt_br : Faker {
 		"Santa Catarina",
 		"São Paulo",
 		"Sergipe",
-		"Tocantins",
-		""
+		"Tocantins"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1034,8 +1037,7 @@ class Faker_pt_br : Faker {
 		"Wallis e Futuna",
 		"Iêmen",
 		"Zâmbia",
-		"Zimbábue",
-		""
+		"Zimbábue"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1051,15 +1053,10 @@ class Faker_pt_br : Faker {
 	///
 	override string addressCitySuffix() {
 		auto data = [
-		"do Descoberto', ' de Nossa Senhora', ' do Norte', ' do Sul'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCityPrefix() {
-		auto data = [
-		""
+		" do Descoberto",
+		" de Nossa Senhora",
+		" do Norte",
+		"do Sul'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1067,7 +1064,9 @@ class Faker_pt_br : Faker {
 	///
 	override string addressBuildingNumber() {
 		auto data = [
-		"#####', '####', '###'"
+		"#####",
+		"####",
+		"###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -1081,17 +1080,14 @@ class Faker_pt_br : Faker {
 	}
 
 	///
-	override string addressSecondaryAddress() {
-		auto data = [
-		"Apto. ###', 'Sobrado ##', 'Casa #', 'Lote ##', 'Quadra ##'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
 	override string addressStreetSuffix() {
 		auto data = [
-		"Rua', 'Avenida', 'Travessa', 'Alameda', 'Marginal', 'Rodovia'"
+		"Rua",
+		"Avenida",
+		"Travessa",
+		"Alameda",
+		"Marginal",
+		"Rodovia'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1143,16 +1139,17 @@ class Faker_pt_br : Faker {
 		"verde lima",
 		"verde-azulado",
 		"vermelho",
-		"violeta",
-		""
+		"violeta"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	string phoneNumberFormats() {
+	override string phoneNumberFormats() {
 		auto data = [
-		"(##) ####-####', '+55 (##) ####-####', '(##) #####-####'"
+		"(##) ####-####",
+		"+55 (##) ####-####",
+		"(##) #####-####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -1164,8 +1161,7 @@ class Faker_pt_br : Faker {
 		"yahoo.com",
 		"hotmail.com",
 		"live.com",
-		"bol.com.br",
-		""
+		"bol.com.br"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1173,7 +1169,13 @@ class Faker_pt_br : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"br', 'com', 'biz', 'info', 'name', 'net', 'org'"
+		"br",
+		"com",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}

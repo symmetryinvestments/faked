@@ -27,8 +27,7 @@ class Faker_sv : Faker {
 		"Group",
 		"Investment",
 		"Kommanditbolag",
-		"Aktiebolag",
-		""
+		"Aktiebolag"
 		];
 		return choice(data, this.rnd);
 	}
@@ -135,8 +134,7 @@ class Faker_sv : Faker {
 		"Gabriel",
 		"Torbjörn",
 		"Arvid",
-		"Felix",
-		""
+		"Felix"
 		];
 		return choice(data, this.rnd);
 	}
@@ -243,8 +241,7 @@ class Faker_sv : Faker {
 		"Dahl",
 		"Lindholm",
 		"Norberg",
-		"Holmqvist",
-		""
+		"Holmqvist"
 		];
 		return choice(data, this.rnd);
 	}
@@ -451,8 +448,7 @@ class Faker_sv : Faker {
 		"Gabriel",
 		"Torbjörn",
 		"Arvid",
-		"Felix",
-		""
+		"Felix"
 		];
 		return choice(data, this.rnd);
 	}
@@ -559,8 +555,7 @@ class Faker_sv : Faker {
 		"Nina",
 		"Mikaela",
 		"Karolina",
-		"Lisbeth",
-		""
+		"Lisbeth"
 		];
 		return choice(data, this.rnd);
 	}
@@ -568,7 +563,9 @@ class Faker_sv : Faker {
 	///
 	override string namePrefix() {
 		auto data = [
-		"Dr.', 'Prof.', 'PhD.'"
+		"Dr.",
+		"Prof.",
+		"PhD.'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -592,8 +589,7 @@ class Faker_sv : Faker {
 		"Klädsel",
 		"Skor",
 		"Smycken",
-		"Sport",
-		""
+		"Sport"
 		];
 		return choice(data, this.rnd);
 	}
@@ -601,7 +597,8 @@ class Faker_sv : Faker {
 	///
 	string addressCommonStreetSuffix() {
 		auto data = [
-		"s Väg', 's Gata'"
+		"s Väg",
+		"s Gata'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -631,8 +628,7 @@ class Faker_sv : Faker {
 		"Västmanland",
 		"Älvsborg",
 		"Örebro",
-		"Östergötland",
-		""
+		"Östergötland"
 		];
 		return choice(data, this.rnd);
 	}
@@ -844,8 +840,7 @@ class Faker_sv : Faker {
 		"Tuvalu",
 		"Nauru",
 		"Monaco",
-		"Vatikanstaten",
-		""
+		"Vatikanstaten"
 		];
 		return choice(data, this.rnd);
 	}
@@ -861,7 +856,12 @@ class Faker_sv : Faker {
 	///
 	string addressStreetPrefix() {
 		auto data = [
-		"Västra', 'Östra', 'Norra', 'Södra', 'Övre', 'Undre'"
+		"Västra",
+		"Östra",
+		"Norra",
+		"Södra",
+		"Övre",
+		"Undre'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -887,8 +887,7 @@ class Faker_sv : Faker {
 		"hult",
 		"torp",
 		"fred",
-		"vik",
-		""
+		"vik"
 		];
 		return choice(data, this.rnd);
 	}
@@ -920,8 +919,7 @@ class Faker_sv : Faker {
 		"Kung",
 		"Kö",
 		"Lyck",
-		"Ny",
-		""
+		"Ny"
 		];
 		return choice(data, this.rnd);
 	}
@@ -956,18 +954,9 @@ class Faker_sv : Faker {
 		"Fabriks",
 		"Åker",
 		"Bäck",
-		"Asp",
-		""
+		"Asp"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressBuildingNumber() {
-		auto data = [
-		"###', '##', '#'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
@@ -981,7 +970,8 @@ class Faker_sv : Faker {
 	///
 	override string addressSecondaryAddress() {
 		auto data = [
-		"Lgh. ###', 'Hus ###'"
+		"Lgh. ###",
+		"Hus ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -989,7 +979,11 @@ class Faker_sv : Faker {
 	///
 	override string addressStreetSuffix() {
 		auto data = [
-		"vägen', 'gatan', 'gränden', 'gärdet', 'allén'"
+		"vägen",
+		"gatan",
+		"gränden",
+		"gärdet",
+		"allén'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -997,9 +991,20 @@ class Faker_sv : Faker {
 	///
 	string dateWeekday() {
 		auto data = [
-		"wide: ['söndag', 'måndag', 'tisdag', 'onsdag', 'torsdag', 'fredag', 'lördag']",
-		"abbr: ['sön', 'mån', 'tis', 'ons', 'tor', 'fre', 'lör']",
-		""
+		"wide: ['söndag",
+		"måndag",
+		"tisdag",
+		"onsdag",
+		"torsdag",
+		"fredag",
+		"lördag']",
+		"abbr: ['sön",
+		"mån",
+		"tis",
+		"ons",
+		"tor",
+		"fre",
+		"lör']"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1021,8 +1026,7 @@ class Faker_sv : Faker {
 		"brun",
 		"rosa",
 		"purpur",
-		"korall",
-		""
+		"korall"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1042,22 +1046,22 @@ class Faker_sv : Faker {
 		"FK",
 		"BIS",
 		"FIF",
-		"IK",
-		""
+		"IK"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	string phoneNumberFormats() {
+	override string phoneNumberFormats() {
 		auto data = [
-		"####-#####', '####-######'"
+		"####-#####",
+		"####-######'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	string cellPhoneFormats() {
+	override string cellPhoneFormats() {
 		auto data = [
 		"{{cell_phone.common_cell_prefix}}-###-####'"
 		];
@@ -1067,7 +1071,9 @@ class Faker_sv : Faker {
 	///
 	string cellPhoneCommonCellPrefix() {
 		auto data = [
-		"56, 62, 59"
+		"56",
+		"62",
+		"59"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1075,7 +1081,11 @@ class Faker_sv : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"se', 'nu', 'info', 'com', 'org'"
+		"se",
+		"nu",
+		"info",
+		"com",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}

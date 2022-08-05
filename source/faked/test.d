@@ -46,11 +46,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -71,8 +71,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -121,6 +126,297 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
+		assert(!faker.scienceChemicalelement().empty);
+		assert(!faker.scienceUnit().empty);
+		assert(!faker.teamCreature().empty);
+		assert(!faker.vehicle().empty);
+		assert(!faker.vehicleBicycleType().empty);
+		assert(!faker.vehicleFuel().empty);
+		assert(!faker.vehicleManufacturer().empty);
+		assert(!faker.vehicleModel().empty);
+		assert(!faker.vehicleType().empty);
+		assert(!faker.vehicleVin().empty);
+		assert(!faker.wordAdjective().empty);
+		assert(!faker.wordAdverb().empty);
+		assert(!faker.wordConjunction().empty);
+		assert(!faker.wordInterjection().empty);
+		assert(!faker.wordNoun().empty);
+		assert(!faker.wordPreposition().empty);
+		assert(!faker.wordVerb().empty);
+
+	}
+}
+
+unittest {
+	import faked.faker_az;
+    auto faker = new Faker_az(2);
+	for(int i = 0; i < 30; ++i) {
+		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCityName().empty);
+		assert(!faker.addressCityPrefix().empty);
+		assert(!faker.addressCitySuffix().empty);
+		assert(!faker.addressCountry().empty);
+		assert(!faker.addressCountryCode().empty);
+		assert(!faker.addressCountryCodeAlpha3().empty);
+		assert(!faker.addressCounty().empty);
+		assert(!faker.addressDefaultCountry().empty);
+		assert(!faker.addressDirection().empty);
+		assert(!faker.addressDirectionAbbr().empty);
+		assert(!faker.addressLatitude().empty);
+		assert(!faker.addressLongitude().empty);
+		assert(!faker.addressPostcode().empty);
+		assert(!faker.addressSecondaryAddress().empty);
+		assert(!faker.addressState().empty);
+		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreetSuffix().empty);
+		assert(!faker.addressTimeZone().empty);
+		assert(!faker.animalBear().empty);
+		assert(!faker.animalBird().empty);
+		assert(!faker.animalCat().empty);
+		assert(!faker.animalCetacean().empty);
+		assert(!faker.animalCow().empty);
+		assert(!faker.animalCrocodilia().empty);
+		assert(!faker.animalDog().empty);
+		assert(!faker.animalFish().empty);
+		assert(!faker.animalHorse().empty);
+		assert(!faker.animalInsect().empty);
+		assert(!faker.animalLion().empty);
+		assert(!faker.animalRabbit().empty);
+		assert(!faker.animalRodent().empty);
+		assert(!faker.animalSnake().empty);
+		assert(!faker.animalType().empty);
+		assert(!faker.appName().empty);
+		assert(!faker.appVersion().empty);
+		assert(!faker.businessCreditCardExpiryDates().empty);
+		assert(!faker.businessCreditCardNumbers().empty);
+		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
+		assert(!faker.colorHuman().empty);
+		assert(!faker.colorSpace().empty);
+		assert(!faker.commerceDepartment().empty);
+		assert(!faker.commerceProductDescription().empty);
+		assert(!faker.companyAdjective().empty);
+		assert(!faker.companyBs().empty);
+		assert(!faker.companyBsAdjective().empty);
+		assert(!faker.companyBsNoun().empty);
+		assert(!faker.companyBsVerb().empty);
+		assert(!faker.companyCatchPhrase().empty);
+		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyNoun().empty);
+		assert(!faker.companySuffix().empty);
+		assert(!faker.databaseCollation().empty);
+		assert(!faker.databaseColumn().empty);
+		assert(!faker.databaseEngine().empty);
+		assert(!faker.databaseType().empty);
+		assert(!faker.financeAccount().empty);
+		assert(!faker.financeAccountType().empty);
+		assert(!faker.financeBIC().empty);
+		assert(!faker.financeBitcoinAddress().empty);
+		assert(!faker.financeCreditCard().empty);
+		assert(!faker.financeCreditCardAmericanExpress().empty);
+		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
+		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
+		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
+		assert(!faker.financeCreditCardVisa().empty);
+		assert(!faker.financeCurrency().empty);
+		assert(!faker.financeIBAN().empty);
+		assert(!faker.financeMask().empty);
+		assert(!faker.financeRoutingNumber().empty);
+		assert(!faker.financeTransactionType().empty);
+		assert(!faker.hackerAbbreviation().empty);
+		assert(!faker.hackerAdjective().empty);
+		assert(!faker.hackerIngverb().empty);
+		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerVerb().empty);
+		assert(!faker.helperAlpha().empty);
+		assert(!faker.helperAlphaNum().empty);
+		assert(!faker.helperHexaDecimal().empty);
+		assert(!faker.internetAvatarUri().empty);
+		assert(!faker.internetColor().empty);
+		assert(!faker.internetDomainName().empty);
+		assert(!faker.internetDomainSuffix().empty);
+		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetExampleEmail().empty);
+		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetIPv4().empty);
+		assert(!faker.internetIPv6().empty);
+		assert(!faker.internetPassword().empty);
+		assert(!faker.internetProtocol().empty);
+		assert(!faker.internetUrl().empty);
+		assert(!faker.internetUserName().empty);
+		assert(!faker.loremParagraph().empty);
+		assert(!faker.loremParagraphs().empty);
+		assert(!faker.loremSentance().empty);
+		assert(!faker.loremSentances().empty);
+		assert(!faker.loremSupplemental().empty);
+		assert(!faker.loremText().empty);
+		assert(!faker.loremWords().empty);
+		assert(!faker.musicGenre().empty);
+		assert(!faker.musicSongName().empty);
+		assert(!faker.nameBinaryGender().empty);
+		assert(!faker.nameFemaleFirstName().empty);
+		assert(!faker.nameFemaleMiddleName().empty);
+		assert(!faker.nameFirstName().empty);
+		assert(!faker.nameGender().empty);
+		assert(!faker.nameLastName().empty);
+		assert(!faker.nameMaleFirstName().empty);
+		assert(!faker.nameMaleMiddleName().empty);
+		assert(!faker.nameMiddleName().empty);
+		assert(!faker.namePrefix().empty);
+		assert(!faker.nameSuffix().empty);
+		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
+		assert(!faker.scienceChemicalelement().empty);
+		assert(!faker.scienceUnit().empty);
+		assert(!faker.teamCreature().empty);
+		assert(!faker.vehicle().empty);
+		assert(!faker.vehicleBicycleType().empty);
+		assert(!faker.vehicleFuel().empty);
+		assert(!faker.vehicleManufacturer().empty);
+		assert(!faker.vehicleModel().empty);
+		assert(!faker.vehicleType().empty);
+		assert(!faker.vehicleVin().empty);
+		assert(!faker.wordAdjective().empty);
+		assert(!faker.wordAdverb().empty);
+		assert(!faker.wordConjunction().empty);
+		assert(!faker.wordInterjection().empty);
+		assert(!faker.wordNoun().empty);
+		assert(!faker.wordPreposition().empty);
+		assert(!faker.wordVerb().empty);
+
+	}
+}
+
+unittest {
+	import faked.faker_cz;
+    auto faker = new Faker_cz(3);
+	for(int i = 0; i < 30; ++i) {
+		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCityName().empty);
+		assert(!faker.addressCityPrefix().empty);
+		assert(!faker.addressCitySuffix().empty);
+		assert(!faker.addressCountry().empty);
+		assert(!faker.addressCountryCode().empty);
+		assert(!faker.addressCountryCodeAlpha3().empty);
+		assert(!faker.addressCounty().empty);
+		assert(!faker.addressDefaultCountry().empty);
+		assert(!faker.addressDirection().empty);
+		assert(!faker.addressDirectionAbbr().empty);
+		assert(!faker.addressLatitude().empty);
+		assert(!faker.addressLongitude().empty);
+		assert(!faker.addressPostcode().empty);
+		assert(!faker.addressSecondaryAddress().empty);
+		assert(!faker.addressState().empty);
+		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreetSuffix().empty);
+		assert(!faker.addressTimeZone().empty);
+		assert(!faker.animalBear().empty);
+		assert(!faker.animalBird().empty);
+		assert(!faker.animalCat().empty);
+		assert(!faker.animalCetacean().empty);
+		assert(!faker.animalCow().empty);
+		assert(!faker.animalCrocodilia().empty);
+		assert(!faker.animalDog().empty);
+		assert(!faker.animalFish().empty);
+		assert(!faker.animalHorse().empty);
+		assert(!faker.animalInsect().empty);
+		assert(!faker.animalLion().empty);
+		assert(!faker.animalRabbit().empty);
+		assert(!faker.animalRodent().empty);
+		assert(!faker.animalSnake().empty);
+		assert(!faker.animalType().empty);
+		assert(!faker.appName().empty);
+		assert(!faker.appVersion().empty);
+		assert(!faker.businessCreditCardExpiryDates().empty);
+		assert(!faker.businessCreditCardNumbers().empty);
+		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
+		assert(!faker.colorHuman().empty);
+		assert(!faker.colorSpace().empty);
+		assert(!faker.commerceDepartment().empty);
+		assert(!faker.commerceProductDescription().empty);
+		assert(!faker.companyAdjective().empty);
+		assert(!faker.companyBs().empty);
+		assert(!faker.companyBsAdjective().empty);
+		assert(!faker.companyBsNoun().empty);
+		assert(!faker.companyBsVerb().empty);
+		assert(!faker.companyCatchPhrase().empty);
+		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyNoun().empty);
+		assert(!faker.companySuffix().empty);
+		assert(!faker.databaseCollation().empty);
+		assert(!faker.databaseColumn().empty);
+		assert(!faker.databaseEngine().empty);
+		assert(!faker.databaseType().empty);
+		assert(!faker.financeAccount().empty);
+		assert(!faker.financeAccountType().empty);
+		assert(!faker.financeBIC().empty);
+		assert(!faker.financeBitcoinAddress().empty);
+		assert(!faker.financeCreditCard().empty);
+		assert(!faker.financeCreditCardAmericanExpress().empty);
+		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
+		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
+		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
+		assert(!faker.financeCreditCardVisa().empty);
+		assert(!faker.financeCurrency().empty);
+		assert(!faker.financeIBAN().empty);
+		assert(!faker.financeMask().empty);
+		assert(!faker.financeRoutingNumber().empty);
+		assert(!faker.financeTransactionType().empty);
+		assert(!faker.hackerAbbreviation().empty);
+		assert(!faker.hackerAdjective().empty);
+		assert(!faker.hackerIngverb().empty);
+		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerVerb().empty);
+		assert(!faker.helperAlpha().empty);
+		assert(!faker.helperAlphaNum().empty);
+		assert(!faker.helperHexaDecimal().empty);
+		assert(!faker.internetAvatarUri().empty);
+		assert(!faker.internetColor().empty);
+		assert(!faker.internetDomainName().empty);
+		assert(!faker.internetDomainSuffix().empty);
+		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetExampleEmail().empty);
+		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetIPv4().empty);
+		assert(!faker.internetIPv6().empty);
+		assert(!faker.internetPassword().empty);
+		assert(!faker.internetProtocol().empty);
+		assert(!faker.internetUrl().empty);
+		assert(!faker.internetUserName().empty);
+		assert(!faker.loremParagraph().empty);
+		assert(!faker.loremParagraphs().empty);
+		assert(!faker.loremSentance().empty);
+		assert(!faker.loremSentances().empty);
+		assert(!faker.loremSupplemental().empty);
+		assert(!faker.loremText().empty);
+		assert(!faker.loremWords().empty);
+		assert(!faker.musicGenre().empty);
+		assert(!faker.musicSongName().empty);
+		assert(!faker.nameBinaryGender().empty);
+		assert(!faker.nameFemaleFirstName().empty);
+		assert(!faker.nameFemaleMiddleName().empty);
+		assert(!faker.nameFirstName().empty);
+		assert(!faker.nameGender().empty);
+		assert(!faker.nameLastName().empty);
+		assert(!faker.nameMaleFirstName().empty);
+		assert(!faker.nameMaleMiddleName().empty);
+		assert(!faker.nameMiddleName().empty);
+		assert(!faker.namePrefix().empty);
+		assert(!faker.nameSuffix().empty);
+		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -144,7 +440,7 @@ unittest {
 
 unittest {
 	import faked.faker_de;
-    auto faker = new Faker_de(2);
+    auto faker = new Faker_de(4);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -185,11 +481,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -210,8 +506,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -260,6 +561,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -283,7 +585,7 @@ unittest {
 
 unittest {
 	import faked.faker_de_at;
-    auto faker = new Faker_de_at(3);
+    auto faker = new Faker_de_at(5);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -324,11 +626,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -349,8 +651,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -399,6 +706,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -422,7 +730,7 @@ unittest {
 
 unittest {
 	import faked.faker_de_ch;
-    auto faker = new Faker_de_ch(4);
+    auto faker = new Faker_de_ch(6);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -463,11 +771,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -488,8 +796,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -538,6 +851,152 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
+		assert(!faker.scienceChemicalelement().empty);
+		assert(!faker.scienceUnit().empty);
+		assert(!faker.teamCreature().empty);
+		assert(!faker.vehicle().empty);
+		assert(!faker.vehicleBicycleType().empty);
+		assert(!faker.vehicleFuel().empty);
+		assert(!faker.vehicleManufacturer().empty);
+		assert(!faker.vehicleModel().empty);
+		assert(!faker.vehicleType().empty);
+		assert(!faker.vehicleVin().empty);
+		assert(!faker.wordAdjective().empty);
+		assert(!faker.wordAdverb().empty);
+		assert(!faker.wordConjunction().empty);
+		assert(!faker.wordInterjection().empty);
+		assert(!faker.wordNoun().empty);
+		assert(!faker.wordPreposition().empty);
+		assert(!faker.wordVerb().empty);
+
+	}
+}
+
+unittest {
+	import faked.faker_el;
+    auto faker = new Faker_el(7);
+	for(int i = 0; i < 30; ++i) {
+		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCityName().empty);
+		assert(!faker.addressCityPrefix().empty);
+		assert(!faker.addressCitySuffix().empty);
+		assert(!faker.addressCountry().empty);
+		assert(!faker.addressCountryCode().empty);
+		assert(!faker.addressCountryCodeAlpha3().empty);
+		assert(!faker.addressCounty().empty);
+		assert(!faker.addressDefaultCountry().empty);
+		assert(!faker.addressDirection().empty);
+		assert(!faker.addressDirectionAbbr().empty);
+		assert(!faker.addressLatitude().empty);
+		assert(!faker.addressLongitude().empty);
+		assert(!faker.addressPostcode().empty);
+		assert(!faker.addressSecondaryAddress().empty);
+		assert(!faker.addressState().empty);
+		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreetSuffix().empty);
+		assert(!faker.addressTimeZone().empty);
+		assert(!faker.animalBear().empty);
+		assert(!faker.animalBird().empty);
+		assert(!faker.animalCat().empty);
+		assert(!faker.animalCetacean().empty);
+		assert(!faker.animalCow().empty);
+		assert(!faker.animalCrocodilia().empty);
+		assert(!faker.animalDog().empty);
+		assert(!faker.animalFish().empty);
+		assert(!faker.animalHorse().empty);
+		assert(!faker.animalInsect().empty);
+		assert(!faker.animalLion().empty);
+		assert(!faker.animalRabbit().empty);
+		assert(!faker.animalRodent().empty);
+		assert(!faker.animalSnake().empty);
+		assert(!faker.animalType().empty);
+		assert(!faker.appName().empty);
+		assert(!faker.appVersion().empty);
+		assert(!faker.businessCreditCardExpiryDates().empty);
+		assert(!faker.businessCreditCardNumbers().empty);
+		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
+		assert(!faker.colorHuman().empty);
+		assert(!faker.colorSpace().empty);
+		assert(!faker.commerceDepartment().empty);
+		assert(!faker.commerceProductDescription().empty);
+		assert(!faker.companyAdjective().empty);
+		assert(!faker.companyBs().empty);
+		assert(!faker.companyBsAdjective().empty);
+		assert(!faker.companyBsNoun().empty);
+		assert(!faker.companyBsVerb().empty);
+		assert(!faker.companyCatchPhrase().empty);
+		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyNoun().empty);
+		assert(!faker.companySuffix().empty);
+		assert(!faker.databaseCollation().empty);
+		assert(!faker.databaseColumn().empty);
+		assert(!faker.databaseEngine().empty);
+		assert(!faker.databaseType().empty);
+		assert(!faker.financeAccount().empty);
+		assert(!faker.financeAccountType().empty);
+		assert(!faker.financeBIC().empty);
+		assert(!faker.financeBitcoinAddress().empty);
+		assert(!faker.financeCreditCard().empty);
+		assert(!faker.financeCreditCardAmericanExpress().empty);
+		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
+		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
+		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
+		assert(!faker.financeCreditCardVisa().empty);
+		assert(!faker.financeCurrency().empty);
+		assert(!faker.financeIBAN().empty);
+		assert(!faker.financeMask().empty);
+		assert(!faker.financeRoutingNumber().empty);
+		assert(!faker.financeTransactionType().empty);
+		assert(!faker.hackerAbbreviation().empty);
+		assert(!faker.hackerAdjective().empty);
+		assert(!faker.hackerIngverb().empty);
+		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerVerb().empty);
+		assert(!faker.helperAlpha().empty);
+		assert(!faker.helperAlphaNum().empty);
+		assert(!faker.helperHexaDecimal().empty);
+		assert(!faker.internetAvatarUri().empty);
+		assert(!faker.internetColor().empty);
+		assert(!faker.internetDomainName().empty);
+		assert(!faker.internetDomainSuffix().empty);
+		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetExampleEmail().empty);
+		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetIPv4().empty);
+		assert(!faker.internetIPv6().empty);
+		assert(!faker.internetPassword().empty);
+		assert(!faker.internetProtocol().empty);
+		assert(!faker.internetUrl().empty);
+		assert(!faker.internetUserName().empty);
+		assert(!faker.loremParagraph().empty);
+		assert(!faker.loremParagraphs().empty);
+		assert(!faker.loremSentance().empty);
+		assert(!faker.loremSentances().empty);
+		assert(!faker.loremSupplemental().empty);
+		assert(!faker.loremText().empty);
+		assert(!faker.loremWords().empty);
+		assert(!faker.musicGenre().empty);
+		assert(!faker.musicSongName().empty);
+		assert(!faker.nameBinaryGender().empty);
+		assert(!faker.nameFemaleFirstName().empty);
+		assert(!faker.nameFemaleMiddleName().empty);
+		assert(!faker.nameFirstName().empty);
+		assert(!faker.nameGender().empty);
+		assert(!faker.nameLastName().empty);
+		assert(!faker.nameMaleFirstName().empty);
+		assert(!faker.nameMaleMiddleName().empty);
+		assert(!faker.nameMiddleName().empty);
+		assert(!faker.namePrefix().empty);
+		assert(!faker.nameSuffix().empty);
+		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -561,7 +1020,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_au;
-    auto faker = new Faker_en_au(5);
+    auto faker = new Faker_en_au(8);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -602,11 +1061,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -627,8 +1086,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -677,6 +1141,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -700,7 +1165,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_au_ocker;
-    auto faker = new Faker_en_au_ocker(6);
+    auto faker = new Faker_en_au_ocker(9);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -741,11 +1206,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -766,8 +1231,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -816,6 +1286,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -839,7 +1310,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_bork;
-    auto faker = new Faker_en_bork(7);
+    auto faker = new Faker_en_bork(10);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -880,11 +1351,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -905,8 +1376,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -955,6 +1431,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -978,7 +1455,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_ca;
-    auto faker = new Faker_en_ca(8);
+    auto faker = new Faker_en_ca(11);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -1019,11 +1496,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -1044,8 +1521,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -1094,6 +1576,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -1117,7 +1600,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_gb;
-    auto faker = new Faker_en_gb(9);
+    auto faker = new Faker_en_gb(12);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -1158,11 +1641,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -1183,8 +1666,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -1233,6 +1721,152 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
+		assert(!faker.scienceChemicalelement().empty);
+		assert(!faker.scienceUnit().empty);
+		assert(!faker.teamCreature().empty);
+		assert(!faker.vehicle().empty);
+		assert(!faker.vehicleBicycleType().empty);
+		assert(!faker.vehicleFuel().empty);
+		assert(!faker.vehicleManufacturer().empty);
+		assert(!faker.vehicleModel().empty);
+		assert(!faker.vehicleType().empty);
+		assert(!faker.vehicleVin().empty);
+		assert(!faker.wordAdjective().empty);
+		assert(!faker.wordAdverb().empty);
+		assert(!faker.wordConjunction().empty);
+		assert(!faker.wordInterjection().empty);
+		assert(!faker.wordNoun().empty);
+		assert(!faker.wordPreposition().empty);
+		assert(!faker.wordVerb().empty);
+
+	}
+}
+
+unittest {
+	import faked.faker_en_gh;
+    auto faker = new Faker_en_gh(13);
+	for(int i = 0; i < 30; ++i) {
+		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCityName().empty);
+		assert(!faker.addressCityPrefix().empty);
+		assert(!faker.addressCitySuffix().empty);
+		assert(!faker.addressCountry().empty);
+		assert(!faker.addressCountryCode().empty);
+		assert(!faker.addressCountryCodeAlpha3().empty);
+		assert(!faker.addressCounty().empty);
+		assert(!faker.addressDefaultCountry().empty);
+		assert(!faker.addressDirection().empty);
+		assert(!faker.addressDirectionAbbr().empty);
+		assert(!faker.addressLatitude().empty);
+		assert(!faker.addressLongitude().empty);
+		assert(!faker.addressPostcode().empty);
+		assert(!faker.addressSecondaryAddress().empty);
+		assert(!faker.addressState().empty);
+		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreetSuffix().empty);
+		assert(!faker.addressTimeZone().empty);
+		assert(!faker.animalBear().empty);
+		assert(!faker.animalBird().empty);
+		assert(!faker.animalCat().empty);
+		assert(!faker.animalCetacean().empty);
+		assert(!faker.animalCow().empty);
+		assert(!faker.animalCrocodilia().empty);
+		assert(!faker.animalDog().empty);
+		assert(!faker.animalFish().empty);
+		assert(!faker.animalHorse().empty);
+		assert(!faker.animalInsect().empty);
+		assert(!faker.animalLion().empty);
+		assert(!faker.animalRabbit().empty);
+		assert(!faker.animalRodent().empty);
+		assert(!faker.animalSnake().empty);
+		assert(!faker.animalType().empty);
+		assert(!faker.appName().empty);
+		assert(!faker.appVersion().empty);
+		assert(!faker.businessCreditCardExpiryDates().empty);
+		assert(!faker.businessCreditCardNumbers().empty);
+		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
+		assert(!faker.colorHuman().empty);
+		assert(!faker.colorSpace().empty);
+		assert(!faker.commerceDepartment().empty);
+		assert(!faker.commerceProductDescription().empty);
+		assert(!faker.companyAdjective().empty);
+		assert(!faker.companyBs().empty);
+		assert(!faker.companyBsAdjective().empty);
+		assert(!faker.companyBsNoun().empty);
+		assert(!faker.companyBsVerb().empty);
+		assert(!faker.companyCatchPhrase().empty);
+		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyNoun().empty);
+		assert(!faker.companySuffix().empty);
+		assert(!faker.databaseCollation().empty);
+		assert(!faker.databaseColumn().empty);
+		assert(!faker.databaseEngine().empty);
+		assert(!faker.databaseType().empty);
+		assert(!faker.financeAccount().empty);
+		assert(!faker.financeAccountType().empty);
+		assert(!faker.financeBIC().empty);
+		assert(!faker.financeBitcoinAddress().empty);
+		assert(!faker.financeCreditCard().empty);
+		assert(!faker.financeCreditCardAmericanExpress().empty);
+		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
+		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
+		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
+		assert(!faker.financeCreditCardVisa().empty);
+		assert(!faker.financeCurrency().empty);
+		assert(!faker.financeIBAN().empty);
+		assert(!faker.financeMask().empty);
+		assert(!faker.financeRoutingNumber().empty);
+		assert(!faker.financeTransactionType().empty);
+		assert(!faker.hackerAbbreviation().empty);
+		assert(!faker.hackerAdjective().empty);
+		assert(!faker.hackerIngverb().empty);
+		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerVerb().empty);
+		assert(!faker.helperAlpha().empty);
+		assert(!faker.helperAlphaNum().empty);
+		assert(!faker.helperHexaDecimal().empty);
+		assert(!faker.internetAvatarUri().empty);
+		assert(!faker.internetColor().empty);
+		assert(!faker.internetDomainName().empty);
+		assert(!faker.internetDomainSuffix().empty);
+		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetExampleEmail().empty);
+		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetIPv4().empty);
+		assert(!faker.internetIPv6().empty);
+		assert(!faker.internetPassword().empty);
+		assert(!faker.internetProtocol().empty);
+		assert(!faker.internetUrl().empty);
+		assert(!faker.internetUserName().empty);
+		assert(!faker.loremParagraph().empty);
+		assert(!faker.loremParagraphs().empty);
+		assert(!faker.loremSentance().empty);
+		assert(!faker.loremSentances().empty);
+		assert(!faker.loremSupplemental().empty);
+		assert(!faker.loremText().empty);
+		assert(!faker.loremWords().empty);
+		assert(!faker.musicGenre().empty);
+		assert(!faker.musicSongName().empty);
+		assert(!faker.nameBinaryGender().empty);
+		assert(!faker.nameFemaleFirstName().empty);
+		assert(!faker.nameFemaleMiddleName().empty);
+		assert(!faker.nameFirstName().empty);
+		assert(!faker.nameGender().empty);
+		assert(!faker.nameLastName().empty);
+		assert(!faker.nameMaleFirstName().empty);
+		assert(!faker.nameMaleMiddleName().empty);
+		assert(!faker.nameMiddleName().empty);
+		assert(!faker.namePrefix().empty);
+		assert(!faker.nameSuffix().empty);
+		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -1256,7 +1890,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_ie;
-    auto faker = new Faker_en_ie(10);
+    auto faker = new Faker_en_ie(14);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -1297,11 +1931,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -1322,8 +1956,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -1372,6 +2011,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -1395,7 +2035,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_ind;
-    auto faker = new Faker_en_ind(11);
+    auto faker = new Faker_en_ind(15);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -1436,11 +2076,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -1461,8 +2101,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -1511,6 +2156,152 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
+		assert(!faker.scienceChemicalelement().empty);
+		assert(!faker.scienceUnit().empty);
+		assert(!faker.teamCreature().empty);
+		assert(!faker.vehicle().empty);
+		assert(!faker.vehicleBicycleType().empty);
+		assert(!faker.vehicleFuel().empty);
+		assert(!faker.vehicleManufacturer().empty);
+		assert(!faker.vehicleModel().empty);
+		assert(!faker.vehicleType().empty);
+		assert(!faker.vehicleVin().empty);
+		assert(!faker.wordAdjective().empty);
+		assert(!faker.wordAdverb().empty);
+		assert(!faker.wordConjunction().empty);
+		assert(!faker.wordInterjection().empty);
+		assert(!faker.wordNoun().empty);
+		assert(!faker.wordPreposition().empty);
+		assert(!faker.wordVerb().empty);
+
+	}
+}
+
+unittest {
+	import faked.faker_en_ng;
+    auto faker = new Faker_en_ng(16);
+	for(int i = 0; i < 30; ++i) {
+		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCityName().empty);
+		assert(!faker.addressCityPrefix().empty);
+		assert(!faker.addressCitySuffix().empty);
+		assert(!faker.addressCountry().empty);
+		assert(!faker.addressCountryCode().empty);
+		assert(!faker.addressCountryCodeAlpha3().empty);
+		assert(!faker.addressCounty().empty);
+		assert(!faker.addressDefaultCountry().empty);
+		assert(!faker.addressDirection().empty);
+		assert(!faker.addressDirectionAbbr().empty);
+		assert(!faker.addressLatitude().empty);
+		assert(!faker.addressLongitude().empty);
+		assert(!faker.addressPostcode().empty);
+		assert(!faker.addressSecondaryAddress().empty);
+		assert(!faker.addressState().empty);
+		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreetSuffix().empty);
+		assert(!faker.addressTimeZone().empty);
+		assert(!faker.animalBear().empty);
+		assert(!faker.animalBird().empty);
+		assert(!faker.animalCat().empty);
+		assert(!faker.animalCetacean().empty);
+		assert(!faker.animalCow().empty);
+		assert(!faker.animalCrocodilia().empty);
+		assert(!faker.animalDog().empty);
+		assert(!faker.animalFish().empty);
+		assert(!faker.animalHorse().empty);
+		assert(!faker.animalInsect().empty);
+		assert(!faker.animalLion().empty);
+		assert(!faker.animalRabbit().empty);
+		assert(!faker.animalRodent().empty);
+		assert(!faker.animalSnake().empty);
+		assert(!faker.animalType().empty);
+		assert(!faker.appName().empty);
+		assert(!faker.appVersion().empty);
+		assert(!faker.businessCreditCardExpiryDates().empty);
+		assert(!faker.businessCreditCardNumbers().empty);
+		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
+		assert(!faker.colorHuman().empty);
+		assert(!faker.colorSpace().empty);
+		assert(!faker.commerceDepartment().empty);
+		assert(!faker.commerceProductDescription().empty);
+		assert(!faker.companyAdjective().empty);
+		assert(!faker.companyBs().empty);
+		assert(!faker.companyBsAdjective().empty);
+		assert(!faker.companyBsNoun().empty);
+		assert(!faker.companyBsVerb().empty);
+		assert(!faker.companyCatchPhrase().empty);
+		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyNoun().empty);
+		assert(!faker.companySuffix().empty);
+		assert(!faker.databaseCollation().empty);
+		assert(!faker.databaseColumn().empty);
+		assert(!faker.databaseEngine().empty);
+		assert(!faker.databaseType().empty);
+		assert(!faker.financeAccount().empty);
+		assert(!faker.financeAccountType().empty);
+		assert(!faker.financeBIC().empty);
+		assert(!faker.financeBitcoinAddress().empty);
+		assert(!faker.financeCreditCard().empty);
+		assert(!faker.financeCreditCardAmericanExpress().empty);
+		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
+		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
+		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
+		assert(!faker.financeCreditCardVisa().empty);
+		assert(!faker.financeCurrency().empty);
+		assert(!faker.financeIBAN().empty);
+		assert(!faker.financeMask().empty);
+		assert(!faker.financeRoutingNumber().empty);
+		assert(!faker.financeTransactionType().empty);
+		assert(!faker.hackerAbbreviation().empty);
+		assert(!faker.hackerAdjective().empty);
+		assert(!faker.hackerIngverb().empty);
+		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerVerb().empty);
+		assert(!faker.helperAlpha().empty);
+		assert(!faker.helperAlphaNum().empty);
+		assert(!faker.helperHexaDecimal().empty);
+		assert(!faker.internetAvatarUri().empty);
+		assert(!faker.internetColor().empty);
+		assert(!faker.internetDomainName().empty);
+		assert(!faker.internetDomainSuffix().empty);
+		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetExampleEmail().empty);
+		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetIPv4().empty);
+		assert(!faker.internetIPv6().empty);
+		assert(!faker.internetPassword().empty);
+		assert(!faker.internetProtocol().empty);
+		assert(!faker.internetUrl().empty);
+		assert(!faker.internetUserName().empty);
+		assert(!faker.loremParagraph().empty);
+		assert(!faker.loremParagraphs().empty);
+		assert(!faker.loremSentance().empty);
+		assert(!faker.loremSentances().empty);
+		assert(!faker.loremSupplemental().empty);
+		assert(!faker.loremText().empty);
+		assert(!faker.loremWords().empty);
+		assert(!faker.musicGenre().empty);
+		assert(!faker.musicSongName().empty);
+		assert(!faker.nameBinaryGender().empty);
+		assert(!faker.nameFemaleFirstName().empty);
+		assert(!faker.nameFemaleMiddleName().empty);
+		assert(!faker.nameFirstName().empty);
+		assert(!faker.nameGender().empty);
+		assert(!faker.nameLastName().empty);
+		assert(!faker.nameMaleFirstName().empty);
+		assert(!faker.nameMaleMiddleName().empty);
+		assert(!faker.nameMiddleName().empty);
+		assert(!faker.namePrefix().empty);
+		assert(!faker.nameSuffix().empty);
+		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -1534,7 +2325,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_us;
-    auto faker = new Faker_en_us(12);
+    auto faker = new Faker_en_us(17);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -1575,11 +2366,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -1600,8 +2391,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -1650,6 +2446,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -1673,7 +2470,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_za;
-    auto faker = new Faker_en_za(13);
+    auto faker = new Faker_en_za(18);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -1714,11 +2511,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -1739,8 +2536,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -1789,6 +2591,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -1812,7 +2615,7 @@ unittest {
 
 unittest {
 	import faked.faker_es;
-    auto faker = new Faker_es(14);
+    auto faker = new Faker_es(19);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -1853,11 +2656,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -1878,8 +2681,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -1928,6 +2736,152 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
+		assert(!faker.scienceChemicalelement().empty);
+		assert(!faker.scienceUnit().empty);
+		assert(!faker.teamCreature().empty);
+		assert(!faker.vehicle().empty);
+		assert(!faker.vehicleBicycleType().empty);
+		assert(!faker.vehicleFuel().empty);
+		assert(!faker.vehicleManufacturer().empty);
+		assert(!faker.vehicleModel().empty);
+		assert(!faker.vehicleType().empty);
+		assert(!faker.vehicleVin().empty);
+		assert(!faker.wordAdjective().empty);
+		assert(!faker.wordAdverb().empty);
+		assert(!faker.wordConjunction().empty);
+		assert(!faker.wordInterjection().empty);
+		assert(!faker.wordNoun().empty);
+		assert(!faker.wordPreposition().empty);
+		assert(!faker.wordVerb().empty);
+
+	}
+}
+
+unittest {
+	import faked.faker_es_mx;
+    auto faker = new Faker_es_mx(20);
+	for(int i = 0; i < 30; ++i) {
+		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCityName().empty);
+		assert(!faker.addressCityPrefix().empty);
+		assert(!faker.addressCitySuffix().empty);
+		assert(!faker.addressCountry().empty);
+		assert(!faker.addressCountryCode().empty);
+		assert(!faker.addressCountryCodeAlpha3().empty);
+		assert(!faker.addressCounty().empty);
+		assert(!faker.addressDefaultCountry().empty);
+		assert(!faker.addressDirection().empty);
+		assert(!faker.addressDirectionAbbr().empty);
+		assert(!faker.addressLatitude().empty);
+		assert(!faker.addressLongitude().empty);
+		assert(!faker.addressPostcode().empty);
+		assert(!faker.addressSecondaryAddress().empty);
+		assert(!faker.addressState().empty);
+		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreetSuffix().empty);
+		assert(!faker.addressTimeZone().empty);
+		assert(!faker.animalBear().empty);
+		assert(!faker.animalBird().empty);
+		assert(!faker.animalCat().empty);
+		assert(!faker.animalCetacean().empty);
+		assert(!faker.animalCow().empty);
+		assert(!faker.animalCrocodilia().empty);
+		assert(!faker.animalDog().empty);
+		assert(!faker.animalFish().empty);
+		assert(!faker.animalHorse().empty);
+		assert(!faker.animalInsect().empty);
+		assert(!faker.animalLion().empty);
+		assert(!faker.animalRabbit().empty);
+		assert(!faker.animalRodent().empty);
+		assert(!faker.animalSnake().empty);
+		assert(!faker.animalType().empty);
+		assert(!faker.appName().empty);
+		assert(!faker.appVersion().empty);
+		assert(!faker.businessCreditCardExpiryDates().empty);
+		assert(!faker.businessCreditCardNumbers().empty);
+		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
+		assert(!faker.colorHuman().empty);
+		assert(!faker.colorSpace().empty);
+		assert(!faker.commerceDepartment().empty);
+		assert(!faker.commerceProductDescription().empty);
+		assert(!faker.companyAdjective().empty);
+		assert(!faker.companyBs().empty);
+		assert(!faker.companyBsAdjective().empty);
+		assert(!faker.companyBsNoun().empty);
+		assert(!faker.companyBsVerb().empty);
+		assert(!faker.companyCatchPhrase().empty);
+		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyNoun().empty);
+		assert(!faker.companySuffix().empty);
+		assert(!faker.databaseCollation().empty);
+		assert(!faker.databaseColumn().empty);
+		assert(!faker.databaseEngine().empty);
+		assert(!faker.databaseType().empty);
+		assert(!faker.financeAccount().empty);
+		assert(!faker.financeAccountType().empty);
+		assert(!faker.financeBIC().empty);
+		assert(!faker.financeBitcoinAddress().empty);
+		assert(!faker.financeCreditCard().empty);
+		assert(!faker.financeCreditCardAmericanExpress().empty);
+		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
+		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
+		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
+		assert(!faker.financeCreditCardVisa().empty);
+		assert(!faker.financeCurrency().empty);
+		assert(!faker.financeIBAN().empty);
+		assert(!faker.financeMask().empty);
+		assert(!faker.financeRoutingNumber().empty);
+		assert(!faker.financeTransactionType().empty);
+		assert(!faker.hackerAbbreviation().empty);
+		assert(!faker.hackerAdjective().empty);
+		assert(!faker.hackerIngverb().empty);
+		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerVerb().empty);
+		assert(!faker.helperAlpha().empty);
+		assert(!faker.helperAlphaNum().empty);
+		assert(!faker.helperHexaDecimal().empty);
+		assert(!faker.internetAvatarUri().empty);
+		assert(!faker.internetColor().empty);
+		assert(!faker.internetDomainName().empty);
+		assert(!faker.internetDomainSuffix().empty);
+		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetExampleEmail().empty);
+		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetIPv4().empty);
+		assert(!faker.internetIPv6().empty);
+		assert(!faker.internetPassword().empty);
+		assert(!faker.internetProtocol().empty);
+		assert(!faker.internetUrl().empty);
+		assert(!faker.internetUserName().empty);
+		assert(!faker.loremParagraph().empty);
+		assert(!faker.loremParagraphs().empty);
+		assert(!faker.loremSentance().empty);
+		assert(!faker.loremSentances().empty);
+		assert(!faker.loremSupplemental().empty);
+		assert(!faker.loremText().empty);
+		assert(!faker.loremWords().empty);
+		assert(!faker.musicGenre().empty);
+		assert(!faker.musicSongName().empty);
+		assert(!faker.nameBinaryGender().empty);
+		assert(!faker.nameFemaleFirstName().empty);
+		assert(!faker.nameFemaleMiddleName().empty);
+		assert(!faker.nameFirstName().empty);
+		assert(!faker.nameGender().empty);
+		assert(!faker.nameLastName().empty);
+		assert(!faker.nameMaleFirstName().empty);
+		assert(!faker.nameMaleMiddleName().empty);
+		assert(!faker.nameMiddleName().empty);
+		assert(!faker.namePrefix().empty);
+		assert(!faker.nameSuffix().empty);
+		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -1951,7 +2905,7 @@ unittest {
 
 unittest {
 	import faked.faker_fi;
-    auto faker = new Faker_fi(15);
+    auto faker = new Faker_fi(21);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -1992,11 +2946,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -2017,8 +2971,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -2067,6 +3026,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -2090,7 +3050,7 @@ unittest {
 
 unittest {
 	import faked.faker_fr;
-    auto faker = new Faker_fr(16);
+    auto faker = new Faker_fr(22);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -2131,11 +3091,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -2156,8 +3116,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -2206,6 +3171,152 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
+		assert(!faker.scienceChemicalelement().empty);
+		assert(!faker.scienceUnit().empty);
+		assert(!faker.teamCreature().empty);
+		assert(!faker.vehicle().empty);
+		assert(!faker.vehicleBicycleType().empty);
+		assert(!faker.vehicleFuel().empty);
+		assert(!faker.vehicleManufacturer().empty);
+		assert(!faker.vehicleModel().empty);
+		assert(!faker.vehicleType().empty);
+		assert(!faker.vehicleVin().empty);
+		assert(!faker.wordAdjective().empty);
+		assert(!faker.wordAdverb().empty);
+		assert(!faker.wordConjunction().empty);
+		assert(!faker.wordInterjection().empty);
+		assert(!faker.wordNoun().empty);
+		assert(!faker.wordPreposition().empty);
+		assert(!faker.wordVerb().empty);
+
+	}
+}
+
+unittest {
+	import faked.faker_fr_be;
+    auto faker = new Faker_fr_be(23);
+	for(int i = 0; i < 30; ++i) {
+		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCityName().empty);
+		assert(!faker.addressCityPrefix().empty);
+		assert(!faker.addressCitySuffix().empty);
+		assert(!faker.addressCountry().empty);
+		assert(!faker.addressCountryCode().empty);
+		assert(!faker.addressCountryCodeAlpha3().empty);
+		assert(!faker.addressCounty().empty);
+		assert(!faker.addressDefaultCountry().empty);
+		assert(!faker.addressDirection().empty);
+		assert(!faker.addressDirectionAbbr().empty);
+		assert(!faker.addressLatitude().empty);
+		assert(!faker.addressLongitude().empty);
+		assert(!faker.addressPostcode().empty);
+		assert(!faker.addressSecondaryAddress().empty);
+		assert(!faker.addressState().empty);
+		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreetSuffix().empty);
+		assert(!faker.addressTimeZone().empty);
+		assert(!faker.animalBear().empty);
+		assert(!faker.animalBird().empty);
+		assert(!faker.animalCat().empty);
+		assert(!faker.animalCetacean().empty);
+		assert(!faker.animalCow().empty);
+		assert(!faker.animalCrocodilia().empty);
+		assert(!faker.animalDog().empty);
+		assert(!faker.animalFish().empty);
+		assert(!faker.animalHorse().empty);
+		assert(!faker.animalInsect().empty);
+		assert(!faker.animalLion().empty);
+		assert(!faker.animalRabbit().empty);
+		assert(!faker.animalRodent().empty);
+		assert(!faker.animalSnake().empty);
+		assert(!faker.animalType().empty);
+		assert(!faker.appName().empty);
+		assert(!faker.appVersion().empty);
+		assert(!faker.businessCreditCardExpiryDates().empty);
+		assert(!faker.businessCreditCardNumbers().empty);
+		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
+		assert(!faker.colorHuman().empty);
+		assert(!faker.colorSpace().empty);
+		assert(!faker.commerceDepartment().empty);
+		assert(!faker.commerceProductDescription().empty);
+		assert(!faker.companyAdjective().empty);
+		assert(!faker.companyBs().empty);
+		assert(!faker.companyBsAdjective().empty);
+		assert(!faker.companyBsNoun().empty);
+		assert(!faker.companyBsVerb().empty);
+		assert(!faker.companyCatchPhrase().empty);
+		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyNoun().empty);
+		assert(!faker.companySuffix().empty);
+		assert(!faker.databaseCollation().empty);
+		assert(!faker.databaseColumn().empty);
+		assert(!faker.databaseEngine().empty);
+		assert(!faker.databaseType().empty);
+		assert(!faker.financeAccount().empty);
+		assert(!faker.financeAccountType().empty);
+		assert(!faker.financeBIC().empty);
+		assert(!faker.financeBitcoinAddress().empty);
+		assert(!faker.financeCreditCard().empty);
+		assert(!faker.financeCreditCardAmericanExpress().empty);
+		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
+		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
+		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
+		assert(!faker.financeCreditCardVisa().empty);
+		assert(!faker.financeCurrency().empty);
+		assert(!faker.financeIBAN().empty);
+		assert(!faker.financeMask().empty);
+		assert(!faker.financeRoutingNumber().empty);
+		assert(!faker.financeTransactionType().empty);
+		assert(!faker.hackerAbbreviation().empty);
+		assert(!faker.hackerAdjective().empty);
+		assert(!faker.hackerIngverb().empty);
+		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerVerb().empty);
+		assert(!faker.helperAlpha().empty);
+		assert(!faker.helperAlphaNum().empty);
+		assert(!faker.helperHexaDecimal().empty);
+		assert(!faker.internetAvatarUri().empty);
+		assert(!faker.internetColor().empty);
+		assert(!faker.internetDomainName().empty);
+		assert(!faker.internetDomainSuffix().empty);
+		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetExampleEmail().empty);
+		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetIPv4().empty);
+		assert(!faker.internetIPv6().empty);
+		assert(!faker.internetPassword().empty);
+		assert(!faker.internetProtocol().empty);
+		assert(!faker.internetUrl().empty);
+		assert(!faker.internetUserName().empty);
+		assert(!faker.loremParagraph().empty);
+		assert(!faker.loremParagraphs().empty);
+		assert(!faker.loremSentance().empty);
+		assert(!faker.loremSentances().empty);
+		assert(!faker.loremSupplemental().empty);
+		assert(!faker.loremText().empty);
+		assert(!faker.loremWords().empty);
+		assert(!faker.musicGenre().empty);
+		assert(!faker.musicSongName().empty);
+		assert(!faker.nameBinaryGender().empty);
+		assert(!faker.nameFemaleFirstName().empty);
+		assert(!faker.nameFemaleMiddleName().empty);
+		assert(!faker.nameFirstName().empty);
+		assert(!faker.nameGender().empty);
+		assert(!faker.nameLastName().empty);
+		assert(!faker.nameMaleFirstName().empty);
+		assert(!faker.nameMaleMiddleName().empty);
+		assert(!faker.nameMiddleName().empty);
+		assert(!faker.namePrefix().empty);
+		assert(!faker.nameSuffix().empty);
+		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -2229,7 +3340,7 @@ unittest {
 
 unittest {
 	import faked.faker_fr_ca;
-    auto faker = new Faker_fr_ca(17);
+    auto faker = new Faker_fr_ca(24);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -2270,11 +3381,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -2295,8 +3406,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -2345,6 +3461,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -2368,7 +3485,7 @@ unittest {
 
 unittest {
 	import faked.faker_fr_ch;
-    auto faker = new Faker_fr_ch(18);
+    auto faker = new Faker_fr_ch(25);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -2409,11 +3526,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -2434,8 +3551,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -2484,6 +3606,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -2507,7 +3630,7 @@ unittest {
 
 unittest {
 	import faked.faker_ge;
-    auto faker = new Faker_ge(19);
+    auto faker = new Faker_ge(26);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -2548,11 +3671,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -2573,8 +3696,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -2623,6 +3751,152 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
+		assert(!faker.scienceChemicalelement().empty);
+		assert(!faker.scienceUnit().empty);
+		assert(!faker.teamCreature().empty);
+		assert(!faker.vehicle().empty);
+		assert(!faker.vehicleBicycleType().empty);
+		assert(!faker.vehicleFuel().empty);
+		assert(!faker.vehicleManufacturer().empty);
+		assert(!faker.vehicleModel().empty);
+		assert(!faker.vehicleType().empty);
+		assert(!faker.vehicleVin().empty);
+		assert(!faker.wordAdjective().empty);
+		assert(!faker.wordAdverb().empty);
+		assert(!faker.wordConjunction().empty);
+		assert(!faker.wordInterjection().empty);
+		assert(!faker.wordNoun().empty);
+		assert(!faker.wordPreposition().empty);
+		assert(!faker.wordVerb().empty);
+
+	}
+}
+
+unittest {
+	import faked.faker_he;
+    auto faker = new Faker_he(27);
+	for(int i = 0; i < 30; ++i) {
+		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCityName().empty);
+		assert(!faker.addressCityPrefix().empty);
+		assert(!faker.addressCitySuffix().empty);
+		assert(!faker.addressCountry().empty);
+		assert(!faker.addressCountryCode().empty);
+		assert(!faker.addressCountryCodeAlpha3().empty);
+		assert(!faker.addressCounty().empty);
+		assert(!faker.addressDefaultCountry().empty);
+		assert(!faker.addressDirection().empty);
+		assert(!faker.addressDirectionAbbr().empty);
+		assert(!faker.addressLatitude().empty);
+		assert(!faker.addressLongitude().empty);
+		assert(!faker.addressPostcode().empty);
+		assert(!faker.addressSecondaryAddress().empty);
+		assert(!faker.addressState().empty);
+		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreetSuffix().empty);
+		assert(!faker.addressTimeZone().empty);
+		assert(!faker.animalBear().empty);
+		assert(!faker.animalBird().empty);
+		assert(!faker.animalCat().empty);
+		assert(!faker.animalCetacean().empty);
+		assert(!faker.animalCow().empty);
+		assert(!faker.animalCrocodilia().empty);
+		assert(!faker.animalDog().empty);
+		assert(!faker.animalFish().empty);
+		assert(!faker.animalHorse().empty);
+		assert(!faker.animalInsect().empty);
+		assert(!faker.animalLion().empty);
+		assert(!faker.animalRabbit().empty);
+		assert(!faker.animalRodent().empty);
+		assert(!faker.animalSnake().empty);
+		assert(!faker.animalType().empty);
+		assert(!faker.appName().empty);
+		assert(!faker.appVersion().empty);
+		assert(!faker.businessCreditCardExpiryDates().empty);
+		assert(!faker.businessCreditCardNumbers().empty);
+		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
+		assert(!faker.colorHuman().empty);
+		assert(!faker.colorSpace().empty);
+		assert(!faker.commerceDepartment().empty);
+		assert(!faker.commerceProductDescription().empty);
+		assert(!faker.companyAdjective().empty);
+		assert(!faker.companyBs().empty);
+		assert(!faker.companyBsAdjective().empty);
+		assert(!faker.companyBsNoun().empty);
+		assert(!faker.companyBsVerb().empty);
+		assert(!faker.companyCatchPhrase().empty);
+		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyNoun().empty);
+		assert(!faker.companySuffix().empty);
+		assert(!faker.databaseCollation().empty);
+		assert(!faker.databaseColumn().empty);
+		assert(!faker.databaseEngine().empty);
+		assert(!faker.databaseType().empty);
+		assert(!faker.financeAccount().empty);
+		assert(!faker.financeAccountType().empty);
+		assert(!faker.financeBIC().empty);
+		assert(!faker.financeBitcoinAddress().empty);
+		assert(!faker.financeCreditCard().empty);
+		assert(!faker.financeCreditCardAmericanExpress().empty);
+		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
+		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
+		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
+		assert(!faker.financeCreditCardVisa().empty);
+		assert(!faker.financeCurrency().empty);
+		assert(!faker.financeIBAN().empty);
+		assert(!faker.financeMask().empty);
+		assert(!faker.financeRoutingNumber().empty);
+		assert(!faker.financeTransactionType().empty);
+		assert(!faker.hackerAbbreviation().empty);
+		assert(!faker.hackerAdjective().empty);
+		assert(!faker.hackerIngverb().empty);
+		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerVerb().empty);
+		assert(!faker.helperAlpha().empty);
+		assert(!faker.helperAlphaNum().empty);
+		assert(!faker.helperHexaDecimal().empty);
+		assert(!faker.internetAvatarUri().empty);
+		assert(!faker.internetColor().empty);
+		assert(!faker.internetDomainName().empty);
+		assert(!faker.internetDomainSuffix().empty);
+		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetExampleEmail().empty);
+		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetIPv4().empty);
+		assert(!faker.internetIPv6().empty);
+		assert(!faker.internetPassword().empty);
+		assert(!faker.internetProtocol().empty);
+		assert(!faker.internetUrl().empty);
+		assert(!faker.internetUserName().empty);
+		assert(!faker.loremParagraph().empty);
+		assert(!faker.loremParagraphs().empty);
+		assert(!faker.loremSentance().empty);
+		assert(!faker.loremSentances().empty);
+		assert(!faker.loremSupplemental().empty);
+		assert(!faker.loremText().empty);
+		assert(!faker.loremWords().empty);
+		assert(!faker.musicGenre().empty);
+		assert(!faker.musicSongName().empty);
+		assert(!faker.nameBinaryGender().empty);
+		assert(!faker.nameFemaleFirstName().empty);
+		assert(!faker.nameFemaleMiddleName().empty);
+		assert(!faker.nameFirstName().empty);
+		assert(!faker.nameGender().empty);
+		assert(!faker.nameLastName().empty);
+		assert(!faker.nameMaleFirstName().empty);
+		assert(!faker.nameMaleMiddleName().empty);
+		assert(!faker.nameMiddleName().empty);
+		assert(!faker.namePrefix().empty);
+		assert(!faker.nameSuffix().empty);
+		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -2646,7 +3920,7 @@ unittest {
 
 unittest {
 	import faked.faker_hr;
-    auto faker = new Faker_hr(20);
+    auto faker = new Faker_hr(28);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -2687,11 +3961,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -2712,8 +3986,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -2762,6 +4041,152 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
+		assert(!faker.scienceChemicalelement().empty);
+		assert(!faker.scienceUnit().empty);
+		assert(!faker.teamCreature().empty);
+		assert(!faker.vehicle().empty);
+		assert(!faker.vehicleBicycleType().empty);
+		assert(!faker.vehicleFuel().empty);
+		assert(!faker.vehicleManufacturer().empty);
+		assert(!faker.vehicleModel().empty);
+		assert(!faker.vehicleType().empty);
+		assert(!faker.vehicleVin().empty);
+		assert(!faker.wordAdjective().empty);
+		assert(!faker.wordAdverb().empty);
+		assert(!faker.wordConjunction().empty);
+		assert(!faker.wordInterjection().empty);
+		assert(!faker.wordNoun().empty);
+		assert(!faker.wordPreposition().empty);
+		assert(!faker.wordVerb().empty);
+
+	}
+}
+
+unittest {
+	import faked.faker_hu;
+    auto faker = new Faker_hu(29);
+	for(int i = 0; i < 30; ++i) {
+		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCityName().empty);
+		assert(!faker.addressCityPrefix().empty);
+		assert(!faker.addressCitySuffix().empty);
+		assert(!faker.addressCountry().empty);
+		assert(!faker.addressCountryCode().empty);
+		assert(!faker.addressCountryCodeAlpha3().empty);
+		assert(!faker.addressCounty().empty);
+		assert(!faker.addressDefaultCountry().empty);
+		assert(!faker.addressDirection().empty);
+		assert(!faker.addressDirectionAbbr().empty);
+		assert(!faker.addressLatitude().empty);
+		assert(!faker.addressLongitude().empty);
+		assert(!faker.addressPostcode().empty);
+		assert(!faker.addressSecondaryAddress().empty);
+		assert(!faker.addressState().empty);
+		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreetSuffix().empty);
+		assert(!faker.addressTimeZone().empty);
+		assert(!faker.animalBear().empty);
+		assert(!faker.animalBird().empty);
+		assert(!faker.animalCat().empty);
+		assert(!faker.animalCetacean().empty);
+		assert(!faker.animalCow().empty);
+		assert(!faker.animalCrocodilia().empty);
+		assert(!faker.animalDog().empty);
+		assert(!faker.animalFish().empty);
+		assert(!faker.animalHorse().empty);
+		assert(!faker.animalInsect().empty);
+		assert(!faker.animalLion().empty);
+		assert(!faker.animalRabbit().empty);
+		assert(!faker.animalRodent().empty);
+		assert(!faker.animalSnake().empty);
+		assert(!faker.animalType().empty);
+		assert(!faker.appName().empty);
+		assert(!faker.appVersion().empty);
+		assert(!faker.businessCreditCardExpiryDates().empty);
+		assert(!faker.businessCreditCardNumbers().empty);
+		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
+		assert(!faker.colorHuman().empty);
+		assert(!faker.colorSpace().empty);
+		assert(!faker.commerceDepartment().empty);
+		assert(!faker.commerceProductDescription().empty);
+		assert(!faker.companyAdjective().empty);
+		assert(!faker.companyBs().empty);
+		assert(!faker.companyBsAdjective().empty);
+		assert(!faker.companyBsNoun().empty);
+		assert(!faker.companyBsVerb().empty);
+		assert(!faker.companyCatchPhrase().empty);
+		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyNoun().empty);
+		assert(!faker.companySuffix().empty);
+		assert(!faker.databaseCollation().empty);
+		assert(!faker.databaseColumn().empty);
+		assert(!faker.databaseEngine().empty);
+		assert(!faker.databaseType().empty);
+		assert(!faker.financeAccount().empty);
+		assert(!faker.financeAccountType().empty);
+		assert(!faker.financeBIC().empty);
+		assert(!faker.financeBitcoinAddress().empty);
+		assert(!faker.financeCreditCard().empty);
+		assert(!faker.financeCreditCardAmericanExpress().empty);
+		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
+		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
+		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
+		assert(!faker.financeCreditCardVisa().empty);
+		assert(!faker.financeCurrency().empty);
+		assert(!faker.financeIBAN().empty);
+		assert(!faker.financeMask().empty);
+		assert(!faker.financeRoutingNumber().empty);
+		assert(!faker.financeTransactionType().empty);
+		assert(!faker.hackerAbbreviation().empty);
+		assert(!faker.hackerAdjective().empty);
+		assert(!faker.hackerIngverb().empty);
+		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerVerb().empty);
+		assert(!faker.helperAlpha().empty);
+		assert(!faker.helperAlphaNum().empty);
+		assert(!faker.helperHexaDecimal().empty);
+		assert(!faker.internetAvatarUri().empty);
+		assert(!faker.internetColor().empty);
+		assert(!faker.internetDomainName().empty);
+		assert(!faker.internetDomainSuffix().empty);
+		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetExampleEmail().empty);
+		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetIPv4().empty);
+		assert(!faker.internetIPv6().empty);
+		assert(!faker.internetPassword().empty);
+		assert(!faker.internetProtocol().empty);
+		assert(!faker.internetUrl().empty);
+		assert(!faker.internetUserName().empty);
+		assert(!faker.loremParagraph().empty);
+		assert(!faker.loremParagraphs().empty);
+		assert(!faker.loremSentance().empty);
+		assert(!faker.loremSentances().empty);
+		assert(!faker.loremSupplemental().empty);
+		assert(!faker.loremText().empty);
+		assert(!faker.loremWords().empty);
+		assert(!faker.musicGenre().empty);
+		assert(!faker.musicSongName().empty);
+		assert(!faker.nameBinaryGender().empty);
+		assert(!faker.nameFemaleFirstName().empty);
+		assert(!faker.nameFemaleMiddleName().empty);
+		assert(!faker.nameFirstName().empty);
+		assert(!faker.nameGender().empty);
+		assert(!faker.nameLastName().empty);
+		assert(!faker.nameMaleFirstName().empty);
+		assert(!faker.nameMaleMiddleName().empty);
+		assert(!faker.nameMiddleName().empty);
+		assert(!faker.namePrefix().empty);
+		assert(!faker.nameSuffix().empty);
+		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -2785,7 +4210,7 @@ unittest {
 
 unittest {
 	import faked.faker_hy;
-    auto faker = new Faker_hy(21);
+    auto faker = new Faker_hy(30);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -2826,11 +4251,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -2851,8 +4276,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -2901,6 +4331,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -2924,7 +4355,7 @@ unittest {
 
 unittest {
 	import faked.faker_id_id;
-    auto faker = new Faker_id_id(22);
+    auto faker = new Faker_id_id(31);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -2965,11 +4396,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -2990,8 +4421,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -3040,6 +4476,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -3063,7 +4500,7 @@ unittest {
 
 unittest {
 	import faked.faker_it;
-    auto faker = new Faker_it(23);
+    auto faker = new Faker_it(32);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -3104,11 +4541,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -3129,8 +4566,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -3179,6 +4621,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -3202,7 +4645,7 @@ unittest {
 
 unittest {
 	import faked.faker_ja;
-    auto faker = new Faker_ja(24);
+    auto faker = new Faker_ja(33);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -3243,11 +4686,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -3268,8 +4711,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -3318,6 +4766,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -3341,7 +4790,7 @@ unittest {
 
 unittest {
 	import faked.faker_ko;
-    auto faker = new Faker_ko(25);
+    auto faker = new Faker_ko(34);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -3382,11 +4831,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -3407,8 +4856,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -3457,6 +4911,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -3480,7 +4935,7 @@ unittest {
 
 unittest {
 	import faked.faker_lv;
-    auto faker = new Faker_lv(26);
+    auto faker = new Faker_lv(35);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -3521,11 +4976,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -3546,8 +5001,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -3596,6 +5056,152 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
+		assert(!faker.scienceChemicalelement().empty);
+		assert(!faker.scienceUnit().empty);
+		assert(!faker.teamCreature().empty);
+		assert(!faker.vehicle().empty);
+		assert(!faker.vehicleBicycleType().empty);
+		assert(!faker.vehicleFuel().empty);
+		assert(!faker.vehicleManufacturer().empty);
+		assert(!faker.vehicleModel().empty);
+		assert(!faker.vehicleType().empty);
+		assert(!faker.vehicleVin().empty);
+		assert(!faker.wordAdjective().empty);
+		assert(!faker.wordAdverb().empty);
+		assert(!faker.wordConjunction().empty);
+		assert(!faker.wordInterjection().empty);
+		assert(!faker.wordNoun().empty);
+		assert(!faker.wordPreposition().empty);
+		assert(!faker.wordVerb().empty);
+
+	}
+}
+
+unittest {
+	import faked.faker_mk;
+    auto faker = new Faker_mk(36);
+	for(int i = 0; i < 30; ++i) {
+		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCityName().empty);
+		assert(!faker.addressCityPrefix().empty);
+		assert(!faker.addressCitySuffix().empty);
+		assert(!faker.addressCountry().empty);
+		assert(!faker.addressCountryCode().empty);
+		assert(!faker.addressCountryCodeAlpha3().empty);
+		assert(!faker.addressCounty().empty);
+		assert(!faker.addressDefaultCountry().empty);
+		assert(!faker.addressDirection().empty);
+		assert(!faker.addressDirectionAbbr().empty);
+		assert(!faker.addressLatitude().empty);
+		assert(!faker.addressLongitude().empty);
+		assert(!faker.addressPostcode().empty);
+		assert(!faker.addressSecondaryAddress().empty);
+		assert(!faker.addressState().empty);
+		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreetSuffix().empty);
+		assert(!faker.addressTimeZone().empty);
+		assert(!faker.animalBear().empty);
+		assert(!faker.animalBird().empty);
+		assert(!faker.animalCat().empty);
+		assert(!faker.animalCetacean().empty);
+		assert(!faker.animalCow().empty);
+		assert(!faker.animalCrocodilia().empty);
+		assert(!faker.animalDog().empty);
+		assert(!faker.animalFish().empty);
+		assert(!faker.animalHorse().empty);
+		assert(!faker.animalInsect().empty);
+		assert(!faker.animalLion().empty);
+		assert(!faker.animalRabbit().empty);
+		assert(!faker.animalRodent().empty);
+		assert(!faker.animalSnake().empty);
+		assert(!faker.animalType().empty);
+		assert(!faker.appName().empty);
+		assert(!faker.appVersion().empty);
+		assert(!faker.businessCreditCardExpiryDates().empty);
+		assert(!faker.businessCreditCardNumbers().empty);
+		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
+		assert(!faker.colorHuman().empty);
+		assert(!faker.colorSpace().empty);
+		assert(!faker.commerceDepartment().empty);
+		assert(!faker.commerceProductDescription().empty);
+		assert(!faker.companyAdjective().empty);
+		assert(!faker.companyBs().empty);
+		assert(!faker.companyBsAdjective().empty);
+		assert(!faker.companyBsNoun().empty);
+		assert(!faker.companyBsVerb().empty);
+		assert(!faker.companyCatchPhrase().empty);
+		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyNoun().empty);
+		assert(!faker.companySuffix().empty);
+		assert(!faker.databaseCollation().empty);
+		assert(!faker.databaseColumn().empty);
+		assert(!faker.databaseEngine().empty);
+		assert(!faker.databaseType().empty);
+		assert(!faker.financeAccount().empty);
+		assert(!faker.financeAccountType().empty);
+		assert(!faker.financeBIC().empty);
+		assert(!faker.financeBitcoinAddress().empty);
+		assert(!faker.financeCreditCard().empty);
+		assert(!faker.financeCreditCardAmericanExpress().empty);
+		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
+		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
+		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
+		assert(!faker.financeCreditCardVisa().empty);
+		assert(!faker.financeCurrency().empty);
+		assert(!faker.financeIBAN().empty);
+		assert(!faker.financeMask().empty);
+		assert(!faker.financeRoutingNumber().empty);
+		assert(!faker.financeTransactionType().empty);
+		assert(!faker.hackerAbbreviation().empty);
+		assert(!faker.hackerAdjective().empty);
+		assert(!faker.hackerIngverb().empty);
+		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerVerb().empty);
+		assert(!faker.helperAlpha().empty);
+		assert(!faker.helperAlphaNum().empty);
+		assert(!faker.helperHexaDecimal().empty);
+		assert(!faker.internetAvatarUri().empty);
+		assert(!faker.internetColor().empty);
+		assert(!faker.internetDomainName().empty);
+		assert(!faker.internetDomainSuffix().empty);
+		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetExampleEmail().empty);
+		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetIPv4().empty);
+		assert(!faker.internetIPv6().empty);
+		assert(!faker.internetPassword().empty);
+		assert(!faker.internetProtocol().empty);
+		assert(!faker.internetUrl().empty);
+		assert(!faker.internetUserName().empty);
+		assert(!faker.loremParagraph().empty);
+		assert(!faker.loremParagraphs().empty);
+		assert(!faker.loremSentance().empty);
+		assert(!faker.loremSentances().empty);
+		assert(!faker.loremSupplemental().empty);
+		assert(!faker.loremText().empty);
+		assert(!faker.loremWords().empty);
+		assert(!faker.musicGenre().empty);
+		assert(!faker.musicSongName().empty);
+		assert(!faker.nameBinaryGender().empty);
+		assert(!faker.nameFemaleFirstName().empty);
+		assert(!faker.nameFemaleMiddleName().empty);
+		assert(!faker.nameFirstName().empty);
+		assert(!faker.nameGender().empty);
+		assert(!faker.nameLastName().empty);
+		assert(!faker.nameMaleFirstName().empty);
+		assert(!faker.nameMaleMiddleName().empty);
+		assert(!faker.nameMiddleName().empty);
+		assert(!faker.namePrefix().empty);
+		assert(!faker.nameSuffix().empty);
+		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -3619,7 +5225,7 @@ unittest {
 
 unittest {
 	import faked.faker_nb_no;
-    auto faker = new Faker_nb_no(27);
+    auto faker = new Faker_nb_no(37);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -3660,11 +5266,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -3685,8 +5291,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -3735,6 +5346,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -3758,7 +5370,7 @@ unittest {
 
 unittest {
 	import faked.faker_ne;
-    auto faker = new Faker_ne(28);
+    auto faker = new Faker_ne(38);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -3799,11 +5411,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -3824,8 +5436,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -3874,6 +5491,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -3897,7 +5515,7 @@ unittest {
 
 unittest {
 	import faked.faker_nl;
-    auto faker = new Faker_nl(29);
+    auto faker = new Faker_nl(39);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -3938,11 +5556,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -3963,8 +5581,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -4013,6 +5636,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -4036,7 +5660,7 @@ unittest {
 
 unittest {
 	import faked.faker_nl_be;
-    auto faker = new Faker_nl_be(30);
+    auto faker = new Faker_nl_be(40);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -4077,11 +5701,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -4102,8 +5726,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -4152,6 +5781,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -4175,7 +5805,7 @@ unittest {
 
 unittest {
 	import faked.faker_pl;
-    auto faker = new Faker_pl(31);
+    auto faker = new Faker_pl(41);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -4216,11 +5846,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -4241,8 +5871,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -4291,6 +5926,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -4314,7 +5950,7 @@ unittest {
 
 unittest {
 	import faked.faker_pt_br;
-    auto faker = new Faker_pt_br(32);
+    auto faker = new Faker_pt_br(42);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -4355,11 +5991,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -4380,8 +6016,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -4430,6 +6071,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -4453,7 +6095,7 @@ unittest {
 
 unittest {
 	import faked.faker_pt_pt;
-    auto faker = new Faker_pt_pt(33);
+    auto faker = new Faker_pt_pt(43);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -4494,11 +6136,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -4519,8 +6161,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -4569,6 +6216,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -4592,7 +6240,7 @@ unittest {
 
 unittest {
 	import faked.faker_ro;
-    auto faker = new Faker_ro(34);
+    auto faker = new Faker_ro(44);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -4633,11 +6281,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -4658,8 +6306,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -4708,6 +6361,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -4731,7 +6385,7 @@ unittest {
 
 unittest {
 	import faked.faker_ru;
-    auto faker = new Faker_ru(35);
+    auto faker = new Faker_ru(45);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -4772,11 +6426,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -4797,8 +6451,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -4847,6 +6506,152 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
+		assert(!faker.scienceChemicalelement().empty);
+		assert(!faker.scienceUnit().empty);
+		assert(!faker.teamCreature().empty);
+		assert(!faker.vehicle().empty);
+		assert(!faker.vehicleBicycleType().empty);
+		assert(!faker.vehicleFuel().empty);
+		assert(!faker.vehicleManufacturer().empty);
+		assert(!faker.vehicleModel().empty);
+		assert(!faker.vehicleType().empty);
+		assert(!faker.vehicleVin().empty);
+		assert(!faker.wordAdjective().empty);
+		assert(!faker.wordAdverb().empty);
+		assert(!faker.wordConjunction().empty);
+		assert(!faker.wordInterjection().empty);
+		assert(!faker.wordNoun().empty);
+		assert(!faker.wordPreposition().empty);
+		assert(!faker.wordVerb().empty);
+
+	}
+}
+
+unittest {
+	import faked.faker_sk;
+    auto faker = new Faker_sk(46);
+	for(int i = 0; i < 30; ++i) {
+		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCityName().empty);
+		assert(!faker.addressCityPrefix().empty);
+		assert(!faker.addressCitySuffix().empty);
+		assert(!faker.addressCountry().empty);
+		assert(!faker.addressCountryCode().empty);
+		assert(!faker.addressCountryCodeAlpha3().empty);
+		assert(!faker.addressCounty().empty);
+		assert(!faker.addressDefaultCountry().empty);
+		assert(!faker.addressDirection().empty);
+		assert(!faker.addressDirectionAbbr().empty);
+		assert(!faker.addressLatitude().empty);
+		assert(!faker.addressLongitude().empty);
+		assert(!faker.addressPostcode().empty);
+		assert(!faker.addressSecondaryAddress().empty);
+		assert(!faker.addressState().empty);
+		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreetSuffix().empty);
+		assert(!faker.addressTimeZone().empty);
+		assert(!faker.animalBear().empty);
+		assert(!faker.animalBird().empty);
+		assert(!faker.animalCat().empty);
+		assert(!faker.animalCetacean().empty);
+		assert(!faker.animalCow().empty);
+		assert(!faker.animalCrocodilia().empty);
+		assert(!faker.animalDog().empty);
+		assert(!faker.animalFish().empty);
+		assert(!faker.animalHorse().empty);
+		assert(!faker.animalInsect().empty);
+		assert(!faker.animalLion().empty);
+		assert(!faker.animalRabbit().empty);
+		assert(!faker.animalRodent().empty);
+		assert(!faker.animalSnake().empty);
+		assert(!faker.animalType().empty);
+		assert(!faker.appName().empty);
+		assert(!faker.appVersion().empty);
+		assert(!faker.businessCreditCardExpiryDates().empty);
+		assert(!faker.businessCreditCardNumbers().empty);
+		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
+		assert(!faker.colorHuman().empty);
+		assert(!faker.colorSpace().empty);
+		assert(!faker.commerceDepartment().empty);
+		assert(!faker.commerceProductDescription().empty);
+		assert(!faker.companyAdjective().empty);
+		assert(!faker.companyBs().empty);
+		assert(!faker.companyBsAdjective().empty);
+		assert(!faker.companyBsNoun().empty);
+		assert(!faker.companyBsVerb().empty);
+		assert(!faker.companyCatchPhrase().empty);
+		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyNoun().empty);
+		assert(!faker.companySuffix().empty);
+		assert(!faker.databaseCollation().empty);
+		assert(!faker.databaseColumn().empty);
+		assert(!faker.databaseEngine().empty);
+		assert(!faker.databaseType().empty);
+		assert(!faker.financeAccount().empty);
+		assert(!faker.financeAccountType().empty);
+		assert(!faker.financeBIC().empty);
+		assert(!faker.financeBitcoinAddress().empty);
+		assert(!faker.financeCreditCard().empty);
+		assert(!faker.financeCreditCardAmericanExpress().empty);
+		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
+		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
+		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
+		assert(!faker.financeCreditCardVisa().empty);
+		assert(!faker.financeCurrency().empty);
+		assert(!faker.financeIBAN().empty);
+		assert(!faker.financeMask().empty);
+		assert(!faker.financeRoutingNumber().empty);
+		assert(!faker.financeTransactionType().empty);
+		assert(!faker.hackerAbbreviation().empty);
+		assert(!faker.hackerAdjective().empty);
+		assert(!faker.hackerIngverb().empty);
+		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerVerb().empty);
+		assert(!faker.helperAlpha().empty);
+		assert(!faker.helperAlphaNum().empty);
+		assert(!faker.helperHexaDecimal().empty);
+		assert(!faker.internetAvatarUri().empty);
+		assert(!faker.internetColor().empty);
+		assert(!faker.internetDomainName().empty);
+		assert(!faker.internetDomainSuffix().empty);
+		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetExampleEmail().empty);
+		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetIPv4().empty);
+		assert(!faker.internetIPv6().empty);
+		assert(!faker.internetPassword().empty);
+		assert(!faker.internetProtocol().empty);
+		assert(!faker.internetUrl().empty);
+		assert(!faker.internetUserName().empty);
+		assert(!faker.loremParagraph().empty);
+		assert(!faker.loremParagraphs().empty);
+		assert(!faker.loremSentance().empty);
+		assert(!faker.loremSentances().empty);
+		assert(!faker.loremSupplemental().empty);
+		assert(!faker.loremText().empty);
+		assert(!faker.loremWords().empty);
+		assert(!faker.musicGenre().empty);
+		assert(!faker.musicSongName().empty);
+		assert(!faker.nameBinaryGender().empty);
+		assert(!faker.nameFemaleFirstName().empty);
+		assert(!faker.nameFemaleMiddleName().empty);
+		assert(!faker.nameFirstName().empty);
+		assert(!faker.nameGender().empty);
+		assert(!faker.nameLastName().empty);
+		assert(!faker.nameMaleFirstName().empty);
+		assert(!faker.nameMaleMiddleName().empty);
+		assert(!faker.nameMiddleName().empty);
+		assert(!faker.namePrefix().empty);
+		assert(!faker.nameSuffix().empty);
+		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -4870,7 +6675,7 @@ unittest {
 
 unittest {
 	import faked.faker_sv;
-    auto faker = new Faker_sv(36);
+    auto faker = new Faker_sv(47);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -4911,11 +6716,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -4936,8 +6741,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -4986,6 +6796,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -5009,7 +6820,7 @@ unittest {
 
 unittest {
 	import faked.faker_tr;
-    auto faker = new Faker_tr(37);
+    auto faker = new Faker_tr(48);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -5050,11 +6861,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -5075,8 +6886,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -5125,6 +6941,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -5148,7 +6965,7 @@ unittest {
 
 unittest {
 	import faked.faker_uk;
-    auto faker = new Faker_uk(38);
+    auto faker = new Faker_uk(49);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -5189,11 +7006,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -5214,8 +7031,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -5264,6 +7086,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -5287,7 +7110,7 @@ unittest {
 
 unittest {
 	import faked.faker_vi;
-    auto faker = new Faker_vi(39);
+    auto faker = new Faker_vi(50);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -5328,11 +7151,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -5353,8 +7176,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -5403,6 +7231,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -5426,7 +7255,7 @@ unittest {
 
 unittest {
 	import faked.faker_zh_cn;
-    auto faker = new Faker_zh_cn(40);
+    auto faker = new Faker_zh_cn(51);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -5467,11 +7296,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -5492,8 +7321,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -5542,6 +7376,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -5565,7 +7400,7 @@ unittest {
 
 unittest {
 	import faked.faker_zh_tw;
-    auto faker = new Faker_zh_tw(41);
+    auto faker = new Faker_zh_tw(52);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -5606,11 +7441,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -5631,8 +7466,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -5681,6 +7521,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -5704,7 +7545,7 @@ unittest {
 
 unittest {
 	import faked.faker_zu_za;
-    auto faker = new Faker_zu_za(42);
+    auto faker = new Faker_zu_za(53);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -5745,11 +7586,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -5770,8 +7611,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -5820,6 +7666,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
@@ -5843,7 +7690,7 @@ unittest {
 
 unittest {
 	import faked.base;
-    auto faker = new Faker(43);
+    auto faker = new Faker(54);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
 		assert(!faker.addressCityName().empty);
@@ -5884,11 +7731,11 @@ unittest {
 		assert(!faker.businessCreditCardExpiryDates().empty);
 		assert(!faker.businessCreditCardNumbers().empty);
 		assert(!faker.businessCreditCardTypes().empty);
+		assert(!faker.cellPhoneFormats().empty);
 		assert(!faker.colorHuman().empty);
 		assert(!faker.colorSpace().empty);
 		assert(!faker.commerceDepartment().empty);
 		assert(!faker.commerceProductDescription().empty);
-		assert(!faker.commerceProductName().empty);
 		assert(!faker.companyAdjective().empty);
 		assert(!faker.companyBs().empty);
 		assert(!faker.companyBsAdjective().empty);
@@ -5909,8 +7756,13 @@ unittest {
 		assert(!faker.financeCreditCard().empty);
 		assert(!faker.financeCreditCardAmericanExpress().empty);
 		assert(!faker.financeCreditCardCVV().empty);
+		assert(!faker.financeCreditCardDinersClub().empty);
+		assert(!faker.financeCreditCardDiscover().empty);
 		assert(!faker.financeCreditCardInstapayment().empty);
+		assert(!faker.financeCreditCardJcb().empty);
 		assert(!faker.financeCreditCardMastercard().empty);
+		assert(!faker.financeCreditCardSolo().empty);
+		assert(!faker.financeCreditCardSwitch().empty);
 		assert(!faker.financeCreditCardVisa().empty);
 		assert(!faker.financeCurrency().empty);
 		assert(!faker.financeIBAN().empty);
@@ -5959,6 +7811,7 @@ unittest {
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
+		assert(!faker.phoneNumberFormats().empty);
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);

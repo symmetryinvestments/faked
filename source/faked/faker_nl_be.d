@@ -19,9 +19,28 @@ class Faker_nl_be : Faker {
 	}
 
 	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"###/######",
+		"###/## ## ##",
+		"### ## ## ##",
+		"###/### ###",
+		"##########",
+		"04##/### ###",
+		"04## ## ## ##",
+		"00324 ## ## ##",
+		"+324 ## ## ## ##"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string internetFreeEmail() {
 		auto data = [
-		"gmail.com', 'yahoo.com', 'hotmail.com', 'skynet.be'"
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com",
+		"skynet.be'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -29,7 +48,12 @@ class Faker_nl_be : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"be', 'brussels', 'vlaanderen', 'com', 'net', 'org'"
+		"be",
+		"brussels",
+		"vlaanderen",
+		"com",
+		"net",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -37,7 +61,10 @@ class Faker_nl_be : Faker {
 	///
 	override string companySuffix() {
 		auto data = [
-		"NV', 'BVBA', 'CVBA', 'VZW'"
+		"NV",
+		"BVBA",
+		"CVBA",
+		"VZW'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -45,7 +72,12 @@ class Faker_nl_be : Faker {
 	///
 	override string addressStateAbbr() {
 		auto data = [
-		"WVL', 'OVL', 'VBR', 'ANT', 'LIM', 'BRU'"
+		"WVL",
+		"OVL",
+		"VBR",
+		"ANT",
+		"LIM",
+		"BRU'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -58,8 +90,7 @@ class Faker_nl_be : Faker {
 		"Vlaams-Brabant",
 		"Antwerpen",
 		"Limburg",
-		"Brussel",
-		""
+		"Brussel"
 		];
 		return choice(data, this.rnd);
 	}
@@ -75,7 +106,10 @@ class Faker_nl_be : Faker {
 	///
 	override string addressCitySuffix() {
 		auto data = [
-		"gem', 'tem', 'vijve', 'zele'"
+		"gem",
+		"tem",
+		"vijve",
+		"zele'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1208,18 +1242,9 @@ class Faker_nl_be : Faker {
 		"Zwevegem",
 		"Zwevezele",
 		"Zwijnaarde",
-		"Zwijndrecht",
-		""
+		"Zwijndrecht"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressBuildingNumber() {
-		auto data = [
-		"#', '##', '###', '###a', '###b', '###c'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
@@ -1233,7 +1258,9 @@ class Faker_nl_be : Faker {
 	///
 	override string addressSecondaryAddress() {
 		auto data = [
-		"1e verdieping', '2e verdieping', '3e verdieping'"
+		"1e verdieping",
+		"2e verdieping",
+		"3e verdieping'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1241,7 +1268,12 @@ class Faker_nl_be : Faker {
 	///
 	override string addressStreetSuffix() {
 		auto data = [
-		"straat', 'laan', 'weg', 'dreef', 'plein', 'park'"
+		"straat",
+		"laan",
+		"weg",
+		"dreef",
+		"plein",
+		"park'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1249,7 +1281,8 @@ class Faker_nl_be : Faker {
 	///
 	override string nameSuffix() {
 		auto data = [
-		"MBA', 'Phd.'"
+		"MBA",
+		"Phd.'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1257,7 +1290,10 @@ class Faker_nl_be : Faker {
 	///
 	override string namePrefix() {
 		auto data = [
-		"Dr.', 'Ir.', 'Ing.', 'Prof.'"
+		"Dr.",
+		"Ir.",
+		"Ing.",
+		"Prof.'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1296,8 +1332,7 @@ class Faker_nl_be : Faker {
 		"Verhaeghe",
 		"Verstraete",
 		"Willems",
-		"Wouters",
-		""
+		"Wouters"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1504,8 +1539,7 @@ class Faker_nl_be : Faker {
 		"Lana",
 		"Sterre",
 		"Maud",
-		"Chloe",
-		""
+		"Chloe"
 		];
 		return choice(data, this.rnd);
 	}

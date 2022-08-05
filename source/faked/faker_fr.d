@@ -269,8 +269,7 @@ class Faker_fr : Faker {
 		"maiores",
 		"doloribus",
 		"asperiores",
-		"repellat",
-		""
+		"repellat"
 		];
 		return choice(data, this.rnd);
 	}
@@ -278,7 +277,10 @@ class Faker_fr : Faker {
 	///
 	override string financeTransactionType() {
 		auto data = [
-		"dépôt', 'retrait', 'paiement', 'facture'"
+		"dépôt",
+		"retrait",
+		"paiement",
+		"facture'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -286,7 +288,92 @@ class Faker_fr : Faker {
 	///
 	override Currency financeCurrency() {
 		auto data = [
-		
+		Currency("Dirham des Émirats arabes unis", "AED", "د.إ"),
+		Currency("Roupie", "SCR", "₨"),
+		Currency("Rial omanais", "OMR", "ر.ع."),
+		Currency("Zloty polonais", "PLN", "zł"),
+		Currency("CFA Franc BEAC", "XAF", "Fr"),
+		Currency("Dong vietnamien", "VND", "₫"),
+		Currency("Livre sterling", "GBP", "£"),
+		Currency("Nouveau Shekel israélien", "ILS", "₪"),
+		Currency("Rial qatari", "QAR", "ر.ق"),
+		Currency("Dirham marocain", "MAD", "DH"),
+		Currency("Baisse du dollar", "BBD", "$"),
+		Currency("Rufiyaa", "MVR", ".ރ"),
+		Currency("Rand sud-africain", "ZAR", "Br"),
+		Currency("couronne norvégienne", "NOK", "kr"),
+		Currency("Bitcoin", "BTC", "₿"),
+		Currency("Livre égyptienne", "EGP", "£"),
+		Currency("CFA Franc BCEAO", "XOF", "Fr"),
+		Currency("Forint hongrois", "HUF", "ft"),
+		Currency("Dollar néo-zélandais", "NZD", "$"),
+		Currency("Litecoin", "LTC", "Ł"),
+		Currency("Peso colombien", "COP", "$"),
+		Currency("Dollar des Bahamas", "BSD", "$"),
+		Currency("Florin", "AWG", "ƒ"),
+		Currency("Dinar tunisien", "TND", "DT"),
+		Currency("Franc suisse", "CHF", "CHF"),
+		Currency("Livre syrienne", "SYP", "£"),
+		Currency("Bangladesh Taka", "BDT", "৳"),
+		Currency("Dollar bermudien", "BMD", "$"),
+		Currency("couronne suédoise", "SEK", "kr"),
+		Currency("Shilling ougandais", "UGX", "Sh"),
+		Currency("Dollar des Caraïbes", "XCD", "$"),
+		Currency("Bolivien bolivien", "BOB", "Bs."),
+		Currency("Riel cambodgien", "KHR", "៛"),
+		Currency("Guarani paraguayen", "PYG", "₲"),
+		Currency("Roupie mauricienne", "MUR", "₨"),
+		Currency("Lev bulgare", "BGN", "лв"),
+		Currency("Peso mexicain", "MXN", "$"),
+		Currency("Roupie indienne", "INR", "₹"),
+		Currency("Leu roumain", "RON", "lei"),
+		Currency("Roupie sri lankaise", "LKR", "රු"),
+		Currency("Quetzal guatémaltèque", "GTQ", "Q"),
+		Currency("Kuna croate", "HRK", "kn"),
+		Currency("Roupie pakistanaise", "PKR", "₨"),
+		Currency("Le yuan chinois", "CNY", "¥"),
+		Currency("Poulet", "LAK", "₭"),
+		Currency("Riyal saoudien", "SAR", ""),
+		Currency("Dinar koweïtien", "KWD", "د.ك"),
+		Currency("lire turque", "TRY", "₺"),
+		Currency("République tchèque Couronne", "CZK", "Kč"),
+		Currency("Naira nigérian", "NGN", "₦"),
+		Currency("Rouble russe", "RUB", "₽"),
+		Currency("Real brésilien", "BRL", "R$"),
+		Currency("Dollar de Singapour", "SGD", "$"),
+		Currency("Nouveau Sol Péruvien", "PEN", "S/."),
+		Currency("Yen japonais", "JPY", "¥"),
+		Currency("cloche malaisienne", "MYR", "RM"),
+		Currency("Hryvnia ukrainienne", "UAH", "₴"),
+		Currency("Dollar", "USD", "$"),
+		Currency("Dollar jamaïcain", "JMD", "$"),
+		Currency("Course géorgienne", "GEL", "₾"),
+		Currency("Dollar fidjien", "FJD", "$"),
+		Currency("Couronne danoise", "DKK", "kr"),
+		Currency("Peso uruguayen", "UYU", "$"),
+		Currency("Dollar de Hong Kong", "HKD", "$"),
+		Currency("Dollar namibien", "NAD", "$"),
+		Currency("Argentine Peso", "ARS", "$"),
+		Currency("euro", "EUR", "€"),
+		Currency("Ariary malgache", "MGA", "Ar"),
+		Currency("Nouveau dollar de Taïwan", "TWD", "$"),
+		Currency("Franc CFP", "XPF", "₣"),
+		Currency("Ethereum", "ETH", "Ξ"),
+		Currency("Cédi ghanéen", "GHS", "₵"),
+		Currency("Peso dominicain", "DOP", "$"),
+		Currency("Baht thaïlandais", "THB", "฿"),
+		Currency("Dalasi", "GMD", "D"),
+		Currency("Balboa panaméen", "PAB", "B/."),
+		Currency("Roupie népalaise", "NPR", "रू"),
+		Currency("Ripples", "XRP", "XRP"),
+		Currency("Peso chilien", "CLP", "$"),
+		Currency("Livre libanaise", "LBP", "ل.ل"),
+		Currency("Shilling kenyan", "KES", "Sh"),
+		Currency("Dinar jordanien", "JOD", "د.ا"),
+		Currency("Peso philippin", "PHP", "₱"),
+		Currency("Dollar canadien", "CAD", "$"),
+		Currency("Dollar australien", "AUD", "$"),
+		Currency("Bolivar vénézuélien", "VES", "Bs.")
 		];
 		return choice(data, this.rnd);
 	}
@@ -300,8 +387,7 @@ class Faker_fr : Faker {
 		"Investissement",
 		"Prêt immobilier",
 		"Carte de crédit",
-		"Prêt personnel",
-		""
+		"Prêt personnel"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1059,8 +1145,7 @@ class Faker_fr : Faker {
 		"Zanskari",
 		"Žemaitukas",
 		"Zhongdian",
-		"Zweibrücker",
-		""
+		"Zweibrücker"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1071,8 +1156,7 @@ class Faker_fr : Faker {
 		"Lion de l'Atlas",
 		"Lion du Cap",
 		"Lion d'Afrique",
-		"Lion d'Asie",
-		""
+		"Lion d'Asie"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1416,8 +1500,7 @@ class Faker_fr : Faker {
 		"Welsh Terrier",
 		"West Highland White Terrier",
 		"Whippet",
-		"Yorkshire Terrier",
-		""
+		"Yorkshire Terrier"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1472,8 +1555,7 @@ class Faker_fr : Faker {
 		"Villard-de-Lans",
 		"Vosgienne",
 		"Blonde d'Aquitaine",
-		"Prim'Holstein",
-		""
+		"Prim'Holstein"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1540,8 +1622,7 @@ class Faker_fr : Faker {
 		"Sablé des Vosges",
 		"Satin",
 		"Separator",
-		"Zibeline",
-		""
+		"Zibeline"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1670,8 +1751,7 @@ class Faker_fr : Faker {
 		"Dauphins d'eau douce",
 		"Grand dauphin de l'océan Indien",
 		"Marsouin de l'Inde",
-		"Rorqual d'Omura",
-		""
+		"Rorqual d'Omura"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1702,8 +1782,7 @@ class Faker_fr : Faker {
 		"Faux-gavial d'Afrique",
 		"Faux-gavial de Malaisie",
 		"Gavial du Gange",
-		"Jacara",
-		""
+		"Jacara"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1788,8 +1867,7 @@ class Faker_fr : Faker {
 		"Toyger",
 		"Turc de Van",
 		"Ural rex",
-		"York chocolat",
-		""
+		"York chocolat"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1996,8 +2074,7 @@ class Faker_fr : Faker {
 		"Python olive",
 		"Python pygmé",
 		"Python réticulé",
-		"Python royal",
-		""
+		"Python royal"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3081,8 +3158,7 @@ class Faker_fr : Faker {
 		"Viréo à tête bleue",
 		"Viréo aux yeux blancs",
 		"Viréo de Philadelphie",
-		"Viréo mélodieux",
-		""
+		"Viréo mélodieux"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3096,8 +3172,7 @@ class Faker_fr : Faker {
 		"Ours noir",
 		"Ours brun",
 		"Ours blanc",
-		"Panda géant",
-		""
+		"Panda géant"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3117,8 +3192,7 @@ class Faker_fr : Faker {
 		"oiseau",
 		"poisson",
 		"lapin",
-		"cheval",
-		""
+		"cheval"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3359,8 +3433,7 @@ class Faker_fr : Faker {
 		"Vivaneau",
 		"Vive",
 		"Vive araignée",
-		"Vive rayée",
-		""
+		"Vive rayée"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3564,8 +3637,7 @@ class Faker_fr : Faker {
 		"Weta géant",
 		"Xylocope violet",
 		"Zabre des céréales",
-		"Zygène",
-		""
+		"Zygène"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3632,8 +3704,7 @@ class Faker_fr : Faker {
 		"matrix",
 		"productize",
 		"redefine",
-		"recontextualize",
-		""
+		"recontextualize"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3684,8 +3755,7 @@ class Faker_fr : Faker {
 		"functionalities",
 		"experiences",
 		"web services",
-		"methodologies",
-		""
+		"methodologies"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3793,8 +3863,7 @@ class Faker_fr : Faker {
 		"well-modulated",
 		"zero administration",
 		"zero defect",
-		"zero tolerance",
-		""
+		"zero tolerance"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3905,8 +3974,7 @@ class Faker_fr : Faker {
 		"toolset",
 		"utilisation",
 		"website",
-		"workforce",
-		""
+		"workforce"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4013,8 +4081,7 @@ class Faker_fr : Faker {
 		"Versatile",
 		"Virtual",
 		"Visionary",
-		"Vision-oriented",
-		""
+		"Vision-oriented"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4022,7 +4089,14 @@ class Faker_fr : Faker {
 	///
 	override string companySuffix() {
 		auto data = [
-		"SARL', 'SA', 'EURL', 'SAS', 'SEM', 'SCOP', 'GIE', 'EI'"
+		"SARL",
+		"SA",
+		"EURL",
+		"SAS",
+		"SEM",
+		"SCOP",
+		"GIE",
+		"EI'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4094,8 +4168,7 @@ class Faker_fr : Faker {
 		"collaborative",
 		"compelling",
 		"holistic",
-		"rich",
-		""
+		"rich"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4598,8 +4671,7 @@ class Faker_fr : Faker {
 		"Yoann",
 		"Zacharie",
 		"Zaché",
-		"Zéphirin",
-		""
+		"Zéphirin"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4756,8 +4828,7 @@ class Faker_fr : Faker {
 		"Guyot",
 		"Barre",
 		"Marty",
-		"Cousin",
-		""
+		"Cousin"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5215,8 +5286,7 @@ class Faker_fr : Faker {
 		"Yvette",
 		"Yvonne",
 		"Zoé",
-		"Zoéva",
-		""
+		"Zoéva"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5224,7 +5294,8 @@ class Faker_fr : Faker {
 	///
 	override string nameBinaryGender() {
 		auto data = [
-		"Femme', 'Homme'"
+		"Femme",
+		"Homme'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5232,7 +5303,11 @@ class Faker_fr : Faker {
 	///
 	override string namePrefix() {
 		auto data = [
-		"M', 'Mme', 'Mlle', 'Dr', 'Prof'"
+		"M",
+		"Mme",
+		"Mlle",
+		"Dr",
+		"Prof'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5285,8 +5360,7 @@ class Faker_fr : Faker {
 		"tant que",
 		"alors que",
 		"tandis que",
-		"sans que",
-		""
+		"sans que"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5360,8 +5434,7 @@ class Faker_fr : Faker {
 		"rédaction",
 		"secours",
 		"foule",
-		"main-d’œuvre",
-		""
+		"main-d’œuvre"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5481,8 +5554,7 @@ class Faker_fr : Faker {
 		"vétuste",
 		"vide",
 		"vivace",
-		"vorace",
-		""
+		"vorace"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5551,8 +5623,7 @@ class Faker_fr : Faker {
 		"vlan",
 		"vouh",
 		"vroum",
-		"zzzz",
-		""
+		"zzzz"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5663,8 +5734,7 @@ class Faker_fr : Faker {
 		"quitte à",
 		"sauf à",
 		"sous couleur de",
-		"vis-à-vie de",
-		""
+		"vis-à-vie de"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5845,8 +5915,7 @@ class Faker_fr : Faker {
 		"toutefois",
 		"volontiers",
 		"vraiment",
-		"vraisemblablement",
-		""
+		"vraisemblablement"
 		];
 		return choice(data, this.rnd);
 	}
@@ -6854,8 +6923,7 @@ class Faker_fr : Faker {
 		"pallier",
 		"tolérer",
 		"rafraîchir",
-		"fleurir",
-		""
+		"fleurir"
 		];
 		return choice(data, this.rnd);
 	}
@@ -6864,20 +6932,58 @@ class Faker_fr : Faker {
 	override string commerceProductDescription() {
 		auto data = [
 		"Ces médailles et épingles sont en argent avec patine artistique. Elles ont été composées et frappées spécialement dans les ateliers de l'État pour la Société l'Hirondelle.",
-		"Cadre raccord brasé de 53 ou 58 %. Jantes en acier émaillées. Pneus “Hiron” 700 x 35, garantis 12 mois. Pignon roue libre à emboitement hexagonal. Frein “Hirondelle” sur jante arrière. Garde-boue métal.",
-		"Montre-bracelet, dite “d'Aviateur”, métal inaltérable, diam. 435ym. Mouvement de précision chronographe, cadran avec grande aiguille trotteuse, permettant la lecture 1/25de seconde.",
-		"Lanterne cuivre fort, finement nickelé, chute d'eau réglable, suspension antivibratrice, projecteur diamètre cm2, avec verre bombé. Durée d'éclairage 3 heures. Poids 395 grammes.",
-		"Lunettes étanches, monture caoutchouc moulé de 1re qual. glaces rondes de 55 mm de diam. en verre clair. Les lunettes protègent les yeux contre les poussières, fumées et gaz industriels et se portent av. nos masques 5862-5864. Pds 60 gr.",
-		"Carrosserie en tôle d'acier laqué blanc montée sur roues pour faciliter le déplacement, couvercle laqué blanc, dessus et cuve en métal émaille marron, inaltérable a l'eau de lessive et a la chaleur",
-		"Bicyclette à 1 vitesse, pneus 1/2 ballon. Cadre de 52cm. Jantes chromées. Roue Hore.  Moyeux indéréglables. 2 freins sur jantes. Guidon trials. Garde-boue et couvre chaine en acier émaillé. Porte-bagages. Gardejupes. Pédales à blocs caoutchouc. Émail couleur. Selle route cuir. Sacoche avec outillage. Pompe de cadre. Timbre avertisseur.",
-		"Petite griffe à sarcler. 5 dents en acier, largeur 8 cm. poignée estampée, longueur 26 cm. poids 150 gr. Pour ameublir le sol, arracher les herbes entre les plantes ou fleurs cultivées en lignes rapprochées.",
-		"Moteur Villiers. Puissance au frein : 7 HP, 3 vitesses, lancement au pied, éclairage électrique, carrosserie 2 places, coffre à outils, outillage complet, capote et pare-brise.",
+		"Cadre raccord brasé de 53 ou 58 %. Jantes en acier émaillées. Pneus “Hiron” 700 x 35",
+		"garantis 12 mois. Pignon roue libre à emboitement hexagonal. Frein “Hirondelle” sur jante arrière. Garde-boue métal.",
+		"Montre-bracelet",
+		"dite “d'Aviateur”",
+		"métal inaltérable",
+		"diam. 435ym. Mouvement de précision chronographe",
+		"cadran avec grande aiguille trotteuse",
+		"permettant la lecture 1/25de seconde.",
+		"Lanterne cuivre fort",
+		"finement nickelé",
+		"chute d'eau réglable",
+		"suspension antivibratrice",
+		"projecteur diamètre cm2",
+		"avec verre bombé. Durée d'éclairage 3 heures. Poids 395 grammes.",
+		"Lunettes étanches",
+		"monture caoutchouc moulé de 1re qual. glaces rondes de 55 mm de diam. en verre clair. Les lunettes protègent les yeux contre les poussières",
+		"fumées et gaz industriels et se portent av. nos masques 5862-5864. Pds 60 gr.",
+		"Carrosserie en tôle d'acier laqué blanc montée sur roues pour faciliter le déplacement",
+		"couvercle laqué blanc",
+		"dessus et cuve en métal émaille marron",
+		"inaltérable a l'eau de lessive et a la chaleur",
+		"Bicyclette à 1 vitesse",
+		"pneus 1/2 ballon. Cadre de 52cm. Jantes chromées. Roue Hore.  Moyeux indéréglables. 2 freins sur jantes. Guidon trials. Garde-boue et couvre chaine en acier émaillé. Porte-bagages. Gardejupes. Pédales à blocs caoutchouc. Émail couleur. Selle route cuir. Sacoche avec outillage. Pompe de cadre. Timbre avertisseur.",
+		"Petite griffe à sarcler. 5 dents en acier",
+		"largeur 8 cm. poignée estampée",
+		"longueur 26 cm. poids 150 gr. Pour ameublir le sol",
+		"arracher les herbes entre les plantes ou fleurs cultivées en lignes rapprochées.",
+		"Moteur Villiers. Puissance au frein : 7 HP",
+		"3 vitesses",
+		"lancement au pied",
+		"éclairage électrique",
+		"carrosserie 2 places",
+		"coffre à outils",
+		"outillage complet",
+		"capote et pare-brise.",
 		"Maillot en coton fin à rayures se boutonnant devant pour enfants.",
-		"Rasoir de sûreté “Prima” tout en laiton massif nickelé chromé, manche moleté bien en main. Peigne et contre-peigne galbés tenant tout d'une pièce, fermeture à charnière, blocage instantané de la lame.",
-		"Ce magnifique radio-phono comprend un excellent récepteur radioL'ensemble, dans une belle ébénisterie teintée palissandre, forme un très phonique 6 lampes et un tourne-disque de vitesses placé sous le couvercle. Beau meuble. Ce modèle, dont le montage particulièrement soigne assure un très bon rendement aussi bien en radio qu'en phono, est garanti mn an.",
-		"Récepteurs de télévision à haute définition 819 lignes, donnant une image très nette et d'un contraste agréable ne fatiguant pas la vue, le montage de la partie radio donne un son absolument remarquable.",
-		"Tous nos appareils sont blindés pour que leur rayonnement ne trouble pas les récepteurs radiophoniques, et ils fonctionnent sur courant alternatif 50 riodes 110 et 220 volts. Ils sont garantis pendant 1 an; toutefois, suivant la règle, le tube cathodique est garanti pour 6 mois seulement.",
-		""
+		"Rasoir de sûreté “Prima” tout en laiton massif nickelé chromé",
+		"manche moleté bien en main. Peigne et contre-peigne galbés tenant tout d'une pièce",
+		"fermeture à charnière",
+		"blocage instantané de la lame.",
+		"Ce magnifique radio-phono comprend un excellent récepteur radioL'ensemble",
+		"dans une belle ébénisterie teintée palissandre",
+		"forme un très phonique 6 lampes et un tourne-disque de vitesses placé sous le couvercle. Beau meuble. Ce modèle",
+		"dont le montage particulièrement soigne assure un très bon rendement aussi bien en radio qu'en phono",
+		"est garanti mn an.",
+		"Récepteurs de télévision à haute définition 819 lignes",
+		"donnant une image très nette et d'un contraste agréable ne fatiguant pas la vue",
+		"le montage de la partie radio donne un son absolument remarquable.",
+		"Tous nos appareils sont blindés pour que leur rayonnement ne trouble pas les récepteurs radiophoniques",
+		"et ils fonctionnent sur courant alternatif 50 riodes 110 et 220 volts. Ils sont garantis pendant 1 an; toutefois",
+		"suivant la règle",
+		"le tube cathodique est garanti pour 6 mois seulement."
 		];
 		return choice(data, this.rnd);
 	}
@@ -6906,8 +7012,7 @@ class Faker_fr : Faker {
 		"Sports",
 		"Plein air",
 		"Automobile",
-		"Industrie",
-		""
+		"Industrie"
 		];
 		return choice(data, this.rnd);
 	}
@@ -7014,8 +7119,7 @@ class Faker_fr : Faker {
 		"Villejuif",
 		"Villeneuve-d'Ascq",
 		"Villeurbanne",
-		"Vitry-sur-Seine",
-		""
+		"Vitry-sur-Seine"
 		];
 		return choice(data, this.rnd);
 	}
@@ -7044,8 +7148,7 @@ class Faker_fr : Faker {
 		"Picardie",
 		"Poitou-Charentes",
 		"Provence-Alpes-Côte d'Azur",
-		"Rhône-Alpes",
-		""
+		"Rhône-Alpes"
 		];
 		return choice(data, this.rnd);
 	}
@@ -7245,8 +7348,7 @@ class Faker_fr : Faker {
 		"Viêt Nam",
 		"Yémen",
 		"Zambie",
-		"Zimbabwe",
-		""
+		"Zimbabwe"
 		];
 		return choice(data, this.rnd);
 	}
@@ -7269,8 +7371,7 @@ class Faker_fr : Faker {
 		"Nord-est",
 		"Nord-ouest",
 		"Sud-est",
-		"Sud-ouest",
-		""
+		"Sud-ouest"
 		];
 		return choice(data, this.rnd);
 	}
@@ -7286,32 +7387,15 @@ class Faker_fr : Faker {
 		"Quai",
 		"Passage",
 		"Impasse",
-		"Place",
-		""
+		"Place"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressBuildingNumber() {
-		auto data = [
-		"####', '###', '##', '#'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressPostcode() {
 		auto data = [
 		"#####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressSecondaryAddress() {
-		auto data = [
-		"Apt. ###', '# étage'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -7384,8 +7468,7 @@ class Faker_fr : Faker {
 		"Vaneau",
 		"de Vaugirard",
 		"de la Victoire",
-		"Zadkine",
-		""
+		"Zadkine"
 		];
 		return choice(data, this.rnd);
 	}
@@ -7410,8 +7493,7 @@ class Faker_fr : Faker {
 		"Blues",
 		"Rap",
 		"Variété",
-		"Lofi",
-		""
+		"Lofi"
 		];
 		return choice(data, this.rnd);
 	}
@@ -7608,16 +7690,39 @@ class Faker_fr : Faker {
 		"violet",
 		"violet d'évêque",
 		"viride",
-		"zinzolin",
-		""
+		"zinzolin"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"01########",
+		"02########",
+		"03########",
+		"04########",
+		"05########",
+		"06########",
+		"07########",
+		"+33 1########",
+		"+33 2########",
+		"+33 3########",
+		"+33 4########",
+		"+33 5########",
+		"+33 6########",
+		"+33 7########"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string vehicleFuel() {
 		auto data = [
-		"Diesel', 'Électrique', 'Essence', 'Hybride'"
+		"Diesel",
+		"Électrique",
+		"Essence",
+		"Hybride'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -7635,8 +7740,7 @@ class Faker_fr : Faker {
 		"Pick-up",
 		"Minispaces",
 		"Monospaces compacts",
-		"Grands monospaces",
-		""
+		"Grands monospaces"
 		];
 		return choice(data, this.rnd);
 	}
@@ -7683,8 +7787,7 @@ class Faker_fr : Faker {
 		"Vélocipèdraisiavaporianna",
 		"Vélomobile",
 		"Vélo-taxi",
-		"Whike",
-		""
+		"Whike"
 		];
 		return choice(data, this.rnd);
 	}
@@ -7692,7 +7795,9 @@ class Faker_fr : Faker {
 	///
 	override string internetFreeEmail() {
 		auto data = [
-		"gmail.com', 'yahoo.fr', 'hotmail.fr'"
+		"gmail.com",
+		"yahoo.fr",
+		"hotmail.fr'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -7700,7 +7805,13 @@ class Faker_fr : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"com', 'fr', 'eu', 'info', 'name', 'net', 'org'"
+		"com",
+		"fr",
+		"eu",
+		"info",
+		"name",
+		"net",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}

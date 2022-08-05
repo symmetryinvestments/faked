@@ -19,9 +19,47 @@ class Faker_en_gb : Faker {
 	}
 
 	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"01#### #####",
+		"01### ######",
+		"01#1 ### ####",
+		"011# ### ####",
+		"02# #### ####",
+		"03## ### ####",
+		"055 #### ####",
+		"056 #### ####",
+		"0800 ### ####",
+		"08## ### ####",
+		"09## ### ####",
+		"016977 ####",
+		"01### #####",
+		"0500 ######",
+		"0800 ######"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"074## ######",
+		"075## ######",
+		"076## ######",
+		"077## ######",
+		"078## ######",
+		"079## ######"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressDefaultCountry() {
 		auto data = [
-		"England', 'Scotland', 'Wales', 'Northern Ireland'"
+		"England",
+		"Scotland",
+		"Wales",
+		"Northern Ireland'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -29,17 +67,12 @@ class Faker_en_gb : Faker {
 	///
 	string addressUkCountry() {
 		auto data = [
-		"England', 'Scotland', 'Wales', 'Northern Ireland'"
+		"England",
+		"Scotland",
+		"Wales",
+		"Northern Ireland'"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressPostcode() {
-		auto data = [
-		"??# #??', '??## #??'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
@@ -114,8 +147,7 @@ class Faker_en_gb : Faker {
 		"West Sussex",
 		"West Yorkshire",
 		"Wiltshire",
-		"Worcestershire",
-		""
+		"Worcestershire"
 		];
 		return choice(data, this.rnd);
 	}
@@ -141,8 +173,7 @@ class Faker_en_gb : Faker {
 		"sch.uk",
 		"scot",
 		"uk",
-		"wales",
-		""
+		"wales"
 		];
 		return choice(data, this.rnd);
 	}

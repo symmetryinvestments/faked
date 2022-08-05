@@ -123,8 +123,7 @@ class Faker_en_bork : Faker {
 		"vhu",
 		"yuoo",
 		"zee",
-		"zeere-a",
-		""
+		"zeere-a"
 		];
 		return choice(data, this.rnd);
 	}

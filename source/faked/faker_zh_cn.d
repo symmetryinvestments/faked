@@ -19,9 +19,11 @@ class Faker_zh_cn : Faker {
 	}
 
 	///
-	string phoneNumberFormats() {
+	override string phoneNumberFormats() {
 		auto data = [
-		"0##-########', '0###-########', '1##########'"
+		"0##-########",
+		"0###-########",
+		"1##########'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -62,8 +64,7 @@ class Faker_zh_cn : Faker {
 		"台",
 		"琼",
 		"港",
-		"澳",
-		""
+		"澳"
 		];
 		return choice(data, this.rnd);
 	}
@@ -104,8 +105,7 @@ class Faker_zh_cn : Faker {
 		"台湾省",
 		"海南省",
 		"香港",
-		"澳门",
-		""
+		"澳门"
 		];
 		return choice(data, this.rnd);
 	}
@@ -139,8 +139,7 @@ class Faker_zh_cn : Faker {
 		"南市",
 		"徽市",
 		"林市",
-		"头市",
-		""
+		"头市"
 		];
 		return choice(data, this.rnd);
 	}
@@ -168,18 +167,9 @@ class Faker_zh_cn : Faker {
 		"济",
 		"安",
 		"吉",
-		"包",
-		""
+		"包"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressBuildingNumber() {
-		auto data = [
-		"#####', '####', '###', '##', '#'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
@@ -193,7 +183,14 @@ class Faker_zh_cn : Faker {
 	///
 	override string addressStreetSuffix() {
 		auto data = [
-		"巷', '街', '路', '桥', '侬', '旁', '中心', '栋'"
+		"巷",
+		"街",
+		"路",
+		"桥",
+		"侬",
+		"旁",
+		"中心",
+		"栋'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -311,8 +308,7 @@ class Faker_zh_cn : Faker {
 		"宇文",
 		"司徒",
 		"鲜于",
-		"司空",
-		""
+		"司空"
 		];
 		return choice(data, this.rnd);
 	}
@@ -453,8 +449,7 @@ class Faker_zh_cn : Faker {
 		"琪",
 		"浩",
 		"航",
-		"彬",
-		""
+		"彬"
 		];
 		return choice(data, this.rnd);
 	}

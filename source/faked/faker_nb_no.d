@@ -21,7 +21,12 @@ class Faker_nb_no : Faker {
 	///
 	override string companySuffix() {
 		auto data = [
-		"Gruppen', 'AS', 'ASA', 'BA', 'RFH', 'og Sønner'"
+		"Gruppen",
+		"AS",
+		"ASA",
+		"BA",
+		"RFH",
+		"og Sønner'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -116,8 +121,7 @@ class Faker_nb_no : Faker {
 		"{",
 		"name: 'sievert",
 		"symbol: 'Sv",
-		"}",
-		""
+		"}"
 		];
 		return choice(data, this.rnd);
 	}
@@ -714,8 +718,7 @@ class Faker_nb_no : Faker {
 		"symbol: 'Og",
 		"name: 'Oganesson",
 		"atomicNumber: 118",
-		"}",
-		""
+		"}"
 		];
 		return choice(data, this.rnd);
 	}
@@ -772,8 +775,7 @@ class Faker_nb_no : Faker {
 		"Even",
 		"Theodor",
 		"Mikkel",
-		"Aksel",
-		""
+		"Aksel"
 		];
 		return choice(data, this.rnd);
 	}
@@ -781,7 +783,13 @@ class Faker_nb_no : Faker {
 	///
 	override string nameSuffix() {
 		auto data = [
-		"Jr.', 'Sr.', 'I', 'II', 'III', 'IV', 'V'"
+		"Jr.",
+		"Sr.",
+		"I",
+		"II",
+		"III",
+		"IV",
+		"V'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -888,8 +896,7 @@ class Faker_nb_no : Faker {
 		"Hopland",
 		"Gran",
 		"Finstad",
-		"Edvardsen",
-		""
+		"Edvardsen"
 		];
 		return choice(data, this.rnd);
 	}
@@ -996,8 +1003,7 @@ class Faker_nb_no : Faker {
 		"Even",
 		"Theodor",
 		"Mikkel",
-		"Aksel",
-		""
+		"Aksel"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1054,8 +1060,7 @@ class Faker_nb_no : Faker {
 		"Tiril",
 		"Synne",
 		"Sandra",
-		"Madeleine",
-		""
+		"Madeleine"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1063,7 +1068,8 @@ class Faker_nb_no : Faker {
 	///
 	override string namePrefix() {
 		auto data = [
-		"Dr.', 'Prof.'"
+		"Dr.",
+		"Prof.'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1087,8 +1093,7 @@ class Faker_nb_no : Faker {
 		"pytt",
 		"pøh",
 		"å",
-		"æsj",
-		""
+		"æsj"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1096,7 +1101,11 @@ class Faker_nb_no : Faker {
 	///
 	override string wordConjunction() {
 		auto data = [
-		"eller', 'for', 'men', 'og', 'så'"
+		"eller",
+		"for",
+		"men",
+		"og",
+		"så'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1208,8 +1217,7 @@ class Faker_nb_no : Faker {
 		"voksen",
 		"ærlig",
 		"åpen",
-		"åpenbar",
-		""
+		"åpenbar"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1234,8 +1242,7 @@ class Faker_nb_no : Faker {
 		"Spill",
 		"Smykker",
 		"Sport",
-		"Verktøy",
-		""
+		"Verktøy"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1243,7 +1250,12 @@ class Faker_nb_no : Faker {
 	///
 	string addressCommonStreetSuffix() {
 		auto data = [
-		"sgate', 'svei', 's Gate', 's Vei', 'gata', 'veien'"
+		"sgate",
+		"svei",
+		"s Gate",
+		"s Vei",
+		"gata",
+		"veien'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1267,8 +1279,7 @@ class Faker_nb_no : Faker {
 		"Stor",
 		"Tand",
 		"Ut",
-		"Vest",
-		""
+		"Vest"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1292,7 +1303,12 @@ class Faker_nb_no : Faker {
 	///
 	string addressStreetPrefix() {
 		auto data = [
-		"Øvre', 'Nedre', 'Søndre', 'Gamle', 'Østre', 'Vestre'"
+		"Øvre",
+		"Nedre",
+		"Søndre",
+		"Gamle",
+		"Østre",
+		"Vestre'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1327,8 +1343,7 @@ class Faker_nb_no : Faker {
 		"våg",
 		"ø",
 		"øy",
-		"ås",
-		""
+		"ås"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1368,32 +1383,18 @@ class Faker_nb_no : Faker {
 		"Bru",
 		"Blåveis",
 		"Torg",
-		"Sjø",
-		""
+		"Sjø"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressBuildingNumber() {
-		auto data = [
-		"#', '##'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
 	override string addressPostcode() {
 		auto data = [
-		"####', '####', '####', '0###'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressSecondaryAddress() {
-		auto data = [
-		"Leil. ###', 'Oppgang A', 'Oppgang B'"
+		"####",
+		"####",
+		"####",
+		"0###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -1446,8 +1447,7 @@ class Faker_nb_no : Faker {
 		"tunet",
 		"vollen",
 		"vika",
-		"åsen",
-		""
+		"åsen"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1471,16 +1471,18 @@ class Faker_nb_no : Faker {
 		"rød",
 		"smaragdgrønn",
 		"svart",
-		"turkis",
-		""
+		"turkis"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	string phoneNumberFormats() {
+	override string phoneNumberFormats() {
 		auto data = [
-		"########', '## ## ## ##', '### ## ###', '+47 ## ## ## ##'"
+		"########",
+		"## ## ## ##",
+		"### ## ###",
+		"+47 ## ## ## ##'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -1488,7 +1490,10 @@ class Faker_nb_no : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"no', 'com', 'net', 'org'"
+		"no",
+		"com",
+		"net",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}

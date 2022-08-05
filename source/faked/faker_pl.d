@@ -269,8 +269,7 @@ class Faker_pl : Faker {
 		"maiores",
 		"doloribus",
 		"asperiores",
-		"repellat",
-		""
+		"repellat"
 		];
 		return choice(data, this.rnd);
 	}
@@ -337,8 +336,7 @@ class Faker_pl : Faker {
 		"matrix",
 		"productize",
 		"redefine",
-		"recontextualize",
-		""
+		"recontextualize"
 		];
 		return choice(data, this.rnd);
 	}
@@ -389,8 +387,7 @@ class Faker_pl : Faker {
 		"functionalities",
 		"experiences",
 		"web services",
-		"methodologies",
-		""
+		"methodologies"
 		];
 		return choice(data, this.rnd);
 	}
@@ -498,8 +495,7 @@ class Faker_pl : Faker {
 		"well-modulated",
 		"zero administration",
 		"zero defect",
-		"zero tolerance",
-		""
+		"zero tolerance"
 		];
 		return choice(data, this.rnd);
 	}
@@ -610,8 +606,7 @@ class Faker_pl : Faker {
 		"toolset",
 		"utilisation",
 		"website",
-		"workforce",
-		""
+		"workforce"
 		];
 		return choice(data, this.rnd);
 	}
@@ -718,8 +713,7 @@ class Faker_pl : Faker {
 		"Versatile",
 		"Virtual",
 		"Visionary",
-		"Vision-oriented",
-		""
+		"Vision-oriented"
 		];
 		return choice(data, this.rnd);
 	}
@@ -727,7 +721,13 @@ class Faker_pl : Faker {
 	///
 	override string companySuffix() {
 		auto data = [
-		"S.A.', 'z o.o', 'Sp. j.', 'Sp. p.', 'Sp. k.', 'SKA', 's.c.'"
+		"S.A.",
+		"z o.o",
+		"Sp. j.",
+		"Sp. p.",
+		"Sp. k.",
+		"SKA",
+		"s.c.'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -799,8 +799,7 @@ class Faker_pl : Faker {
 		"collaborative",
 		"compelling",
 		"holistic",
-		"rich",
-		""
+		"rich"
 		];
 		return choice(data, this.rnd);
 	}
@@ -895,8 +894,7 @@ class Faker_pl : Faker {
 		"{",
 		"name: 'siwert",
 		"symbol: 'Sv",
-		"}",
-		""
+		"}"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1493,8 +1491,7 @@ class Faker_pl : Faker {
 		"symbol: 'Og",
 		"name: 'Oganeson",
 		"atomicNumber: 118",
-		"}",
-		""
+		"}"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1735,8 +1732,7 @@ class Faker_pl : Faker {
 		"Ksenofont",
 		"Jerzy",
 		"Zachariasz",
-		"Zachary",
-		""
+		"Zachary"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2455,8 +2451,7 @@ class Faker_pl : Faker {
 		"Żukowski",
 		"Żurawski",
 		"Żurek",
-		"Żyła",
-		""
+		"Żyła"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2637,8 +2632,7 @@ class Faker_pl : Faker {
 		"Wilhelmina",
 		"Ksawera",
 		"Ksenia",
-		"Zoe",
-		""
+		"Zoe"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2669,8 +2663,7 @@ class Faker_pl : Faker {
 		"Osoba trans",
 		"Transkobieta",
 		"Transsekualista",
-		"Transmężczyzna",
-		""
+		"Transmężczyzna"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2678,7 +2671,8 @@ class Faker_pl : Faker {
 	///
 	override string nameBinaryGender() {
 		auto data = [
-		"Kobieta', 'Mężczyzna'"
+		"Kobieta",
+		"Mężczyzna'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2686,7 +2680,8 @@ class Faker_pl : Faker {
 	///
 	override string namePrefix() {
 		auto data = [
-		"Pan', 'Pani'"
+		"Pan",
+		"Pani'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2698,7 +2693,8 @@ class Faker_pl : Faker {
 		"24.11.94",
 		"51",
 		"A To Co Mam",
-		"Adriatyk, Ocean Gorący",
+		"Adriatyk",
+		"Ocean Gorący",
 		"Ale Jestem",
 		"Aleja Gwiazd",
 		"Arahja",
@@ -2730,7 +2726,8 @@ class Faker_pl : Faker {
 		"Chcemy Być Sobą",
 		"Chciałbym Umrzeć Z Miłości",
 		"Chciałem Być",
-		"Chodź, Pomaluj Mój Świat",
+		"Chodź",
+		"Pomaluj Mój Świat",
 		"Chłopcy",
 		"Ciche Dni",
 		"Cichosza",
@@ -2751,18 +2748,23 @@ class Faker_pl : Faker {
 		"Deszcz Na Betonie",
 		"Deszcz W Cisnej",
 		"Dla Ciebie",
-		"Dmuchawce, Latawce, Wiatr",
-		"Dni, Których Nie Znamy",
+		"Dmuchawce",
+		"Latawce",
+		"Wiatr",
+		"Dni",
+		"Których Nie Znamy",
 		"Do Ani",
 		"Do Kołyski",
 		"Do Prostego Człowieka",
 		"Dom",
 		"Dorosłe Dzieci",
 		"Dwa Ognie",
-		"Dwa Serca, Dwa Smutki",
+		"Dwa Serca",
+		"Dwa Smutki",
 		"Dzieci",
 		"Dziewczyna Bez Zęba Na Przedzie",
-		"Dzień Dobry, Kocham Cię",
+		"Dzień Dobry",
+		"Kocham Cię",
 		"Dziwny Jest Ten Świat",
 		"Dziś Późno Pójdę Spać",
 		"Długość Dźwięku Samotności",
@@ -2782,18 +2784,21 @@ class Faker_pl : Faker {
 		"Groszki I Róże",
 		"Harry",
 		"Hej Wy",
-		"Hej, Czy Nie Wiecie",
+		"Hej",
+		"Czy Nie Wiecie",
 		"Hi-Fi",
 		"Horses",
 		"Hydropiekłowstąpienie",
-		"I Ciebie Też, Bardzo",
+		"I Ciebie Też",
+		"Bardzo",
 		"I Nikomu Nie Wolno Się Z Tego Śmiać",
 		"I Tak Warto Żyć",
 		"I Wszystko Się Może Zdarzyć",
 		"IV Liceum",
 		"Ja Sowa",
 		"Ja Wysiadam",
-		"Jaka Róża, Taki Cierń",
+		"Jaka Róża",
+		"Taki Cierń",
 		"Jaskółka Uwięziona",
 		"Jednego Serca",
 		"Jedwab",
@@ -2810,7 +2815,9 @@ class Faker_pl : Faker {
 		"Jeszcze W Zielone Gramy",
 		"Jezu Jak Się Cieszę",
 		"Jeśli Wiesz Co Chcę Powiedzieć",
-		"Jolka, Jolka, Pamiętasz",
+		"Jolka",
+		"Jolka",
+		"Pamiętasz",
 		"Jutro Możemy Być Szczęśliwi",
 		"Kapitan Polska",
 		"Karuzela Z Madonnami",
@@ -2845,7 +2852,8 @@ class Faker_pl : Faker {
 		"Lipstick On The Glass",
 		"List",
 		"List Do M.",
-		"Los, Cebula I Krokodyle Łzy",
+		"Los",
+		"Cebula I Krokodyle Łzy",
 		"Lubię Mówić Z Tobą",
 		"Lubię Wracać Tam Gdzie Byłem",
 		"Lucciola",
@@ -2859,7 +2867,8 @@ class Faker_pl : Faker {
 		"Mimo Wszystko",
 		"Mississippi W Ogniu",
 		"Między Ciszą A Ciszą",
-		"Miłość, Miłość",
+		"Miłość",
+		"Miłość",
 		"Mniej Niż Zero",
 		"Modlitwa",
 		"Modlitwa III - Pozwól Mi",
@@ -2879,7 +2888,8 @@ class Faker_pl : Faker {
 		"Następna Stacja",
 		"Nasza Klasa",
 		"Nic Nie Może Wiecznie Trwać",
-		"Nie Ma, Nie Ma Ciebie",
+		"Nie Ma",
+		"Nie Ma Ciebie",
 		"Nie Mam Dla Ciebie Miłości",
 		"Nie Przenoście Nam Stolicy Do Krakowa",
 		"Nie Pytaj O Polskę",
@@ -2893,8 +2903,10 @@ class Faker_pl : Faker {
 		"Niewiele Ci Mogę Dać",
 		"Nieznajomy",
 		"Niezwyciężony",
-		"Nikt Tak Pięknie Nie Mówił, Że Się Boi Miłości",
-		"Nim Stanie Się Tak, Jak Gdyby Nigdy Nic",
+		"Nikt Tak Pięknie Nie Mówił",
+		"Że Się Boi Miłości",
+		"Nim Stanie Się Tak",
+		"Jak Gdyby Nigdy Nic",
 		"Nim Wstanie Dzień",
 		"Noc Komety",
 		"Nóż",
@@ -2903,11 +2915,13 @@ class Faker_pl : Faker {
 		"Obudź Się",
 		"Obława",
 		"Ocalić Od Zapomnienia",
-		"Och Życie, Kocham Cię Nad Życie",
+		"Och Życie",
+		"Kocham Cię Nad Życie",
 		"Oczy Tej Małej",
 		"Odchodząc",
 		"Odkryjemy Miłość Nieznaną",
-		"Ok, Boomer!",
+		"Ok",
+		"Boomer!",
 		"Oni Zaraz Przyjdą Tu",
 		"Orkiestra",
 		"Ostatni",
@@ -2921,7 +2935,8 @@ class Faker_pl : Faker {
 		"Piosenka Księżycowa",
 		"Piosenka Młodych Wioślarzy",
 		"Piła Tango",
-		"Piłem W Spale, Spałem W Pile",
+		"Piłem W Spale",
+		"Spałem W Pile",
 		"Plamy Na Słońcu",
 		"Plus I Minus",
 		"Po Co Wolność",
@@ -2939,7 +2954,8 @@ class Faker_pl : Faker {
 		"Przeżyj To Sam",
 		"Prócz Ciebie Nic",
 		"Psalm Stojących W Kolejce",
-		"Płoną Góry, Płoną Lasy",
+		"Płoną Góry",
+		"Płoną Lasy",
 		"Raz Na Milion Lat",
 		"Rosemary'S Baby",
 		"Rower",
@@ -2973,15 +2989,18 @@ class Faker_pl : Faker {
 		"Słodkiego Miłego Życia",
 		"Ta Noc Do Innych Jest Niepodobna",
 		"Tak Mi Się Nie Chce",
-		"Tak, Tak... To Ja",
-		"Tam, Gdzie Nie Sięga Wzrok",
+		"Tak",
+		"Tak... To Ja",
+		"Tam",
+		"Gdzie Nie Sięga Wzrok",
 		"Taniec Eleny",
 		"Te Smaki I Zapachy",
 		"Teksański",
 		"Telefony",
 		"Temat Serialu \"Polskie Drogi\"",
 		"The Depth Of Self-Delusion",
-		"To Co Czujesz, To Co Wiesz",
+		"To Co Czujesz",
+		"To Co Wiesz",
 		"To Ostatnia Niedziela",
 		"To Tylko Tango",
 		"To Wychowanie",
@@ -3011,9 +3030,11 @@ class Faker_pl : Faker {
 		"Wciąż Bardziej Obcy",
 		"Wehikuł Czasu",
 		"Whisky",
-		"Wieża Radości, Wieża Samotności",
+		"Wieża Radości",
+		"Wieża Samotności",
 		"Windą Do Nieba",
-		"Wiosna, Ach To Ty",
+		"Wiosna",
+		"Ach To Ty",
 		"Wiśnia",
 		"Wodymidaj",
 		"Wojenka",
@@ -3021,7 +3042,9 @@ class Faker_pl : Faker {
 		"Wszystko Czego Dziś Chcę",
 		"Wyjątkowo Zimny Maj",
 		"Wymyśliłem Ciebie",
-		"Wyspa, Drzewo, Zamek",
+		"Wyspa",
+		"Drzewo",
+		"Zamek",
 		"Władza",
 		"Z Imbirem",
 		"Z Nim Będziesz Szczęśliwsza",
@@ -3045,10 +3068,10 @@ class Faker_pl : Faker {
 		"Ślady",
 		"Śmierć W Bikini",
 		"Śpiewać Każdy Może",
-		"Śpij Kochanie, Śpij",
+		"Śpij Kochanie",
+		"Śpij",
 		"Świecie Nasz",
-		"Żyję W Kraju",
-		""
+		"Żyję W Kraju"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3073,8 +3096,7 @@ class Faker_pl : Faker {
 		"Rap",
 		"Reggae",
 		"Rock",
-		"Soul",
-		""
+		"Soul"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3094,8 +3116,7 @@ class Faker_pl : Faker {
 		"różowy",
 		"szary",
 		"zielony",
-		"żółty",
-		""
+		"żółty"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4008,8 +4029,7 @@ class Faker_pl : Faker {
 		"Żuromin",
 		"Żychlin",
 		"Żyrardów",
-		"Żywiec",
-		""
+		"Żywiec"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4032,8 +4052,7 @@ class Faker_pl : Faker {
 		"świętokrzyskie",
 		"warmińsko-mazurskie",
 		"wielkopolskie",
-		"zachodniopomorskie",
-		""
+		"zachodniopomorskie"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4234,8 +4253,7 @@ class Faker_pl : Faker {
 		"Wyspy Świętego Tomasza i Książęca",
 		"Zambia",
 		"Zimbabwe",
-		"Zjednoczone Emiraty Arabskie",
-		""
+		"Zjednoczone Emiraty Arabskie"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4258,8 +4276,7 @@ class Faker_pl : Faker {
 		"SK",
 		"WN",
 		"WP",
-		"ZP",
-		""
+		"ZP"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4288,18 +4305,9 @@ class Faker_pl : Faker {
 		"szosa",
 		"ul.",
 		"wyb.",
-		"wyspa",
-		""
+		"wyspa"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressBuildingNumber() {
-		auto data = [
-		"###', '##', '##a', '##b', '##c', '#/#'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
@@ -4331,16 +4339,92 @@ class Faker_pl : Faker {
 		"Ruch",
 		"Stal",
 		"Unia",
-		"Zjednoczenie",
-		""
+		"Zjednoczenie"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"12-###-##-##",
+		"13-###-##-##",
+		"14-###-##-##",
+		"15-###-##-##",
+		"16-###-##-##",
+		"17-###-##-##",
+		"18-###-##-##",
+		"22-###-##-##",
+		"23-###-##-##",
+		"24-###-##-##",
+		"25-###-##-##",
+		"29-###-##-##",
+		"32-###-##-##",
+		"33-###-##-##",
+		"34-###-##-##",
+		"41-###-##-##",
+		"42-###-##-##",
+		"43-###-##-##",
+		"44-###-##-##",
+		"46-###-##-##",
+		"48-###-##-##",
+		"52-###-##-##",
+		"54-###-##-##",
+		"55-###-##-##",
+		"56-###-##-##",
+		"58-###-##-##",
+		"59-###-##-##",
+		"61-###-##-##",
+		"62-###-##-##",
+		"63-###-##-##",
+		"65-###-##-##",
+		"67-###-##-##",
+		"68-###-##-##",
+		"71-###-##-##",
+		"74-###-##-##",
+		"75-###-##-##",
+		"76-###-##-##",
+		"77-###-##-##",
+		"81-###-##-##",
+		"82-###-##-##",
+		"83-###-##-##",
+		"84-###-##-##",
+		"85-###-##-##",
+		"86-###-##-##",
+		"87-###-##-##",
+		"89-###-##-##",
+		"91-###-##-##",
+		"94-###-##-##",
+		"95-###-##-##"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"50#-###-###",
+		"51#-###-###",
+		"53#-###-###",
+		"57#-###-###",
+		"60#-###-###",
+		"66#-###-###",
+		"69#-###-###",
+		"72#-###-###",
+		"73#-###-###",
+		"78#-###-###",
+		"79#-###-###",
+		"88#-###-###"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string internetFreeEmail() {
 		auto data = [
-		"gmail.com', 'yahoo.com', 'hotmail.com'"
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4366,8 +4450,7 @@ class Faker_pl : Faker {
 		"sklep.pl",
 		"szkola.pl",
 		"targi.pl",
-		"turystyka.pl",
-		""
+		"turystyka.pl"
 		];
 		return choice(data, this.rnd);
 	}

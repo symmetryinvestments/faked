@@ -19,6 +19,24 @@ class Faker_it : Faker {
 	}
 
 	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"+## ### ## ## ####",
+		"+## ## #######",
+		"+## ## ########",
+		"+## ### #######",
+		"+## ### ########",
+		"+## #### #######",
+		"+## #### ########",
+		"0## ### ####",
+		"+39 0## ### ###",
+		"3## ### ###",
+		"+39 3## ### ###"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string internetFreeEmail() {
 		auto data = [
 		"gmail.com",
@@ -26,8 +44,7 @@ class Faker_it : Faker {
 		"hotmail.com",
 		"email.it",
 		"libero.it",
-		"yahoo.it",
-		""
+		"yahoo.it"
 		];
 		return choice(data, this.rnd);
 	}
@@ -35,7 +52,14 @@ class Faker_it : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"com', 'com', 'com', 'net', 'org', 'it', 'it', 'it'"
+		"com",
+		"com",
+		"com",
+		"net",
+		"org",
+		"it",
+		"it",
+		"it'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -70,8 +94,7 @@ class Faker_it : Faker {
 		"exploit",
 		"transizionali",
 		"matrici",
-		"ricontestualizzate",
-		""
+		"ricontestualizzate"
 		];
 		return choice(data, this.rnd);
 	}
@@ -104,8 +127,7 @@ class Faker_it : Faker {
 		"funzionalità",
 		"esperienze",
 		"webservices",
-		"metodologie",
-		""
+		"metodologie"
 		];
 		return choice(data, this.rnd);
 	}
@@ -169,8 +191,7 @@ class Faker_it : Faker {
 		"user-friendly",
 		"versatile",
 		"virtuale",
-		"visionaria",
-		""
+		"visionaria"
 		];
 		return choice(data, this.rnd);
 	}
@@ -266,8 +287,7 @@ class Faker_it : Faker {
 		"Strumenti",
 		"Utilizzazione",
 		"Sito web",
-		"Forza lavoro",
-		""
+		"Forza lavoro"
 		];
 		return choice(data, this.rnd);
 	}
@@ -344,8 +364,7 @@ class Faker_it : Faker {
 		"tangibile",
 		"terziaria",
 		"uniforme",
-		"valore aggiunto",
-		""
+		"valore aggiunto"
 		];
 		return choice(data, this.rnd);
 	}
@@ -353,7 +372,10 @@ class Faker_it : Faker {
 	///
 	override string companySuffix() {
 		auto data = [
-		"SPA', 'e figli', 'Group', 's.r.l.'"
+		"SPA",
+		"e figli",
+		"Group",
+		"s.r.l.'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -406,8 +428,7 @@ class Faker_it : Faker {
 		"plug-and-play",
 		"collaborative",
 		"olistiche",
-		"ricche",
-		""
+		"ricche"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1393,8 +1414,7 @@ class Faker_it : Faker {
 		"Tuili",
 		"Villacidro",
 		"Villaperuccio",
-		"Villaspeciosa",
-		""
+		"Villaspeciosa"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1511,8 +1531,7 @@ class Faker_it : Faker {
 		"Verona",
 		"Vibo Valentia",
 		"Vicenza",
-		"Viterbo",
-		""
+		"Viterbo"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1760,8 +1779,7 @@ class Faker_it : Faker {
 		"Western Sahara",
 		"Yemen",
 		"Zambia",
-		"Zimbabwe",
-		""
+		"Zimbabwe"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1878,8 +1896,7 @@ class Faker_it : Faker {
 		"VR",
 		"VV",
 		"VI",
-		"VT",
-		""
+		"VT"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1906,8 +1923,7 @@ class Faker_it : Faker {
 		"umbro",
 		"laziale",
 		"terme",
-		"sardo",
-		""
+		"sardo"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1915,31 +1931,19 @@ class Faker_it : Faker {
 	///
 	override string addressCityPrefix() {
 		auto data = [
-		"San', 'Borgo', 'Sesto', 'Quarto', 'Settimo'"
+		"San",
+		"Borgo",
+		"Sesto",
+		"Quarto",
+		"Settimo'"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressBuildingNumber() {
-		auto data = [
-		"###', '##', '#'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressPostcode() {
 		auto data = [
 		"#####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressSecondaryAddress() {
-		auto data = [
-		"Appartamento ##', 'Piano #'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -1953,8 +1957,7 @@ class Faker_it : Faker {
 		"Borgo",
 		"Contrada",
 		"Rotonda",
-		"Incrocio",
-		""
+		"Incrocio"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3044,16 +3047,7 @@ class Faker_it : Faker {
 		"Zenone",
 		"Zetico",
 		"Zoilo",
-		"Zosimo",
-		""
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameSuffix() {
-		auto data = [
-		""
+		"Zosimo"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5230,8 +5224,7 @@ class Faker_it : Faker {
 		"Zuliani",
 		"Zullo",
 		"Zumbo",
-		"Zunino",
-		""
+		"Zunino"
 		];
 		return choice(data, this.rnd);
 	}
@@ -6938,8 +6931,7 @@ class Faker_it : Faker {
 		"Zenobia",
 		"Zita",
 		"Zoe",
-		"Zosima",
-		""
+		"Zosima"
 		];
 		return choice(data, this.rnd);
 	}
@@ -7563,8 +7555,7 @@ class Faker_it : Faker {
 		"Zenobia",
 		"Zita",
 		"Zoe",
-		"Zosima",
-		""
+		"Zosima"
 		];
 		return choice(data, this.rnd);
 	}
@@ -7572,7 +7563,10 @@ class Faker_it : Faker {
 	///
 	override string namePrefix() {
 		auto data = [
-		"Sig.', 'Dott.', 'Dr.', 'Ing.'"
+		"Sig.",
+		"Dott.",
+		"Dr.",
+		"Ing.'"
 		];
 		return choice(data, this.rnd);
 	}

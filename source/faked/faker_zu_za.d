@@ -19,9 +19,40 @@ class Faker_zu_za : Faker {
 	}
 
 	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"01# ### #####",
+		"02# ### #####",
+		"03# ### #####",
+		"04# ### #####",
+		"05# ### #####",
+		"0800 ### ###",
+		"0860 ### ###",
+		"01#########",
+		"01# ########"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"082 ### ####",
+		"084 ### ####",
+		"083 ### ####",
+		"065 ### ####",
+		"082#######",
+		"082 #######"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string companySuffix() {
 		auto data = [
-		"Pty Ltd', 'Ltd', 'CC'"
+		"Pty Ltd",
+		"Ltd",
+		"CC'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -29,7 +60,8 @@ class Faker_zu_za : Faker {
 	///
 	override string addressPostcode() {
 		auto data = [
-		"#####', '####'"
+		"#####",
+		"####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -45,7 +77,11 @@ class Faker_zu_za : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"co.za', 'com', 'org.za', 'info', 'net.za'"
+		"co.za",
+		"com",
+		"org.za",
+		"info",
+		"net.za'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -152,8 +188,7 @@ class Faker_zu_za : Faker {
 		"Yengwa",
 		"Zondo",
 		"Zondi",
-		"Zubane",
-		""
+		"Zubane"
 		];
 		return choice(data, this.rnd);
 	}
@@ -260,8 +295,7 @@ class Faker_zu_za : Faker {
 		"Vusumuzi",
 		"Themba",
 		"Zenzele",
-		"Ndleleni",
-		""
+		"Ndleleni"
 		];
 		return choice(data, this.rnd);
 	}
@@ -318,8 +352,7 @@ class Faker_zu_za : Faker {
 		"Vusumuzi",
 		"Themba",
 		"Zenzele",
-		"Ndleleni",
-		""
+		"Ndleleni"
 		];
 		return choice(data, this.rnd);
 	}
@@ -376,8 +409,7 @@ class Faker_zu_za : Faker {
 		"Nozipho",
 		"Nonkululeko",
 		"Sibongile",
-		"Siphephelo",
-		""
+		"Siphephelo"
 		];
 		return choice(data, this.rnd);
 	}

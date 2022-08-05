@@ -19,6 +19,27 @@ class Faker_uk : Faker {
 	}
 
 	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"(044) ###-##-##",
+		"(050) ###-##-##",
+		"(063) ###-##-##",
+		"(066) ###-##-##",
+		"(073) ###-##-##",
+		"(091) ###-##-##",
+		"(092) ###-##-##",
+		"(093) ###-##-##",
+		"(094) ###-##-##",
+		"(095) ###-##-##",
+		"(096) ###-##-##",
+		"(097) ###-##-##",
+		"(098) ###-##-##",
+		"(099) ###-##-##"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string internetFreeEmail() {
 		auto data = [
 		"ukr.net",
@@ -27,8 +48,7 @@ class Faker_uk : Faker {
 		"i.ua",
 		"meta.ua",
 		"yandex.ua",
-		"gmail.com",
-		""
+		"gmail.com"
 		];
 		return choice(data, this.rnd);
 	}
@@ -95,8 +115,7 @@ class Faker_uk : Faker {
 		"zhitomir.ua",
 		"zp.ua",
 		"zt.ua",
-		"укр",
-		""
+		"укр"
 		];
 		return choice(data, this.rnd);
 	}
@@ -104,7 +123,11 @@ class Faker_uk : Faker {
 	///
 	override string companySuffix() {
 		auto data = [
-		"Постач', 'Торг', 'Пром', 'Трейд', 'Збут'"
+		"Постач",
+		"Торг",
+		"Пром",
+		"Трейд",
+		"Збут'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -112,7 +135,14 @@ class Faker_uk : Faker {
 	///
 	string companyPrefix() {
 		auto data = [
-		"ТОВ', 'ПАТ', 'ПрАТ', 'ТДВ', 'КТ', 'ПТ', 'ДП', 'ФОП'"
+		"ТОВ",
+		"ПАТ",
+		"ПрАТ",
+		"ТДВ",
+		"КТ",
+		"ПТ",
+		"ДП",
+		"ФОП'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -176,8 +206,7 @@ class Faker_uk : Faker {
 		"Чернівці",
 		"Чернігів",
 		"Шостка",
-		"Ялта",
-		""
+		"Ялта"
 		];
 		return choice(data, this.rnd);
 	}
@@ -211,8 +240,7 @@ class Faker_uk : Faker {
 		"Чернівецька область",
 		"Чернігівська область",
 		"Київ",
-		"Севастополь",
-		""
+		"Севастополь"
 		];
 		return choice(data, this.rnd);
 	}
@@ -412,8 +440,7 @@ class Faker_uk : Faker {
 		"Швеція",
 		"Шрі-Ланка",
 		"Ямайка",
-		"Японія",
-		""
+		"Японія"
 		];
 		return choice(data, this.rnd);
 	}
@@ -436,8 +463,7 @@ class Faker_uk : Faker {
 		"пл.",
 		"площа",
 		"пров.",
-		"провулок",
-		""
+		"провулок"
 		];
 		return choice(data, this.rnd);
 	}
@@ -453,7 +479,10 @@ class Faker_uk : Faker {
 	///
 	override string addressCityPrefix() {
 		auto data = [
-		"Південний', 'Північний', 'Східний', 'Західний'"
+		"Південний",
+		"Північний",
+		"Східний",
+		"Західний'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -473,18 +502,9 @@ class Faker_uk : Faker {
 		"Брюховичів",
 		"Винників",
 		"Рудного",
-		"Коліївщини",
-		""
+		"Коліївщини"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressBuildingNumber() {
-		auto data = [
-		"#', '##', '###'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
@@ -629,8 +649,7 @@ class Faker_uk : Faker {
 		"Устимівна",
 		"Юріївна",
 		"Юхимівна",
-		"Ярославівна",
-		""
+		"Ярославівна"
 		];
 		return choice(data, this.rnd);
 	}
@@ -753,8 +772,7 @@ class Faker_uk : Faker {
 		"Устимович",
 		"Юрійович",
 		"Юхимович",
-		"Ярославович",
-		""
+		"Ярославович"
 		];
 		return choice(data, this.rnd);
 	}
@@ -956,8 +974,7 @@ class Faker_uk : Faker {
 		"Яромил",
 		"Яромир",
 		"Ярополк",
-		"Ярослав",
-		""
+		"Ярослав"
 		];
 		return choice(data, this.rnd);
 	}
@@ -982,8 +999,7 @@ class Faker_uk : Faker {
 		"канд. і. наук",
 		"канд. юрид. наук",
 		"канд. техн. наук",
-		"канд. психол. наук",
-		""
+		"канд. психол. наук"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1183,8 +1199,7 @@ class Faker_uk : Faker {
 		"Юхимія",
 		"Яна",
 		"Ярина",
-		"Ярослава",
-		""
+		"Ярослава"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1430,8 +1445,7 @@ class Faker_uk : Faker {
 		"Ярмак",
 		"Яцишин",
 		"Яцьків",
-		"Ящук",
-		""
+		"Ящук"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1668,8 +1682,7 @@ class Faker_uk : Faker {
 		"Ярмак",
 		"Яцишина",
 		"Яцьків",
-		"Ящук",
-		""
+		"Ящук"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1677,7 +1690,8 @@ class Faker_uk : Faker {
 	///
 	override string namePrefix() {
 		auto data = [
-		"Пан', 'Пані'"
+		"Пан",
+		"Пані'"
 		];
 		return choice(data, this.rnd);
 	}

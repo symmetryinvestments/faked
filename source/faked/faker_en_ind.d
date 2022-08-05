@@ -19,9 +19,30 @@ class Faker_en_ind : Faker {
 	}
 
 	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"+919##-###-####",
+		"+919#########",
+		"+91-9##-#######",
+		"+918##-###-####",
+		"+918#########",
+		"+91-8##-#######",
+		"+917##-###-####",
+		"+917#########",
+		"+91-7##-#######",
+		"+916##-###-####",
+		"+916#########",
+		"+91-6##-#######"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string internetFreeEmail() {
 		auto data = [
-		"gmail.com', 'yahoo.co.in', 'hotmail.com'"
+		"gmail.com",
+		"yahoo.co.in",
+		"hotmail.com'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -29,7 +50,14 @@ class Faker_en_ind : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"in', 'com', 'biz', 'info', 'name', 'net', 'org', 'co.in'"
+		"in",
+		"com",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org",
+		"co.in'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -43,8 +71,7 @@ class Faker_en_ind : Faker {
 		"and Sons",
 		"Corp",
 		"Group",
-		"Brothers",
-		""
+		"Brothers"
 		];
 		return choice(data, this.rnd);
 	}
@@ -495,7 +522,8 @@ class Faker_en_ind : Faker {
 		"Monoharpur",
 		"Moradabad",
 		"Morena",
-		"Morinda, India",
+		"Morinda",
+		"India",
 		"Morshi",
 		"Morvi",
 		"Motihari",
@@ -949,8 +977,10 @@ class Faker_en_ind : Faker {
 		"Seoni",
 		"Seoni-Malwa",
 		"Shahabad",
-		"Shahabad, Hardoi",
-		"Shahabad, Rampur",
+		"Shahabad",
+		"Hardoi",
+		"Shahabad",
+		"Rampur",
 		"Shahade",
 		"Shahbad",
 		"Shahdol",
@@ -962,8 +992,10 @@ class Faker_en_ind : Faker {
 		"Shajapur",
 		"Shamgarh",
 		"Shamli",
-		"Shamsabad, Agra",
-		"Shamsabad, Farrukhabad",
+		"Shamsabad",
+		"Agra",
+		"Shamsabad",
+		"Farrukhabad",
 		"Shegaon",
 		"Sheikhpura",
 		"Shendurjana",
@@ -975,7 +1007,8 @@ class Faker_en_ind : Faker {
 		"Sherkot",
 		"Shiggaon",
 		"Shikaripur",
-		"Shikarpur, Bulandshahr",
+		"Shikarpur",
+		"Bulandshahr",
 		"Shikohabad",
 		"Shillong",
 		"Shimla",
@@ -1220,7 +1253,8 @@ class Faker_en_ind : Faker {
 		"Venkatagiri",
 		"Veraval",
 		"Vidisha",
-		"Vijainagar, Ajmer",
+		"Vijainagar",
+		"Ajmer",
 		"Vijapur",
 		"Vijayapura",
 		"Vijayawada",
@@ -1268,8 +1302,7 @@ class Faker_en_ind : Faker {
 		"Zamania",
 		"Zira",
 		"Zirakpur",
-		"Zunheboto",
-		""
+		"Zunheboto"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1312,8 +1345,7 @@ class Faker_en_ind : Faker {
 		"Tripura",
 		"Uttar Pradesh",
 		"Uttarakhand",
-		"West Bengal",
-		""
+		"West Bengal"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1356,8 +1388,7 @@ class Faker_en_ind : Faker {
 		"TR",
 		"UP",
 		"UK",
-		"WB",
-		""
+		"WB"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1365,7 +1396,10 @@ class Faker_en_ind : Faker {
 	///
 	override string addressDefaultCountry() {
 		auto data = [
-		"India', 'Indian Republic', 'Bharat', 'Hindustan'"
+		"India",
+		"Indian Republic",
+		"Bharat",
+		"Hindustan'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1472,8 +1506,7 @@ class Faker_en_ind : Faker {
 		"Varrier",
 		"Varma",
 		"Varman",
-		"Verma",
-		""
+		"Verma"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2242,8 +2275,7 @@ class Faker_en_ind : Faker {
 		"Vyas",
 		"Yogendra",
 		"Yoginder",
-		"Yogesh",
-		""
+		"Yogesh"
 		];
 		return choice(data, this.rnd);
 	}

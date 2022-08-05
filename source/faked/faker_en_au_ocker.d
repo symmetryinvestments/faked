@@ -19,9 +19,25 @@ class Faker_en_au_ocker : Faker {
 	}
 
 	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"0# #### ####",
+		"+61 # #### ####",
+		"04## ### ###",
+		"+61 4## ### ###"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"com.au', 'com', 'net.au', 'net', 'org.au', 'org'"
+		"com.au",
+		"com",
+		"net.au",
+		"net",
+		"org.au",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -29,7 +45,12 @@ class Faker_en_au_ocker : Faker {
 	///
 	override string companySuffix() {
 		auto data = [
-		"Pty Ltd', 'and Sons', 'Corp', 'Group', 'Brothers', 'Partners'"
+		"Pty Ltd",
+		"and Sons",
+		"Corp",
+		"Group",
+		"Brothers",
+		"Partners'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -37,7 +58,14 @@ class Faker_en_au_ocker : Faker {
 	///
 	override string addressStateAbbr() {
 		auto data = [
-		"NSW', 'QLD', 'NT', 'SA', 'WA', 'TAS', 'ACT', 'VIC'"
+		"NSW",
+		"QLD",
+		"NT",
+		"SA",
+		"WA",
+		"TAS",
+		"ACT",
+		"VIC'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -52,8 +80,7 @@ class Faker_en_au_ocker : Faker {
 		"Western Australia",
 		"Tasmania",
 		"Australian Capital Territory",
-		"Victoria",
-		""
+		"Victoria"
 		];
 		return choice(data, this.rnd);
 	}
@@ -80,8 +107,7 @@ class Faker_en_au_ocker : Faker {
 		"Stones Corner",
 		"St Kilda",
 		"Surry Hills",
-		"Yarra Valley",
-		""
+		"Yarra Valley"
 		];
 		return choice(data, this.rnd);
 	}
@@ -95,8 +121,7 @@ class Faker_en_au_ocker : Faker {
 		"Port Pirie",
 		"Gippsland",
 		"Elizabeth",
-		"Barossa",
-		""
+		"Barossa"
 		];
 		return choice(data, this.rnd);
 	}
@@ -107,8 +132,7 @@ class Faker_en_au_ocker : Faker {
 		"Ramsay Street",
 		"Bonnie Doon",
 		"Cavill Avenue",
-		"Queen Street",
-		""
+		"Queen Street"
 		];
 		return choice(data, this.rnd);
 	}
@@ -116,7 +140,9 @@ class Faker_en_au_ocker : Faker {
 	///
 	override string addressBuildingNumber() {
 		auto data = [
-		"####', '###', '##'"
+		"####",
+		"###",
+		"##'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -124,7 +150,13 @@ class Faker_en_au_ocker : Faker {
 	///
 	override string addressPostcode() {
 		auto data = [
-		"0###', '2###', '3###', '4###', '5###', '6###', '7###'"
+		"0###",
+		"2###",
+		"3###",
+		"4###",
+		"5###",
+		"6###",
+		"7###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -168,8 +200,7 @@ class Faker_en_au_ocker : Faker {
 		"Track",
 		"Trail",
 		"View Rd",
-		"Way",
-		""
+		"Way"
 		];
 		return choice(data, this.rnd);
 	}
@@ -200,8 +231,7 @@ class Faker_en_au_ocker : Faker {
 		"Rausch",
 		"Ridge",
 		"Connolly",
-		"LeQuesne",
-		""
+		"LeQuesne"
 		];
 		return choice(data, this.rnd);
 	}
@@ -209,7 +239,12 @@ class Faker_en_au_ocker : Faker {
 	///
 	string nameOckerFirstName() {
 		auto data = [
-		"Bazza', 'Bluey', 'Davo', 'Johno', 'Shano', 'Shazza'"
+		"Bazza",
+		"Bluey",
+		"Davo",
+		"Johno",
+		"Shano",
+		"Shazza'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -320,8 +355,7 @@ class Faker_en_au_ocker : Faker {
 		"Tom",
 		"Nigel",
 		"Matt",
-		"Sean",
-		""
+		"Sean"
 		];
 		return choice(data, this.rnd);
 	}

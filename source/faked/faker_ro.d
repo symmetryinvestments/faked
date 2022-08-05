@@ -19,6 +19,161 @@ class Faker_ro : Faker {
 	}
 
 	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"021######",
+		"031######",
+		"0258######",
+		"0358######",
+		"0257######",
+		"0357######",
+		"0248######",
+		"0348######",
+		"0234######",
+		"0334######",
+		"0259######",
+		"0359######",
+		"0263######",
+		"0363######",
+		"0231######",
+		"0331######",
+		"0239######",
+		"0339######",
+		"0268######",
+		"0368######",
+		"0238######",
+		"0338######",
+		"0242######",
+		"0342######",
+		"0255######",
+		"0355######",
+		"0264######",
+		"0364######",
+		"0241######",
+		"0341######",
+		"0267######",
+		"0367######",
+		"0245######",
+		"0345######",
+		"0251######",
+		"0351######",
+		"0236######",
+		"0336######",
+		"0246######",
+		"0346######",
+		"0253######",
+		"0353######",
+		"0266######",
+		"0366######",
+		"0254######",
+		"0354######",
+		"0243######",
+		"0343######",
+		"0232######",
+		"0332######",
+		"0262######",
+		"0362######",
+		"0252######",
+		"0352######",
+		"0265######",
+		"0365######",
+		"0233######",
+		"0333######",
+		"0249######",
+		"0349######",
+		"0244######",
+		"0344######",
+		"0260######",
+		"0360######",
+		"0261######",
+		"0361######",
+		"0269######",
+		"0369######",
+		"0230######",
+		"0330######",
+		"0247######",
+		"0347######",
+		"0256######",
+		"0356######",
+		"0240######",
+		"0340######",
+		"0250######",
+		"0350######",
+		"0235######",
+		"0335######",
+		"0237######",
+		"0337######"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"0726######",
+		"0723######",
+		"0722######",
+		"0721######",
+		"0720######",
+		"0728######",
+		"0729######",
+		"0730######",
+		"0739######",
+		"0738######",
+		"0737######",
+		"0736######",
+		"0735######",
+		"0734######",
+		"0733######",
+		"0732######",
+		"0731######",
+		"0780######",
+		"0788######",
+		"0753######",
+		"0754######",
+		"0755######",
+		"0756######",
+		"0757######",
+		"0758######",
+		"0759######",
+		"0748######",
+		"0747######",
+		"0746######",
+		"0740######",
+		"0741######",
+		"0742######",
+		"0743######",
+		"0744######",
+		"0745######",
+		"0711######",
+		"0727######",
+		"0725######",
+		"0724######",
+		"0786######",
+		"0760######",
+		"0761######",
+		"0762######",
+		"0763######",
+		"0764######",
+		"0765######",
+		"0766######",
+		"0767######",
+		"0785######",
+		"0768######",
+		"0769######",
+		"0784######",
+		"0770######",
+		"0772######",
+		"0771######",
+		"0749######",
+		"0750######",
+		"0751######",
+		"0752######"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressCityName() {
 		auto data = [
 		"București",
@@ -320,8 +475,7 @@ class Faker_ro : Faker {
 		"Vașcău",
 		"Nucet",
 		"Solca",
-		"Băile Tușnad",
-		""
+		"Băile Tușnad"
 		];
 		return choice(data, this.rnd);
 	}
@@ -370,8 +524,7 @@ class Faker_ro : Faker {
 		"Tulcea",
 		"Valcea",
 		"Vaslui",
-		"Vrancea",
-		""
+		"Vrancea"
 		];
 		return choice(data, this.rnd);
 	}
@@ -420,8 +573,7 @@ class Faker_ro : Faker {
 		"TL",
 		"VL",
 		"VS",
-		"VN",
-		""
+		"VN"
 		];
 		return choice(data, this.rnd);
 	}
@@ -478,8 +630,7 @@ class Faker_ro : Faker {
 		"Tulcea",
 		"Valcea",
 		"Vaslui",
-		"Vrancea",
-		""
+		"Vrancea"
 		];
 		return choice(data, this.rnd);
 	}
@@ -586,8 +737,7 @@ class Faker_ro : Faker {
 		"Sergent Major Drag Marin",
 		"Bega",
 		"Dobrun",
-		"Fulgeresti",
-		""
+		"Fulgeresti"
 		];
 		return choice(data, this.rnd);
 	}
@@ -611,7 +761,8 @@ class Faker_ro : Faker {
 	///
 	override string addressSecondaryAddress() {
 		auto data = [
-		"Ap. ##', 'Ap. ###'"
+		"Ap. ##",
+		"Ap. ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -619,7 +770,9 @@ class Faker_ro : Faker {
 	///
 	override string addressStreetSuffix() {
 		auto data = [
-		"Aleea', 'Bulevardul', 'Intrarea'"
+		"Aleea",
+		"Bulevardul",
+		"Intrarea'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -627,7 +780,9 @@ class Faker_ro : Faker {
 	///
 	override string internetFreeEmail() {
 		auto data = [
-		"gmail.com', 'yahoo.com', 'hotmail.com'"
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -652,8 +807,7 @@ class Faker_ro : Faker {
 		"firm.ro",
 		"www.ro",
 		"arts.ro",
-		"rec.ro",
-		""
+		"rec.ro"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1047,8 +1201,7 @@ class Faker_ro : Faker {
 		"Zenobia",
 		"Zenovia",
 		"Zina",
-		"Zoe",
-		""
+		"Zoe"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1056,7 +1209,8 @@ class Faker_ro : Faker {
 	///
 	override string nameSuffix() {
 		auto data = [
-		"Jr.', 'Sr.'"
+		"Jr.",
+		"Sr.'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1064,7 +1218,9 @@ class Faker_ro : Faker {
 	///
 	override string namePrefix() {
 		auto data = [
-		"Dl', 'Dna', 'Dra'"
+		"Dl",
+		"Dna",
+		"Dra'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1371,8 +1527,7 @@ class Faker_ro : Faker {
 		"Voicu",
 		"Voinea",
 		"Zaharia",
-		"Zamfir",
-		""
+		"Zamfir"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1667,8 +1822,7 @@ class Faker_ro : Faker {
 		"Vlaicu",
 		"Voicu",
 		"Zamfir",
-		"Zeno",
-		""
+		"Zeno"
 		];
 		return choice(data, this.rnd);
 	}

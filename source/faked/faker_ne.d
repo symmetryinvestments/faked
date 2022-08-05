@@ -19,9 +19,11 @@ class Faker_ne : Faker {
 	}
 
 	///
-	string phoneNumberFormats() {
+	override string phoneNumberFormats() {
 		auto data = [
-		"##-#######', '+977-#-#######', '+977########'"
+		"##-#######",
+		"+977-#-#######",
+		"+977########'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -29,7 +31,10 @@ class Faker_ne : Faker {
 	///
 	override string internetFreeEmail() {
 		auto data = [
-		"worldlink.com.np', 'gmail.com', 'yahoo.com', 'hotmail.com'"
+		"worldlink.com.np",
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -37,7 +42,11 @@ class Faker_ne : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"np', 'com', 'info', 'net', 'org'"
+		"np",
+		"com",
+		"info",
+		"net",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -45,7 +54,10 @@ class Faker_ne : Faker {
 	///
 	override string companySuffix() {
 		auto data = [
-		"Pvt Ltd', 'Group', 'Ltd', 'Limited'"
+		"Pvt Ltd",
+		"Group",
+		"Ltd",
+		"Limited'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -68,8 +80,7 @@ class Faker_ne : Faker {
 		"Kathmandu",
 		"Lahan",
 		"Nepalgunj",
-		"Pokhara",
-		""
+		"Pokhara"
 		];
 		return choice(data, this.rnd);
 	}
@@ -129,8 +140,7 @@ class Faker_ne : Faker {
 		"Surket",
 		"Syangja",
 		"Tanahu",
-		"Terhathum",
-		""
+		"Terhathum"
 		];
 		return choice(data, this.rnd);
 	}
@@ -184,8 +194,7 @@ class Faker_ne : Faker {
 		"Shrestha",
 		"Subedi",
 		"Tamang",
-		"Thapa",
-		""
+		"Thapa"
 		];
 		return choice(data, this.rnd);
 	}
@@ -247,8 +256,7 @@ class Faker_ne : Faker {
 		"Sunita",
 		"Suraj",
 		"Susan",
-		"Sushant",
-		""
+		"Sushant"
 		];
 		return choice(data, this.rnd);
 	}

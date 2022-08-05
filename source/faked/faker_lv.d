@@ -204,8 +204,7 @@ class Faker_lv : Faker {
 		"voļūptātēm",
 		"voļūptātēš",
 		"voļūptātībūš",
-		"voļūptātūm",
-		""
+		"voļūptātūm"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1052,8 +1051,7 @@ class Faker_lv : Faker {
 		"vulpēs",
 		"vultīculus",
 		"vultūosus",
-		"xīphīās",
-		""
+		"xīphīās"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1061,7 +1059,10 @@ class Faker_lv : Faker {
 	///
 	override string companySuffix() {
 		auto data = [
-		"un partneri', 'holdings', 'grupa', 'aģentūra'"
+		"un partneri",
+		"holdings",
+		"grupa",
+		"aģentūra'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1069,7 +1070,12 @@ class Faker_lv : Faker {
 	///
 	string companyPrefix() {
 		auto data = [
-		"SIA', 'AS', 'IU', 'Bezp.Org.', 'Firma', 'Biedrība'"
+		"SIA",
+		"AS",
+		"IU",
+		"Bezp.Org.",
+		"Firma",
+		"Biedrība'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1167,8 +1173,7 @@ class Faker_lv : Faker {
 		"Voldemārs",
 		"Zigfrīds",
 		"Zigmārs",
-		"Žanis",
-		""
+		"Žanis"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1176,7 +1181,8 @@ class Faker_lv : Faker {
 	///
 	override string nameSuffix() {
 		auto data = [
-		"k-dze', 'kundze'"
+		"k-dze",
+		"kundze'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1288,8 +1294,7 @@ class Faker_lv : Faker {
 		"Žanete",
 		"Žanna",
 		"Ženija",
-		"Žubīte",
-		""
+		"Žubīte"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1505,8 +1510,7 @@ class Faker_lv : Faker {
 		"Gasjūns",
 		"Pauļuks",
 		"Sosārs",
-		"Meškūns",
-		""
+		"Meškūns"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1722,8 +1726,7 @@ class Faker_lv : Faker {
 		"Gasjūne",
 		"Pauļuka",
 		"Sosāre",
-		"Meškūne",
-		""
+		"Meškūne"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1731,7 +1734,9 @@ class Faker_lv : Faker {
 	///
 	override string namePrefix() {
 		auto data = [
-		"Prof.', 'Dr.', 'Biedrs'"
+		"Prof.",
+		"Dr.",
+		"Biedrs'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1759,8 +1764,7 @@ class Faker_lv : Faker {
 		"Sporta",
 		"Tūrisma",
 		"Auto",
-		"Rūpniecības",
-		""
+		"Rūpniecības"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1843,8 +1847,7 @@ class Faker_lv : Faker {
 		"Viesīte",
 		"Viļaka",
 		"Viļāni",
-		"Zilupe",
-		""
+		"Zilupe"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1879,8 +1882,7 @@ class Faker_lv : Faker {
 		"Tukuma raj.",
 		"Valkas raj.",
 		"Valmieras raj.",
-		"Ventspils raj.",
-		""
+		"Ventspils raj."
 		];
 		return choice(data, this.rnd);
 	}
@@ -2063,8 +2065,7 @@ class Faker_lv : Faker {
 		"Vjetnama",
 		"Jemena",
 		"Zambija",
-		"Zimbabve",
-		""
+		"Zimbabve"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2426,8 +2427,7 @@ class Faker_lv : Faker {
 		"Zvārtavas",
 		"Žaņa Lipkes",
 		"Žīguru",
-		"Žubīšu",
-		""
+		"Žubīšu"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2435,7 +2435,8 @@ class Faker_lv : Faker {
 	///
 	override string addressBuildingNumber() {
 		auto data = [
-		"###', '##'"
+		"###",
+		"##'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -2443,7 +2444,8 @@ class Faker_lv : Faker {
 	///
 	override string addressPostcode() {
 		auto data = [
-		"LV####', 'LV-####'"
+		"LV####",
+		"LV-####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -2451,7 +2453,8 @@ class Faker_lv : Faker {
 	///
 	override string addressSecondaryAddress() {
 		auto data = [
-		"dz. ###', '- ###'"
+		"dz. ###",
+		"- ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -2459,7 +2462,12 @@ class Faker_lv : Faker {
 	///
 	override string addressStreetSuffix() {
 		auto data = [
-		"iela', 'bulvāris', 'gatve', 'gāte', 'laukums', 'dambis'"
+		"iela",
+		"bulvāris",
+		"gatve",
+		"gāte",
+		"laukums",
+		"dambis'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2489,24 +2497,27 @@ class Faker_lv : Faker {
 		"zelta",
 		"красно-пурпурный",
 		"lillā",
-		"sudrabaina",
-		""
+		"sudrabaina"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	string phoneNumberFormats() {
+	override string phoneNumberFormats() {
 		auto data = [
-		"(371)6#######', '+371 6#######', '6#######'"
+		"(371)6#######",
+		"+371 6#######",
+		"6#######'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	string cellPhoneFormats() {
+	override string cellPhoneFormats() {
 		auto data = [
-		"2#######', '(371) 2#######', '+371 2#######'"
+		"2#######",
+		"(371) 2#######",
+		"+371 2#######'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -2521,8 +2532,7 @@ class Faker_lv : Faker {
 		"apollo.lv",
 		"yahoo.com",
 		"hotmail.com",
-		"gmail.com",
-		""
+		"gmail.com"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2530,7 +2540,11 @@ class Faker_lv : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"lv', 'com', 'info', 'net', 'org'"
+		"lv",
+		"com",
+		"info",
+		"net",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}

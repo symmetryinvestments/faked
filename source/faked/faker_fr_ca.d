@@ -19,9 +19,12 @@ class Faker_fr_ca : Faker {
 	}
 
 	///
-	string phoneNumberFormats() {
+	override string phoneNumberFormats() {
 		auto data = [
-		"### ###-####', '1 ### ###-####', '### ###-####, poste ###'"
+		"### ###-####",
+		"1 ### ###-####",
+		"### ###-####",
+		"poste ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -41,8 +44,7 @@ class Faker_fr_ca : Faker {
 		"PE",
 		"QC",
 		"SK",
-		"YK",
-		""
+		"YK"
 		];
 		return choice(data, this.rnd);
 	}
@@ -62,8 +64,7 @@ class Faker_fr_ca : Faker {
 		"Île-du-Prince-Édouard",
 		"Québec",
 		"Saskatchewan",
-		"Yukon",
-		""
+		"Yukon"
 		];
 		return choice(data, this.rnd);
 	}
@@ -88,8 +89,7 @@ class Faker_fr_ca : Faker {
 		"T#? #?#",
 		"V#? #?#",
 		"X#? #?#",
-		"Y#? #?#",
-		""
+		"Y#? #?#"
 		];
 		return choice(data, this.rnd);
 	}
@@ -105,7 +105,9 @@ class Faker_fr_ca : Faker {
 	///
 	override string internetFreeEmail() {
 		auto data = [
-		"gmail.com', 'yahoo.ca', 'hotmail.com'"
+		"gmail.com",
+		"yahoo.ca",
+		"hotmail.com'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -113,7 +115,14 @@ class Faker_fr_ca : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"qc.ca', 'ca', 'com', 'biz', 'info', 'name', 'net', 'org'"
+		"qc.ca",
+		"ca",
+		"com",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}

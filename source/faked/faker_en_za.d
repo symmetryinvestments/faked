@@ -19,6 +19,25 @@ class Faker_en_za : Faker {
 	}
 
 	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"(0##) ### ####",
+		"0## ### ####",
+		"+27 ## ### ####",
+		"01# ### #####",
+		"02# ### #####",
+		"03# ### #####",
+		"04# ### #####",
+		"05# ### #####",
+		"0800 ### ###",
+		"0860 ### ###",
+		"01#########",
+		"01# ########"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	string phoneNumberAreaCode() {
 		auto data = [
 		"10",
@@ -58,8 +77,7 @@ class Faker_en_za : Faker {
 		"54",
 		"56",
 		"57",
-		"58",
-		""
+		"58"
 		];
 		return choice(data, this.rnd);
 	}
@@ -349,16 +367,42 @@ class Faker_en_za : Faker {
 		"980",
 		"984",
 		"985",
-		"989",
-		""
+		"989"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"+2760 ### ####",
+		"+2761 ### ####",
+		"+2763 ### ####",
+		"+2772 ### ####",
+		"+2773 ### ####",
+		"+2774 ### ####",
+		"+2776 ### ####",
+		"+2779 ### ####",
+		"+2781 ### ####",
+		"+2782 ### ####",
+		"+2783 ### ####",
+		"+2784 ### ####",
+		"082 ### ####",
+		"084 ### ####",
+		"083 ### ####",
+		"065 ### ####",
+		"082#######",
+		"082 #######"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string companySuffix() {
 		auto data = [
-		"Pty Ltd', 'Ltd', 'CC'"
+		"Pty Ltd",
+		"Ltd",
+		"CC'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -374,8 +418,7 @@ class Faker_en_za : Faker {
 		"Western Cape",
 		"KwaZulu-Natal",
 		"Mpumalanga",
-		"Eastern Cape",
-		""
+		"Eastern Cape"
 		];
 		return choice(data, this.rnd);
 	}
@@ -383,7 +426,8 @@ class Faker_en_za : Faker {
 	///
 	override string addressPostcode() {
 		auto data = [
-		"#####', '####'"
+		"#####",
+		"####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -404,8 +448,7 @@ class Faker_en_za : Faker {
 		"East London",
 		"Kimberley",
 		"Rustenburg",
-		"Bloemfontein ",
-		""
+		"Bloemfontein "
 		];
 		return choice(data, this.rnd);
 	}
@@ -416,8 +459,7 @@ class Faker_en_za : Faker {
 		"South Africa",
 		"The Republic of South Africa",
 		"SA",
-		"South Africa",
-		""
+		"South Africa"
 		];
 		return choice(data, this.rnd);
 	}
@@ -425,7 +467,11 @@ class Faker_en_za : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"co.za', 'com', 'org.za', 'info', 'net.za'"
+		"co.za",
+		"com",
+		"org.za",
+		"info",
+		"net.za'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -723,8 +769,7 @@ class Faker_en_za : Faker {
 		"Camille",
 		"Tami",
 		"Elisa",
-		"Kristie",
-		""
+		"Kristie"
 		];
 		return choice(data, this.rnd);
 	}
@@ -972,8 +1017,7 @@ class Faker_en_za : Faker {
 		"Zulu",
 		"Zungu",
 		"Zuma",
-		"Zwane",
-		""
+		"Zwane"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1530,8 +1574,7 @@ class Faker_en_za : Faker {
 		"Conrad",
 		"Percy",
 		"Tommie",
-		"Jan",
-		""
+		"Jan"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1789,8 +1832,7 @@ class Faker_en_za : Faker {
 		"Conrad",
 		"Percy",
 		"Tommie",
-		"Jan",
-		""
+		"Jan"
 		];
 		return choice(data, this.rnd);
 	}

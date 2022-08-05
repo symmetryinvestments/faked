@@ -19,9 +19,55 @@ class Faker_ge : Faker {
 	}
 
 	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"5##-###-###",
+		"5########",
+		"5## ## ## ##",
+		"5## ######",
+		"5## ### ###",
+		"995 5##-###-###",
+		"995 5########",
+		"995 5## ## ## ##",
+		"995 5## ######",
+		"995 5## ### ###",
+		"+995 5##-###-###",
+		"+995 5########",
+		"+995 5## ## ## ##",
+		"+995 5## ######",
+		"+995 5## ### ###",
+		"(+995) 5##-###-###",
+		"(+995) 5########",
+		"(+995) 5## ## ## ##",
+		"(+995) 5## ######",
+		"(+995) 5## ### ###"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"(+995 32) 2-##-##-##",
+		"032-2-##-##-##",
+		"032-2-######",
+		"032-2-###-###",
+		"032 2 ## ## ##",
+		"032 2 ######",
+		"2 ## ## ##",
+		"2######",
+		"2 ### ###"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string companySuffix() {
 		auto data = [
-		"ჯგუფი', 'და კომპანია', 'სტუდია', 'გრუპი'"
+		"ჯგუფი",
+		"და კომპანია",
+		"სტუდია",
+		"გრუპი'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -29,7 +75,10 @@ class Faker_ge : Faker {
 	///
 	string companyPrefix() {
 		auto data = [
-		"შპს', 'სს', 'ააიპ', 'სსიპ'"
+		"შპს",
+		"სს",
+		"ააიპ",
+		"სსიპ'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -124,8 +173,7 @@ class Faker_ge : Faker {
 		"ხელვაჩაური",
 		"ხობი",
 		"ხონი",
-		"ხულო",
-		""
+		"ხულო"
 		];
 		return choice(data, this.rnd);
 	}
@@ -445,8 +493,7 @@ class Faker_ge : Faker {
 		"ჰაიტი",
 		"ჰერდი და მაკდონალდის კუნძულები",
 		"ჰონდურასი",
-		"ჰონკონგი",
-		""
+		"ჰონკონგი"
 		];
 		return choice(data, this.rnd);
 	}
@@ -462,7 +509,10 @@ class Faker_ge : Faker {
 	///
 	override string addressCitySuffix() {
 		auto data = [
-		"სოფელი', 'ძირი', 'სკარი', 'დაბა'"
+		"სოფელი",
+		"ძირი",
+		"სკარი",
+		"დაბა'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -470,7 +520,10 @@ class Faker_ge : Faker {
 	///
 	override string addressCityPrefix() {
 		auto data = [
-		"ახალი', 'ძველი', 'ზემო', 'ქვემო'"
+		"ახალი",
+		"ძველი",
+		"ზემო",
+		"ქვემო'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -893,18 +946,9 @@ class Faker_ge : Faker {
 		"ჯავახიშვილის",
 		"ჯაფარიძის",
 		"ჯიბლაძის",
-		"ჯორჯიაშვილის",
-		""
+		"ჯორჯიაშვილის"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressBuildingNumber() {
-		auto data = [
-		"###', '##', '#'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
@@ -918,7 +962,8 @@ class Faker_ge : Faker {
 	///
 	override string addressSecondaryAddress() {
 		auto data = [
-		"კორპ. ##', 'შენობა ###'"
+		"კორპ. ##",
+		"შენობა ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -926,7 +971,12 @@ class Faker_ge : Faker {
 	///
 	override string addressStreetSuffix() {
 		auto data = [
-		"გამზ.', 'გამზირი', 'ქ.', 'ქუჩა', 'ჩიხი', 'ხეივანი'"
+		"გამზ.",
+		"გამზირი",
+		"ქ.",
+		"ქუჩა",
+		"ჩიხი",
+		"ხეივანი'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -934,7 +984,9 @@ class Faker_ge : Faker {
 	///
 	override string internetFreeEmail() {
 		auto data = [
-		"gmail.com', 'yahoo.com', 'posta.ge'"
+		"gmail.com",
+		"yahoo.com",
+		"posta.ge'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -942,7 +994,12 @@ class Faker_ge : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"ge', 'com', 'net', 'org', 'com.ge', 'org.ge'"
+		"ge",
+		"com",
+		"net",
+		"org",
+		"com.ge",
+		"org.ge'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -950,7 +1007,10 @@ class Faker_ge : Faker {
 	///
 	override string namePrefix() {
 		auto data = [
-		"ბ-ნი', 'ბატონი', 'ქ-ნი', 'ქალბატონი'"
+		"ბ-ნი",
+		"ბატონი",
+		"ქ-ნი",
+		"ქალბატონი'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1126,8 +1186,7 @@ class Faker_ge : Faker {
 		"ჯაჯანიძე",
 		"ჯვარელია",
 		"ჯინიუზაშვილი",
-		"ჯუღაშვილი",
-		""
+		"ჯუღაშვილი"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1633,8 +1692,7 @@ class Faker_ge : Faker {
 		"ჯუბი",
 		"ჯულიეტა",
 		"ჯუმბერ",
-		"ჰამლეტ",
-		""
+		"ჰამლეტ"
 		];
 		return choice(data, this.rnd);
 	}

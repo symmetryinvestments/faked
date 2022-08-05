@@ -19,9 +19,23 @@ class Faker_hr : Faker {
 	}
 
 	///
-	string cellPhoneFormats() {
+	override string phoneNumberFormats() {
 		auto data = [
-		"09# ### ####', '+385 9# ### ####'"
+		"### ###",
+		"### ###",
+		"### ###",
+		"### ### ####",
+		"+385 ## ### ###",
+		"00385 ## ### ###"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"09# ### ####",
+		"+385 9# ### ####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -156,8 +170,7 @@ class Faker_hr : Faker {
 		"Zagreb",
 		"Zaprešic",
 		"Zlatar",
-		"Županja",
-		""
+		"Županja"
 		];
 		return choice(data, this.rnd);
 	}
@@ -410,8 +423,7 @@ class Faker_hr : Faker {
 		"Zapadna Sahara",
 		"Jemen",
 		"Zambija",
-		"Zimbabve",
-		""
+		"Zimbabve"
 		];
 		return choice(data, this.rnd);
 	}
@@ -553,8 +565,7 @@ class Faker_hr : Faker {
 		"Pacifik/Auckland",
 		"Pacifik/Tongatapu",
 		"Pacifik/Fakaofo",
-		"Pacifik/Apia",
-		""
+		"Pacifik/Apia"
 		];
 		return choice(data, this.rnd);
 	}
@@ -936,18 +947,9 @@ class Faker_hr : Faker {
 		"Zrinske gore",
 		"Žumberačka",
 		"Županijska",
-		"Zvečevska",
-		""
+		"Zvečevska"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressBuildingNumber() {
-		auto data = [
-		"#', '##', '###'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
@@ -959,17 +961,11 @@ class Faker_hr : Faker {
 	}
 
 	///
-	override string addressSecondaryAddress() {
-		auto data = [
-		"Kat #', 'Stan ##'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
 	override string internetFreeEmail() {
 		auto data = [
-		"gmail.com', 'hrnet.hr', 'mailhr.hr'"
+		"gmail.com",
+		"hrnet.hr",
+		"mailhr.hr'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -977,7 +973,11 @@ class Faker_hr : Faker {
 	///
 	override string internetDomainSuffix() {
 		auto data = [
-		"hr', 'com', 'net', 'eu', 'org'"
+		"hr",
+		"com",
+		"net",
+		"eu",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1155,8 +1155,7 @@ class Faker_hr : Faker {
 		"Zoltan",
 		"Zrinislav",
 		"Zrinko",
-		"Zvonimir",
-		""
+		"Zvonimir"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1164,7 +1163,8 @@ class Faker_hr : Faker {
 	///
 	override string nameSuffix() {
 		auto data = [
-		"dipl.oecc', 'dipl.ing'"
+		"dipl.oecc",
+		"dipl.ing'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -12788,8 +12788,7 @@ class Faker_hr : Faker {
 		"Žužak",
 		"Žužanić",
 		"ŽužanićKlapan",
-		"Žvab",
-		""
+		"Žvab"
 		];
 		return choice(data, this.rnd);
 	}
@@ -13205,8 +13204,7 @@ class Faker_hr : Faker {
 		"Zoltan",
 		"Zrinislav",
 		"Zrinko",
-		"Zvonimir",
-		""
+		"Zvonimir"
 		];
 		return choice(data, this.rnd);
 	}
@@ -13451,8 +13449,7 @@ class Faker_hr : Faker {
 		"Vladimira",
 		"Zdenka",
 		"Zdeslava",
-		"Zlata",
-		""
+		"Zlata"
 		];
 		return choice(data, this.rnd);
 	}
@@ -13460,7 +13457,11 @@ class Faker_hr : Faker {
 	///
 	override string namePrefix() {
 		auto data = [
-		"g.', 'gđa.', 'gđa.', 'gđa', 'dr.'"
+		"g.",
+		"gđa.",
+		"gđa.",
+		"gđa",
+		"dr.'"
 		];
 		return choice(data, this.rnd);
 	}

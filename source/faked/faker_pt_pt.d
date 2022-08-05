@@ -21,7 +21,10 @@ class Faker_pt_pt : Faker {
 	///
 	string nameMalePrefix() {
 		auto data = [
-		"Sr.', 'Dr.', 'Prof.', 'Eng.º'"
+		"Sr.",
+		"Dr.",
+		"Prof.",
+		"Eng.º'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -29,7 +32,10 @@ class Faker_pt_pt : Faker {
 	///
 	string nameFemalePrefix() {
 		auto data = [
-		"Sra.', 'Dra.', 'Prof.ª', 'Eng.ª'"
+		"Sra.",
+		"Dra.",
+		"Prof.ª",
+		"Eng.ª'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -131,16 +137,7 @@ class Faker_pt_pt : Faker {
 		"Vasco",
 		"Vicente",
 		"Vítor",
-		"Xavier",
-		""
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameSuffix() {
-		auto data = [
-		""
+		"Xavier"
 		];
 		return choice(data, this.rnd);
 	}
@@ -248,8 +245,7 @@ class Faker_pt_pt : Faker {
 		"Valente",
 		"Vaz",
 		"Vicente",
-		"Vieira",
-		""
+		"Vieira"
 		];
 		return choice(data, this.rnd);
 	}
@@ -444,8 +440,7 @@ class Faker_pt_pt : Faker {
 		"Vicente",
 		"Vítor",
 		"Vitória",
-		"Xavier",
-		""
+		"Xavier"
 		];
 		return choice(data, this.rnd);
 	}
@@ -545,8 +540,7 @@ class Faker_pt_pt : Faker {
 		"Valentina",
 		"Vânia",
 		"Vera",
-		"Vitória",
-		""
+		"Vitória"
 		];
 		return choice(data, this.rnd);
 	}
@@ -575,8 +569,7 @@ class Faker_pt_pt : Faker {
 		"Desporto",
 		"Ar Livre",
 		"Automóveis",
-		"Industrial",
-		""
+		"Industrial"
 		];
 		return choice(data, this.rnd);
 	}
@@ -734,8 +727,7 @@ class Faker_pt_pt : Faker {
 		"Vila Real",
 		"Vila Real de Santo António",
 		"Viseu",
-		"Vizela",
-		""
+		"Vizela"
 		];
 		return choice(data, this.rnd);
 	}
@@ -980,8 +972,7 @@ class Faker_pt_pt : Faker {
 		"Vietname",
 		"Wallis e Futuna",
 		"Zâmbia",
-		"Zimbabué",
-		""
+		"Zimbabué"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1004,8 +995,7 @@ class Faker_pt_pt : Faker {
 		"Nordeste",
 		"Noroeste",
 		"Sudeste",
-		"Sodoeste",
-		""
+		"Sodoeste"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1032,34 +1022,9 @@ class Faker_pt_pt : Faker {
 		"Rua",
 		"Travessa",
 		"Urbanização",
-		"Viela",
-		""
+		"Viela"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCitySuffix() {
-		auto data = [
-		""
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCityPrefix() {
-		auto data = [
-		""
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressBuildingNumber() {
-		auto data = [
-		"####', '###', '##', '#'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
@@ -1073,9 +1038,20 @@ class Faker_pt_pt : Faker {
 	///
 	string dateWeekday() {
 		auto data = [
-		"wide: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo']",
-		"abbr: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom']",
-		""
+		"wide: ['Segunda",
+		"Terça",
+		"Quarta",
+		"Quinta",
+		"Sexta",
+		"Sábado",
+		"Domingo']",
+		"abbr: ['Seg",
+		"Ter",
+		"Qua",
+		"Qui",
+		"Sex",
+		"Sáb",
+		"Dom']"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1109,16 +1085,30 @@ class Faker_pt_pt : Faker {
 		"ciano",
 		"azure",
 		"lavanda",
-		"prata",
-		""
+		"prata"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	string cellPhoneFormats() {
+	override string phoneNumberFormats() {
 		auto data = [
-		"+351 91#######', '+351 93#######', '+351 96#######'"
+		"+351 2########",
+		"+351 3########",
+		"+351 91#######",
+		"+351 92#######",
+		"+351 93#######",
+		"+351 96#######"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"+351 91#######",
+		"+351 93#######",
+		"+351 96#######'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -1134,8 +1124,7 @@ class Faker_pt_pt : Faker {
 		"portugalmail.pt",
 		"mail.pt",
 		"sapo.pt",
-		"aeiou.pt",
-		""
+		"aeiou.pt"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1153,8 +1142,7 @@ class Faker_pt_pt : Faker {
 		"info",
 		"name",
 		"net",
-		"org",
-		""
+		"org"
 		];
 		return choice(data, this.rnd);
 	}
