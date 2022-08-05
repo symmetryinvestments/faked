@@ -20,29 +20,29 @@ class Faker_pt_pt : Faker {
 
 	///
 	string nameMalePrefix() {
-		static enum data = [
+		auto data = [
 		"Sr.",
 		"Dr.",
 		"Prof.",
-		"Eng.º"
+		"Eng.º'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	string nameFemalePrefix() {
-		static enum data = [
+		auto data = [
 		"Sra.",
 		"Dra.",
 		"Prof.ª",
-		"Eng.ª"
+		"Eng.ª'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameMaleFirstName() {
-		static enum data = [
+		auto data = [
 		"Afonso",
 		"Alexandre",
 		"André",
@@ -143,8 +143,116 @@ class Faker_pt_pt : Faker {
 	}
 
 	///
+	override string nameLastName() {
+		auto data = [
+		"Abreu",
+		"Albuquerque",
+		"Almeida",
+		"Alves",
+		"Amaral",
+		"Amorim",
+		"Andrade",
+		"Anjos",
+		"Antunes",
+		"Araújo",
+		"Assunção",
+		"Azevedo",
+		"Baptista",
+		"Barbosa",
+		"Barros",
+		"Batista",
+		"Borges",
+		"Braga",
+		"Branco",
+		"Brito",
+		"Campos",
+		"Cardoso",
+		"Carneiro",
+		"Carvalho",
+		"Castro",
+		"Coelho",
+		"Correia",
+		"Costa",
+		"Cruz",
+		"Cunha",
+		"Domingues",
+		"Esteves",
+		"Faria",
+		"Fernandes",
+		"Ferreira",
+		"Figueiredo",
+		"Fonseca",
+		"Freitas",
+		"Garcia",
+		"Gaspar",
+		"Gomes",
+		"Gonçalves",
+		"Guerreiro",
+		"Henriques",
+		"Jesus",
+		"Leal",
+		"Leite",
+		"Lima",
+		"Lopes",
+		"Loureiro",
+		"Lourenço",
+		"Macedo",
+		"Machado",
+		"Magalhães",
+		"Maia",
+		"Marques",
+		"Martins",
+		"Matias",
+		"Matos",
+		"Melo",
+		"Mendes",
+		"Miranda",
+		"Monteiro",
+		"Morais",
+		"Moreira",
+		"Mota",
+		"Moura",
+		"Nascimento",
+		"Neto",
+		"Neves",
+		"Nobre",
+		"Nogueira",
+		"Nunes",
+		"Oliveira",
+		"Pacheco",
+		"Paiva",
+		"Pereira",
+		"Pinheiro",
+		"Pinho",
+		"Pinto",
+		"Pires",
+		"Ramos",
+		"Raposo",
+		"Reis",
+		"Ribeiro",
+		"Rocha",
+		"Rodrigues",
+		"Santos",
+		"Saraiva",
+		"Silva",
+		"Simões",
+		"Soares",
+		"Sousa",
+		"Sá",
+		"Tavares",
+		"Teixeira",
+		"Torres",
+		"Valente",
+		"Vaz",
+		"Vicente",
+		"Vieira"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string nameFirstName() {
-		static enum data = [
+		auto data = [
 		"Adriana",
 		"Afonso",
 		"Alexandra",
@@ -338,116 +446,8 @@ class Faker_pt_pt : Faker {
 	}
 
 	///
-	override string nameLastName() {
-		static enum data = [
-		"Abreu",
-		"Albuquerque",
-		"Almeida",
-		"Alves",
-		"Amaral",
-		"Amorim",
-		"Andrade",
-		"Anjos",
-		"Antunes",
-		"Araújo",
-		"Assunção",
-		"Azevedo",
-		"Baptista",
-		"Barbosa",
-		"Barros",
-		"Batista",
-		"Borges",
-		"Braga",
-		"Branco",
-		"Brito",
-		"Campos",
-		"Cardoso",
-		"Carneiro",
-		"Carvalho",
-		"Castro",
-		"Coelho",
-		"Correia",
-		"Costa",
-		"Cruz",
-		"Cunha",
-		"Domingues",
-		"Esteves",
-		"Faria",
-		"Fernandes",
-		"Ferreira",
-		"Figueiredo",
-		"Fonseca",
-		"Freitas",
-		"Garcia",
-		"Gaspar",
-		"Gomes",
-		"Gonçalves",
-		"Guerreiro",
-		"Henriques",
-		"Jesus",
-		"Leal",
-		"Leite",
-		"Lima",
-		"Lopes",
-		"Loureiro",
-		"Lourenço",
-		"Macedo",
-		"Machado",
-		"Magalhães",
-		"Maia",
-		"Marques",
-		"Martins",
-		"Matias",
-		"Matos",
-		"Melo",
-		"Mendes",
-		"Miranda",
-		"Monteiro",
-		"Morais",
-		"Moreira",
-		"Mota",
-		"Moura",
-		"Nascimento",
-		"Neto",
-		"Neves",
-		"Nobre",
-		"Nogueira",
-		"Nunes",
-		"Oliveira",
-		"Pacheco",
-		"Paiva",
-		"Pereira",
-		"Pinheiro",
-		"Pinho",
-		"Pinto",
-		"Pires",
-		"Ramos",
-		"Raposo",
-		"Reis",
-		"Ribeiro",
-		"Rocha",
-		"Rodrigues",
-		"Santos",
-		"Saraiva",
-		"Silva",
-		"Simões",
-		"Soares",
-		"Sousa",
-		"Sá",
-		"Tavares",
-		"Teixeira",
-		"Torres",
-		"Valente",
-		"Vaz",
-		"Vicente",
-		"Vieira"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string nameFemaleFirstName() {
-		static enum data = [
+		auto data = [
 		"Adriana",
 		"Alexandra",
 		"Alice",
@@ -546,143 +546,8 @@ class Faker_pt_pt : Faker {
 	}
 
 	///
-	override string nameName() {
-		switch(uniform(0, 5, this.rnd)) {
-			case 0:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 1:
-				return format!"%s %s"(nameMaleFirstName(), nameLastName());
-			case 2:
-				return format!"%s %s"(nameFemaleFirstName(), nameLastName());
-			case 3:
-				return format!"%s %s %s"(nameMalePrefix(), nameMaleFirstName(), nameLastName());
-			case 4:
-				return format!"%s %s %s"(nameFemalePrefix(), nameFemaleFirstName(), nameLastName());
-			default: assert(false);
-		}
-	}
-
-	///
-	override string namePrefix() {
-		switch(uniform(0, 2, this.rnd)) {
-			case 0:
-				return format!"%s"(nameFemalePrefix());
-			case 1:
-				return format!"%s"(nameMalePrefix());
-			default: assert(false);
-		}
-	}
-
-	///
-	override string commerceColor() {
-		static enum data = [
-		"vermelho",
-		"verde",
-		"azul",
-		"amarelo",
-		"roxo",
-		"branco",
-		"preto",
-		"laranja",
-		"rosa",
-		"cinzento",
-		"castanho",
-		"violeta",
-		"turquesa",
-		"bronzeado",
-		"salmão",
-		"ameixa",
-		"orquídea",
-		"magenta",
-		"lima",
-		"marfim",
-		"índigo",
-		"ouro",
-		"fúcsia",
-		"ciano",
-		"azure",
-		"lavanda",
-		"prata"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductNameAdjective() {
-		static enum data = [
-		"Pequeno",
-		"Ergonómico",
-		"Rústico",
-		"Inteligente",
-		"Linda",
-		"Incrível",
-		"Fantástico",
-		"Prático",
-		"Lustroso",
-		"Impressionante",
-		"Genérico",
-		"Artesanal",
-		"Feito à Mão",
-		"Licenciado",
-		"Refinado",
-		"Sem Marca",
-		"Saboroso"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductNameMaterial() {
-		static enum data = [
-		"Aço",
-		"Madeira",
-		"Betão",
-		"Plástico",
-		"Algodão",
-		"Granito",
-		"Borracha",
-		"Metal",
-		"Suave",
-		"Fresco",
-		"Congelado"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductNameProduct() {
-		static enum data = [
-		"Cadeira",
-		"Carro",
-		"Computador",
-		"Teclado",
-		"Rato",
-		"Bicicleta",
-		"Bola",
-		"Luvas",
-		"Calças",
-		"Camisa",
-		"Mesa",
-		"Sapatos",
-		"Chapéu",
-		"Toalhas",
-		"Sabonete",
-		"Atum",
-		"Frango",
-		"Peixe",
-		"Queijo",
-		"Bacon",
-		"Pizza",
-		"Salada",
-		"Salsichas",
-		"Batatas Fritas"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string commerceDepartment() {
-		static enum data = [
+		auto data = [
 		"Livros",
 		"Filmes",
 		"Música",
@@ -711,7 +576,7 @@ class Faker_pt_pt : Faker {
 
 	///
 	override string addressCityName() {
-		static enum data = [
+		auto data = [
 		"Abrantes",
 		"Agualva-Cacém",
 		"Águeda",
@@ -869,7 +734,7 @@ class Faker_pt_pt : Faker {
 
 	///
 	override string addressCountry() {
-		static enum data = [
+		auto data = [
 		"África do Sul",
 		"Áustria",
 		"Índia",
@@ -1114,15 +979,15 @@ class Faker_pt_pt : Faker {
 
 	///
 	override string addressDefaultCountry() {
-		static enum data = [
-		"Portugal"
+		auto data = [
+		"Portugal'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressDirection() {
-		static enum data = [
+		auto data = [
 		"Norte",
 		"Este",
 		"Sul",
@@ -1137,7 +1002,7 @@ class Faker_pt_pt : Faker {
 
 	///
 	string addressStreetPrefix() {
-		static enum data = [
+		auto data = [
 		"Acesso",
 		"Alameda",
 		"Avenida",
@@ -1163,26 +1028,71 @@ class Faker_pt_pt : Faker {
 	}
 
 	///
-	override string addressStreetAddress() {
-		return format!"%s %s"(addressStreetName(), addressBuildingNumber());
-	}
-
-	///
-	override string addressCity() {
-		return format!"%s"(addressCityName());
-	}
-
-	///
 	override string addressPostcode() {
-		static enum data = [
-		"####-###"
+		auto data = [
+		"####-###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
+	string dateWeekday() {
+		auto data = [
+		"wide: ['Segunda",
+		"Terça",
+		"Quarta",
+		"Quinta",
+		"Sexta",
+		"Sábado",
+		"Domingo']",
+		"abbr: ['Seg",
+		"Ter",
+		"Qua",
+		"Qui",
+		"Sex",
+		"Sáb",
+		"Dom']"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
+		"vermelho",
+		"verde",
+		"azul",
+		"amarelo",
+		"roxo",
+		"branco",
+		"preto",
+		"laranja",
+		"rosa",
+		"cinzento",
+		"castanho",
+		"violeta",
+		"turquesa",
+		"bronzeado",
+		"salmão",
+		"ameixa",
+		"orquídea",
+		"magenta",
+		"lima",
+		"marfim",
+		"índigo",
+		"ouro",
+		"fúcsia",
+		"ciano",
+		"azure",
+		"lavanda",
+		"prata"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string phoneNumberFormats() {
-		static enum data = [
+		auto data = [
 		"+351 2########",
 		"+351 3########",
 		"+351 91#######",
@@ -1195,17 +1105,17 @@ class Faker_pt_pt : Faker {
 
 	///
 	override string cellPhoneFormats() {
-		static enum data = [
+		auto data = [
 		"+351 91#######",
 		"+351 93#######",
-		"+351 96#######"
+		"+351 96#######'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string internetFreeEmail() {
-		static enum data = [
+		auto data = [
 		"gmail.com",
 		"yahoo.com",
 		"hotmail.com",
@@ -1221,7 +1131,7 @@ class Faker_pt_pt : Faker {
 
 	///
 	override string internetDomainSuffix() {
-		static enum data = [
+		auto data = [
 		"pt",
 		"gov.pt",
 		"com.pt",

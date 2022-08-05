@@ -40,9 +40,12 @@ Type findType(string[] lines) {
 		//writefln("%20s %s", t, l);
 
 		if(type == Type.undefined) {
+			//writefln("first %s %s %s %s '%s'", isCall, isMustache, isJson, isDigit, l);
 			type = t;
 			continue;
 		} else if(t != type && type != Type.json) {
+			//writefln("secon %s %s %s %s %s %s '%s'", isCall, isMustache, isJson, isDigit
+			//		, t, type, l);
 			type = Type.unknown;
 			break;
 		}
@@ -62,22 +65,43 @@ struct TypeLines {
 	string[] lines;
 }
 
-TypeLines jssplit(string input) {
-	string[] lines = split(input.removeLicense(), "\n")
+private string[] singleLineSplit(string s) {
+	string[] a = s.split("\n");
+	string[][] b = a.map!(it => it.split(", ")).array;
+	string[] c = b.joiner().array;
+	auto ret2 = c
+		.map!(l => l.strip)
+		.filter!(l => !l.empty)
+		.filter!(l => !l.startsWith("//"))
+		.array;
+	return ret2;
+}
+
+TypeLines jssplit(string input, const string path) {
+	//string[] lines = split(input.removeLicense(), "\n")
+	string[] lines = singleLineSplit(input.removeLicense())
 		.map!(a => a.strip("\", \t\n\r"))
 		.filter!(a => !a.empty && !a.startsWith("//"))
 		.array;
 
-	if(lines.length < 3) {
-		//writeln("\t\tshort");
-		return TypeLines(Type.undefined, []);
-	}
-	assert(lines.front.startsWith("module[\"exports\"] = ")
-				|| lines.front.startsWith("module.exports = ")
-				|| lines.front.startsWith("module['exports'] = ")
-			, lines.front ~ "\n" ~ input);
-	lines = lines[1 .. $]
-		.map!(a => {
+	//if(lines.length < 3) {
+	//	//writeln("\t\tshort");
+	//	return TypeLines(Type.undefined, []);
+	//}
+	string[] prefixes = [ "module[\"exports\"] = "
+		, "module.exports = "
+		, "module['exports'] = "
+		, "export default ["
+		, "export default Object.freeze(["
+		, "export default {"
+	];
+	auto pf = prefixes.find!((a,b) => b.startsWith(a))(lines.front);
+	assert(!pf.empty, lines.front ~ "\n\n" ~ path);
+	lines[0] = lines[0][pf.front.length .. $].strip();
+	lines = lines[0 .. $]
+		.map!(strip)
+		.filter!(l => !l.empty)
+		.map!((a) => {
 			if(!a.empty && a[$ - 1] == '\'') {
 				a = a[0 .. $ - 1];
 			}
@@ -87,16 +111,16 @@ TypeLines jssplit(string input) {
 			return a;
 		}())
 		.array;
-	//writeln(lines);
-	assert(lines.back.startsWith("];")
-            || lines.back.startsWith("}")
-            || lines.back.startsWith("]"),
-			lines.back ~ "\n" ~ input);
-	lines = lines[0 .. $ - 1];
+	auto postFixes = ["];", "}", "};", "]", "]);"];
+	auto psx = postFixes.find!((a,b) => b.endsWith(a))(lines.back);
+	assert(!psx.empty, "'" ~ lines.back ~ "'");
+	lines.back = lines.back[0 .. $ - psx.front.length].strip();
+	lines = lines.filter!(it => !it.empty).array;
 
 	Type type = findType(lines);
 	if(type == Type.unknown) {
 		//writefln("unknown %(%s\n%)", lines);
+		//writefln("unknown %s", path);
 	}
 
 	return TypeLines(type, lines);

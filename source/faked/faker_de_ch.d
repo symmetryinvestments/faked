@@ -20,7 +20,7 @@ class Faker_de_ch : Faker {
 
 	///
 	override string phoneNumberFormats() {
-		static enum data = [
+		auto data = [
 		"0800 ### ###",
 		"0800 ## ## ##",
 		"0## ### ## ##",
@@ -35,74 +35,39 @@ class Faker_de_ch : Faker {
 	}
 
 	///
-	override string addressStateAbbr() {
-		static enum data = [
-		"AG",
-		"AR",
-		"AI",
-		"BL",
-		"BS",
-		"BE",
-		"FR",
-		"GE",
-		"GL",
-		"GR",
-		"JU",
-		"LU",
-		"NE",
-		"NW",
-		"OW",
-		"SG",
-		"SH",
-		"SZ",
-		"SO",
-		"TI",
-		"TG",
-		"UR",
-		"VD",
-		"VS",
-		"ZG",
-		"ZH"
+	override string internetDomainSuffix() {
+		auto data = [
+		"com",
+		"net",
+		"biz",
+		"ch",
+		"de",
+		"li",
+		"at",
+		"ch",
+		"ch'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressState() {
-		static enum data = [
-		"Aargau",
-		"Appenzell Ausserrhoden",
-		"Appenzell Innerrhoden",
-		"Basel-Land",
-		"Basel-Stadt",
-		"Bern",
-		"Freiburg",
-		"Genf",
-		"Glarus",
-		"Graubünden",
-		"Jura",
-		"Luzern",
-		"Neuenburg",
-		"Nidwalden",
-		"Obwalden",
-		"St. Gallen",
-		"Schaffhausen",
-		"Schwyz",
-		"Solothurn",
-		"Tessin",
-		"Thurgau",
-		"Uri",
-		"Waadt",
-		"Wallis",
-		"Zug",
-		"Zürich"
+	override string companySuffix() {
+		auto data = [
+		"AG",
+		"GmbH",
+		"und Söhne",
+		"und Partner",
+		"& Co.",
+		"Gruppe",
+		"LLC",
+		"Inc."
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCityName() {
-		static enum data = [
+		auto data = [
 		"Aarau",
 		"Adliswil",
 		"Allschwil",
@@ -208,21 +173,82 @@ class Faker_de_ch : Faker {
 	}
 
 	///
-	override string addressDefaultCountry() {
-		static enum data = [
-		"Schweiz"
+	override string addressState() {
+		auto data = [
+		"Aargau",
+		"Appenzell Ausserrhoden",
+		"Appenzell Innerrhoden",
+		"Basel-Land",
+		"Basel-Stadt",
+		"Bern",
+		"Freiburg",
+		"Genf",
+		"Glarus",
+		"Graubünden",
+		"Jura",
+		"Luzern",
+		"Neuenburg",
+		"Nidwalden",
+		"Obwalden",
+		"St. Gallen",
+		"Schaffhausen",
+		"Schwyz",
+		"Solothurn",
+		"Tessin",
+		"Thurgau",
+		"Uri",
+		"Waadt",
+		"Wallis",
+		"Zug",
+		"Zürich"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressCity() {
-		return format!"%s"(addressCityName());
+	override string addressStateAbbr() {
+		auto data = [
+		"AG",
+		"AR",
+		"AI",
+		"BL",
+		"BS",
+		"BE",
+		"FR",
+		"GE",
+		"GL",
+		"GR",
+		"JU",
+		"LU",
+		"NE",
+		"NW",
+		"OW",
+		"SG",
+		"SH",
+		"SZ",
+		"SO",
+		"TI",
+		"TG",
+		"UR",
+		"VD",
+		"VS",
+		"ZG",
+		"ZH"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"Schweiz'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCountryCode() {
-		static enum data = [
+		auto data = [
 		"CH",
 		"CH",
 		"CH",
@@ -232,14 +258,14 @@ class Faker_de_ch : Faker {
 		"LI",
 		"US",
 		"HK",
-		"VN"
+		"VN'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressPostcode() {
-		static enum data = [
+		auto data = [
 		"1###",
 		"2###",
 		"3###",
@@ -254,62 +280,234 @@ class Faker_de_ch : Faker {
 	}
 
 	///
-	override string companySuffix() {
-		static enum data = [
-		"AG",
-		"GmbH",
-		"und Söhne",
-		"und Partner",
-		"& Co.",
-		"Gruppe",
-		"LLC",
-		"Inc."
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyName() {
-		switch(uniform(0, 3, this.rnd)) {
-			case 0:
-				return format!"%s %s"(nameLastName(), companySuffix());
-			case 1:
-				return format!"%s-%s"(nameLastName(), nameLastName());
-			case 2:
-				return format!"%s, %s und %s"(nameLastName(), nameLastName(), nameLastName());
-			default: assert(false);
-		}
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"com",
-		"net",
-		"biz",
-		"ch",
-		"de",
-		"li",
-		"at",
-		"ch",
-		"ch"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string namePrefix() {
-		static enum data = [
+		auto data = [
 		"Hr.",
 		"Fr.",
-		"Dr."
+		"Dr.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameLastName() {
+		auto data = [
+		"Ackermann",
+		"Aebi",
+		"Albrecht",
+		"Ammann",
+		"Amrein",
+		"Arnold",
+		"Bachmann",
+		"Bader",
+		"Bär",
+		"Bättig",
+		"Bauer",
+		"Baumann",
+		"Baumgartner",
+		"Baur",
+		"Beck",
+		"Benz",
+		"Berger",
+		"Bernasconi",
+		"Betschart",
+		"Bianchi",
+		"Bieri",
+		"Blaser",
+		"Blum",
+		"Bolliger",
+		"Bosshard",
+		"Braun",
+		"Brun",
+		"Brunner",
+		"Bucher",
+		"Bühler",
+		"Bühlmann",
+		"Burri",
+		"Christen",
+		"Egger",
+		"Egli",
+		"Eichenberger",
+		"Erni",
+		"Ernst",
+		"Eugster",
+		"Fankhauser",
+		"Favre",
+		"Fehr",
+		"Felber",
+		"Felder",
+		"Ferrari",
+		"Fischer",
+		"Flückiger",
+		"Forster",
+		"Frei",
+		"Frey",
+		"Frick",
+		"Friedli",
+		"Fuchs",
+		"Furrer",
+		"Gasser",
+		"Geiger",
+		"Gerber",
+		"Gfeller",
+		"Giger",
+		"Gloor",
+		"Graf",
+		"Grob",
+		"Gross",
+		"Gut",
+		"Haas",
+		"Häfliger",
+		"Hafner",
+		"Hartmann",
+		"Hasler",
+		"Hauser",
+		"Hermann",
+		"Herzog",
+		"Hess",
+		"Hirt",
+		"Hodel",
+		"Hofer",
+		"Hoffmann",
+		"Hofmann",
+		"Hofstetter",
+		"Hotz",
+		"Huber",
+		"Hug",
+		"Hunziker",
+		"Hürlimann",
+		"Imhof",
+		"Isler",
+		"Iten",
+		"Jäggi",
+		"Jenni",
+		"Jost",
+		"Kägi",
+		"Kaiser",
+		"Kälin",
+		"Käser",
+		"Kaufmann",
+		"Keller",
+		"Kern",
+		"Kessler",
+		"Knecht",
+		"Koch",
+		"Kohler",
+		"Kuhn",
+		"Küng",
+		"Kunz",
+		"Lang",
+		"Lanz",
+		"Lehmann",
+		"Leu",
+		"Leunberger",
+		"Lüscher",
+		"Lustenberger",
+		"Lüthi",
+		"Lutz",
+		"Mäder",
+		"Maier",
+		"Marti",
+		"Martin",
+		"Maurer",
+		"Mayer",
+		"Meier",
+		"Meili",
+		"Meister",
+		"Merz",
+		"Mettler",
+		"Meyer",
+		"Michel",
+		"Moser",
+		"Müller",
+		"Näf",
+		"Ott",
+		"Peter",
+		"Pfister",
+		"Portmann",
+		"Probst",
+		"Rey",
+		"Ritter",
+		"Roos",
+		"Roth",
+		"Rüegg",
+		"Schäfer",
+		"Schaller",
+		"Schär",
+		"Schärer",
+		"Schaub",
+		"Scheidegger",
+		"Schenk",
+		"Scherrer",
+		"Schlatter",
+		"Schmid",
+		"Schmidt",
+		"Schneider",
+		"Schnyder",
+		"Schoch",
+		"Schuler",
+		"Schumacher",
+		"Schürch",
+		"Schwab",
+		"Schwarz",
+		"Schweizer",
+		"Seiler",
+		"Senn",
+		"Sidler",
+		"Siegrist",
+		"Sigrist",
+		"Spörri",
+		"Stadelmann",
+		"Stalder",
+		"Staub",
+		"Stauffer",
+		"Steffen",
+		"Steiger",
+		"Steiner",
+		"Steinmann",
+		"Stettler",
+		"Stocker",
+		"Stöckli",
+		"Stucki",
+		"Studer",
+		"Stutz",
+		"Suter",
+		"Sutter",
+		"Tanner",
+		"Thommen",
+		"Tobler",
+		"Vogel",
+		"Vogt",
+		"Wagner",
+		"Walder",
+		"Walter",
+		"Weber",
+		"Wegmann",
+		"Wehrli",
+		"Weibel",
+		"Wenger",
+		"Wettstein",
+		"Widmer",
+		"Winkler",
+		"Wirth",
+		"Wirz",
+		"Wolf",
+		"Wüthrich",
+		"Wyss",
+		"Zbinden",
+		"Zehnder",
+		"Ziegler",
+		"Zimmermann",
+		"Zingg",
+		"Zollinger",
+		"Zürcher"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameFirstName() {
-		static enum data = [
+		auto data = [
 		"Adolf",
 		"Adrian",
 		"Agnes",
@@ -648,241 +846,6 @@ class Faker_de_ch : Faker {
 		"Yvonne"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameLastName() {
-		static enum data = [
-		"Ackermann",
-		"Aebi",
-		"Albrecht",
-		"Ammann",
-		"Amrein",
-		"Arnold",
-		"Bachmann",
-		"Bader",
-		"Bär",
-		"Bättig",
-		"Bauer",
-		"Baumann",
-		"Baumgartner",
-		"Baur",
-		"Beck",
-		"Benz",
-		"Berger",
-		"Bernasconi",
-		"Betschart",
-		"Bianchi",
-		"Bieri",
-		"Blaser",
-		"Blum",
-		"Bolliger",
-		"Bosshard",
-		"Braun",
-		"Brun",
-		"Brunner",
-		"Bucher",
-		"Bühler",
-		"Bühlmann",
-		"Burri",
-		"Christen",
-		"Egger",
-		"Egli",
-		"Eichenberger",
-		"Erni",
-		"Ernst",
-		"Eugster",
-		"Fankhauser",
-		"Favre",
-		"Fehr",
-		"Felber",
-		"Felder",
-		"Ferrari",
-		"Fischer",
-		"Flückiger",
-		"Forster",
-		"Frei",
-		"Frey",
-		"Frick",
-		"Friedli",
-		"Fuchs",
-		"Furrer",
-		"Gasser",
-		"Geiger",
-		"Gerber",
-		"Gfeller",
-		"Giger",
-		"Gloor",
-		"Graf",
-		"Grob",
-		"Gross",
-		"Gut",
-		"Haas",
-		"Häfliger",
-		"Hafner",
-		"Hartmann",
-		"Hasler",
-		"Hauser",
-		"Hermann",
-		"Herzog",
-		"Hess",
-		"Hirt",
-		"Hodel",
-		"Hofer",
-		"Hoffmann",
-		"Hofmann",
-		"Hofstetter",
-		"Hotz",
-		"Huber",
-		"Hug",
-		"Hunziker",
-		"Hürlimann",
-		"Imhof",
-		"Isler",
-		"Iten",
-		"Jäggi",
-		"Jenni",
-		"Jost",
-		"Kägi",
-		"Kaiser",
-		"Kälin",
-		"Käser",
-		"Kaufmann",
-		"Keller",
-		"Kern",
-		"Kessler",
-		"Knecht",
-		"Koch",
-		"Kohler",
-		"Kuhn",
-		"Küng",
-		"Kunz",
-		"Lang",
-		"Lanz",
-		"Lehmann",
-		"Leu",
-		"Leunberger",
-		"Lüscher",
-		"Lustenberger",
-		"Lüthi",
-		"Lutz",
-		"Mäder",
-		"Maier",
-		"Marti",
-		"Martin",
-		"Maurer",
-		"Mayer",
-		"Meier",
-		"Meili",
-		"Meister",
-		"Merz",
-		"Mettler",
-		"Meyer",
-		"Michel",
-		"Moser",
-		"Müller",
-		"Näf",
-		"Ott",
-		"Peter",
-		"Pfister",
-		"Portmann",
-		"Probst",
-		"Rey",
-		"Ritter",
-		"Roos",
-		"Roth",
-		"Rüegg",
-		"Schäfer",
-		"Schaller",
-		"Schär",
-		"Schärer",
-		"Schaub",
-		"Scheidegger",
-		"Schenk",
-		"Scherrer",
-		"Schlatter",
-		"Schmid",
-		"Schmidt",
-		"Schneider",
-		"Schnyder",
-		"Schoch",
-		"Schuler",
-		"Schumacher",
-		"Schürch",
-		"Schwab",
-		"Schwarz",
-		"Schweizer",
-		"Seiler",
-		"Senn",
-		"Sidler",
-		"Siegrist",
-		"Sigrist",
-		"Spörri",
-		"Stadelmann",
-		"Stalder",
-		"Staub",
-		"Stauffer",
-		"Steffen",
-		"Steiger",
-		"Steiner",
-		"Steinmann",
-		"Stettler",
-		"Stocker",
-		"Stöckli",
-		"Stucki",
-		"Studer",
-		"Stutz",
-		"Suter",
-		"Sutter",
-		"Tanner",
-		"Thommen",
-		"Tobler",
-		"Vogel",
-		"Vogt",
-		"Wagner",
-		"Walder",
-		"Walter",
-		"Weber",
-		"Wegmann",
-		"Wehrli",
-		"Weibel",
-		"Wenger",
-		"Wettstein",
-		"Widmer",
-		"Winkler",
-		"Wirth",
-		"Wirz",
-		"Wolf",
-		"Wüthrich",
-		"Wyss",
-		"Zbinden",
-		"Zehnder",
-		"Ziegler",
-		"Zimmermann",
-		"Zingg",
-		"Zollinger",
-		"Zürcher"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameName() {
-		switch(uniform(0, 6, this.rnd)) {
-			case 0:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 1:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 2:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 3:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 4:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 5:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			default: assert(false);
-		}
 	}
 
 }

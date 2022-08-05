@@ -20,7 +20,7 @@ class Faker_en_gb : Faker {
 
 	///
 	override string phoneNumberFormats() {
-		static enum data = [
+		auto data = [
 		"01#### #####",
 		"01### ######",
 		"01#1 ### ####",
@@ -42,7 +42,7 @@ class Faker_en_gb : Faker {
 
 	///
 	override string cellPhoneFormats() {
-		static enum data = [
+		auto data = [
 		"074## ######",
 		"075## ######",
 		"076## ######",
@@ -54,42 +54,30 @@ class Faker_en_gb : Faker {
 	}
 
 	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"co.uk",
-		"com",
-		"biz",
-		"info",
-		"name"
+	override string addressDefaultCountry() {
+		auto data = [
+		"England",
+		"Scotland",
+		"Wales",
+		"Northern Ireland'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	string addressUkCountry() {
-		static enum data = [
+		auto data = [
 		"England",
 		"Scotland",
 		"Wales",
-		"Northern Ireland"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressDefaultCountry() {
-		static enum data = [
-		"England",
-		"Scotland",
-		"Wales",
-		"Northern Ireland"
+		"Northern Ireland'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCounty() {
-		static enum data = [
+		auto data = [
 		"Avon",
 		"Bedfordshire",
 		"Berkshire",
@@ -160,6 +148,32 @@ class Faker_en_gb : Faker {
 		"West Yorkshire",
 		"Wiltshire",
 		"Worcestershire"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"ac.uk",
+		"biz",
+		"co",
+		"co.uk",
+		"com",
+		"cymru",
+		"gov.uk",
+		"info",
+		"london",
+		"ltd.uk",
+		"me.uk",
+		"name",
+		"nhs.uk",
+		"org.uk",
+		"plc.uk",
+		"sch.uk",
+		"scot",
+		"uk",
+		"wales"
 		];
 		return choice(data, this.rnd);
 	}

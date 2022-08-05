@@ -20,7 +20,7 @@ class Faker_el : Faker {
 
 	///
 	override string loremWords() {
-		static enum data = [
+		auto data = [
 		"alias",
 		"consequatur",
 		"aut",
@@ -276,18 +276,18 @@ class Faker_el : Faker {
 
 	///
 	override string financeTransactionType() {
-		static enum data = [
+		auto data = [
 		"κατάθεση",
 		"ανάληψη",
 		"πληρωμή",
-		"τιμολόγιο"
+		"τιμολόγιο'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override Currency financeCurrency() {
-		static enum data = [
+		auto data = [
 		Currency("Ευρώ", "EUR", "€")
 		];
 		return choice(data, this.rnd);
@@ -295,40 +295,97 @@ class Faker_el : Faker {
 
 	///
 	override string financeAccountType() {
-		static enum data = [
+		auto data = [
 		"Καταθετικός",
 		"Μισθοδοσίας",
-		"Δανειακός"
+		"Δανειακός'"
 		];
 		return choice(data, this.rnd);
 	}
 
+
 	///
-	override string appVersion() {
-		static enum data = [
-		"0.#.#",
-		"0.##",
-		"#.##",
-		"#.#",
-		"#.#.#"
+    override string financeCreditCardCVV() {
+        string ret;
+        for(int i = 0; i < 3; ++i) {
+            ret ~= to!string(uniform(0, 3, this.rnd));
+        }
+        return ret;
+    }
+
+	///
+    override string financeCreditCard() {
+        switch(uniform(0, 3, this.rnd)) {
+			case 0: 
+				return financeCreditCardMastercard();
+			case 1: 
+				return financeCreditCardDiscover();
+			case 2: 
+				return financeCreditCardVisa();
+			case 3: 
+				return financeCreditCardAmericanExpress();
+
+            default:
+                assert(false);
+        }
+        assert(false);
+    }
+
+	///
+	override string financeCreditCardMastercard() {
+		auto data = [
+		"/5[1-5]##-####-####-###L/",
+		"/6771-89##-####-###L/'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	override string appAuthor() {
-		switch(uniform(0, 2, this.rnd)) {
-			case 0:
-				return format!"%s"(nameName());
-			case 1:
-				return format!"%s"(companyName());
-			default: assert(false);
-		}
+	override string financeCreditCardDiscover() {
+		auto data = [
+		"/6011-####-####-###L/",
+		"/65##-####-####-###L/",
+		"/64[4-9]#-####-####-###L/",
+		"/6011-62##-####-####-###L/",
+		"/65##-62##-####-####-###L/",
+		"/64[4-9]#-62##-####-####-###L/"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string financeCreditCardVisa() {
+		auto data = [
+		"/4###########L/",
+		"/4###-####-####-###L/'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string financeCreditCardAmericanExpress() {
+		auto data = [
+		"/34##-######-####L/",
+		"/37##-######-####L/'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string appVersion() {
+		auto data = [
+		"0.#.#",
+		"0.##",
+		"#.##",
+		"#.#",
+		"#.#.#'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string appName() {
-		static enum data = [
+		auto data = [
 		"ΤΡΑΠΕΖΑ ΤΗΣ ΕΛΛΑΔΟΣ",
 		"ΕΜΠΟΡΙΚΗ ΤΡΑΠΕΖΑ ΤΗΣ ΕΛΛΑΔΟΣ Α.Ε.",
 		"Η ΕΘΝΙΚΗ (ΕΛΛ. ΕΤΑΙΡΙΑ ΓΕΝ. ΑΣΦΑΛΕΙΩΝ)",
@@ -367,7 +424,7 @@ class Faker_el : Faker {
 
 	///
 	override string companyBsVerb() {
-		static enum data = [
+		auto data = [
 		"χρησιμοποιούν",
 		"ενσωμάτωση",
 		"βελτιστοποιήσουν",
@@ -402,7 +459,7 @@ class Faker_el : Faker {
 
 	///
 	override string companyBsNoun() {
-		static enum data = [
+		auto data = [
 		"συνέργειες",
 		"παραδείγματα",
 		"αγορές",
@@ -445,7 +502,7 @@ class Faker_el : Faker {
 
 	///
 	override string companyDescriptor() {
-		static enum data = [
+		auto data = [
 		"24 ώρες το 24ώρο",
 		"24/7",
 		"3η γενιά",
@@ -479,7 +536,7 @@ class Faker_el : Faker {
 
 	///
 	override string companyNoun() {
-		static enum data = [
+		auto data = [
 		"ικανότητα",
 		"πρόσβαση",
 		"αλγόριθμος",
@@ -525,7 +582,7 @@ class Faker_el : Faker {
 
 	///
 	override string companyAdjective() {
-		static enum data = [
+		auto data = [
 		"Για προχωρημένους",
 		"Αυτοματοποιημένη",
 		"Ισορροπημένη",
@@ -594,31 +651,18 @@ class Faker_el : Faker {
 
 	///
 	override string companySuffix() {
-		static enum data = [
+		auto data = [
 		"Ε.Π.Ε.",
 		"Α.Ε.",
 		"και Υιοί",
-		"Όμιλος"
+		"Όμιλος'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string companyName() {
-		switch(uniform(0, 3, this.rnd)) {
-			case 0:
-				return format!"%s %s"(nameLastName(), companySuffix());
-			case 1:
-				return format!"%s-%s"(nameLastName(), nameLastName());
-			case 2:
-				return format!"%s, %s and %s"(nameLastName(), nameLastName(), nameLastName());
-			default: assert(false);
-		}
-	}
-
-	///
 	override string companyBsAdjective() {
-		static enum data = [
+		auto data = [
 		"Προστιθέμενη αξία",
 		"Κάθετη",
 		"Προληπτική",
@@ -677,7 +721,7 @@ class Faker_el : Faker {
 
 	///
 	override string hackerAdjective() {
-		static enum data = [
+		auto data = [
 		"οδηγός",
 		"πρωτογενής",
 		"ψηφιακή",
@@ -693,7 +737,7 @@ class Faker_el : Faker {
 
 	///
 	override string hackerVerb() {
-		static enum data = [
+		auto data = [
 		"back up",
 		"bypass",
 		"hack",
@@ -714,7 +758,7 @@ class Faker_el : Faker {
 
 	///
 	override string hackerAbbreviation() {
-		static enum data = [
+		auto data = [
 		"TCP",
 		"HTTP",
 		"SDD",
@@ -750,7 +794,7 @@ class Faker_el : Faker {
 
 	///
 	override string hackerNoun() {
-		static enum data = [
+		auto data = [
 		"οδηγός",
 		"πρωτόκολο",
 		"ταχύτητα",
@@ -776,102 +820,19 @@ class Faker_el : Faker {
 	}
 
 	///
-	string creditCardMastercard() {
-		static enum data = [
-		"/5[1-5]##-####-####-###L/",
-		"/6771-89##-####-###L/"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	string creditCardDiscover() {
-		static enum data = [
-		"/6011-####-####-###L/",
-		"/65##-####-####-###L/",
-		"/64[4-9]#-####-####-###L/",
-		"/6011-62##-####-####-###L/",
-		"/65##-62##-####-####-###L/",
-		"/64[4-9]#-62##-####-####-###L/"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	string creditCardVisa() {
-		static enum data = [
-		"/4###########L/",
-		"/4###-####-####-###L/"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	string creditCardAmericanExpress() {
-		static enum data = [
-		"/34##-######-####L/",
-		"/37##-######-####L/"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
 	override string namePrefix() {
-		static enum data = [
+		auto data = [
 		"Κυρία",
 		"Δυς",
 		"Κύριος",
-		"Δόκτορ"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameFirstName() {
-		static enum data = [
-		"Γεώργιος",
-		"Ιωάννης",
-		"Κώστας",
-		"Δημήτρης",
-		"Νικόλαος",
-		"Παναγιώτης",
-		"Βασίλης",
-		"Χρήστος",
-		"Αθανάσιος",
-		"Μιχαήλ",
-		"Ευάγγελος",
-		"Σπύρος",
-		"Αντώνης",
-		"Αναστάσιος",
-		"Θεόδωρος",
-		"Ανδρέας",
-		"Χαράλαμπος",
-		"Αλέξανδρος",
-		"Εμμανουήλ",
-		"Ηλίας",
-		"Σταύρος",
-		"Πέτρος",
-		"Σωτήριος",
-		"Στυλιανός",
-		"Ελευθέριος",
-		"Απόστολος",
-		"Φώτιος",
-		"Διονύσιος",
-		"Γρηγόριος",
-		"Άγγελος",
-		"Στέφανος",
-		"Ευστάθιος",
-		"Παύλος",
-		"Παρασκευάς",
-		"Αριστείδης",
-		"Λεωνίδας"
+		"Δόκτορ'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameLastName() {
-		static enum data = [
+		auto data = [
 		"Αβραμίδης",
 		"Αγγελίδης",
 		"Αγγελίδου",
@@ -1077,185 +1038,51 @@ class Faker_el : Faker {
 	}
 
 	///
-	override string nameTitleDescriptor() {
-		static enum data = [
-		"Senior",
-		"Εταιρείες",
-		"Πελάτης",
-		"Επενδυτής",
-		"Εσωτερικό",
-		"Κύριος"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameTitleJob() {
-		static enum data = [
-		"Επόπτης",
-		"Συνεργάτης",
-		"Σύμβουλος",
-		"Διευθυντής",
-		"Μηχανικός",
-		"Ειδικός",
-		"Διευθυντής",
-		"Συντονιστή",
-		"Διαχειριστής",
-		"Αναλυτής",
-		"Designer",
-		"Τεχνικός",
-		"Προγραμματιστής",
-		"Παραγωγός",
-		"Σύμβουλος",
-		"Βοηθός",
-		"Συντονιστής",
-		"Εκπρόσωπος",
-		"Αντιπρόσωπος"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameTitleLevel() {
-		static enum data = [
-		"Λύσεις",
-		"Πρόγραμμα",
-		"Μάρκα",
-		"Ασφάλεια",
-		"Έρευνα",
-		"Μάρκετινγκ",
-		"Οδηγιών",
-		"Εφαρμογή",
-		"Ενσωμάτωση",
-		"Λειτουργικότητα",
-		"Τακτική",
-		"Ταυτότητα",
-		"Αγορές",
-		"Όμιλος",
-		"Εφαρμογές",
-		"Βελτιστοποίηση",
-		"Δραστηριότητες",
-		"Υποδομή",
-		"Intranet",
-		"Επικοινωνίες",
-		"Web",
-		"Branding",
-		"Ποιότητα",
-		"Διασφάλιση",
-		"Κινητικότητα",
-		"Λογαριασμοί",
-		"Δεδομένα",
-		"Δημιουργική",
-		"Διαμόρφωση",
-		"Μετρήσεις"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameName() {
-		switch(uniform(0, 6, this.rnd)) {
-			case 0:
-				return format!"%s %s %s"(namePrefix(), nameFirstName(), nameLastName());
-			case 1:
-				return format!"%s %s %s"(nameFirstName(), nameLastName(), nameSuffix());
-			case 2:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 3:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 4:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 5:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			default: assert(false);
-		}
-	}
-
-	///
-	override string commerceColor() {
-		static enum data = [
-		"κοκκικο",
-		"πράσινο",
-		"μπλε",
-		"κίτρινο",
-		"μωβ",
-		"λευκό",
-		"μαύρο",
-		"πορτοκαλί",
-		"ροζ",
-		"γκρί",
-		"βιολετί",
-		"τρικουάζ",
-		"λαδί",
-		"χρυσό",
-		"φουξια",
-		"κυανό",
-		"ασημί"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductNameAdjective() {
-		static enum data = [
-		"Μικρό",
-		"Εργονομικό",
-		"Αγροτικό",
-		"Απίστευτο",
-		"Φανταστικό",
-		"Πρακτικό",
-		"Κομψό",
-		"Χειροποίητα",
-		"Χειροποίητο",
-		"Άδεια"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductNameMaterial() {
-		static enum data = [
-		"Ξύλινο",
-		"Πλαστικό",
-		"Μέταλο",
-		"Φρέσκο",
-		"Κατεψυγμένο"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductNameProduct() {
-		static enum data = [
-		"Καρέκλα",
-		"Αυτοκίνητο",
-		"Υπολογιστής",
-		"Πληκτρολόγιο",
-		"Ποντίκι",
-		"Ποδήλατο",
-		"Μπάλα",
-		"Γάντια",
-		"Παντελόνι",
-		"Πουκάμισο",
-		"Τραπέζι",
-		"Παπούτσια",
-		"Καπέλο",
-		"Πετσέτες",
-		"Σαπούνι",
-		"Τόνος",
-		"Κοτόπουλο",
-		"Ωάρι",
-		"Τυρί",
-		"Pizza",
-		"Σαλάτα",
-		"Λουκάνικα"
+	override string nameFirstName() {
+		auto data = [
+		"Γεώργιος",
+		"Ιωάννης",
+		"Κώστας",
+		"Δημήτρης",
+		"Νικόλαος",
+		"Παναγιώτης",
+		"Βασίλης",
+		"Χρήστος",
+		"Αθανάσιος",
+		"Μιχαήλ",
+		"Ευάγγελος",
+		"Σπύρος",
+		"Αντώνης",
+		"Αναστάσιος",
+		"Θεόδωρος",
+		"Ανδρέας",
+		"Χαράλαμπος",
+		"Αλέξανδρος",
+		"Εμμανουήλ",
+		"Ηλίας",
+		"Σταύρος",
+		"Πέτρος",
+		"Σωτήριος",
+		"Στυλιανός",
+		"Ελευθέριος",
+		"Απόστολος",
+		"Φώτιος",
+		"Διονύσιος",
+		"Γρηγόριος",
+		"Άγγελος",
+		"Στέφανος",
+		"Ευστάθιος",
+		"Παύλος",
+		"Παρασκευάς",
+		"Αριστείδης",
+		"Λεωνίδας"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string commerceDepartment() {
-		static enum data = [
+		auto data = [
 		"Βιβλία",
 		"Ταινίες",
 		"Μουσική",
@@ -1284,15 +1111,15 @@ class Faker_el : Faker {
 
 	///
 	override string addressDefaultCountry() {
-		static enum data = [
-		"Ελλάδα"
+		auto data = [
+		"Ελλάδα'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCounty() {
-		static enum data = [
+		auto data = [
 		"Αθήνα",
 		"Θεσσαλονίκη",
 		"Πειραιάς",
@@ -1376,8 +1203,32 @@ class Faker_el : Faker {
 	}
 
 	///
+	override string colorHuman() {
+		auto data = [
+		"κοκκικο",
+		"πράσινο",
+		"μπλε",
+		"κίτρινο",
+		"μωβ",
+		"λευκό",
+		"μαύρο",
+		"πορτοκαλί",
+		"ροζ",
+		"γκρί",
+		"βιολετί",
+		"τρικουάζ",
+		"λαδί",
+		"χρυσό",
+		"φουξια",
+		"κυανό",
+		"ασημί"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string teamCreature() {
-		static enum data = [
+		auto data = [
 		"μυρμήγκια",
 		"νυχτερίδες",
 		"αρκούδες",
@@ -1447,13 +1298,8 @@ class Faker_el : Faker {
 	}
 
 	///
-	override string teamName() {
-		return format!"%s %s"(addressState(), teamCreature());
-	}
-
-	///
 	override string phoneNumberFormats() {
-		static enum data = [
+		auto data = [
 		"2310# #####",
 		"2312# #####",
 		"2313# #####",
@@ -1512,62 +1358,62 @@ class Faker_el : Faker {
 
 	///
 	override string cellPhoneFormats() {
-		static enum data = [
+		auto data = [
 		"697## ######",
 		"698## ######",
 		"699## ######",
-		"692## ######"
+		"692## ######'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string internetFreeEmail() {
-		static enum data = [
+		auto data = [
 		"gmail.com",
 		"yahoo.com",
-		"hotmail.com"
+		"hotmail.com'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string internetDomainSuffix() {
-		static enum data = [
+		auto data = [
 		"gr",
 		"com",
 		"biz",
 		"info",
-		"name"
+		"name'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string businessCreditCardExpiryDates() {
-		static enum data = [
+		auto data = [
 		"2011-10-12",
 		"2012-11-12",
 		"2015-11-11",
-		"2013-9-12"
+		"2013-9-12'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string businessCreditCardTypes() {
-		static enum data = [
+		auto data = [
 		"visa",
 		"mastercard",
 		"americanexpress",
-		"discover"
+		"discover'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string businessCreditCardNumbers() {
-		static enum data = [
+		auto data = [
 		"1234-2121-1221-1211",
 		"1212-1221-1121-1234",
 		"1211-1221-1234-2201",

@@ -20,7 +20,7 @@ class Faker_en_bork : Faker {
 
 	///
 	override string loremWords() {
-		static enum data = [
+		auto data = [
 		"Boot",
 		"I",
 		"Nu",

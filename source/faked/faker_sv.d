@@ -20,7 +20,7 @@ class Faker_sv : Faker {
 
 	///
 	override string companySuffix() {
-		static enum data = [
+		auto data = [
 		"Gruppen",
 		"AB",
 		"HB",
@@ -33,73 +33,117 @@ class Faker_sv : Faker {
 	}
 
 	///
-	override string companyName() {
-		switch(uniform(0, 3, this.rnd)) {
-			case 0:
-				return format!"%s %s"(nameLastName(), companySuffix());
-			case 1:
-				return format!"%s-%s"(nameLastName(), nameLastName());
-			case 2:
-				return format!"%s, %s %s"(nameLastName(), nameLastName(), companySuffix());
-			default: assert(false);
-		}
-	}
-
-	///
-	string nameFirstNameMen() {
-		static enum data = [
-		"Erik",
+	override string nameMaleFirstName() {
+		auto data = [
 		"Lars",
-		"Karl",
+		"Mikael",
 		"Anders",
-		"Per",
 		"Johan",
+		"Erik",
+		"Per",
+		"Peter",
+		"Karl",
+		"Thomas",
+		"Jan",
+		"Daniel",
+		"Fredrik",
+		"Andreas",
+		"Hans",
+		"Stefan",
+		"Mohamed",
+		"Mats",
+		"Marcus",
+		"Mattias",
+		"Magnus",
+		"Jonas",
+		"Oskar",
+		"Alexander",
+		"Niklas",
+		"Bengt",
+		"Martin",
+		"Bo",
 		"Nils",
-		"Lennart",
+		"Viktor",
+		"Patrik",
+		"Björn",
+		"David",
+		"Leif",
+		"Filip",
+		"Henrik",
+		"Joakim",
 		"Emil",
-		"Hans"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameName() {
-		switch(uniform(0, 8, this.rnd)) {
-			case 0:
-				return format!"%s %s"(nameFirstNameWomen(), nameLastName());
-			case 1:
-				return format!"%s %s"(nameFirstNameMen(), nameLastName());
-			case 2:
-				return format!"%s %s"(nameFirstNameWomen(), nameLastName());
-			case 3:
-				return format!"%s %s"(nameFirstNameMen(), nameLastName());
-			case 4:
-				return format!"%s %s"(nameFirstNameWomen(), nameLastName());
-			case 5:
-				return format!"%s %s"(nameFirstNameMen(), nameLastName());
-			case 6:
-				return format!"%s %s %s"(namePrefix(), nameFirstNameMen(), nameLastName());
-			case 7:
-				return format!"%s %s %s"(namePrefix(), nameFirstNameWomen(), nameLastName());
-			default: assert(false);
-		}
-	}
-
-	///
-	override string namePrefix() {
-		static enum data = [
-		"Dr.",
-		"Prof.",
-		"PhD."
+		"Christer",
+		"Ulf",
+		"Sven",
+		"Simon",
+		"Christoffer",
+		"Anton",
+		"Gustav",
+		"Robert",
+		"Christian",
+		"William",
+		"Tommy",
+		"Kjell",
+		"Lucas",
+		"Rickard",
+		"Håkan",
+		"Adam",
+		"Göran",
+		"Jakob",
+		"Jonathan",
+		"Rolf",
+		"Lennart",
+		"Robin",
+		"Sebastian",
+		"Elias",
+		"Tobias",
+		"John",
+		"Stig",
+		"Axel",
+		"Linus",
+		"Oliver",
+		"Kent",
+		"Hugo",
+		"Isak",
+		"Roger",
+		"Jesper",
+		"Claes",
+		"Albin",
+		"Ludvig",
+		"Jörgen",
+		"Rasmus",
+		"Max",
+		"Ali",
+		"Jimmy",
+		"Kenneth",
+		"Joel",
+		"Gunnar",
+		"Dennis",
+		"Josef",
+		"Johnny",
+		"Olle",
+		"Liam",
+		"Leo",
+		"Olof",
+		"Pontus",
+		"Åke",
+		"Kurt",
+		"Kevin",
+		"Samuel",
+		"Edvin",
+		"Gabriel",
+		"Torbjörn",
+		"Arvid",
+		"Felix"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameLastName() {
-		static enum data = [
-		"Johansson",
+		auto data = [
 		"Andersson",
+		"Johansson",
 		"Karlsson",
 		"Nilsson",
 		"Eriksson",
@@ -107,224 +151,428 @@ class Faker_sv : Faker {
 		"Olsson",
 		"Persson",
 		"Svensson",
-		"Gustafsson"
+		"Gustafsson",
+		"Pettersson",
+		"Jonsson",
+		"Jansson",
+		"Hansson",
+		"Bengtsson",
+		"Jönsson",
+		"Lindberg",
+		"Jakobsson",
+		"Magnusson",
+		"Olofsson",
+		"Lindström",
+		"Lindqvist",
+		"Lindgren",
+		"Berg",
+		"Axelsson",
+		"Bergström",
+		"Lundberg",
+		"Lind",
+		"Lundgren",
+		"Lundqvist",
+		"Mattsson",
+		"Berglund",
+		"Fredriksson",
+		"Sandberg",
+		"Henriksson",
+		"Forsberg",
+		"Sjöberg",
+		"Ali",
+		"Wallin",
+		"Mohamed",
+		"Engström",
+		"Eklund",
+		"Danielsson",
+		"Lundin",
+		"Håkansson",
+		"Björk",
+		"Bergman",
+		"Gunnarsson",
+		"Holm",
+		"Wikström",
+		"Samuelsson",
+		"Isaksson",
+		"Fransson",
+		"Bergqvist",
+		"Nyström",
+		"Holmberg",
+		"Arvidsson",
+		"Löfgren",
+		"Söderberg",
+		"Nyberg",
+		"Blomqvist",
+		"Claesson",
+		"Nordström",
+		"Ahmed",
+		"Mårtensson",
+		"Lundström",
+		"Hassan",
+		"Viklund",
+		"Björklund",
+		"Eliasson",
+		"Pålsson",
+		"Berggren",
+		"Sandström",
+		"Lund",
+		"Nordin",
+		"Ström",
+		"Åberg",
+		"Falk",
+		"Ekström",
+		"Hermansson",
+		"Holmgren",
+		"Hellström",
+		"Dahlberg",
+		"Hedlund",
+		"Sundberg",
+		"Sjögren",
+		"Ek",
+		"Blom",
+		"Abrahamsson",
+		"Martinsson",
+		"Öberg",
+		"Andreasson",
+		"Strömberg",
+		"Månsson",
+		"Hansen",
+		"Åkesson",
+		"Dahl",
+		"Lindholm",
+		"Norberg",
+		"Holmqvist"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	string nameFirstNameWomen() {
-		static enum data = [
-		"Astrid",
+	override string nameFirstName() {
+		auto data = [
 		"Anna",
-		"Alice",
-		"Amanda",
-		"Ann",
-		"Agneta",
-		"Anette",
-		"Anneli",
-		"Alexandra",
-		"Agnes",
-		"Anne",
-		"Alva",
-		"Alma",
-		"Angelica",
-		"Ann-Marie",
-		"Maria",
-		"Margareta",
-		"Elisabeth",
 		"Eva",
-		"Birgitta",
-		"Kristina",
+		"Maria",
 		"Karin",
-		"Elisabet",
+		"Sara",
+		"Kristina",
+		"Lena",
+		"Emma",
+		"Kerstin",
 		"Marie",
-		"Lotta",
-		"Ronja",
-		"Veronica"
+		"Malin",
+		"Ingrid",
+		"Jenny",
+		"Hanna",
+		"Linda",
+		"Annika",
+		"Susanne",
+		"Elin",
+		"Monica",
+		"Birgitta",
+		"Sofia",
+		"Johanna",
+		"Inger",
+		"Carina",
+		"Elisabeth",
+		"Julia",
+		"Ulla",
+		"Katarina",
+		"Linnéa",
+		"Emelie",
+		"Ida",
+		"Helena",
+		"Camilla",
+		"Åsa",
+		"Anette",
+		"Sandra",
+		"Gunilla",
+		"Anita",
+		"Maja",
+		"Marianne",
+		"Margareta",
+		"Amanda",
+		"Anneli",
+		"Therese",
+		"Ann",
+		"Josefin",
+		"Cecilia",
+		"Jessica",
+		"Helen",
+		"Lisa",
+		"Matilda",
+		"Caroline",
+		"Alice",
+		"Frida",
+		"Ulrika",
+		"Elsa",
+		"Barbro",
+		"Siv",
+		"Rebecca",
+		"Madeleine",
+		"Klara",
+		"Ebba",
+		"Sofie",
+		"Isabelle",
+		"Agneta",
+		"Gun",
+		"Wilma",
+		"Lina",
+		"Berit",
+		"Pia",
+		"Ella",
+		"Ellen",
+		"Yvonne",
+		"Louise",
+		"Astrid",
+		"Moa",
+		"Olivia",
+		"Nathalie",
+		"Mona",
+		"Agnes",
+		"Emilia",
+		"Alexandra",
+		"Alva",
+		"Britt",
+		"Erika",
+		"Viktoria",
+		"Ann-Christin",
+		"Felicia",
+		"Ann-Marie",
+		"Sonja",
+		"Britt-Marie",
+		"Pernilla",
+		"Lovisa",
+		"Charlotte",
+		"Linn",
+		"Gunnel",
+		"Nina",
+		"Mikaela",
+		"Karolina",
+		"Lisbeth",
+		"Lars",
+		"Mikael",
+		"Anders",
+		"Johan",
+		"Erik",
+		"Per",
+		"Peter",
+		"Karl",
+		"Thomas",
+		"Jan",
+		"Daniel",
+		"Fredrik",
+		"Andreas",
+		"Hans",
+		"Stefan",
+		"Mohamed",
+		"Mats",
+		"Marcus",
+		"Mattias",
+		"Magnus",
+		"Jonas",
+		"Oskar",
+		"Alexander",
+		"Niklas",
+		"Bengt",
+		"Martin",
+		"Bo",
+		"Nils",
+		"Viktor",
+		"Patrik",
+		"Björn",
+		"David",
+		"Leif",
+		"Filip",
+		"Henrik",
+		"Joakim",
+		"Emil",
+		"Christer",
+		"Ulf",
+		"Sven",
+		"Simon",
+		"Christoffer",
+		"Anton",
+		"Gustav",
+		"Robert",
+		"Christian",
+		"William",
+		"Tommy",
+		"Kjell",
+		"Lucas",
+		"Rickard",
+		"Håkan",
+		"Adam",
+		"Göran",
+		"Jakob",
+		"Jonathan",
+		"Rolf",
+		"Lennart",
+		"Robin",
+		"Sebastian",
+		"Elias",
+		"Tobias",
+		"John",
+		"Stig",
+		"Axel",
+		"Linus",
+		"Oliver",
+		"Kent",
+		"Hugo",
+		"Isak",
+		"Roger",
+		"Jesper",
+		"Claes",
+		"Albin",
+		"Ludvig",
+		"Jörgen",
+		"Rasmus",
+		"Max",
+		"Ali",
+		"Jimmy",
+		"Kenneth",
+		"Joel",
+		"Gunnar",
+		"Dennis",
+		"Josef",
+		"Johnny",
+		"Olle",
+		"Liam",
+		"Leo",
+		"Olof",
+		"Pontus",
+		"Åke",
+		"Kurt",
+		"Kevin",
+		"Samuel",
+		"Edvin",
+		"Gabriel",
+		"Torbjörn",
+		"Arvid",
+		"Felix"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string nameTitleDescriptor() {
-		static enum data = [
-		"Lead",
-		"Senior",
-		"Direct",
-		"Corporate",
-		"Dynamic",
-		"Future",
-		"Product",
-		"National",
-		"Regional",
-		"District",
-		"Central",
-		"Global",
-		"Customer",
-		"Investor",
-		"Dynamic",
-		"International",
-		"Legacy",
-		"Forward",
-		"Internal",
-		"Human",
-		"Chief",
-		"Principal"
+	override string nameFemaleFirstName() {
+		auto data = [
+		"Anna",
+		"Eva",
+		"Maria",
+		"Karin",
+		"Sara",
+		"Kristina",
+		"Lena",
+		"Emma",
+		"Kerstin",
+		"Marie",
+		"Malin",
+		"Ingrid",
+		"Jenny",
+		"Hanna",
+		"Linda",
+		"Annika",
+		"Susanne",
+		"Elin",
+		"Monica",
+		"Birgitta",
+		"Sofia",
+		"Johanna",
+		"Inger",
+		"Carina",
+		"Elisabeth",
+		"Julia",
+		"Ulla",
+		"Katarina",
+		"Linnéa",
+		"Emelie",
+		"Ida",
+		"Helena",
+		"Camilla",
+		"Åsa",
+		"Anette",
+		"Sandra",
+		"Gunilla",
+		"Anita",
+		"Maja",
+		"Marianne",
+		"Margareta",
+		"Amanda",
+		"Anneli",
+		"Therese",
+		"Ann",
+		"Josefin",
+		"Cecilia",
+		"Jessica",
+		"Helen",
+		"Lisa",
+		"Matilda",
+		"Caroline",
+		"Alice",
+		"Frida",
+		"Ulrika",
+		"Elsa",
+		"Barbro",
+		"Siv",
+		"Rebecca",
+		"Madeleine",
+		"Klara",
+		"Ebba",
+		"Sofie",
+		"Isabelle",
+		"Agneta",
+		"Gun",
+		"Wilma",
+		"Lina",
+		"Berit",
+		"Pia",
+		"Ella",
+		"Ellen",
+		"Yvonne",
+		"Louise",
+		"Astrid",
+		"Moa",
+		"Olivia",
+		"Nathalie",
+		"Mona",
+		"Agnes",
+		"Emilia",
+		"Alexandra",
+		"Alva",
+		"Britt",
+		"Erika",
+		"Viktoria",
+		"Ann-Christin",
+		"Felicia",
+		"Ann-Marie",
+		"Sonja",
+		"Britt-Marie",
+		"Pernilla",
+		"Lovisa",
+		"Charlotte",
+		"Linn",
+		"Gunnel",
+		"Nina",
+		"Mikaela",
+		"Karolina",
+		"Lisbeth"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string nameTitleJob() {
-		static enum data = [
-		"Supervisor",
-		"Associate",
-		"Executive",
-		"Liaison",
-		"Officer",
-		"Manager",
-		"Engineer",
-		"Specialist",
-		"Director",
-		"Coordinator",
-		"Administrator",
-		"Architect",
-		"Analyst",
-		"Designer",
-		"Planner",
-		"Orchestrator",
-		"Technician",
-		"Developer",
-		"Producer",
-		"Consultant",
-		"Assistant",
-		"Facilitator",
-		"Agent",
-		"Representative",
-		"Strategist"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameTitleLevel() {
-		static enum data = [
-		"Solutions",
-		"Program",
-		"Brand",
-		"Security",
-		"Research",
-		"Marketing",
-		"Directives",
-		"Implementation",
-		"Integration",
-		"Functionality",
-		"Response",
-		"Paradigm",
-		"Tactics",
-		"Identity",
-		"Markets",
-		"Group",
-		"Division",
-		"Applications",
-		"Optimization",
-		"Operations",
-		"Infrastructure",
-		"Intranet",
-		"Communications",
-		"Web",
-		"Branding",
-		"Quality",
-		"Assurance",
-		"Mobility",
-		"Accounts",
-		"Data",
-		"Creative",
-		"Configuration",
-		"Accountability",
-		"Interactions",
-		"Factors",
-		"Usability",
-		"Metrics"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceColor() {
-		static enum data = [
-		"vit",
-		"silver",
-		"grå",
-		"svart",
-		"röd",
-		"grön",
-		"blå",
-		"gul",
-		"lila",
-		"indigo",
-		"guld",
-		"brun",
-		"rosa",
-		"purpur",
-		"korall"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductNameAdjective() {
-		static enum data = [
-		"Liten",
-		"Ergonomisk",
-		"Robust",
-		"Intelligent",
-		"Söt",
-		"Otrolig",
-		"Fantastisk",
-		"Praktisk",
-		"Slimmad",
-		"Grym"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductNameMaterial() {
-		static enum data = [
-		"Stål",
-		"Metall",
-		"Trä",
-		"Betong",
-		"Plast",
-		"Bomull",
-		"Granit",
-		"Gummi",
-		"Latex"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductNameProduct() {
-		static enum data = [
-		"Stol",
-		"Bil",
-		"Dator",
-		"Handskar",
-		"Byxor",
-		"Skjorta",
-		"Bord",
-		"Skor",
-		"Hatt"
+	override string namePrefix() {
+		auto data = [
+		"Dr.",
+		"Prof.",
+		"PhD.'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string commerceDepartment() {
-		static enum data = [
+		auto data = [
 		"Böcker",
 		"Filmer",
 		"Musik",
@@ -348,16 +596,16 @@ class Faker_sv : Faker {
 
 	///
 	string addressCommonStreetSuffix() {
-		static enum data = [
+		auto data = [
 		"s Väg",
-		"s Gata"
+		"s Gata'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressState() {
-		static enum data = [
+		auto data = [
 		"Blekinge",
 		"Dalarna",
 		"Gotland",
@@ -387,7 +635,7 @@ class Faker_sv : Faker {
 
 	///
 	override string addressCountry() {
-		static enum data = [
+		auto data = [
 		"Ryssland",
 		"Kanada",
 		"Kina",
@@ -599,20 +847,28 @@ class Faker_sv : Faker {
 
 	///
 	override string addressDefaultCountry() {
-		static enum data = [
-		"Sverige"
+		auto data = [
+		"Sverige'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressStreetAddress() {
-		return format!"%s %s"(addressStreetName(), addressBuildingNumber());
+	string addressStreetPrefix() {
+		auto data = [
+		"Västra",
+		"Östra",
+		"Norra",
+		"Södra",
+		"Övre",
+		"Undre'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCitySuffix() {
-		static enum data = [
+		auto data = [
 		"stad",
 		"land",
 		"sås",
@@ -637,21 +893,8 @@ class Faker_sv : Faker {
 	}
 
 	///
-	string addressStreetPrefix() {
-		static enum data = [
-		"Västra",
-		"Östra",
-		"Norra",
-		"Södra",
-		"Övre",
-		"Undre"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressCityPrefix() {
-		static enum data = [
+		auto data = [
 		"Söder",
 		"Norr",
 		"Väst",
@@ -682,8 +925,8 @@ class Faker_sv : Faker {
 	}
 
 	///
-	string addressStreetRoot() {
-		static enum data = [
+	string addressStreetName() {
+		auto data = [
 		"Björk",
 		"Järnvägs",
 		"Ring",
@@ -717,57 +960,80 @@ class Faker_sv : Faker {
 	}
 
 	///
-	override string addressStreetName() {
-		switch(uniform(0, 4, this.rnd)) {
-			case 0:
-				return format!"%s%s"(addressStreetRoot(), addressStreetSuffix());
-			case 1:
-				return format!"%s %s%s"(addressStreetPrefix(), addressStreetRoot(), addressStreetSuffix());
-			case 2:
-				return format!"%s%s"(nameFirstName(), addressCommonStreetSuffix());
-			case 3:
-				return format!"%s%s"(nameLastName(), addressCommonStreetSuffix());
-			default: assert(false);
-		}
-	}
-
-	///
-	override string addressCity() {
-		return format!"%s%s"(addressCityPrefix(), addressCitySuffix());
-	}
-
-	///
 	override string addressPostcode() {
-		static enum data = [
-		"#####"
+		auto data = [
+		"#####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressSecondaryAddress() {
-		static enum data = [
+		auto data = [
 		"Lgh. ###",
-		"Hus ###"
+		"Hus ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressStreetSuffix() {
-		static enum data = [
+		auto data = [
 		"vägen",
 		"gatan",
 		"gränden",
 		"gärdet",
-		"allén"
+		"allén'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string dateWeekday() {
+		auto data = [
+		"wide: ['söndag",
+		"måndag",
+		"tisdag",
+		"onsdag",
+		"torsdag",
+		"fredag",
+		"lördag']",
+		"abbr: ['sön",
+		"mån",
+		"tis",
+		"ons",
+		"tor",
+		"fre",
+		"lör']"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
+		"vit",
+		"silver",
+		"grå",
+		"svart",
+		"röd",
+		"grön",
+		"blå",
+		"gul",
+		"lila",
+		"indigo",
+		"guld",
+		"brun",
+		"rosa",
+		"purpur",
+		"korall"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	string teamSuffix() {
-		static enum data = [
+		auto data = [
 		"IF",
 		"FF",
 		"BK",
@@ -786,22 +1052,25 @@ class Faker_sv : Faker {
 	}
 
 	///
-	override string teamName() {
-		return format!"%s %s"(addressCity(), teamSuffix());
-	}
-
-	///
 	override string phoneNumberFormats() {
-		static enum data = [
+		auto data = [
 		"####-#####",
-		"####-######"
+		"####-######'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"{{cell_phone.common_cell_prefix}}-###-####'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	string cellPhoneCommonCellPrefix() {
-		static enum data = [
+		auto data = [
 		"56",
 		"62",
 		"59"
@@ -810,21 +1079,13 @@ class Faker_sv : Faker {
 	}
 
 	///
-	override string cellPhoneFormats() {
-		static enum data = [
-		"#{common_cell_prefix}-###-####"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string internetDomainSuffix() {
-		static enum data = [
+		auto data = [
 		"se",
 		"nu",
 		"info",
 		"com",
-		"org"
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}

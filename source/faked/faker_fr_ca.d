@@ -20,42 +20,18 @@ class Faker_fr_ca : Faker {
 
 	///
 	override string phoneNumberFormats() {
-		static enum data = [
+		auto data = [
 		"### ###-####",
 		"1 ### ###-####",
-		"### ###-####, poste ###"
+		"### ###-####",
+		"poste ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	override string internetFreeEmail() {
-		static enum data = [
-		"gmail.com",
-		"yahoo.ca",
-		"hotmail.com"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"qc.ca",
-		"ca",
-		"com",
-		"biz",
-		"info",
-		"name",
-		"net",
-		"org"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressStateAbbr() {
-		static enum data = [
+		auto data = [
 		"AB",
 		"BC",
 		"MB",
@@ -75,7 +51,7 @@ class Faker_fr_ca : Faker {
 
 	///
 	override string addressState() {
-		static enum data = [
+		auto data = [
 		"Alberta",
 		"Colombie-Britannique",
 		"Manitoba",
@@ -95,7 +71,7 @@ class Faker_fr_ca : Faker {
 
 	///
 	override string addressPostcode() {
-		static enum data = [
+		auto data = [
 		"A#? #?#",
 		"B#? #?#",
 		"C#? #?#",
@@ -120,8 +96,33 @@ class Faker_fr_ca : Faker {
 
 	///
 	override string addressDefaultCountry() {
-		static enum data = [
-		"Canada"
+		auto data = [
+		"Canada'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.ca",
+		"hotmail.com'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"qc.ca",
+		"ca",
+		"com",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}

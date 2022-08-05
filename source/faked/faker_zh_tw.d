@@ -20,17 +20,17 @@ class Faker_zh_tw : Faker {
 
 	///
 	override string phoneNumberFormats() {
-		static enum data = [
+		auto data = [
 		"0#-#######",
 		"02-########",
-		"09##-######"
+		"09##-######'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressStateAbbr() {
-		static enum data = [
+		auto data = [
 		"北",
 		"新北",
 		"桃",
@@ -58,38 +58,33 @@ class Faker_zh_tw : Faker {
 
 	///
 	override string addressState() {
-		static enum data = [
+		auto data = [
 		"福建省",
-		"台灣省"
+		"台灣省'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressDefaultCountry() {
-		static enum data = [
-		"Taiwan (R.O.C.)"
+		auto data = [
+		"Taiwan (R.O.C.)'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressStreetAddress() {
-		return format!"%s%s號"(addressStreetName(), addressBuildingNumber());
-	}
-
-	///
 	override string addressCitySuffix() {
-		static enum data = [
+		auto data = [
 		"縣",
-		"市"
+		"市'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCityPrefix() {
-		static enum data = [
+		auto data = [
 		"臺北",
 		"新北",
 		"桃園",
@@ -115,39 +110,136 @@ class Faker_zh_tw : Faker {
 	}
 
 	///
-	override string addressStreetName() {
-		return format!"%s%s"(nameLastName(), addressStreetSuffix());
-	}
-
-	///
-	override string addressCity() {
-		return format!"%s%s"(addressCityPrefix(), addressCitySuffix());
-	}
-
-	///
 	override string addressPostcode() {
-		static enum data = [
-		"######"
+		auto data = [
+		"######'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressStreetSuffix() {
-		static enum data = [
+		auto data = [
 		"街",
 		"路",
 		"北路",
 		"南路",
 		"東路",
-		"西路"
+		"西路'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameLastName() {
+		auto data = [
+		"王",
+		"李",
+		"張",
+		"劉",
+		"陳",
+		"楊",
+		"黃",
+		"吳",
+		"趙",
+		"週",
+		"徐",
+		"孫",
+		"馬",
+		"朱",
+		"胡",
+		"林",
+		"郭",
+		"何",
+		"高",
+		"羅",
+		"鄭",
+		"梁",
+		"謝",
+		"宋",
+		"唐",
+		"許",
+		"鄧",
+		"馮",
+		"韓",
+		"曹",
+		"曾",
+		"彭",
+		"蕭",
+		"蔡",
+		"潘",
+		"田",
+		"董",
+		"袁",
+		"於",
+		"餘",
+		"葉",
+		"蔣",
+		"杜",
+		"蘇",
+		"魏",
+		"程",
+		"呂",
+		"丁",
+		"沈",
+		"任",
+		"姚",
+		"盧",
+		"傅",
+		"鐘",
+		"姜",
+		"崔",
+		"譚",
+		"廖",
+		"範",
+		"汪",
+		"陸",
+		"金",
+		"石",
+		"戴",
+		"賈",
+		"韋",
+		"夏",
+		"邱",
+		"方",
+		"侯",
+		"鄒",
+		"熊",
+		"孟",
+		"秦",
+		"白",
+		"江",
+		"閻",
+		"薛",
+		"尹",
+		"段",
+		"雷",
+		"黎",
+		"史",
+		"龍",
+		"陶",
+		"賀",
+		"顧",
+		"毛",
+		"郝",
+		"龔",
+		"邵",
+		"萬",
+		"錢",
+		"嚴",
+		"賴",
+		"覃",
+		"洪",
+		"武",
+		"莫",
+		"孔"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameFirstName() {
-		static enum data = [
+		auto data = [
 		"紹齊",
 		"博文",
 		"梓晨",
@@ -273,118 +365,6 @@ class Faker_zh_tw : Faker {
 		"聰健"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameLastName() {
-		static enum data = [
-		"王",
-		"李",
-		"張",
-		"劉",
-		"陳",
-		"楊",
-		"黃",
-		"吳",
-		"趙",
-		"週",
-		"徐",
-		"孫",
-		"馬",
-		"朱",
-		"胡",
-		"林",
-		"郭",
-		"何",
-		"高",
-		"羅",
-		"鄭",
-		"梁",
-		"謝",
-		"宋",
-		"唐",
-		"許",
-		"鄧",
-		"馮",
-		"韓",
-		"曹",
-		"曾",
-		"彭",
-		"蕭",
-		"蔡",
-		"潘",
-		"田",
-		"董",
-		"袁",
-		"於",
-		"餘",
-		"葉",
-		"蔣",
-		"杜",
-		"蘇",
-		"魏",
-		"程",
-		"呂",
-		"丁",
-		"沈",
-		"任",
-		"姚",
-		"盧",
-		"傅",
-		"鐘",
-		"姜",
-		"崔",
-		"譚",
-		"廖",
-		"範",
-		"汪",
-		"陸",
-		"金",
-		"石",
-		"戴",
-		"賈",
-		"韋",
-		"夏",
-		"邱",
-		"方",
-		"侯",
-		"鄒",
-		"熊",
-		"孟",
-		"秦",
-		"白",
-		"江",
-		"閻",
-		"薛",
-		"尹",
-		"段",
-		"雷",
-		"黎",
-		"史",
-		"龍",
-		"陶",
-		"賀",
-		"顧",
-		"毛",
-		"郝",
-		"龔",
-		"邵",
-		"萬",
-		"錢",
-		"嚴",
-		"賴",
-		"覃",
-		"洪",
-		"武",
-		"莫",
-		"孔"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameName() {
-		return format!"%s%s"(nameFirstName(), nameLastName());
 	}
 
 }

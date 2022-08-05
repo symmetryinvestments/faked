@@ -20,7 +20,7 @@ class Faker_pt_br : Faker {
 
 	///
 	override string loremWords() {
-		static enum data = [
+		auto data = [
 		"alias",
 		"consequatur",
 		"aut",
@@ -276,32 +276,19 @@ class Faker_pt_br : Faker {
 
 	///
 	override string companySuffix() {
-		static enum data = [
+		auto data = [
 		"S.A.",
 		"LTDA",
 		"EIRELI",
 		"e Associados",
-		"Comércio"
+		"Comércio'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string companyName() {
-		switch(uniform(0, 3, this.rnd)) {
-			case 0:
-				return format!"%s %s"(nameLastName(), companySuffix());
-			case 1:
-				return format!"%s-%s"(nameLastName(), nameLastName());
-			case 2:
-				return format!"%s, %s e %s"(nameLastName(), nameLastName(), nameLastName());
-			default: assert(false);
-		}
-	}
-
-	///
 	override string nameMaleFirstName() {
-		static enum data = [
+		auto data = [
 		"Alessandro",
 		"Alexandre",
 		"Anthony",
@@ -396,17 +383,46 @@ class Faker_pt_br : Faker {
 
 	///
 	override string nameSuffix() {
-		static enum data = [
+		auto data = [
 		"Jr.",
 		"Neto",
-		"Filho"
+		"Filho'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameLastName() {
+		auto data = [
+		"Silva",
+		"Souza",
+		"Carvalho",
+		"Santos",
+		"Reis",
+		"Xavier",
+		"Franco",
+		"Braga",
+		"Macedo",
+		"Batista",
+		"Barros",
+		"Moraes",
+		"Costa",
+		"Pereira",
+		"Carvalho",
+		"Melo",
+		"Saraiva",
+		"Nogueira",
+		"Oliveira",
+		"Martins",
+		"Moreira",
+		"Albuquerque"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameFirstName() {
-		static enum data = [
+		auto data = [
 		"Alessandra",
 		"Alessandro",
 		"Alexandre",
@@ -581,56 +597,8 @@ class Faker_pt_br : Faker {
 	}
 
 	///
-	override string nameLastName() {
-		static enum data = [
-		"Silva",
-		"Souza",
-		"Carvalho",
-		"Santos",
-		"Reis",
-		"Xavier",
-		"Franco",
-		"Braga",
-		"Macedo",
-		"Batista",
-		"Barros",
-		"Moraes",
-		"Costa",
-		"Pereira",
-		"Carvalho",
-		"Melo",
-		"Saraiva",
-		"Nogueira",
-		"Oliveira",
-		"Martins",
-		"Moreira",
-		"Albuquerque"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameName() {
-		switch(uniform(0, 6, this.rnd)) {
-			case 0:
-				return format!"%s %s %s"(namePrefix(), nameFirstName(), nameLastName());
-			case 1:
-				return format!"%s %s %s"(nameFirstName(), nameLastName(), nameSuffix());
-			case 2:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 3:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 4:
-				return format!"%s %s"(nameMaleFirstName(), nameLastName());
-			case 5:
-				return format!"%s %s"(nameFemaleFirstName(), nameLastName());
-			default: assert(false);
-		}
-	}
-
-	///
 	override string nameFemaleFirstName() {
-		static enum data = [
+		auto data = [
 		"Alessandra",
 		"Alice",
 		"Aline",
@@ -716,144 +684,29 @@ class Faker_pt_br : Faker {
 	}
 
 	///
+	override string nameBinaryGender() {
+		auto data = [
+		"Feminino",
+		"Masculino'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string namePrefix() {
-		static enum data = [
+		auto data = [
 		"Sr.",
 		"Sra.",
 		"Srta.",
 		"Dr.",
-		"Dra."
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceColor() {
-		static enum data = [
-		"amarelo",
-		"âmbar",
-		"ametista",
-		"azul",
-		"azul celeste",
-		"azul marinho",
-		"azul petróleo",
-		"açafrão",
-		"bordô",
-		"bronze",
-		"caramelo",
-		"castanho",
-		"cenoura",
-		"cinza",
-		"cobre",
-		"coral",
-		"dourado",
-		"escarlate",
-		"esmeralda",
-		"ferrugem",
-		"fuligem",
-		"fúchsia",
-		"grená",
-		"índigo",
-		"jade",
-		"laranja",
-		"lilás",
-		"limão",
-		"madeira",
-		"magenta",
-		"marrom",
-		"ouro",
-		"pele",
-		"prata",
-		"preto",
-		"púrpura",
-		"rosa",
-		"roxo",
-		"salmão",
-		"turquesa",
-		"verde",
-		"verde lima",
-		"verde-azulado",
-		"vermelho",
-		"violeta"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductNameAdjective() {
-		static enum data = [
-		"Pequeno",
-		"Ergonômico",
-		"Rústico",
-		"Inteligente",
-		"Lindo",
-		"Incrível",
-		"Fantástico",
-		"Prático",
-		"Lustroso",
-		"Impressionante",
-		"Genérico",
-		"Feito à mão",
-		"Licenciado",
-		"Refinado",
-		"Sem marca",
-		"Gostoso"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductNameMaterial() {
-		static enum data = [
-		"Aço",
-		"Madeira",
-		"Concreto",
-		"Plástico",
-		"Algodão",
-		"Granito",
-		"Borracha",
-		"Metal",
-		"Macio",
-		"Fresco",
-		"Congelado"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductNameProduct() {
-		static enum data = [
-		"Cadeira",
-		"Carro",
-		"Computador",
-		"Teclado",
-		"Mouse",
-		"Bicicleta",
-		"Bola",
-		"Luvas",
-		"Calças",
-		"Camiseta",
-		"Mesa",
-		"Sapatos",
-		"Chapéu",
-		"Toalhas",
-		"Sabonete",
-		"Atum",
-		"Frango",
-		"Peixe",
-		"Queijo",
-		"Bacon",
-		"Pizza",
-		"Salada",
-		"Salsicha",
-		"Salgadinhos"
+		"Dra.'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string commerceDepartment() {
-		static enum data = [
+		auto data = [
 		"Livros",
 		"Filmes",
 		"Música",
@@ -882,7 +735,7 @@ class Faker_pt_br : Faker {
 
 	///
 	override string addressStateAbbr() {
-		static enum data = [
+		auto data = [
 		"AC",
 		"AL",
 		"AP",
@@ -916,7 +769,7 @@ class Faker_pt_br : Faker {
 
 	///
 	override string addressState() {
-		static enum data = [
+		auto data = [
 		"Acre",
 		"Alagoas",
 		"Amapá",
@@ -950,7 +803,7 @@ class Faker_pt_br : Faker {
 
 	///
 	override string addressCountry() {
-		static enum data = [
+		auto data = [
 		"Afeganistão",
 		"Albânia",
 		"Algéria",
@@ -1191,67 +1044,119 @@ class Faker_pt_br : Faker {
 
 	///
 	override string addressDefaultCountry() {
-		static enum data = [
-		"Brasil"
+		auto data = [
+		"Brasil'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCitySuffix() {
-		static enum data = [
-		"do Descoberto",
-		"de Nossa Senhora",
-		"do Norte",
-		"do Sul"
+		auto data = [
+		" do Descoberto",
+		" de Nossa Senhora",
+		" do Norte",
+		"do Sul'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressBuildingNumber() {
-		static enum data = [
+		auto data = [
 		"#####",
 		"####",
-		"###"
+		"###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressPostcode() {
-		static enum data = [
-		"#####-###"
+		auto data = [
+		"#####-###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressStreetSuffix() {
-		static enum data = [
+		auto data = [
 		"Rua",
 		"Avenida",
 		"Travessa",
 		"Alameda",
 		"Marginal",
-		"Rodovia"
+		"Rodovia'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
+		"amarelo",
+		"âmbar",
+		"ametista",
+		"azul",
+		"azul celeste",
+		"azul marinho",
+		"azul petróleo",
+		"açafrão",
+		"bordô",
+		"bronze",
+		"caramelo",
+		"castanho ",
+		"cenoura",
+		"cinza",
+		"cobre",
+		"coral",
+		"dourado",
+		"escarlate",
+		"esmeralda",
+		"ferrugem",
+		"fuligem",
+		"fúchsia",
+		"grená",
+		"índigo",
+		"jade",
+		"laranja",
+		"lilás",
+		"limão",
+		"madeira",
+		"magenta",
+		"marrom",
+		"ouro",
+		"pele",
+		"prata",
+		"preto",
+		"púrpura",
+		"rosa",
+		"roxo",
+		"salmão",
+		"turquesa",
+		"verde",
+		"verde lima",
+		"verde-azulado",
+		"vermelho",
+		"violeta"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string phoneNumberFormats() {
-		static enum data = [
+		auto data = [
 		"(##) ####-####",
 		"+55 (##) ####-####",
-		"(##) #####-####"
+		"(##) #####-####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string internetFreeEmail() {
-		static enum data = [
+		auto data = [
 		"gmail.com",
 		"yahoo.com",
 		"hotmail.com",
@@ -1263,14 +1168,14 @@ class Faker_pt_br : Faker {
 
 	///
 	override string internetDomainSuffix() {
-		static enum data = [
+		auto data = [
 		"br",
 		"com",
 		"biz",
 		"info",
 		"name",
 		"net",
-		"org"
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}

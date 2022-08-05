@@ -5,6 +5,7 @@ import std.stdio;
 import std.string;
 import std.typecons;
 import std.json;
+import std.regex;
 import std.algorithm;
 import std.format;
 import std.conv : to;
@@ -258,11 +259,11 @@ class Faker {
     }
 
 	///
-    string commerceProductName() {
-        return this.commerceProductNameAdjective() ~
-              this.commerceProductNameMaterial() ~ " " ~
-              this.commerceProductNameProduct();
-    }
+    //string commerceProductName() {
+    //    return this.commerceProductNameAdjective() ~
+    //          this.commerceProductNameMaterial() ~ " " ~
+    //          this.commerceProductNameProduct();
+    //}
 
 	///
     string companyCatchPhrase() {
@@ -585,10 +586,10 @@ class Faker_%1$s : Faker%2$s {
 
     string buildStringImpl(string name, string data, string retType = "string") {
         string n = format("\t///\n\t%s%s %s() {\n" ~
-            "\t\tstatic enum data = [\n\t\t%s\n\t\t];\n" ~
+            "\t\tauto data = [\n\t\t%s\n\t\t];\n" ~
 		    "\t\treturn choice(data, this.rnd);\n" ~
 		    "\t}\n\n", this.getOverrideString(name), retType, name, data);
-        this.output ~= n;
+		this.output ~= n;
         return name;
     }
 
@@ -609,15 +610,34 @@ class Faker_%1$s : Faker%2$s {
         return ret;
     }
 
+	private static string jsonFixUp(Captures!(string) m) {
+		return "\"" ~ m.hit[0 .. $ - 1] ~ "\":";
+	}
+
 	string buildFinanceCurrency(string data) {
-        JSONValue js = parseJson(data);
+		string prefix = "export default ";
+		data = data.startsWith(prefix)
+			? data[prefix.length .. $]
+			: data;
+		data = data.endsWith(";\n") ? data[0 .. $ - 2] : data;
+		data = data.replace("'", "\"");
+		data = data.replace("code:", "\"code\":");
+		data = data.replace("symbol:", "\"symbol\":");
+		data = data.replace(`Pa"anga`, `Pa\"anga`);
+		data = data.replace(",\n  }", "\n  }");
+		data = data.replace("},\n}", "}\n}");
+
+		string regStr = r"(\w+):";
+		auto reg = regex(regStr);
+		data = replaceAll!(jsonFixUp)(data, reg);
+        JSONValue js = parseJSON(data);
         auto jsO = js.object();
         return this.buildStringImpl("financeCurrency",
             jsO.keys()
                 .map!(a => tuple(a, jsO[a]))
                 .filter!(a => "code" in a[1] && "symbol" in a[1])
                 .map!(a => format("Currency(\"%s\", \"%s\", \"%s\")",
-                        a[0], a[1]["code"].str(), a[1]["symbol"].str())
+                        a[0].replace("\"", "\\\""), a[1]["code"].str(), a[1]["symbol"].str())
                 ).joiner(",\n\t\t").to!string()
             , "Currency"
         );
@@ -737,21 +757,21 @@ class Faker_%1$s : Faker%2$s {
 
         string[] ret;
 
-        string tmp = `
+        string tmp = format(`
 	///
-    string fianaceCreditCardCVV() {
+    %sstring financeCreditCardCVV() {
         string ret;
         for(int i = 0; i < 3; ++i) {
             ret ~= to!string(uniform(0, 3, this.rnd));
         }
         return ret;
     }
-`;
+`, locale != "en" ? "override " : "");
         tmp ~= format(`
 	///
-    string financeCreditCard() {
+    %sstring financeCreditCard() {
         switch(uniform(0, %s, this.rnd)) {
-`, sub.subs.length - 2);
+`, locale != "en" ? "override " : "", sub.subs.length - 2);
         int cnt = 0;
         foreach(key, value; sub.subs) {
             if(key == "laser" || key == "maestro") {
@@ -772,7 +792,7 @@ class Faker_%1$s : Faker%2$s {
         this.output ~= tmp;
 
         foreach(key, value; sub.subs) {
-			TypeLines tl = jssplit(value.data);
+			TypeLines tl = jssplit(value.data, format("financeCreditCart %s", key));
 			if(tl.type == Type.digit) {
                 string fname = "financeCreditCard" ~ to!string(toUpper(key[0]))
                     ~ key[1 ..  $].camelCase();
@@ -780,7 +800,7 @@ class Faker_%1$s : Faker%2$s {
                         this.getOverrideString(fname), fname
 
                     );
-		        tmp ~= format("\t\tstatic enum data = [\n\t\t%(%s,\n\t\t%)\n\t\t];\n",
+		        tmp ~= format("\t\tauto data = [\n\t\t%(%s,\n\t\t%)\n\t\t];\n",
                         tl.lines
                     );
 		        tmp ~= "\t\treturn this.digitBuild(choice(data, this.rnd));\n";
@@ -793,7 +813,7 @@ class Faker_%1$s : Faker%2$s {
             }
 
         }
-        return ret ~ ["fianaceCreditCardCVV", "financeCreditCard"];
+        return ret ~ ["financeCreditCardCVV", "financeCreditCard"];
     }
 
 	string[] buildCommerceProductName(string data) {
@@ -821,10 +841,12 @@ class Faker_%1$s : Faker%2$s {
 		string[] nlines;
 		foreach(idx, ref line; lines) {
 			try {
-				string s = line.replace("\r\n", "\n").byUTF!dchar()
+				string s = line.replace("\r\n", "\n")
+					.replace("\"", "\\\"")
+					.byUTF!dchar()
 					.filter!(it => it != replacementDchar)
 					.to!string();
-				writefln("'%s'", s);
+				//writefln("'%s'", s);
 				nlines ~= s;
 			} catch(Throwable t) {
 				writefln("%s %s", idx, line);
@@ -846,7 +868,7 @@ class Faker_%1$s : Faker%2$s {
 		string n = format("\t///\n\t%sstring %s() {\n",
                 this.getOverrideString(fname), fname
             );
-		n ~= format("\t\tstatic enum data = [\n\t\t%(%s,\n\t\t%)\n\t\t];\n",
+		n ~= format("\t\tauto data = [\n\t\t%(%s,\n\t\t%)\n\t\t];\n",
                 lines
             );
 		n ~= "\t\treturn this.digitBuild(choice(data, this.rnd));\n";

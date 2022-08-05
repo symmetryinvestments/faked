@@ -20,7 +20,7 @@ class Faker_ge : Faker {
 
 	///
 	override string phoneNumberFormats() {
-		static enum data = [
+		auto data = [
 		"5##-###-###",
 		"5########",
 		"5## ## ## ##",
@@ -47,7 +47,7 @@ class Faker_ge : Faker {
 
 	///
 	override string cellPhoneFormats() {
-		static enum data = [
+		auto data = [
 		"(+995 32) 2-##-##-##",
 		"032-2-##-##-##",
 		"032-2-######",
@@ -63,69 +63,29 @@ class Faker_ge : Faker {
 
 	///
 	override string companySuffix() {
-		static enum data = [
+		auto data = [
 		"ჯგუფი",
 		"და კომპანია",
 		"სტუდია",
-		"გრუპი"
+		"გრუპი'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	string companyPrefix() {
-		static enum data = [
+		auto data = [
 		"შპს",
 		"სს",
 		"ააიპ",
-		"სსიპ"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyName() {
-		switch(uniform(0, 5, this.rnd)) {
-			case 0:
-				return format!"%s %s"(companyPrefix(), nameFirstName());
-			case 1:
-				return format!"%s %s"(companyPrefix(), nameLastName());
-			case 2:
-				return format!"%s %s %s"(companyPrefix(), nameLastName(), companySuffix());
-			case 3:
-				return format!"%s %s %s"(companyPrefix(), nameFirstName(), companySuffix());
-			case 4:
-				return format!"%s %s-%s"(companyPrefix(), nameLastName(), nameLastName());
-			default: assert(false);
-		}
-	}
-
-	///
-	override string internetFreeEmail() {
-		static enum data = [
-		"gmail.com",
-		"yahoo.com",
-		"posta.ge"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"ge",
-		"com",
-		"net",
-		"org",
-		"com.ge",
-		"org.ge"
+		"სსიპ'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCityName() {
-		static enum data = [
+		auto data = [
 		"აბასთუმანი",
 		"აბაშა",
 		"ადიგენი",
@@ -220,7 +180,7 @@ class Faker_ge : Faker {
 
 	///
 	override string addressCountry() {
-		static enum data = [
+		auto data = [
 		"ავსტრალია",
 		"ავსტრია",
 		"ავღანეთი",
@@ -540,31 +500,37 @@ class Faker_ge : Faker {
 
 	///
 	override string addressDefaultCountry() {
-		static enum data = [
-		"საქართველო"
+		auto data = [
+		"საქართველო'"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressStreetAddress() {
-		return format!"%s %s"(addressStreetName(), addressBuildingNumber());
 	}
 
 	///
 	override string addressCitySuffix() {
-		static enum data = [
+		auto data = [
 		"სოფელი",
 		"ძირი",
 		"სკარი",
-		"დაბა"
+		"დაბა'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	string addressStreetTitle() {
-		static enum data = [
+	override string addressCityPrefix() {
+		auto data = [
+		"ახალი",
+		"ძველი",
+		"ზემო",
+		"ქვემო'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string addressStreetName() {
+		auto data = [
 		"აბაშიძის",
 		"აბესაძის",
 		"აბულაძის",
@@ -986,84 +952,248 @@ class Faker_ge : Faker {
 	}
 
 	///
-	override string addressCityPrefix() {
-		static enum data = [
-		"ახალი",
-		"ძველი",
-		"ზემო",
-		"ქვემო"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressStreetName() {
-		return format!"%s %s"(addressStreetTitle(), addressStreetSuffix());
-	}
-
-	///
-	override string addressCity() {
-		switch(uniform(0, 6, this.rnd)) {
-			case 0:
-				return format!"%s %s%s"(addressCityPrefix(), nameFirstName(), addressCitySuffix());
-			case 1:
-				return format!"%s %s"(addressCityPrefix(), nameFirstName());
-			case 2:
-				return format!"%s%s"(nameFirstName(), addressCitySuffix());
-			case 3:
-				return format!"%s%s"(nameFirstName(), addressCitySuffix());
-			case 4:
-				return format!"%s%s"(nameLastName(), addressCitySuffix());
-			case 5:
-				return format!"%s%s"(nameLastName(), addressCitySuffix());
-			default: assert(false);
-		}
-	}
-
-	///
 	override string addressPostcode() {
-		static enum data = [
-		"01##"
+		auto data = [
+		"01##'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressSecondaryAddress() {
-		static enum data = [
+		auto data = [
 		"კორპ. ##",
-		"შენობა ###"
+		"შენობა ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressStreetSuffix() {
-		static enum data = [
+		auto data = [
 		"გამზ.",
 		"გამზირი",
 		"ქ.",
 		"ქუჩა",
 		"ჩიხი",
-		"ხეივანი"
+		"ხეივანი'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.com",
+		"posta.ge'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"ge",
+		"com",
+		"net",
+		"org",
+		"com.ge",
+		"org.ge'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string namePrefix() {
-		static enum data = [
+		auto data = [
 		"ბ-ნი",
 		"ბატონი",
 		"ქ-ნი",
-		"ქალბატონი"
+		"ქალბატონი'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameLastName() {
+		auto data = [
+		"აბაზაძე",
+		"აბაშიძე",
+		"აბრამაშვილი",
+		"აბუსერიძე",
+		"აბშილავა",
+		"ავაზნელი",
+		"ავალიშვილი",
+		"ამილახვარი",
+		"ანთაძე",
+		"ასლამაზიშვილი",
+		"ასპანიძე",
+		"აშკარელი",
+		"ახალბედაშვილი",
+		"ახალკაცი",
+		"ახვლედიანი",
+		"ბარათაშვილი",
+		"ბარდაველიძე",
+		"ბახტაძე",
+		"ბედიანიძე",
+		"ბერიძე",
+		"ბერუაშვილი",
+		"ბეჟანიშვილი",
+		"ბოგველიშვილი",
+		"ბოტკოველი",
+		"გაბრიჩიძე",
+		"გაგნიძე",
+		"გამრეკელი",
+		"გელაშვილი",
+		"გზირიშვილი",
+		"გიგაური",
+		"გურამიშვილი",
+		"გურგენიძე",
+		"დადიანი",
+		"დავითიშვილი",
+		"დათუაშვილი",
+		"დარბაისელი",
+		"დეკანოიძე",
+		"დვალი",
+		"დოლაბერიძე",
+		"ედიშერაშვილი",
+		"ელიზბარაშვილი",
+		"ელიოზაშვილი",
+		"ერისთავი",
+		"ვარამაშვილი",
+		"ვარდიაშვილი",
+		"ვაჩნაძე",
+		"ვარდანიძე",
+		"ველიაშვილი",
+		"ველიჯანაშვილი",
+		"ზარანდია",
+		"ზარიძე",
+		"ზედგინიძე",
+		"ზუბიაშვილი",
+		"თაბაგარი",
+		"თავდგირიძე",
+		"თათარაშვილი",
+		"თამაზაშვილი",
+		"თამარაშვილი",
+		"თაქთაქიშვილი",
+		"თაყაიშვილი",
+		"თბილელი",
+		"თუხარელი",
+		"იაშვილი",
+		"იგითხანიშვილი",
+		"ინასარიძე",
+		"იშხნელი",
+		"კანდელაკი",
+		"კაცია",
+		"კერესელიძე",
+		"კვირიკაშვილი",
+		"კიკნაძე",
+		"კლდიაშვილი",
+		"კოვზაძე",
+		"კოპაძე",
+		"კოპტონაშვილი",
+		"კოშკელაშვილი",
+		"ლაბაძე",
+		"ლეკიშვილი",
+		"ლიქოკელი",
+		"ლოლაძე",
+		"ლურსმანაშვილი",
+		"მაისურაძე",
+		"მარტოლეკი",
+		"მაღალაძე",
+		"მახარაშვილი",
+		"მგალობლიშვილი",
+		"მეგრელიშვილი",
+		"მელაშვილი",
+		"მელიქიძე",
+		"მერაბიშვილი",
+		"მეფარიშვილი",
+		"მუჯირი",
+		"მჭედლიძე",
+		"მხეიძე",
+		"ნათაძე",
+		"ნაჭყებია",
+		"ნოზაძე",
+		"ოდიშვილი",
+		"ონოფრიშვილი",
+		"პარეხელაშვილი",
+		"პეტრიაშვილი",
+		"სააკაძე",
+		"სააკაშვილი",
+		"საგინაშვილი",
+		"სადუნიშვილი",
+		"საძაგლიშვილი",
+		"სებისკვერიძე",
+		"სეთური",
+		"სუთიაშვილი",
+		"სულაშვილი",
+		"ტაბაღუა",
+		"ტყეშელაშვილი",
+		"ულუმბელაშვილი",
+		"უნდილაძე",
+		"ქავთარაძე",
+		"ქართველიშვილი",
+		"ყაზბეგი",
+		"ყაუხჩიშვილი",
+		"შავლაშვილი",
+		"შალიკაშვილი",
+		"შონია",
+		"ჩიბუხაშვილი",
+		"ჩიხრაძე",
+		"ჩიქოვანი",
+		"ჩუბინიძე",
+		"ჩოლოყაშვილი",
+		"ჩოხელი",
+		"ჩხვიმიანი",
+		"ცალუღელაშვილი",
+		"ცაძიკიძე",
+		"ციციშვილი",
+		"ციხელაშვილი",
+		"ციხისთავი",
+		"ცხოვრებაძე",
+		"ცხომარია",
+		"წამალაიძე",
+		"წერეთელი",
+		"წიკლაური",
+		"წიფურია",
+		"ჭაბუკაშვილი",
+		"ჭავჭავაძე",
+		"ჭანტურია",
+		"ჭარელიძე",
+		"ჭიორელი",
+		"ჭუმბურიძე",
+		"ხაბაზი",
+		"ხარაძე",
+		"ხარატიშვილი",
+		"ხარატასშვილი",
+		"ხარისჭირაშვილი",
+		"ხარხელაური",
+		"ხაშმელაშვილი",
+		"ხეთაგური",
+		"ხიზამბარელი",
+		"ხიზანიშვილი",
+		"ხიმშიაშვილი",
+		"ხოსრუაშვილი",
+		"ხოჯივანიშვილი",
+		"ხუციშვილი",
+		"ჯაბადარი",
+		"ჯავახი",
+		"ჯავახიშვილი",
+		"ჯანელიძე",
+		"ჯაფარიძე",
+		"ჯაყელი",
+		"ჯაჯანიძე",
+		"ჯვარელია",
+		"ჯინიუზაშვილი",
+		"ჯუღაშვილი"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameFirstName() {
-		static enum data = [
+		auto data = [
 		"აგული",
 		"აგუნა",
 		"ადოლა",
@@ -1565,290 +1695,6 @@ class Faker_ge : Faker {
 		"ჰამლეტ"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameLastName() {
-		static enum data = [
-		"აბაზაძე",
-		"აბაშიძე",
-		"აბრამაშვილი",
-		"აბუსერიძე",
-		"აბშილავა",
-		"ავაზნელი",
-		"ავალიშვილი",
-		"ამილახვარი",
-		"ანთაძე",
-		"ასლამაზიშვილი",
-		"ასპანიძე",
-		"აშკარელი",
-		"ახალბედაშვილი",
-		"ახალკაცი",
-		"ახვლედიანი",
-		"ბარათაშვილი",
-		"ბარდაველიძე",
-		"ბახტაძე",
-		"ბედიანიძე",
-		"ბერიძე",
-		"ბერუაშვილი",
-		"ბეჟანიშვილი",
-		"ბოგველიშვილი",
-		"ბოტკოველი",
-		"გაბრიჩიძე",
-		"გაგნიძე",
-		"გამრეკელი",
-		"გელაშვილი",
-		"გზირიშვილი",
-		"გიგაური",
-		"გურამიშვილი",
-		"გურგენიძე",
-		"დადიანი",
-		"დავითიშვილი",
-		"დათუაშვილი",
-		"დარბაისელი",
-		"დეკანოიძე",
-		"დვალი",
-		"დოლაბერიძე",
-		"ედიშერაშვილი",
-		"ელიზბარაშვილი",
-		"ელიოზაშვილი",
-		"ერისთავი",
-		"ვარამაშვილი",
-		"ვარდიაშვილი",
-		"ვაჩნაძე",
-		"ვარდანიძე",
-		"ველიაშვილი",
-		"ველიჯანაშვილი",
-		"ზარანდია",
-		"ზარიძე",
-		"ზედგინიძე",
-		"ზუბიაშვილი",
-		"თაბაგარი",
-		"თავდგირიძე",
-		"თათარაშვილი",
-		"თამაზაშვილი",
-		"თამარაშვილი",
-		"თაქთაქიშვილი",
-		"თაყაიშვილი",
-		"თბილელი",
-		"თუხარელი",
-		"იაშვილი",
-		"იგითხანიშვილი",
-		"ინასარიძე",
-		"იშხნელი",
-		"კანდელაკი",
-		"კაცია",
-		"კერესელიძე",
-		"კვირიკაშვილი",
-		"კიკნაძე",
-		"კლდიაშვილი",
-		"კოვზაძე",
-		"კოპაძე",
-		"კოპტონაშვილი",
-		"კოშკელაშვილი",
-		"ლაბაძე",
-		"ლეკიშვილი",
-		"ლიქოკელი",
-		"ლოლაძე",
-		"ლურსმანაშვილი",
-		"მაისურაძე",
-		"მარტოლეკი",
-		"მაღალაძე",
-		"მახარაშვილი",
-		"მგალობლიშვილი",
-		"მეგრელიშვილი",
-		"მელაშვილი",
-		"მელიქიძე",
-		"მერაბიშვილი",
-		"მეფარიშვილი",
-		"მუჯირი",
-		"მჭედლიძე",
-		"მხეიძე",
-		"ნათაძე",
-		"ნაჭყებია",
-		"ნოზაძე",
-		"ოდიშვილი",
-		"ონოფრიშვილი",
-		"პარეხელაშვილი",
-		"პეტრიაშვილი",
-		"სააკაძე",
-		"სააკაშვილი",
-		"საგინაშვილი",
-		"სადუნიშვილი",
-		"საძაგლიშვილი",
-		"სებისკვერიძე",
-		"სეთური",
-		"სუთიაშვილი",
-		"სულაშვილი",
-		"ტაბაღუა",
-		"ტყეშელაშვილი",
-		"ულუმბელაშვილი",
-		"უნდილაძე",
-		"ქავთარაძე",
-		"ქართველიშვილი",
-		"ყაზბეგი",
-		"ყაუხჩიშვილი",
-		"შავლაშვილი",
-		"შალიკაშვილი",
-		"შონია",
-		"ჩიბუხაშვილი",
-		"ჩიხრაძე",
-		"ჩიქოვანი",
-		"ჩუბინიძე",
-		"ჩოლოყაშვილი",
-		"ჩოხელი",
-		"ჩხვიმიანი",
-		"ცალუღელაშვილი",
-		"ცაძიკიძე",
-		"ციციშვილი",
-		"ციხელაშვილი",
-		"ციხისთავი",
-		"ცხოვრებაძე",
-		"ცხომარია",
-		"წამალაიძე",
-		"წერეთელი",
-		"წიკლაური",
-		"წიფურია",
-		"ჭაბუკაშვილი",
-		"ჭავჭავაძე",
-		"ჭანტურია",
-		"ჭარელიძე",
-		"ჭიორელი",
-		"ჭუმბურიძე",
-		"ხაბაზი",
-		"ხარაძე",
-		"ხარატიშვილი",
-		"ხარატასშვილი",
-		"ხარისჭირაშვილი",
-		"ხარხელაური",
-		"ხაშმელაშვილი",
-		"ხეთაგური",
-		"ხიზამბარელი",
-		"ხიზანიშვილი",
-		"ხიმშიაშვილი",
-		"ხოსრუაშვილი",
-		"ხოჯივანიშვილი",
-		"ხუციშვილი",
-		"ჯაბადარი",
-		"ჯავახი",
-		"ჯავახიშვილი",
-		"ჯანელიძე",
-		"ჯაფარიძე",
-		"ჯაყელი",
-		"ჯაჯანიძე",
-		"ჯვარელია",
-		"ჯინიუზაშვილი",
-		"ჯუღაშვილი"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameTitleDescriptor() {
-		static enum data = [
-		"გენერალური",
-		"მთავარი",
-		"სტაჟიორ",
-		"უმცროსი",
-		"ყოფილი",
-		"წამყვანი"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameTitleJob() {
-		static enum data = [
-		"აგენტი",
-		"ადვოკატი",
-		"ადმინისტრატორი",
-		"არქიტექტორი",
-		"ასისტენტი",
-		"აღმასრულებელი დირექტორი",
-		"დეველოპერი",
-		"დეკანი",
-		"დიზაინერი",
-		"დირექტორი",
-		"ელექტრიკოსი",
-		"ექსპერტი",
-		"ინჟინერი",
-		"იურისტი",
-		"კონსტრუქტორი",
-		"კონსულტანტი",
-		"კოორდინატორი",
-		"ლექტორი",
-		"მასაჟისტი",
-		"მემანქანე",
-		"მენეჯერი",
-		"მძღოლი",
-		"მწვრთნელი",
-		"ოპერატორი",
-		"ოფიცერი",
-		"პედაგოგი",
-		"პოლიციელი",
-		"პროგრამისტი",
-		"პროდიუსერი",
-		"პრორექტორი",
-		"ჟურნალისტი",
-		"რექტორი",
-		"სპეციალისტი",
-		"სტრატეგისტი",
-		"ტექნიკოსი",
-		"ფოტოგრაფი",
-		"წარმომადგენელი"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameTitleLevel() {
-		static enum data = [
-		"აღრიცხვების",
-		"ბრენდინგის",
-		"ბრენიდს",
-		"ბუღალტერიის",
-		"განყოფილების",
-		"გაყიდვების",
-		"გუნდის",
-		"დახმარების",
-		"დიზაინის",
-		"თავდაცვის",
-		"ინფორმაციის",
-		"კვლევების",
-		"კომუნიკაციების",
-		"მარკეტინგის",
-		"ოპერაციათა",
-		"ოპტიმიზაციების",
-		"პიარ",
-		"პროგრამის",
-		"საქმეთა",
-		"ტაქტიკური",
-		"უსაფრთხოების",
-		"ფინანსთა",
-		"ქსელის",
-		"ხარისხის",
-		"ჯგუფის"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameName() {
-		switch(uniform(0, 6, this.rnd)) {
-			case 0:
-				return format!"%s %s %s"(namePrefix(), nameFirstName(), nameLastName());
-			case 1:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 2:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 3:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 4:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 5:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			default: assert(false);
-		}
 	}
 
 }

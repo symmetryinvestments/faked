@@ -3,10 +3,10 @@
 module faked.faker_nl_be;
 
 import faked.base;
-import faked.faker_nl;
+
 
 ///
-class Faker_nl_be : Faker_nl {
+class Faker_nl_be : Faker {
 @safe:
 	import std.random;
 	import std.array;
@@ -20,7 +20,7 @@ class Faker_nl_be : Faker_nl {
 
 	///
 	override string phoneNumberFormats() {
-		static enum data = [
+		auto data = [
 		"###/######",
 		"###/## ## ##",
 		"### ## ## ##",
@@ -35,21 +35,56 @@ class Faker_nl_be : Faker_nl {
 	}
 
 	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com",
+		"skynet.be'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"be",
+		"brussels",
+		"vlaanderen",
+		"com",
+		"net",
+		"org'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"NV",
+		"BVBA",
+		"CVBA",
+		"VZW'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressStateAbbr() {
-		static enum data = [
+		auto data = [
 		"WVL",
 		"OVL",
 		"VBR",
 		"ANT",
 		"LIM",
-		"BRU"
+		"BRU'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressState() {
-		static enum data = [
+		auto data = [
 		"West-Vlaanderen",
 		"Oost-Vlaanderen",
 		"Vlaams-Brabant",
@@ -62,31 +97,26 @@ class Faker_nl_be : Faker_nl {
 
 	///
 	override string addressDefaultCountry() {
-		static enum data = [
-		"België"
+		auto data = [
+		"België'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressStreetAddress() {
-		return format!"%s %s"(addressStreetName(), addressBuildingNumber());
-	}
-
-	///
 	override string addressCitySuffix() {
-		static enum data = [
+		auto data = [
 		"gem",
 		"tem",
 		"vijve",
-		"zele"
+		"zele'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCityPrefix() {
-		static enum data = [
+		auto data = [
 		"s Herenelderen",
 		"s-Gravenvoeren",
 		"s-Gravenwezel",
@@ -1218,116 +1248,98 @@ class Faker_nl_be : Faker_nl {
 	}
 
 	///
-	override string addressStreetName() {
-		switch(uniform(0, 2, this.rnd)) {
-			case 0:
-				return format!"%s%s"(nameFirstName(), addressStreetSuffix());
-			case 1:
-				return format!"%s%s"(nameLastName(), addressStreetSuffix());
-			default: assert(false);
-		}
-	}
-
-	///
-	override string addressCity() {
-		switch(uniform(0, 2, this.rnd)) {
-			case 0:
-				return format!"%s"(addressCityPrefix());
-			case 1:
-				return format!"%s%s"(addressCityPrefix(), addressCitySuffix());
-			default: assert(false);
-		}
-	}
-
-	///
 	override string addressPostcode() {
-		static enum data = [
-		"####"
+		auto data = [
+		"####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressSecondaryAddress() {
-		static enum data = [
+		auto data = [
 		"1e verdieping",
 		"2e verdieping",
-		"3e verdieping"
+		"3e verdieping'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressStreetSuffix() {
-		static enum data = [
+		auto data = [
 		"straat",
 		"laan",
 		"weg",
 		"dreef",
 		"plein",
-		"park"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		static enum data = [
-		"NV",
-		"BVBA",
-		"CVBA",
-		"VZW"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetFreeEmail() {
-		static enum data = [
-		"gmail.com",
-		"yahoo.com",
-		"hotmail.com",
-		"skynet.be"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"be",
-		"brussels",
-		"vlaanderen",
-		"com",
-		"net",
-		"org"
+		"park'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameSuffix() {
-		static enum data = [
+		auto data = [
 		"MBA",
-		"Phd."
+		"Phd.'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string namePrefix() {
-		static enum data = [
+		auto data = [
 		"Dr.",
 		"Ir.",
 		"Ing.",
-		"Prof."
+		"Prof.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameLastName() {
+		auto data = [
+		"Claes",
+		"Claeys",
+		"Declerck",
+		"Declercq",
+		"Decock",
+		"Decoster",
+		"Desmet",
+		"Devos",
+		"Dewilde",
+		"Gielen",
+		"Goossens",
+		"Hermans",
+		"Jacobs",
+		"Janssen",
+		"Janssens",
+		"Lemmens",
+		"Maes",
+		"Martens",
+		"Mertens",
+		"Michiels",
+		"Peeters",
+		"Smet",
+		"Smets",
+		"Thijs",
+		"Vandamme",
+		"Vandenberghe",
+		"Vandenbroeck",
+		"Vandevelde",
+		"Verhaeghe",
+		"Verstraete",
+		"Willems",
+		"Wouters"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameFirstName() {
-		static enum data = [
+		auto data = [
 		"Lucas",
 		"Liam",
 		"Louis",
@@ -1530,60 +1542,6 @@ class Faker_nl_be : Faker_nl {
 		"Chloe"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameLastName() {
-		static enum data = [
-		"Claes",
-		"Claeys",
-		"Declerck",
-		"Declercq",
-		"Decock",
-		"Decoster",
-		"Desmet",
-		"Devos",
-		"Dewilde",
-		"Gielen",
-		"Goossens",
-		"Hermans",
-		"Jacobs",
-		"Janssen",
-		"Janssens",
-		"Lemmens",
-		"Maes",
-		"Martens",
-		"Mertens",
-		"Michiels",
-		"Peeters",
-		"Smet",
-		"Smets",
-		"Thijs",
-		"Vandamme",
-		"Vandenberghe",
-		"Vandenbroeck",
-		"Vandevelde",
-		"Verhaeghe",
-		"Verstraete",
-		"Willems",
-		"Wouters"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameName() {
-		switch(uniform(0, 4, this.rnd)) {
-			case 0:
-				return format!"%s %s %s"(namePrefix(), nameFirstName(), nameLastName());
-			case 1:
-				return format!"%s %s %s"(nameFirstName(), nameLastName(), nameSuffix());
-			case 2:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			case 3:
-				return format!"%s %s"(nameFirstName(), nameLastName());
-			default: assert(false);
-		}
 	}
 
 }

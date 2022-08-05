@@ -20,7 +20,7 @@ class Faker_en_ie : Faker {
 
 	///
 	override string phoneNumberFormats() {
-		static enum data = [
+		auto data = [
 		"01 #######",
 		"021 #######",
 		"022 #######",
@@ -76,7 +76,7 @@ class Faker_en_ie : Faker {
 
 	///
 	override string cellPhoneFormats() {
-		static enum data = [
+		auto data = [
 		"082 ### ####",
 		"083 ### ####",
 		"085 ### ####",
@@ -88,28 +88,16 @@ class Faker_en_ie : Faker {
 	}
 
 	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"ie",
-		"com",
-		"net",
-		"info",
-		"eu"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressDefaultCountry() {
-		static enum data = [
-		"Ireland"
+		auto data = [
+		"Ireland'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressCounty() {
-		static enum data = [
+		auto data = [
 		"Carlow",
 		"Cavan",
 		"Clare",
@@ -136,6 +124,18 @@ class Faker_en_ie : Faker {
 		"Westmeath",
 		"Wexford",
 		"Wicklow"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"ie",
+		"com",
+		"net",
+		"info",
+		"eu'"
 		];
 		return choice(data, this.rnd);
 	}

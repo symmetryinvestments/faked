@@ -24,15 +24,7 @@ void main() {
 	FakerData[] locales = scrapeFakers();
     mkdirRecurse(outputDir);
 
-    auto oldList = [
-        "af_ZA", "de", "en_CA", "en_US", /*"fa",*/ "ge", "ko", "nl", "pt_PT",
-        "sv", "zh_CN", /*"ar",*/ "de_AT", "en_AU", "en_GB", "en_ZA", "fr", "id_ID",
-        "lv", "nl_BE", "ro", "tr", "zh_TW", /*"az",*/ "de_CH", "en_AU_ocker",
-        "en_IE", "es", "fr_CA", "it", "nb_NO", "pl", "ru", "uk", "zu_ZA",
-        /*"cz",*/ "el", "en_BORK", "en_IND", /*"es_MX",*/ "fr_CH", "ja",
-        "pt_BR", /*"sk",*/ "vi"
-    ].sort.array;
-
+	/+
 	auto list = [
 		/*"az",*/ /*"ar",*/ /*"cz",*/ "de", "de_AT", "de_CH", "en_AU", "en_AU_ocker",
 		"en_BORK", "en_CA", "en_GB", "en_IE", "en_IND", "en_US", "en_ZA", "es",
@@ -42,15 +34,22 @@ void main() {
 		"el", "lv", "zu_ZA"
 
 	].sort.array;
+	+/
 
-	writefln("LIST OLDLIST\n%s", setDifference(list, oldList));
-	writefln("OLDLIST LIST\n%s", setDifference(oldList, list));
+	auto list =
+		[ "af_ZA", "de_AT", "en_AU_ocker", "en_IE", "es", "fr_BE", "hr", "it"
+		, "nb_NO", "pt_BR", "sv", "zh_CN" , /*"ar",*/ "de_CH", "en_BORK", "en_IND"
+		, "es_MX", "fr_CA", "hu", "ja", "ne", "pt_PT", "tr", "zh_TW", "az"
+		, "el", "en_CA", "en_NG", /*"fa",*/ "fr_CH", "hy", "ko", "nl", "ro", "uk"
+		, "zu_ZA", "cz", /*"en",*/ "en_GB", "en_US", "fi", "ge", "id_ID", "lv"
+		, "nl_BE", "ru", /*"ur",*/ "de", "en_AU", "en_GH", "en_ZA", "fr", "he"
+		, "mk", "pl", "sk", "vi"].sort.array;
 
     auto en = locales.find!(a => a.locale == "en").front;
     string[] methods = buildFile("en", en, []);
     methods ~= ["addressLatitude", "addressLongitude", "financeAccount",
         "financeRoutingNumber", "financeMask", "financeBitcoinAddress",
-        "phoneNumber", "commerceProductName", "companyCatchPhrase",
+        /*"phoneNumber", "commerceProductName",*/ "companyCatchPhrase",
         "companyBs", "internetUserName", "internetProtocol",
         "internetDomainWord", "internetDomainName", "internetUrl",
         "internetIPv4", "internetIPv6", "internetColor", "internetPassword",
@@ -141,7 +140,8 @@ string[] buildFile(string ll, FakerData entry, string[] toOverride) {
 					continue;
 				}
 				//write(key, ".", sub, " ");
-				TypeLines tl = jssplit(d.data);
+				//writefln("%s %s %s %s", __LINE__, ll, key, sub);
+				TypeLines tl = jssplit(d.data, ll ~ " " ~ key ~ " " ~ sub);
 				//writeln(tl.type);
 				if(tl.type == Type.strings) {
 					methods ~= gen.buildString(key, sub, tl.lines);
@@ -182,7 +182,7 @@ string[] buildFile(string ll, FakerData entry, string[] toOverride) {
     return methods.sort.array;
 }
 
-const fakerFolder = "faker.js";
+const fakerFolder = "faker";
 
 const string[] ignoreListLocals = ["fa"];
 const string[] ignoreEntries = ["system"];
@@ -251,7 +251,7 @@ void cloneFaker() {
 	}
 
 	auto rslt = executeShell(
-            "git clone --depth=1 https://github.com/Marak/faker.js.git"
+            "git clone --depth=1 https://github.com/faker-js/faker.git"
         );
 	enforce(rslt.status == 0,
 		format("Failed to clone faker.js with message %s %s", rslt.status,
@@ -261,7 +261,7 @@ void cloneFaker() {
 
 FakerData[] scrapeFakers() {
 	FakerData[] ret;
-	const fakerLocales = fakerFolder ~ "/lib/locales/";
+	const fakerLocales = fakerFolder ~ "/src/locales/";
 
 	outer: foreach(f; dirEntries(fakerLocales, SpanMode.shallow)) {
 		foreach(ig; ignoreListLocals) {
@@ -269,8 +269,10 @@ FakerData[] scrapeFakers() {
 				continue outer;
 			}
 		}
-		ret ~= scrapeFaker(f.name);
-		buildFallback(ret.back);
+		if(isDir(f.name)) {
+			ret ~= scrapeFaker(f.name);
+			buildFallback(ret.back);
+		}
 	}
 	return ret;
 }
@@ -282,7 +284,7 @@ FakerData scrapeFaker(string foldername) {
 
 	foreach(f; dirEntries(foldername, SpanMode.shallow)) {
 		Entry entry;
-		if(f.name.endsWith("index.js")) {
+		if(f.name.endsWith("index.ts")) {
 			string iFile = "./" ~ f.name;
 			assert(isFile(iFile));
 			entry.index = readText(iFile);
@@ -290,7 +292,7 @@ FakerData scrapeFaker(string foldername) {
 		}
 		if(isDir(f.name)) {
 			foreach(g; dirEntries(f, SpanMode.shallow)
-					.filter!(a => !a.name.canFind("index.js")))
+					.filter!(a => !a.name.canFind("index.ts")))
 			{
 				if(isFile(g.name)) {
 					string s = g.name;
@@ -299,9 +301,9 @@ FakerData scrapeFaker(string foldername) {
 					entry.subs[s] = new Direct(t);
 				} else {
 					auto sub = new Sub();
-					sub.index = readText(g.name ~ "/index.js");
+					sub.index = readText(g.name ~ "/index.ts");
 					foreach(h; dirEntries(g.name, SpanMode.shallow)
-							.filter!(a => !a.name.canFind("index.js")))
+							.filter!(a => !a.name.canFind("index.ts")))
 					{
 						string sh = h.name;
 						sh = sh[sh.lastIndexOf("/") + 1 .. $ - 3];
@@ -324,7 +326,7 @@ enum r2 = r"'(\w*)'";
 auto re = regex(r2);
 
 void buildFallback(FakerData fd) {
-	string t = fakerFolder ~ "/locale/" ~ fd.locale ~ ".js";
+	string t = fakerFolder ~ "/locale/" ~ fd.locale ~ ".ts";
 	if(!exists(t)) {
 		return;
 	}

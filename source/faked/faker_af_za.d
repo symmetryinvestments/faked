@@ -20,7 +20,7 @@ class Faker_af_za : Faker {
 
 	///
 	override string phoneNumberFormats() {
-		static enum data = [
+		auto data = [
 		"01# ### #####",
 		"02# ### #####",
 		"03# ### #####",
@@ -36,7 +36,7 @@ class Faker_af_za : Faker {
 
 	///
 	override string cellPhoneFormats() {
-		static enum data = [
+		auto data = [
 		"082 ### ####",
 		"084 ### ####",
 		"083 ### ####",
@@ -49,46 +49,218 @@ class Faker_af_za : Faker {
 
 	///
 	override string companySuffix() {
-		static enum data = [
+		auto data = [
 		"Pty Ltd",
 		"Ltd",
-		"CC"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"co.za",
-		"com",
-		"org.za",
-		"info",
-		"net.za"
+		"CC'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressPostcode() {
-		static enum data = [
+		auto data = [
 		"#####",
-		"####"
+		"####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
 	override string addressDefaultCountry() {
-		static enum data = [
-		"South Africa"
+		auto data = [
+		"South Africa'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"co.za",
+		"com",
+		"org.za",
+		"info",
+		"net.za'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameLastName() {
+		auto data = [
+		"van de Merwe",
+		"Schoeman",
+		"Barnard",
+		"de Kock",
+		"Meintjies",
+		"le Roux",
+		"Koen",
+		"Morkel",
+		"Viljoen",
+		"Smit",
+		"Nel",
+		"Grobelaar",
+		"Oppenheimer",
+		"Castelyn",
+		"du Preez",
+		"Cronnje",
+		"Donald",
+		"Pringle",
+		"Snell",
+		"Burger",
+		"van Heerden",
+		"van de Heefer",
+		"Wessels",
+		"Eksteen",
+		"Kirsten",
+		"de Villiers",
+		"Olivier",
+		"Steyn",
+		"Kallis",
+		"Ackerman",
+		"Dippenaar",
+		"Strydon",
+		"Boje",
+		"Pretorius",
+		"Langeveldt",
+		"Botha",
+		"Duminy",
+		"Fuller",
+		"Philander",
+		"Daniels",
+		"Fichardt",
+		"van Zyl",
+		"de Bruyn",
+		"van der Bijl",
+		"Dyer",
+		"van Buuren",
+		"Boyes",
+		"Versfeld",
+		"Bisset",
+		"Castens",
+		"Louw",
+		"Powell",
+		"Snedden",
+		"van Renen",
+		"Myburg",
+		"Bredenkamp",
+		"Mellett",
+		"Hertzog",
+		"Theunissen",
+		"de Waal",
+		"Cloete",
+		"Krige",
+		"Melker",
+		"Loubser",
+		"Stegmann",
+		"Joubert",
+		"Luyt",
+		"Roos",
+		"Lombard",
+		"van der Hoff",
+		"Immelman",
+		"Els",
+		"Delaney",
+		"Strauss",
+		"Meyer",
+		"Pienaar",
+		"du Plessis",
+		"van Rooyen",
+		"Kruger",
+		"Mostert",
+		"Scholtz",
+		"Aucamp",
+		"Albertyn",
+		"Bosman",
+		"Bester",
+		"Truter",
+		"Prinsloo",
+		"van Niekerk",
+		"Zimmerman",
+		"Venter",
+		"van den Berg",
+		"de Wet",
+		"Marais",
+		"van Jaarsveld",
+		"Jordaan",
+		"Malan",
+		"Viviers",
+		"Myburgh",
+		"Hoffman",
+		"Bekker",
+		"Rossouw",
+		"Rens",
+		"Lochner",
+		"Hanekom",
+		"Schmidt",
+		"Bekker",
+		"Wentzel",
+		"van Zyl",
+		"Bezuidenhout",
+		"Cilliers",
+		"Truter",
+		"Naude",
+		"de Vos",
+		"Goosen",
+		"Durand",
+		"Potgieter",
+		"van Deventer",
+		"de Klerk",
+		"Spies",
+		"Snyman",
+		"Oosthuizen",
+		"Bosch",
+		"Vogel",
+		"Fourie",
+		"van Staden",
+		"Wagenaar",
+		"Wolmerans",
+		"Veldsman",
+		"Tromp",
+		"Serfontein",
+		"Claasen",
+		"Heunis",
+		"Visagie",
+		"Ferreira",
+		"Erasmus",
+		"Knoetze",
+		"Jansen van Rensburg",
+		"Styger",
+		"Roberts",
+		"Richter",
+		"Lotter",
+		"Swart",
+		"Badenhorst",
+		"Laubscher",
+		"Hattingh",
+		"Visser",
+		"Brink",
+		"Theron",
+		"Paulse",
+		"Basson",
+		"van der Westhuyzen",
+		"Gerber",
+		"Human",
+		"Uys",
+		"Hougaard",
+		"Steenkamp",
+		"Pieterse",
+		"Brits",
+		"Jantjies",
+		"Etzebeth",
+		"de Jager",
+		"Boshoff",
+		"Kriel",
+		"Vosloo",
+		"Carstens"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string nameFirstName() {
-		static enum data = [
+		auto data = [
 		"Susan",
 		"Monica",
 		"Linda",
@@ -319,180 +491,8 @@ class Faker_af_za : Faker {
 	}
 
 	///
-	override string nameLastName() {
-		static enum data = [
-		"van de Merwe",
-		"Schoeman",
-		"Barnard",
-		"de Kock",
-		"Meintjies",
-		"le Roux",
-		"Koen",
-		"Morkel",
-		"Viljoen",
-		"Smit",
-		"Nel",
-		"Grobelaar",
-		"Oppenheimer",
-		"Castelyn",
-		"du Preez",
-		"Cronnje",
-		"Donald",
-		"Pringle",
-		"Snell",
-		"Burger",
-		"van Heerden",
-		"van de Heefer",
-		"Wessels",
-		"Eksteen",
-		"Kirsten",
-		"de Villiers",
-		"Olivier",
-		"Steyn",
-		"Kallis",
-		"Ackerman",
-		"Dippenaar",
-		"Strydon",
-		"Boje",
-		"Pretorius",
-		"Langeveldt",
-		"Botha",
-		"Duminy",
-		"Fuller",
-		"Philander",
-		"Daniels",
-		"Fichardt",
-		"van Zyl",
-		"de Bruyn",
-		"van der Bijl",
-		"Dyer",
-		"van Buuren",
-		"Boyes",
-		"Versfeld",
-		"Bisset",
-		"Castens",
-		"Louw",
-		"Powell",
-		"Snedden",
-		"van Renen",
-		"Myburg",
-		"Bredenkamp",
-		"Mellett",
-		"Hertzog",
-		"Theunissen",
-		"de Waal",
-		"Cloete",
-		"Krige",
-		"Melker",
-		"Loubser",
-		"Stegmann",
-		"Joubert",
-		"Luyt",
-		"Roos",
-		"Lombard",
-		"van der Hoff",
-		"Immelman",
-		"Els",
-		"Delaney",
-		"Strauss",
-		"Meyer",
-		"Pienaar",
-		"du Plessis",
-		"van Rooyen",
-		"Kruger",
-		"Mostert",
-		"Scholtz",
-		"Aucamp",
-		"Albertyn",
-		"Bosman",
-		"Bester",
-		"Truter",
-		"Prinsloo",
-		"van Niekerk",
-		"Zimmerman",
-		"Venter",
-		"van den Berg",
-		"de Wet",
-		"Marais",
-		"van Jaarsveld",
-		"Jordaan",
-		"Malan",
-		"Viviers",
-		"Myburgh",
-		"Hoffman",
-		"Bekker",
-		"Rossouw",
-		"Rens",
-		"Lochner",
-		"Hanekom",
-		"Schmidt",
-		"Bekker",
-		"Wentzel",
-		"van Zyl",
-		"Bezuidenhout",
-		"Cilliers",
-		"Truter",
-		"Naude",
-		"de Vos",
-		"Goosen",
-		"Durand",
-		"Potgieter",
-		"van Deventer",
-		"de Klerk",
-		"Spies",
-		"Snyman",
-		"Oosthuizen",
-		"Bosch",
-		"Vogel",
-		"Fourie",
-		"van Staden",
-		"Wagenaar",
-		"Wolmerans",
-		"Veldsman",
-		"Tromp",
-		"Serfontein",
-		"Claasen",
-		"Heunis",
-		"Visagie",
-		"Ferreira",
-		"Erasmus",
-		"Knoetze",
-		"Jansen van Rensburg",
-		"Styger",
-		"Roberts",
-		"Richter",
-		"Lotter",
-		"Swart",
-		"Badenhorst",
-		"Laubscher",
-		"Hattingh",
-		"Visser",
-		"Brink",
-		"Theron",
-		"Paulse",
-		"Basson",
-		"van der Westhuyzen",
-		"Gerber",
-		"Human",
-		"Uys",
-		"Hougaard",
-		"Steenkamp",
-		"Pieterse",
-		"Brits",
-		"Jantjies",
-		"Etzebeth",
-		"de Jager",
-		"Boshoff",
-		"Kriel",
-		"Vosloo",
-		"Carstens"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string nameMaleFirstName() {
-		static enum data = [
+		auto data = [
 		"Johan",
 		"Robert",
 		"Michael",
@@ -613,7 +613,7 @@ class Faker_af_za : Faker {
 
 	///
 	override string nameFemaleFirstName() {
-		static enum data = [
+		auto data = [
 		"Susan",
 		"Monica",
 		"Linda",

@@ -20,7 +20,7 @@ class Faker_en_au : Faker {
 
 	///
 	override string phoneNumberFormats() {
-		static enum data = [
+		auto data = [
 		"0# #### ####",
 		"+61 # #### ####",
 		"04## ### ###",
@@ -30,8 +30,34 @@ class Faker_en_au : Faker {
 	}
 
 	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"com.au",
+		"com",
+		"net.au",
+		"net",
+		"org.au",
+		"org'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"Pty Ltd",
+		"and Sons",
+		"Corp",
+		"Group",
+		"Brothers",
+		"Partners'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressStateAbbr() {
-		static enum data = [
+		auto data = [
 		"NSW",
 		"QLD",
 		"NT",
@@ -39,14 +65,14 @@ class Faker_en_au : Faker {
 		"WA",
 		"TAS",
 		"ACT",
-		"VIC"
+		"VIC'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
 	override string addressState() {
-		static enum data = [
+		auto data = [
 		"New South Wales",
 		"Queensland",
 		"Northern Territory",
@@ -60,24 +86,34 @@ class Faker_en_au : Faker {
 	}
 
 	///
-	override string addressPostcode() {
-		static enum data = [
-		"####"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
 	override string addressDefaultCountry() {
-		static enum data = [
-		"Australia"
+		auto data = [
+		"Australia'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"####",
+		"###",
+		"##'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressPostcode() {
+		auto data = [
+		"####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressStreetSuffix() {
-		static enum data = [
+		auto data = [
 		"Avenue",
 		"Boulevard",
 		"Circle",
@@ -120,251 +156,8 @@ class Faker_en_au : Faker {
 	}
 
 	///
-	override string addressBuildingNumber() {
-		static enum data = [
-		"####",
-		"###",
-		"##"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string companySuffix() {
-		static enum data = [
-		"Pty Ltd",
-		"and Sons",
-		"Corp",
-		"Group",
-		"Brothers",
-		"Partners"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		static enum data = [
-		"com.au",
-		"com",
-		"net.au",
-		"net",
-		"org.au",
-		"org"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameFirstName() {
-		static enum data = [
-		"William",
-		"Jack",
-		"Oliver",
-		"Joshua",
-		"Thomas",
-		"Lachlan",
-		"Cooper",
-		"Noah",
-		"Ethan",
-		"Lucas",
-		"James",
-		"Samuel",
-		"Jacob",
-		"Liam",
-		"Alexander",
-		"Benjamin",
-		"Max",
-		"Isaac",
-		"Daniel",
-		"Riley",
-		"Ryan",
-		"Charlie",
-		"Tyler",
-		"Jake",
-		"Matthew",
-		"Xavier",
-		"Harry",
-		"Jayden",
-		"Nicholas",
-		"Harrison",
-		"Levi",
-		"Luke",
-		"Adam",
-		"Henry",
-		"Aiden",
-		"Dylan",
-		"Oscar",
-		"Michael",
-		"Jackson",
-		"Logan",
-		"Joseph",
-		"Blake",
-		"Nathan",
-		"Connor",
-		"Elijah",
-		"Nate",
-		"Archie",
-		"Bailey",
-		"Marcus",
-		"Cameron",
-		"Jordan",
-		"Zachary",
-		"Caleb",
-		"Hunter",
-		"Ashton",
-		"Toby",
-		"Aidan",
-		"Hayden",
-		"Mason",
-		"Hamish",
-		"Edward",
-		"Angus",
-		"Eli",
-		"Sebastian",
-		"Christian",
-		"Patrick",
-		"Andrew",
-		"Anthony",
-		"Luca",
-		"Kai",
-		"Beau",
-		"Alex",
-		"George",
-		"Callum",
-		"Finn",
-		"Zac",
-		"Mitchell",
-		"Jett",
-		"Jesse",
-		"Gabriel",
-		"Leo",
-		"Declan",
-		"Charles",
-		"Jasper",
-		"Jonathan",
-		"Aaron",
-		"Hugo",
-		"David",
-		"Christopher",
-		"Chase",
-		"Owen",
-		"Justin",
-		"Ali",
-		"Darcy",
-		"Lincoln",
-		"Cody",
-		"Phoenix",
-		"Sam",
-		"John",
-		"Joel",
-		"Isabella",
-		"Ruby",
-		"Chloe",
-		"Olivia",
-		"Charlotte",
-		"Mia",
-		"Lily",
-		"Emily",
-		"Ella",
-		"Sienna",
-		"Sophie",
-		"Amelia",
-		"Grace",
-		"Ava",
-		"Zoe",
-		"Emma",
-		"Sophia",
-		"Matilda",
-		"Hannah",
-		"Jessica",
-		"Lucy",
-		"Georgia",
-		"Sarah",
-		"Abigail",
-		"Zara",
-		"Eva",
-		"Scarlett",
-		"Jasmine",
-		"Chelsea",
-		"Lilly",
-		"Ivy",
-		"Isla",
-		"Evie",
-		"Isabelle",
-		"Maddison",
-		"Layla",
-		"Summer",
-		"Annabelle",
-		"Alexis",
-		"Elizabeth",
-		"Bella",
-		"Holly",
-		"Lara",
-		"Madison",
-		"Alyssa",
-		"Maya",
-		"Tahlia",
-		"Claire",
-		"Hayley",
-		"Imogen",
-		"Jade",
-		"Ellie",
-		"Sofia",
-		"Addison",
-		"Molly",
-		"Phoebe",
-		"Alice",
-		"Savannah",
-		"Gabriella",
-		"Kayla",
-		"Mikayla",
-		"Abbey",
-		"Eliza",
-		"Willow",
-		"Alexandra",
-		"Poppy",
-		"Samantha",
-		"Stella",
-		"Amy",
-		"Amelie",
-		"Anna",
-		"Piper",
-		"Gemma",
-		"Isabel",
-		"Victoria",
-		"Stephanie",
-		"Caitlin",
-		"Heidi",
-		"Paige",
-		"Rose",
-		"Amber",
-		"Audrey",
-		"Claudia",
-		"Taylor",
-		"Madeline",
-		"Angelina",
-		"Natalie",
-		"Charli",
-		"Lauren",
-		"Ashley",
-		"Violet",
-		"Mackenzie",
-		"Abby",
-		"Skye",
-		"Lillian",
-		"Alana",
-		"Lola",
-		"Leah",
-		"Eve",
-		"Kiara"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string nameLastName() {
-		static enum data = [
+		auto data = [
 		"Smith",
 		"Jones",
 		"Williams",
@@ -651,6 +444,213 @@ class Faker_en_au : Faker {
 		"Williamson",
 		"Windler",
 		"Wolf"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string nameFirstName() {
+		auto data = [
+		"William",
+		"Jack",
+		"Oliver",
+		"Joshua",
+		"Thomas",
+		"Lachlan",
+		"Cooper",
+		"Noah",
+		"Ethan",
+		"Lucas",
+		"James",
+		"Samuel",
+		"Jacob",
+		"Liam",
+		"Alexander",
+		"Benjamin",
+		"Max",
+		"Isaac",
+		"Daniel",
+		"Riley",
+		"Ryan",
+		"Charlie",
+		"Tyler",
+		"Jake",
+		"Matthew",
+		"Xavier",
+		"Harry",
+		"Jayden",
+		"Nicholas",
+		"Harrison",
+		"Levi",
+		"Luke",
+		"Adam",
+		"Henry",
+		"Aiden",
+		"Dylan",
+		"Oscar",
+		"Michael",
+		"Jackson",
+		"Logan",
+		"Joseph",
+		"Blake",
+		"Nathan",
+		"Connor",
+		"Elijah",
+		"Nate",
+		"Archie",
+		"Bailey",
+		"Marcus",
+		"Cameron",
+		"Jordan",
+		"Zachary",
+		"Caleb",
+		"Hunter",
+		"Ashton",
+		"Toby",
+		"Aidan",
+		"Hayden",
+		"Mason",
+		"Hamish",
+		"Edward",
+		"Angus",
+		"Eli",
+		"Sebastian",
+		"Christian",
+		"Patrick",
+		"Andrew",
+		"Anthony",
+		"Luca",
+		"Kai",
+		"Beau",
+		"Alex",
+		"George",
+		"Callum",
+		"Finn",
+		"Zac",
+		"Mitchell",
+		"Jett",
+		"Jesse",
+		"Gabriel",
+		"Leo",
+		"Declan",
+		"Charles",
+		"Jasper",
+		"Jonathan",
+		"Aaron",
+		"Hugo",
+		"David",
+		"Christopher",
+		"Chase",
+		"Owen",
+		"Justin",
+		"Ali",
+		"Darcy",
+		"Lincoln",
+		"Cody",
+		"Phoenix",
+		"Sam",
+		"John",
+		"Joel",
+		"Isabella",
+		"Ruby",
+		"Chloe",
+		"Olivia",
+		"Charlotte",
+		"Mia",
+		"Lily",
+		"Emily",
+		"Ella",
+		"Sienna",
+		"Sophie",
+		"Amelia",
+		"Grace",
+		"Ava",
+		"Zoe",
+		"Emma",
+		"Sophia",
+		"Matilda",
+		"Hannah",
+		"Jessica",
+		"Lucy",
+		"Georgia",
+		"Sarah",
+		"Abigail",
+		"Zara",
+		"Eva",
+		"Scarlett",
+		"Jasmine",
+		"Chelsea",
+		"Lilly",
+		"Ivy",
+		"Isla",
+		"Evie",
+		"Isabelle",
+		"Maddison",
+		"Layla",
+		"Summer",
+		"Annabelle",
+		"Alexis",
+		"Elizabeth",
+		"Bella",
+		"Holly",
+		"Lara",
+		"Madison",
+		"Alyssa",
+		"Maya",
+		"Tahlia",
+		"Claire",
+		"Hayley",
+		"Imogen",
+		"Jade",
+		"Ellie",
+		"Sofia",
+		"Addison",
+		"Molly",
+		"Phoebe",
+		"Alice",
+		"Savannah",
+		"Gabriella",
+		"Kayla",
+		"Mikayla",
+		"Abbey",
+		"Eliza",
+		"Willow",
+		"Alexandra",
+		"Poppy",
+		"Samantha",
+		"Stella",
+		"Amy",
+		"Amelie",
+		"Anna",
+		"Piper",
+		"Gemma",
+		"Isabel",
+		"Victoria",
+		"Stephanie",
+		"Caitlin",
+		"Heidi",
+		"Paige",
+		"Rose",
+		"Amber",
+		"Audrey",
+		"Claudia",
+		"Taylor",
+		"Madeline",
+		"Angelina",
+		"Natalie",
+		"Charli",
+		"Lauren",
+		"Ashley",
+		"Violet",
+		"Mackenzie",
+		"Abby",
+		"Skye",
+		"Lillian",
+		"Alana",
+		"Lola",
+		"Leah",
+		"Eve",
+		"Kiara"
 		];
 		return choice(data, this.rnd);
 	}
