@@ -6,7 +6,7 @@ and transforming it into D.
 This is done by the tool fakerjsgnerator.
 
 ## Docs
-[Docs](https://kaleidicassociates.github.io/faked/)
+[Docs](https://symmetryinvestments.github.io/faked/)
 
 ## Example
 
