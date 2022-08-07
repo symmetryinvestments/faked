@@ -18,6 +18,12 @@ class Faker_az : Faker {
         super(seed);
 	}
 
+
+	override string companySuffix() {
+		final switch(uniform(0, 0, this.rnd)) {
+		}
+	}
+
 	///
 	string companyPrefix() {
 		auto data = [
@@ -26,6 +32,20 @@ class Faker_az : Faker {
 		"QSC'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string companyName() {
+		final switch(uniform(0, 8, this.rnd)) {
+			case 0: return companyPrefix() ~ " " ~ nameFemaleFirstName();
+			case 1: return companyPrefix() ~ " " ~ nameMaleFirstName();
+			case 2: return companyPrefix() ~ " " ~ nameMaleLastName();
+			case 3: return companyPrefix() ~ " " ~ companySuffix() ~ companySuffix();
+			case 4: return companyPrefix() ~ " " ~ companySuffix() ~ companySuffix() ~ companySuffix();
+			case 5: return companyPrefix() ~ " " ~ addressCityName() ~ companySuffix();
+			case 6: return companyPrefix() ~ " " ~ addressCityName() ~ companySuffix() ~ companySuffix();
+			case 7: return companyPrefix() ~ " " ~ addressCityName() ~ companySuffix() ~ companySuffix() ~ companySuffix();
+		}
 	}
 
 	///
@@ -68,6 +88,24 @@ class Faker_az : Faker {
 		"Nadir"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameSuffix() {
+		final switch(uniform(0, 0, this.rnd)) {
+		}
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return nameMaleFirstName();
+			case 1: return nameMaleLastName() ~ " " ~ nameMaleFirstName();
+			case 2: return nameMaleFirstName() ~ " " ~ nameMaleLastName();
+			case 3: return nameFemaleFirstName();
+			case 4: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+			case 5: return nameFemaleLastName() ~ " " ~ nameFemaleFirstName();
+		}
 	}
 
 	///
@@ -184,6 +222,12 @@ class Faker_az : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string namePrefix() {
+		final switch(uniform(0, 0, this.rnd)) {
+		}
+	}
+
 	///
 	override string commerceDepartment() {
 		auto data = [
@@ -292,6 +336,12 @@ class Faker_az : Faker {
 		"Zərdab"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressState() {
+		final switch(uniform(0, 0, this.rnd)) {
+		}
 	}
 
 	///
@@ -549,6 +599,24 @@ class Faker_az : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet();
+			case 1: return addressBuildingnumber();
+			case 2: return "full: '" ~ addressStreet();
+			case 3: return addressBuildingnumber() ~ " " ~ addressSecondaryaddress();
+		}
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return addressStreetSuffix() ~ " " ~ addressStreetName();
+			case 1: return addressStreetName() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
 	///
 	string addressStreetName() {
 		auto data = [
@@ -791,6 +859,13 @@ class Faker_az : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
+	}
+
 	///
 	override string addressBuildingNumber() {
 		auto data = [
@@ -826,6 +901,106 @@ class Faker_az : Faker {
 		"sh.'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 32, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Bazar";
+			case 2: return "Bazar ertəsi";
+			case 3: return "Çərşənbə axşamı";
+			case 4: return "Çərşənbə";
+			case 5: return "Cümə axşamı";
+			case 6: return "Cümə";
+			case 7: return "Şənbə";
+			case 8: return "]";
+			case 9: return "wide_context: [";
+			case 10: return "воскресенье";
+			case 11: return "понедельник";
+			case 12: return "вторник";
+			case 13: return "среда";
+			case 14: return "четверг";
+			case 15: return "пятница";
+			case 16: return "суббота";
+			case 17: return "]";
+			case 18: return "abbr: ['Ba";
+			case 19: return "BE";
+			case 20: return "ÇA";
+			case 21: return "Çə";
+			case 22: return "CA";
+			case 23: return "Cü";
+			case 24: return "Şə']";
+			case 25: return "abbr_context: ['вс";
+			case 26: return "пн";
+			case 27: return "вт";
+			case 28: return "ср";
+			case 29: return "чт";
+			case 30: return "пт";
+			case 31: return "сб']";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 56, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "yanvar";
+			case 2: return "fevral";
+			case 3: return "mart";
+			case 4: return "aprel";
+			case 5: return "may";
+			case 6: return "iyun";
+			case 7: return "iyul";
+			case 8: return "avqust";
+			case 9: return "sentyabr";
+			case 10: return "oktyabr";
+			case 11: return "noyabr";
+			case 12: return "dekabr";
+			case 13: return "]";
+			case 14: return "wide_context: [";
+			case 15: return "января";
+			case 16: return "февраля";
+			case 17: return "марта";
+			case 18: return "апреля";
+			case 19: return "мая";
+			case 20: return "июня";
+			case 21: return "июля";
+			case 22: return "августа";
+			case 23: return "сентября";
+			case 24: return "октября";
+			case 25: return "ноября";
+			case 26: return "декабря";
+			case 27: return "]";
+			case 28: return "abbr: [";
+			case 29: return "янв.";
+			case 30: return "февр.";
+			case 31: return "март";
+			case 32: return "апр.";
+			case 33: return "май";
+			case 34: return "июнь";
+			case 35: return "июль";
+			case 36: return "авг.";
+			case 37: return "сент.";
+			case 38: return "окт.";
+			case 39: return "нояб.";
+			case 40: return "дек.";
+			case 41: return "]";
+			case 42: return "abbr_context: [";
+			case 43: return "янв.";
+			case 44: return "февр.";
+			case 45: return "марта";
+			case 46: return "апр.";
+			case 47: return "мая";
+			case 48: return "июня";
+			case 49: return "июля";
+			case 50: return "авг.";
+			case 51: return "сент.";
+			case 52: return "окт.";
+			case 53: return "нояб.";
+			case 54: return "дек.";
+			case 55: return "]";
+		}
 	}
 
 	///

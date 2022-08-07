@@ -46,6 +46,16 @@ class Faker_de_at : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ "-" ~ nameLastName();
+			case 2: return nameLastName();
+			case 3: return nameLastName() ~ " und " ~ nameLastName();
+		}
+	}
+
 	///
 	string nameNobilityTitlePrefix() {
 		auto data = [
@@ -2923,6 +2933,18 @@ class Faker_de_at : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameNobilityTitlePrefix() ~ " " ~ nameLastName();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameFirstName() ~ " " ~ nameLastName();
+			case 5: return nameFirstName() ~ " " ~ nameLastName();
+		}
+	}
+
 	///
 	override string wordAdjective() {
 		auto data = [
@@ -3531,6 +3553,21 @@ class Faker_de_at : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingnumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingnumber() ~ " " ~ addressSecondaryaddress();
+		}
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressStreetName() ~ "'";
+		}
+	}
+
 	///
 	string addressStreetName() {
 		auto data = [
@@ -3734,6 +3771,13 @@ class Faker_de_at : Faker {
 		"Ötzbruck"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
 	}
 
 	///

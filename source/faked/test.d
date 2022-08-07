@@ -8,6 +8,7 @@ unittest {
     auto faker = new Faker_af_za(1);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -24,6 +25,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -41,6 +44,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -58,12 +62,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -88,6 +95,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -97,8 +105,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -123,6 +133,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -130,6 +141,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -153,6 +165,7 @@ unittest {
     auto faker = new Faker_az(2);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -169,6 +182,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -186,6 +201,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -203,12 +219,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -233,6 +252,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -242,8 +262,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -268,6 +290,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -275,6 +298,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -298,6 +322,7 @@ unittest {
     auto faker = new Faker_cz(3);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -314,6 +339,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -331,6 +358,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -348,12 +376,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -378,6 +409,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -387,8 +419,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -413,6 +447,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -420,6 +455,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -443,6 +479,7 @@ unittest {
     auto faker = new Faker_de(4);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -459,6 +496,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -476,6 +515,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -493,12 +533,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -523,6 +566,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -532,8 +576,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -558,6 +604,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -565,6 +612,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -588,6 +636,7 @@ unittest {
     auto faker = new Faker_de_at(5);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -604,6 +653,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -621,6 +672,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -638,12 +690,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -668,6 +723,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -677,8 +733,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -703,6 +761,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -710,6 +769,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -733,6 +793,7 @@ unittest {
     auto faker = new Faker_de_ch(6);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -749,6 +810,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -766,6 +829,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -783,12 +847,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -813,6 +880,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -822,8 +890,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -848,6 +918,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -855,6 +926,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -878,6 +950,7 @@ unittest {
     auto faker = new Faker_el(7);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -894,6 +967,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -911,6 +986,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -928,12 +1004,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -958,6 +1037,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -967,8 +1047,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -993,6 +1075,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -1000,6 +1083,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -1023,6 +1107,7 @@ unittest {
     auto faker = new Faker_en_au(8);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -1039,6 +1124,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -1056,6 +1143,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -1073,12 +1161,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -1103,6 +1194,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -1112,8 +1204,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -1138,6 +1232,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -1145,6 +1240,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -1168,6 +1264,7 @@ unittest {
     auto faker = new Faker_en_au_ocker(9);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -1184,6 +1281,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -1201,6 +1300,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -1218,12 +1318,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -1248,6 +1351,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -1257,8 +1361,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -1283,6 +1389,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -1290,6 +1397,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -1313,6 +1421,7 @@ unittest {
     auto faker = new Faker_en_bork(10);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -1329,6 +1438,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -1346,6 +1457,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -1363,12 +1475,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -1393,6 +1508,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -1402,8 +1518,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -1428,6 +1546,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -1435,6 +1554,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -1458,6 +1578,7 @@ unittest {
     auto faker = new Faker_en_ca(11);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -1474,6 +1595,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -1491,6 +1614,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -1508,12 +1632,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -1538,6 +1665,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -1547,8 +1675,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -1573,6 +1703,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -1580,6 +1711,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -1603,6 +1735,7 @@ unittest {
     auto faker = new Faker_en_gb(12);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -1619,6 +1752,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -1636,6 +1771,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -1653,12 +1789,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -1683,6 +1822,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -1692,8 +1832,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -1718,6 +1860,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -1725,6 +1868,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -1748,6 +1892,7 @@ unittest {
     auto faker = new Faker_en_gh(13);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -1764,6 +1909,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -1781,6 +1928,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -1798,12 +1946,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -1828,6 +1979,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -1837,8 +1989,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -1863,6 +2017,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -1870,6 +2025,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -1893,6 +2049,7 @@ unittest {
     auto faker = new Faker_en_ie(14);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -1909,6 +2066,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -1926,6 +2085,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -1943,12 +2103,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -1973,6 +2136,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -1982,8 +2146,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -2008,6 +2174,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -2015,6 +2182,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -2038,6 +2206,7 @@ unittest {
     auto faker = new Faker_en_ind(15);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -2054,6 +2223,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -2071,6 +2242,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -2088,12 +2260,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -2118,6 +2293,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -2127,8 +2303,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -2153,6 +2331,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -2160,6 +2339,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -2183,6 +2363,7 @@ unittest {
     auto faker = new Faker_en_ng(16);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -2199,6 +2380,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -2216,6 +2399,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -2233,12 +2417,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -2263,6 +2450,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -2272,8 +2460,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -2298,6 +2488,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -2305,6 +2496,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -2328,6 +2520,7 @@ unittest {
     auto faker = new Faker_en_us(17);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -2344,6 +2537,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -2361,6 +2556,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -2378,12 +2574,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -2408,6 +2607,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -2417,8 +2617,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -2443,6 +2645,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -2450,6 +2653,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -2473,6 +2677,7 @@ unittest {
     auto faker = new Faker_en_za(18);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -2489,6 +2694,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -2506,6 +2713,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -2523,12 +2731,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -2553,6 +2764,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -2562,8 +2774,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -2588,6 +2802,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -2595,6 +2810,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -2618,6 +2834,7 @@ unittest {
     auto faker = new Faker_es(19);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -2634,6 +2851,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -2651,6 +2870,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -2668,12 +2888,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -2698,6 +2921,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -2707,8 +2931,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -2733,6 +2959,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -2740,6 +2967,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -2763,6 +2991,7 @@ unittest {
     auto faker = new Faker_es_mx(20);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -2779,6 +3008,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -2796,6 +3027,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -2813,12 +3045,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -2843,6 +3078,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -2852,8 +3088,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -2878,6 +3116,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -2885,6 +3124,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -2908,6 +3148,7 @@ unittest {
     auto faker = new Faker_fi(21);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -2924,6 +3165,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -2941,6 +3184,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -2958,12 +3202,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -2988,6 +3235,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -2997,8 +3245,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -3023,6 +3273,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -3030,6 +3281,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -3053,6 +3305,7 @@ unittest {
     auto faker = new Faker_fr(22);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -3069,6 +3322,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -3086,6 +3341,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -3103,12 +3359,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -3133,6 +3392,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -3142,8 +3402,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -3168,6 +3430,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -3175,6 +3438,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -3198,6 +3462,7 @@ unittest {
     auto faker = new Faker_fr_be(23);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -3214,6 +3479,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -3231,6 +3498,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -3248,12 +3516,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -3278,6 +3549,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -3287,8 +3559,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -3313,6 +3587,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -3320,6 +3595,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -3343,6 +3619,7 @@ unittest {
     auto faker = new Faker_fr_ca(24);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -3359,6 +3636,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -3376,6 +3655,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -3393,12 +3673,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -3423,6 +3706,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -3432,8 +3716,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -3458,6 +3744,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -3465,6 +3752,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -3488,6 +3776,7 @@ unittest {
     auto faker = new Faker_fr_ch(25);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -3504,6 +3793,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -3521,6 +3812,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -3538,12 +3830,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -3568,6 +3863,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -3577,8 +3873,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -3603,6 +3901,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -3610,6 +3909,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -3633,6 +3933,7 @@ unittest {
     auto faker = new Faker_ge(26);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -3649,6 +3950,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -3666,6 +3969,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -3683,12 +3987,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -3713,6 +4020,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -3722,8 +4030,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -3748,6 +4058,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -3755,6 +4066,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -3778,6 +4090,7 @@ unittest {
     auto faker = new Faker_he(27);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -3794,6 +4107,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -3811,6 +4126,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -3828,12 +4144,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -3858,6 +4177,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -3867,8 +4187,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -3893,6 +4215,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -3900,6 +4223,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -3923,6 +4247,7 @@ unittest {
     auto faker = new Faker_hr(28);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -3939,6 +4264,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -3956,6 +4283,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -3973,12 +4301,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -4003,6 +4334,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -4012,8 +4344,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -4038,6 +4372,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -4045,6 +4380,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -4068,6 +4404,7 @@ unittest {
     auto faker = new Faker_hu(29);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -4084,6 +4421,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -4101,6 +4440,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -4118,12 +4458,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -4148,6 +4491,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -4157,8 +4501,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -4183,6 +4529,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -4190,6 +4537,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -4213,6 +4561,7 @@ unittest {
     auto faker = new Faker_hy(30);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -4229,6 +4578,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -4246,6 +4597,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -4263,12 +4615,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -4293,6 +4648,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -4302,8 +4658,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -4328,6 +4686,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -4335,6 +4694,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -4358,6 +4718,7 @@ unittest {
     auto faker = new Faker_id_id(31);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -4374,6 +4735,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -4391,6 +4754,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -4408,12 +4772,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -4438,6 +4805,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -4447,8 +4815,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -4473,6 +4843,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -4480,6 +4851,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -4503,6 +4875,7 @@ unittest {
     auto faker = new Faker_it(32);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -4519,6 +4892,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -4536,6 +4911,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -4553,12 +4929,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -4583,6 +4962,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -4592,8 +4972,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -4618,6 +5000,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -4625,6 +5008,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -4648,6 +5032,7 @@ unittest {
     auto faker = new Faker_ja(33);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -4664,6 +5049,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -4681,6 +5068,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -4698,12 +5086,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -4728,6 +5119,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -4737,8 +5129,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -4763,6 +5157,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -4770,6 +5165,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -4793,6 +5189,7 @@ unittest {
     auto faker = new Faker_ko(34);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -4809,6 +5206,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -4826,6 +5225,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -4843,12 +5243,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -4873,6 +5276,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -4882,8 +5286,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -4908,6 +5314,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -4915,6 +5322,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -4938,6 +5346,7 @@ unittest {
     auto faker = new Faker_lv(35);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -4954,6 +5363,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -4971,6 +5382,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -4988,12 +5400,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -5018,6 +5433,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -5027,8 +5443,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -5053,6 +5471,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -5060,6 +5479,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -5083,6 +5503,7 @@ unittest {
     auto faker = new Faker_mk(36);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -5099,6 +5520,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -5116,6 +5539,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -5133,12 +5557,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -5163,6 +5590,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -5172,8 +5600,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -5198,6 +5628,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -5205,6 +5636,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -5228,6 +5660,7 @@ unittest {
     auto faker = new Faker_nb_no(37);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -5244,6 +5677,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -5261,6 +5696,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -5278,12 +5714,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -5308,6 +5747,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -5317,8 +5757,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -5343,6 +5785,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -5350,6 +5793,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -5373,6 +5817,7 @@ unittest {
     auto faker = new Faker_ne(38);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -5389,6 +5834,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -5406,6 +5853,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -5423,12 +5871,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -5453,6 +5904,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -5462,8 +5914,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -5488,6 +5942,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -5495,6 +5950,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -5518,6 +5974,7 @@ unittest {
     auto faker = new Faker_nl(39);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -5534,6 +5991,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -5551,6 +6010,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -5568,12 +6028,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -5598,6 +6061,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -5607,8 +6071,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -5633,6 +6099,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -5640,6 +6107,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -5663,6 +6131,7 @@ unittest {
     auto faker = new Faker_nl_be(40);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -5679,6 +6148,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -5696,6 +6167,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -5713,12 +6185,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -5743,6 +6218,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -5752,8 +6228,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -5778,6 +6256,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -5785,6 +6264,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -5808,6 +6288,7 @@ unittest {
     auto faker = new Faker_pl(41);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -5824,6 +6305,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -5841,6 +6324,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -5858,12 +6342,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -5888,6 +6375,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -5897,8 +6385,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -5923,6 +6413,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -5930,6 +6421,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -5953,6 +6445,7 @@ unittest {
     auto faker = new Faker_pt_br(42);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -5969,6 +6462,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -5986,6 +6481,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -6003,12 +6499,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -6033,6 +6532,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -6042,8 +6542,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -6068,6 +6570,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -6075,6 +6578,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -6098,6 +6602,7 @@ unittest {
     auto faker = new Faker_pt_pt(43);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -6114,6 +6619,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -6131,6 +6638,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -6148,12 +6656,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -6178,6 +6689,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -6187,8 +6699,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -6213,6 +6727,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -6220,6 +6735,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -6243,6 +6759,7 @@ unittest {
     auto faker = new Faker_ro(44);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -6259,6 +6776,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -6276,6 +6795,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -6293,12 +6813,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -6323,6 +6846,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -6332,8 +6856,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -6358,6 +6884,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -6365,6 +6892,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -6388,6 +6916,7 @@ unittest {
     auto faker = new Faker_ru(45);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -6404,6 +6933,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -6421,6 +6952,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -6438,12 +6970,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -6468,6 +7003,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -6477,8 +7013,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -6503,6 +7041,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -6510,6 +7049,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -6533,6 +7073,7 @@ unittest {
     auto faker = new Faker_sk(46);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -6549,6 +7090,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -6566,6 +7109,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -6583,12 +7127,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -6613,6 +7160,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -6622,8 +7170,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -6648,6 +7198,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -6655,6 +7206,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -6678,6 +7230,7 @@ unittest {
     auto faker = new Faker_sv(47);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -6694,6 +7247,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -6711,6 +7266,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -6728,12 +7284,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -6758,6 +7317,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -6767,8 +7327,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -6793,6 +7355,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -6800,6 +7363,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -6823,6 +7387,7 @@ unittest {
     auto faker = new Faker_tr(48);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -6839,6 +7404,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -6856,6 +7423,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -6873,12 +7441,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -6903,6 +7474,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -6912,8 +7484,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -6938,6 +7512,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -6945,6 +7520,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -6968,6 +7544,7 @@ unittest {
     auto faker = new Faker_uk(49);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -6984,6 +7561,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -7001,6 +7580,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -7018,12 +7598,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -7048,6 +7631,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -7057,8 +7641,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -7083,6 +7669,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -7090,6 +7677,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -7113,6 +7701,7 @@ unittest {
     auto faker = new Faker_vi(50);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -7129,6 +7718,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -7146,6 +7737,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -7163,12 +7755,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -7193,6 +7788,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -7202,8 +7798,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -7228,6 +7826,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -7235,6 +7834,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -7258,6 +7858,7 @@ unittest {
     auto faker = new Faker_zh_cn(51);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -7274,6 +7875,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -7291,6 +7894,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -7308,12 +7912,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -7338,6 +7945,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -7347,8 +7955,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -7373,6 +7983,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -7380,6 +7991,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -7403,6 +8015,7 @@ unittest {
     auto faker = new Faker_zh_tw(52);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -7419,6 +8032,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -7436,6 +8051,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -7453,12 +8069,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -7483,6 +8102,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -7492,8 +8112,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -7518,6 +8140,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -7525,6 +8148,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -7548,6 +8172,7 @@ unittest {
     auto faker = new Faker_zu_za(53);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -7564,6 +8189,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -7581,6 +8208,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -7598,12 +8226,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -7628,6 +8259,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -7637,8 +8269,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -7663,6 +8297,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -7670,6 +8305,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);
@@ -7693,6 +8329,7 @@ unittest {
     auto faker = new Faker(54);
 	for(int i = 0; i < 30; ++i) {
 		assert(!faker.addressBuildingNumber().empty);
+		assert(!faker.addressCity().empty);
 		assert(!faker.addressCityName().empty);
 		assert(!faker.addressCityPrefix().empty);
 		assert(!faker.addressCitySuffix().empty);
@@ -7709,6 +8346,8 @@ unittest {
 		assert(!faker.addressSecondaryAddress().empty);
 		assert(!faker.addressState().empty);
 		assert(!faker.addressStateAbbr().empty);
+		assert(!faker.addressStreet().empty);
+		assert(!faker.addressStreetAddress().empty);
 		assert(!faker.addressStreetSuffix().empty);
 		assert(!faker.addressTimeZone().empty);
 		assert(!faker.animalBear().empty);
@@ -7726,6 +8365,7 @@ unittest {
 		assert(!faker.animalRodent().empty);
 		assert(!faker.animalSnake().empty);
 		assert(!faker.animalType().empty);
+		assert(!faker.appAuthor().empty);
 		assert(!faker.appName().empty);
 		assert(!faker.appVersion().empty);
 		assert(!faker.businessCreditCardExpiryDates().empty);
@@ -7743,12 +8383,15 @@ unittest {
 		assert(!faker.companyBsVerb().empty);
 		assert(!faker.companyCatchPhrase().empty);
 		assert(!faker.companyDescriptor().empty);
+		assert(!faker.companyName().empty);
 		assert(!faker.companyNoun().empty);
 		assert(!faker.companySuffix().empty);
 		assert(!faker.databaseCollation().empty);
 		assert(!faker.databaseColumn().empty);
 		assert(!faker.databaseEngine().empty);
 		assert(!faker.databaseType().empty);
+		assert(!faker.dateMonth().empty);
+		assert(!faker.dateWeekday().empty);
 		assert(!faker.financeAccount().empty);
 		assert(!faker.financeAccountType().empty);
 		assert(!faker.financeBIC().empty);
@@ -7773,6 +8416,7 @@ unittest {
 		assert(!faker.hackerAdjective().empty);
 		assert(!faker.hackerIngverb().empty);
 		assert(!faker.hackerNoun().empty);
+		assert(!faker.hackerPhrase().empty);
 		assert(!faker.hackerVerb().empty);
 		assert(!faker.helperAlpha().empty);
 		assert(!faker.helperAlphaNum().empty);
@@ -7782,8 +8426,10 @@ unittest {
 		assert(!faker.internetDomainName().empty);
 		assert(!faker.internetDomainSuffix().empty);
 		assert(!faker.internetDomainWord().empty);
+		assert(!faker.internetEmoji().empty);
 		assert(!faker.internetExampleEmail().empty);
 		assert(!faker.internetFreeEmail().empty);
+		assert(!faker.internetHttpStatusCode().empty);
 		assert(!faker.internetIPv4().empty);
 		assert(!faker.internetIPv6().empty);
 		assert(!faker.internetPassword().empty);
@@ -7808,6 +8454,7 @@ unittest {
 		assert(!faker.nameMaleFirstName().empty);
 		assert(!faker.nameMaleMiddleName().empty);
 		assert(!faker.nameMiddleName().empty);
+		assert(!faker.nameName().empty);
 		assert(!faker.namePrefix().empty);
 		assert(!faker.nameSuffix().empty);
 		assert(!faker.phoneNumber().empty);
@@ -7815,6 +8462,7 @@ unittest {
 		assert(!faker.scienceChemicalelement().empty);
 		assert(!faker.scienceUnit().empty);
 		assert(!faker.teamCreature().empty);
+		assert(!faker.teamName().empty);
 		assert(!faker.vehicle().empty);
 		assert(!faker.vehicleBicycleType().empty);
 		assert(!faker.vehicleFuel().empty);

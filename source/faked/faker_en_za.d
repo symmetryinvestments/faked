@@ -407,6 +407,14 @@ class Faker_en_za : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstname() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastname() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
 	///
 	override string addressState() {
 		auto data = [
@@ -430,6 +438,13 @@ class Faker_en_za : Faker {
 		"####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityPrefix() ~ "'";
+		}
 	}
 
 	///
@@ -1835,6 +1850,14 @@ class Faker_en_za : Faker {
 		"Jan"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameLastName() ~ " " ~ nameFirstName();
+		}
 	}
 
 }

@@ -586,6 +586,24 @@ class Faker_ro : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet();
+			case 1: return addressBuildingnumber();
+			case 2: return "full: '" ~ addressStreet();
+			case 3: return addressBuildingnumber();
+			case 4: return addressSecondaryaddress();
+		}
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressStreetSuffix() ~ " " ~ addressStreetName() ~ "'";
+		}
+	}
+
 	///
 	override string addressCounty() {
 		auto data = [
@@ -742,6 +760,17 @@ class Faker_ro : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressCity() {
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstname() ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstname();
+			case 2: return nameFirstname() ~ addressCitySuffix();
+			case 3: return nameLastname() ~ addressCitySuffix();
+			case 4: return addressCityName();
+		}
+	}
+
 	///
 	override string addressBuildingNumber() {
 		auto data = [
@@ -810,6 +839,114 @@ class Faker_ro : Faker {
 		"rec.ro"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 36, this.rnd)) {
+			case 0: return "wide: ['Luni";
+			case 1: return "Marți";
+			case 2: return "Miercuri";
+			case 3: return "Joi";
+			case 4: return "Vineri";
+			case 5: return "Sâmbătă";
+			case 6: return "Duminică']";
+			case 7: return "if not set then \"wide\" will be used instead";
+			case 8: return "which may differ from a stand-alone word";
+			case 9: return "wide_context: [";
+			case 10: return "Luni";
+			case 11: return "Marți";
+			case 12: return "Miercuri";
+			case 13: return "Joi";
+			case 14: return "Vineri";
+			case 15: return "Sâmbătă";
+			case 16: return "Duminică";
+			case 17: return "]";
+			case 18: return "abbr: ['Luni";
+			case 19: return "Marți";
+			case 20: return "Miercuri";
+			case 21: return "Joi";
+			case 22: return "Vineri";
+			case 23: return "Sâmbătă";
+			case 24: return "Duminică']";
+			case 25: return "if not set then \"abbr\" will be used instead";
+			case 26: return "which may differ from a stand-alone word";
+			case 27: return "abbr_context: [";
+			case 28: return "Luni";
+			case 29: return "Marți";
+			case 30: return "Miercuri";
+			case 31: return "Joi";
+			case 32: return "Vineri";
+			case 33: return "Sâmbătă";
+			case 34: return "Duminică";
+			case 35: return "]";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 60, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Ianuarie";
+			case 2: return "Februarie";
+			case 3: return "Martie";
+			case 4: return "Aprilie";
+			case 5: return "Mai";
+			case 6: return "Iunie";
+			case 7: return "Iulie";
+			case 8: return "August";
+			case 9: return "Septembrie";
+			case 10: return "Octombrie";
+			case 11: return "Noiembrie";
+			case 12: return "Decembrie";
+			case 13: return "]";
+			case 14: return "if not set then \"wide\" will be used instead";
+			case 15: return "which may differ from a stand-alone word";
+			case 16: return "wide_context: [";
+			case 17: return "Ianuarie";
+			case 18: return "Februarie";
+			case 19: return "Martie";
+			case 20: return "Aprilie";
+			case 21: return "Mai";
+			case 22: return "Iunie";
+			case 23: return "Iulie";
+			case 24: return "August";
+			case 25: return "Septembrie";
+			case 26: return "Octombrie";
+			case 27: return "Noiembrie";
+			case 28: return "Decembrie";
+			case 29: return "]";
+			case 30: return "abbr: [";
+			case 31: return "Ian";
+			case 32: return "Feb";
+			case 33: return "Mar";
+			case 34: return "Apr";
+			case 35: return "Mai";
+			case 36: return "Iun";
+			case 37: return "Iul";
+			case 38: return "Aug";
+			case 39: return "Sep";
+			case 40: return "Oct";
+			case 41: return "Noi";
+			case 42: return "Dec";
+			case 43: return "]";
+			case 44: return "if not set then \"abbr\" will be used instead";
+			case 45: return "which may differ from a stand-alone word";
+			case 46: return "abbr_context: [";
+			case 47: return "Ian";
+			case 48: return "Feb";
+			case 49: return "Mar";
+			case 50: return "Apr";
+			case 51: return "Mai";
+			case 52: return "Iun";
+			case 53: return "Iul";
+			case 54: return "Aug";
+			case 55: return "Sep";
+			case 56: return "Oct";
+			case 57: return "Noi";
+			case 58: return "Dec";
+			case 59: return "]";
+		}
 	}
 
 	///
@@ -1825,6 +1962,46 @@ class Faker_ro : Faker {
 		"Zeno"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 34, this.rnd)) {
+			case 0: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 1: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 2: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 3: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 4: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 5: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 6: return nameLastName() ~ " " ~ nameMaleFirstName();
+			case 7: return nameLastName() ~ " " ~ nameMaleFirstName();
+			case 8: return nameLastName() ~ " " ~ nameMaleFirstName();
+			case 9: return nameLastName() ~ " " ~ nameMaleFirstName();
+			case 10: return nameLastName() ~ " " ~ nameMaleFirstName();
+			case 11: return nameLastName() ~ " " ~ nameMaleFirstName();
+			case 12: return namePrefix() ~ " " ~ nameMaleFirstName() ~ " " ~ nameLastName();
+			case 13: return namePrefix() ~ " " ~ nameMaleFirstName() ~ " " ~ nameLastName();
+			case 14: return namePrefix() ~ " " ~ nameMaleFirstName() ~ " " ~ nameLastName();
+			case 15: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 16: return nameSuffix();
+			case 17: return namePrefix() ~ " " ~ nameMaleFirstName() ~ " " ~ nameLastName();
+			case 18: return nameSuffix();
+			case 19: return nameFemaleFirstName() ~ " " ~ nameLastName();
+			case 20: return nameFemaleFirstName() ~ " " ~ nameLastName();
+			case 21: return nameFemaleFirstName() ~ " " ~ nameLastName();
+			case 22: return nameFemaleFirstName() ~ " " ~ nameLastName();
+			case 23: return nameFemaleFirstName() ~ " " ~ nameLastName();
+			case 24: return nameFemaleFirstName() ~ " " ~ nameLastName();
+			case 25: return nameLastName() ~ " " ~ nameFemaleFirstName();
+			case 26: return nameLastName() ~ " " ~ nameFemaleFirstName();
+			case 27: return nameLastName() ~ " " ~ nameFemaleFirstName();
+			case 28: return nameLastName() ~ " " ~ nameFemaleFirstName();
+			case 29: return nameLastName() ~ " " ~ nameFemaleFirstName();
+			case 30: return nameLastName() ~ " " ~ nameFemaleFirstName();
+			case 31: return namePrefix() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameLastName();
+			case 32: return namePrefix() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameLastName();
+			case 33: return namePrefix() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameLastName();
+		}
 	}
 
 }

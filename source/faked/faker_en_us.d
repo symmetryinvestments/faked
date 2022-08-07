@@ -598,6 +598,24 @@ class Faker_en_us : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstname() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastname() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstname() ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstname();
+			case 2: return nameFirstname() ~ addressCitySuffix();
+			case 3: return nameLastname() ~ addressCitySuffix();
+		}
+	}
+
 	///
 	override string addressDefaultCountry() {
 		auto data = [

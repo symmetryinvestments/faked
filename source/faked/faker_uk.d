@@ -147,6 +147,20 @@ class Faker_uk : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyName() {
+		final switch(uniform(0, 8, this.rnd)) {
+			case 0: return companyPrefix() ~ " " ~ nameFemaleFirstName();
+			case 1: return companyPrefix() ~ " " ~ nameMaleFirstName();
+			case 2: return companyPrefix() ~ " " ~ nameMaleLastName();
+			case 3: return companyPrefix() ~ " " ~ companySuffix() ~ companySuffix();
+			case 4: return companyPrefix() ~ " " ~ companySuffix() ~ companySuffix() ~ companySuffix();
+			case 5: return companyPrefix() ~ " " ~ addressCityName() ~ companySuffix();
+			case 6: return companyPrefix() ~ " " ~ addressCityName() ~ companySuffix() ~ companySuffix();
+			case 7: return companyPrefix() ~ " " ~ addressCityName() ~ companySuffix() ~ companySuffix() ~ companySuffix();
+		}
+	}
+
 	///
 	override string addressCityName() {
 		auto data = [
@@ -453,6 +467,16 @@ class Faker_uk : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet();
+			case 1: return addressBuildingnumber();
+			case 2: return "full: '" ~ addressStreet();
+			case 3: return addressBuildingnumber() ~ " " ~ addressSecondaryaddress();
+		}
+	}
+
 	///
 	string addressStreetPrefix() {
 		auto data = [
@@ -487,6 +511,14 @@ class Faker_uk : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return addressStreetPrefix() ~ " " ~ addressStreetName();
+			case 1: return addressStreetName() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
 	///
 	string addressStreetName() {
 		auto data = [
@@ -505,6 +537,14 @@ class Faker_uk : Faker {
 		"Коліївщини"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return addressCityName();
+			case 1: return addressCityPrefix() ~ " " ~ nameMaleFirstName();
+		}
 	}
 
 	///
@@ -1012,6 +1052,20 @@ class Faker_uk : Faker {
 		"канд. психол. наук"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 8, this.rnd)) {
+			case 0: return nameMaleFirstName() ~ " " ~ nameMaleLastName();
+			case 1: return nameMaleLastName() ~ " " ~ nameMaleFirstName();
+			case 2: return nameMaleFirstName() ~ " " ~ nameMaleMiddleName() ~ " " ~ nameMaleLastName();
+			case 3: return nameMaleLastName() ~ " " ~ nameMaleFirstName() ~ " " ~ nameMaleMiddleName();
+			case 4: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+			case 5: return nameFemaleLastName() ~ " " ~ nameFemaleFirstName();
+			case 6: return nameFemaleFirstName() ~ " " ~ nameFemaleMiddleName() ~ " " ~ nameFemaleLastName();
+			case 7: return nameFemaleLastName() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameFemaleMiddleName();
+		}
 	}
 
 	///

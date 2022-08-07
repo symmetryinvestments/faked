@@ -516,6 +516,18 @@ class Faker_hy : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameSuffix();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 5: return nameFemaleFirstName() ~ " " ~ nameLastName();
+		}
+	}
+
 	///
 	override string colorHuman() {
 		auto data = [
@@ -830,6 +842,14 @@ class Faker_hy : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingnumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingnumber() ~ " " ~ addressSecondaryaddress();
+		}
+	}
+
 	///
 	override string addressCityPrefix() {
 		auto data = [
@@ -840,6 +860,21 @@ class Faker_hy : Faker {
 		"Նոր'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ addressStreetSuffix() ~ "'";
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameLastName();
+			case 1: return nameLastName() ~ addressCitySuffix();
+		}
 	}
 
 	///
@@ -871,6 +906,62 @@ class Faker_hy : Faker {
 		"պողոտա'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 16, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Կիրակի";
+			case 2: return "Երկուշաբթի";
+			case 3: return "Երեքշաբթի";
+			case 4: return "Չորեքշաբթի";
+			case 5: return "Հինգշաբթի";
+			case 6: return "Ուրբաթ";
+			case 7: return "Շաբաթ";
+			case 8: return "]";
+			case 9: return "abbr: ['կրկ";
+			case 10: return "երկ";
+			case 11: return "երք";
+			case 12: return "չրք";
+			case 13: return "հնգ";
+			case 14: return "ուրբ";
+			case 15: return "շբթ']";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 28, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Հունվար";
+			case 2: return "Փետրվար";
+			case 3: return "Մարտ";
+			case 4: return "Ապրիլ";
+			case 5: return "Մայիս";
+			case 6: return "Հունիս";
+			case 7: return "Հուլիս";
+			case 8: return "Օգոստոս";
+			case 9: return "Սեպտեմբեր";
+			case 10: return "Հոկտեմբեր";
+			case 11: return "Նոյեմբեր";
+			case 12: return "Դեկտեմբեր";
+			case 13: return "]";
+			case 14: return "abbr: [";
+			case 15: return "Հնվ";
+			case 16: return "Փտր";
+			case 17: return "Մրտ";
+			case 18: return "Ապր";
+			case 19: return "Մյս";
+			case 20: return "Հնս";
+			case 21: return "Հլս";
+			case 22: return "Օգս";
+			case 23: return "Սպտ";
+			case 24: return "Հկտ";
+			case 25: return "Նմբ";
+			case 26: return "Դկտ";
+			case 27: return "]";
+		}
 	}
 
 	///

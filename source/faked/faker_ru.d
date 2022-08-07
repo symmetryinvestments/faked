@@ -250,6 +250,20 @@ class Faker_ru : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyName() {
+		final switch(uniform(0, 8, this.rnd)) {
+			case 0: return companyPrefix() ~ " " ~ nameFemaleFirstName();
+			case 1: return companyPrefix() ~ " " ~ nameMaleFirstName();
+			case 2: return companyPrefix() ~ " " ~ nameMaleLastName();
+			case 3: return companyPrefix() ~ " " ~ companySuffix() ~ companySuffix();
+			case 4: return companyPrefix() ~ " " ~ companySuffix() ~ companySuffix() ~ companySuffix();
+			case 5: return companyPrefix() ~ " " ~ addressCityName() ~ companySuffix();
+			case 6: return companyPrefix() ~ " " ~ addressCityName() ~ companySuffix() ~ companySuffix();
+			case 7: return companyPrefix() ~ " " ~ addressCityName() ~ companySuffix() ~ companySuffix() ~ companySuffix();
+		}
+	}
+
 	///
 	override string hackerIngverb() {
 		auto data = [
@@ -364,6 +378,28 @@ class Faker_ru : Faker {
 		"XSS"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string hackerPhrase() {
+		final switch(uniform(0, 16, this.rnd)) {
+			case 0: return "Чтобы " ~ hackerVerb() ~ " " ~ hackerNoun();
+			case 1: return "мы можем получить " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " через " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+			case 2: return "Необходимо " ~ hackerVerb() ~ " " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+			case 3: return "Попробуйте " ~ hackerVerb() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun();
+			case 4: return "возможно это позволит " ~ hackerVerb() ~ " " ~ hackerAdjective() ~ " " ~ hackerNoun() ~ "!";
+			case 5: return "Вы не можете " ~ hackerVerb() ~ " " ~ hackerNoun();
+			case 6: return "требуется " ~ hackerIngverb() ~ " или " ~ hackerIngverb() ~ "!";
+			case 7: return "Используйте " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun();
+			case 8: return "для того чтобы " ~ hackerVerb() ~ " " ~ hackerAdjective() ~ " " ~ hackerNoun() ~ "!";
+			case 9: return hackerAbbreviation() ~ " " ~ hackerNoun() ~ " недоступен";
+			case 10: return "требуется " ~ hackerVerb() ~ " " ~ hackerAdjective() ~ " " ~ hackerNoun();
+			case 11: return "чтобы мы могли " ~ hackerVerb() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+			case 12: return hackerIngverb() ~ " не работает";
+			case 13: return "попробуйте " ~ hackerVerb() ~ " " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+			case 14: return "Я планирую " ~ hackerVerb() ~ " " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun();
+			case 15: return "это должно помочь " ~ hackerVerb() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+		}
 	}
 
 	///
@@ -953,6 +989,26 @@ class Faker_ru : Faker {
 		"Ярослав"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameSuffix() {
+		final switch(uniform(0, 0, this.rnd)) {
+		}
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 8, this.rnd)) {
+			case 0: return nameMaleFirstName() ~ " " ~ nameMaleLastName();
+			case 1: return nameMaleLastName() ~ " " ~ nameMaleFirstName();
+			case 2: return nameMaleFirstName() ~ " " ~ nameMaleMiddleName() ~ " " ~ nameMaleLastName();
+			case 3: return nameMaleLastName() ~ " " ~ nameMaleFirstName() ~ " " ~ nameMaleMiddleName();
+			case 4: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+			case 5: return nameFemaleLastName() ~ " " ~ nameFemaleFirstName();
+			case 6: return nameFemaleFirstName() ~ " " ~ nameFemaleMiddleName() ~ " " ~ nameFemaleLastName();
+			case 7: return nameFemaleLastName() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameFemaleMiddleName();
+		}
 	}
 
 	///
@@ -1554,6 +1610,12 @@ class Faker_ru : Faker {
 		"Турова"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string namePrefix() {
+		final switch(uniform(0, 0, this.rnd)) {
+		}
 	}
 
 	///
@@ -2560,6 +2622,24 @@ class Faker_ru : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet();
+			case 1: return addressBuildingnumber();
+			case 2: return "full: '" ~ addressStreet();
+			case 3: return addressBuildingnumber() ~ " " ~ addressSecondaryaddress();
+		}
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return addressStreetSuffix() ~ " " ~ addressStreetName();
+			case 1: return addressStreetName() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
 	///
 	string addressStreetName() {
 		auto data = [
@@ -2864,6 +2944,13 @@ class Faker_ru : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
+	}
+
 	///
 	override string addressBuildingNumber() {
 		auto data = [
@@ -2901,6 +2988,106 @@ class Faker_ru : Faker {
 		"ул."
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 32, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Воскресенье";
+			case 2: return "Понедельник";
+			case 3: return "Вторник";
+			case 4: return "Среда";
+			case 5: return "Четверг";
+			case 6: return "Пятница";
+			case 7: return "Суббота";
+			case 8: return "]";
+			case 9: return "wide_context: [";
+			case 10: return "воскресенье";
+			case 11: return "понедельник";
+			case 12: return "вторник";
+			case 13: return "среда";
+			case 14: return "четверг";
+			case 15: return "пятница";
+			case 16: return "суббота";
+			case 17: return "]";
+			case 18: return "abbr: ['Вс";
+			case 19: return "Пн";
+			case 20: return "Вт";
+			case 21: return "Ср";
+			case 22: return "Чт";
+			case 23: return "Пт";
+			case 24: return "Сб']";
+			case 25: return "abbr_context: ['вс";
+			case 26: return "пн";
+			case 27: return "вт";
+			case 28: return "ср";
+			case 29: return "чт";
+			case 30: return "пт";
+			case 31: return "сб']";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 56, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "январь";
+			case 2: return "февраль";
+			case 3: return "март";
+			case 4: return "апрель";
+			case 5: return "май";
+			case 6: return "июнь";
+			case 7: return "июль";
+			case 8: return "август";
+			case 9: return "сентябрь";
+			case 10: return "октябрь";
+			case 11: return "ноябрь";
+			case 12: return "декабрь";
+			case 13: return "]";
+			case 14: return "wide_context: [";
+			case 15: return "января";
+			case 16: return "февраля";
+			case 17: return "марта";
+			case 18: return "апреля";
+			case 19: return "мая";
+			case 20: return "июня";
+			case 21: return "июля";
+			case 22: return "августа";
+			case 23: return "сентября";
+			case 24: return "октября";
+			case 25: return "ноября";
+			case 26: return "декабря";
+			case 27: return "]";
+			case 28: return "abbr: [";
+			case 29: return "янв.";
+			case 30: return "февр.";
+			case 31: return "март";
+			case 32: return "апр.";
+			case 33: return "май";
+			case 34: return "июнь";
+			case 35: return "июль";
+			case 36: return "авг.";
+			case 37: return "сент.";
+			case 38: return "окт.";
+			case 39: return "нояб.";
+			case 40: return "дек.";
+			case 41: return "]";
+			case 42: return "abbr_context: [";
+			case 43: return "янв.";
+			case 44: return "февр.";
+			case 45: return "марта";
+			case 46: return "апр.";
+			case 47: return "мая";
+			case 48: return "июня";
+			case 49: return "июля";
+			case 50: return "авг.";
+			case 51: return "сент.";
+			case 52: return "окт.";
+			case 53: return "нояб.";
+			case 54: return "дек.";
+			case 55: return "]";
+		}
 	}
 
 	///

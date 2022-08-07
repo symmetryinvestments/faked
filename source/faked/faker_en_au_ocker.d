@@ -126,6 +126,13 @@ class Faker_en_au_ocker : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressStreetName() ~ "'";
+		}
+	}
+
 	///
 	string addressStreetName() {
 		auto data = [
@@ -135,6 +142,13 @@ class Faker_en_au_ocker : Faker {
 		"Queen Street"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityPrefix() ~ "'";
+		}
 	}
 
 	///

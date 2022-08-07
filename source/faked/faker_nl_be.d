@@ -103,6 +103,14 @@ class Faker_nl_be : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingnumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingnumber() ~ " " ~ addressSecondaryaddress();
+		}
+	}
+
 	///
 	override string addressCitySuffix() {
 		auto data = [
@@ -1247,6 +1255,22 @@ class Faker_nl_be : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstName() ~ addressStreetSuffix();
+			case 1: return nameLastName() ~ addressStreetSuffix();
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return addressCityPrefix();
+			case 1: return addressCityPrefix() ~ addressCitySuffix();
+		}
+	}
+
 	///
 	override string addressBuildingNumber() {
 		auto data = [
@@ -1555,6 +1579,16 @@ class Faker_nl_be : Faker {
 		"Chloe"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameSuffix();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+		}
 	}
 
 }

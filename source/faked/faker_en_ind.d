@@ -1404,6 +1404,21 @@ class Faker_en_ind : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstname() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastname() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
+	}
+
 	///
 	override string addressPostcode() {
 		auto data = [

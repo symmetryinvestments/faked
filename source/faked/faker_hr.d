@@ -436,6 +436,21 @@ class Faker_hr : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingnumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingnumber() ~ " " ~ addressSecondaryaddress();
+		}
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressStreetName() ~ "'";
+		}
+	}
+
 	///
 	override string addressTimeZone() {
 		auto data = [
@@ -952,6 +967,13 @@ class Faker_hr : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
+	}
+
 	///
 	override string addressBuildingNumber() {
 		auto data = [
@@ -999,6 +1021,114 @@ class Faker_hr : Faker {
 		"org'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 36, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "nedjelja";
+			case 2: return "ponedjeljak";
+			case 3: return "utorak";
+			case 4: return "srijeda";
+			case 5: return "četvrtak";
+			case 6: return "petak";
+			case 7: return "subota";
+			case 8: return "]";
+			case 9: return "if not set then \"wide\" will be used instead";
+			case 10: return "which may differ from a stand-alone word";
+			case 11: return "wide_context: [";
+			case 12: return "nedjelja";
+			case 13: return "ponedjeljak";
+			case 14: return "utorak";
+			case 15: return "srijeda";
+			case 16: return "četvrtak";
+			case 17: return "petak";
+			case 18: return "subota";
+			case 19: return "]";
+			case 20: return "abbr: ['ned";
+			case 21: return "pon";
+			case 22: return "uto";
+			case 23: return "sri";
+			case 24: return "čet";
+			case 25: return "pet";
+			case 26: return "sub']";
+			case 27: return "if not set then \"abbr\" will be used instead";
+			case 28: return "which may differ from a stand-alone word";
+			case 29: return "abbr_context: ['ned";
+			case 30: return "pon";
+			case 31: return "uto";
+			case 32: return "sri";
+			case 33: return "čet";
+			case 34: return "pet";
+			case 35: return "sub']";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 60, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "siječanj";
+			case 2: return "veljača";
+			case 3: return "ožujak";
+			case 4: return "travanj";
+			case 5: return "svibanj";
+			case 6: return "lipanj";
+			case 7: return "srpanj";
+			case 8: return "kolovoz";
+			case 9: return "rujan";
+			case 10: return "listopad";
+			case 11: return "studeni";
+			case 12: return "prosinac";
+			case 13: return "]";
+			case 14: return "if not set then \"wide\" will be used instead";
+			case 15: return "which may differ from a stand-alone word";
+			case 16: return "wide_context: [";
+			case 17: return "siječanj";
+			case 18: return "veljača";
+			case 19: return "ožujak";
+			case 20: return "travanj";
+			case 21: return "svibanj";
+			case 22: return "lipanj";
+			case 23: return "srpanj";
+			case 24: return "kolovoz";
+			case 25: return "rujan";
+			case 26: return "listopad";
+			case 27: return "studeni";
+			case 28: return "prosinac";
+			case 29: return "]";
+			case 30: return "abbr: [";
+			case 31: return "sij";
+			case 32: return "vel";
+			case 33: return "ožu";
+			case 34: return "tra";
+			case 35: return "svi";
+			case 36: return "lip";
+			case 37: return "srp";
+			case 38: return "kol";
+			case 39: return "ruj";
+			case 40: return "lis";
+			case 41: return "stu";
+			case 42: return "pro";
+			case 43: return "]";
+			case 44: return "if not set then \"abbr\" will be used instead";
+			case 45: return "which may differ from a stand-alone word";
+			case 46: return "abbr_context: [";
+			case 47: return "sij";
+			case 48: return "vel";
+			case 49: return "ožu";
+			case 50: return "tra";
+			case 51: return "svi";
+			case 52: return "lip";
+			case 53: return "srp";
+			case 54: return "kol";
+			case 55: return "ruj";
+			case 56: return "lis";
+			case 57: return "stu";
+			case 58: return "pro";
+			case 59: return "]";
+		}
 	}
 
 	///
@@ -13226,6 +13356,19 @@ class Faker_hr : Faker {
 		"Zvonimir"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 7, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName();
+			case 2: return nameSuffix();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameFirstName() ~ " " ~ nameLastName();
+			case 5: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 6: return nameFemaleFirstName() ~ " " ~ nameLastName();
+		}
 	}
 
 	///

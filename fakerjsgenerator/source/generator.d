@@ -1,16 +1,19 @@
 module generator;
 
+import std.algorithm;
 import std.array;
+import std.conv : to;
+import std.exception;
+import std.format;
+import std.json;
+import std.regex;
 import std.stdio;
 import std.string;
 import std.typecons;
-import std.json;
-import std.regex;
-import std.algorithm;
-import std.format;
-import std.conv : to;
+
 import transforms.camel;
 import transforms.snake;
+
 import iban;
 
 class Generator {
@@ -862,8 +865,48 @@ class Faker_%1$s : Faker%2$s {
 		return ret;
 	}
 
+
+	static private string buildSingleMustache(string line, string section) {
+		string ret;
+		line = line.replace("\"", "\\\"");
+		ptrdiff_t idx = line.indexOf("{{");
+		ptrdiff_t cur = 0;
+		long cnt;
+		while(idx != -1) {
+			string interme = line[cur .. idx];
+			if(!interme.empty) {
+				ret ~= (cnt == 0 ? "\"" : " ~ \"") ~ interme ~ "\"";
+				++cnt;
+			}
+			ptrdiff_t close = line.indexOf("}}", idx);
+			enforce(close != -1, line);
+			ret ~= (cnt == 0 ? "" : " ~ ") ~ line[idx + 2 .. close]
+				.replaceDotOrSection(section).camelCase() ~ "()";
+			++cnt;
+			cur = close + 2;
+			idx = line.indexOf("{{", cur);
+		}
+		string rest = line[cur .. $];
+		if(!rest.empty) {
+			ret ~= (cnt == 0 ? "\"" : " ~ \"") ~ rest ~ "\"";
+		}
+		return ret;
+	}
+
 	string buildMustache(string ll, string name, string sub, string[] lines) {
-		assert(false, "Continue here which splitting mustache strings in lines");
+		string ret = (name ~ "_" ~ sub).camelCase();
+		string tmp = format("\n\t%sstring %s() {\n"
+				, ll == "en" ? "" : "override ", ret);
+		tmp ~= format("\t\tfinal switch(uniform(0, %s, this.rnd)) {\n"
+				, lines.length);
+		foreach(idx, line; lines) {
+			tmp ~= format("\t\t\tcase %d: return %s;\n", idx,
+					buildSingleMustache(line, name));
+		}
+		tmp ~= format("\t\t}\n");
+		tmp ~= format("\t}\n\n");
+		this.output ~= tmp;
+		return ret;
 	}
 
 	string buildString(string name, string postfix, string[] lines) {
@@ -1006,4 +1049,10 @@ JSONValue parseJson(string input) {
     input = input[0 .. $ - 1];
 
     return parseJSON(input);
+}
+
+string replaceDotOrSection(string str, string section) {
+	return str.indexOf(".") != -1
+		? str.replace(".", "_")
+		: section ~ "_" ~ str;
 }

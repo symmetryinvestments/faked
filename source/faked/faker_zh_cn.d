@@ -118,6 +118,14 @@ class Faker_zh_cn : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ addressBuildingnumber() ~ "号";
+			case 1: return "full: '" ~ addressStreet() ~ addressBuildingnumber() ~ "号 " ~ addressSecondaryaddress();
+		}
+	}
+
 	///
 	override string addressCitySuffix() {
 		auto data = [
@@ -170,6 +178,20 @@ class Faker_zh_cn : Faker {
 		"包"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return nameLastName() ~ addressStreetSuffix() ~ "'";
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityPrefix() ~ addressCitySuffix() ~ "'";
+		}
 	}
 
 	///
@@ -464,6 +486,13 @@ class Faker_zh_cn : Faker {
 		"彬"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return nameFirstName() ~ nameLastName() ~ "'";
+		}
 	}
 
 }

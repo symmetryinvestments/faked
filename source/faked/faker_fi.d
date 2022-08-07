@@ -296,4 +296,14 @@ class Faker_fi : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName();
+			case 2: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFemaleFirstName() ~ " " ~ nameLastName();
+		}
+	}
+
 }

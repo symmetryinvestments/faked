@@ -2408,6 +2408,18 @@ class Faker_tr : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 5: return nameFemaleFirstName() ~ " " ~ nameLastName();
+		}
+	}
+
 	///
 	override string commerceProductDescription() {
 		auto data = [
@@ -2839,6 +2851,21 @@ class Faker_tr : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingnumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingnumber() ~ " " ~ addressSecondaryaddress();
+		}
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressStreetName() ~ "'";
+		}
+	}
+
 	///
 	string addressStreetName() {
 		auto data = [
@@ -2885,6 +2912,17 @@ class Faker_tr : Faker {
 		"Bandak Sokak"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstname() ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstname();
+			case 2: return nameFirstname() ~ addressCitySuffix();
+			case 3: return nameLastname() ~ addressCitySuffix();
+			case 4: return addressCityName();
+		}
 	}
 
 	///

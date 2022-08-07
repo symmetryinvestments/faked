@@ -76,6 +76,14 @@ class Faker_en_gh : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyName() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ " and " ~ nameLastName();
+		}
+	}
+
 	///
 	override string addressCityName() {
 		auto data = [
@@ -467,12 +475,35 @@ class Faker_en_gh : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressBuildingnumber() ~ " " ~ addressStreet();
+			case 1: return "full: '" ~ addressBuildingnumber() ~ " " ~ addressStreet() ~ " " ~ addressSecondaryaddress();
+		}
+	}
+
 	///
 	string addressStreetPrefix() {
 		auto data = [
 		"Boame'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ addressStreetSuffix();
+			case 1: return addressStreetPrefix() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
 	}
 
 	///
@@ -789,6 +820,14 @@ class Faker_en_gh : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameFirstName() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFemaleFirstName();
+			case 1: return nameMaleFirstName() ~ "'";
+		}
+	}
+
 	///
 	override string nameMaleFirstName() {
 		auto data = [
@@ -926,6 +965,16 @@ class Faker_en_gh : Faker {
 		"Yaw"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return nameFemaleFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFemaleFirstName() ~ " " ~ nameLastName() ~ "-" ~ nameLastName();
+			case 2: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 3: return nameMaleFirstName() ~ " " ~ nameLastName() ~ "-" ~ nameLastName();
+		}
 	}
 
 }

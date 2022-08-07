@@ -141,6 +141,13 @@ class Faker_vi : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyName() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return companyPrefix() ~ " " ~ nameLastName() ~ "'";
+		}
+	}
+
 	///
 	override string nameFemaleFirstName() {
 		auto data = [
@@ -2729,6 +2736,15 @@ class Faker_vi : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameName() {
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFemaleFirstName() ~ " " ~ nameLastName();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+		}
+	}
+
 	///
 	override string addressCityName() {
 		auto data = [
@@ -3007,12 +3023,137 @@ class Faker_vi : Faker {
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
+	}
+
 	///
 	override string addressDefaultCountry() {
 		auto data = [
 		"Việt Nam'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstname() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastname() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 38, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Chủ nhật";
+			case 2: return "Thứ hai";
+			case 3: return "Thứ ba";
+			case 4: return "Thứ tư";
+			case 5: return "Thứ năm";
+			case 6: return "Thứ sáu";
+			case 7: return "Thứ bảy";
+			case 8: return "]";
+			case 9: return "if not set then \"wide\" will be used instead";
+			case 10: return "which may differ from a stand-alone word";
+			case 11: return "wide_context: [";
+			case 12: return "Chủ nhật";
+			case 13: return "Thứ hai";
+			case 14: return "Thứ ba";
+			case 15: return "Thứ tư";
+			case 16: return "Thứ năm";
+			case 17: return "Thứ sáu";
+			case 18: return "Thứ bảy";
+			case 19: return "]";
+			case 20: return "abbr: ['CN";
+			case 21: return "T2";
+			case 22: return "T3";
+			case 23: return "T4";
+			case 24: return "T5";
+			case 25: return "T6";
+			case 26: return "T7']";
+			case 27: return "if not set then \"abbr\" will be used instead";
+			case 28: return "which may differ from a stand-alone word";
+			case 29: return "abbr_context: [";
+			case 30: return "C.Nhật";
+			case 31: return "Thứ 2";
+			case 32: return "Thứ 3";
+			case 33: return "Thứ 4";
+			case 34: return "Thứ 5";
+			case 35: return "Thứ 6";
+			case 36: return "Thứ 7";
+			case 37: return "]";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 60, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Tháng Giêng";
+			case 2: return "Tháng Hai";
+			case 3: return "Tháng Ba";
+			case 4: return "Tháng Tư";
+			case 5: return "Tháng Năm";
+			case 6: return "Tháng Sáu";
+			case 7: return "Tháng Bảy";
+			case 8: return "Tháng Tám";
+			case 9: return "Tháng Chín";
+			case 10: return "Tháng Mười";
+			case 11: return "Tháng Mười Một";
+			case 12: return "Tháng Mười Hai";
+			case 13: return "]";
+			case 14: return "if not set then \"wide\" will be used instead";
+			case 15: return "which may differ from a stand-alone word";
+			case 16: return "wide_context: [";
+			case 17: return "Tháng Giêng";
+			case 18: return "Tháng Hai";
+			case 19: return "Tháng Ba";
+			case 20: return "Tháng Tư";
+			case 21: return "Tháng Năm";
+			case 22: return "Tháng Sáu";
+			case 23: return "Tháng Bảy";
+			case 24: return "Tháng Tám";
+			case 25: return "Tháng Chín";
+			case 26: return "Tháng Mười";
+			case 27: return "Tháng Mười Một";
+			case 28: return "Tháng Mười Hai";
+			case 29: return "]";
+			case 30: return "abbr: [";
+			case 31: return "Tháng 1";
+			case 32: return "Tháng 2";
+			case 33: return "Tháng 3";
+			case 34: return "Tháng 4";
+			case 35: return "Tháng 5";
+			case 36: return "Tháng 6";
+			case 37: return "Tháng 7";
+			case 38: return "Tháng 8";
+			case 39: return "Tháng 9";
+			case 40: return "Tháng 10";
+			case 41: return "Tháng 11";
+			case 42: return "Tháng 12";
+			case 43: return "]";
+			case 44: return "if not set then \"abbr\" will be used instead";
+			case 45: return "which may differ from a stand-alone word";
+			case 46: return "abbr_context: [";
+			case 47: return "Tháng 1";
+			case 48: return "Tháng 2";
+			case 49: return "Tháng 3";
+			case 50: return "Tháng 4";
+			case 51: return "Tháng 5";
+			case 52: return "Tháng 6";
+			case 53: return "Tháng 7";
+			case 54: return "Tháng 8";
+			case 55: return "Tháng 9";
+			case 56: return "Tháng 10";
+			case 57: return "Tháng 11";
+			case 58: return "Tháng 12";
+			case 59: return "]";
+		}
 	}
 
 	///

@@ -380,6 +380,16 @@ class Faker_it : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ "-" ~ nameLastName() ~ " " ~ companySuffix();
+			case 2: return nameLastName();
+			case 3: return nameLastName() ~ " e " ~ nameLastName() ~ " " ~ companySuffix();
+		}
+	}
+
 	///
 	override string companyBsAdjective() {
 		auto data = [
@@ -1909,6 +1919,15 @@ class Faker_it : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingnumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingnumber();
+			case 2: return addressSecondaryaddress();
+		}
+	}
+
 	///
 	override string addressCitySuffix() {
 		auto data = [
@@ -1938,6 +1957,24 @@ class Faker_it : Faker {
 		"Settimo'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return addressStreetSuffix() ~ " " ~ nameFirstName();
+			case 1: return addressStreetSuffix() ~ " " ~ nameLastName();
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ " " ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
+			case 2: return nameFirstName() ~ " " ~ addressCitySuffix();
+			case 3: return nameLastName() ~ " " ~ addressCitySuffix();
+		}
 	}
 
 	///
@@ -3069,6 +3106,12 @@ class Faker_it : Faker {
 		"Zosimo"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameSuffix() {
+		final switch(uniform(0, 0, this.rnd)) {
+		}
 	}
 
 	///
@@ -6953,6 +6996,18 @@ class Faker_it : Faker {
 		"Zosima"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 5: return nameFemaleFirstName() ~ " " ~ nameLastName();
+		}
 	}
 
 	///

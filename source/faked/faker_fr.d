@@ -4101,6 +4101,14 @@ class Faker_fr : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyName() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ " et " ~ nameLastName();
+		}
+	}
+
 	///
 	override string companyBsAdjective() {
 		auto data = [
@@ -4839,6 +4847,15 @@ class Faker_fr : Faker {
 			? nameFemaleFirstName()
 			: nameMaleFirstName();
 	}
+
+	override string nameName() {
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName();
+			case 2: return nameLastName() ~ " " ~ nameFirstName();
+		}
+	}
+
 	///
 	override string nameFemaleFirstName() {
 		auto data = [
@@ -7398,6 +7415,28 @@ class Faker_fr : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressBuildingnumber() ~ " " ~ addressStreet();
+			case 1: return "full: '" ~ addressBuildingnumber() ~ " " ~ addressStreet() ~ " " ~ addressSecondaryaddress();
+		}
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressStreetPrefix() ~ " " ~ addressStreetSuffix() ~ "'";
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
+	}
+
 	///
 	override string addressBuildingNumber() {
 		auto data = [
@@ -7719,6 +7758,114 @@ class Faker_fr : Faker {
 		"zinzolin"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 36, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Dimanche";
+			case 2: return "Lundi";
+			case 3: return "Mardi";
+			case 4: return "Mercredi";
+			case 5: return "Jeudi";
+			case 6: return "Vendredi";
+			case 7: return "Samedi";
+			case 8: return "]";
+			case 9: return "if not set then \"wide\" will be used instead";
+			case 10: return "which may differ from a stand-alone word";
+			case 11: return "wide_context: [";
+			case 12: return "dimanche";
+			case 13: return "lundi";
+			case 14: return "mardi";
+			case 15: return "mercredi";
+			case 16: return "jeudi";
+			case 17: return "vendredi";
+			case 18: return "samedi";
+			case 19: return "]";
+			case 20: return "abbr: ['Dim";
+			case 21: return "Lun";
+			case 22: return "Mar";
+			case 23: return "Mer";
+			case 24: return "Jeu";
+			case 25: return "Ven";
+			case 26: return "Sam']";
+			case 27: return "if not set then \"abbr\" will be used instead";
+			case 28: return "which may differ from a stand-alone word";
+			case 29: return "abbr_context: ['dim";
+			case 30: return "lun";
+			case 31: return "mar";
+			case 32: return "mer";
+			case 33: return "jeu";
+			case 34: return "ven";
+			case 35: return "sam']";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 60, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Janvier";
+			case 2: return "Février";
+			case 3: return "Mars";
+			case 4: return "Avril";
+			case 5: return "Mai";
+			case 6: return "Juin";
+			case 7: return "Juillet";
+			case 8: return "Août";
+			case 9: return "Septembre";
+			case 10: return "Octobre";
+			case 11: return "Novembre";
+			case 12: return "Décembre";
+			case 13: return "]";
+			case 14: return "if not set then \"wide\" will be used instead";
+			case 15: return "which may differ from a stand-alone word";
+			case 16: return "wide_context: [";
+			case 17: return "janvier";
+			case 18: return "février";
+			case 19: return "mars";
+			case 20: return "avril";
+			case 21: return "mai";
+			case 22: return "juin";
+			case 23: return "juillet";
+			case 24: return "août";
+			case 25: return "septembre";
+			case 26: return "octobre";
+			case 27: return "novembre";
+			case 28: return "décembre";
+			case 29: return "]";
+			case 30: return "abbr: [";
+			case 31: return "janv.";
+			case 32: return "févr.";
+			case 33: return "mars";
+			case 34: return "avril";
+			case 35: return "mai";
+			case 36: return "juin";
+			case 37: return "juil.";
+			case 38: return "août";
+			case 39: return "sept.";
+			case 40: return "oct.";
+			case 41: return "nov.";
+			case 42: return "déc.";
+			case 43: return "]";
+			case 44: return "if not set then \"abbr\" will be used instead";
+			case 45: return "which may differ from a stand-alone word";
+			case 46: return "abbr_context: [";
+			case 47: return "janv.";
+			case 48: return "févr.";
+			case 49: return "mars";
+			case 50: return "avril";
+			case 51: return "mai";
+			case 52: return "juin";
+			case 53: return "juil.";
+			case 54: return "août";
+			case 55: return "sept.";
+			case 56: return "oct.";
+			case 57: return "nov.";
+			case 58: return "déc.";
+			case 59: return "]";
+		}
 	}
 
 	///

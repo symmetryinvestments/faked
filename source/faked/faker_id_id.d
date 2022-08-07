@@ -125,6 +125,15 @@ class Faker_id_id : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyName() {
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return companyPrefix() ~ " " ~ nameLastName();
+			case 1: return nameLastName() ~ " " ~ companySuffix();
+			case 2: return companyPrefix() ~ " " ~ nameLastName() ~ " " ~ companySuffix();
+		}
+	}
+
 	///
 	override string addressCityName() {
 		auto data = [
@@ -408,6 +417,14 @@ class Faker_id_id : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " no " ~ addressBuildingnumber();
+			case 1: return "full: '" ~ addressStreet() ~ " no " ~ addressBuildingnumber() ~ " " ~ addressSecondaryaddress();
+		}
+	}
+
 	///
 	string addressStreetPrefix() {
 		auto data = [
@@ -421,6 +438,21 @@ class Faker_id_id : Faker {
 		"Psr.'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return addressStreetPrefix() ~ " " ~ nameFirstName();
+			case 1: return addressStreetPrefix() ~ " " ~ nameLastName();
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
 	}
 
 	///
@@ -438,6 +470,104 @@ class Faker_id_id : Faker {
 		"#####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 30, this.rnd)) {
+			case 0: return "wide: ['Minggu";
+			case 1: return "Senin";
+			case 2: return "Selasa";
+			case 3: return "Rabu";
+			case 4: return "Kamis";
+			case 5: return "Jumat";
+			case 6: return "Sabtu']";
+			case 7: return "wide_context: [";
+			case 8: return "Minggu";
+			case 9: return "Senin";
+			case 10: return "Selasa";
+			case 11: return "Rabu";
+			case 12: return "Kamis";
+			case 13: return "Jumat";
+			case 14: return "Sabtu";
+			case 15: return "]";
+			case 16: return "abbr: ['Min";
+			case 17: return "Sen";
+			case 18: return "Sel";
+			case 19: return "Rab";
+			case 20: return "Kam";
+			case 21: return "Jum";
+			case 22: return "Sab']";
+			case 23: return "abbr_context: ['Min";
+			case 24: return "Sen";
+			case 25: return "Sel";
+			case 26: return "Rab";
+			case 27: return "Kam";
+			case 28: return "Jum";
+			case 29: return "Sab']";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 56, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Januari";
+			case 2: return "Februari";
+			case 3: return "Maret";
+			case 4: return "April";
+			case 5: return "Mei";
+			case 6: return "Juni";
+			case 7: return "Juli";
+			case 8: return "Agustus";
+			case 9: return "September";
+			case 10: return "Oktober";
+			case 11: return "November";
+			case 12: return "Desember";
+			case 13: return "]";
+			case 14: return "wide_context: [";
+			case 15: return "Januari";
+			case 16: return "Februari";
+			case 17: return "Maret";
+			case 18: return "April";
+			case 19: return "Mei";
+			case 20: return "Juni";
+			case 21: return "Juli";
+			case 22: return "Agustus";
+			case 23: return "September";
+			case 24: return "Oktober";
+			case 25: return "November";
+			case 26: return "Desember";
+			case 27: return "]";
+			case 28: return "abbr: [";
+			case 29: return "Jan";
+			case 30: return "Feb";
+			case 31: return "Mar";
+			case 32: return "Apr";
+			case 33: return "Mei";
+			case 34: return "Jun";
+			case 35: return "Jul";
+			case 36: return "Ags";
+			case 37: return "Sep";
+			case 38: return "Okt";
+			case 39: return "Nov";
+			case 40: return "Des";
+			case 41: return "]";
+			case 42: return "abbr_context: [";
+			case 43: return "Jan";
+			case 44: return "Feb";
+			case 45: return "Mar";
+			case 46: return "Apr";
+			case 47: return "Mei";
+			case 48: return "Jun";
+			case 49: return "Jul";
+			case 50: return "Ags";
+			case 51: return "Sep";
+			case 52: return "Okt";
+			case 53: return "Nov";
+			case 54: return "Des";
+			case 55: return "]";
+		}
 	}
 
 	///
@@ -977,6 +1107,19 @@ class Faker_id_id : Faker {
 		"Hj.'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 7, this.rnd)) {
+			case 0: return nameMaleFirstName() ~ " " ~ nameMaleLastName();
+			case 1: return nameMaleLastName() ~ " " ~ nameMaleFirstName();
+			case 2: return nameMaleFirstName() ~ " " ~ nameMaleFirstName() ~ " " ~ nameMaleLastName();
+			case 3: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+			case 4: return nameFemaleFirstName() ~ " " ~ nameMaleLastName();
+			case 5: return nameFemaleLastName() ~ " " ~ nameFemaleFirstName();
+			case 6: return nameFemaleFirstName() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+		}
 	}
 
 	///
@@ -1523,6 +1666,12 @@ class Faker_id_id : Faker {
 		"Zahrah"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string namePrefix() {
+		final switch(uniform(0, 0, this.rnd)) {
+		}
 	}
 
 	///

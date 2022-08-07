@@ -103,12 +103,8 @@ TypeLines jssplit(string input, const string path) {
 		.map!(strip)
 		.filter!(l => !l.empty)
 		.map!((a) => {
-			if(!a.empty && a[$ - 1] == '\'') {
-				a = a[0 .. $ - 1];
-			}
-			if(!a.empty && a[0] == '\'') {
-				a = a[1 .. $];
-			}
+			a = a.startsWith("'") ? a[1 .. $] : a;
+			a = a.endsWith("'") ? a[0 .. $ - 1] : a;
 			return a;
 		}())
 		.array;

@@ -29,6 +29,16 @@ class Faker_mk : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return addressCityName() ~ " " ~ companySuffix();
+			case 2: return nameLastName();
+			case 3: return nameLastName() ~ " и " ~ nameLastName();
+		}
+	}
+
 	///
 	string nameMalePrefix() {
 		auto data = [
@@ -341,6 +351,12 @@ class Faker_mk : Faker {
 	}
 
 
+	override string nameSuffix() {
+		final switch(uniform(0, 0, this.rnd)) {
+		}
+	}
+
+
 	override string nameLastName() {
 		return choice([false, true], this.rnd)
 			? nameFemaleLastName()
@@ -352,6 +368,20 @@ class Faker_mk : Faker {
 			? nameFemaleFirstName()
 			: nameMaleFirstName();
 	}
+
+	override string nameName() {
+		final switch(uniform(0, 8, this.rnd)) {
+			case 0: return nameFemalePrefix() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+			case 1: return nameMalePrefix() ~ " " ~ nameMaleFirstName() ~ " " ~ nameMaleLastName();
+			case 2: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+			case 3: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+			case 4: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+			case 5: return nameMaleFirstName() ~ " " ~ nameMaleLastName();
+			case 6: return nameMaleFirstName() ~ " " ~ nameMaleLastName();
+			case 7: return nameMaleFirstName() ~ " " ~ nameMaleLastName();
+		}
+	}
+
 	///
 	override string nameFemaleFirstName() {
 		auto data = [
@@ -1597,6 +1627,14 @@ class Faker_mk : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string namePrefix() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFemalePrefix();
+			case 1: return nameMalePrefix() ~ "'";
+		}
+	}
+
 	///
 	override string addressCityName() {
 		auto data = [
@@ -1946,6 +1984,21 @@ class Faker_mk : Faker {
 		"Македонија'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingnumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingnumber() ~ " " ~ addressSecondaryaddress();
+		}
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressStreetName() ~ "'";
+		}
 	}
 
 	///
@@ -2631,6 +2684,13 @@ class Faker_mk : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
+	}
+
 	///
 	override string addressBuildingNumber() {
 		auto data = [
@@ -2656,6 +2716,114 @@ class Faker_mk : Faker {
 		"стан ##'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 36, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "недела";
+			case 2: return "понеделник";
+			case 3: return "вторник";
+			case 4: return "среда";
+			case 5: return "четврток";
+			case 6: return "петок";
+			case 7: return "сабота";
+			case 8: return "]";
+			case 9: return "if not set then \"wide\" will be used instead";
+			case 10: return "which may differ from a stand-alone word";
+			case 11: return "wide_context: [";
+			case 12: return "недела";
+			case 13: return "понеделник";
+			case 14: return "вторник";
+			case 15: return "среда";
+			case 16: return "четврток";
+			case 17: return "петок";
+			case 18: return "сабота";
+			case 19: return "]";
+			case 20: return "abbr: ['нед";
+			case 21: return "пон";
+			case 22: return "вто";
+			case 23: return "сре";
+			case 24: return "чет";
+			case 25: return "пет";
+			case 26: return "саб']";
+			case 27: return "if not set then \"abbr\" will be used instead";
+			case 28: return "which may differ from a stand-alone word";
+			case 29: return "abbr_context: ['нед";
+			case 30: return "пон";
+			case 31: return "вто";
+			case 32: return "сре";
+			case 33: return "чет";
+			case 34: return "пет";
+			case 35: return "саб']";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 60, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "јануари";
+			case 2: return "февруари";
+			case 3: return "март";
+			case 4: return "април";
+			case 5: return "мај";
+			case 6: return "јуни";
+			case 7: return "јули";
+			case 8: return "август";
+			case 9: return "септември";
+			case 10: return "октомври";
+			case 11: return "ноември";
+			case 12: return "декември";
+			case 13: return "]";
+			case 14: return "if not set then \"wide\" will be used instead";
+			case 15: return "which may differ from a stand-alone word";
+			case 16: return "wide_context: [";
+			case 17: return "јануари";
+			case 18: return "февруари";
+			case 19: return "март";
+			case 20: return "април";
+			case 21: return "мај";
+			case 22: return "јуни";
+			case 23: return "јули";
+			case 24: return "август";
+			case 25: return "септември";
+			case 26: return "октомври";
+			case 27: return "ноември";
+			case 28: return "декември";
+			case 29: return "]";
+			case 30: return "abbr: [";
+			case 31: return "јан";
+			case 32: return "фев";
+			case 33: return "мар";
+			case 34: return "апр";
+			case 35: return "мај";
+			case 36: return "јун";
+			case 37: return "јул";
+			case 38: return "авг";
+			case 39: return "сеп";
+			case 40: return "окт";
+			case 41: return "ное";
+			case 42: return "дек";
+			case 43: return "]";
+			case 44: return "if not set then \"abbr\" will be used instead";
+			case 45: return "which may differ from a stand-alone word";
+			case 46: return "abbr_context: [";
+			case 47: return "јан";
+			case 48: return "фев";
+			case 49: return "мар";
+			case 50: return "апр";
+			case 51: return "мај";
+			case 52: return "јун";
+			case 53: return "јул";
+			case 54: return "авг";
+			case 55: return "сеп";
+			case 56: return "окт";
+			case 57: return "ное";
+			case 58: return "дек";
+			case 59: return "]";
+		}
 	}
 
 	///

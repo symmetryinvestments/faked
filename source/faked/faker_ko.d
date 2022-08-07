@@ -76,6 +76,14 @@ class Faker_ko : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyName() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return companyPrefix() ~ " " ~ nameFirstName();
+			case 1: return nameFirstName() ~ " " ~ companySuffix();
+		}
+	}
+
 	///
 	override string addressCityName() {
 		auto data = [
@@ -176,6 +184,13 @@ class Faker_ko : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressStreetName() ~ addressStreetSuffix() ~ "'";
+		}
+	}
+
 	///
 	string addressStreetName() {
 		auto data = [
@@ -208,6 +223,13 @@ class Faker_ko : Faker {
 		"연무"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ addressCitySuffix() ~ "'";
+		}
 	}
 
 	///
@@ -3508,6 +3530,13 @@ class Faker_ko : Faker {
 		"슬희"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ nameFirstName() ~ "'";
+		}
 	}
 
 }

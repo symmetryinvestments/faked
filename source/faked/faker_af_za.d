@@ -66,12 +66,30 @@ class Faker_af_za : Faker {
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
+
+	override string addressCity() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstname() ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstname();
+			case 2: return nameFirstname() ~ addressCitySuffix();
+			case 3: return nameLastname() ~ addressCitySuffix();
+		}
+	}
+
 	///
 	override string addressDefaultCountry() {
 		auto data = [
 		"South Africa'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstname() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastname() ~ " " ~ addressStreetSuffix();
+		}
 	}
 
 	///

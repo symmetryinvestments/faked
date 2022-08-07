@@ -286,6 +286,16 @@ class Faker_pt_br : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ "-" ~ nameLastName();
+			case 2: return nameLastName();
+			case 3: return nameLastName() ~ " e " ~ nameLastName();
+		}
+	}
+
 	///
 	override string nameMaleFirstName() {
 		auto data = [
@@ -594,6 +604,18 @@ class Faker_pt_br : Faker {
 		"Ígor"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameSuffix();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 5: return nameFemaleFirstName() ~ " " ~ nameLastName();
+		}
 	}
 
 	///
@@ -1061,6 +1083,30 @@ class Faker_pt_br : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressCityPrefix() {
+		final switch(uniform(0, 0, this.rnd)) {
+		}
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstname() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastname() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstname() ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstname();
+			case 2: return nameFirstname() ~ addressCitySuffix();
+			case 3: return nameLastname() ~ addressCitySuffix();
+		}
+	}
+
 	///
 	override string addressBuildingNumber() {
 		auto data = [
@@ -1102,6 +1148,112 @@ class Faker_pt_br : Faker {
 		"Rodovia'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 34, this.rnd)) {
+			case 0: return "wide: ['Domingo";
+			case 1: return "Segunda";
+			case 2: return "Terça";
+			case 3: return "Quarta";
+			case 4: return "Quinta";
+			case 5: return "Sexta";
+			case 6: return "Sábado']";
+			case 7: return "if not set then \"wide\" will be used instead";
+			case 8: return "which may differ from a stand-alone word";
+			case 9: return "wide_context: [";
+			case 10: return "Domingo";
+			case 11: return "Segunda";
+			case 12: return "Terça";
+			case 13: return "Quarta";
+			case 14: return "Quinta";
+			case 15: return "Sexta";
+			case 16: return "Sábado";
+			case 17: return "]";
+			case 18: return "abbr: ['Dom";
+			case 19: return "Seg";
+			case 20: return "Ter";
+			case 21: return "Qua";
+			case 22: return "Qui";
+			case 23: return "Sex";
+			case 24: return "Sáb']";
+			case 25: return "if not set then \"abbr\" will be used instead";
+			case 26: return "which may differ from a stand-alone word";
+			case 27: return "abbr_context: ['Dom";
+			case 28: return "Seg";
+			case 29: return "Ter";
+			case 30: return "Qua";
+			case 31: return "Qui";
+			case 32: return "Sex";
+			case 33: return "Sáb']";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 60, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Janeiro";
+			case 2: return "Fevereiro";
+			case 3: return "Março";
+			case 4: return "Abril";
+			case 5: return "Maio";
+			case 6: return "Junho";
+			case 7: return "Julho";
+			case 8: return "Agosto";
+			case 9: return "Setembro";
+			case 10: return "Outubro";
+			case 11: return "Novembro";
+			case 12: return "Dezembro";
+			case 13: return "]";
+			case 14: return "if not set then \"wide\" will be used instead";
+			case 15: return "which may differ from a stand-alone word";
+			case 16: return "wide_context: [";
+			case 17: return "Janeiro";
+			case 18: return "Fevereiro";
+			case 19: return "Março";
+			case 20: return "Abril";
+			case 21: return "Maio";
+			case 22: return "Junho";
+			case 23: return "Julho";
+			case 24: return "Agosto";
+			case 25: return "Setembro";
+			case 26: return "Outubro";
+			case 27: return "Novembro";
+			case 28: return "Dezembro";
+			case 29: return "]";
+			case 30: return "abbr: [";
+			case 31: return "Jan";
+			case 32: return "Fev";
+			case 33: return "Mar";
+			case 34: return "Abr";
+			case 35: return "Mai";
+			case 36: return "Jun";
+			case 37: return "Jul";
+			case 38: return "Ago";
+			case 39: return "Set";
+			case 40: return "Out";
+			case 41: return "Nov";
+			case 42: return "Dez";
+			case 43: return "]";
+			case 44: return "if not set then \"abbr\" will be used instead";
+			case 45: return "which may differ from a stand-alone word";
+			case 46: return "abbr_context: [";
+			case 47: return "Jan";
+			case 48: return "Fev";
+			case 49: return "Mar";
+			case 50: return "Abr";
+			case 51: return "Mai";
+			case 52: return "Jun";
+			case 53: return "Jul";
+			case 54: return "Ago";
+			case 55: return "Set";
+			case 56: return "Out";
+			case 57: return "Nov";
+			case 58: return "Dez";
+			case 59: return "]";
+		}
 	}
 
 	///

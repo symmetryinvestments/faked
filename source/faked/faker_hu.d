@@ -1305,6 +1305,14 @@ class Faker_hu : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameName() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameLastName() ~ " " ~ nameFirstName();
+			case 1: return nameLastName() ~ " " ~ nameFirstName();
+		}
+	}
+
 	///
 	override string wordAdverb() {
 		auto data = [
@@ -27483,6 +27491,114 @@ class Faker_hu : Faker {
 		"Ipari"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 36, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "hétfő";
+			case 2: return "kedd";
+			case 3: return "szerda";
+			case 4: return "csütörtök";
+			case 5: return "péntek";
+			case 6: return "szombat";
+			case 7: return "vasárnap";
+			case 8: return "]";
+			case 9: return "if not set then \"wide\" will be used instead";
+			case 10: return "which may differ from a stand-alone word";
+			case 11: return "wide_context: [";
+			case 12: return "hétfő";
+			case 13: return "kedd";
+			case 14: return "szerda";
+			case 15: return "csütörtök";
+			case 16: return "péntek";
+			case 17: return "szombat";
+			case 18: return "vasárnap";
+			case 19: return "]";
+			case 20: return "abbr: ['Hé";
+			case 21: return "Ke";
+			case 22: return "Sze";
+			case 23: return "Csüt";
+			case 24: return "Pé";
+			case 25: return "Szo";
+			case 26: return "Va']";
+			case 27: return "if not set then \"abbr\" will be used instead";
+			case 28: return "which may differ from a stand-alone word";
+			case 29: return "abbr_context: ['Hé";
+			case 30: return "Ke";
+			case 31: return "Sze";
+			case 32: return "Csüt";
+			case 33: return "Pé";
+			case 34: return "Szo";
+			case 35: return "Va']";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 60, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "január";
+			case 2: return "február";
+			case 3: return "március";
+			case 4: return "április";
+			case 5: return "május";
+			case 6: return "június";
+			case 7: return "július";
+			case 8: return "augusztus";
+			case 9: return "szeptember";
+			case 10: return "október";
+			case 11: return "november";
+			case 12: return "december";
+			case 13: return "]";
+			case 14: return "if not set then \"wide\" will be used instead";
+			case 15: return "which may differ from a stand-alone word";
+			case 16: return "wide_context: [";
+			case 17: return "január";
+			case 18: return "február";
+			case 19: return "március";
+			case 20: return "április";
+			case 21: return "május";
+			case 22: return "június";
+			case 23: return "július";
+			case 24: return "augusztus";
+			case 25: return "szeptember";
+			case 26: return "október";
+			case 27: return "november";
+			case 28: return "december";
+			case 29: return "]";
+			case 30: return "abbr: [";
+			case 31: return "jan.";
+			case 32: return "febr.";
+			case 33: return "márc.";
+			case 34: return "ápr.";
+			case 35: return "máj.";
+			case 36: return "jún.";
+			case 37: return "júl.";
+			case 38: return "aug.";
+			case 39: return "szept.";
+			case 40: return "okt.";
+			case 41: return "nov.";
+			case 42: return "dec.";
+			case 43: return "]";
+			case 44: return "if not set then \"abbr\" will be used instead";
+			case 45: return "which may differ from a stand-alone word";
+			case 46: return "abbr_context: [";
+			case 47: return "jan.";
+			case 48: return "febr.";
+			case 49: return "márc.";
+			case 50: return "ápr.";
+			case 51: return "máj.";
+			case 52: return "jún.";
+			case 53: return "júl.";
+			case 54: return "aug.";
+			case 55: return "szept.";
+			case 56: return "okt.";
+			case 57: return "nov.";
+			case 58: return "dec.";
+			case 59: return "]";
+		}
 	}
 
 	///

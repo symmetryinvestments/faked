@@ -383,6 +383,14 @@ class Faker_el : Faker {
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
+
+	override string appAuthor() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameName();
+			case 1: return companyName() ~ "'";
+		}
+	}
+
 	///
 	override string appName() {
 		auto data = [
@@ -658,6 +666,16 @@ class Faker_el : Faker {
 		"Όμιλος'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string companyName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ "-" ~ nameLastName();
+			case 2: return nameLastName();
+			case 3: return nameLastName() ~ " and " ~ nameLastName();
+		}
 	}
 
 	///
@@ -1080,6 +1098,18 @@ class Faker_el : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameSuffix();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameFirstName() ~ " " ~ nameLastName();
+			case 5: return nameFirstName() ~ " " ~ nameLastName();
+		}
+	}
+
 	///
 	override string commerceDepartment() {
 		auto data = [
@@ -1107,6 +1137,24 @@ class Faker_el : Faker {
 		"Βιομηχανικά"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstname() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastname() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstname() ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstname();
+			case 2: return nameFirstname() ~ addressCitySuffix();
+			case 3: return nameLastname() ~ addressCitySuffix();
+		}
 	}
 
 	///
@@ -1295,6 +1343,13 @@ class Faker_el : Faker {
 		"Δρυίδες"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string teamName() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressState() ~ " " ~ teamCreature() ~ "'";
+		}
 	}
 
 	///

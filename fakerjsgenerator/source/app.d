@@ -154,6 +154,11 @@ string[] buildFile(string ll, FakerData entry, string[] toOverride) {
 				} else if(tl.type == Type.call) {
 					methods ~= gen.buildCall(key, sub, tl.lines);
 				} else {
+					if(key == "address" && sub == "postcode_by_state") {
+						writefln("IGNORED HERE %s %s %s %s", __FILE__, __LINE__
+								, key, sub);
+						continue;
+					}
 					methods ~= gen.buildMustache(ll, key, sub, tl.lines);
 					//writefln("Not handled %s %s %s %s", ll, key, sub
 					//		, tl.type);
