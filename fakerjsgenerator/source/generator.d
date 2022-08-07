@@ -259,13 +259,6 @@ class Faker {
     }
 
 	///
-    //string commerceProductName() {
-    //    return this.commerceProductNameAdjective() ~
-    //          this.commerceProductNameMaterial() ~ " " ~
-    //          this.commerceProductNameProduct();
-    //}
-
-	///
     string companyCatchPhrase() {
         return companyAdjective() ~ " "
             ~ companyDescriptor() ~ " "
@@ -832,6 +825,43 @@ class Faker_%1$s : Faker%2$s {
         return ret;
     }
 
+	string buildConcat(string ll, string name, string sub, string data) {
+		string tmp = `
+	override string %s() {
+		return choice([false, true], this.rnd)
+			? %s()
+			: %s();
+	}
+`;
+		enum concat = ".concat(";
+		ptrdiff_t cIdx = data.indexOf(concat);
+		if(cIdx == -1) {
+			writeln("cIdx not found %s %s %s", ll, name, sub);
+			return "";
+		}
+		ptrdiff_t leadingSpace = data[0 .. cIdx].lastIndexOf(" ");
+		if(leadingSpace == -1) {
+			writeln("leadingSpace not found %s %s %s", ll, name, sub);
+			return "";
+		}
+		ptrdiff_t followingParen = data.indexOf(")", cIdx + concat.length);
+		if(followingParen == -1) {
+			writeln("followingParen not found %s %s %s", ll, name, sub);
+			return "";
+		}
+
+		string ret = format("%s_%s", name, sub).camelCase();
+		string first = format("%s_%s", name, data[leadingSpace + 1 .. cIdx].strip())
+			.camelCase();
+		string second = format("%s_%s", name
+				, data[cIdx + concat.length .. followingParen].strip())
+			.camelCase();
+
+		string toAppend = format(tmp, ret, first, second);
+		this.output ~= toAppend;
+		return ret;
+	}
+
 	string buildString(string name, string postfix, string[] lines) {
 		import std.utf : byUTF, replacementDchar;
 		string fname = name ~ "_" ~ postfix;
@@ -850,6 +880,7 @@ class Faker_%1$s : Faker%2$s {
 				nlines ~= s;
 			} catch(Throwable t) {
 				writefln("%s %s", idx, line);
+				assert(false, format("%s %s", idx, line));
 			}
 		}
 

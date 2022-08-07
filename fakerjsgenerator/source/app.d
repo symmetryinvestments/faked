@@ -135,8 +135,12 @@ string[] buildFile(string ll, FakerData entry, string[] toOverride) {
                     methods ~= gen.buildCommerceProductName(d.data);
                     continue;
                 }
+				if(key == "name" && d.data.canFind("concat")) {
+					methods ~= gen.buildConcat(ll, key, sub, d.data);
+					continue;
+				}
 				if(d.data.canFind("concat(")) {
-					writeln("\n\nTODO\nTODO\n\n");
+					writefln("TODO %s %s %s TODO", ll, key, sub);
 					continue;
 				}
 				//write(key, ".", sub, " ");

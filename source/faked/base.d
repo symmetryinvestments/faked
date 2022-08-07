@@ -235,13 +235,6 @@ class Faker {
     }
 
 	///
-    //string commerceProductName() {
-    //    return this.commerceProductNameAdjective() ~
-    //          this.commerceProductNameMaterial() ~ " " ~
-    //          this.commerceProductNameProduct();
-    //}
-
-	///
     string companyCatchPhrase() {
         return companyAdjective() ~ " "
             ~ companyDescriptor() ~ " "

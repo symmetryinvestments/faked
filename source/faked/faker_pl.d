@@ -2456,6 +2456,12 @@ class Faker_pl : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameFirstName() {
+		return choice([false, true], this.rnd)
+			? nameFemaleFirstName()
+			: nameMaleFirstName();
+	}
 	///
 	override string nameFemaleFirstName() {
 		auto data = [
