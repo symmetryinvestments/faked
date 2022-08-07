@@ -1028,6 +1028,17 @@ class Faker_pt_pt : Faker {
 	}
 
 	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"####",
+		"###",
+		"##",
+		"#'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressPostcode() {
 		auto data = [
 		"####-###'"

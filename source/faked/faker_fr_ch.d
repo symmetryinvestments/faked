@@ -6986,6 +6986,17 @@ class Faker_fr_ch : Faker {
 	}
 
 	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"####",
+		"###",
+		"##",
+		"#'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressPostcode() {
 		auto data = [
 		"1###",
@@ -6997,6 +7008,15 @@ class Faker_fr_ch : Faker {
 		"7###",
 		"8###",
 		"9###"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressSecondaryAddress() {
+		auto data = [
+		"Apt. ###",
+		"# étage'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}

@@ -2888,6 +2888,19 @@ class Faker_tr : Faker {
 	}
 
 	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"###",
+		"##",
+		"#",
+		"##a",
+		"##b",
+		"##c'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressPostcode() {
 		auto data = [
 		"#####'"

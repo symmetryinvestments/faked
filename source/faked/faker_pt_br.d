@@ -1080,6 +1080,18 @@ class Faker_pt_br : Faker {
 	}
 
 	///
+	override string addressSecondaryAddress() {
+		auto data = [
+		"Apto. ###",
+		"Sobrado ##",
+		"Casa #",
+		"Lote ##",
+		"Quadra ##'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressStreetSuffix() {
 		auto data = [
 		"Rua",

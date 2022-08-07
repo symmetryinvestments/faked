@@ -7399,9 +7399,29 @@ class Faker_fr : Faker {
 	}
 
 	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"####",
+		"###",
+		"##",
+		"#'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressPostcode() {
 		auto data = [
 		"#####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressSecondaryAddress() {
+		auto data = [
+		"Apt. ###",
+		"# étage'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}

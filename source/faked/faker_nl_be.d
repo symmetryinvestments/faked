@@ -1248,6 +1248,19 @@ class Faker_nl_be : Faker {
 	}
 
 	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"#",
+		"##",
+		"###",
+		"###a",
+		"###b",
+		"###c'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressPostcode() {
 		auto data = [
 		"####'"

@@ -843,6 +843,19 @@ class Faker_hy : Faker {
 	}
 
 	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"###",
+		"###/#",
+		"##",
+		"##/#",
+		"#",
+		"#/#'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressSecondaryAddress() {
 		auto data = [
 		"Բն. ###",

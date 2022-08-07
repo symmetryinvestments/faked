@@ -76,6 +76,15 @@ class Faker_en_gb : Faker {
 	}
 
 	///
+	override string addressPostcode() {
+		auto data = [
+		"??# #??",
+		"??## #??'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressCounty() {
 		auto data = [
 		"Avon",

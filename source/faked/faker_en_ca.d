@@ -339,7 +339,7 @@ class Faker_en_ca : Faker {
 		"X#? #?#",
 		"Y#? #?#"
 		];
-		return choice(data, this.rnd);
+		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///

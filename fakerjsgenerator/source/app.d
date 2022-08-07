@@ -116,11 +116,11 @@ string[] buildFile(string ll, FakerData entry, string[] toOverride) {
 	//writeln(f.front);
     string[] methods;
 	Generator gen = new Generator(ll, entry.fallback, toOverride);
-	foreach(key, value; entry.data) {
+	foreach(string key, Entry value; entry.data) {
 		if(ignoreEntries.canFind(key)) {
 			continue;
 		}
-		foreach(sub, svalue; value.subs) {
+		foreach(string sub, Data svalue; value.subs) {
 			Direct d = cast(Direct)svalue;
 			if(d !is null) {
                 if(key == "name" && sub == "title") {
@@ -153,6 +153,10 @@ string[] buildFile(string ll, FakerData entry, string[] toOverride) {
 					methods ~= gen.buildDigits(key, sub, tl.lines);
 				} else if(tl.type == Type.call) {
 					methods ~= gen.buildCall(key, sub, tl.lines);
+				} else {
+					methods ~= gen.buildMustache(ll, key, sub, tl.lines);
+					//writefln("Not handled %s %s %s %s", ll, key, sub
+					//		, tl.type);
 				}
 			} else {
                 Sub s = cast(Sub)svalue;
@@ -311,8 +315,8 @@ FakerData scrapeFaker(string foldername) {
 					{
 						string sh = h.name;
 						sh = sh[sh.lastIndexOf("/") + 1 .. $ - 3];
+
 						if(isFile(h)) {
-							//writeln(sh, " ", h);
 							sub.subs[sh] = new Direct(readText(h));
 						}
 					}

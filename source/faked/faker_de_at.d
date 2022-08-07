@@ -3737,9 +3737,32 @@ class Faker_de_at : Faker {
 	}
 
 	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"###",
+		"##",
+		"#",
+		"##a",
+		"##b",
+		"##c'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressPostcode() {
 		auto data = [
 		"####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressSecondaryAddress() {
+		auto data = [
+		"Apt. ###",
+		"Zimmer ###",
+		"# OG'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}

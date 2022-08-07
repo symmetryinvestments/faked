@@ -2479,6 +2479,16 @@ class Faker_es_mx : Faker {
 	}
 
 	///
+	override string addressSecondaryAddress() {
+		auto data = [
+		"Esc. ###",
+		"Puerta ###",
+		"Edificio #'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressStreetSuffix() {
 		auto data = [
 		"Aldea",

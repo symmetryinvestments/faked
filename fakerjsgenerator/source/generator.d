@@ -862,6 +862,10 @@ class Faker_%1$s : Faker%2$s {
 		return ret;
 	}
 
+	string buildMustache(string ll, string name, string sub, string[] lines) {
+		assert(false, "Continue here which splitting mustache strings in lines");
+	}
+
 	string buildString(string name, string postfix, string[] lines) {
 		import std.utf : byUTF, replacementDchar;
 		string fname = name ~ "_" ~ postfix;

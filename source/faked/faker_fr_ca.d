@@ -91,7 +91,7 @@ class Faker_fr_ca : Faker {
 		"X#? #?#",
 		"Y#? #?#"
 		];
-		return choice(data, this.rnd);
+		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///

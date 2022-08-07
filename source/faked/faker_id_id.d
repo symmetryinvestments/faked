@@ -424,6 +424,15 @@ class Faker_id_id : Faker {
 	}
 
 	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"##",
+		"#'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressPostcode() {
 		auto data = [
 		"#####'"

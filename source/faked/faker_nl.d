@@ -4525,6 +4525,22 @@ class Faker_nl : Faker {
 	}
 
 	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"#",
+		"##",
+		"###",
+		"###a",
+		"###b",
+		"###c",
+		"### I",
+		"### II",
+		"### III"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressPostcode() {
 		auto data = [
 		"#### ??'"

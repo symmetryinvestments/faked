@@ -953,9 +953,28 @@ class Faker_hr : Faker {
 	}
 
 	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"#",
+		"##",
+		"###'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressPostcode() {
 		auto data = [
 		"#####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressSecondaryAddress() {
+		auto data = [
+		"Kat #",
+		"Stan ##'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
