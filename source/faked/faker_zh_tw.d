@@ -76,8 +76,8 @@ class Faker_zh_tw : Faker {
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressStreet() ~ addressBuildingnumber() ~ "號";
-			case 1: return "full: '" ~ addressStreet() ~ addressBuildingnumber() ~ "號 " ~ addressSecondaryaddress();
+			case 0: return "normal: '" ~ addressStreet() ~ addressBuildingNumber() ~ "號";
+			case 1: return "full: '" ~ addressStreet() ~ addressBuildingNumber() ~ "號 " ~ addressSecondaryAddress();
 		}
 	}
 

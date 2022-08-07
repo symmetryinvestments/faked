@@ -894,16 +894,28 @@ class Faker_%1$s : Faker%2$s {
 	}
 
 	string buildMustache(string ll, string name, string sub, string[] lines) {
+		if(this.locale == "fr_CH" && name == "address" && sub ==
+				"street_address")
+		{
+			writefln("SUper hack because of bug in faker.ts");
+			return "";
+		//} else {
+		//	writefln("%5s %20s %20s", this.locale, name, sub);
+		}
 		string ret = (name ~ "_" ~ sub).camelCase();
 		string tmp = format("\n\t%sstring %s() {\n"
 				, ll == "en" ? "" : "override ", ret);
-		tmp ~= format("\t\tfinal switch(uniform(0, %s, this.rnd)) {\n"
-				, lines.length);
-		foreach(idx, line; lines) {
-			tmp ~= format("\t\t\tcase %d: return %s;\n", idx,
-					buildSingleMustache(line, name));
+		if(lines.empty) {
+			tmp ~= "\t\treturn \"\";\n";
+		} else {
+			tmp ~= format("\t\tfinal switch(uniform(0, %s, this.rnd)) {\n"
+					, lines.length);
+			foreach(idx, line; lines) {
+				tmp ~= format("\t\t\tcase %d: return %s;\n", idx,
+						buildSingleMustache(line, name));
+			}
+			tmp ~= format("\t\t}\n");
 		}
-		tmp ~= format("\t\t}\n");
 		tmp ~= format("\t}\n\n");
 		this.output ~= tmp;
 		return ret;
@@ -1052,6 +1064,7 @@ JSONValue parseJson(string input) {
 }
 
 string replaceDotOrSection(string str, string section) {
+	str = str.snakeCase();
 	return str.indexOf(".") != -1
 		? str.replace(".", "_")
 		: section ~ "_" ~ str;

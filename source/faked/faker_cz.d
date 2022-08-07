@@ -5068,8 +5068,7 @@ class Faker_cz : Faker {
 
 
 	override string addressState() {
-		final switch(uniform(0, 0, this.rnd)) {
-		}
+		return "";
 	}
 
 	///
@@ -5276,8 +5275,7 @@ class Faker_cz : Faker {
 
 
 	override string addressStateAbbr() {
-		final switch(uniform(0, 0, this.rnd)) {
-		}
+		return "";
 	}
 
 	///
@@ -5291,8 +5289,8 @@ class Faker_cz : Faker {
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingnumber();
-			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingnumber() ~ " " ~ addressSecondaryaddress();
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
 		}
 	}
 

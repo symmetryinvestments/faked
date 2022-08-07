@@ -420,8 +420,8 @@ class Faker_id_id : Faker {
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressStreet() ~ " no " ~ addressBuildingnumber();
-			case 1: return "full: '" ~ addressStreet() ~ " no " ~ addressBuildingnumber() ~ " " ~ addressSecondaryaddress();
+			case 0: return "normal: '" ~ addressStreet() ~ " no " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " no " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
 		}
 	}
 
@@ -1670,8 +1670,7 @@ class Faker_id_id : Faker {
 
 
 	override string namePrefix() {
-		final switch(uniform(0, 0, this.rnd)) {
-		}
+		return "";
 	}
 
 	///

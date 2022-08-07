@@ -6987,14 +6987,6 @@ class Faker_fr_ch : Faker {
 	}
 
 
-	override string addressStreetAddress() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressBuildingnumber() ~ " " ~ addressStreetname();
-			case 1: return "full: '" ~ addressBuildingnumber() ~ " " ~ addressStreetname() ~ " " ~ addressSecondaryaddress();
-		}
-	}
-
-
 	override string addressStreet() {
 		final switch(uniform(0, 1, this.rnd)) {
 			case 0: return addressStreetPrefix() ~ " " ~ addressStreetSuffix() ~ "'";

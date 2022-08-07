@@ -2137,8 +2137,8 @@ class Faker_es_mx : Faker {
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressStreet() ~ addressBuildingnumber();
-			case 1: return "full: '" ~ addressStreet() ~ addressBuildingnumber() ~ " " ~ addressSecondaryaddress();
+			case 0: return "normal: '" ~ addressStreet() ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
 		}
 	}
 

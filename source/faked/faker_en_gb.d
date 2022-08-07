@@ -87,10 +87,10 @@ class Faker_en_gb : Faker {
 
 	override string addressCity() {
 		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return addressCityPrefix() ~ " " ~ nameFirstname() ~ addressCitySuffix();
-			case 1: return addressCityPrefix() ~ " " ~ nameFirstname();
-			case 2: return nameFirstname() ~ addressCitySuffix();
-			case 3: return nameLastname() ~ addressCitySuffix();
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
+			case 2: return nameFirstName() ~ addressCitySuffix();
+			case 3: return nameLastName() ~ addressCitySuffix();
 		}
 	}
 
@@ -174,8 +174,8 @@ class Faker_en_gb : Faker {
 
 	override string addressStreet() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstname() ~ " " ~ addressStreetSuffix();
-			case 1: return nameLastname() ~ " " ~ addressStreetSuffix();
+			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
 		}
 	}
 

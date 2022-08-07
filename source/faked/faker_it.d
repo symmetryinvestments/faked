@@ -1922,9 +1922,9 @@ class Faker_it : Faker {
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 3, this.rnd)) {
-			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingnumber();
-			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingnumber();
-			case 2: return addressSecondaryaddress();
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 2: return addressSecondaryAddress();
 		}
 	}
 
@@ -3110,8 +3110,7 @@ class Faker_it : Faker {
 
 
 	override string nameSuffix() {
-		final switch(uniform(0, 0, this.rnd)) {
-		}
+		return "";
 	}
 
 	///

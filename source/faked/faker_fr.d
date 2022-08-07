@@ -7418,8 +7418,8 @@ class Faker_fr : Faker {
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressBuildingnumber() ~ " " ~ addressStreet();
-			case 1: return "full: '" ~ addressBuildingnumber() ~ " " ~ addressStreet() ~ " " ~ addressSecondaryaddress();
+			case 0: return "normal: '" ~ addressBuildingNumber() ~ " " ~ addressStreet();
+			case 1: return "full: '" ~ addressBuildingNumber() ~ " " ~ addressStreet() ~ " " ~ addressSecondaryAddress();
 		}
 	}
 

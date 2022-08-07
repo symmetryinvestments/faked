@@ -471,9 +471,9 @@ class Faker_uk : Faker {
 	override string addressStreetAddress() {
 		final switch(uniform(0, 4, this.rnd)) {
 			case 0: return "normal: '" ~ addressStreet();
-			case 1: return addressBuildingnumber();
+			case 1: return addressBuildingNumber();
 			case 2: return "full: '" ~ addressStreet();
-			case 3: return addressBuildingnumber() ~ " " ~ addressSecondaryaddress();
+			case 3: return addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
 		}
 	}
 

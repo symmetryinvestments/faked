@@ -2854,8 +2854,8 @@ class Faker_tr : Faker {
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingnumber();
-			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingnumber() ~ " " ~ addressSecondaryaddress();
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
 		}
 	}
 
@@ -2917,10 +2917,10 @@ class Faker_tr : Faker {
 
 	override string addressCity() {
 		final switch(uniform(0, 5, this.rnd)) {
-			case 0: return addressCityPrefix() ~ " " ~ nameFirstname() ~ addressCitySuffix();
-			case 1: return addressCityPrefix() ~ " " ~ nameFirstname();
-			case 2: return nameFirstname() ~ addressCitySuffix();
-			case 3: return nameLastname() ~ addressCitySuffix();
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
+			case 2: return nameFirstName() ~ addressCitySuffix();
+			case 3: return nameLastName() ~ addressCitySuffix();
 			case 4: return addressCityName();
 		}
 	}

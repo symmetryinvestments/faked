@@ -20,8 +20,7 @@ class Faker_az : Faker {
 
 
 	override string companySuffix() {
-		final switch(uniform(0, 0, this.rnd)) {
-		}
+		return "";
 	}
 
 	///
@@ -92,8 +91,7 @@ class Faker_az : Faker {
 
 
 	override string nameSuffix() {
-		final switch(uniform(0, 0, this.rnd)) {
-		}
+		return "";
 	}
 
 
@@ -224,8 +222,7 @@ class Faker_az : Faker {
 
 
 	override string namePrefix() {
-		final switch(uniform(0, 0, this.rnd)) {
-		}
+		return "";
 	}
 
 	///
@@ -340,8 +337,7 @@ class Faker_az : Faker {
 
 
 	override string addressState() {
-		final switch(uniform(0, 0, this.rnd)) {
-		}
+		return "";
 	}
 
 	///
@@ -603,9 +599,9 @@ class Faker_az : Faker {
 	override string addressStreetAddress() {
 		final switch(uniform(0, 4, this.rnd)) {
 			case 0: return "normal: '" ~ addressStreet();
-			case 1: return addressBuildingnumber();
+			case 1: return addressBuildingNumber();
 			case 2: return "full: '" ~ addressStreet();
-			case 3: return addressBuildingnumber() ~ " " ~ addressSecondaryaddress();
+			case 3: return addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
 		}
 	}
 

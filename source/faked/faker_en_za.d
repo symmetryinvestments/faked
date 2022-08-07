@@ -410,8 +410,8 @@ class Faker_en_za : Faker {
 
 	override string addressStreet() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstname() ~ " " ~ addressStreetSuffix();
-			case 1: return nameLastname() ~ " " ~ addressStreetSuffix();
+			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
 		}
 	}
 
