@@ -35,41 +35,6 @@ class Faker_nl_be : Faker {
 	}
 
 	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"yahoo.com",
-		"hotmail.com",
-		"skynet.be'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"be",
-		"brussels",
-		"vlaanderen",
-		"com",
-		"net",
-		"org'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		auto data = [
-		"NV",
-		"BVBA",
-		"CVBA",
-		"VZW'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressStateAbbr() {
 		auto data = [
 		"WVL",
@@ -95,20 +60,20 @@ class Faker_nl_be : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"België'"
-		];
-		return choice(data, this.rnd);
-	}
-
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
 			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
 			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
 		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"België'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
@@ -1285,14 +1250,6 @@ class Faker_nl_be : Faker {
 	}
 
 	///
-	override string addressPostcode() {
-		auto data = [
-		"####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
 	override string addressSecondaryAddress() {
 		auto data = [
 		"1e verdieping",
@@ -1300,6 +1257,14 @@ class Faker_nl_be : Faker {
 		"3e verdieping'"
 		];
 		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressPostcode() {
+		auto data = [
+		"####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
@@ -1311,6 +1276,41 @@ class Faker_nl_be : Faker {
 		"dreef",
 		"plein",
 		"park'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"NV",
+		"BVBA",
+		"CVBA",
+		"VZW'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com",
+		"skynet.be'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"be",
+		"brussels",
+		"vlaanderen",
+		"com",
+		"net",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}

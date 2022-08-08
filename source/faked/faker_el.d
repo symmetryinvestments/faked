@@ -1139,6 +1139,30 @@ class Faker_el : Faker {
 		return choice(data, this.rnd);
 	}
 
+	///
+	override string colorHuman() {
+		auto data = [
+		"κοκκικο",
+		"πράσινο",
+		"μπλε",
+		"κίτρινο",
+		"μωβ",
+		"λευκό",
+		"μαύρο",
+		"πορτοκαλί",
+		"ροζ",
+		"γκρί",
+		"βιολετί",
+		"τρικουάζ",
+		"λαδί",
+		"χρυσό",
+		"φουξια",
+		"κυανό",
+		"ασημί"
+		];
+		return choice(data, this.rnd);
+	}
+
 
 	override string addressStreet() {
 		final switch(uniform(0, 2, this.rnd)) {
@@ -1246,30 +1270,6 @@ class Faker_el : Faker {
 		"Ιαλυσός",
 		"Τύρναβος",
 		"Γλυκά Νερά"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"κοκκικο",
-		"πράσινο",
-		"μπλε",
-		"κίτρινο",
-		"μωβ",
-		"λευκό",
-		"μαύρο",
-		"πορτοκαλί",
-		"ροζ",
-		"γκρί",
-		"βιολετί",
-		"τρικουάζ",
-		"λαδί",
-		"χρυσό",
-		"φουξια",
-		"κυανό",
-		"ασημί"
 		];
 		return choice(data, this.rnd);
 	}

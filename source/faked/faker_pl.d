@@ -4063,6 +4063,29 @@ class Faker_pl : Faker {
 	}
 
 	///
+	override string addressStateAbbr() {
+		auto data = [
+		"DS",
+		"KP",
+		"LU",
+		"LB",
+		"LD",
+		"MA",
+		"MZ",
+		"OP",
+		"PK",
+		"PD",
+		"PM",
+		"SL",
+		"SK",
+		"WN",
+		"WP",
+		"ZP"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressState() {
 		auto data = [
 		"dolnośląskie",
@@ -4081,6 +4104,43 @@ class Faker_pl : Faker {
 		"warmińsko-mazurskie",
 		"wielkopolskie",
 		"zachodniopomorskie"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"Polska'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string addressStreetPrefix() {
+		auto data = [
+		"al.",
+		"bulw.",
+		"droga",
+		"ogród",
+		"os.",
+		"park",
+		"pl.",
+		"rondo",
+		"rynek",
+		"skwer",
+		"szosa",
+		"ul.",
+		"wyb.",
+		"wyspa"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4286,66 +4346,6 @@ class Faker_pl : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressStateAbbr() {
-		auto data = [
-		"DS",
-		"KP",
-		"LU",
-		"LB",
-		"LD",
-		"MA",
-		"MZ",
-		"OP",
-		"PK",
-		"PD",
-		"PM",
-		"SL",
-		"SK",
-		"WN",
-		"WP",
-		"ZP"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"Polska'"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string addressStreetAddress() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
-			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
-		}
-	}
-
-	///
-	string addressStreetPrefix() {
-		auto data = [
-		"al.",
-		"bulw.",
-		"droga",
-		"ogród",
-		"os.",
-		"park",
-		"pl.",
-		"rondo",
-		"rynek",
-		"skwer",
-		"szosa",
-		"ul.",
-		"wyb.",
-		"wyspa"
-		];
-		return choice(data, this.rnd);
-	}
-
 
 	override string addressStreet() {
 		final switch(uniform(0, 1, this.rnd)) {
@@ -4374,17 +4374,17 @@ class Faker_pl : Faker {
 	}
 
 	///
-	override string addressPostcode() {
+	override string addressSecondaryAddress() {
 		auto data = [
-		"##-###'"
+		"m. ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	override string addressSecondaryAddress() {
+	override string addressPostcode() {
 		auto data = [
-		"m. ###'"
+		"##-###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}

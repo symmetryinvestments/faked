@@ -87,6 +87,18 @@ class Faker_en_ie : Faker {
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"ie",
+		"com",
+		"net",
+		"info",
+		"eu'"
+		];
+		return choice(data, this.rnd);
+	}
+
 
 	override string addressStreet() {
 		final switch(uniform(0, 2, this.rnd)) {
@@ -142,18 +154,6 @@ class Faker_en_ie : Faker {
 		"Westmeath",
 		"Wexford",
 		"Wicklow"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"ie",
-		"com",
-		"net",
-		"info",
-		"eu'"
 		];
 		return choice(data, this.rnd);
 	}

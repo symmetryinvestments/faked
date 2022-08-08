@@ -40,128 +40,6 @@ class Faker_uk : Faker {
 	}
 
 	///
-	override string internetFreeEmail() {
-		auto data = [
-		"ukr.net",
-		"ex.ua",
-		"e-mail.ua",
-		"i.ua",
-		"meta.ua",
-		"yandex.ua",
-		"gmail.com"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"cherkassy.ua",
-		"cherkasy.ua",
-		"ck.ua",
-		"cn.ua",
-		"com.ua",
-		"crimea.ua",
-		"cv.ua",
-		"dn.ua",
-		"dnepropetrovsk.ua",
-		"dnipropetrovsk.ua",
-		"donetsk.ua",
-		"dp.ua",
-		"if.ua",
-		"in.ua",
-		"ivano-frankivsk.ua",
-		"kh.ua",
-		"kharkiv.ua",
-		"kharkov.ua",
-		"kherson.ua",
-		"khmelnitskiy.ua",
-		"kiev.ua",
-		"kirovograd.ua",
-		"km.ua",
-		"kr.ua",
-		"ks.ua",
-		"lg.ua",
-		"lt.ua",
-		"lugansk.ua",
-		"lutsk.ua",
-		"lutsk.net",
-		"lviv.ua",
-		"mk.ua",
-		"net.ua",
-		"nikolaev.ua",
-		"od.ua",
-		"odessa.ua",
-		"org.ua",
-		"pl.ua",
-		"pl.ua",
-		"poltava.ua",
-		"rovno.ua",
-		"rv.ua",
-		"sebastopol.ua",
-		"sm.ua",
-		"sumy.ua",
-		"te.ua",
-		"ternopil.ua",
-		"ua",
-		"uz.ua",
-		"uzhgorod.ua",
-		"vinnica.ua",
-		"vn.ua",
-		"volyn.net",
-		"volyn.ua",
-		"yalta.ua",
-		"zaporizhzhe.ua",
-		"zhitomir.ua",
-		"zp.ua",
-		"zt.ua",
-		"укр"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		auto data = [
-		"Постач",
-		"Торг",
-		"Пром",
-		"Трейд",
-		"Збут'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string companyPrefix() {
-		auto data = [
-		"ТОВ",
-		"ПАТ",
-		"ПрАТ",
-		"ТДВ",
-		"КТ",
-		"ПТ",
-		"ДП",
-		"ФОП'"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string companyName() {
-		final switch(uniform(0, 8, this.rnd)) {
-			case 0: return companyPrefix() ~ " " ~ nameFemaleFirstName();
-			case 1: return companyPrefix() ~ " " ~ nameMaleFirstName();
-			case 2: return companyPrefix() ~ " " ~ nameMaleLastName();
-			case 3: return companyPrefix() ~ " " ~ companySuffix() ~ companySuffix();
-			case 4: return companyPrefix() ~ " " ~ companySuffix() ~ companySuffix() ~ companySuffix();
-			case 5: return companyPrefix() ~ " " ~ addressCityName() ~ companySuffix();
-			case 6: return companyPrefix() ~ " " ~ addressCityName() ~ companySuffix() ~ companySuffix();
-			case 7: return companyPrefix() ~ " " ~ addressCityName() ~ companySuffix() ~ companySuffix() ~ companySuffix();
-		}
-	}
-
-	///
 	override string addressCityName() {
 		auto data = [
 		"Алчевськ",
@@ -459,14 +337,6 @@ class Faker_uk : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"Україна'"
-		];
-		return choice(data, this.rnd);
-	}
-
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 4, this.rnd)) {
@@ -475,6 +345,14 @@ class Faker_uk : Faker {
 			case 2: return "full: '" ~ addressStreet();
 			case 3: return addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
 		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"Україна'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
@@ -558,14 +436,6 @@ class Faker_uk : Faker {
 	}
 
 	///
-	override string addressPostcode() {
-		auto data = [
-		"#####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
 	override string addressSecondaryAddress() {
 		auto data = [
 		"кв. ###'"
@@ -574,9 +444,139 @@ class Faker_uk : Faker {
 	}
 
 	///
+	override string addressPostcode() {
+		auto data = [
+		"#####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressStreetSuffix() {
 		auto data = [
 		"майдан'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"Постач",
+		"Торг",
+		"Пром",
+		"Трейд",
+		"Збут'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string companyPrefix() {
+		auto data = [
+		"ТОВ",
+		"ПАТ",
+		"ПрАТ",
+		"ТДВ",
+		"КТ",
+		"ПТ",
+		"ДП",
+		"ФОП'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string companyName() {
+		final switch(uniform(0, 8, this.rnd)) {
+			case 0: return companyPrefix() ~ " " ~ nameFemaleFirstName();
+			case 1: return companyPrefix() ~ " " ~ nameMaleFirstName();
+			case 2: return companyPrefix() ~ " " ~ nameMaleLastName();
+			case 3: return companyPrefix() ~ " " ~ companySuffix() ~ companySuffix();
+			case 4: return companyPrefix() ~ " " ~ companySuffix() ~ companySuffix() ~ companySuffix();
+			case 5: return companyPrefix() ~ " " ~ addressCityName() ~ companySuffix();
+			case 6: return companyPrefix() ~ " " ~ addressCityName() ~ companySuffix() ~ companySuffix();
+			case 7: return companyPrefix() ~ " " ~ addressCityName() ~ companySuffix() ~ companySuffix() ~ companySuffix();
+		}
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"ukr.net",
+		"ex.ua",
+		"e-mail.ua",
+		"i.ua",
+		"meta.ua",
+		"yandex.ua",
+		"gmail.com"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"cherkassy.ua",
+		"cherkasy.ua",
+		"ck.ua",
+		"cn.ua",
+		"com.ua",
+		"crimea.ua",
+		"cv.ua",
+		"dn.ua",
+		"dnepropetrovsk.ua",
+		"dnipropetrovsk.ua",
+		"donetsk.ua",
+		"dp.ua",
+		"if.ua",
+		"in.ua",
+		"ivano-frankivsk.ua",
+		"kh.ua",
+		"kharkiv.ua",
+		"kharkov.ua",
+		"kherson.ua",
+		"khmelnitskiy.ua",
+		"kiev.ua",
+		"kirovograd.ua",
+		"km.ua",
+		"kr.ua",
+		"ks.ua",
+		"lg.ua",
+		"lt.ua",
+		"lugansk.ua",
+		"lutsk.ua",
+		"lutsk.net",
+		"lviv.ua",
+		"mk.ua",
+		"net.ua",
+		"nikolaev.ua",
+		"od.ua",
+		"odessa.ua",
+		"org.ua",
+		"pl.ua",
+		"pl.ua",
+		"poltava.ua",
+		"rovno.ua",
+		"rv.ua",
+		"sebastopol.ua",
+		"sm.ua",
+		"sumy.ua",
+		"te.ua",
+		"ternopil.ua",
+		"ua",
+		"uz.ua",
+		"uzhgorod.ua",
+		"vinnica.ua",
+		"vn.ua",
+		"volyn.net",
+		"volyn.ua",
+		"yalta.ua",
+		"zaporizhzhe.ua",
+		"zhitomir.ua",
+		"zp.ua",
+		"zt.ua",
+		"укр"
 		];
 		return choice(data, this.rnd);
 	}

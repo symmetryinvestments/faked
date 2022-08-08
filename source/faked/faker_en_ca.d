@@ -42,6 +42,30 @@ class Faker_en_ca : Faker {
 	}
 
 	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.ca",
+		"hotmail.com'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"ca",
+		"com",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressCityName() {
 		auto data = [
 		"Argentia",
@@ -270,26 +294,6 @@ class Faker_en_ca : Faker {
 	}
 
 	///
-	override string addressState() {
-		auto data = [
-		"Alberta",
-		"British Columbia",
-		"Manitoba",
-		"New Brunswick",
-		"Newfoundland and Labrador",
-		"Nova Scotia",
-		"Northwest Territories",
-		"Nunavut",
-		"Ontario",
-		"Prince Edward Island",
-		"Quebec",
-		"Saskatchewan",
-		"Yukon"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressStateAbbr() {
 		auto data = [
 		"AB",
@@ -305,6 +309,26 @@ class Faker_en_ca : Faker {
 		"QC",
 		"SK",
 		"YT"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressState() {
+		auto data = [
+		"Alberta",
+		"British Columbia",
+		"Manitoba",
+		"New Brunswick",
+		"Newfoundland and Labrador",
+		"Nova Scotia",
+		"Northwest Territories",
+		"Nunavut",
+		"Ontario",
+		"Prince Edward Island",
+		"Quebec",
+		"Saskatchewan",
+		"Yukon"
 		];
 		return choice(data, this.rnd);
 	}
@@ -358,30 +382,6 @@ class Faker_en_ca : Faker {
 		"Y#? #?#"
 		];
 		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"yahoo.ca",
-		"hotmail.com'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"ca",
-		"com",
-		"biz",
-		"info",
-		"name",
-		"net",
-		"org'"
-		];
-		return choice(data, this.rnd);
 	}
 
 }

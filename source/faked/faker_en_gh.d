@@ -52,39 +52,6 @@ class Faker_en_gh : Faker {
 	}
 
 	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"com.gh",
-		"edu.gh",
-		"gov.gh",
-		"org.gh",
-		"com",
-		"net",
-		"org",
-		"biz",
-		"co"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		auto data = [
-		"Venture",
-		"Ltd'"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string companyName() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameLastName() ~ " " ~ companySuffix();
-			case 1: return nameLastName() ~ " and " ~ nameLastName();
-		}
-	}
-
-	///
 	override string addressCityName() {
 		auto data = [
 		"Goaso",
@@ -467,20 +434,20 @@ class Faker_en_gh : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"Ghana'"
-		];
-		return choice(data, this.rnd);
-	}
-
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
 			case 0: return "normal: '" ~ addressBuildingNumber() ~ " " ~ addressStreet();
 			case 1: return "full: '" ~ addressBuildingNumber() ~ " " ~ addressStreet() ~ " " ~ addressSecondaryAddress();
 		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"Ghana'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
@@ -536,6 +503,39 @@ class Faker_en_gh : Faker {
 		"Ln",
 		"Rd",
 		"St'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"Venture",
+		"Ltd'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string companyName() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ " and " ~ nameLastName();
+		}
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"com.gh",
+		"edu.gh",
+		"gov.gh",
+		"org.gh",
+		"com",
+		"net",
+		"org",
+		"biz",
+		"co"
 		];
 		return choice(data, this.rnd);
 	}

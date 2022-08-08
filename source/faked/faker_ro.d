@@ -173,6 +173,149 @@ class Faker_ro : Faker {
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
+
+	override string dateWeekday() {
+		final switch(uniform(0, 36, this.rnd)) {
+			case 0: return "wide: ['Luni";
+			case 1: return "Marți";
+			case 2: return "Miercuri";
+			case 3: return "Joi";
+			case 4: return "Vineri";
+			case 5: return "Sâmbătă";
+			case 6: return "Duminică']";
+			case 7: return "if not set then \"wide\" will be used instead";
+			case 8: return "which may differ from a stand-alone word";
+			case 9: return "wide_context: [";
+			case 10: return "Luni";
+			case 11: return "Marți";
+			case 12: return "Miercuri";
+			case 13: return "Joi";
+			case 14: return "Vineri";
+			case 15: return "Sâmbătă";
+			case 16: return "Duminică";
+			case 17: return "]";
+			case 18: return "abbr: ['Luni";
+			case 19: return "Marți";
+			case 20: return "Miercuri";
+			case 21: return "Joi";
+			case 22: return "Vineri";
+			case 23: return "Sâmbătă";
+			case 24: return "Duminică']";
+			case 25: return "if not set then \"abbr\" will be used instead";
+			case 26: return "which may differ from a stand-alone word";
+			case 27: return "abbr_context: [";
+			case 28: return "Luni";
+			case 29: return "Marți";
+			case 30: return "Miercuri";
+			case 31: return "Joi";
+			case 32: return "Vineri";
+			case 33: return "Sâmbătă";
+			case 34: return "Duminică";
+			case 35: return "]";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 60, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Ianuarie";
+			case 2: return "Februarie";
+			case 3: return "Martie";
+			case 4: return "Aprilie";
+			case 5: return "Mai";
+			case 6: return "Iunie";
+			case 7: return "Iulie";
+			case 8: return "August";
+			case 9: return "Septembrie";
+			case 10: return "Octombrie";
+			case 11: return "Noiembrie";
+			case 12: return "Decembrie";
+			case 13: return "]";
+			case 14: return "if not set then \"wide\" will be used instead";
+			case 15: return "which may differ from a stand-alone word";
+			case 16: return "wide_context: [";
+			case 17: return "Ianuarie";
+			case 18: return "Februarie";
+			case 19: return "Martie";
+			case 20: return "Aprilie";
+			case 21: return "Mai";
+			case 22: return "Iunie";
+			case 23: return "Iulie";
+			case 24: return "August";
+			case 25: return "Septembrie";
+			case 26: return "Octombrie";
+			case 27: return "Noiembrie";
+			case 28: return "Decembrie";
+			case 29: return "]";
+			case 30: return "abbr: [";
+			case 31: return "Ian";
+			case 32: return "Feb";
+			case 33: return "Mar";
+			case 34: return "Apr";
+			case 35: return "Mai";
+			case 36: return "Iun";
+			case 37: return "Iul";
+			case 38: return "Aug";
+			case 39: return "Sep";
+			case 40: return "Oct";
+			case 41: return "Noi";
+			case 42: return "Dec";
+			case 43: return "]";
+			case 44: return "if not set then \"abbr\" will be used instead";
+			case 45: return "which may differ from a stand-alone word";
+			case 46: return "abbr_context: [";
+			case 47: return "Ian";
+			case 48: return "Feb";
+			case 49: return "Mar";
+			case 50: return "Apr";
+			case 51: return "Mai";
+			case 52: return "Iun";
+			case 53: return "Iul";
+			case 54: return "Aug";
+			case 55: return "Sep";
+			case 56: return "Oct";
+			case 57: return "Noi";
+			case 58: return "Dec";
+			case 59: return "]";
+		}
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"com",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org",
+		"ro",
+		"com.ro",
+		"org.ro",
+		"tm.ro",
+		"store.ro",
+		"info.ro",
+		"nom.ro",
+		"nt.ro",
+		"firm.ro",
+		"www.ro",
+		"arts.ro",
+		"rec.ro"
+		];
+		return choice(data, this.rnd);
+	}
+
 	///
 	override string addressCityName() {
 		auto data = [
@@ -481,55 +624,6 @@ class Faker_ro : Faker {
 	}
 
 	///
-	override string addressState() {
-		auto data = [
-		"Alba",
-		"Arad",
-		"Arges",
-		"Bacau",
-		"Bihor",
-		"Bistrita-Nasaud",
-		"Botosani",
-		"Braila",
-		"Brasov",
-		"Bucuresti",
-		"Buzau",
-		"Calarasi",
-		"Caras-Severin",
-		"Cluj",
-		"Constanta",
-		"Covasna",
-		"Dambovita",
-		"Dolj",
-		"Galati",
-		"Giurgiu",
-		"Gorj",
-		"Harghita",
-		"Hunedoara",
-		"Ialomita",
-		"Iasi",
-		"Ilfov",
-		"Maramures",
-		"Mehedinti",
-		"Mures",
-		"Neamt",
-		"Olt",
-		"Prahova",
-		"Salaj",
-		"Satu-Mare",
-		"Sibiu",
-		"Suceava",
-		"Teleorman",
-		"Timis",
-		"Tulcea",
-		"Valcea",
-		"Vaslui",
-		"Vrancea"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressStateAbbr() {
 		auto data = [
 		"AB",
@@ -579,9 +673,50 @@ class Faker_ro : Faker {
 	}
 
 	///
-	override string addressDefaultCountry() {
+	override string addressState() {
 		auto data = [
-		"România'"
+		"Alba",
+		"Arad",
+		"Arges",
+		"Bacau",
+		"Bihor",
+		"Bistrita-Nasaud",
+		"Botosani",
+		"Braila",
+		"Brasov",
+		"Bucuresti",
+		"Buzau",
+		"Calarasi",
+		"Caras-Severin",
+		"Cluj",
+		"Constanta",
+		"Covasna",
+		"Dambovita",
+		"Dolj",
+		"Galati",
+		"Giurgiu",
+		"Gorj",
+		"Harghita",
+		"Hunedoara",
+		"Ialomita",
+		"Iasi",
+		"Ilfov",
+		"Maramures",
+		"Mehedinti",
+		"Mures",
+		"Neamt",
+		"Olt",
+		"Prahova",
+		"Salaj",
+		"Satu-Mare",
+		"Sibiu",
+		"Suceava",
+		"Teleorman",
+		"Timis",
+		"Tulcea",
+		"Valcea",
+		"Vaslui",
+		"Vrancea"
 		];
 		return choice(data, this.rnd);
 	}
@@ -595,6 +730,14 @@ class Faker_ro : Faker {
 			case 3: return addressBuildingNumber();
 			case 4: return addressSecondaryAddress();
 		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"România'"
+		];
+		return choice(data, this.rnd);
 	}
 
 
@@ -780,18 +923,18 @@ class Faker_ro : Faker {
 	}
 
 	///
-	override string addressPostcode() {
+	override string addressSecondaryAddress() {
 		auto data = [
-		"######'"
+		"Ap. ##",
+		"Ap. ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	override string addressSecondaryAddress() {
+	override string addressPostcode() {
 		auto data = [
-		"Ap. ##",
-		"Ap. ###'"
+		"######'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -804,149 +947,6 @@ class Faker_ro : Faker {
 		"Intrarea'"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"yahoo.com",
-		"hotmail.com'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"com",
-		"biz",
-		"info",
-		"name",
-		"net",
-		"org",
-		"ro",
-		"com.ro",
-		"org.ro",
-		"tm.ro",
-		"store.ro",
-		"info.ro",
-		"nom.ro",
-		"nt.ro",
-		"firm.ro",
-		"www.ro",
-		"arts.ro",
-		"rec.ro"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string dateWeekday() {
-		final switch(uniform(0, 36, this.rnd)) {
-			case 0: return "wide: ['Luni";
-			case 1: return "Marți";
-			case 2: return "Miercuri";
-			case 3: return "Joi";
-			case 4: return "Vineri";
-			case 5: return "Sâmbătă";
-			case 6: return "Duminică']";
-			case 7: return "if not set then \"wide\" will be used instead";
-			case 8: return "which may differ from a stand-alone word";
-			case 9: return "wide_context: [";
-			case 10: return "Luni";
-			case 11: return "Marți";
-			case 12: return "Miercuri";
-			case 13: return "Joi";
-			case 14: return "Vineri";
-			case 15: return "Sâmbătă";
-			case 16: return "Duminică";
-			case 17: return "]";
-			case 18: return "abbr: ['Luni";
-			case 19: return "Marți";
-			case 20: return "Miercuri";
-			case 21: return "Joi";
-			case 22: return "Vineri";
-			case 23: return "Sâmbătă";
-			case 24: return "Duminică']";
-			case 25: return "if not set then \"abbr\" will be used instead";
-			case 26: return "which may differ from a stand-alone word";
-			case 27: return "abbr_context: [";
-			case 28: return "Luni";
-			case 29: return "Marți";
-			case 30: return "Miercuri";
-			case 31: return "Joi";
-			case 32: return "Vineri";
-			case 33: return "Sâmbătă";
-			case 34: return "Duminică";
-			case 35: return "]";
-		}
-	}
-
-
-	override string dateMonth() {
-		final switch(uniform(0, 60, this.rnd)) {
-			case 0: return "wide: [";
-			case 1: return "Ianuarie";
-			case 2: return "Februarie";
-			case 3: return "Martie";
-			case 4: return "Aprilie";
-			case 5: return "Mai";
-			case 6: return "Iunie";
-			case 7: return "Iulie";
-			case 8: return "August";
-			case 9: return "Septembrie";
-			case 10: return "Octombrie";
-			case 11: return "Noiembrie";
-			case 12: return "Decembrie";
-			case 13: return "]";
-			case 14: return "if not set then \"wide\" will be used instead";
-			case 15: return "which may differ from a stand-alone word";
-			case 16: return "wide_context: [";
-			case 17: return "Ianuarie";
-			case 18: return "Februarie";
-			case 19: return "Martie";
-			case 20: return "Aprilie";
-			case 21: return "Mai";
-			case 22: return "Iunie";
-			case 23: return "Iulie";
-			case 24: return "August";
-			case 25: return "Septembrie";
-			case 26: return "Octombrie";
-			case 27: return "Noiembrie";
-			case 28: return "Decembrie";
-			case 29: return "]";
-			case 30: return "abbr: [";
-			case 31: return "Ian";
-			case 32: return "Feb";
-			case 33: return "Mar";
-			case 34: return "Apr";
-			case 35: return "Mai";
-			case 36: return "Iun";
-			case 37: return "Iul";
-			case 38: return "Aug";
-			case 39: return "Sep";
-			case 40: return "Oct";
-			case 41: return "Noi";
-			case 42: return "Dec";
-			case 43: return "]";
-			case 44: return "if not set then \"abbr\" will be used instead";
-			case 45: return "which may differ from a stand-alone word";
-			case 46: return "abbr_context: [";
-			case 47: return "Ian";
-			case 48: return "Feb";
-			case 49: return "Mar";
-			case 50: return "Apr";
-			case 51: return "Mai";
-			case 52: return "Iun";
-			case 53: return "Iul";
-			case 54: return "Aug";
-			case 55: return "Sep";
-			case 56: return "Oct";
-			case 57: return "Noi";
-			case 58: return "Dec";
-			case 59: return "]";
-		}
 	}
 
 	///

@@ -30,28 +30,6 @@ class Faker_en_ng : Faker {
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"com.ng",
-		"com",
-		"org.ng",
-		"com",
-		"ng'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		auto data = [
-		"Venture",
-		"Ltd",
-		"Plc'"
-		];
-		return choice(data, this.rnd);
-	}
-
 
 	override string addressStreet() {
 		final switch(uniform(0, 2, this.rnd)) {
@@ -659,6 +637,28 @@ class Faker_en_ng : Faker {
 		"Federal Republic of Nigeria",
 		"NG",
 		"NGN'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"Venture",
+		"Ltd",
+		"Plc'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"com.ng",
+		"com",
+		"org.ng",
+		"com",
+		"ng'"
 		];
 		return choice(data, this.rnd);
 	}

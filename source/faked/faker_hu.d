@@ -2563,89 +2563,6 @@ class Faker_hu : Faker {
 	}
 
 	///
-	override string wordConjunction() {
-		auto data = [
-		"ahogy",
-		"akár",
-		"akárcsak",
-		"akkor",
-		"ám",
-		"ámbár",
-		"ámde",
-		"ameddig",
-		"amennyiben",
-		"amíg",
-		"aminthogy",
-		"annálfogva",
-		"annyira",
-		"avagy",
-		"azaz",
-		"azazhogy",
-		"azonban",
-		"bár",
-		"bizony",
-		"de",
-		"dehát",
-		"dehogy",
-		"és",
-		"ezért",
-		"ha",
-		"habár",
-		"hacsak nem",
-		"hanem",
-		"hát",
-		"hisz",
-		"hiszen",
-		"hogy",
-		"hol",
-		"így",
-		"illetőleg",
-		"illetve",
-		"immár",
-		"is",
-		"kivéve ha",
-		"máskülönben",
-		"meg",
-		"mégis",
-		"mégpedig",
-		"mert",
-		"merthogy",
-		"mihelyt",
-		"miként",
-		"mindazáltal",
-		"mindazonáltal",
-		"mint",
-		"mintha",
-		"minthogy",
-		"mivel",
-		"mivelhogy",
-		"nahát",
-		"nehogy",
-		"nos",
-		"óh",
-		"pedig",
-		"plusz",
-		"s",
-		"sajna",
-		"satöbbi",
-		"se",
-		"sem",
-		"sőt",
-		"szintén",
-		"tehát",
-		"ugyan",
-		"ugyanis",
-		"úgyhogy",
-		"vagy",
-		"vagyis",
-		"valamennyi",
-		"valamint",
-		"viszont"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string wordAdjective() {
 		auto data = [
 		"abajdóc",
@@ -10730,36 +10647,6 @@ class Faker_hu : Faker {
 	}
 
 	///
-	override string wordInterjection() {
-		auto data = [
-		"a",
-		"á",
-		"abcúg",
-		"ah",
-		"aha",
-		"ahá",
-		"ajjaj",
-		"állj",
-		"bárcsak",
-		"brr",
-		"csacsacsa",
-		"ejha",
-		"fi",
-		"haha",
-		"hahaha",
-		"hehe",
-		"hihihi",
-		"jaj",
-		"lábhoz",
-		"ó",
-		"ohohó",
-		"ojjé",
-		"pssz"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string wordVerb() {
 		auto data = [
 		"abajgat",
@@ -16763,6 +16650,119 @@ class Faker_hu : Faker {
 		"zsugorodik",
 		"zsuppol",
 		"zsűrizik"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string wordInterjection() {
+		auto data = [
+		"a",
+		"á",
+		"abcúg",
+		"ah",
+		"aha",
+		"ahá",
+		"ajjaj",
+		"állj",
+		"bárcsak",
+		"brr",
+		"csacsacsa",
+		"ejha",
+		"fi",
+		"haha",
+		"hahaha",
+		"hehe",
+		"hihihi",
+		"jaj",
+		"lábhoz",
+		"ó",
+		"ohohó",
+		"ojjé",
+		"pssz"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string wordConjunction() {
+		auto data = [
+		"ahogy",
+		"akár",
+		"akárcsak",
+		"akkor",
+		"ám",
+		"ámbár",
+		"ámde",
+		"ameddig",
+		"amennyiben",
+		"amíg",
+		"aminthogy",
+		"annálfogva",
+		"annyira",
+		"avagy",
+		"azaz",
+		"azazhogy",
+		"azonban",
+		"bár",
+		"bizony",
+		"de",
+		"dehát",
+		"dehogy",
+		"és",
+		"ezért",
+		"ha",
+		"habár",
+		"hacsak nem",
+		"hanem",
+		"hát",
+		"hisz",
+		"hiszen",
+		"hogy",
+		"hol",
+		"így",
+		"illetőleg",
+		"illetve",
+		"immár",
+		"is",
+		"kivéve ha",
+		"máskülönben",
+		"meg",
+		"mégis",
+		"mégpedig",
+		"mert",
+		"merthogy",
+		"mihelyt",
+		"miként",
+		"mindazáltal",
+		"mindazonáltal",
+		"mint",
+		"mintha",
+		"minthogy",
+		"mivel",
+		"mivelhogy",
+		"nahát",
+		"nehogy",
+		"nos",
+		"óh",
+		"pedig",
+		"plusz",
+		"s",
+		"sajna",
+		"satöbbi",
+		"se",
+		"sem",
+		"sőt",
+		"szintén",
+		"tehát",
+		"ugyan",
+		"ugyanis",
+		"úgyhogy",
+		"vagy",
+		"vagyis",
+		"valamennyi",
+		"valamint",
+		"viszont"
 		];
 		return choice(data, this.rnd);
 	}

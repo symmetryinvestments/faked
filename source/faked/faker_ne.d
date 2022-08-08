@@ -29,40 +29,6 @@ class Faker_ne : Faker {
 	}
 
 	///
-	override string internetFreeEmail() {
-		auto data = [
-		"worldlink.com.np",
-		"gmail.com",
-		"yahoo.com",
-		"hotmail.com'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"np",
-		"com",
-		"info",
-		"net",
-		"org'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		auto data = [
-		"Pvt Ltd",
-		"Group",
-		"Ltd",
-		"Limited'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressCityName() {
 		auto data = [
 		"Bhaktapur",
@@ -170,6 +136,40 @@ class Faker_ne : Faker {
 			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
 			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
 		}
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"Pvt Ltd",
+		"Group",
+		"Ltd",
+		"Limited'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"worldlink.com.np",
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"np",
+		"com",
+		"info",
+		"net",
+		"org'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///

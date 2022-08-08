@@ -38,51 +38,6 @@ class Faker_en_za : Faker {
 	}
 
 	///
-	string phoneNumberAreaCode() {
-		auto data = [
-		"10",
-		"11",
-		"12",
-		"13",
-		"14",
-		"15",
-		"16",
-		"17",
-		"18",
-		"21",
-		"22",
-		"23",
-		"24",
-		"27",
-		"28",
-		"31",
-		"32",
-		"33",
-		"34",
-		"35",
-		"36",
-		"39",
-		"40",
-		"41",
-		"42",
-		"43",
-		"44",
-		"45",
-		"46",
-		"47",
-		"48",
-		"49",
-		"51",
-		"53",
-		"54",
-		"56",
-		"57",
-		"58"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	string phoneNumberExchangeCode() {
 		auto data = [
 		"201",
@@ -373,6 +328,51 @@ class Faker_en_za : Faker {
 	}
 
 	///
+	string phoneNumberAreaCode() {
+		auto data = [
+		"10",
+		"11",
+		"12",
+		"13",
+		"14",
+		"15",
+		"16",
+		"17",
+		"18",
+		"21",
+		"22",
+		"23",
+		"24",
+		"27",
+		"28",
+		"31",
+		"32",
+		"33",
+		"34",
+		"35",
+		"36",
+		"39",
+		"40",
+		"41",
+		"42",
+		"43",
+		"44",
+		"45",
+		"46",
+		"47",
+		"48",
+		"49",
+		"51",
+		"53",
+		"54",
+		"56",
+		"57",
+		"58"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string cellPhoneFormats() {
 		auto data = [
 		"+2760 ### ####",
@@ -403,6 +403,18 @@ class Faker_en_za : Faker {
 		"Pty Ltd",
 		"Ltd",
 		"CC'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"co.za",
+		"com",
+		"org.za",
+		"info",
+		"net.za'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -475,18 +487,6 @@ class Faker_en_za : Faker {
 		"The Republic of South Africa",
 		"SA",
 		"South Africa"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"co.za",
-		"com",
-		"org.za",
-		"info",
-		"net.za'"
 		];
 		return choice(data, this.rnd);
 	}

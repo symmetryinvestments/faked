@@ -95,6 +95,29 @@ class Faker_ge : Faker {
 	}
 
 	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.com",
+		"posta.ge'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"ge",
+		"com",
+		"net",
+		"org",
+		"com.ge",
+		"org.ge'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressCityName() {
 		auto data = [
 		"აბასთუმანი",
@@ -509,20 +532,20 @@ class Faker_ge : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"საქართველო'"
-		];
-		return choice(data, this.rnd);
-	}
-
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
 			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
 			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
 		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"საქართველო'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
@@ -1000,18 +1023,18 @@ class Faker_ge : Faker {
 	}
 
 	///
-	override string addressPostcode() {
+	override string addressSecondaryAddress() {
 		auto data = [
-		"01##'"
+		"კორპ. ##",
+		"შენობა ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	override string addressSecondaryAddress() {
+	override string addressPostcode() {
 		auto data = [
-		"კორპ. ##",
-		"შენობა ###'"
+		"01##'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -1025,29 +1048,6 @@ class Faker_ge : Faker {
 		"ქუჩა",
 		"ჩიხი",
 		"ხეივანი'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"yahoo.com",
-		"posta.ge'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"ge",
-		"com",
-		"net",
-		"org",
-		"com.ge",
-		"org.ge'"
 		];
 		return choice(data, this.rnd);
 	}

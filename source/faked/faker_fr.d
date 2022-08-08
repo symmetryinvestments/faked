@@ -1151,6 +1151,61 @@ class Faker_fr : Faker {
 	}
 
 	///
+	override string animalCow() {
+		auto data = [
+		"Abondance",
+		"Armoricaine",
+		"Aubrac",
+		"Aure-et-Saint-Girons",
+		"Bazadaise",
+		"Béarnaise",
+		"Bétizu",
+		"Bleue du Nord",
+		"Bordelaise (Nouvelle)",
+		"Braunvieh",
+		"Brava",
+		"Bretonne pie noir",
+		"Brune",
+		"Camargue",
+		"Charolaise",
+		"Corse",
+		"Coursière",
+		"Créole",
+		"Évolène",
+		"Ferrandaise",
+		"Froment du Léon",
+		"Gasconne des Pyrénées",
+		"Hérens",
+		"INRA 95",
+		"Limousine",
+		"Lourdaise",
+		"Maraîchine",
+		"Marine landaise",
+		"Mirandaise",
+		"Montbéliarde",
+		"Montbéliardes au pré.",
+		"Nantaise",
+		"Normande",
+		"Parthenaise",
+		"Pie rouge des plaines",
+		"Rouge des prés",
+		"Rouge flamande",
+		"Saïnata",
+		"Salers",
+		"Saosnoise",
+		"Sarlabot",
+		"Simmental française",
+		"Simmental",
+		"Tarine",
+		"Villard-de-Lans",
+		"Vosgienne",
+		"Blonde d'Aquitaine",
+		"Prim'Holstein"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string animalLion() {
 		auto data = [
 		"Lion de l'Atlas",
@@ -1501,61 +1556,6 @@ class Faker_fr : Faker {
 		"West Highland White Terrier",
 		"Whippet",
 		"Yorkshire Terrier"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string animalCow() {
-		auto data = [
-		"Abondance",
-		"Armoricaine",
-		"Aubrac",
-		"Aure-et-Saint-Girons",
-		"Bazadaise",
-		"Béarnaise",
-		"Bétizu",
-		"Bleue du Nord",
-		"Bordelaise (Nouvelle)",
-		"Braunvieh",
-		"Brava",
-		"Bretonne pie noir",
-		"Brune",
-		"Camargue",
-		"Charolaise",
-		"Corse",
-		"Coursière",
-		"Créole",
-		"Évolène",
-		"Ferrandaise",
-		"Froment du Léon",
-		"Gasconne des Pyrénées",
-		"Hérens",
-		"INRA 95",
-		"Limousine",
-		"Lourdaise",
-		"Maraîchine",
-		"Marine landaise",
-		"Mirandaise",
-		"Montbéliarde",
-		"Montbéliardes au pré.",
-		"Nantaise",
-		"Normande",
-		"Parthenaise",
-		"Pie rouge des plaines",
-		"Rouge des prés",
-		"Rouge flamande",
-		"Saïnata",
-		"Salers",
-		"Saosnoise",
-		"Sarlabot",
-		"Simmental française",
-		"Simmental",
-		"Tarine",
-		"Villard-de-Lans",
-		"Vosgienne",
-		"Blonde d'Aquitaine",
-		"Prim'Holstein"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5336,6 +5336,923 @@ class Faker_fr : Faker {
 	}
 
 	///
+	override string musicGenre() {
+		auto data = [
+		"Rock",
+		"Metal",
+		"Pop",
+		"Électronique",
+		"Folk",
+		"World",
+		"Country",
+		"Jazz",
+		"Funk",
+		"Soul",
+		"Hip Hop",
+		"Classique",
+		"Latine",
+		"Reggae",
+		"Blues",
+		"Rap",
+		"Variété",
+		"Lofi"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string commerceProductDescription() {
+		auto data = [
+		"Ces médailles et épingles sont en argent avec patine artistique. Elles ont été composées et frappées spécialement dans les ateliers de l'État pour la Société l'Hirondelle.",
+		"Cadre raccord brasé de 53 ou 58 %. Jantes en acier émaillées. Pneus “Hiron” 700 x 35",
+		"garantis 12 mois. Pignon roue libre à emboitement hexagonal. Frein “Hirondelle” sur jante arrière. Garde-boue métal.",
+		"Montre-bracelet",
+		"dite “d'Aviateur”",
+		"métal inaltérable",
+		"diam. 435ym. Mouvement de précision chronographe",
+		"cadran avec grande aiguille trotteuse",
+		"permettant la lecture 1/25de seconde.",
+		"Lanterne cuivre fort",
+		"finement nickelé",
+		"chute d'eau réglable",
+		"suspension antivibratrice",
+		"projecteur diamètre cm2",
+		"avec verre bombé. Durée d'éclairage 3 heures. Poids 395 grammes.",
+		"Lunettes étanches",
+		"monture caoutchouc moulé de 1re qual. glaces rondes de 55 mm de diam. en verre clair. Les lunettes protègent les yeux contre les poussières",
+		"fumées et gaz industriels et se portent av. nos masques 5862-5864. Pds 60 gr.",
+		"Carrosserie en tôle d'acier laqué blanc montée sur roues pour faciliter le déplacement",
+		"couvercle laqué blanc",
+		"dessus et cuve en métal émaille marron",
+		"inaltérable a l'eau de lessive et a la chaleur",
+		"Bicyclette à 1 vitesse",
+		"pneus 1/2 ballon. Cadre de 52cm. Jantes chromées. Roue Hore.  Moyeux indéréglables. 2 freins sur jantes. Guidon trials. Garde-boue et couvre chaine en acier émaillé. Porte-bagages. Gardejupes. Pédales à blocs caoutchouc. Émail couleur. Selle route cuir. Sacoche avec outillage. Pompe de cadre. Timbre avertisseur.",
+		"Petite griffe à sarcler. 5 dents en acier",
+		"largeur 8 cm. poignée estampée",
+		"longueur 26 cm. poids 150 gr. Pour ameublir le sol",
+		"arracher les herbes entre les plantes ou fleurs cultivées en lignes rapprochées.",
+		"Moteur Villiers. Puissance au frein : 7 HP",
+		"3 vitesses",
+		"lancement au pied",
+		"éclairage électrique",
+		"carrosserie 2 places",
+		"coffre à outils",
+		"outillage complet",
+		"capote et pare-brise.",
+		"Maillot en coton fin à rayures se boutonnant devant pour enfants.",
+		"Rasoir de sûreté “Prima” tout en laiton massif nickelé chromé",
+		"manche moleté bien en main. Peigne et contre-peigne galbés tenant tout d'une pièce",
+		"fermeture à charnière",
+		"blocage instantané de la lame.",
+		"Ce magnifique radio-phono comprend un excellent récepteur radioL'ensemble",
+		"dans une belle ébénisterie teintée palissandre",
+		"forme un très phonique 6 lampes et un tourne-disque de vitesses placé sous le couvercle. Beau meuble. Ce modèle",
+		"dont le montage particulièrement soigne assure un très bon rendement aussi bien en radio qu'en phono",
+		"est garanti mn an.",
+		"Récepteurs de télévision à haute définition 819 lignes",
+		"donnant une image très nette et d'un contraste agréable ne fatiguant pas la vue",
+		"le montage de la partie radio donne un son absolument remarquable.",
+		"Tous nos appareils sont blindés pour que leur rayonnement ne trouble pas les récepteurs radiophoniques",
+		"et ils fonctionnent sur courant alternatif 50 riodes 110 et 220 volts. Ils sont garantis pendant 1 an; toutefois",
+		"suivant la règle",
+		"le tube cathodique est garanti pour 6 mois seulement."
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string commerceDepartment() {
+		auto data = [
+		"Livres",
+		"Films",
+		"Musique",
+		"Jeux",
+		"Electronique",
+		"Ordinateurs",
+		"Maison",
+		"Jardin",
+		"Outils",
+		"Épicerie",
+		"Santé",
+		"Beauté",
+		"Jouets",
+		"Enfants",
+		"Bébé",
+		"Vêtements",
+		"Chaussures",
+		"Bijoux",
+		"Sports",
+		"Plein air",
+		"Automobile",
+		"Industrie"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
+		"abricot",
+		"acajou",
+		"aigue-marine",
+		"amande",
+		"amarante",
+		"ambre",
+		"améthyste",
+		"anthracite",
+		"argent",
+		"aubergine",
+		"aurore",
+		"avocat",
+		"azur",
+		"basané",
+		"beurre",
+		"bis",
+		"bisque",
+		"bistre",
+		"bitume",
+		"blanc cassé",
+		"blanc lunaire",
+		"blé",
+		"bleu acier",
+		"bleu bleuet",
+		"bleu canard",
+		"bleu charrette",
+		"bleu ciel",
+		"bleu de cobalt",
+		"bleu de Prusse",
+		"bleu électrique",
+		"bleu givré",
+		"bleu marine",
+		"bleu nuit",
+		"bleu outremer",
+		"bleu paon",
+		"bleu persan",
+		"bleu pétrole",
+		"bleu roi",
+		"bleu saphir",
+		"bleu turquin",
+		"bouton d'or",
+		"brique",
+		"bronze",
+		"brou de noix",
+		"caca d'oie",
+		"cacao",
+		"cachou",
+		"café",
+		"cannelle",
+		"capucine",
+		"caramel",
+		"carmin",
+		"carotte",
+		"chamois",
+		"chartreuse",
+		"cuivre",
+		"chocolat",
+		"cinabre",
+		"citrouille",
+		"cœruleum",
+		"coquille d'œuf",
+		"corail",
+		"cramoisi",
+		"cuisse de nymphe",
+		"cuivre",
+		"cyan",
+		"écarlate",
+		"écru",
+		"émeraude",
+		"fauve",
+		"flave",
+		"fraise",
+		"framboise",
+		"fumée",
+		"garance",
+		"glauque",
+		"glycine",
+		"grège",
+		"grenadine",
+		"grenat",
+		"gris acier",
+		"gris de Payne",
+		"gris fer",
+		"gris perle",
+		"gris souris",
+		"groseille",
+		"gueules",
+		"héliotrope",
+		"incarnat",
+		"indigo",
+		"indigo",
+		"isabelle",
+		"jaune canari",
+		"jaune citron",
+		"jaune de cobalt",
+		"couleurs de Mars",
+		"jaune de Naples",
+		"jaune impérial",
+		"jaune mimosa",
+		"outremer véritable",
+		"lavallière",
+		"lavande",
+		"lie de vin",
+		"lilas",
+		"lime",
+		"lin",
+		"magenta",
+		"maïs",
+		"malachite",
+		"mandarine",
+		"marron",
+		"mastic",
+		"mauve",
+		"menthe",
+		"moutarde",
+		"nacarat",
+		"nankin",
+		"noisette",
+		"ocre",
+		"ocre rouge",
+		"olive",
+		"or",
+		"orange brûlé",
+		"orchidée",
+		"orpiment",
+		"paille",
+		"parme",
+		"pelure d'oignon",
+		"pervenche",
+		"pistache",
+		"poil de chameau",
+		"ponceau",
+		"pourpre",
+		"prasin",
+		"prune",
+		"puce",
+		"rose Mountbatten",
+		"oxyde de fer",
+		"rouge cardinal",
+		"rouge cerise",
+		"rouge d'Andrinople",
+		"rouge de Falun",
+		"rouge feu",
+		"couleurs de Mars",
+		"rouge tomate",
+		"tomette",
+		"rouille",
+		"rubis",
+		"sable",
+		"sable",
+		"safre",
+		"sang de bœuf",
+		"sanguine",
+		"sarcelle",
+		"saumon",
+		"sépia",
+		"sinople",
+		"smalt",
+		"soufre",
+		"tabac",
+		"terre d'ombre",
+		"topaze",
+		"tourterelle",
+		"turquoise",
+		"vanille",
+		"vermeil",
+		"vermillon",
+		"vert bouteille",
+		"vert céladon",
+		"vert d'eau",
+		"vert-de-gris",
+		"vert de Hooker",
+		"vert de vessie",
+		"vert épinard",
+		"vert impérial",
+		"vert lichen",
+		"vert oxyde de chrome",
+		"vert perroquet",
+		"vert poireau",
+		"vert pomme",
+		"vert prairie",
+		"vert printemps",
+		"vert sapin",
+		"vert sauge",
+		"vert tilleul",
+		"vert Véronèse",
+		"violet",
+		"violet d'évêque",
+		"viride",
+		"zinzolin"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 36, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Dimanche";
+			case 2: return "Lundi";
+			case 3: return "Mardi";
+			case 4: return "Mercredi";
+			case 5: return "Jeudi";
+			case 6: return "Vendredi";
+			case 7: return "Samedi";
+			case 8: return "]";
+			case 9: return "if not set then \"wide\" will be used instead";
+			case 10: return "which may differ from a stand-alone word";
+			case 11: return "wide_context: [";
+			case 12: return "dimanche";
+			case 13: return "lundi";
+			case 14: return "mardi";
+			case 15: return "mercredi";
+			case 16: return "jeudi";
+			case 17: return "vendredi";
+			case 18: return "samedi";
+			case 19: return "]";
+			case 20: return "abbr: ['Dim";
+			case 21: return "Lun";
+			case 22: return "Mar";
+			case 23: return "Mer";
+			case 24: return "Jeu";
+			case 25: return "Ven";
+			case 26: return "Sam']";
+			case 27: return "if not set then \"abbr\" will be used instead";
+			case 28: return "which may differ from a stand-alone word";
+			case 29: return "abbr_context: ['dim";
+			case 30: return "lun";
+			case 31: return "mar";
+			case 32: return "mer";
+			case 33: return "jeu";
+			case 34: return "ven";
+			case 35: return "sam']";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 60, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Janvier";
+			case 2: return "Février";
+			case 3: return "Mars";
+			case 4: return "Avril";
+			case 5: return "Mai";
+			case 6: return "Juin";
+			case 7: return "Juillet";
+			case 8: return "Août";
+			case 9: return "Septembre";
+			case 10: return "Octobre";
+			case 11: return "Novembre";
+			case 12: return "Décembre";
+			case 13: return "]";
+			case 14: return "if not set then \"wide\" will be used instead";
+			case 15: return "which may differ from a stand-alone word";
+			case 16: return "wide_context: [";
+			case 17: return "janvier";
+			case 18: return "février";
+			case 19: return "mars";
+			case 20: return "avril";
+			case 21: return "mai";
+			case 22: return "juin";
+			case 23: return "juillet";
+			case 24: return "août";
+			case 25: return "septembre";
+			case 26: return "octobre";
+			case 27: return "novembre";
+			case 28: return "décembre";
+			case 29: return "]";
+			case 30: return "abbr: [";
+			case 31: return "janv.";
+			case 32: return "févr.";
+			case 33: return "mars";
+			case 34: return "avril";
+			case 35: return "mai";
+			case 36: return "juin";
+			case 37: return "juil.";
+			case 38: return "août";
+			case 39: return "sept.";
+			case 40: return "oct.";
+			case 41: return "nov.";
+			case 42: return "déc.";
+			case 43: return "]";
+			case 44: return "if not set then \"abbr\" will be used instead";
+			case 45: return "which may differ from a stand-alone word";
+			case 46: return "abbr_context: [";
+			case 47: return "janv.";
+			case 48: return "févr.";
+			case 49: return "mars";
+			case 50: return "avril";
+			case 51: return "mai";
+			case 52: return "juin";
+			case 53: return "juil.";
+			case 54: return "août";
+			case 55: return "sept.";
+			case 56: return "oct.";
+			case 57: return "nov.";
+			case 58: return "déc.";
+			case 59: return "]";
+		}
+	}
+
+	///
+	override string addressCityName() {
+		auto data = [
+		"Aix-en-Provence",
+		"Ajaccio",
+		"Amiens",
+		"Angers",
+		"Antibes",
+		"Antony",
+		"Argenteuil",
+		"Asnières-sur-Seine",
+		"Aubervilliers",
+		"Aulnay-sous-Bois",
+		"Avignon",
+		"Beauvais",
+		"Besançon",
+		"Béziers",
+		"Bordeaux",
+		"Boulogne-Billancourt",
+		"Bourges",
+		"Brest",
+		"Caen",
+		"Calais",
+		"Cannes",
+		"Cayenne",
+		"Cergy",
+		"Chambéry",
+		"Champigny-sur-Marne",
+		"Cholet",
+		"Clermont-Ferrand",
+		"Clichy",
+		"Colmar",
+		"Colombes",
+		"Courbevoie",
+		"Créteil",
+		"Dijon",
+		"Drancy",
+		"Dunkerque",
+		"Fort-de-France",
+		"Grenoble",
+		"Hyères",
+		"Issy-les-Moulineaux",
+		"Ivry-sur-Seine",
+		"La Rochelle",
+		"La Seyne-sur-Mer",
+		"Le Havre",
+		"Le Mans",
+		"Le Tampon",
+		"Les Abymes",
+		"Levallois-Perret",
+		"Lille",
+		"Limoges",
+		"Lorient",
+		"Lyon",
+		"Marseille",
+		"Mérignac",
+		"Metz",
+		"Montauban",
+		"Montpellier",
+		"Montreuil",
+		"Mulhouse",
+		"Nancy",
+		"Nanterre",
+		"Nantes",
+		"Neuilly-sur-Seine",
+		"Nice",
+		"Nîmes",
+		"Niort",
+		"Noisy-le-Grand",
+		"Orléans",
+		"Paris",
+		"Pau",
+		"Perpignan",
+		"Pessac",
+		"Poitiers",
+		"Quimper",
+		"Reims",
+		"Rennes",
+		"Roubaix",
+		"Rouen",
+		"Rueil-Malmaison",
+		"Saint-Denis",
+		"Saint-Denis",
+		"Saint-Étienne",
+		"Saint-Maur-des-Fossés",
+		"Saint-Nazaire",
+		"Saint-Paul",
+		"Saint-Pierre",
+		"Saint-Quentin",
+		"Sarcelles",
+		"Strasbourg",
+		"Toulon",
+		"Toulouse",
+		"Tourcoing",
+		"Tours",
+		"Troyes",
+		"Valence",
+		"Vénissieux",
+		"Versailles",
+		"Villejuif",
+		"Villeneuve-d'Ascq",
+		"Villeurbanne",
+		"Vitry-sur-Seine"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressState() {
+		auto data = [
+		"Alsace",
+		"Aquitaine",
+		"Auvergne",
+		"Basse-Normandie",
+		"Bourgogne",
+		"Bretagne",
+		"Centre",
+		"Champagne-Ardenne",
+		"Corse",
+		"Franche-Comté",
+		"Haute-Normandie",
+		"Île-de-France",
+		"Languedoc-Roussillon",
+		"Limousin",
+		"Lorraine",
+		"Midi-Pyrénées",
+		"Nord-Pas-de-Calais",
+		"Pays de la Loire",
+		"Picardie",
+		"Poitou-Charentes",
+		"Provence-Alpes-Côte d'Azur",
+		"Rhône-Alpes"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressCountry() {
+		auto data = [
+		"Afghanistan",
+		"Albanie",
+		"Algérie",
+		"Andorre",
+		"Angola",
+		"Antigua-et-Barbuda",
+		"Argentine",
+		"Arménie",
+		"Australie",
+		"Autriche",
+		"Azerbaïdjan",
+		"Bahamas",
+		"Bahreïn",
+		"Bangladesh",
+		"Barbade",
+		"Biélorussie",
+		"Belgique",
+		"Belize",
+		"Bénin",
+		"Bhoutan",
+		"Bolivie",
+		"Bosnie-Herzégovine",
+		"Botswana",
+		"Brésil",
+		"Brunei",
+		"Bulgarie",
+		"Burkina Faso",
+		"Burundi",
+		"Cambodge",
+		"Cameroun",
+		"Canada",
+		"Cap-Vert",
+		"République centrafricaine",
+		"Tchad",
+		"Chili",
+		"Chine",
+		"Colombie",
+		"Comores",
+		"Costa Rica",
+		"Côte d’Ivoire",
+		"Croatie",
+		"Cuba",
+		"Chypre",
+		"République tchèque",
+		"République démocratique du Congo",
+		"Danemark",
+		"Djibouti",
+		"Dominique",
+		"République dominicaine",
+		"Timor oriental",
+		"Équateur",
+		"Égypte",
+		"Salvador",
+		"Guinée équatoriale",
+		"Érythrée",
+		"Estonie",
+		"Eswatini",
+		"Éthiopie",
+		"Fidji",
+		"Finlande",
+		"France",
+		"Gabon",
+		"Gambie",
+		"Géorgie",
+		"Allemagne",
+		"Ghana",
+		"Grèce",
+		"Grenade",
+		"Guatemala",
+		"Guinée",
+		"Guinée-Bissau",
+		"Guyane",
+		"Haïti",
+		"Honduras",
+		"Hongrie",
+		"Islande",
+		"Inde",
+		"Indonésie",
+		"Iran",
+		"Irak",
+		"Irlande",
+		"Israël",
+		"Italie",
+		"Jamaïque",
+		"Japon",
+		"Jordan",
+		"Kazakhstan",
+		"Kenya",
+		"Kiribati",
+		"Koweït",
+		"Kirghizistan",
+		"Laos",
+		"Lettonie",
+		"Liban",
+		"Lesotho",
+		"Liberia",
+		"Libye",
+		"Liechtenstein",
+		"Lituanie",
+		"Luxembourg",
+		"Madagascar",
+		"Malawi",
+		"Malaisie",
+		"Maldives",
+		"Mali",
+		"Malte",
+		"Îles Marshall",
+		"Mauritanie",
+		"Maurice",
+		"Mexique",
+		"Micronésie",
+		"Moldavie",
+		"Monaco",
+		"Mongolie",
+		"Monténégro",
+		"Maroc",
+		"Mozambique",
+		"Birmanie",
+		"Namibie",
+		"Nauru",
+		"Népal",
+		"Pays-Bas",
+		"Nouvelle-Zélande",
+		"Nicaragua",
+		"Niger",
+		"Nigeria",
+		"Corée du Nord",
+		"Norvège",
+		"Oman",
+		"Pakistan",
+		"Palau",
+		"Panama",
+		"Papouasie-Nouvelle-Guinée",
+		"Paraguay",
+		"Pérou",
+		"Philippines",
+		"Pologne",
+		"Portugal",
+		"Qatar",
+		"République du Congo",
+		"Macédoine",
+		"Roumanie",
+		"Russie",
+		"Rwanda",
+		"Saint-Christophe-et-Niévès",
+		"Sainte-Lucie",
+		"Saint-Vincent-et-les-Grenadines",
+		"Samoa",
+		"Saint-Marin",
+		"São Tomé-et-Principe",
+		"Arabie saoudite",
+		"Sénégal",
+		"Serbie",
+		"Seychelles",
+		"Sierra Leone",
+		"Singapour",
+		"Slovaquie",
+		"Slovénie",
+		"Îles Salomon",
+		"Somalie",
+		"Afrique du Sud",
+		"Corée du Sud",
+		"Soudan du Sud",
+		"Espagne",
+		"Sri Lanka",
+		"Soudan",
+		"Suriname",
+		"Suède",
+		"Suisse",
+		"Syrie",
+		"Tadjikistan",
+		"Tanzanie",
+		"Thaïlande",
+		"Togo",
+		"Tonga",
+		"Trinité-et-Tobago",
+		"Tunisie",
+		"Turquie",
+		"Turkménistan",
+		"Tuvalu",
+		"Ouganda",
+		"Ukraine",
+		"Émirats arabes unis",
+		"Royaume-Uni",
+		"États-Unis",
+		"Uruguay",
+		"Ouzbékistan",
+		"Vanuatu",
+		"Venezuela",
+		"Viêt Nam",
+		"Yémen",
+		"Zambie",
+		"Zimbabwe"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressBuildingNumber() ~ " " ~ addressStreet();
+			case 1: return "full: '" ~ addressBuildingNumber() ~ " " ~ addressStreet() ~ " " ~ addressSecondaryAddress();
+		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"France'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressDirection() {
+		auto data = [
+		"Nord",
+		"Est",
+		"Sud",
+		"Ouest",
+		"Nord-est",
+		"Nord-ouest",
+		"Sud-est",
+		"Sud-ouest"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string addressStreetPrefix() {
+		auto data = [
+		"Allée",
+		"Voie",
+		"Rue",
+		"Avenue",
+		"Boulevard",
+		"Quai",
+		"Passage",
+		"Impasse",
+		"Place"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressStreetPrefix() ~ " " ~ addressStreetSuffix() ~ "'";
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
+	}
+
+	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"####",
+		"###",
+		"##",
+		"#'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressSecondaryAddress() {
+		auto data = [
+		"Apt. ###",
+		"# étage'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressPostcode() {
+		auto data = [
+		"#####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressStreetSuffix() {
+		auto data = [
+		"de l'Abbaye",
+		"Adolphe Mille",
+		"d'Alésia",
+		"d'Argenteuil",
+		"d'Assas",
+		"du Bac",
+		"de Paris",
+		"La Boétie",
+		"Bonaparte",
+		"de la Bûcherie",
+		"de Caumartin",
+		"Charlemagne",
+		"du Chat-qui-Pêche",
+		"de la Chaussée-d'Antin",
+		"du Dahomey",
+		"Dauphine",
+		"Delesseux",
+		"du Faubourg Saint-Honoré",
+		"du Faubourg-Saint-Denis",
+		"de la Ferronnerie",
+		"des Francs-Bourgeois",
+		"des Grands Augustins",
+		"de la Harpe",
+		"du Havre",
+		"de la Huchette",
+		"Joubert",
+		"Laffitte",
+		"Lepic",
+		"des Lombards",
+		"Marcadet",
+		"Molière",
+		"Monsieur-le-Prince",
+		"de Montmorency",
+		"Montorgueil",
+		"Mouffetard",
+		"de Nesle",
+		"Oberkampf",
+		"de l'Odéon",
+		"d'Orsel",
+		"de la Paix",
+		"des Panoramas",
+		"Pastourelle",
+		"Pierre Charron",
+		"de la Pompe",
+		"de Presbourg",
+		"de Provence",
+		"de Richelieu",
+		"de Rivoli",
+		"des Rosiers",
+		"Royale",
+		"d'Abbeville",
+		"Saint-Honoré",
+		"Saint-Bernard",
+		"Saint-Denis",
+		"Saint-Dominique",
+		"Saint-Jacques",
+		"Saint-Séverin",
+		"des Saussaies",
+		"de Seine",
+		"de Solférino",
+		"Du Sommerard",
+		"de Tilsitt",
+		"Vaneau",
+		"de Vaugirard",
+		"de la Victoire",
+		"Zadkine"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string wordConjunction() {
 		auto data = [
 		"que",
@@ -6949,923 +7866,6 @@ class Faker_fr : Faker {
 		"fleurir"
 		];
 		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceProductDescription() {
-		auto data = [
-		"Ces médailles et épingles sont en argent avec patine artistique. Elles ont été composées et frappées spécialement dans les ateliers de l'État pour la Société l'Hirondelle.",
-		"Cadre raccord brasé de 53 ou 58 %. Jantes en acier émaillées. Pneus “Hiron” 700 x 35",
-		"garantis 12 mois. Pignon roue libre à emboitement hexagonal. Frein “Hirondelle” sur jante arrière. Garde-boue métal.",
-		"Montre-bracelet",
-		"dite “d'Aviateur”",
-		"métal inaltérable",
-		"diam. 435ym. Mouvement de précision chronographe",
-		"cadran avec grande aiguille trotteuse",
-		"permettant la lecture 1/25de seconde.",
-		"Lanterne cuivre fort",
-		"finement nickelé",
-		"chute d'eau réglable",
-		"suspension antivibratrice",
-		"projecteur diamètre cm2",
-		"avec verre bombé. Durée d'éclairage 3 heures. Poids 395 grammes.",
-		"Lunettes étanches",
-		"monture caoutchouc moulé de 1re qual. glaces rondes de 55 mm de diam. en verre clair. Les lunettes protègent les yeux contre les poussières",
-		"fumées et gaz industriels et se portent av. nos masques 5862-5864. Pds 60 gr.",
-		"Carrosserie en tôle d'acier laqué blanc montée sur roues pour faciliter le déplacement",
-		"couvercle laqué blanc",
-		"dessus et cuve en métal émaille marron",
-		"inaltérable a l'eau de lessive et a la chaleur",
-		"Bicyclette à 1 vitesse",
-		"pneus 1/2 ballon. Cadre de 52cm. Jantes chromées. Roue Hore.  Moyeux indéréglables. 2 freins sur jantes. Guidon trials. Garde-boue et couvre chaine en acier émaillé. Porte-bagages. Gardejupes. Pédales à blocs caoutchouc. Émail couleur. Selle route cuir. Sacoche avec outillage. Pompe de cadre. Timbre avertisseur.",
-		"Petite griffe à sarcler. 5 dents en acier",
-		"largeur 8 cm. poignée estampée",
-		"longueur 26 cm. poids 150 gr. Pour ameublir le sol",
-		"arracher les herbes entre les plantes ou fleurs cultivées en lignes rapprochées.",
-		"Moteur Villiers. Puissance au frein : 7 HP",
-		"3 vitesses",
-		"lancement au pied",
-		"éclairage électrique",
-		"carrosserie 2 places",
-		"coffre à outils",
-		"outillage complet",
-		"capote et pare-brise.",
-		"Maillot en coton fin à rayures se boutonnant devant pour enfants.",
-		"Rasoir de sûreté “Prima” tout en laiton massif nickelé chromé",
-		"manche moleté bien en main. Peigne et contre-peigne galbés tenant tout d'une pièce",
-		"fermeture à charnière",
-		"blocage instantané de la lame.",
-		"Ce magnifique radio-phono comprend un excellent récepteur radioL'ensemble",
-		"dans une belle ébénisterie teintée palissandre",
-		"forme un très phonique 6 lampes et un tourne-disque de vitesses placé sous le couvercle. Beau meuble. Ce modèle",
-		"dont le montage particulièrement soigne assure un très bon rendement aussi bien en radio qu'en phono",
-		"est garanti mn an.",
-		"Récepteurs de télévision à haute définition 819 lignes",
-		"donnant une image très nette et d'un contraste agréable ne fatiguant pas la vue",
-		"le montage de la partie radio donne un son absolument remarquable.",
-		"Tous nos appareils sont blindés pour que leur rayonnement ne trouble pas les récepteurs radiophoniques",
-		"et ils fonctionnent sur courant alternatif 50 riodes 110 et 220 volts. Ils sont garantis pendant 1 an; toutefois",
-		"suivant la règle",
-		"le tube cathodique est garanti pour 6 mois seulement."
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceDepartment() {
-		auto data = [
-		"Livres",
-		"Films",
-		"Musique",
-		"Jeux",
-		"Electronique",
-		"Ordinateurs",
-		"Maison",
-		"Jardin",
-		"Outils",
-		"Épicerie",
-		"Santé",
-		"Beauté",
-		"Jouets",
-		"Enfants",
-		"Bébé",
-		"Vêtements",
-		"Chaussures",
-		"Bijoux",
-		"Sports",
-		"Plein air",
-		"Automobile",
-		"Industrie"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCityName() {
-		auto data = [
-		"Aix-en-Provence",
-		"Ajaccio",
-		"Amiens",
-		"Angers",
-		"Antibes",
-		"Antony",
-		"Argenteuil",
-		"Asnières-sur-Seine",
-		"Aubervilliers",
-		"Aulnay-sous-Bois",
-		"Avignon",
-		"Beauvais",
-		"Besançon",
-		"Béziers",
-		"Bordeaux",
-		"Boulogne-Billancourt",
-		"Bourges",
-		"Brest",
-		"Caen",
-		"Calais",
-		"Cannes",
-		"Cayenne",
-		"Cergy",
-		"Chambéry",
-		"Champigny-sur-Marne",
-		"Cholet",
-		"Clermont-Ferrand",
-		"Clichy",
-		"Colmar",
-		"Colombes",
-		"Courbevoie",
-		"Créteil",
-		"Dijon",
-		"Drancy",
-		"Dunkerque",
-		"Fort-de-France",
-		"Grenoble",
-		"Hyères",
-		"Issy-les-Moulineaux",
-		"Ivry-sur-Seine",
-		"La Rochelle",
-		"La Seyne-sur-Mer",
-		"Le Havre",
-		"Le Mans",
-		"Le Tampon",
-		"Les Abymes",
-		"Levallois-Perret",
-		"Lille",
-		"Limoges",
-		"Lorient",
-		"Lyon",
-		"Marseille",
-		"Mérignac",
-		"Metz",
-		"Montauban",
-		"Montpellier",
-		"Montreuil",
-		"Mulhouse",
-		"Nancy",
-		"Nanterre",
-		"Nantes",
-		"Neuilly-sur-Seine",
-		"Nice",
-		"Nîmes",
-		"Niort",
-		"Noisy-le-Grand",
-		"Orléans",
-		"Paris",
-		"Pau",
-		"Perpignan",
-		"Pessac",
-		"Poitiers",
-		"Quimper",
-		"Reims",
-		"Rennes",
-		"Roubaix",
-		"Rouen",
-		"Rueil-Malmaison",
-		"Saint-Denis",
-		"Saint-Denis",
-		"Saint-Étienne",
-		"Saint-Maur-des-Fossés",
-		"Saint-Nazaire",
-		"Saint-Paul",
-		"Saint-Pierre",
-		"Saint-Quentin",
-		"Sarcelles",
-		"Strasbourg",
-		"Toulon",
-		"Toulouse",
-		"Tourcoing",
-		"Tours",
-		"Troyes",
-		"Valence",
-		"Vénissieux",
-		"Versailles",
-		"Villejuif",
-		"Villeneuve-d'Ascq",
-		"Villeurbanne",
-		"Vitry-sur-Seine"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressState() {
-		auto data = [
-		"Alsace",
-		"Aquitaine",
-		"Auvergne",
-		"Basse-Normandie",
-		"Bourgogne",
-		"Bretagne",
-		"Centre",
-		"Champagne-Ardenne",
-		"Corse",
-		"Franche-Comté",
-		"Haute-Normandie",
-		"Île-de-France",
-		"Languedoc-Roussillon",
-		"Limousin",
-		"Lorraine",
-		"Midi-Pyrénées",
-		"Nord-Pas-de-Calais",
-		"Pays de la Loire",
-		"Picardie",
-		"Poitou-Charentes",
-		"Provence-Alpes-Côte d'Azur",
-		"Rhône-Alpes"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCountry() {
-		auto data = [
-		"Afghanistan",
-		"Albanie",
-		"Algérie",
-		"Andorre",
-		"Angola",
-		"Antigua-et-Barbuda",
-		"Argentine",
-		"Arménie",
-		"Australie",
-		"Autriche",
-		"Azerbaïdjan",
-		"Bahamas",
-		"Bahreïn",
-		"Bangladesh",
-		"Barbade",
-		"Biélorussie",
-		"Belgique",
-		"Belize",
-		"Bénin",
-		"Bhoutan",
-		"Bolivie",
-		"Bosnie-Herzégovine",
-		"Botswana",
-		"Brésil",
-		"Brunei",
-		"Bulgarie",
-		"Burkina Faso",
-		"Burundi",
-		"Cambodge",
-		"Cameroun",
-		"Canada",
-		"Cap-Vert",
-		"République centrafricaine",
-		"Tchad",
-		"Chili",
-		"Chine",
-		"Colombie",
-		"Comores",
-		"Costa Rica",
-		"Côte d’Ivoire",
-		"Croatie",
-		"Cuba",
-		"Chypre",
-		"République tchèque",
-		"République démocratique du Congo",
-		"Danemark",
-		"Djibouti",
-		"Dominique",
-		"République dominicaine",
-		"Timor oriental",
-		"Équateur",
-		"Égypte",
-		"Salvador",
-		"Guinée équatoriale",
-		"Érythrée",
-		"Estonie",
-		"Eswatini",
-		"Éthiopie",
-		"Fidji",
-		"Finlande",
-		"France",
-		"Gabon",
-		"Gambie",
-		"Géorgie",
-		"Allemagne",
-		"Ghana",
-		"Grèce",
-		"Grenade",
-		"Guatemala",
-		"Guinée",
-		"Guinée-Bissau",
-		"Guyane",
-		"Haïti",
-		"Honduras",
-		"Hongrie",
-		"Islande",
-		"Inde",
-		"Indonésie",
-		"Iran",
-		"Irak",
-		"Irlande",
-		"Israël",
-		"Italie",
-		"Jamaïque",
-		"Japon",
-		"Jordan",
-		"Kazakhstan",
-		"Kenya",
-		"Kiribati",
-		"Koweït",
-		"Kirghizistan",
-		"Laos",
-		"Lettonie",
-		"Liban",
-		"Lesotho",
-		"Liberia",
-		"Libye",
-		"Liechtenstein",
-		"Lituanie",
-		"Luxembourg",
-		"Madagascar",
-		"Malawi",
-		"Malaisie",
-		"Maldives",
-		"Mali",
-		"Malte",
-		"Îles Marshall",
-		"Mauritanie",
-		"Maurice",
-		"Mexique",
-		"Micronésie",
-		"Moldavie",
-		"Monaco",
-		"Mongolie",
-		"Monténégro",
-		"Maroc",
-		"Mozambique",
-		"Birmanie",
-		"Namibie",
-		"Nauru",
-		"Népal",
-		"Pays-Bas",
-		"Nouvelle-Zélande",
-		"Nicaragua",
-		"Niger",
-		"Nigeria",
-		"Corée du Nord",
-		"Norvège",
-		"Oman",
-		"Pakistan",
-		"Palau",
-		"Panama",
-		"Papouasie-Nouvelle-Guinée",
-		"Paraguay",
-		"Pérou",
-		"Philippines",
-		"Pologne",
-		"Portugal",
-		"Qatar",
-		"République du Congo",
-		"Macédoine",
-		"Roumanie",
-		"Russie",
-		"Rwanda",
-		"Saint-Christophe-et-Niévès",
-		"Sainte-Lucie",
-		"Saint-Vincent-et-les-Grenadines",
-		"Samoa",
-		"Saint-Marin",
-		"São Tomé-et-Principe",
-		"Arabie saoudite",
-		"Sénégal",
-		"Serbie",
-		"Seychelles",
-		"Sierra Leone",
-		"Singapour",
-		"Slovaquie",
-		"Slovénie",
-		"Îles Salomon",
-		"Somalie",
-		"Afrique du Sud",
-		"Corée du Sud",
-		"Soudan du Sud",
-		"Espagne",
-		"Sri Lanka",
-		"Soudan",
-		"Suriname",
-		"Suède",
-		"Suisse",
-		"Syrie",
-		"Tadjikistan",
-		"Tanzanie",
-		"Thaïlande",
-		"Togo",
-		"Tonga",
-		"Trinité-et-Tobago",
-		"Tunisie",
-		"Turquie",
-		"Turkménistan",
-		"Tuvalu",
-		"Ouganda",
-		"Ukraine",
-		"Émirats arabes unis",
-		"Royaume-Uni",
-		"États-Unis",
-		"Uruguay",
-		"Ouzbékistan",
-		"Vanuatu",
-		"Venezuela",
-		"Viêt Nam",
-		"Yémen",
-		"Zambie",
-		"Zimbabwe"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"France'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressDirection() {
-		auto data = [
-		"Nord",
-		"Est",
-		"Sud",
-		"Ouest",
-		"Nord-est",
-		"Nord-ouest",
-		"Sud-est",
-		"Sud-ouest"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressStreetPrefix() {
-		auto data = [
-		"Allée",
-		"Voie",
-		"Rue",
-		"Avenue",
-		"Boulevard",
-		"Quai",
-		"Passage",
-		"Impasse",
-		"Place"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string addressStreetAddress() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressBuildingNumber() ~ " " ~ addressStreet();
-			case 1: return "full: '" ~ addressBuildingNumber() ~ " " ~ addressStreet() ~ " " ~ addressSecondaryAddress();
-		}
-	}
-
-
-	override string addressStreet() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressStreetPrefix() ~ " " ~ addressStreetSuffix() ~ "'";
-		}
-	}
-
-
-	override string addressCity() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressCityName() ~ "'";
-		}
-	}
-
-	///
-	override string addressBuildingNumber() {
-		auto data = [
-		"####",
-		"###",
-		"##",
-		"#'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressPostcode() {
-		auto data = [
-		"#####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressSecondaryAddress() {
-		auto data = [
-		"Apt. ###",
-		"# étage'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressStreetSuffix() {
-		auto data = [
-		"de l'Abbaye",
-		"Adolphe Mille",
-		"d'Alésia",
-		"d'Argenteuil",
-		"d'Assas",
-		"du Bac",
-		"de Paris",
-		"La Boétie",
-		"Bonaparte",
-		"de la Bûcherie",
-		"de Caumartin",
-		"Charlemagne",
-		"du Chat-qui-Pêche",
-		"de la Chaussée-d'Antin",
-		"du Dahomey",
-		"Dauphine",
-		"Delesseux",
-		"du Faubourg Saint-Honoré",
-		"du Faubourg-Saint-Denis",
-		"de la Ferronnerie",
-		"des Francs-Bourgeois",
-		"des Grands Augustins",
-		"de la Harpe",
-		"du Havre",
-		"de la Huchette",
-		"Joubert",
-		"Laffitte",
-		"Lepic",
-		"des Lombards",
-		"Marcadet",
-		"Molière",
-		"Monsieur-le-Prince",
-		"de Montmorency",
-		"Montorgueil",
-		"Mouffetard",
-		"de Nesle",
-		"Oberkampf",
-		"de l'Odéon",
-		"d'Orsel",
-		"de la Paix",
-		"des Panoramas",
-		"Pastourelle",
-		"Pierre Charron",
-		"de la Pompe",
-		"de Presbourg",
-		"de Provence",
-		"de Richelieu",
-		"de Rivoli",
-		"des Rosiers",
-		"Royale",
-		"d'Abbeville",
-		"Saint-Honoré",
-		"Saint-Bernard",
-		"Saint-Denis",
-		"Saint-Dominique",
-		"Saint-Jacques",
-		"Saint-Séverin",
-		"des Saussaies",
-		"de Seine",
-		"de Solférino",
-		"Du Sommerard",
-		"de Tilsitt",
-		"Vaneau",
-		"de Vaugirard",
-		"de la Victoire",
-		"Zadkine"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string musicGenre() {
-		auto data = [
-		"Rock",
-		"Metal",
-		"Pop",
-		"Électronique",
-		"Folk",
-		"World",
-		"Country",
-		"Jazz",
-		"Funk",
-		"Soul",
-		"Hip Hop",
-		"Classique",
-		"Latine",
-		"Reggae",
-		"Blues",
-		"Rap",
-		"Variété",
-		"Lofi"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"abricot",
-		"acajou",
-		"aigue-marine",
-		"amande",
-		"amarante",
-		"ambre",
-		"améthyste",
-		"anthracite",
-		"argent",
-		"aubergine",
-		"aurore",
-		"avocat",
-		"azur",
-		"basané",
-		"beurre",
-		"bis",
-		"bisque",
-		"bistre",
-		"bitume",
-		"blanc cassé",
-		"blanc lunaire",
-		"blé",
-		"bleu acier",
-		"bleu bleuet",
-		"bleu canard",
-		"bleu charrette",
-		"bleu ciel",
-		"bleu de cobalt",
-		"bleu de Prusse",
-		"bleu électrique",
-		"bleu givré",
-		"bleu marine",
-		"bleu nuit",
-		"bleu outremer",
-		"bleu paon",
-		"bleu persan",
-		"bleu pétrole",
-		"bleu roi",
-		"bleu saphir",
-		"bleu turquin",
-		"bouton d'or",
-		"brique",
-		"bronze",
-		"brou de noix",
-		"caca d'oie",
-		"cacao",
-		"cachou",
-		"café",
-		"cannelle",
-		"capucine",
-		"caramel",
-		"carmin",
-		"carotte",
-		"chamois",
-		"chartreuse",
-		"cuivre",
-		"chocolat",
-		"cinabre",
-		"citrouille",
-		"cœruleum",
-		"coquille d'œuf",
-		"corail",
-		"cramoisi",
-		"cuisse de nymphe",
-		"cuivre",
-		"cyan",
-		"écarlate",
-		"écru",
-		"émeraude",
-		"fauve",
-		"flave",
-		"fraise",
-		"framboise",
-		"fumée",
-		"garance",
-		"glauque",
-		"glycine",
-		"grège",
-		"grenadine",
-		"grenat",
-		"gris acier",
-		"gris de Payne",
-		"gris fer",
-		"gris perle",
-		"gris souris",
-		"groseille",
-		"gueules",
-		"héliotrope",
-		"incarnat",
-		"indigo",
-		"indigo",
-		"isabelle",
-		"jaune canari",
-		"jaune citron",
-		"jaune de cobalt",
-		"couleurs de Mars",
-		"jaune de Naples",
-		"jaune impérial",
-		"jaune mimosa",
-		"outremer véritable",
-		"lavallière",
-		"lavande",
-		"lie de vin",
-		"lilas",
-		"lime",
-		"lin",
-		"magenta",
-		"maïs",
-		"malachite",
-		"mandarine",
-		"marron",
-		"mastic",
-		"mauve",
-		"menthe",
-		"moutarde",
-		"nacarat",
-		"nankin",
-		"noisette",
-		"ocre",
-		"ocre rouge",
-		"olive",
-		"or",
-		"orange brûlé",
-		"orchidée",
-		"orpiment",
-		"paille",
-		"parme",
-		"pelure d'oignon",
-		"pervenche",
-		"pistache",
-		"poil de chameau",
-		"ponceau",
-		"pourpre",
-		"prasin",
-		"prune",
-		"puce",
-		"rose Mountbatten",
-		"oxyde de fer",
-		"rouge cardinal",
-		"rouge cerise",
-		"rouge d'Andrinople",
-		"rouge de Falun",
-		"rouge feu",
-		"couleurs de Mars",
-		"rouge tomate",
-		"tomette",
-		"rouille",
-		"rubis",
-		"sable",
-		"sable",
-		"safre",
-		"sang de bœuf",
-		"sanguine",
-		"sarcelle",
-		"saumon",
-		"sépia",
-		"sinople",
-		"smalt",
-		"soufre",
-		"tabac",
-		"terre d'ombre",
-		"topaze",
-		"tourterelle",
-		"turquoise",
-		"vanille",
-		"vermeil",
-		"vermillon",
-		"vert bouteille",
-		"vert céladon",
-		"vert d'eau",
-		"vert-de-gris",
-		"vert de Hooker",
-		"vert de vessie",
-		"vert épinard",
-		"vert impérial",
-		"vert lichen",
-		"vert oxyde de chrome",
-		"vert perroquet",
-		"vert poireau",
-		"vert pomme",
-		"vert prairie",
-		"vert printemps",
-		"vert sapin",
-		"vert sauge",
-		"vert tilleul",
-		"vert Véronèse",
-		"violet",
-		"violet d'évêque",
-		"viride",
-		"zinzolin"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string dateWeekday() {
-		final switch(uniform(0, 36, this.rnd)) {
-			case 0: return "wide: [";
-			case 1: return "Dimanche";
-			case 2: return "Lundi";
-			case 3: return "Mardi";
-			case 4: return "Mercredi";
-			case 5: return "Jeudi";
-			case 6: return "Vendredi";
-			case 7: return "Samedi";
-			case 8: return "]";
-			case 9: return "if not set then \"wide\" will be used instead";
-			case 10: return "which may differ from a stand-alone word";
-			case 11: return "wide_context: [";
-			case 12: return "dimanche";
-			case 13: return "lundi";
-			case 14: return "mardi";
-			case 15: return "mercredi";
-			case 16: return "jeudi";
-			case 17: return "vendredi";
-			case 18: return "samedi";
-			case 19: return "]";
-			case 20: return "abbr: ['Dim";
-			case 21: return "Lun";
-			case 22: return "Mar";
-			case 23: return "Mer";
-			case 24: return "Jeu";
-			case 25: return "Ven";
-			case 26: return "Sam']";
-			case 27: return "if not set then \"abbr\" will be used instead";
-			case 28: return "which may differ from a stand-alone word";
-			case 29: return "abbr_context: ['dim";
-			case 30: return "lun";
-			case 31: return "mar";
-			case 32: return "mer";
-			case 33: return "jeu";
-			case 34: return "ven";
-			case 35: return "sam']";
-		}
-	}
-
-
-	override string dateMonth() {
-		final switch(uniform(0, 60, this.rnd)) {
-			case 0: return "wide: [";
-			case 1: return "Janvier";
-			case 2: return "Février";
-			case 3: return "Mars";
-			case 4: return "Avril";
-			case 5: return "Mai";
-			case 6: return "Juin";
-			case 7: return "Juillet";
-			case 8: return "Août";
-			case 9: return "Septembre";
-			case 10: return "Octobre";
-			case 11: return "Novembre";
-			case 12: return "Décembre";
-			case 13: return "]";
-			case 14: return "if not set then \"wide\" will be used instead";
-			case 15: return "which may differ from a stand-alone word";
-			case 16: return "wide_context: [";
-			case 17: return "janvier";
-			case 18: return "février";
-			case 19: return "mars";
-			case 20: return "avril";
-			case 21: return "mai";
-			case 22: return "juin";
-			case 23: return "juillet";
-			case 24: return "août";
-			case 25: return "septembre";
-			case 26: return "octobre";
-			case 27: return "novembre";
-			case 28: return "décembre";
-			case 29: return "]";
-			case 30: return "abbr: [";
-			case 31: return "janv.";
-			case 32: return "févr.";
-			case 33: return "mars";
-			case 34: return "avril";
-			case 35: return "mai";
-			case 36: return "juin";
-			case 37: return "juil.";
-			case 38: return "août";
-			case 39: return "sept.";
-			case 40: return "oct.";
-			case 41: return "nov.";
-			case 42: return "déc.";
-			case 43: return "]";
-			case 44: return "if not set then \"abbr\" will be used instead";
-			case 45: return "which may differ from a stand-alone word";
-			case 46: return "abbr_context: [";
-			case 47: return "janv.";
-			case 48: return "févr.";
-			case 49: return "mars";
-			case 50: return "avril";
-			case 51: return "mai";
-			case 52: return "juin";
-			case 53: return "juil.";
-			case 54: return "août";
-			case 55: return "sept.";
-			case 56: return "oct.";
-			case 57: return "nov.";
-			case 58: return "déc.";
-			case 59: return "]";
-		}
 	}
 
 	///

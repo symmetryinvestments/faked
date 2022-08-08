@@ -618,6 +618,83 @@ class Faker_sv : Faker {
 	}
 
 	///
+	override string colorHuman() {
+		auto data = [
+		"vit",
+		"silver",
+		"grå",
+		"svart",
+		"röd",
+		"grön",
+		"blå",
+		"gul",
+		"lila",
+		"indigo",
+		"guld",
+		"brun",
+		"rosa",
+		"purpur",
+		"korall"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string dateWeekday() {
+		auto data = [
+		"wide: ['söndag",
+		"måndag",
+		"tisdag",
+		"onsdag",
+		"torsdag",
+		"fredag",
+		"lördag']",
+		"abbr: ['sön",
+		"mån",
+		"tis",
+		"ons",
+		"tor",
+		"fre",
+		"lör']"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 28, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "januari";
+			case 2: return "februari";
+			case 3: return "mars";
+			case 4: return "april";
+			case 5: return "maj";
+			case 6: return "juni";
+			case 7: return "juli";
+			case 8: return "augusti";
+			case 9: return "september";
+			case 10: return "oktober";
+			case 11: return "november";
+			case 12: return "december";
+			case 13: return "]";
+			case 14: return "abbr: [";
+			case 15: return "jan";
+			case 16: return "feb";
+			case 17: return "mar";
+			case 18: return "apr";
+			case 19: return "maj";
+			case 20: return "jun";
+			case 21: return "jul";
+			case 22: return "aug";
+			case 23: return "sep";
+			case 24: return "okt";
+			case 25: return "nov";
+			case 26: return "dec";
+			case 27: return "]";
+		}
+	}
+
+	///
 	string addressCommonStreetSuffix() {
 		auto data = [
 		"s Väg",
@@ -868,20 +945,20 @@ class Faker_sv : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"Sverige'"
-		];
-		return choice(data, this.rnd);
-	}
-
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
 			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
 			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
 		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"Sverige'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
@@ -1018,18 +1095,18 @@ class Faker_sv : Faker {
 	}
 
 	///
-	override string addressPostcode() {
+	override string addressSecondaryAddress() {
 		auto data = [
-		"#####'"
+		"Lgh. ###",
+		"Hus ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	override string addressSecondaryAddress() {
+	override string addressPostcode() {
 		auto data = [
-		"Lgh. ###",
-		"Hus ###'"
+		"#####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -1042,83 +1119,6 @@ class Faker_sv : Faker {
 		"gränden",
 		"gärdet",
 		"allén'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string dateWeekday() {
-		auto data = [
-		"wide: ['söndag",
-		"måndag",
-		"tisdag",
-		"onsdag",
-		"torsdag",
-		"fredag",
-		"lördag']",
-		"abbr: ['sön",
-		"mån",
-		"tis",
-		"ons",
-		"tor",
-		"fre",
-		"lör']"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string dateMonth() {
-		final switch(uniform(0, 28, this.rnd)) {
-			case 0: return "wide: [";
-			case 1: return "januari";
-			case 2: return "februari";
-			case 3: return "mars";
-			case 4: return "april";
-			case 5: return "maj";
-			case 6: return "juni";
-			case 7: return "juli";
-			case 8: return "augusti";
-			case 9: return "september";
-			case 10: return "oktober";
-			case 11: return "november";
-			case 12: return "december";
-			case 13: return "]";
-			case 14: return "abbr: [";
-			case 15: return "jan";
-			case 16: return "feb";
-			case 17: return "mar";
-			case 18: return "apr";
-			case 19: return "maj";
-			case 20: return "jun";
-			case 21: return "jul";
-			case 22: return "aug";
-			case 23: return "sep";
-			case 24: return "okt";
-			case 25: return "nov";
-			case 26: return "dec";
-			case 27: return "]";
-		}
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"vit",
-		"silver",
-		"grå",
-		"svart",
-		"röd",
-		"grön",
-		"blå",
-		"gul",
-		"lila",
-		"indigo",
-		"guld",
-		"brun",
-		"rosa",
-		"purpur",
-		"korall"
 		];
 		return choice(data, this.rnd);
 	}

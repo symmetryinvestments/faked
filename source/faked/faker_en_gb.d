@@ -54,14 +54,46 @@ class Faker_en_gb : Faker {
 	}
 
 	///
-	override string addressDefaultCountry() {
+	override string internetDomainSuffix() {
 		auto data = [
-		"England",
-		"Scotland",
-		"Wales",
-		"Northern Ireland'"
+		"ac.uk",
+		"biz",
+		"co",
+		"co.uk",
+		"com",
+		"cymru",
+		"gov.uk",
+		"info",
+		"london",
+		"ltd.uk",
+		"me.uk",
+		"name",
+		"nhs.uk",
+		"org.uk",
+		"plc.uk",
+		"sch.uk",
+		"scot",
+		"uk",
+		"wales"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
+	///
+	override string addressPostcode() {
+		auto data = [
+		"??# #??",
+		"??## #??'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
@@ -75,15 +107,6 @@ class Faker_en_gb : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressPostcode() {
-		auto data = [
-		"??# #??",
-		"??## #??'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
 
 	override string addressCity() {
 		final switch(uniform(0, 4, this.rnd)) {
@@ -92,6 +115,17 @@ class Faker_en_gb : Faker {
 			case 2: return nameFirstName() ~ addressCitySuffix();
 			case 3: return nameLastName() ~ addressCitySuffix();
 		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"England",
+		"Scotland",
+		"Wales",
+		"Northern Ireland'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
@@ -167,40 +201,6 @@ class Faker_en_gb : Faker {
 		"West Yorkshire",
 		"Wiltshire",
 		"Worcestershire"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string addressStreet() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
-			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
-		}
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"ac.uk",
-		"biz",
-		"co",
-		"co.uk",
-		"com",
-		"cymru",
-		"gov.uk",
-		"info",
-		"london",
-		"ltd.uk",
-		"me.uk",
-		"name",
-		"nhs.uk",
-		"org.uk",
-		"plc.uk",
-		"sch.uk",
-		"scot",
-		"uk",
-		"wales"
 		];
 		return choice(data, this.rnd);
 	}

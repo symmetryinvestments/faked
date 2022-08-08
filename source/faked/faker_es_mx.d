@@ -1863,6 +1863,44 @@ class Faker_es_mx : Faker {
 	}
 
 	///
+	override string colorHuman() {
+		auto data = [
+		"rojo",
+		"verde",
+		"azul",
+		"amarillo",
+		"morado",
+		"Menta verde",
+		"teal",
+		"blanco",
+		"negro",
+		"Naranja",
+		"Rosa",
+		"gris",
+		"marrón",
+		"violeta",
+		"turquesa",
+		"tan",
+		"cielo azul",
+		"salmón",
+		"ciruela",
+		"orquídea",
+		"aceituna",
+		"magenta",
+		"Lima",
+		"marfil",
+		"índigo",
+		"oro",
+		"fucsia",
+		"cian",
+		"azul",
+		"lavanda",
+		"plata"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressStateAbbr() {
 		auto data = [
 		"AS",
@@ -2126,20 +2164,20 @@ class Faker_es_mx : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"México'"
-		];
-		return choice(data, this.rnd);
-	}
-
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
 			case 0: return "normal: '" ~ addressStreet() ~ addressBuildingNumber();
 			case 1: return "full: '" ~ addressStreet() ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
 		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"México'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
@@ -2533,19 +2571,19 @@ class Faker_es_mx : Faker {
 	}
 
 	///
-	override string addressPostcode() {
-		auto data = [
-		"#####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
 	override string addressSecondaryAddress() {
 		auto data = [
 		"Esc. ###",
 		"Puerta ###",
 		"Edificio #'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressPostcode() {
+		auto data = [
+		"#####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -2623,44 +2661,6 @@ class Faker_es_mx : Faker {
 		"Urbanización",
 		"Vía",
 		"Vía Pública"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"rojo",
-		"verde",
-		"azul",
-		"amarillo",
-		"morado",
-		"Menta verde",
-		"teal",
-		"blanco",
-		"negro",
-		"Naranja",
-		"Rosa",
-		"gris",
-		"marrón",
-		"violeta",
-		"turquesa",
-		"tan",
-		"cielo azul",
-		"salmón",
-		"ciruela",
-		"orquídea",
-		"aceituna",
-		"magenta",
-		"Lima",
-		"marfil",
-		"índigo",
-		"oro",
-		"fucsia",
-		"cian",
-		"azul",
-		"lavanda",
-		"plata"
 		];
 		return choice(data, this.rnd);
 	}

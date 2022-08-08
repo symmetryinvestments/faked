@@ -2485,6 +2485,44 @@ class Faker_tr : Faker {
 	}
 
 	///
+	override string colorHuman() {
+		auto data = [
+		"kırmızı",
+		"yeşil",
+		"mavi",
+		"sarı",
+		"mor",
+		"nane yeşili",
+		"mavi",
+		"beyaz",
+		"siyah",
+		"turuncu",
+		"pembe",
+		"gri",
+		"bordo",
+		"menekşe",
+		"turkuaz",
+		"tan",
+		"gökyüzü mavisi",
+		"somon",
+		"erik",
+		"orkide",
+		"zeytin",
+		"eflatun",
+		"misket limonu",
+		"fildişi",
+		"indigo",
+		"altın",
+		"fuşya",
+		"camgöbeği",
+		"masmavi",
+		"lavanta",
+		"gümüş"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressCityName() {
 		auto data = [
 		"Adana",
@@ -2843,20 +2881,20 @@ class Faker_tr : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"Türkiye'"
-		];
-		return choice(data, this.rnd);
-	}
-
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
 			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
 			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
 		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"Türkiye'"
+		];
+		return choice(data, this.rnd);
 	}
 
 
@@ -2944,44 +2982,6 @@ class Faker_tr : Faker {
 		"#####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"kırmızı",
-		"yeşil",
-		"mavi",
-		"sarı",
-		"mor",
-		"nane yeşili",
-		"mavi",
-		"beyaz",
-		"siyah",
-		"turuncu",
-		"pembe",
-		"gri",
-		"bordo",
-		"menekşe",
-		"turkuaz",
-		"tan",
-		"gökyüzü mavisi",
-		"somon",
-		"erik",
-		"orkide",
-		"zeytin",
-		"eflatun",
-		"misket limonu",
-		"fildişi",
-		"indigo",
-		"altın",
-		"fuşya",
-		"camgöbeği",
-		"masmavi",
-		"lavanta",
-		"gümüş"
-		];
-		return choice(data, this.rnd);
 	}
 
 	///

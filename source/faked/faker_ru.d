@@ -1648,6 +1648,144 @@ class Faker_ru : Faker {
 	}
 
 	///
+	override string colorHuman() {
+		auto data = [
+		"красный",
+		"зеленый",
+		"синий",
+		"желтый",
+		"багровый",
+		"мятный",
+		"зеленовато-голубой",
+		"белый",
+		"черный",
+		"оранжевый",
+		"розовый",
+		"серый",
+		"красно-коричневый",
+		"фиолетовый",
+		"бирюзовый",
+		"желто-коричневый",
+		"небесно голубой",
+		"оранжево-розовый",
+		"темно-фиолетовый",
+		"орхидный",
+		"оливковый",
+		"пурпурный",
+		"лимонный",
+		"кремовый",
+		"сине-фиолетовый",
+		"золотой",
+		"красно-пурпурный",
+		"голубой",
+		"лазурный",
+		"лиловый",
+		"серебряный"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 32, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Воскресенье";
+			case 2: return "Понедельник";
+			case 3: return "Вторник";
+			case 4: return "Среда";
+			case 5: return "Четверг";
+			case 6: return "Пятница";
+			case 7: return "Суббота";
+			case 8: return "]";
+			case 9: return "wide_context: [";
+			case 10: return "воскресенье";
+			case 11: return "понедельник";
+			case 12: return "вторник";
+			case 13: return "среда";
+			case 14: return "четверг";
+			case 15: return "пятница";
+			case 16: return "суббота";
+			case 17: return "]";
+			case 18: return "abbr: ['Вс";
+			case 19: return "Пн";
+			case 20: return "Вт";
+			case 21: return "Ср";
+			case 22: return "Чт";
+			case 23: return "Пт";
+			case 24: return "Сб']";
+			case 25: return "abbr_context: ['вс";
+			case 26: return "пн";
+			case 27: return "вт";
+			case 28: return "ср";
+			case 29: return "чт";
+			case 30: return "пт";
+			case 31: return "сб']";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 56, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "январь";
+			case 2: return "февраль";
+			case 3: return "март";
+			case 4: return "апрель";
+			case 5: return "май";
+			case 6: return "июнь";
+			case 7: return "июль";
+			case 8: return "август";
+			case 9: return "сентябрь";
+			case 10: return "октябрь";
+			case 11: return "ноябрь";
+			case 12: return "декабрь";
+			case 13: return "]";
+			case 14: return "wide_context: [";
+			case 15: return "января";
+			case 16: return "февраля";
+			case 17: return "марта";
+			case 18: return "апреля";
+			case 19: return "мая";
+			case 20: return "июня";
+			case 21: return "июля";
+			case 22: return "августа";
+			case 23: return "сентября";
+			case 24: return "октября";
+			case 25: return "ноября";
+			case 26: return "декабря";
+			case 27: return "]";
+			case 28: return "abbr: [";
+			case 29: return "янв.";
+			case 30: return "февр.";
+			case 31: return "март";
+			case 32: return "апр.";
+			case 33: return "май";
+			case 34: return "июнь";
+			case 35: return "июль";
+			case 36: return "авг.";
+			case 37: return "сент.";
+			case 38: return "окт.";
+			case 39: return "нояб.";
+			case 40: return "дек.";
+			case 41: return "]";
+			case 42: return "abbr_context: [";
+			case 43: return "янв.";
+			case 44: return "февр.";
+			case 45: return "марта";
+			case 46: return "апр.";
+			case 47: return "мая";
+			case 48: return "июня";
+			case 49: return "июля";
+			case 50: return "авг.";
+			case 51: return "сент.";
+			case 52: return "окт.";
+			case 53: return "нояб.";
+			case 54: return "дек.";
+			case 55: return "]";
+		}
+	}
+
+	///
 	override string addressCityName() {
 		auto data = [
 		"Абакан",
@@ -2612,14 +2750,6 @@ class Faker_ru : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"Россия'"
-		];
-		return choice(data, this.rnd);
-	}
-
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 4, this.rnd)) {
@@ -2628,6 +2758,14 @@ class Faker_ru : Faker {
 			case 2: return "full: '" ~ addressStreet();
 			case 3: return addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
 		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"Россия'"
+		];
+		return choice(data, this.rnd);
 	}
 
 
@@ -2958,17 +3096,17 @@ class Faker_ru : Faker {
 	}
 
 	///
-	override string addressPostcode() {
+	override string addressSecondaryAddress() {
 		auto data = [
-		"######'"
+		"кв. ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	override string addressSecondaryAddress() {
+	override string addressPostcode() {
 		auto data = [
-		"кв. ###'"
+		"######'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -2984,144 +3122,6 @@ class Faker_ru : Faker {
 		"пл.",
 		"улица",
 		"ул."
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string dateWeekday() {
-		final switch(uniform(0, 32, this.rnd)) {
-			case 0: return "wide: [";
-			case 1: return "Воскресенье";
-			case 2: return "Понедельник";
-			case 3: return "Вторник";
-			case 4: return "Среда";
-			case 5: return "Четверг";
-			case 6: return "Пятница";
-			case 7: return "Суббота";
-			case 8: return "]";
-			case 9: return "wide_context: [";
-			case 10: return "воскресенье";
-			case 11: return "понедельник";
-			case 12: return "вторник";
-			case 13: return "среда";
-			case 14: return "четверг";
-			case 15: return "пятница";
-			case 16: return "суббота";
-			case 17: return "]";
-			case 18: return "abbr: ['Вс";
-			case 19: return "Пн";
-			case 20: return "Вт";
-			case 21: return "Ср";
-			case 22: return "Чт";
-			case 23: return "Пт";
-			case 24: return "Сб']";
-			case 25: return "abbr_context: ['вс";
-			case 26: return "пн";
-			case 27: return "вт";
-			case 28: return "ср";
-			case 29: return "чт";
-			case 30: return "пт";
-			case 31: return "сб']";
-		}
-	}
-
-
-	override string dateMonth() {
-		final switch(uniform(0, 56, this.rnd)) {
-			case 0: return "wide: [";
-			case 1: return "январь";
-			case 2: return "февраль";
-			case 3: return "март";
-			case 4: return "апрель";
-			case 5: return "май";
-			case 6: return "июнь";
-			case 7: return "июль";
-			case 8: return "август";
-			case 9: return "сентябрь";
-			case 10: return "октябрь";
-			case 11: return "ноябрь";
-			case 12: return "декабрь";
-			case 13: return "]";
-			case 14: return "wide_context: [";
-			case 15: return "января";
-			case 16: return "февраля";
-			case 17: return "марта";
-			case 18: return "апреля";
-			case 19: return "мая";
-			case 20: return "июня";
-			case 21: return "июля";
-			case 22: return "августа";
-			case 23: return "сентября";
-			case 24: return "октября";
-			case 25: return "ноября";
-			case 26: return "декабря";
-			case 27: return "]";
-			case 28: return "abbr: [";
-			case 29: return "янв.";
-			case 30: return "февр.";
-			case 31: return "март";
-			case 32: return "апр.";
-			case 33: return "май";
-			case 34: return "июнь";
-			case 35: return "июль";
-			case 36: return "авг.";
-			case 37: return "сент.";
-			case 38: return "окт.";
-			case 39: return "нояб.";
-			case 40: return "дек.";
-			case 41: return "]";
-			case 42: return "abbr_context: [";
-			case 43: return "янв.";
-			case 44: return "февр.";
-			case 45: return "марта";
-			case 46: return "апр.";
-			case 47: return "мая";
-			case 48: return "июня";
-			case 49: return "июля";
-			case 50: return "авг.";
-			case 51: return "сент.";
-			case 52: return "окт.";
-			case 53: return "нояб.";
-			case 54: return "дек.";
-			case 55: return "]";
-		}
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"красный",
-		"зеленый",
-		"синий",
-		"желтый",
-		"багровый",
-		"мятный",
-		"зеленовато-голубой",
-		"белый",
-		"черный",
-		"оранжевый",
-		"розовый",
-		"серый",
-		"красно-коричневый",
-		"фиолетовый",
-		"бирюзовый",
-		"желто-коричневый",
-		"небесно голубой",
-		"оранжево-розовый",
-		"темно-фиолетовый",
-		"орхидный",
-		"оливковый",
-		"пурпурный",
-		"лимонный",
-		"кремовый",
-		"сине-фиолетовый",
-		"золотой",
-		"красно-пурпурный",
-		"голубой",
-		"лазурный",
-		"лиловый",
-		"серебряный"
 		];
 		return choice(data, this.rnd);
 	}

@@ -110,20 +110,20 @@ class Faker_zh_cn : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"中国'"
-		];
-		return choice(data, this.rnd);
-	}
-
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
 			case 0: return "normal: '" ~ addressStreet() ~ addressBuildingNumber() ~ "号";
 			case 1: return "full: '" ~ addressStreet() ~ addressBuildingNumber() ~ "号 " ~ addressSecondaryAddress();
 		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"中国'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///

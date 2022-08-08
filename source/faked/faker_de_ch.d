@@ -35,47 +35,6 @@ class Faker_de_ch : Faker {
 	}
 
 	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"com",
-		"net",
-		"biz",
-		"ch",
-		"de",
-		"li",
-		"at",
-		"ch",
-		"ch'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		auto data = [
-		"AG",
-		"GmbH",
-		"und Söhne",
-		"und Partner",
-		"& Co.",
-		"Gruppe",
-		"LLC",
-		"Inc."
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string companyName() {
-		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return nameLastName() ~ " " ~ companySuffix();
-			case 1: return nameLastName() ~ "-" ~ nameLastName();
-			case 2: return nameLastName();
-			case 3: return nameLastName() ~ " und " ~ nameLastName();
-		}
-	}
-
-	///
 	override string addressCityName() {
 		auto data = [
 		"Aarau",
@@ -183,39 +142,6 @@ class Faker_de_ch : Faker {
 	}
 
 	///
-	override string addressState() {
-		auto data = [
-		"Aargau",
-		"Appenzell Ausserrhoden",
-		"Appenzell Innerrhoden",
-		"Basel-Land",
-		"Basel-Stadt",
-		"Bern",
-		"Freiburg",
-		"Genf",
-		"Glarus",
-		"Graubünden",
-		"Jura",
-		"Luzern",
-		"Neuenburg",
-		"Nidwalden",
-		"Obwalden",
-		"St. Gallen",
-		"Schaffhausen",
-		"Schwyz",
-		"Solothurn",
-		"Tessin",
-		"Thurgau",
-		"Uri",
-		"Waadt",
-		"Wallis",
-		"Zug",
-		"Zürich"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressStateAbbr() {
 		auto data = [
 		"AG",
@@ -244,6 +170,39 @@ class Faker_de_ch : Faker {
 		"VS",
 		"ZG",
 		"ZH"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressState() {
+		auto data = [
+		"Aargau",
+		"Appenzell Ausserrhoden",
+		"Appenzell Innerrhoden",
+		"Basel-Land",
+		"Basel-Stadt",
+		"Bern",
+		"Freiburg",
+		"Genf",
+		"Glarus",
+		"Graubünden",
+		"Jura",
+		"Luzern",
+		"Neuenburg",
+		"Nidwalden",
+		"Obwalden",
+		"St. Gallen",
+		"Schaffhausen",
+		"Schwyz",
+		"Solothurn",
+		"Tessin",
+		"Thurgau",
+		"Uri",
+		"Waadt",
+		"Wallis",
+		"Zug",
+		"Zürich"
 		];
 		return choice(data, this.rnd);
 	}
@@ -302,6 +261,47 @@ class Faker_de_ch : Faker {
 		"9###"
 		];
 		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"AG",
+		"GmbH",
+		"und Söhne",
+		"und Partner",
+		"& Co.",
+		"Gruppe",
+		"LLC",
+		"Inc."
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string companyName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ "-" ~ nameLastName();
+			case 2: return nameLastName();
+			case 3: return nameLastName() ~ " und " ~ nameLastName();
+		}
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"com",
+		"net",
+		"biz",
+		"ch",
+		"de",
+		"li",
+		"at",
+		"ch",
+		"ch'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///

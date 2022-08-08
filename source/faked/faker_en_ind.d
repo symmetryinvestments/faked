@@ -38,45 +38,6 @@ class Faker_en_ind : Faker {
 	}
 
 	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"yahoo.co.in",
-		"hotmail.com'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"in",
-		"com",
-		"biz",
-		"info",
-		"name",
-		"net",
-		"org",
-		"co.in'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		auto data = [
-		"Pvt Ltd",
-		"Limited",
-		"Ltd",
-		"and Sons",
-		"Corp",
-		"Group",
-		"Brothers"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressCityName() {
 		auto data = [
 		"Achalpur",
@@ -1308,49 +1269,6 @@ class Faker_en_ind : Faker {
 	}
 
 	///
-	override string addressState() {
-		auto data = [
-		"Andaman and Nicobar Islands",
-		"Andra Pradesh",
-		"Arunachal Pradesh",
-		"Assam",
-		"Bihar",
-		"Chandigarh",
-		"Chhattisgarh",
-		"Dadar and Nagar Haveli",
-		"Daman and Diu",
-		"Delhi",
-		"Goa",
-		"Gujarat",
-		"Haryana",
-		"Himachal Pradesh",
-		"Jammu and Kashmir",
-		"Jharkhand",
-		"Karnataka",
-		"Kerala",
-		"Lakshadweep",
-		"Madya Pradesh",
-		"Maharashtra",
-		"Manipur",
-		"Meghalaya",
-		"Mizoram",
-		"Nagaland",
-		"Odisha",
-		"Pondicherr",
-		"Punjab",
-		"Rajasthan",
-		"Sikkim",
-		"Tamil Nadu",
-		"Telangana",
-		"Tripura",
-		"Uttar Pradesh",
-		"Uttarakhand",
-		"West Bengal"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressStateAbbr() {
 		auto data = [
 		"AN",
@@ -1394,6 +1312,49 @@ class Faker_en_ind : Faker {
 	}
 
 	///
+	override string addressState() {
+		auto data = [
+		"Andaman and Nicobar Islands",
+		"Andra Pradesh",
+		"Arunachal Pradesh",
+		"Assam",
+		"Bihar",
+		"Chandigarh",
+		"Chhattisgarh",
+		"Dadar and Nagar Haveli",
+		"Daman and Diu",
+		"Delhi",
+		"Goa",
+		"Gujarat",
+		"Haryana",
+		"Himachal Pradesh",
+		"Jammu and Kashmir",
+		"Jharkhand",
+		"Karnataka",
+		"Kerala",
+		"Lakshadweep",
+		"Madya Pradesh",
+		"Maharashtra",
+		"Manipur",
+		"Meghalaya",
+		"Mizoram",
+		"Nagaland",
+		"Odisha",
+		"Pondicherr",
+		"Punjab",
+		"Rajasthan",
+		"Sikkim",
+		"Tamil Nadu",
+		"Telangana",
+		"Tripura",
+		"Uttar Pradesh",
+		"Uttarakhand",
+		"West Bengal"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressDefaultCountry() {
 		auto data = [
 		"India",
@@ -1425,6 +1386,45 @@ class Faker_en_ind : Faker {
 		"### ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"Pvt Ltd",
+		"Limited",
+		"Ltd",
+		"and Sons",
+		"Corp",
+		"Group",
+		"Brothers"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.co.in",
+		"hotmail.com'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"in",
+		"com",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org",
+		"co.in'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///

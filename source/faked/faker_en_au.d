@@ -30,32 +30,6 @@ class Faker_en_au : Faker {
 	}
 
 	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"com.au",
-		"com",
-		"net.au",
-		"net",
-		"org.au",
-		"org'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		auto data = [
-		"Pty Ltd",
-		"and Sons",
-		"Corp",
-		"Group",
-		"Brothers",
-		"Partners'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressStateAbbr() {
 		auto data = [
 		"NSW",
@@ -169,6 +143,32 @@ class Faker_en_au : Faker {
 		"Trail",
 		"View Rd",
 		"Way"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"Pty Ltd",
+		"and Sons",
+		"Corp",
+		"Group",
+		"Brothers",
+		"Partners'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"com.au",
+		"com",
+		"net.au",
+		"net",
+		"org.au",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}

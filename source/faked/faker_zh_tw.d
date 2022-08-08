@@ -65,20 +65,20 @@ class Faker_zh_tw : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"Taiwan (R.O.C.)'"
-		];
-		return choice(data, this.rnd);
-	}
-
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
 			case 0: return "normal: '" ~ addressStreet() ~ addressBuildingNumber() ~ "號";
 			case 1: return "full: '" ~ addressStreet() ~ addressBuildingNumber() ~ "號 " ~ addressSecondaryAddress();
 		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"Taiwan (R.O.C.)'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///

@@ -5067,8 +5067,29 @@ class Faker_cz : Faker {
 	}
 
 
+	override string addressStateAbbr() {
+		return "";
+	}
+
+
 	override string addressState() {
 		return "";
+	}
+
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"Česká republika'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
@@ -5271,27 +5292,6 @@ class Faker_cz : Faker {
 		"Zimbabwe"
 		];
 		return choice(data, this.rnd);
-	}
-
-
-	override string addressStateAbbr() {
-		return "";
-	}
-
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"Česká republika'"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string addressStreetAddress() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
-			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
-		}
 	}
 
 
@@ -13637,20 +13637,20 @@ class Faker_cz : Faker {
 	}
 
 	///
-	override string addressPostcode() {
+	override string addressSecondaryAddress() {
 		auto data = [
-		"#####",
-		"### ##",
-		"###-##'"
+		"Apt. ###",
+		"Suite ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	override string addressSecondaryAddress() {
+	override string addressPostcode() {
 		auto data = [
-		"Apt. ###",
-		"Suite ###'"
+		"#####",
+		"### ##",
+		"###-##'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}

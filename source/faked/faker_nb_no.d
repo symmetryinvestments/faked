@@ -1121,18 +1121,6 @@ class Faker_nb_no : Faker {
 	}
 
 	///
-	override string wordConjunction() {
-		auto data = [
-		"eller",
-		"for",
-		"men",
-		"og",
-		"så'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string wordAdjective() {
 		auto data = [
 		"aktuell",
@@ -1245,6 +1233,18 @@ class Faker_nb_no : Faker {
 	}
 
 	///
+	override string wordConjunction() {
+		auto data = [
+		"eller",
+		"for",
+		"men",
+		"og",
+		"så'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string commerceDepartment() {
 		auto data = [
 		"Barn",
@@ -1265,6 +1265,30 @@ class Faker_nb_no : Faker {
 		"Smykker",
 		"Sport",
 		"Verktøy"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
+		"beige",
+		"grønn",
+		"grå",
+		"gul",
+		"hvit",
+		"indigo",
+		"karmin",
+		"blå",
+		"lilla",
+		"limegrønn",
+		"magenta",
+		"oransje",
+		"rosa",
+		"rød",
+		"smaragdgrønn",
+		"svart",
+		"turkis"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1314,20 +1338,20 @@ class Faker_nb_no : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"Norge'"
-		];
-		return choice(data, this.rnd);
-	}
-
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
 			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
 			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
 		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"Norge'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
@@ -1444,6 +1468,15 @@ class Faker_nb_no : Faker {
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
+
+	override string addressSecondaryAddress() {
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return "Leil. ###";
+			case 1: return "Oppgang A";
+			case 2: return "Oppgang B'";
+		}
+	}
+
 	///
 	override string addressPostcode() {
 		auto data = [
@@ -1453,15 +1486,6 @@ class Faker_nb_no : Faker {
 		"0###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
-	}
-
-
-	override string addressSecondaryAddress() {
-		final switch(uniform(0, 3, this.rnd)) {
-			case 0: return "Leil. ###";
-			case 1: return "Oppgang A";
-			case 2: return "Oppgang B'";
-		}
 	}
 
 	///
@@ -1513,30 +1537,6 @@ class Faker_nb_no : Faker {
 		"vollen",
 		"vika",
 		"åsen"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"beige",
-		"grønn",
-		"grå",
-		"gul",
-		"hvit",
-		"indigo",
-		"karmin",
-		"blå",
-		"lilla",
-		"limegrønn",
-		"magenta",
-		"oransje",
-		"rosa",
-		"rød",
-		"smaragdgrønn",
-		"svart",
-		"turkis"
 		];
 		return choice(data, this.rnd);
 	}

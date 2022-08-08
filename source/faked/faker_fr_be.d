@@ -173,6 +173,32 @@ class Faker_fr_be : Faker {
 	}
 
 	///
+	override string internetFreeEmail() {
+		auto data = [
+		"advalvas.be",
+		"mail.be",
+		"netbel.be",
+		"skynet.be'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"be",
+		"eu",
+		"com",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressStateAbbr() {
 		auto data = [
 		"VAN",
@@ -205,20 +231,20 @@ class Faker_fr_be : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"Belgique'"
-		];
-		return choice(data, this.rnd);
-	}
-
 
 	override string addressStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
 			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
 			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
 		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"Belgique'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
@@ -782,32 +808,6 @@ class Faker_fr_be : Faker {
 		"de Vaugirard",
 		"de la Victoire",
 		"Zadkine"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetFreeEmail() {
-		auto data = [
-		"advalvas.be",
-		"mail.be",
-		"netbel.be",
-		"skynet.be'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"be",
-		"eu",
-		"com",
-		"biz",
-		"info",
-		"name",
-		"net",
-		"org'"
 		];
 		return choice(data, this.rnd);
 	}
