@@ -702,6 +702,17 @@ class Faker_es_mx : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyName() {
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ " y " ~ nameLastName();
+			case 2: return nameLastName() ~ " " ~ nameLastName() ~ " " ~ companySuffix();
+			case 3: return nameLastName();
+			case 4: return nameLastName() ~ " y " ~ nameLastName() ~ " Asociados";
+		}
+	}
+
 	///
 	override string companyBsAdjective() {
 		auto data = [
@@ -1811,6 +1822,17 @@ class Faker_es_mx : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameName() {
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " de " ~ nameLastName();
+			case 2: return nameSuffix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
+			case 4: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
+		}
+	}
+
 	///
 	override string commerceDepartment() {
 		auto data = [
@@ -1836,6 +1858,44 @@ class Faker_es_mx : Faker {
 		"Aire libre",
 		"Automoción",
 		"Industrial"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
+		"rojo",
+		"verde",
+		"azul",
+		"amarillo",
+		"morado",
+		"Menta verde",
+		"teal",
+		"blanco",
+		"negro",
+		"Naranja",
+		"Rosa",
+		"gris",
+		"marrón",
+		"violeta",
+		"turquesa",
+		"tan",
+		"cielo azul",
+		"salmón",
+		"ciruela",
+		"orquídea",
+		"aceituna",
+		"magenta",
+		"Lima",
+		"marfil",
+		"índigo",
+		"oro",
+		"fucsia",
+		"cian",
+		"azul",
+		"lavanda",
+		"plata"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2104,6 +2164,14 @@ class Faker_es_mx : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+		}
+	}
+
 	///
 	override string addressDefaultCountry() {
 		auto data = [
@@ -2273,6 +2341,18 @@ class Faker_es_mx : Faker {
 		"Zitacuaro"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return addressStreetSuffix() ~ " " ~ nameFirstName();
+			case 1: return addressStreetSuffix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 2: return addressStreetSuffix() ~ " " ~ addressStreetName();
+			case 3: return addressStreetSuffix() ~ " " ~ addressStreetName();
+			case 4: return addressStreetSuffix() ~ " " ~ addressStreetName();
+			case 5: return addressStreetSuffix() ~ " " ~ addressStreetName();
+		}
 	}
 
 	///
@@ -2470,6 +2550,36 @@ class Faker_es_mx : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityPrefix() ~ "'";
+		}
+	}
+
+
+	override string addressBuildingNumber() {
+		final switch(uniform(0, 7, this.rnd)) {
+			case 0: return " s/n.";
+			case 1: return "#";
+			case 2: return "##";
+			case 3: return " #";
+			case 4: return " ##";
+			case 5: return " ###";
+			case 6: return "####'";
+		}
+	}
+
+	///
+	override string addressSecondaryAddress() {
+		auto data = [
+		"Esc. ###",
+		"Puerta ###",
+		"Edificio #'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
 	///
 	override string addressPostcode() {
 		auto data = [
@@ -2556,44 +2666,6 @@ class Faker_es_mx : Faker {
 	}
 
 	///
-	override string colorHuman() {
-		auto data = [
-		"rojo",
-		"verde",
-		"azul",
-		"amarillo",
-		"morado",
-		"Menta verde",
-		"teal",
-		"blanco",
-		"negro",
-		"Naranja",
-		"Rosa",
-		"gris",
-		"marrón",
-		"violeta",
-		"turquesa",
-		"tan",
-		"cielo azul",
-		"salmón",
-		"ciruela",
-		"orquídea",
-		"aceituna",
-		"magenta",
-		"Lima",
-		"marfil",
-		"índigo",
-		"oro",
-		"fucsia",
-		"cian",
-		"azul",
-		"lavanda",
-		"plata"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string teamCreature() {
 		auto data = [
 		"hormigas",
@@ -2665,6 +2737,13 @@ class Faker_es_mx : Faker {
 		"druidas"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string teamName() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressState() ~ " " ~ teamCreature() ~ "'";
+		}
 	}
 
 	///

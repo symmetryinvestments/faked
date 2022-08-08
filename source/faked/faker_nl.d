@@ -344,6 +344,26 @@ class Faker_nl : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string hackerPhrase() {
+		final switch(uniform(0, 14, this.rnd)) {
+			case 0: return "Als we de " ~ hackerNoun() ~ " " ~ hackerVerb();
+			case 1: return "dan kunnen we naar de " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " via de " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+			case 2: return "We moeten de " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " " ~ hackerVerb() ~ "!";
+			case 3: return "Probeer om de " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " te " ~ hackerVerb();
+			case 4: return "misschien gaat dat de " ~ hackerAdjective() ~ " " ~ hackerNoun() ~ " " ~ hackerVerb() ~ "!";
+			case 5: return "Je kan de " ~ hackerNoun() ~ " niet " ~ hackerVerb() ~ " zonder de " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " te " ~ hackerVerb() ~ "!";
+			case 6: return "Gebruik de " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun();
+			case 7: return "dan kan je de " ~ hackerAdjective() ~ " " ~ hackerNoun() ~ " " ~ hackerVerb() ~ "!";
+			case 8: return "De " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " ligt eruit";
+			case 9: return "jullie moeten de " ~ hackerAdjective() ~ " " ~ hackerNoun() ~ " " ~ hackerVerb() ~ " zodat we de " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " kunnen " ~ hackerVerb() ~ "!";
+			case 10: return "Het maakt niet uit of we de " ~ hackerNoun() ~ " " ~ hackerVerb();
+			case 11: return "we moeten de " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " " ~ hackerVerb() ~ "!";
+			case 12: return "Ik ga de " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " " ~ hackerVerb();
+			case 13: return "dat zou de " ~ hackerNoun() ~ " moeten " ~ hackerVerb() ~ "!";
+		}
+	}
+
 	///
 	override string hackerNoun() {
 		auto data = [
@@ -1113,6 +1133,18 @@ class Faker_nl : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameSuffix();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameFirstName() ~ " " ~ nameTussenvoegsel() ~ " " ~ nameLastName();
+			case 5: return nameFirstName() ~ " " ~ nameTussenvoegsel() ~ " " ~ nameLastName();
+		}
+	}
+
 	///
 	override string nameFemaleFirstName() {
 		auto data = [
@@ -1676,6 +1708,157 @@ class Faker_nl : Faker {
 	}
 
 	///
+	override string colorHuman() {
+		auto data = [
+		"rood",
+		"groen",
+		"blauw",
+		"koningblauw",
+		"geel",
+		"purper",
+		"muntgroen",
+		"groenblauw",
+		"wit",
+		"zwart",
+		"oranje",
+		"roze",
+		"grijs",
+		"donkergrijs",
+		"oker",
+		"terracotta",
+		"kastanjebruin",
+		"paars",
+		"turkoois",
+		"bruin",
+		"hemelsblauw",
+		"zalmroze",
+		"oudroze",
+		"appelgroen",
+		"levend wit",
+		"olijfgroen",
+		"magenta",
+		"limoen",
+		"ivoor",
+		"indigo",
+		"goud",
+		"fuchsia",
+		"cyaan",
+		"azuurblauw",
+		"lavendel",
+		"zilver"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 36, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "zondag";
+			case 2: return "maandag";
+			case 3: return "dinsdag";
+			case 4: return "woensdag";
+			case 5: return "donderdag";
+			case 6: return "vrijdag";
+			case 7: return "zaterdag";
+			case 8: return "]";
+			case 9: return "if not set then \"wide\" will be used instead";
+			case 10: return "which may differ from a stand-alone word";
+			case 11: return "wide_context: [";
+			case 12: return "zondag";
+			case 13: return "maandag";
+			case 14: return "dinsdag";
+			case 15: return "woensdag";
+			case 16: return "donderdag";
+			case 17: return "vrijdag";
+			case 18: return "zaterdag";
+			case 19: return "]";
+			case 20: return "abbr: ['zo";
+			case 21: return "ma";
+			case 22: return "di";
+			case 23: return "wo";
+			case 24: return "do";
+			case 25: return "vr";
+			case 26: return "za']";
+			case 27: return "if not set then \"abbr\" will be used instead";
+			case 28: return "which may differ from a stand-alone word";
+			case 29: return "abbr_context: ['zo";
+			case 30: return "ma";
+			case 31: return "di";
+			case 32: return "wo";
+			case 33: return "do";
+			case 34: return "vr";
+			case 35: return "za']";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 60, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "januari";
+			case 2: return "februari";
+			case 3: return "maart";
+			case 4: return "april";
+			case 5: return "mei";
+			case 6: return "juni";
+			case 7: return "juli";
+			case 8: return "augustus";
+			case 9: return "september";
+			case 10: return "oktober";
+			case 11: return "november";
+			case 12: return "december";
+			case 13: return "]";
+			case 14: return "if not set then \"wide\" will be used instead";
+			case 15: return "which may differ from a stand-alone word";
+			case 16: return "wide_context: [";
+			case 17: return "januari";
+			case 18: return "februari";
+			case 19: return "maart";
+			case 20: return "april";
+			case 21: return "mei";
+			case 22: return "juni";
+			case 23: return "juli";
+			case 24: return "augustus";
+			case 25: return "september";
+			case 26: return "oktober";
+			case 27: return "november";
+			case 28: return "december";
+			case 29: return "]";
+			case 30: return "abbr: [";
+			case 31: return "jan";
+			case 32: return "feb";
+			case 33: return "mrt";
+			case 34: return "apr";
+			case 35: return "mei";
+			case 36: return "jun";
+			case 37: return "jul";
+			case 38: return "aug";
+			case 39: return "sep";
+			case 40: return "okt";
+			case 41: return "nov";
+			case 42: return "dec";
+			case 43: return "]";
+			case 44: return "if not set then \"abbr\" will be used instead";
+			case 45: return "which may differ from a stand-alone word";
+			case 46: return "abbr_context: [";
+			case 47: return "jan";
+			case 48: return "feb";
+			case 49: return "mrt";
+			case 50: return "apr";
+			case 51: return "mei";
+			case 52: return "jun";
+			case 53: return "jul";
+			case 54: return "aug";
+			case 55: return "sep";
+			case 56: return "okt";
+			case 57: return "nov";
+			case 58: return "dec";
+			case 59: return "]";
+		}
+	}
+
+	///
 	override string addressState() {
 		auto data = [
 		"Noord-Holland",
@@ -1953,6 +2136,14 @@ class Faker_nl : Faker {
 		"Zwitserland"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+		}
 	}
 
 	///
@@ -4524,10 +4715,34 @@ class Faker_nl : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstName() ~ addressStreetSuffix();
+			case 1: return nameLastName() ~ addressStreetSuffix();
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return addressCityPrefix() ~ addressCitySuffix();
+			case 1: return addressCityPrefix();
+		}
+	}
+
 	///
-	override string addressPostcode() {
+	override string addressBuildingNumber() {
 		auto data = [
-		"#### ??'"
+		"#",
+		"##",
+		"###",
+		"###a",
+		"###b",
+		"###c",
+		"### I",
+		"### II",
+		"### III"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -4544,6 +4759,14 @@ class Faker_nl : Faker {
 	}
 
 	///
+	override string addressPostcode() {
+		auto data = [
+		"#### ??'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressStreetSuffix() {
 		auto data = [
 		"straat",
@@ -4553,49 +4776,6 @@ class Faker_nl : Faker {
 		"park",
 		"gracht",
 		"dijk'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"rood",
-		"groen",
-		"blauw",
-		"koningblauw",
-		"geel",
-		"purper",
-		"muntgroen",
-		"groenblauw",
-		"wit",
-		"zwart",
-		"oranje",
-		"roze",
-		"grijs",
-		"donkergrijs",
-		"oker",
-		"terracotta",
-		"kastanjebruin",
-		"paars",
-		"turkoois",
-		"bruin",
-		"hemelsblauw",
-		"zalmroze",
-		"oudroze",
-		"appelgroen",
-		"levend wit",
-		"olijfgroen",
-		"magenta",
-		"limoen",
-		"ivoor",
-		"indigo",
-		"goud",
-		"fuchsia",
-		"cyaan",
-		"azuurblauw",
-		"lavendel",
-		"zilver"
 		];
 		return choice(data, this.rnd);
 	}

@@ -302,6 +302,16 @@ class Faker_de : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ "-" ~ nameLastName();
+			case 2: return nameLastName();
+			case 3: return nameLastName() ~ " und " ~ nameLastName();
+		}
+	}
+
 	///
 	override string nameMaleFirstName() {
 		auto data = [
@@ -3747,6 +3757,18 @@ class Faker_de : Faker {
 		"Zoé"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameNobilityTitlePrefix() ~ " " ~ nameLastName();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 5: return nameFemaleFirstName() ~ " " ~ nameLastName();
+		}
 	}
 
 	///
@@ -10174,6 +10196,114 @@ class Faker_de : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string dateWeekday() {
+		final switch(uniform(0, 36, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Sonntag";
+			case 2: return "Montag";
+			case 3: return "Dienstag";
+			case 4: return "Mittwoch";
+			case 5: return "Donnerstag";
+			case 6: return "Freitag";
+			case 7: return "Samstag";
+			case 8: return "]";
+			case 9: return "if not set then \"wide\" will be used instead";
+			case 10: return "which may differ from a stand-alone word";
+			case 11: return "wide_context: [";
+			case 12: return "Sonntag";
+			case 13: return "Montag";
+			case 14: return "Dienstag";
+			case 15: return "Mittwoch";
+			case 16: return "Donnerstag";
+			case 17: return "Freitag";
+			case 18: return "Samstag";
+			case 19: return "]";
+			case 20: return "abbr: ['So.";
+			case 21: return "Mo.";
+			case 22: return "Di.";
+			case 23: return "Mi.";
+			case 24: return "Do.";
+			case 25: return "Fr.";
+			case 26: return "Sa.']";
+			case 27: return "if not set then \"abbr\" will be used instead";
+			case 28: return "which may differ from a stand-alone word";
+			case 29: return "abbr_context: ['So.";
+			case 30: return "Mo.";
+			case 31: return "Di.";
+			case 32: return "Mi.";
+			case 33: return "Do.";
+			case 34: return "Fr.";
+			case 35: return "Sa.']";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 60, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Januar";
+			case 2: return "Februar";
+			case 3: return "März";
+			case 4: return "April";
+			case 5: return "Mai";
+			case 6: return "Juni";
+			case 7: return "Juli";
+			case 8: return "August";
+			case 9: return "September";
+			case 10: return "Oktober";
+			case 11: return "November";
+			case 12: return "Dezember";
+			case 13: return "]";
+			case 14: return "if not set then \"wide\" will be used instead";
+			case 15: return "which may differ from a stand-alone word";
+			case 16: return "wide_context: [";
+			case 17: return "Januar";
+			case 18: return "Februar";
+			case 19: return "März";
+			case 20: return "April";
+			case 21: return "Mai";
+			case 22: return "Juni";
+			case 23: return "Juli";
+			case 24: return "August";
+			case 25: return "September";
+			case 26: return "Oktober";
+			case 27: return "November";
+			case 28: return "Dezember";
+			case 29: return "]";
+			case 30: return "abbr: [";
+			case 31: return "Jan";
+			case 32: return "Feb";
+			case 33: return "Mrz";
+			case 34: return "Apr";
+			case 35: return "Mai";
+			case 36: return "Jun";
+			case 37: return "Jul";
+			case 38: return "Aug";
+			case 39: return "Sep";
+			case 40: return "Okt";
+			case 41: return "Nov";
+			case 42: return "Dez";
+			case 43: return "]";
+			case 44: return "if not set then \"abbr\" will be used instead";
+			case 45: return "which may differ from a stand-alone word";
+			case 46: return "abbr_context: [";
+			case 47: return "Jan";
+			case 48: return "Feb";
+			case 49: return "Mrz";
+			case 50: return "Apr";
+			case 51: return "Mai";
+			case 52: return "Jun";
+			case 53: return "Jul";
+			case 54: return "Aug";
+			case 55: return "Sep";
+			case 56: return "Okt";
+			case 57: return "Nov";
+			case 58: return "Dez";
+			case 59: return "]";
+		}
+	}
+
 	///
 	override string addressStateAbbr() {
 		auto data = [
@@ -10464,6 +10594,14 @@ class Faker_de : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+		}
+	}
+
 	///
 	override string addressDefaultCountry() {
 		auto data = [
@@ -10496,6 +10634,13 @@ class Faker_de : Faker {
 		"Bad'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressStreetName() ~ "'";
+		}
 	}
 
 	///
@@ -11534,6 +11679,39 @@ class Faker_de : Faker {
 		"Zur alten Fabrik"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
+			case 2: return nameFirstName() ~ addressCitySuffix();
+			case 3: return nameLastName() ~ addressCitySuffix();
+		}
+	}
+
+	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"###",
+		"##",
+		"#",
+		"##a",
+		"##b",
+		"##c'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressSecondaryAddress() {
+		auto data = [
+		"Apt. ###",
+		"Zimmer ###",
+		"# OG'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///

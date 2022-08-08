@@ -235,13 +235,6 @@ class Faker {
     }
 
 	///
-    //string commerceProductName() {
-    //    return this.commerceProductNameAdjective() ~
-    //          this.commerceProductNameMaterial() ~ " " ~
-    //          this.commerceProductNameProduct();
-    //}
-
-	///
     string companyCatchPhrase() {
         return companyAdjective() ~ " "
             ~ companyDescriptor() ~ " "
@@ -1013,6 +1006,87 @@ class Faker {
         }
         return app.data;
     }
+	///
+	string teamCreature() {
+		auto data = [
+		"ants",
+		"bats",
+		"bears",
+		"bees",
+		"birds",
+		"buffalo",
+		"cats",
+		"chickens",
+		"cattle",
+		"dogs",
+		"dolphins",
+		"ducks",
+		"elephants",
+		"fishes",
+		"foxes",
+		"frogs",
+		"geese",
+		"goats",
+		"horses",
+		"kangaroos",
+		"lions",
+		"monkeys",
+		"owls",
+		"oxen",
+		"penguins",
+		"people",
+		"pigs",
+		"rabbits",
+		"sheep",
+		"tigers",
+		"whales",
+		"wolves",
+		"zebras",
+		"banshees",
+		"crows",
+		"black cats",
+		"chimeras",
+		"ghosts",
+		"conspirators",
+		"dragons",
+		"dwarves",
+		"elves",
+		"enchanters",
+		"exorcists",
+		"sons",
+		"foes",
+		"giants",
+		"gnomes",
+		"goblins",
+		"gooses",
+		"griffins",
+		"lycanthropes",
+		"nemesis",
+		"ogres",
+		"oracles",
+		"prophets",
+		"sorcerors",
+		"spiders",
+		"spirits",
+		"vampires",
+		"warlocks",
+		"vixens",
+		"werewolves",
+		"witches",
+		"worshipers",
+		"zombies",
+		"druids"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	string teamName() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressState() ~ " " ~ teamCreature() ~ "'";
+		}
+	}
+
 	///
 	string loremWords() {
 		auto data = [
@@ -2117,6 +2191,85 @@ class Faker {
 	}
 
 	///
+	string databaseType() {
+		auto data = [
+		"int",
+		"varchar",
+		"text",
+		"date",
+		"datetime",
+		"tinyint",
+		"time",
+		"timestamp",
+		"smallint",
+		"mediumint",
+		"bigint",
+		"decimal",
+		"float",
+		"double",
+		"real",
+		"bit",
+		"boolean",
+		"serial",
+		"blob",
+		"binary",
+		"enum",
+		"set",
+		"geometry",
+		"point"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string databaseColumn() {
+		auto data = [
+		"id",
+		"title",
+		"name",
+		"email",
+		"phone",
+		"token",
+		"group",
+		"category",
+		"password",
+		"comment",
+		"avatar",
+		"status",
+		"createdAt",
+		"updatedAt"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string databaseCollation() {
+		auto data = [
+		"utf8_unicode_ci",
+		"utf8_general_ci",
+		"utf8_bin",
+		"ascii_bin",
+		"ascii_general_ci",
+		"cp1250_bin",
+		"cp1250_general_ci"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string databaseEngine() {
+		auto data = [
+		"InnoDB",
+		"MyISAM",
+		"MEMORY",
+		"CSV",
+		"BLACKHOLE",
+		"ARCHIVE'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	string financeTransactionType() {
 		auto data = [
 		"deposit",
@@ -2991,524 +3144,6 @@ class Faker {
 	}
 
 	///
-	string animalLion() {
-		auto data = [
-		"Asiatic Lion",
-		"Barbary Lion",
-		"West African Lion",
-		"Northeast Congo Lion",
-		"Masai Lion",
-		"Transvaal lion",
-		"Cape lion"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string animalDog() {
-		auto data = [
-		"Affenpinscher",
-		"Afghan Hound",
-		"Aidi",
-		"Airedale Terrier",
-		"Akbash",
-		"Akita",
-		"Alano Español",
-		"Alapaha Blue Blood Bulldog",
-		"Alaskan Husky",
-		"Alaskan Klee Kai",
-		"Alaskan Malamute",
-		"Alopekis",
-		"Alpine Dachsbracke",
-		"American Bulldog",
-		"American Bully",
-		"American Cocker Spaniel",
-		"American English Coonhound",
-		"American Foxhound",
-		"American Hairless Terrier",
-		"American Pit Bull Terrier",
-		"American Staffordshire Terrier",
-		"American Water Spaniel",
-		"Andalusian Hound",
-		"Anglo-Français de Petite Vénerie",
-		"Appenzeller Sennenhund",
-		"Ariegeois",
-		"Armant",
-		"Armenian Gampr dog",
-		"Artois Hound",
-		"Australian Cattle Dog",
-		"Australian Kelpie",
-		"Australian Shepherd",
-		"Australian Stumpy Tail Cattle Dog",
-		"Australian Terrier",
-		"Austrian Black and Tan Hound",
-		"Austrian Pinscher",
-		"Azawakh",
-		"Bakharwal dog",
-		"Banjara Hound",
-		"Barbado da Terceira",
-		"Barbet",
-		"Basenji",
-		"Basque Shepherd Dog",
-		"Basset Artésien Normand",
-		"Basset Bleu de Gascogne",
-		"Basset Fauve de Bretagne",
-		"Basset Hound",
-		"Bavarian Mountain Hound",
-		"Beagle",
-		"Beagle-Harrier",
-		"Belgian Shepherd",
-		"Bearded Collie",
-		"Beauceron",
-		"Bedlington Terrier",
-		"Bergamasco Shepherd",
-		"Berger Picard",
-		"Bernese Mountain Dog",
-		"Bhotia",
-		"Bichon Frisé",
-		"Billy",
-		"Black and Tan Coonhound",
-		"Black Norwegian Elkhound",
-		"Black Russian Terrier",
-		"Black Mouth Cur",
-		"Bloodhound",
-		"Blue Lacy",
-		"Blue Picardy Spaniel",
-		"Bluetick Coonhound",
-		"Boerboel",
-		"Bohemian Shepherd",
-		"Bolognese",
-		"Border Collie",
-		"Border Terrier",
-		"Borzoi",
-		"Bosnian Coarse-haired Hound",
-		"Boston Terrier",
-		"Bouvier des Ardennes",
-		"Bouvier des Flandres",
-		"Boxer",
-		"Boykin Spaniel",
-		"Bracco Italiano",
-		"Braque d'Auvergne",
-		"Braque de l'Ariège",
-		"Braque du Bourbonnais",
-		"Braque Francais",
-		"Braque Saint-Germain",
-		"Briard",
-		"Briquet Griffon Vendéen",
-		"Brittany",
-		"Broholmer",
-		"Bruno Jura Hound",
-		"Brussels Griffon",
-		"Bucovina Shepherd Dog",
-		"Bull Arab",
-		"Bull Terrier",
-		"Bulldog",
-		"Bullmastiff",
-		"Bully Kutta",
-		"Burgos Pointer",
-		"Cairn Terrier",
-		"Campeiro Bulldog",
-		"Canaan Dog",
-		"Canadian Eskimo Dog",
-		"Cane Corso",
-		"Cane di Oropa",
-		"Cane Paratore",
-		"Cantabrian Water Dog",
-		"Can de Chira",
-		"Cão da Serra de Aires",
-		"Cão de Castro Laboreiro",
-		"Cão de Gado Transmontano",
-		"Cão Fila de São Miguel",
-		"Cardigan Welsh Corgi",
-		"Carea Castellano Manchego",
-		"Carolina Dog",
-		"Carpathian Shepherd Dog",
-		"Catahoula Leopard Dog",
-		"Catalan Sheepdog",
-		"Caucasian Shepherd Dog",
-		"Cavalier King Charles Spaniel",
-		"Central Asian Shepherd Dog",
-		"Cesky Fousek",
-		"Cesky Terrier",
-		"Chesapeake Bay Retriever",
-		"Chien Français Blanc et Noir",
-		"Chien Français Blanc et Orange",
-		"Chien Français Tricolore",
-		"Chihuahua",
-		"Chilean Terrier",
-		"Chinese Chongqing Dog",
-		"Chinese Crested Dog",
-		"Chinook",
-		"Chippiparai",
-		"Chongqing dog",
-		"Chortai",
-		"Chow Chow",
-		"Cimarrón Uruguayo",
-		"Cirneco dell'Etna",
-		"Clumber Spaniel",
-		"Colombian fino hound",
-		"Coton de Tulear",
-		"Cretan Hound",
-		"Croatian Sheepdog",
-		"Curly-Coated Retriever",
-		"Cursinu",
-		"Czechoslovakian Wolfdog",
-		"Dachshund",
-		"Dalmatian",
-		"Dandie Dinmont Terrier",
-		"Danish-Swedish Farmdog",
-		"Denmark Feist",
-		"Dingo",
-		"Doberman Pinscher",
-		"Dogo Argentino",
-		"Dogo Guatemalteco",
-		"Dogo Sardesco",
-		"Dogue Brasileiro",
-		"Dogue de Bordeaux",
-		"Drentse Patrijshond",
-		"Drever",
-		"Dunker",
-		"Dutch Shepherd",
-		"Dutch Smoushond",
-		"East Siberian Laika",
-		"East European Shepherd",
-		"English Cocker Spaniel",
-		"English Foxhound",
-		"English Mastiff",
-		"English Setter",
-		"English Shepherd",
-		"English Springer Spaniel",
-		"English Toy Terrier",
-		"Entlebucher Mountain Dog",
-		"Estonian Hound",
-		"Estrela Mountain Dog",
-		"Eurasier",
-		"Field Spaniel",
-		"Fila Brasileiro",
-		"Finnish Hound",
-		"Finnish Lapphund",
-		"Finnish Spitz",
-		"Flat-Coated Retriever",
-		"French Bulldog",
-		"French Spaniel",
-		"Galgo Español",
-		"Galician Shepherd Dog",
-		"Garafian Shepherd",
-		"Gascon Saintongeois",
-		"Georgian Shepherd",
-		"German Hound",
-		"German Longhaired Pointer",
-		"German Pinscher",
-		"German Roughhaired Pointer",
-		"German Shepherd Dog",
-		"German Shorthaired Pointer",
-		"German Spaniel",
-		"German Spitz",
-		"German Wirehaired Pointer",
-		"Giant Schnauzer",
-		"Glen of Imaal Terrier",
-		"Golden Retriever",
-		"Gończy Polski",
-		"Gordon Setter",
-		"Grand Anglo-Français Blanc et Noir",
-		"Grand Anglo-Français Blanc et Orange",
-		"Grand Anglo-Français Tricolore",
-		"Grand Basset Griffon Vendéen",
-		"Grand Bleu de Gascogne",
-		"Grand Griffon Vendéen",
-		"Great Dane",
-		"Greater Swiss Mountain Dog",
-		"Greek Harehound",
-		"Greek Shepherd",
-		"Greenland Dog",
-		"Greyhound",
-		"Griffon Bleu de Gascogne",
-		"Griffon Fauve de Bretagne",
-		"Griffon Nivernais",
-		"Gull Dong",
-		"Gull Terrier",
-		"Hällefors Elkhound",
-		"Hamiltonstövare",
-		"Hanover Hound",
-		"Harrier",
-		"Havanese",
-		"Hierran Wolfdog",
-		"Hokkaido",
-		"Hovawart",
-		"Huntaway",
-		"Hygen Hound",
-		"Ibizan Hound",
-		"Icelandic Sheepdog",
-		"Indian pariah dog",
-		"Indian Spitz",
-		"Irish Red and White Setter",
-		"Irish Setter",
-		"Irish Terrier",
-		"Irish Water Spaniel",
-		"Irish Wolfhound",
-		"Istrian Coarse-haired Hound",
-		"Istrian Shorthaired Hound",
-		"Italian Greyhound",
-		"Jack Russell Terrier",
-		"Jagdterrier",
-		"Japanese Chin",
-		"Japanese Spitz",
-		"Japanese Terrier",
-		"Jindo",
-		"Jonangi",
-		"Kai Ken",
-		"Kaikadi",
-		"Kangal Shepherd Dog",
-		"Kanni",
-		"Karakachan dog",
-		"Karelian Bear Dog",
-		"Kars",
-		"Karst Shepherd",
-		"Keeshond",
-		"Kerry Beagle",
-		"Kerry Blue Terrier",
-		"King Charles Spaniel",
-		"King Shepherd",
-		"Kintamani",
-		"Kishu",
-		"Kokoni",
-		"Kombai",
-		"Komondor",
-		"Kooikerhondje",
-		"Koolie",
-		"Koyun dog",
-		"Kromfohrländer",
-		"Kuchi",
-		"Kuvasz",
-		"Labrador Retriever",
-		"Lagotto Romagnolo",
-		"Lakeland Terrier",
-		"Lancashire Heeler",
-		"Landseer",
-		"Lapponian Herder",
-		"Large Münsterländer",
-		"Leonberger",
-		"Levriero Sardo",
-		"Lhasa Apso",
-		"Lithuanian Hound",
-		"Löwchen",
-		"Lupo Italiano",
-		"Mackenzie River Husky",
-		"Magyar agár",
-		"Mahratta Greyhound",
-		"Maltese",
-		"Manchester Terrier",
-		"Maremmano-Abruzzese Sheepdog",
-		"McNab dog",
-		"Miniature American Shepherd",
-		"Miniature Bull Terrier",
-		"Miniature Fox Terrier",
-		"Miniature Pinscher",
-		"Miniature Schnauzer",
-		"Molossus of Epirus",
-		"Montenegrin Mountain Hound",
-		"Mountain Cur",
-		"Mountain Feist",
-		"Mucuchies",
-		"Mudhol Hound",
-		"Mudi",
-		"Neapolitan Mastiff",
-		"New Guinea Singing Dog",
-		"New Zealand Heading Dog",
-		"Newfoundland",
-		"Norfolk Terrier",
-		"Norrbottenspets",
-		"Northern Inuit Dog",
-		"Norwegian Buhund",
-		"Norwegian Elkhound",
-		"Norwegian Lundehund",
-		"Norwich Terrier",
-		"Nova Scotia Duck Tolling Retriever",
-		"Old Croatian Sighthound",
-		"Old Danish Pointer",
-		"Old English Sheepdog",
-		"Old English Terrier",
-		"Olde English Bulldogge",
-		"Otterhound",
-		"Pachon Navarro",
-		"Pampas Deerhound",
-		"Paisley Terrier",
-		"Papillon",
-		"Parson Russell Terrier",
-		"Pastore della Lessinia e del Lagorai",
-		"Patagonian Sheepdog",
-		"Patterdale Terrier",
-		"Pekingese",
-		"Pembroke Welsh Corgi",
-		"Perro Majorero",
-		"Perro de Pastor Mallorquin",
-		"Perro de Presa Canario",
-		"Perro de Presa Mallorquin",
-		"Peruvian Inca Orchid",
-		"Petit Basset Griffon Vendéen",
-		"Petit Bleu de Gascogne",
-		"Phalène",
-		"Pharaoh Hound",
-		"Phu Quoc Ridgeback",
-		"Picardy Spaniel",
-		"Plummer Terrier",
-		"Plott Hound",
-		"Podenco Canario",
-		"Podenco Valenciano",
-		"Pointer",
-		"Poitevin",
-		"Polish Greyhound",
-		"Polish Hound",
-		"Polish Lowland Sheepdog",
-		"Polish Tatra Sheepdog",
-		"Pomeranian",
-		"Pont-Audemer Spaniel",
-		"Poodle",
-		"Porcelaine",
-		"Portuguese Podengo",
-		"Portuguese Pointer",
-		"Portuguese Water Dog",
-		"Posavac Hound",
-		"Pražský Krysařík",
-		"Pshdar Dog",
-		"Pudelpointer",
-		"Pug",
-		"Puli",
-		"Pumi",
-		"Pungsan Dog",
-		"Pyrenean Mastiff",
-		"Pyrenean Mountain Dog",
-		"Pyrenean Sheepdog",
-		"Rafeiro do Alentejo",
-		"Rajapalayam",
-		"Rampur Greyhound",
-		"Rat Terrier",
-		"Ratonero Bodeguero Andaluz",
-		"Ratonero Mallorquin",
-		"Ratonero Murciano de Huerta",
-		"Ratonero Valenciano",
-		"Redbone Coonhound",
-		"Rhodesian Ridgeback",
-		"Romanian Mioritic Shepherd Dog",
-		"Romanian Raven Shepherd Dog",
-		"Rottweiler",
-		"Rough Collie",
-		"Russian Spaniel",
-		"Russian Toy",
-		"Russo-European Laika",
-		"Saarloos Wolfdog",
-		"Sabueso Español",
-		"Saint Bernard",
-		"Saint Hubert Jura Hound",
-		"Saint-Usuge Spaniel",
-		"Saluki",
-		"Samoyed",
-		"Sapsali",
-		"Sarabi dog",
-		"Šarplaninac",
-		"Schapendoes",
-		"Schillerstövare",
-		"Schipperke",
-		"Schweizer Laufhund",
-		"Schweizerischer Niederlaufhund",
-		"Scottish Deerhound",
-		"Scottish Terrier",
-		"Sealyham Terrier",
-		"Segugio dell'Appennino",
-		"Segugio Italiano",
-		"Segugio Maremmano",
-		"Seppala Siberian Sleddog",
-		"Serbian Hound",
-		"Serbian Tricolour Hound",
-		"Serrano Bulldog",
-		"Shar Pei",
-		"Shetland Sheepdog",
-		"Shiba Inu",
-		"Shih Tzu",
-		"Shikoku",
-		"Shiloh Shepherd",
-		"Siberian Husky",
-		"Silken Windhound",
-		"Silky Terrier",
-		"Sinhala Hound",
-		"Skye Terrier",
-		"Sloughi",
-		"Slovakian Wirehaired Pointer",
-		"Slovenský Cuvac",
-		"Slovenský Kopov",
-		"Smalandstövare",
-		"Small Greek domestic dog",
-		"Small Münsterländer",
-		"Smooth Collie",
-		"Smooth Fox Terrier",
-		"Soft-Coated Wheaten Terrier",
-		"South Russian Ovcharka",
-		"Spanish Mastiff",
-		"Spanish Water Dog",
-		"Spinone Italiano",
-		"Sporting Lucas Terrier",
-		"Sardinian Shepherd Dog",
-		"Stabyhoun",
-		"Staffordshire Bull Terrier",
-		"Standard Schnauzer",
-		"Stephens Stock",
-		"Styrian Coarse-haired Hound",
-		"Sussex Spaniel",
-		"Swedish Elkhound",
-		"Swedish Lapphund",
-		"Swedish Vallhund",
-		"Swedish White Elkhound",
-		"Taigan",
-		"Taiwan Dog",
-		"Tamaskan Dog",
-		"Teddy Roosevelt Terrier",
-		"Telomian",
-		"Tenterfield Terrier",
-		"Terrier Brasileiro",
-		"Thai Bangkaew Dog",
-		"Thai Ridgeback",
-		"Tibetan Mastiff",
-		"Tibetan Spaniel",
-		"Tibetan Terrier",
-		"Tornjak",
-		"Tosa",
-		"Toy Fox Terrier",
-		"Toy Manchester Terrier",
-		"Transylvanian Hound",
-		"Treeing Cur",
-		"Treeing Feist",
-		"Treeing Tennessee Brindle",
-		"Treeing Walker Coonhound",
-		"Trigg Hound",
-		"Tyrolean Hound",
-		"Vikhan",
-		"Villano de Las Encartaciones",
-		"Villanuco de Las Encartaciones",
-		"Vizsla",
-		"Volpino Italiano",
-		"Weimaraner",
-		"Welsh Sheepdog",
-		"Welsh Springer Spaniel",
-		"Welsh Terrier",
-		"West Highland White Terrier",
-		"West Siberian Laika",
-		"Westphalian Dachsbracke",
-		"Wetterhoun",
-		"Whippet",
-		"White Shepherd",
-		"White Swiss Shepherd Dog",
-		"Wire Fox Terrier",
-		"Wirehaired Pointing Griffon",
-		"Wirehaired Vizsla",
-		"Xiasi Dog",
-		"Xoloitzcuintli",
-		"Yakutian Laika",
-		"Yorkshire Terrier"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	string animalCow() {
 		auto data = [
 		"Aberdeen Angus",
@@ -4030,6 +3665,524 @@ class Faker {
 		"Breed",
 		"Żubroń",
 		"Zebu"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string animalLion() {
+		auto data = [
+		"Asiatic Lion",
+		"Barbary Lion",
+		"West African Lion",
+		"Northeast Congo Lion",
+		"Masai Lion",
+		"Transvaal lion",
+		"Cape lion"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string animalDog() {
+		auto data = [
+		"Affenpinscher",
+		"Afghan Hound",
+		"Aidi",
+		"Airedale Terrier",
+		"Akbash",
+		"Akita",
+		"Alano Español",
+		"Alapaha Blue Blood Bulldog",
+		"Alaskan Husky",
+		"Alaskan Klee Kai",
+		"Alaskan Malamute",
+		"Alopekis",
+		"Alpine Dachsbracke",
+		"American Bulldog",
+		"American Bully",
+		"American Cocker Spaniel",
+		"American English Coonhound",
+		"American Foxhound",
+		"American Hairless Terrier",
+		"American Pit Bull Terrier",
+		"American Staffordshire Terrier",
+		"American Water Spaniel",
+		"Andalusian Hound",
+		"Anglo-Français de Petite Vénerie",
+		"Appenzeller Sennenhund",
+		"Ariegeois",
+		"Armant",
+		"Armenian Gampr dog",
+		"Artois Hound",
+		"Australian Cattle Dog",
+		"Australian Kelpie",
+		"Australian Shepherd",
+		"Australian Stumpy Tail Cattle Dog",
+		"Australian Terrier",
+		"Austrian Black and Tan Hound",
+		"Austrian Pinscher",
+		"Azawakh",
+		"Bakharwal dog",
+		"Banjara Hound",
+		"Barbado da Terceira",
+		"Barbet",
+		"Basenji",
+		"Basque Shepherd Dog",
+		"Basset Artésien Normand",
+		"Basset Bleu de Gascogne",
+		"Basset Fauve de Bretagne",
+		"Basset Hound",
+		"Bavarian Mountain Hound",
+		"Beagle",
+		"Beagle-Harrier",
+		"Belgian Shepherd",
+		"Bearded Collie",
+		"Beauceron",
+		"Bedlington Terrier",
+		"Bergamasco Shepherd",
+		"Berger Picard",
+		"Bernese Mountain Dog",
+		"Bhotia",
+		"Bichon Frisé",
+		"Billy",
+		"Black and Tan Coonhound",
+		"Black Norwegian Elkhound",
+		"Black Russian Terrier",
+		"Black Mouth Cur",
+		"Bloodhound",
+		"Blue Lacy",
+		"Blue Picardy Spaniel",
+		"Bluetick Coonhound",
+		"Boerboel",
+		"Bohemian Shepherd",
+		"Bolognese",
+		"Border Collie",
+		"Border Terrier",
+		"Borzoi",
+		"Bosnian Coarse-haired Hound",
+		"Boston Terrier",
+		"Bouvier des Ardennes",
+		"Bouvier des Flandres",
+		"Boxer",
+		"Boykin Spaniel",
+		"Bracco Italiano",
+		"Braque d'Auvergne",
+		"Braque de l'Ariège",
+		"Braque du Bourbonnais",
+		"Braque Francais",
+		"Braque Saint-Germain",
+		"Briard",
+		"Briquet Griffon Vendéen",
+		"Brittany",
+		"Broholmer",
+		"Bruno Jura Hound",
+		"Brussels Griffon",
+		"Bucovina Shepherd Dog",
+		"Bull Arab",
+		"Bull Terrier",
+		"Bulldog",
+		"Bullmastiff",
+		"Bully Kutta",
+		"Burgos Pointer",
+		"Cairn Terrier",
+		"Campeiro Bulldog",
+		"Canaan Dog",
+		"Canadian Eskimo Dog",
+		"Cane Corso",
+		"Cane di Oropa",
+		"Cane Paratore",
+		"Cantabrian Water Dog",
+		"Can de Chira",
+		"Cão da Serra de Aires",
+		"Cão de Castro Laboreiro",
+		"Cão de Gado Transmontano",
+		"Cão Fila de São Miguel",
+		"Cardigan Welsh Corgi",
+		"Carea Castellano Manchego",
+		"Carolina Dog",
+		"Carpathian Shepherd Dog",
+		"Catahoula Leopard Dog",
+		"Catalan Sheepdog",
+		"Caucasian Shepherd Dog",
+		"Cavalier King Charles Spaniel",
+		"Central Asian Shepherd Dog",
+		"Cesky Fousek",
+		"Cesky Terrier",
+		"Chesapeake Bay Retriever",
+		"Chien Français Blanc et Noir",
+		"Chien Français Blanc et Orange",
+		"Chien Français Tricolore",
+		"Chihuahua",
+		"Chilean Terrier",
+		"Chinese Chongqing Dog",
+		"Chinese Crested Dog",
+		"Chinook",
+		"Chippiparai",
+		"Chongqing dog",
+		"Chortai",
+		"Chow Chow",
+		"Cimarrón Uruguayo",
+		"Cirneco dell'Etna",
+		"Clumber Spaniel",
+		"Colombian fino hound",
+		"Coton de Tulear",
+		"Cretan Hound",
+		"Croatian Sheepdog",
+		"Curly-Coated Retriever",
+		"Cursinu",
+		"Czechoslovakian Wolfdog",
+		"Dachshund",
+		"Dalmatian",
+		"Dandie Dinmont Terrier",
+		"Danish-Swedish Farmdog",
+		"Denmark Feist",
+		"Dingo",
+		"Doberman Pinscher",
+		"Dogo Argentino",
+		"Dogo Guatemalteco",
+		"Dogo Sardesco",
+		"Dogue Brasileiro",
+		"Dogue de Bordeaux",
+		"Drentse Patrijshond",
+		"Drever",
+		"Dunker",
+		"Dutch Shepherd",
+		"Dutch Smoushond",
+		"East Siberian Laika",
+		"East European Shepherd",
+		"English Cocker Spaniel",
+		"English Foxhound",
+		"English Mastiff",
+		"English Setter",
+		"English Shepherd",
+		"English Springer Spaniel",
+		"English Toy Terrier",
+		"Entlebucher Mountain Dog",
+		"Estonian Hound",
+		"Estrela Mountain Dog",
+		"Eurasier",
+		"Field Spaniel",
+		"Fila Brasileiro",
+		"Finnish Hound",
+		"Finnish Lapphund",
+		"Finnish Spitz",
+		"Flat-Coated Retriever",
+		"French Bulldog",
+		"French Spaniel",
+		"Galgo Español",
+		"Galician Shepherd Dog",
+		"Garafian Shepherd",
+		"Gascon Saintongeois",
+		"Georgian Shepherd",
+		"German Hound",
+		"German Longhaired Pointer",
+		"German Pinscher",
+		"German Roughhaired Pointer",
+		"German Shepherd Dog",
+		"German Shorthaired Pointer",
+		"German Spaniel",
+		"German Spitz",
+		"German Wirehaired Pointer",
+		"Giant Schnauzer",
+		"Glen of Imaal Terrier",
+		"Golden Retriever",
+		"Gończy Polski",
+		"Gordon Setter",
+		"Grand Anglo-Français Blanc et Noir",
+		"Grand Anglo-Français Blanc et Orange",
+		"Grand Anglo-Français Tricolore",
+		"Grand Basset Griffon Vendéen",
+		"Grand Bleu de Gascogne",
+		"Grand Griffon Vendéen",
+		"Great Dane",
+		"Greater Swiss Mountain Dog",
+		"Greek Harehound",
+		"Greek Shepherd",
+		"Greenland Dog",
+		"Greyhound",
+		"Griffon Bleu de Gascogne",
+		"Griffon Fauve de Bretagne",
+		"Griffon Nivernais",
+		"Gull Dong",
+		"Gull Terrier",
+		"Hällefors Elkhound",
+		"Hamiltonstövare",
+		"Hanover Hound",
+		"Harrier",
+		"Havanese",
+		"Hierran Wolfdog",
+		"Hokkaido",
+		"Hovawart",
+		"Huntaway",
+		"Hygen Hound",
+		"Ibizan Hound",
+		"Icelandic Sheepdog",
+		"Indian pariah dog",
+		"Indian Spitz",
+		"Irish Red and White Setter",
+		"Irish Setter",
+		"Irish Terrier",
+		"Irish Water Spaniel",
+		"Irish Wolfhound",
+		"Istrian Coarse-haired Hound",
+		"Istrian Shorthaired Hound",
+		"Italian Greyhound",
+		"Jack Russell Terrier",
+		"Jagdterrier",
+		"Japanese Chin",
+		"Japanese Spitz",
+		"Japanese Terrier",
+		"Jindo",
+		"Jonangi",
+		"Kai Ken",
+		"Kaikadi",
+		"Kangal Shepherd Dog",
+		"Kanni",
+		"Karakachan dog",
+		"Karelian Bear Dog",
+		"Kars",
+		"Karst Shepherd",
+		"Keeshond",
+		"Kerry Beagle",
+		"Kerry Blue Terrier",
+		"King Charles Spaniel",
+		"King Shepherd",
+		"Kintamani",
+		"Kishu",
+		"Kokoni",
+		"Kombai",
+		"Komondor",
+		"Kooikerhondje",
+		"Koolie",
+		"Koyun dog",
+		"Kromfohrländer",
+		"Kuchi",
+		"Kuvasz",
+		"Labrador Retriever",
+		"Lagotto Romagnolo",
+		"Lakeland Terrier",
+		"Lancashire Heeler",
+		"Landseer",
+		"Lapponian Herder",
+		"Large Münsterländer",
+		"Leonberger",
+		"Levriero Sardo",
+		"Lhasa Apso",
+		"Lithuanian Hound",
+		"Löwchen",
+		"Lupo Italiano",
+		"Mackenzie River Husky",
+		"Magyar agár",
+		"Mahratta Greyhound",
+		"Maltese",
+		"Manchester Terrier",
+		"Maremmano-Abruzzese Sheepdog",
+		"McNab dog",
+		"Miniature American Shepherd",
+		"Miniature Bull Terrier",
+		"Miniature Fox Terrier",
+		"Miniature Pinscher",
+		"Miniature Schnauzer",
+		"Molossus of Epirus",
+		"Montenegrin Mountain Hound",
+		"Mountain Cur",
+		"Mountain Feist",
+		"Mucuchies",
+		"Mudhol Hound",
+		"Mudi",
+		"Neapolitan Mastiff",
+		"New Guinea Singing Dog",
+		"New Zealand Heading Dog",
+		"Newfoundland",
+		"Norfolk Terrier",
+		"Norrbottenspets",
+		"Northern Inuit Dog",
+		"Norwegian Buhund",
+		"Norwegian Elkhound",
+		"Norwegian Lundehund",
+		"Norwich Terrier",
+		"Nova Scotia Duck Tolling Retriever",
+		"Old Croatian Sighthound",
+		"Old Danish Pointer",
+		"Old English Sheepdog",
+		"Old English Terrier",
+		"Olde English Bulldogge",
+		"Otterhound",
+		"Pachon Navarro",
+		"Pampas Deerhound",
+		"Paisley Terrier",
+		"Papillon",
+		"Parson Russell Terrier",
+		"Pastore della Lessinia e del Lagorai",
+		"Patagonian Sheepdog",
+		"Patterdale Terrier",
+		"Pekingese",
+		"Pembroke Welsh Corgi",
+		"Perro Majorero",
+		"Perro de Pastor Mallorquin",
+		"Perro de Presa Canario",
+		"Perro de Presa Mallorquin",
+		"Peruvian Inca Orchid",
+		"Petit Basset Griffon Vendéen",
+		"Petit Bleu de Gascogne",
+		"Phalène",
+		"Pharaoh Hound",
+		"Phu Quoc Ridgeback",
+		"Picardy Spaniel",
+		"Plummer Terrier",
+		"Plott Hound",
+		"Podenco Canario",
+		"Podenco Valenciano",
+		"Pointer",
+		"Poitevin",
+		"Polish Greyhound",
+		"Polish Hound",
+		"Polish Lowland Sheepdog",
+		"Polish Tatra Sheepdog",
+		"Pomeranian",
+		"Pont-Audemer Spaniel",
+		"Poodle",
+		"Porcelaine",
+		"Portuguese Podengo",
+		"Portuguese Pointer",
+		"Portuguese Water Dog",
+		"Posavac Hound",
+		"Pražský Krysařík",
+		"Pshdar Dog",
+		"Pudelpointer",
+		"Pug",
+		"Puli",
+		"Pumi",
+		"Pungsan Dog",
+		"Pyrenean Mastiff",
+		"Pyrenean Mountain Dog",
+		"Pyrenean Sheepdog",
+		"Rafeiro do Alentejo",
+		"Rajapalayam",
+		"Rampur Greyhound",
+		"Rat Terrier",
+		"Ratonero Bodeguero Andaluz",
+		"Ratonero Mallorquin",
+		"Ratonero Murciano de Huerta",
+		"Ratonero Valenciano",
+		"Redbone Coonhound",
+		"Rhodesian Ridgeback",
+		"Romanian Mioritic Shepherd Dog",
+		"Romanian Raven Shepherd Dog",
+		"Rottweiler",
+		"Rough Collie",
+		"Russian Spaniel",
+		"Russian Toy",
+		"Russo-European Laika",
+		"Saarloos Wolfdog",
+		"Sabueso Español",
+		"Saint Bernard",
+		"Saint Hubert Jura Hound",
+		"Saint-Usuge Spaniel",
+		"Saluki",
+		"Samoyed",
+		"Sapsali",
+		"Sarabi dog",
+		"Šarplaninac",
+		"Schapendoes",
+		"Schillerstövare",
+		"Schipperke",
+		"Schweizer Laufhund",
+		"Schweizerischer Niederlaufhund",
+		"Scottish Deerhound",
+		"Scottish Terrier",
+		"Sealyham Terrier",
+		"Segugio dell'Appennino",
+		"Segugio Italiano",
+		"Segugio Maremmano",
+		"Seppala Siberian Sleddog",
+		"Serbian Hound",
+		"Serbian Tricolour Hound",
+		"Serrano Bulldog",
+		"Shar Pei",
+		"Shetland Sheepdog",
+		"Shiba Inu",
+		"Shih Tzu",
+		"Shikoku",
+		"Shiloh Shepherd",
+		"Siberian Husky",
+		"Silken Windhound",
+		"Silky Terrier",
+		"Sinhala Hound",
+		"Skye Terrier",
+		"Sloughi",
+		"Slovakian Wirehaired Pointer",
+		"Slovenský Cuvac",
+		"Slovenský Kopov",
+		"Smalandstövare",
+		"Small Greek domestic dog",
+		"Small Münsterländer",
+		"Smooth Collie",
+		"Smooth Fox Terrier",
+		"Soft-Coated Wheaten Terrier",
+		"South Russian Ovcharka",
+		"Spanish Mastiff",
+		"Spanish Water Dog",
+		"Spinone Italiano",
+		"Sporting Lucas Terrier",
+		"Sardinian Shepherd Dog",
+		"Stabyhoun",
+		"Staffordshire Bull Terrier",
+		"Standard Schnauzer",
+		"Stephens Stock",
+		"Styrian Coarse-haired Hound",
+		"Sussex Spaniel",
+		"Swedish Elkhound",
+		"Swedish Lapphund",
+		"Swedish Vallhund",
+		"Swedish White Elkhound",
+		"Taigan",
+		"Taiwan Dog",
+		"Tamaskan Dog",
+		"Teddy Roosevelt Terrier",
+		"Telomian",
+		"Tenterfield Terrier",
+		"Terrier Brasileiro",
+		"Thai Bangkaew Dog",
+		"Thai Ridgeback",
+		"Tibetan Mastiff",
+		"Tibetan Spaniel",
+		"Tibetan Terrier",
+		"Tornjak",
+		"Tosa",
+		"Toy Fox Terrier",
+		"Toy Manchester Terrier",
+		"Transylvanian Hound",
+		"Treeing Cur",
+		"Treeing Feist",
+		"Treeing Tennessee Brindle",
+		"Treeing Walker Coonhound",
+		"Trigg Hound",
+		"Tyrolean Hound",
+		"Vikhan",
+		"Villano de Las Encartaciones",
+		"Villanuco de Las Encartaciones",
+		"Vizsla",
+		"Volpino Italiano",
+		"Weimaraner",
+		"Welsh Sheepdog",
+		"Welsh Springer Spaniel",
+		"Welsh Terrier",
+		"West Highland White Terrier",
+		"West Siberian Laika",
+		"Westphalian Dachsbracke",
+		"Wetterhoun",
+		"Whippet",
+		"White Shepherd",
+		"White Swiss Shepherd Dog",
+		"Wire Fox Terrier",
+		"Wirehaired Pointing Griffon",
+		"Wirehaired Vizsla",
+		"Xiasi Dog",
+		"Xoloitzcuintli",
+		"Yakutian Laika",
+		"Yorkshire Terrier"
 		];
 		return choice(data, this.rnd);
 	}
@@ -6042,6 +6195,14 @@ class Faker {
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
+
+	string appAuthor() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameName();
+			case 1: return companyName() ~ "'";
+		}
+	}
+
 	///
 	string appName() {
 		auto data = [
@@ -6567,6 +6728,16 @@ class Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	string companyName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ "-" ~ nameLastName();
+			case 2: return nameLastName();
+			case 3: return nameLastName() ~ " and " ~ nameLastName();
+		}
+	}
+
 	///
 	string companyBsAdjective() {
 		auto data = [
@@ -6759,6 +6930,26 @@ class Faker {
 		"XSS"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	string hackerPhrase() {
+		final switch(uniform(0, 14, this.rnd)) {
+			case 0: return "If we " ~ hackerVerb() ~ " the " ~ hackerNoun();
+			case 1: return "we can get to the " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " through the " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+			case 2: return "We need to " ~ hackerVerb() ~ " the " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+			case 3: return "Try to " ~ hackerVerb() ~ " the " ~ hackerAbbreviation() ~ " " ~ hackerNoun();
+			case 4: return "maybe it will " ~ hackerVerb() ~ " the " ~ hackerAdjective() ~ " " ~ hackerNoun() ~ "!";
+			case 5: return "You can't " ~ hackerVerb() ~ " the " ~ hackerNoun() ~ " without " ~ hackerIngverb() ~ " the " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+			case 6: return "Use the " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun();
+			case 7: return "then you can " ~ hackerVerb() ~ " the " ~ hackerAdjective() ~ " " ~ hackerNoun() ~ "!";
+			case 8: return "The " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " is down";
+			case 9: return hackerVerb() ~ " the " ~ hackerAdjective() ~ " " ~ hackerNoun() ~ " so we can " ~ hackerVerb() ~ " the " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+			case 10: return hackerIngverb() ~ " the " ~ hackerNoun() ~ " won't do anything";
+			case 11: return "we need to " ~ hackerVerb() ~ " the " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+			case 12: return "I'll " ~ hackerVerb() ~ " the " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun();
+			case 13: return "that should " ~ hackerNoun() ~ " the " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+		}
 	}
 
 	///
@@ -11826,6 +12017,18 @@ class Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameSuffix();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 5: return nameFemaleFirstName() ~ " " ~ nameLastName();
+		}
+	}
+
 	///
 	string nameFemaleFirstName() {
 		auto data = [
@@ -12334,6 +12537,75 @@ class Faker {
 	}
 
 	///
+	string nameMiddleName() {
+		auto data = [
+		"Addison",
+		"Alex",
+		"Anderson",
+		"Angel",
+		"Arden",
+		"August",
+		"Austin",
+		"Avery",
+		"Bailey",
+		"Billie",
+		"Blake",
+		"Bowie",
+		"Brooklyn",
+		"Cameron",
+		"Charlie",
+		"Corey",
+		"Dakota",
+		"Drew",
+		"Elliott",
+		"Ellis",
+		"Emerson",
+		"Finley",
+		"Gray",
+		"Greer",
+		"Harper",
+		"Hayden",
+		"Jaden",
+		"James",
+		"Jamie",
+		"Jordan",
+		"Jules",
+		"Kai",
+		"Kendall",
+		"Kennedy",
+		"Kyle",
+		"Leslie",
+		"Logan",
+		"London",
+		"Marlowe",
+		"Micah",
+		"Nico",
+		"Noah",
+		"North",
+		"Parker",
+		"Phoenix",
+		"Quinn",
+		"Reagan",
+		"Reese",
+		"Reign",
+		"Riley",
+		"River",
+		"Robin",
+		"Rory",
+		"Rowan",
+		"Ryan",
+		"Sage",
+		"Sasha",
+		"Sawyer",
+		"Shawn",
+		"Shiloh",
+		"Skyler",
+		"Taylor"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	string nameGender() {
 		auto data = [
 		"Agender",
@@ -12417,75 +12689,6 @@ class Faker {
 	}
 
 	///
-	string nameMiddleName() {
-		auto data = [
-		"Addison",
-		"Alex",
-		"Anderson",
-		"Angel",
-		"Arden",
-		"August",
-		"Austin",
-		"Avery",
-		"Bailey",
-		"Billie",
-		"Blake",
-		"Bowie",
-		"Brooklyn",
-		"Cameron",
-		"Charlie",
-		"Corey",
-		"Dakota",
-		"Drew",
-		"Elliott",
-		"Ellis",
-		"Emerson",
-		"Finley",
-		"Gray",
-		"Greer",
-		"Harper",
-		"Hayden",
-		"Jaden",
-		"James",
-		"Jamie",
-		"Jordan",
-		"Jules",
-		"Kai",
-		"Kendall",
-		"Kennedy",
-		"Kyle",
-		"Leslie",
-		"Logan",
-		"London",
-		"Marlowe",
-		"Micah",
-		"Nico",
-		"Noah",
-		"North",
-		"Parker",
-		"Phoenix",
-		"Quinn",
-		"Reagan",
-		"Reese",
-		"Reign",
-		"Riley",
-		"River",
-		"Robin",
-		"Rory",
-		"Rowan",
-		"Ryan",
-		"Sage",
-		"Sasha",
-		"Sawyer",
-		"Shawn",
-		"Shiloh",
-		"Skyler",
-		"Taylor"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	string nameBinaryGender() {
 		auto data = [
 		"Female",
@@ -12507,69 +12710,3765 @@ class Faker {
 	}
 
 	///
+	string musicSongName() {
+		auto data = [
+		"White Christmas",
+		"Hey Jude",
+		"Every Breath You Take",
+		"Mack the Knife",
+		"Rock Around the Clock",
+		"I Want to Hold Your Hand",
+		"(I Can't Get No) Satisfaction",
+		"The Twist",
+		"(Everything I Do) I Do it For You",
+		"Bridge Over Troubled Water",
+		"When Doves Cry",
+		"Call Me",
+		"Bette Davis Eyes",
+		"I Will Always Love You",
+		"Over the Rainbow",
+		"American Pie",
+		"Flashdance. What a Feeling",
+		"The Way We Were",
+		"I Heard it Through the Grapevine",
+		"You've Lost That Lovin' Feelin",
+		"Nothing Compares 2 U",
+		"Endless Love",
+		"Yeah!",
+		"Let's Get it On",
+		"That's What Friends Are For",
+		"You Light Up My Life",
+		"(Sittin' On) the Dock of the Bay",
+		"Joy to the World",
+		"Heartbreak Hotel",
+		"Theme From 'A Summer Place",
+		"Aquarius/Let The Sunshine In",
+		"I Will Survive",
+		"It's Too Late",
+		"Respect",
+		"Sugar Sugar",
+		"Stayin' Alive",
+		"Maggie May",
+		"My Heart Will Go On",
+		"Eye of the Tiger",
+		"End of the Road",
+		"Another One Bites the Dust",
+		"Billie Jean",
+		"Let's Stay Together",
+		"Battle of New Orleans",
+		"Oh",
+		"Hound Dog",
+		"I Love Rock 'n' Roll",
+		"Smooth",
+		"Good Vibrations",
+		"Physical",
+		"Light My Fire",
+		"Low",
+		"Hey Ya!",
+		"Let it Be",
+		"Don't Be Cruel",
+		"Hotel California",
+		"We Belong Together",
+		"Le Freak",
+		"Raindrops Keep Falling On My Head",
+		"How High the Moon",
+		"My Girl",
+		"I Can't Stop Loving You",
+		"Killing Me Softly With His Song",
+		"Mona Lisa",
+		"In the Mood",
+		"She Loves You",
+		"The Letter",
+		"Mister Sandman",
+		"Careless Whisper",
+		"What's Love Got to Do With It?",
+		"I'm a Believer",
+		"Wooly Bully",
+		"Theme From 'Shaft",
+		"Hot Stuff",
+		"Centerfold",
+		"Honky Tonk Woman",
+		"I'll Be There",
+		"Gangsta's Paradise",
+		"Yesterday",
+		"My Sharona",
+		"Tennessee Waltz",
+		"Reach Out (I'll Be There)",
+		"California Dreamin",
+		"Jailhouse Rock",
+		"Irreplaceable",
+		"Dancing in the Street",
+		"Rolling In The Deep",
+		"Tie a Yellow Ribbon 'round the Old Oak Tree",
+		"Stand By Me",
+		"Sentimental Journey",
+		"The First Time Ever I Saw Your Face",
+		"Louie Louie",
+		"Another Brick in the Wall (part 2)",
+		"(Just Like) Starting Over",
+		"Night Fever",
+		"To Sir",
+		"You're So Vain",
+		"Be My Baby",
+		"Celebration",
+		"(They Long to Be) Close to You",
+		"Begin the Beguine",
+		"I Still Haven't Found What I'm Looking For",
+		"I Want You Back",
+		"Arthur's Theme (Best That You Can Do)",
+		"Boulevard of Broken Dreams",
+		"With Or Without You",
+		"Tonight's the Night (Gonna Be Alright)",
+		"Are You Lonesome Tonight?",
+		"Upside Down",
+		"Dancing Queen",
+		"Sweet Child O' Mine",
+		"Where Did Our Love Go",
+		"Unchained Melody",
+		"Rudolph",
+		"Take My Breath Away",
+		"I'll Make Love to You",
+		"Love Will Keep Us Together",
+		"When a Man Loves a Woman",
+		"Walk Like an Egyptian",
+		"Crazy in Love",
+		"Strangers in the Night",
+		"You Belong to Me",
+		"In Da Club",
+		"Say You",
+		"We Are the World",
+		"Johnny B Goode",
+		"Love Theme From 'A Star is Born' (Evergreen)",
+		"Shadow Dancing",
+		"Superstition",
+		"Beat It",
+		"Night & Day",
+		"Waterfalls",
+		"House of the Rising Sun",
+		"Paper Doll",
+		"Downtown",
+		"I Can't Help Myself (Sugar Pie",
+		"Kiss From a Rose",
+		"Believe",
+		"Ballad of the Green Berets",
+		"Proud Mary",
+		"Too Young",
+		"Umbrella",
+		"Swanee",
+		"Need You Tonight",
+		"Like a Rolling Stone",
+		"Lady",
+		"One Sweet Day",
+		"Lean On Me",
+		"Tik-Toc",
+		"Monday Monday",
+		"What'd I Say",
+		"How You Remind Me",
+		"Silly Love Songs",
+		"My Guy",
+		"Macarena",
+		"Goodnight",
+		"Just My Imagination (Running Away With Me)",
+		"The Sounds of Silence",
+		"Imagine",
+		"Me & Bobby McGee",
+		"Near You",
+		"What's Going On?",
+		"Suspicious Minds",
+		"Ode To Billie Joe",
+		"Wind Beneath My Wings",
+		"The Boy is Mine",
+		"Mr Tambourine Man",
+		"Faith",
+		"Green Onions",
+		"Mrs Robinson",
+		"How Deep is Your Love?",
+		"Hey There",
+		"Heart of Glass",
+		"Pennies From Heaven",
+		"Like a Virgin",
+		"Midnight Train to Georgia",
+		"Help!",
+		"Tossing & Turning",
+		"The Sign",
+		"Born to Be Wild",
+		"Layla",
+		"I Just Wanna Be Your Everything",
+		"War",
+		"96 Tears",
+		"I Get Around",
+		"Because You Loved Me",
+		"Summer in the City",
+		"Get Back",
+		"Secret Love",
+		"9 to 5",
+		"(Ghost) Riders in the Sky",
+		"The Loco-Motion",
+		"Play That Funky Music",
+		"Bohemian Rhapsody",
+		"Little Things Mean a Lot",
+		"Cry",
+		"All Shook Up",
+		"Up Where We Belong",
+		"Sledgehammer",
+		"Fire & Rain",
+		"Stop! in the Name of Love",
+		"Sweet Home Alabama",
+		"Another Day in Paradise",
+		"Bleeding Love",
+		"Lady Marmalade (Voulez-Vous Coucher Aver Moi Ce Soir?)",
+		"Whispering",
+		"Vogue",
+		"Under the Bridge",
+		"Sixteen Tons",
+		"Sugar Shack",
+		"Baby Love",
+		"What a Fool Believes",
+		"Lose Yourself",
+		"Hello Dolly",
+		"Brown Eyed Girl",
+		"Without You",
+		"Build Me Up Buttercup",
+		"We Found Love",
+		"Tears in Heaven",
+		"Family Affair",
+		"All I Wanna Do",
+		"Soul Man",
+		"Tequila",
+		"Rock With You",
+		"Livin' La Vida Loca",
+		"Best of My Love",
+		"Runaway",
+		"Alone Again (Naturally)",
+		"Can't Help Falling in Love",
+		"My Sweet Lord",
+		"Runaround Sue",
+		"Swinging On a Star",
+		"Gold Digger",
+		"Happy Together",
+		"Losing My Religion",
+		"Heart of Gold",
+		"Stardust",
+		"Will You Love Me Tomorrow",
+		"You Are the Sunshine of My Life",
+		"You Were Meant for Me",
+		"Take On Me",
+		"Hollaback Girl",
+		"God Bless America",
+		"I Swear",
+		"Sunshine of Your Love",
+		"Firework",
+		"Groovin",
+		"Smells Like Teen Spirit",
+		"Big Girls Don't Cry",
+		"Jack & Diane",
+		"Addicted to Love",
+		"The Last Dance",
+		"Georgia On My Mind",
+		"Money For Nothing",
+		"Jump",
+		"Vaya Con Dios (may God Be With You)",
+		"You'll Never Know",
+		"That'll Be the Day",
+		"Girls Just Wanna Have Fun",
+		"Wheel of Fortune",
+		"When You Wish Upon a Star",
+		"Don't Fence Me In",
+		"Turn! Turn! Turn! (To Everything There is a Season)",
+		"Volare",
+		"Sweet Dreams (Are Made of This)",
+		"Whole Lotta Love",
+		"You've Got a Friend",
+		"Penny Lane",
+		"People Got to Be Free",
+		"Nature Boy",
+		"Sexyback",
+		"Crying",
+		"Single Ladies (Put A Ring On It)",
+		"Bad Girls",
+		"Too Close",
+		"I Got You Babe",
+		"We've Only Just Begun",
+		"Sh-Boom (Life Could Be a Dream)",
+		"Shining Star",
+		"Kansas City",
+		"Like a Prayer",
+		"Cheek to Cheek",
+		"Papa Was a Rolling Stone",
+		"Promiscuous",
+		"Love Shack",
+		"Funkytown",
+		"Crazy",
+		"Philadelphia Freedom",
+		"Temperature",
+		"Somebody That I Used to Know",
+		"All I Have to Do is Dream",
+		"Jessie's Girl",
+		"Rhinestone Cowboy",
+		"Blue Suede Shoes",
+		"Ebony & Ivory",
+		"I'll Never Smile Again",
+		"Keep On Loving You",
+		"Since U Been Gone",
+		"The Way You Look Tonight",
+		"Crazy Little Thing Called Love",
+		"The Great Pretender",
+		"Brown Sugar",
+		"Que sera sera (Whatever will be will be)",
+		"No One",
+		"Bad Day",
+		"Boom Boom Pow",
+		"Party Rock Anthem",
+		"Because of You",
+		"Chattanooga Choo Choo",
+		"A Whiter Shade of Pale",
+		"Love Me Tender",
+		"Higher Love",
+		"Footloose",
+		"Blurred Lines",
+		"I Just Called to Say I Love You",
+		"Come Together",
+		"It's Now Or Never",
+		"Under the Boardwalk",
+		"Don't You Want Me",
+		"You Can't Hurry Love",
+		"Fame",
+		"Fallin",
+		"Poker Face",
+		"Bad Romance",
+		"Ruby Tuesday",
+		"All Night Long (All Night)",
+		"Baby Got Back",
+		"Whole Lotta Shakin' Goin' On",
+		"Frenesi",
+		"December 1963 (Oh What a Night)",
+		"Bad Moon Rising",
+		"Abracadabra",
+		"I Gotta Feeling",
+		"The Song From Moulin Rouge (Where Is Your Heart)",
+		"Waiting For a Girl Like You",
+		"Everybody Loves Somebody",
+		"I Can't Go For That (No Can Do)",
+		"Buttons & Bows",
+		"It's All in the Game",
+		"Love Train",
+		"Dance to the Music",
+		"Candle in the Wind '97",
+		"Honey",
+		"Kiss",
+		"I'll Take You There",
+		"Paint it Black",
+		"Band of Gold",
+		"Just the Way You Are",
+		"Spirit in the Sky",
+		"Vision of Love",
+		"Hips don't lie",
+		"Till The End of Time",
+		"Duke of Earl",
+		"YMCA",
+		"Oh My Papa (O Mein Papa)",
+		"Pistol Packin' Mama",
+		"Gonna Make You Sweat (Everybody Dance Now)",
+		"Dilemma",
+		"I Need You Now",
+		"Wanted",
+		"Jumpin' Jack Flash",
+		"Against All Odds (Take a Look At Me Now)",
+		"Tom Dooley",
+		"Goodbye Yellow Brick Road",
+		"Rhapsody in Blue",
+		"Bennie & the Jets",
+		"Call Me Maybe",
+		"You Really Got Me",
+		"God Bless the Child",
+		"I'm Sorry",
+		"Bad",
+		"I Can't Get Next to You",
+		"The Power of Love",
+		"Dreamlover",
+		"Only The Lonely (Know The Way I Feel)",
+		"We Are Family",
+		"At Last",
+		"Brand New Key",
+		"I've Heard That Song Before",
+		"Stay (I Missed You)",
+		"Do Ya Think I'm Sexy?",
+		"Tutti Frutti",
+		"This Ole House",
+		"Please Mr Postman",
+		"Can't Help Falling in Love",
+		"Good Times",
+		"Something",
+		"(I've Had) the Time of My Life",
+		"I Don't Want to Miss a Thing",
+		"Down Hearted Blues",
+		"Rag Doll",
+		"Blueberry Hill",
+		"Ain't No Sunshine",
+		"Wild Thing",
+		"Blaze of Glory",
+		"Crazy",
+		"Ray of Light",
+		"The Hustle",
+		"Grenade",
+		"Cathy's Clown",
+		"Minnie the Moocher",
+		"Love Is Blue (L'Amour Est Bleu)",
+		"Iris",
+		"The Boys of Summer",
+		"The Tide is High",
+		"She Drives Me Crazy",
+		"Fame",
+		"Stardust",
+		"Save the Best For Last",
+		"These Boots Are Made For Walking",
+		"I Feel Love",
+		"A Woman in Love",
+		"We Can Work it Out",
+		"The Reason",
+		"Locked Out Of Heaven",
+		"Do That to Me One More Time",
+		"That's the Way Love Goes",
+		"A Hard Day's Night",
+		"I Believe I Can Fly",
+		"Karma Chameleon",
+		"One O'Clock Jump",
+		"Mule Train",
+		"Car Wash",
+		"Rapture",
+		"Creep",
+		"Streets of Philadelphia",
+		"West End Girls",
+		"Leader of the Pack",
+		"T For Texas (Blue Yodel No 1)",
+		"Mama Told Me Not to Come",
+		"Just Dance",
+		"Mercy Mercy Me (The Ecology)",
+		"Livin' On a Prayer",
+		"Good Lovin",
+		"50 Ways to Leave Your Lover",
+		"Stronger",
+		"I Can See Clearly Now",
+		"We Are the Champions",
+		"(I've Got a Gal In) Kalamazoo",
+		"No Scrubs",
+		"Big Girls Don't Cry",
+		"How Do You Mend a Broken Heart",
+		"I Got You (I Feel Good)",
+		"Don't Let the Stars Get in Your Eyes",
+		"The Girl From Ipanema",
+		"(Sexual) Healing",
+		"Tears of a Clown",
+		"We Will Rock You",
+		"Hold On",
+		"Bye Bye Love",
+		"Chapel of Love",
+		"White Rabbit",
+		"Rock the Boat",
+		"The Gypsy",
+		"Take The 'A' Train",
+		"Crimson & Clover",
+		"Crocodile Rock",
+		"Make Love to Me",
+		"Nothing's Gonna Stop Us Now",
+		"Say Say Say",
+		"The Christmas Song (Chestnuts Roasting On An Open Fire)",
+		"Un-Break My Heart",
+		"Cherish",
+		"I'll Be Missing You",
+		"Drops of Jupiter (Tell Me)",
+		"There goes my baby",
+		"You Send Me",
+		"If (They Made Me a King)",
+		"The Prisoner's Song",
+		"ABC",
+		"Do Wah Diddy Diddy",
+		"He's So Fine",
+		"A Boy Named Sue",
+		"Roll Over Beethoven",
+		"Sweet Georgia Brown",
+		"Earth Angel",
+		"Rehab",
+		"(You Keep Me) Hangin' On",
+		"This Diamond Ring",
+		"Be My Love",
+		"Rush Rush",
+		"You're Beautiful",
+		"Roll With It",
+		"Moonlight Serenade",
+		"Unbelievable",
+		"Peg o' My Heart",
+		"This Land is Your Land",
+		"Stranger On the Shore",
+		"Rum & Coca-Cola",
+		"Hit the Road",
+		"Without Me",
+		"Crazy For You",
+		"I Want to Know What Love Is",
+		"Bye Bye",
+		"Down Under",
+		"At the Hop",
+		"One Bad Apple",
+		"Kiss & Say Goodbye",
+		"For What It's Worth (Stop",
+		"The Long & Winding Road",
+		"Baby One More Time",
+		"Stairway to Heaven",
+		"How Do I Live?",
+		"Hello",
+		"Truly Madly Deeply",
+		"Great Balls of Fire",
+		"King of the Road",
+		"I Wanna Dance With Somebody (Who Loves Me)",
+		"Reunited",
+		"Help Me",
+		"Rags to Riches",
+		"(It's No) Sin",
+		"Say My Name",
+		"Nobody Does it Better",
+		"Paperback Writer",
+		"Don't Worry Be Happy",
+		"I Fall to Pieces",
+		"Body & Soul",
+		"You're Still the One",
+		"Stormy Weather (Keeps Rainin' All the Time)",
+		"Horse With No Name",
+		"American Woman",
+		"Chattanoogie Shoe-Shine Boy",
+		"Pick Up the Pieces",
+		"Everybody Wants to Rule the World",
+		"Blue Tango",
+		"Hurt So Good",
+		"Apologize",
+		"Let's Dance",
+		"(You're My) Soul & Inspiration",
+		"I Only Have Eyes For You",
+		"Wichita Lineman",
+		"Hanging by a Moment",
+		"Spinning Wheel",
+		"Look Away",
+		"Ironic",
+		"Don't Stop 'Til You Get Enough",
+		"Empire State Of Mind",
+		"Do You Love Me?",
+		"Jive Talkin",
+		"You're the One That I Want",
+		"Sweet Soul Music",
+		"Hey There Delilah",
+		"A Whole New World (Aladdin's Theme)",
+		"Somethin' Stupid",
+		"Knock Three Times",
+		"Mickey",
+		"The Wanderer",
+		"Dancing in the Dark",
+		"It's Still Rock 'n' Roll to Me",
+		"Boogie Oogie Oogie",
+		"Can You Feel the Love Tonight",
+		"Harper Valley PTA",
+		"Seasons in the Sun",
+		"Come On-a My House",
+		"Viva La Vida",
+		"Walk On By",
+		"Family Affair",
+		"Drop it Like It's Hot",
+		"Private Eyes",
+		"Maniac",
+		"All My Lovin' (You're Never Gonna Get It)",
+		"Take a Bow",
+		"Ring of Fire",
+		"Save the Last Dance For Me",
+		"Make it With You",
+		"Don't Speak",
+		"I Shot the Sheriff",
+		"Say It Right",
+		"Sing",
+		"Twist & Shout",
+		"Twist & Shout",
+		"Walk This Way",
+		"A-Tisket A-Tasket",
+		"Let Me Love You",
+		"I Can Dream",
+		"Toxic",
+		"The Joker",
+		"Hero",
+		"In the Year 2525 (Exordium & Terminus)",
+		"Your Song",
+		"Oh Happy Day",
+		"Grease",
+		"Love In This Club",
+		"Angie",
+		"How Much is That Doggy in the Window?",
+		"Daydream Believer",
+		"Whip It",
+		"Boogie Woogie Bugle Boy",
+		"Down",
+		"Hanky Panky",
+		"Total Eclipse of the Heart",
+		"Cat's in the Cradle",
+		"Strange Fruit",
+		"Lady Marmalade (Voulez-Vous Coucher Aver Moi Ce Soir?)",
+		"Breathe",
+		"On My Own",
+		"Dizzy",
+		"Ticket to Ride",
+		"We Got The Beat",
+		"On the Atchison",
+		"Always On My Mind",
+		"Unforgettable",
+		"In the End",
+		"Just the Way You Are",
+		"Music",
+		"Can't Buy Me Love",
+		"Chain of Fools",
+		"Won't Get Fooled Again",
+		"Happy Days Are Here Again",
+		"Third Man Theme",
+		"Your Cheatin' Heart",
+		"Thriller",
+		"Venus",
+		"Time After Time",
+		"That Lucky Old Sun (Just Rolls Around Heaven All Day)",
+		"E.T.",
+		"Three Coins in the Fountain",
+		"Touch Me",
+		"You Ain't Seen Nothin' Yet",
+		"Gives You Hell",
+		"Knock On Wood",
+		"One of These Nights",
+		"Again",
+		"Doo Wop (That Thing)",
+		"Whoomp! (There it Is)",
+		"Magic",
+		"I'm Walking Behind You",
+		"We Didn't Start the Fire",
+		"Lola",
+		"Ghostbusters",
+		"Winchester Cathedral",
+		"Greatest Love of All",
+		"My Love",
+		"Wannabe",
+		"Miss You",
+		"I Feel Fine",
+		"Baby Baby",
+		"TSOP (The Sound of Philadelphia)",
+		"Loving You",
+		"This Guy's in Love With You",
+		"Till I Waltz Again With You",
+		"Why Do Fools Fall in Love?",
+		"Nights in White Satin",
+		"That's the Way (I Like It)",
+		"My Prayer",
+		"(Put Another Nickel In) Music! Music! Music!",
+		"Colors of the Wind",
+		"Morning Train (Nine to Five)",
+		"I Went to Your Wedding",
+		"Kiss Me",
+		"Gypsies",
+		"Cracklin' Rosie",
+		"Maybellene",
+		"Born in the USA",
+		"Here Without You",
+		"Mony Mony",
+		"Mmmbop",
+		"You Always Hurt the One You Love",
+		"Eight Days a Week",
+		"What Goes Around Comes Around",
+		"Kung Fu Fighting",
+		"Fantasy",
+		"Sir Duke",
+		"Ain't Misbehavin",
+		"Need You Now",
+		"Last Train to Clarksville",
+		"Yakety Yak",
+		"I'll be seeing you",
+		"Hard to Say I'm Sorry",
+		"It's My Party",
+		"Love to Love You Baby",
+		"Miss You Much",
+		"Born to Run",
+		"Instant Karma",
+		"The Rose",
+		"Purple Rain",
+		"One",
+		"Groove is in the Heart",
+		"Gimme Some Lovin",
+		"Beautiful Day",
+		"Escape (The Pina Colada Song)",
+		"Use Somebody",
+		"Fortunate Son",
+		"Afternoon Delight",
+		"Love's Theme",
+		"Sailing",
+		"Cherry Pink & Apple Blossom White",
+		"Georgy Girl",
+		"How to Save a Life",
+		"I Walk the Line",
+		"All You Need is Love",
+		"U Can't Touch This",
+		"All Out of Love",
+		"Where is the Love?",
+		"Revolution",
+		"The Love You Save",
+		"Black Or White",
+		"This Used to Be My Playground",
+		"Living For the City",
+		"School's Out",
+		"Disturbia",
+		"Riders On the Storm",
+		"Some Enchanted Evening",
+		"Weak",
+		"Maneater",
+		"More Than Words",
+		"Time of the Season",
+		"Mrs Brown You've Got a Lovely Daughter",
+		"If You Leave Me Now",
+		"Can't Get Enough of Your Love",
+		"Na Na Hey Hey (Kiss Him Goodbye)",
+		"Mr Brightside",
+		"Black Velvet",
+		"I'm Yours",
+		"My Blue Heaven",
+		"It Had to Be You",
+		"Tha Crossroads",
+		"Ac-cent-tchu-ate the Positive",
+		"Everyday People",
+		"We Are Young",
+		"Take Me Home",
+		"Smoke! Smoke! Smoke! (That Cigarette)",
+		"In the Summertime",
+		"The Tracks of My Tears",
+		"Fly Robin Fly",
+		"Love is a Many Splendoured Thing",
+		"Another Night",
+		"Long Tall Sally",
+		"You Sexy Thing",
+		"The Morning After",
+		"The Loco-Motion",
+		"Get Off of My Cloud",
+		"Roses Are Red",
+		"Thank You (Falettinme be Mice Elf Again)",
+		"Slow Poke",
+		"You Belong With Me",
+		"Stormy Weather (Keeps Rainin' All the Time)",
+		"Ain't No Mountain High Enough",
+		"Auf Wiederseh'n Sweetheart",
+		"Beauty & the Beast",
+		"St Louis Blues",
+		"Peggy Sue",
+		"U Got it Bad",
+		"Sweet Caroline (Good Times Never Seemed So Good)",
+		"Wedding Bell Blues",
+		"Freebird",
+		"Jump",
+		"Wipe Out",
+		"California Girls",
+		"Being With You",
+		"Makin' Whoopee",
+		"My Love",
+		"Shop Around",
+		"Smoke On the Water",
+		"Hungry Heart",
+		"That's Amore",
+		"My Life",
+		"Brandy (You're A Fine Girl)",
+		"Walk Don't Run",
+		"Surfin' USA",
+		"Ball of Confusion (That's What the World is Today)",
+		"Sunshine Superman",
+		"Frankenstein",
+		"Kiss You All Over",
+		"Wishing Well",
+		"Piano Man",
+		"Ben",
+		"In the Ghetto",
+		"Hang On Sloopy",
+		"Singing The Blues",
+		"Cry Like a Baby",
+		"I Honestly Love You",
+		"Brother",
+		"Lookin' Out My Back Door",
+		"Candy Man",
+		"Burn",
+		"Stagger Lee",
+		"Moonlight Cocktail",
+		"Coming Up",
+		"Pop Muzik",
+		"As Time Goes By",
+		"My Eyes Adored You",
+		"Strawberry Fields Forever",
+		"Some of These Days",
+		"I Think I Love You",
+		"Judy in Disguise (With Glasses)",
+		"All Along the Watchtower",
+		"A Thousand Miles",
+		"Fast Car",
+		"Red Red Wine",
+		"Live & Let Die",
+		"Come On Eileen",
+		"Right Back Where We Started From",
+		"Brother Louie",
+		"Ol' Man River",
+		"Band On the Run",
+		"Rich Girl",
+		"Green River",
+		"Got to Give it Up",
+		"Behind Closed Doors",
+		"Don't Go Breaking My Heart",
+		"I'm Looking Over a Four Leaf Clover",
+		"Mr Big Stuff",
+		"Tiger Rag",
+		"Kryptonite",
+		"Hey Paula",
+		"Go Your Own Way",
+		"Big Bad John",
+		"Wake Me Up Before You Go Go",
+		"Tangerine",
+		"Wayward Wind",
+		"Disco Lady",
+		"Spanish Harlem",
+		"Wicked Game",
+		"Rosanna",
+		"Papa Don't Preach",
+		"Somebody to Love",
+		"Kokomo",
+		"Manana (Is Soon Enough For Me)",
+		"Puttin' on the Ritz",
+		"One More Try",
+		"I'll Walk Alone",
+		"Shout",
+		"Woman",
+		"Ballerina",
+		"We Built This City",
+		"19th Nervous Breakdown",
+		"Working My Way Back to You",
+		"Superstar",
+		"Foolish Games",
+		"Get Down Tonight",
+		"On Bended Knee",
+		"Magic Carpet Ride",
+		"Only You (And You Alone)",
+		"A String of Pearls",
+		"A Tree in the Meadow",
+		"So Much in Love",
+		"Every Little Thing She Does is Magic",
+		"La Bamba",
+		"Tighten Up",
+		"Three Times a Lady",
+		"Airplanes",
+		"Wild Thing",
+		"Don't Leave Me This Way",
+		"Rock the Casbah",
+		"Feel Good Inc",
+		"Love Me Do",
+		"Kiss On My List",
+		"Give Me Everything",
+		"Have You Ever Really Loved a Woman?",
+		"Love Letters in the Sand",
+		"Ring My Bell",
+		"Love Child",
+		"I Feel For You",
+		"Bye",
+		"(Let Me Be Your) Teddy Bear",
+		"Soldier Boy",
+		"Papa's Got a Brand New Bag",
+		"Love Hangover",
+		"Venus",
+		"Spill the Wine",
+		"Royals",
+		"April Showers",
+		"Don't You (Forget About Me)",
+		"Travellin' Man",
+		"The Thing",
+		"You Make Me Feel Brand New",
+		"The Glow-Worm",
+		"You Don't Bring Me Flowers",
+		"Summertime Blues",
+		"Straight Up",
+		"Sunday",
+		"Wake Up Little Susie",
+		"She's a Lady",
+		"Over There",
+		"Little Darlin",
+		"Rag Mop",
+		"Shake Down",
+		"Up Around the Bend",
+		"Harbour Lights",
+		"Chances Are",
+		"Mood Indigo",
+		"Pony Time",
+		"After You've Gone",
+		"I Wanna Love You",
+		"Da Doo Ron Ron (When He Walked Me Home)",
+		"If You Don't Know Me By Now",
+		"Green Tambourine",
+		"My Man",
+		"If I Didn't Care",
+		"St George & the Dragonette",
+		"Why Don't You Believe Me?",
+		"How Will I Know",
+		"Disco Duck",
+		"Lonely Boy",
+		"Never Gonna Give You Up",
+		"Before The Next Teardrop Falls",
+		"Running Scared",
+		"Let's Hear it For the Boy",
+		"Sleep Walk",
+		"Walk On the Wild Side",
+		"Memories Are Made of This",
+		"Open Arms",
+		"Stuck On You",
+		"Personality",
+		"Feel Like Making Love",
+		"Stars & Stripes Forever",
+		"Besame Mucho",
+		"Let Me Call You Sweetheart",
+		"La Bamba",
+		"Indian Reservation (The Lament Of The Cherokee Reservation Indian)",
+		"Cars",
+		"You Make Me Feel Like Dancing",
+		"Whatcha Say",
+		"Me & Mrs Jones",
+		"Bitter Sweet Symphony",
+		"Uncle Albert (Admiral Halsey)",
+		"More Than a Feeling",
+		"My Boyfriend's Back",
+		"People",
+		"He'll Have to Go",
+		"I Can Help",
+		"The Streak",
+		"Dreams",
+		"Hair",
+		"Cold",
+		"Nothin' on You",
+		"The End of the World",
+		"Caldonia Boogie (What Makes Your Big Head So Hard)",
+		"I Kissed A Girl",
+		"Incense & Peppermints",
+		"12th Street Rag",
+		"West End Blues",
+		"The Way You Move",
+		"Smoke Gets in Your Eyes",
+		"Want Ads",
+		"Long Cool Woman in a Black Dress",
+		"Hey Baby",
+		"(Your Love Keeps Lifting Me) Higher & Higher",
+		"He's a Rebel",
+		"Alone",
+		"Thrift Shop",
+		"Don't Let the Sun Go Down On Me",
+		"The Sweet Escape",
+		"Return to Sender",
+		"Here in My Heart",
+		"Wabash Cannonball",
+		"Ain't That a Shame",
+		"Travellin' Band",
+		"I'm Your Boogie Man",
+		"I Write the Songs",
+		"This Love",
+		"Lights",
+		"Will It Go Round In Circles",
+		"Purple Haze",
+		"Rock Your Baby",
+		"Delicado",
+		"Tammy",
+		"Check On It",
+		"Breaking Up is Hard to Do",
+		"1999",
+		"Prisoner of Love",
+		"Wild Wild West",
+		"Walk Like a Man",
+		"Ain't No Mountain High Enough",
+		"I Will Follow Him",
+		"Glamorous",
+		"Yellow Rose of Texas",
+		"That Old Black Magic",
+		"I'm So Lonesome I Could Cry",
+		"Up Up & Away",
+		"Baby Come Back",
+		"Let it Snow! Let it Snow! Let it Snow!",
+		"Pon De Replay",
+		"Because I Love You (The Postman Song)",
+		"Sleepy Lagoon",
+		"Baker Street",
+		"Dardanella",
+		"You Don't Have to Be a Star (To Be in My Show)",
+		"Leaving",
+		"Glory of Love",
+		"Theme From 'Greatest American Hero' (Believe It Or Not)",
+		"Shake You Down",
+		"Ole Buttermilk Sky",
+		"I Can't Get Started",
+		"Freak Me",
+		"Hot Child In The City",
+		"Man in the Mirror",
+		"Queen of Hearts",
+		"Let's Groove",
+		"Change the World",
+		"You make Me Wanna",
+		"Someday",
+		"Eve of Destruction",
+		"One of Us",
+		"Honky Tonk",
+		"Be Bop a Lula",
+		"Two Hearts",
+		"Paper Planes"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string musicGenre() {
+		auto data = [
+		"Rock",
+		"Metal",
+		"Pop",
+		"Electronic",
+		"Folk",
+		"World",
+		"Country",
+		"Jazz",
+		"Funk",
+		"Soul",
+		"Hip Hop",
+		"Classical",
+		"Latin",
+		"Reggae",
+		"Stage And Screen",
+		"Blues",
+		"Non Music",
+		"Rap"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string commerceProductDescription() {
+		auto data = [
+		"Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+		"The automobile layout consists of a front-engine design",
+		"with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+		"New ABC 13 9370",
+		"13.3",
+		"5th Gen CoreA5-8250U",
+		"8GB RAM",
+		"256GB SSD",
+		"power UHD Graphics",
+		"OS 10 Home",
+		"OS Office A & J 2016",
+		"The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+		"The Apollotech B340 is an affordable wireless mouse with reliable connectivity",
+		"12 months battery life and modern design",
+		"The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes",
+		"that started with the 1984 ABC800J",
+		"The Football Is Good For Training And Recreational Purposes",
+		"Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+		"Boston's most advanced compression wear technology increases muscle oxygenation",
+		"stabilizes active muscles",
+		"New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+		"The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+		"Andy shoes are designed to keeping in mind durability as well as trends",
+		"the most stylish range of shoes & sandals"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string commerceDepartment() {
+		auto data = [
+		"Books",
+		"Movies",
+		"Music",
+		"Games",
+		"Electronics",
+		"Computers",
+		"Home",
+		"Garden",
+		"Tools",
+		"Grocery",
+		"Health",
+		"Beauty",
+		"Toys",
+		"Kids",
+		"Baby",
+		"Clothing",
+		"Shoes",
+		"Jewelery",
+		"Sports",
+		"Outdoors",
+		"Automotive",
+		"Industrial"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string colorHuman() {
+		auto data = [
+		"red",
+		"green",
+		"blue",
+		"yellow",
+		"purple",
+		"mint green",
+		"teal",
+		"white",
+		"black",
+		"orange",
+		"pink",
+		"grey",
+		"maroon",
+		"violet",
+		"turquoise",
+		"tan",
+		"sky blue",
+		"salmon",
+		"plum",
+		"orchid",
+		"olive",
+		"magenta",
+		"lime",
+		"ivory",
+		"indigo",
+		"gold",
+		"fuchsia",
+		"cyan",
+		"azure",
+		"lavender",
+		"silver"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string colorSpace() {
+		auto data = [
+		"CIE 1931 XYZ",
+		"CIEUVW",
+		"Uniform Color Spaces (UCSs)",
+		"CIELUV",
+		"CIELAB",
+		"HSLuv",
+		"sRGB",
+		"Adobe RGB",
+		"Adobe Wide Gamut RGB",
+		"Rec. 2100",
+		"ProPhoto RGB Color Space",
+		"scRGB",
+		"DCI-P3",
+		"Display-P3",
+		"Rec. 601",
+		"Rec. 709",
+		"Academy Color Encoding System (ACES)",
+		"Rec. 2020",
+		"YPbPr",
+		"YDbDr",
+		"YIQ",
+		"xvYCC",
+		"sYCC",
+		"HSV",
+		"HSL",
+		"HWB",
+		"RGBA",
+		"HSLA",
+		"LCh",
+		"CMY",
+		"CMYK",
+		"Munsell Color System",
+		"Natural Color System (NSC)",
+		"Pantone Matching System (PMS)",
+		"RAL",
+		"Federal Standard 595C",
+		"British Standard Colour (BS)",
+		"HKS",
+		"LMS",
+		"RG",
+		"RGK"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	string dateWeekday() {
+		final switch(uniform(0, 36, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Sunday";
+			case 2: return "Monday";
+			case 3: return "Tuesday";
+			case 4: return "Wednesday";
+			case 5: return "Thursday";
+			case 6: return "Friday";
+			case 7: return "Saturday";
+			case 8: return "]";
+			case 9: return "if not set then \"wide\" will be used instead";
+			case 10: return "which may differ from a stand-alone word";
+			case 11: return "wide_context: [";
+			case 12: return "Sunday";
+			case 13: return "Monday";
+			case 14: return "Tuesday";
+			case 15: return "Wednesday";
+			case 16: return "Thursday";
+			case 17: return "Friday";
+			case 18: return "Saturday";
+			case 19: return "]";
+			case 20: return "abbr: ['Sun";
+			case 21: return "Mon";
+			case 22: return "Tue";
+			case 23: return "Wed";
+			case 24: return "Thu";
+			case 25: return "Fri";
+			case 26: return "Sat']";
+			case 27: return "if not set then \"abbr\" will be used instead";
+			case 28: return "which may differ from a stand-alone word";
+			case 29: return "abbr_context: ['Sun";
+			case 30: return "Mon";
+			case 31: return "Tue";
+			case 32: return "Wed";
+			case 33: return "Thu";
+			case 34: return "Fri";
+			case 35: return "Sat']";
+		}
+	}
+
+
+	string dateMonth() {
+		final switch(uniform(0, 60, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "January";
+			case 2: return "February";
+			case 3: return "March";
+			case 4: return "April";
+			case 5: return "May";
+			case 6: return "June";
+			case 7: return "July";
+			case 8: return "August";
+			case 9: return "September";
+			case 10: return "October";
+			case 11: return "November";
+			case 12: return "December";
+			case 13: return "]";
+			case 14: return "if not set then \"wide\" will be used instead";
+			case 15: return "which may differ from a stand-alone word";
+			case 16: return "wide_context: [";
+			case 17: return "January";
+			case 18: return "February";
+			case 19: return "March";
+			case 20: return "April";
+			case 21: return "May";
+			case 22: return "June";
+			case 23: return "July";
+			case 24: return "August";
+			case 25: return "September";
+			case 26: return "October";
+			case 27: return "November";
+			case 28: return "December";
+			case 29: return "]";
+			case 30: return "abbr: [";
+			case 31: return "Jan";
+			case 32: return "Feb";
+			case 33: return "Mar";
+			case 34: return "Apr";
+			case 35: return "May";
+			case 36: return "Jun";
+			case 37: return "Jul";
+			case 38: return "Aug";
+			case 39: return "Sep";
+			case 40: return "Oct";
+			case 41: return "Nov";
+			case 42: return "Dec";
+			case 43: return "]";
+			case 44: return "if not set then \"abbr\" will be used instead";
+			case 45: return "which may differ from a stand-alone word";
+			case 46: return "abbr_context: [";
+			case 47: return "Jan";
+			case 48: return "Feb";
+			case 49: return "Mar";
+			case 50: return "Apr";
+			case 51: return "May";
+			case 52: return "Jun";
+			case 53: return "Jul";
+			case 54: return "Aug";
+			case 55: return "Sep";
+			case 56: return "Oct";
+			case 57: return "Nov";
+			case 58: return "Dec";
+			case 59: return "]";
+		}
+	}
+
+	///
+	string addressCityName() {
+		auto data = [
+		"Abilene",
+		"Akron",
+		"Alafaya",
+		"Alameda",
+		"Albany",
+		"Albany",
+		"Albany",
+		"Albuquerque",
+		"Alexandria",
+		"Alexandria",
+		"Alhambra",
+		"Aliso Viejo",
+		"Allen",
+		"Allentown",
+		"Aloha",
+		"Alpharetta",
+		"Altadena",
+		"Altamonte Springs",
+		"Altoona",
+		"Amarillo",
+		"Ames",
+		"Anaheim",
+		"Anchorage",
+		"Anderson",
+		"Ankeny",
+		"Ann Arbor",
+		"Annandale",
+		"Antelope",
+		"Antioch",
+		"Apex",
+		"Apopka",
+		"Apple Valley",
+		"Apple Valley",
+		"Appleton",
+		"Arcadia",
+		"Arden-Arcade",
+		"Arecibo",
+		"Arlington",
+		"Arlington",
+		"Arlington",
+		"Arlington Heights",
+		"Arvada",
+		"Ashburn",
+		"Asheville",
+		"Aspen Hill",
+		"Atascocita",
+		"Athens-Clarke County",
+		"Atlanta",
+		"Attleboro",
+		"Auburn",
+		"Auburn",
+		"Augusta-Richmond County",
+		"Aurora",
+		"Aurora",
+		"Austin",
+		"Avondale",
+		"Azusa",
+		"Bakersfield",
+		"Baldwin Park",
+		"Baltimore",
+		"Barnstable Town",
+		"Bartlett",
+		"Bartlett",
+		"Baton Rouge",
+		"Battle Creek",
+		"Bayamon",
+		"Bayonne",
+		"Baytown",
+		"Beaumont",
+		"Beaumont",
+		"Beavercreek",
+		"Beaverton",
+		"Bedford",
+		"Bel Air South",
+		"Bell Gardens",
+		"Belleville",
+		"Bellevue",
+		"Bellevue",
+		"Bellflower",
+		"Bellingham",
+		"Bend",
+		"Bentonville",
+		"Berkeley",
+		"Berwyn",
+		"Bethesda",
+		"Bethlehem",
+		"Billings",
+		"Biloxi",
+		"Binghamton",
+		"Birmingham",
+		"Bismarck",
+		"Blacksburg",
+		"Blaine",
+		"Bloomington",
+		"Bloomington",
+		"Bloomington",
+		"Blue Springs",
+		"Boca Raton",
+		"Boise City",
+		"Bolingbrook",
+		"Bonita Springs",
+		"Bossier City",
+		"Boston",
+		"Bothell",
+		"Boulder",
+		"Bountiful",
+		"Bowie",
+		"Bowling Green",
+		"Boynton Beach",
+		"Bozeman",
+		"Bradenton",
+		"Brandon",
+		"Brentwood",
+		"Brentwood",
+		"Bridgeport",
+		"Bristol",
+		"Brockton",
+		"Broken Arrow",
+		"Brookhaven",
+		"Brookline",
+		"Brooklyn Park",
+		"Broomfield",
+		"Brownsville",
+		"Bryan",
+		"Buckeye",
+		"Buena Park",
+		"Buffalo",
+		"Buffalo Grove",
+		"Burbank",
+		"Burien",
+		"Burke",
+		"Burleson",
+		"Burlington",
+		"Burlington",
+		"Burnsville",
+		"Caguas",
+		"Caldwell",
+		"Camarillo",
+		"Cambridge",
+		"Camden",
+		"Canton",
+		"Cape Coral",
+		"Carlsbad",
+		"Carmel",
+		"Carmichael",
+		"Carolina",
+		"Carrollton",
+		"Carson",
+		"Carson City",
+		"Cary",
+		"Casa Grande",
+		"Casas Adobes",
+		"Casper",
+		"Castle Rock",
+		"Castro Valley",
+		"Catalina Foothills",
+		"Cathedral City",
+		"Catonsville",
+		"Cedar Hill",
+		"Cedar Park",
+		"Cedar Rapids",
+		"Centennial",
+		"Centreville",
+		"Ceres",
+		"Cerritos",
+		"Champaign",
+		"Chandler",
+		"Chapel Hill",
+		"Charleston",
+		"Charleston",
+		"Charlotte",
+		"Charlottesville",
+		"Chattanooga",
+		"Cheektowaga",
+		"Chesapeake",
+		"Chesterfield",
+		"Cheyenne",
+		"Chicago",
+		"Chico",
+		"Chicopee",
+		"Chino",
+		"Chino Hills",
+		"Chula Vista",
+		"Cicero",
+		"Cincinnati",
+		"Citrus Heights",
+		"Clarksville",
+		"Clearwater",
+		"Cleveland",
+		"Cleveland",
+		"Cleveland Heights",
+		"Clifton",
+		"Clovis",
+		"Coachella",
+		"Coconut Creek",
+		"Coeur d'Alene",
+		"College Station",
+		"Collierville",
+		"Colorado Springs",
+		"Colton",
+		"Columbia",
+		"Columbia",
+		"Columbia",
+		"Columbus",
+		"Columbus",
+		"Columbus",
+		"Commerce City",
+		"Compton",
+		"Concord",
+		"Concord",
+		"Concord",
+		"Conroe",
+		"Conway",
+		"Coon Rapids",
+		"Coral Gables",
+		"Coral Springs",
+		"Corona",
+		"Corpus Christi",
+		"Corvallis",
+		"Costa Mesa",
+		"Council Bluffs",
+		"Country Club",
+		"Covina",
+		"Cranston",
+		"Cupertino",
+		"Cutler Bay",
+		"Cuyahoga Falls",
+		"Cypress",
+		"Dale City",
+		"Dallas",
+		"Daly City",
+		"Danbury",
+		"Danville",
+		"Danville",
+		"Davenport",
+		"Davie",
+		"Davis",
+		"Dayton",
+		"Daytona Beach",
+		"DeKalb",
+		"DeSoto",
+		"Dearborn",
+		"Dearborn Heights",
+		"Decatur",
+		"Decatur",
+		"Deerfield Beach",
+		"Delano",
+		"Delray Beach",
+		"Deltona",
+		"Denton",
+		"Denver",
+		"Des Moines",
+		"Des Plaines",
+		"Detroit",
+		"Diamond Bar",
+		"Doral",
+		"Dothan",
+		"Downers Grove",
+		"Downey",
+		"Draper",
+		"Dublin",
+		"Dublin",
+		"Dubuque",
+		"Duluth",
+		"Dundalk",
+		"Dunwoody",
+		"Durham",
+		"Eagan",
+		"East Hartford",
+		"East Honolulu",
+		"East Lansing",
+		"East Los Angeles",
+		"East Orange",
+		"East Providence",
+		"Eastvale",
+		"Eau Claire",
+		"Eden Prairie",
+		"Edina",
+		"Edinburg",
+		"Edmond",
+		"El Cajon",
+		"El Centro",
+		"El Dorado Hills",
+		"El Monte",
+		"El Paso",
+		"Elgin",
+		"Elizabeth",
+		"Elk Grove",
+		"Elkhart",
+		"Ellicott City",
+		"Elmhurst",
+		"Elyria",
+		"Encinitas",
+		"Enid",
+		"Enterprise",
+		"Erie",
+		"Escondido",
+		"Euclid",
+		"Eugene",
+		"Euless",
+		"Evanston",
+		"Evansville",
+		"Everett",
+		"Everett",
+		"Fairfield",
+		"Fairfield",
+		"Fall River",
+		"Fargo",
+		"Farmington",
+		"Farmington Hills",
+		"Fayetteville",
+		"Fayetteville",
+		"Federal Way",
+		"Findlay",
+		"Fishers",
+		"Flagstaff",
+		"Flint",
+		"Florence-Graham",
+		"Florin",
+		"Florissant",
+		"Flower Mound",
+		"Folsom",
+		"Fond du Lac",
+		"Fontana",
+		"Fort Collins",
+		"Fort Lauderdale",
+		"Fort Myers",
+		"Fort Pierce",
+		"Fort Smith",
+		"Fort Wayne",
+		"Fort Worth",
+		"Fountain Valley",
+		"Fountainebleau",
+		"Framingham",
+		"Franklin",
+		"Frederick",
+		"Freeport",
+		"Fremont",
+		"Fresno",
+		"Frisco",
+		"Fullerton",
+		"Gainesville",
+		"Gaithersburg",
+		"Galveston",
+		"Garden Grove",
+		"Gardena",
+		"Garland",
+		"Gary",
+		"Gastonia",
+		"Georgetown",
+		"Germantown",
+		"Gilbert",
+		"Gilroy",
+		"Glen Burnie",
+		"Glendale",
+		"Glendale",
+		"Glendora",
+		"Glenview",
+		"Goodyear",
+		"Grand Forks",
+		"Grand Island",
+		"Grand Junction",
+		"Grand Prairie",
+		"Grand Rapids",
+		"Grapevine",
+		"Great Falls",
+		"Greeley",
+		"Green Bay",
+		"Greensboro",
+		"Greenville",
+		"Greenville",
+		"Greenwood",
+		"Gresham",
+		"Guaynabo",
+		"Gulfport",
+		"Hacienda Heights",
+		"Hackensack",
+		"Haltom City",
+		"Hamilton",
+		"Hammond",
+		"Hampton",
+		"Hanford",
+		"Harlingen",
+		"Harrisburg",
+		"Harrisonburg",
+		"Hartford",
+		"Hattiesburg",
+		"Haverhill",
+		"Hawthorne",
+		"Hayward",
+		"Hemet",
+		"Hempstead",
+		"Henderson",
+		"Hendersonville",
+		"Hesperia",
+		"Hialeah",
+		"Hicksville",
+		"High Point",
+		"Highland",
+		"Highlands Ranch",
+		"Hillsboro",
+		"Hilo",
+		"Hoboken",
+		"Hoffman Estates",
+		"Hollywood",
+		"Homestead",
+		"Honolulu",
+		"Hoover",
+		"Houston",
+		"Huntersville",
+		"Huntington",
+		"Huntington Beach",
+		"Huntington Park",
+		"Huntsville",
+		"Hutchinson",
+		"Idaho Falls",
+		"Independence",
+		"Indianapolis",
+		"Indio",
+		"Inglewood",
+		"Iowa City",
+		"Irondequoit",
+		"Irvine",
+		"Irving",
+		"Jackson",
+		"Jackson",
+		"Jacksonville",
+		"Jacksonville",
+		"Janesville",
+		"Jefferson City",
+		"Jeffersonville",
+		"Jersey City",
+		"Johns Creek",
+		"Johnson City",
+		"Joliet",
+		"Jonesboro",
+		"Joplin",
+		"Jupiter",
+		"Jurupa Valley",
+		"Kalamazoo",
+		"Kannapolis",
+		"Kansas City",
+		"Kansas City",
+		"Kearny",
+		"Keller",
+		"Kendale Lakes",
+		"Kendall",
+		"Kenner",
+		"Kennewick",
+		"Kenosha",
+		"Kent",
+		"Kentwood",
+		"Kettering",
+		"Killeen",
+		"Kingsport",
+		"Kirkland",
+		"Kissimmee",
+		"Knoxville",
+		"Kokomo",
+		"La Crosse",
+		"La Habra",
+		"La Mesa",
+		"La Mirada",
+		"Lacey",
+		"Lafayette",
+		"Lafayette",
+		"Laguna Niguel",
+		"Lake Charles",
+		"Lake Elsinore",
+		"Lake Forest",
+		"Lake Havasu City",
+		"Lake Ridge",
+		"Lakeland",
+		"Lakeville",
+		"Lakewood",
+		"Lakewood",
+		"Lakewood",
+		"Lakewood",
+		"Lakewood",
+		"Lancaster",
+		"Lancaster",
+		"Lansing",
+		"Laredo",
+		"Largo",
+		"Las Cruces",
+		"Las Vegas",
+		"Lauderhill",
+		"Lawrence",
+		"Lawrence",
+		"Lawrence",
+		"Lawton",
+		"Layton",
+		"League City",
+		"Lee's Summit",
+		"Leesburg",
+		"Lehi",
+		"Lehigh Acres",
+		"Lenexa",
+		"Levittown",
+		"Levittown",
+		"Lewisville",
+		"Lexington-Fayette",
+		"Lincoln",
+		"Lincoln",
+		"Linden",
+		"Little Rock",
+		"Littleton",
+		"Livermore",
+		"Livonia",
+		"Lodi",
+		"Logan",
+		"Lombard",
+		"Lompoc",
+		"Long Beach",
+		"Longmont",
+		"Longview",
+		"Lorain",
+		"Los Angeles",
+		"Louisville/Jefferson County",
+		"Loveland",
+		"Lowell",
+		"Lubbock",
+		"Lynchburg",
+		"Lynn",
+		"Lynwood",
+		"Macon-Bibb County",
+		"Madera",
+		"Madison",
+		"Madison",
+		"Malden",
+		"Manchester",
+		"Manhattan",
+		"Mansfield",
+		"Mansfield",
+		"Manteca",
+		"Maple Grove",
+		"Margate",
+		"Maricopa",
+		"Marietta",
+		"Marysville",
+		"Mayaguez",
+		"McAllen",
+		"McKinney",
+		"McLean",
+		"Medford",
+		"Medford",
+		"Melbourne",
+		"Memphis",
+		"Menifee",
+		"Mentor",
+		"Merced",
+		"Meriden",
+		"Meridian",
+		"Mesa",
+		"Mesquite",
+		"Metairie",
+		"Methuen Town",
+		"Miami",
+		"Miami Beach",
+		"Miami Gardens",
+		"Middletown",
+		"Middletown",
+		"Midland",
+		"Midland",
+		"Midwest City",
+		"Milford",
+		"Millcreek",
+		"Milpitas",
+		"Milwaukee",
+		"Minneapolis",
+		"Minnetonka",
+		"Minot",
+		"Miramar",
+		"Mishawaka",
+		"Mission",
+		"Mission Viejo",
+		"Missoula",
+		"Missouri City",
+		"Mobile",
+		"Modesto",
+		"Moline",
+		"Monroe",
+		"Montebello",
+		"Monterey Park",
+		"Montgomery",
+		"Moore",
+		"Moreno Valley",
+		"Morgan Hill",
+		"Mount Pleasant",
+		"Mount Prospect",
+		"Mount Vernon",
+		"Mountain View",
+		"Muncie",
+		"Murfreesboro",
+		"Murray",
+		"Murrieta",
+		"Nampa",
+		"Napa",
+		"Naperville",
+		"Nashua",
+		"Nashville-Davidson",
+		"National City",
+		"New Bedford",
+		"New Braunfels",
+		"New Britain",
+		"New Brunswick",
+		"New Haven",
+		"New Orleans",
+		"New Rochelle",
+		"New York",
+		"Newark",
+		"Newark",
+		"Newark",
+		"Newport Beach",
+		"Newport News",
+		"Newton",
+		"Niagara Falls",
+		"Noblesville",
+		"Norfolk",
+		"Normal",
+		"Norman",
+		"North Bethesda",
+		"North Charleston",
+		"North Highlands",
+		"North Las Vegas",
+		"North Lauderdale",
+		"North Little Rock",
+		"North Miami",
+		"North Miami Beach",
+		"North Port",
+		"North Richland Hills",
+		"Norwalk",
+		"Norwalk",
+		"Novato",
+		"Novi",
+		"O'Fallon",
+		"Oak Lawn",
+		"Oak Park",
+		"Oakland",
+		"Oakland Park",
+		"Ocala",
+		"Oceanside",
+		"Odessa",
+		"Ogden",
+		"Oklahoma City",
+		"Olathe",
+		"Olympia",
+		"Omaha",
+		"Ontario",
+		"Orange",
+		"Orem",
+		"Orland Park",
+		"Orlando",
+		"Oro Valley",
+		"Oshkosh",
+		"Overland Park",
+		"Owensboro",
+		"Oxnard",
+		"Palatine",
+		"Palm Bay",
+		"Palm Beach Gardens",
+		"Palm Coast",
+		"Palm Desert",
+		"Palm Harbor",
+		"Palm Springs",
+		"Palmdale",
+		"Palo Alto",
+		"Paradise",
+		"Paramount",
+		"Parker",
+		"Parma",
+		"Pasadena",
+		"Pasadena",
+		"Pasco",
+		"Passaic",
+		"Paterson",
+		"Pawtucket",
+		"Peabody",
+		"Pearl City",
+		"Pearland",
+		"Pembroke Pines",
+		"Pensacola",
+		"Peoria",
+		"Peoria",
+		"Perris",
+		"Perth Amboy",
+		"Petaluma",
+		"Pflugerville",
+		"Pharr",
+		"Philadelphia",
+		"Phoenix",
+		"Pico Rivera",
+		"Pine Bluff",
+		"Pine Hills",
+		"Pinellas Park",
+		"Pittsburg",
+		"Pittsburgh",
+		"Pittsfield",
+		"Placentia",
+		"Plainfield",
+		"Plainfield",
+		"Plano",
+		"Plantation",
+		"Pleasanton",
+		"Plymouth",
+		"Pocatello",
+		"Poinciana",
+		"Pomona",
+		"Pompano Beach",
+		"Ponce",
+		"Pontiac",
+		"Port Arthur",
+		"Port Charlotte",
+		"Port Orange",
+		"Port St. Lucie",
+		"Portage",
+		"Porterville",
+		"Portland",
+		"Portland",
+		"Portsmouth",
+		"Potomac",
+		"Poway",
+		"Providence",
+		"Provo",
+		"Pueblo",
+		"Quincy",
+		"Racine",
+		"Raleigh",
+		"Rancho Cordova",
+		"Rancho Cucamonga",
+		"Rancho Palos Verdes",
+		"Rancho Santa Margarita",
+		"Rapid City",
+		"Reading",
+		"Redding",
+		"Redlands",
+		"Redmond",
+		"Redondo Beach",
+		"Redwood City",
+		"Reno",
+		"Renton",
+		"Reston",
+		"Revere",
+		"Rialto",
+		"Richardson",
+		"Richland",
+		"Richmond",
+		"Richmond",
+		"Rio Rancho",
+		"Riverside",
+		"Riverton",
+		"Riverview",
+		"Roanoke",
+		"Rochester",
+		"Rochester",
+		"Rochester Hills",
+		"Rock Hill",
+		"Rockford",
+		"Rocklin",
+		"Rockville",
+		"Rockwall",
+		"Rocky Mount",
+		"Rogers",
+		"Rohnert Park",
+		"Rosemead",
+		"Roseville",
+		"Roseville",
+		"Roswell",
+		"Roswell",
+		"Round Rock",
+		"Rowland Heights",
+		"Rowlett",
+		"Royal Oak",
+		"Sacramento",
+		"Saginaw",
+		"Salem",
+		"Salem",
+		"Salina",
+		"Salinas",
+		"Salt Lake City",
+		"Sammamish",
+		"San Angelo",
+		"San Antonio",
+		"San Bernardino",
+		"San Bruno",
+		"San Buenaventura (Ventura)",
+		"San Clemente",
+		"San Diego",
+		"San Francisco",
+		"San Jacinto",
+		"San Jose",
+		"San Juan",
+		"San Leandro",
+		"San Luis Obispo",
+		"San Marcos",
+		"San Marcos",
+		"San Mateo",
+		"San Rafael",
+		"San Ramon",
+		"San Tan Valley",
+		"Sandy",
+		"Sandy Springs",
+		"Sanford",
+		"Santa Ana",
+		"Santa Barbara",
+		"Santa Clara",
+		"Santa Clarita",
+		"Santa Cruz",
+		"Santa Fe",
+		"Santa Maria",
+		"Santa Monica",
+		"Santa Rosa",
+		"Santee",
+		"Sarasota",
+		"Savannah",
+		"Sayreville",
+		"Schaumburg",
+		"Schenectady",
+		"Scottsdale",
+		"Scranton",
+		"Seattle",
+		"Severn",
+		"Shawnee",
+		"Sheboygan",
+		"Shoreline",
+		"Shreveport",
+		"Sierra Vista",
+		"Silver Spring",
+		"Simi Valley",
+		"Sioux City",
+		"Sioux Falls",
+		"Skokie",
+		"Smyrna",
+		"Smyrna",
+		"Somerville",
+		"South Bend",
+		"South Gate",
+		"South Hill",
+		"South Jordan",
+		"South San Francisco",
+		"South Valley",
+		"South Whittier",
+		"Southaven",
+		"Southfield",
+		"Sparks",
+		"Spokane",
+		"Spokane Valley",
+		"Spring",
+		"Spring Hill",
+		"Spring Valley",
+		"Springdale",
+		"Springfield",
+		"Springfield",
+		"Springfield",
+		"Springfield",
+		"Springfield",
+		"St. Charles",
+		"St. Clair Shores",
+		"St. Cloud",
+		"St. Cloud",
+		"St. George",
+		"St. Joseph",
+		"St. Louis",
+		"St. Louis Park",
+		"St. Paul",
+		"St. Peters",
+		"St. Petersburg",
+		"Stamford",
+		"State College",
+		"Sterling Heights",
+		"Stillwater",
+		"Stockton",
+		"Stratford",
+		"Strongsville",
+		"Suffolk",
+		"Sugar Land",
+		"Summerville",
+		"Sunnyvale",
+		"Sunrise",
+		"Sunrise Manor",
+		"Surprise",
+		"Syracuse",
+		"Tacoma",
+		"Tallahassee",
+		"Tamarac",
+		"Tamiami",
+		"Tampa",
+		"Taunton",
+		"Taylor",
+		"Taylorsville",
+		"Temecula",
+		"Tempe",
+		"Temple",
+		"Terre Haute",
+		"Texas City",
+		"The Hammocks",
+		"The Villages",
+		"The Woodlands",
+		"Thornton",
+		"Thousand Oaks",
+		"Tigard",
+		"Tinley Park",
+		"Titusville",
+		"Toledo",
+		"Toms River",
+		"Tonawanda",
+		"Topeka",
+		"Torrance",
+		"Town 'n' Country",
+		"Towson",
+		"Tracy",
+		"Trenton",
+		"Troy",
+		"Troy",
+		"Trujillo Alto",
+		"Tuckahoe",
+		"Tucson",
+		"Tulare",
+		"Tulsa",
+		"Turlock",
+		"Tuscaloosa",
+		"Tustin",
+		"Twin Falls",
+		"Tyler",
+		"Union City",
+		"Union City",
+		"University",
+		"Upland",
+		"Urbana",
+		"Urbandale",
+		"Utica",
+		"Vacaville",
+		"Valdosta",
+		"Vallejo",
+		"Vancouver",
+		"Victoria",
+		"Victorville",
+		"Vineland",
+		"Virginia Beach",
+		"Visalia",
+		"Vista",
+		"Waco",
+		"Waipahu",
+		"Waldorf",
+		"Walnut Creek",
+		"Waltham",
+		"Warner Robins",
+		"Warren",
+		"Warwick",
+		"Washington",
+		"Waterbury",
+		"Waterloo",
+		"Watsonville",
+		"Waukegan",
+		"Waukesha",
+		"Wauwatosa",
+		"Wellington",
+		"Wesley Chapel",
+		"West Allis",
+		"West Babylon",
+		"West Covina",
+		"West Des Moines",
+		"West Hartford",
+		"West Haven",
+		"West Jordan",
+		"West Lafayette",
+		"West New York",
+		"West Palm Beach",
+		"West Sacramento",
+		"West Seneca",
+		"West Valley City",
+		"Westfield",
+		"Westland",
+		"Westminster",
+		"Westminster",
+		"Weston",
+		"Weymouth Town",
+		"Wheaton",
+		"Wheaton",
+		"White Plains",
+		"Whittier",
+		"Wichita",
+		"Wichita Falls",
+		"Wilmington",
+		"Wilmington",
+		"Wilson",
+		"Winston-Salem",
+		"Woodbury",
+		"Woodland",
+		"Worcester",
+		"Wylie",
+		"Wyoming",
+		"Yakima",
+		"Yonkers",
+		"Yorba Linda",
+		"York",
+		"Youngstown",
+		"Yuba City",
+		"Yucaipa",
+		"Yuma"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string addressStateAbbr() {
+		auto data = [
+		"AL",
+		"AK",
+		"AZ",
+		"AR",
+		"CA",
+		"CO",
+		"CT",
+		"DE",
+		"FL",
+		"GA",
+		"HI",
+		"ID",
+		"IL",
+		"IN",
+		"IA",
+		"KS",
+		"KY",
+		"LA",
+		"ME",
+		"MD",
+		"MA",
+		"MI",
+		"MN",
+		"MS",
+		"MO",
+		"MT",
+		"NE",
+		"NV",
+		"NH",
+		"NJ",
+		"NM",
+		"NY",
+		"NC",
+		"ND",
+		"OH",
+		"OK",
+		"OR",
+		"PA",
+		"RI",
+		"SC",
+		"SD",
+		"TN",
+		"TX",
+		"UT",
+		"VT",
+		"VA",
+		"WA",
+		"WV",
+		"WI",
+		"WY"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string addressState() {
+		auto data = [
+		"Alabama",
+		"Alaska",
+		"Arizona",
+		"Arkansas",
+		"California",
+		"Colorado",
+		"Connecticut",
+		"Delaware",
+		"Florida",
+		"Georgia",
+		"Hawaii",
+		"Idaho",
+		"Illinois",
+		"Indiana",
+		"Iowa",
+		"Kansas",
+		"Kentucky",
+		"Louisiana",
+		"Maine",
+		"Maryland",
+		"Massachusetts",
+		"Michigan",
+		"Minnesota",
+		"Mississippi",
+		"Missouri",
+		"Montana",
+		"Nebraska",
+		"Nevada",
+		"New Hampshire",
+		"New Jersey",
+		"New Mexico",
+		"New York",
+		"North Carolina",
+		"North Dakota",
+		"Ohio",
+		"Oklahoma",
+		"Oregon",
+		"Pennsylvania",
+		"Rhode Island",
+		"South Carolina",
+		"South Dakota",
+		"Tennessee",
+		"Texas",
+		"Utah",
+		"Vermont",
+		"Virginia",
+		"Washington",
+		"West Virginia",
+		"Wisconsin",
+		"Wyoming"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressBuildingNumber() ~ " " ~ addressStreet();
+			case 1: return "full: '" ~ addressBuildingNumber() ~ " " ~ addressStreet() ~ " " ~ addressSecondaryAddress();
+		}
+	}
+
+	///
+	string addressCountryCodeAlpha3() {
+		auto data = [
+		"BGD",
+		"BEL",
+		"BFA",
+		"BGR",
+		"BIH",
+		"BRB",
+		"WLF",
+		"BLM",
+		"BMU",
+		"BRN",
+		"BOL",
+		"BHR",
+		"BDI",
+		"BEN",
+		"BTN",
+		"JAM",
+		"BVT",
+		"BWA",
+		"WSM",
+		"BES",
+		"BRA",
+		"BHS",
+		"JEY",
+		"BLR",
+		"BLZ",
+		"RUS",
+		"RWA",
+		"SRB",
+		"TLS",
+		"REU",
+		"TKM",
+		"TJK",
+		"ROU",
+		"TKL",
+		"GNB",
+		"GUM",
+		"GTM",
+		"SGS",
+		"GRC",
+		"GNQ",
+		"GLP",
+		"JPN",
+		"GUY",
+		"GGY",
+		"GUF",
+		"GEO",
+		"GRD",
+		"GBR",
+		"GAB",
+		"SLV",
+		"GIN",
+		"GMB",
+		"GRL",
+		"GIB",
+		"GHA",
+		"OMN",
+		"TUN",
+		"JOR",
+		"HRV",
+		"HTI",
+		"HUN",
+		"HKG",
+		"HND",
+		"HMD",
+		"VEN",
+		"PRI",
+		"PSE",
+		"PLW",
+		"PRT",
+		"SJM",
+		"PRY",
+		"IRQ",
+		"PAN",
+		"PYF",
+		"PNG",
+		"PER",
+		"PAK",
+		"PHL",
+		"PCN",
+		"POL",
+		"SPM",
+		"ZMB",
+		"ESH",
+		"EST",
+		"EGY",
+		"ZAF",
+		"ECU",
+		"ITA",
+		"VNM",
+		"SLB",
+		"ETH",
+		"SOM",
+		"ZWE",
+		"SAU",
+		"ESP",
+		"ERI",
+		"MNE",
+		"MDA",
+		"MDG",
+		"MAF",
+		"MAR",
+		"MCO",
+		"UZB",
+		"MMR",
+		"MLI",
+		"MAC",
+		"MNG",
+		"MHL",
+		"MKD",
+		"MUS",
+		"MLT",
+		"MWI",
+		"MDV",
+		"MTQ",
+		"MNP",
+		"MSR",
+		"MRT",
+		"IMN",
+		"UGA",
+		"TZA",
+		"MYS",
+		"MEX",
+		"ISR",
+		"FRA",
+		"IOT",
+		"SHN",
+		"FIN",
+		"FJI",
+		"FLK",
+		"FSM",
+		"FRO",
+		"NIC",
+		"NLD",
+		"NOR",
+		"NAM",
+		"VUT",
+		"NCL",
+		"NER",
+		"NFK",
+		"NGA",
+		"NZL",
+		"NPL",
+		"NRU",
+		"NIU",
+		"COK",
+		"XKX",
+		"CIV",
+		"CHE",
+		"COL",
+		"CHN",
+		"CMR",
+		"CHL",
+		"CCK",
+		"CAN",
+		"COG",
+		"CAF",
+		"COD",
+		"CZE",
+		"CYP",
+		"CXR",
+		"CRI",
+		"CUW",
+		"CPV",
+		"CUB",
+		"SWZ",
+		"SYR",
+		"SXM",
+		"KGZ",
+		"KEN",
+		"SSD",
+		"SUR",
+		"KIR",
+		"KHM",
+		"KNA",
+		"COM",
+		"STP",
+		"SVK",
+		"KOR",
+		"SVN",
+		"PRK",
+		"KWT",
+		"SEN",
+		"SMR",
+		"SLE",
+		"SYC",
+		"KAZ",
+		"CYM",
+		"SGP",
+		"SWE",
+		"SDN",
+		"DOM",
+		"DMA",
+		"DJI",
+		"DNK",
+		"VGB",
+		"DEU",
+		"YEM",
+		"DZA",
+		"USA",
+		"URY",
+		"MYT",
+		"UMI",
+		"LBN",
+		"LCA",
+		"LAO",
+		"TUV",
+		"TWN",
+		"TTO",
+		"TUR",
+		"LKA",
+		"LIE",
+		"LVA",
+		"TON",
+		"LTU",
+		"LUX",
+		"LBR",
+		"LSO",
+		"THA",
+		"ATF",
+		"TGO",
+		"TCD",
+		"TCA",
+		"LBY",
+		"VAT",
+		"VCT",
+		"ARE",
+		"AND",
+		"ATG",
+		"AFG",
+		"AIA",
+		"VIR",
+		"ISL",
+		"IRN",
+		"ARM",
+		"ALB",
+		"AGO",
+		"ATA",
+		"ASM",
+		"ARG",
+		"AUS",
+		"AUT",
+		"ABW",
+		"IND",
+		"ALA",
+		"AZE",
+		"IRL",
+		"IDN",
+		"UKR",
+		"QAT",
+		"MOZ"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string addressDirection() {
+		auto data = [
+		"North",
+		"East",
+		"South",
+		"West",
+		"Northeast",
+		"Northwest",
+		"Southeast",
+		"Southwest"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string addressCitySuffix() {
+		auto data = [
+		"town",
+		"ton",
+		"land",
+		"ville",
+		"berg",
+		"burgh",
+		"boro",
+		"borough",
+		"bury",
+		"view",
+		"port",
+		"mouth",
+		"stad",
+		"stead",
+		"furt",
+		"chester",
+		"cester",
+		"mouth",
+		"fort",
+		"field",
+		"haven",
+		"side",
+		"shire",
+		"worth"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string addressDefaultCountry() {
+		auto data = [
+		"United States of America'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string addressDirectionAbbr() {
+		auto data = [
+		"N",
+		"E",
+		"S",
+		"W",
+		"NE",
+		"NW",
+		"SE",
+		"SW'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string addressCityPrefix() {
+		auto data = [
+		"North",
+		"East",
+		"West",
+		"South",
+		"New",
+		"Lake",
+		"Port",
+		"Fort"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string addressCounty() {
+		auto data = [
+		"Avon",
+		"Bedfordshire",
+		"Berkshire",
+		"Borders",
+		"Buckinghamshire",
+		"Cambridgeshire"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
+	///
+	string addressCountry() {
+		auto data = [
+		"Afghanistan",
+		"Albania",
+		"Algeria",
+		"American Samoa",
+		"Andorra",
+		"Angola",
+		"Anguilla",
+		"Antarctica (the territory South of 60 deg S)",
+		"Antigua and Barbuda",
+		"Argentina",
+		"Armenia",
+		"Aruba",
+		"Australia",
+		"Austria",
+		"Azerbaijan",
+		"Bahamas",
+		"Bahrain",
+		"Bangladesh",
+		"Barbados",
+		"Belarus",
+		"Belgium",
+		"Belize",
+		"Benin",
+		"Bermuda",
+		"Bhutan",
+		"Bolivia",
+		"Bosnia and Herzegovina",
+		"Botswana",
+		"Bouvet Island (Bouvetoya)",
+		"Brazil",
+		"British Indian Ocean Territory (Chagos Archipelago)",
+		"Brunei Darussalam",
+		"Bulgaria",
+		"Burkina Faso",
+		"Burundi",
+		"Cambodia",
+		"Cameroon",
+		"Canada",
+		"Cape Verde",
+		"Cayman Islands",
+		"Central African Republic",
+		"Chad",
+		"Chile",
+		"China",
+		"Christmas Island",
+		"Cocos (Keeling) Islands",
+		"Colombia",
+		"Comoros",
+		"Congo",
+		"Cook Islands",
+		"Costa Rica",
+		"Cote d'Ivoire",
+		"Croatia",
+		"Cuba",
+		"Cyprus",
+		"Czech Republic",
+		"Denmark",
+		"Djibouti",
+		"Dominica",
+		"Dominican Republic",
+		"Ecuador",
+		"Egypt",
+		"El Salvador",
+		"Equatorial Guinea",
+		"Eritrea",
+		"Estonia",
+		"Ethiopia",
+		"Faroe Islands",
+		"Falkland Islands (Malvinas)",
+		"Fiji",
+		"Finland",
+		"France",
+		"French Guiana",
+		"French Polynesia",
+		"French Southern Territories",
+		"Gabon",
+		"Gambia",
+		"Georgia",
+		"Germany",
+		"Ghana",
+		"Gibraltar",
+		"Greece",
+		"Greenland",
+		"Grenada",
+		"Guadeloupe",
+		"Guam",
+		"Guatemala",
+		"Guernsey",
+		"Guinea",
+		"Guinea-Bissau",
+		"Guyana",
+		"Haiti",
+		"Heard Island and McDonald Islands",
+		"Holy See (Vatican City State)",
+		"Honduras",
+		"Hong Kong",
+		"Hungary",
+		"Iceland",
+		"India",
+		"Indonesia",
+		"Iran",
+		"Iraq",
+		"Ireland",
+		"Isle of Man",
+		"Israel",
+		"Italy",
+		"Jamaica",
+		"Japan",
+		"Jersey",
+		"Jordan",
+		"Kazakhstan",
+		"Kenya",
+		"Kiribati",
+		"Democratic People's Republic of Korea",
+		"Republic of Korea",
+		"Kuwait",
+		"Kyrgyz Republic",
+		"Lao People's Democratic Republic",
+		"Latvia",
+		"Lebanon",
+		"Lesotho",
+		"Liberia",
+		"Libyan Arab Jamahiriya",
+		"Liechtenstein",
+		"Lithuania",
+		"Luxembourg",
+		"Macao",
+		"Macedonia",
+		"Madagascar",
+		"Malawi",
+		"Malaysia",
+		"Maldives",
+		"Mali",
+		"Malta",
+		"Marshall Islands",
+		"Martinique",
+		"Mauritania",
+		"Mauritius",
+		"Mayotte",
+		"Mexico",
+		"Micronesia",
+		"Moldova",
+		"Monaco",
+		"Mongolia",
+		"Montenegro",
+		"Montserrat",
+		"Morocco",
+		"Mozambique",
+		"Myanmar",
+		"Namibia",
+		"Nauru",
+		"Nepal",
+		"Netherlands Antilles",
+		"Netherlands",
+		"New Caledonia",
+		"New Zealand",
+		"Nicaragua",
+		"Niger",
+		"Nigeria",
+		"Niue",
+		"Norfolk Island",
+		"Northern Mariana Islands",
+		"Norway",
+		"Oman",
+		"Pakistan",
+		"Palau",
+		"Palestinian Territory",
+		"Panama",
+		"Papua New Guinea",
+		"Paraguay",
+		"Peru",
+		"Philippines",
+		"Pitcairn Islands",
+		"Poland",
+		"Portugal",
+		"Puerto Rico",
+		"Qatar",
+		"Reunion",
+		"Romania",
+		"Russian Federation",
+		"Rwanda",
+		"Saint Barthelemy",
+		"Saint Helena",
+		"Saint Kitts and Nevis",
+		"Saint Lucia",
+		"Saint Martin",
+		"Saint Pierre and Miquelon",
+		"Saint Vincent and the Grenadines",
+		"Samoa",
+		"San Marino",
+		"Sao Tome and Principe",
+		"Saudi Arabia",
+		"Senegal",
+		"Serbia",
+		"Seychelles",
+		"Sierra Leone",
+		"Singapore",
+		"Slovakia (Slovak Republic)",
+		"Slovenia",
+		"Solomon Islands",
+		"Somalia",
+		"South Africa",
+		"South Georgia and the South Sandwich Islands",
+		"Spain",
+		"Sri Lanka",
+		"Sudan",
+		"Suriname",
+		"Svalbard & Jan Mayen Islands",
+		"Swaziland",
+		"Sweden",
+		"Switzerland",
+		"Syrian Arab Republic",
+		"Taiwan",
+		"Tajikistan",
+		"Tanzania",
+		"Thailand",
+		"Timor-Leste",
+		"Togo",
+		"Tokelau",
+		"Tonga",
+		"Trinidad and Tobago",
+		"Tunisia",
+		"Turkey",
+		"Turkmenistan",
+		"Turks and Caicos Islands",
+		"Tuvalu",
+		"Uganda",
+		"Ukraine",
+		"United Arab Emirates",
+		"United Kingdom",
+		"United States of America",
+		"United States Minor Outlying Islands",
+		"Uruguay",
+		"Uzbekistan",
+		"Vanuatu",
+		"Venezuela",
+		"Vietnam",
+		"Virgin Islands",
+		"British",
+		"Virgin Islands",
+		"U.S.",
+		"Wallis and Futuna",
+		"Western Sahara",
+		"Yemen",
+		"Zambia",
+		"Zimbabwe"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string addressTimeZone() {
+		auto data = [
+		"Pacific/Midway",
+		"Pacific/Pago_Pago",
+		"Pacific/Honolulu",
+		"America/Juneau",
+		"America/Los_Angeles",
+		"America/Tijuana",
+		"America/Denver",
+		"America/Phoenix",
+		"America/Chihuahua",
+		"America/Mazatlan",
+		"America/Chicago",
+		"America/Regina",
+		"America/Mexico_City",
+		"America/Mexico_City",
+		"America/Monterrey",
+		"America/Guatemala",
+		"America/New_York",
+		"America/Indiana/Indianapolis",
+		"America/Bogota",
+		"America/Lima",
+		"America/Lima",
+		"America/Halifax",
+		"America/Caracas",
+		"America/La_Paz",
+		"America/Santiago",
+		"America/St_Johns",
+		"America/Sao_Paulo",
+		"America/Argentina/Buenos_Aires",
+		"America/Guyana",
+		"America/Godthab",
+		"Atlantic/South_Georgia",
+		"Atlantic/Azores",
+		"Atlantic/Cape_Verde",
+		"Europe/Dublin",
+		"Europe/London",
+		"Europe/Lisbon",
+		"Europe/London",
+		"Africa/Casablanca",
+		"Africa/Monrovia",
+		"Etc/UTC",
+		"Europe/Belgrade",
+		"Europe/Bratislava",
+		"Europe/Budapest",
+		"Europe/Ljubljana",
+		"Europe/Prague",
+		"Europe/Sarajevo",
+		"Europe/Skopje",
+		"Europe/Warsaw",
+		"Europe/Zagreb",
+		"Europe/Brussels",
+		"Europe/Copenhagen",
+		"Europe/Madrid",
+		"Europe/Paris",
+		"Europe/Amsterdam",
+		"Europe/Berlin",
+		"Europe/Berlin",
+		"Europe/Rome",
+		"Europe/Stockholm",
+		"Europe/Vienna",
+		"Africa/Algiers",
+		"Europe/Bucharest",
+		"Africa/Cairo",
+		"Europe/Helsinki",
+		"Europe/Kiev",
+		"Europe/Riga",
+		"Europe/Sofia",
+		"Europe/Tallinn",
+		"Europe/Vilnius",
+		"Europe/Athens",
+		"Europe/Istanbul",
+		"Europe/Minsk",
+		"Asia/Jerusalem",
+		"Africa/Harare",
+		"Africa/Johannesburg",
+		"Europe/Moscow",
+		"Europe/Moscow",
+		"Europe/Moscow",
+		"Asia/Kuwait",
+		"Asia/Riyadh",
+		"Africa/Nairobi",
+		"Asia/Baghdad",
+		"Asia/Tehran",
+		"Asia/Muscat",
+		"Asia/Muscat",
+		"Asia/Baku",
+		"Asia/Tbilisi",
+		"Asia/Yerevan",
+		"Asia/Kabul",
+		"Asia/Yekaterinburg",
+		"Asia/Karachi",
+		"Asia/Karachi",
+		"Asia/Tashkent",
+		"Asia/Kolkata",
+		"Asia/Kolkata",
+		"Asia/Kolkata",
+		"Asia/Kolkata",
+		"Asia/Kathmandu",
+		"Asia/Dhaka",
+		"Asia/Dhaka",
+		"Asia/Colombo",
+		"Asia/Almaty",
+		"Asia/Novosibirsk",
+		"Asia/Rangoon",
+		"Asia/Bangkok",
+		"Asia/Bangkok",
+		"Asia/Jakarta",
+		"Asia/Krasnoyarsk",
+		"Asia/Shanghai",
+		"Asia/Chongqing",
+		"Asia/Hong_Kong",
+		"Asia/Urumqi",
+		"Asia/Kuala_Lumpur",
+		"Asia/Singapore",
+		"Asia/Taipei",
+		"Australia/Perth",
+		"Asia/Irkutsk",
+		"Asia/Ulaanbaatar",
+		"Asia/Seoul",
+		"Asia/Tokyo",
+		"Asia/Tokyo",
+		"Asia/Tokyo",
+		"Asia/Yakutsk",
+		"Australia/Darwin",
+		"Australia/Adelaide",
+		"Australia/Melbourne",
+		"Australia/Melbourne",
+		"Australia/Sydney",
+		"Australia/Brisbane",
+		"Australia/Hobart",
+		"Asia/Vladivostok",
+		"Pacific/Guam",
+		"Pacific/Port_Moresby",
+		"Asia/Magadan",
+		"Asia/Magadan",
+		"Pacific/Noumea",
+		"Pacific/Fiji",
+		"Asia/Kamchatka",
+		"Pacific/Majuro",
+		"Pacific/Auckland",
+		"Pacific/Auckland",
+		"Pacific/Tongatapu",
+		"Pacific/Fakaofo",
+		"Pacific/Apia"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	string addressCity() {
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
+			case 2: return nameFirstName() ~ addressCitySuffix();
+			case 3: return nameLastName() ~ addressCitySuffix();
+			case 4: return addressCityName();
+		}
+	}
+
+	///
+	string addressCountryCode() {
+		auto data = [
+		"AD",
+		"AE",
+		"AF",
+		"AG",
+		"AI",
+		"AL",
+		"AM",
+		"AO",
+		"AQ",
+		"AR",
+		"AS",
+		"AT",
+		"AU",
+		"AW",
+		"AX",
+		"AZ",
+		"BA",
+		"BB",
+		"BD",
+		"BE",
+		"BF",
+		"BG",
+		"BH",
+		"BI",
+		"BJ",
+		"BL",
+		"BM",
+		"BN",
+		"BO",
+		"BQ",
+		"BR",
+		"BS",
+		"BT",
+		"BV",
+		"BW",
+		"BY",
+		"BZ",
+		"CA",
+		"CC",
+		"CD",
+		"CF",
+		"CG",
+		"CH",
+		"CI",
+		"CK",
+		"CL",
+		"CM",
+		"CN",
+		"CO",
+		"CR",
+		"CU",
+		"CV",
+		"CW",
+		"CX",
+		"CY",
+		"CZ",
+		"DE",
+		"DJ",
+		"DK",
+		"DM",
+		"DO",
+		"DZ",
+		"EC",
+		"EE",
+		"EG",
+		"EH",
+		"ER",
+		"ES",
+		"ET",
+		"FI",
+		"FJ",
+		"FK",
+		"FM",
+		"FO",
+		"FR",
+		"GA",
+		"GB",
+		"GD",
+		"GE",
+		"GF",
+		"GG",
+		"GH",
+		"GI",
+		"GL",
+		"GM",
+		"GN",
+		"GP",
+		"GQ",
+		"GR",
+		"GS",
+		"GT",
+		"GU",
+		"GW",
+		"GY",
+		"HK",
+		"HM",
+		"HN",
+		"HR",
+		"HT",
+		"HU",
+		"ID",
+		"IE",
+		"IL",
+		"IM",
+		"IN",
+		"IO",
+		"IQ",
+		"IR",
+		"IS",
+		"IT",
+		"JE",
+		"JM",
+		"JO",
+		"JP",
+		"KE",
+		"KG",
+		"KH",
+		"KI",
+		"KM",
+		"KN",
+		"KP",
+		"KR",
+		"KW",
+		"KY",
+		"KZ",
+		"LA",
+		"LB",
+		"LC",
+		"LI",
+		"LK",
+		"LR",
+		"LS",
+		"LT",
+		"LU",
+		"LV",
+		"LY",
+		"MA",
+		"MC",
+		"MD",
+		"ME",
+		"MF",
+		"MG",
+		"MH",
+		"MK",
+		"ML",
+		"MM",
+		"MN",
+		"MO",
+		"MP",
+		"MQ",
+		"MR",
+		"MS",
+		"MT",
+		"MU",
+		"MV",
+		"MW",
+		"MX",
+		"MY",
+		"MZ",
+		"NA",
+		"NC",
+		"NE",
+		"NF",
+		"NG",
+		"NI",
+		"NL",
+		"NO",
+		"NP",
+		"NR",
+		"NU",
+		"NZ",
+		"OM",
+		"PA",
+		"PE",
+		"PF",
+		"PG",
+		"PH",
+		"PK",
+		"PL",
+		"PM",
+		"PN",
+		"PR",
+		"PS",
+		"PT",
+		"PW",
+		"PY",
+		"QA",
+		"RE",
+		"RO",
+		"RS",
+		"RU",
+		"RW",
+		"SA",
+		"SB",
+		"SC",
+		"SD",
+		"SE",
+		"SG",
+		"SH",
+		"SI",
+		"SJ",
+		"SK",
+		"SL",
+		"SM",
+		"SN",
+		"SO",
+		"SR",
+		"SS",
+		"ST",
+		"SV",
+		"SX",
+		"SY",
+		"SZ",
+		"TC",
+		"TD",
+		"TF",
+		"TG",
+		"TH",
+		"TJ",
+		"TK",
+		"TL",
+		"TM",
+		"TN",
+		"TO",
+		"TR",
+		"TT",
+		"TV",
+		"TW",
+		"TZ",
+		"UA",
+		"UG",
+		"UM",
+		"US",
+		"UY",
+		"UZ",
+		"VA",
+		"VC",
+		"VE",
+		"VG",
+		"VI",
+		"VN",
+		"VU",
+		"WF",
+		"WS",
+		"YE",
+		"YT",
+		"ZA",
+		"ZM",
+		"ZW"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string addressBuildingNumber() {
+		auto data = [
+		"#####",
+		"####",
+		"###'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	string addressSecondaryAddress() {
+		auto data = [
+		"Apt. ###",
+		"Suite ###'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	string addressPostcode() {
+		auto data = [
+		"#####",
+		"#####-####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	string addressStreetSuffix() {
+		auto data = [
+		"Alley",
+		"Avenue",
+		"Branch",
+		"Bridge",
+		"Brook",
+		"Brooks",
+		"Burg",
+		"Burgs",
+		"Bypass",
+		"Camp",
+		"Canyon",
+		"Cape",
+		"Causeway",
+		"Center",
+		"Centers",
+		"Circle",
+		"Circles",
+		"Cliff",
+		"Cliffs",
+		"Club",
+		"Common",
+		"Corner",
+		"Corners",
+		"Course",
+		"Court",
+		"Courts",
+		"Cove",
+		"Coves",
+		"Creek",
+		"Crescent",
+		"Crest",
+		"Crossing",
+		"Crossroad",
+		"Curve",
+		"Dale",
+		"Dam",
+		"Divide",
+		"Drive",
+		"Drive",
+		"Drives",
+		"Estate",
+		"Estates",
+		"Expressway",
+		"Extension",
+		"Extensions",
+		"Fall",
+		"Falls",
+		"Ferry",
+		"Field",
+		"Fields",
+		"Flat",
+		"Flats",
+		"Ford",
+		"Fords",
+		"Forest",
+		"Forge",
+		"Forges",
+		"Fork",
+		"Forks",
+		"Fort",
+		"Freeway",
+		"Garden",
+		"Gardens",
+		"Gateway",
+		"Glen",
+		"Glens",
+		"Green",
+		"Greens",
+		"Grove",
+		"Groves",
+		"Harbor",
+		"Harbors",
+		"Haven",
+		"Heights",
+		"Highway",
+		"Hill",
+		"Hills",
+		"Hollow",
+		"Inlet",
+		"Inlet",
+		"Island",
+		"Island",
+		"Islands",
+		"Islands",
+		"Isle",
+		"Isle",
+		"Junction",
+		"Junctions",
+		"Key",
+		"Keys",
+		"Knoll",
+		"Knolls",
+		"Lake",
+		"Lakes",
+		"Land",
+		"Landing",
+		"Lane",
+		"Light",
+		"Lights",
+		"Loaf",
+		"Lock",
+		"Locks",
+		"Locks",
+		"Lodge",
+		"Lodge",
+		"Loop",
+		"Mall",
+		"Manor",
+		"Manors",
+		"Meadow",
+		"Meadows",
+		"Mews",
+		"Mill",
+		"Mills",
+		"Mission",
+		"Mission",
+		"Motorway",
+		"Mount",
+		"Mountain",
+		"Mountain",
+		"Mountains",
+		"Mountains",
+		"Neck",
+		"Orchard",
+		"Oval",
+		"Overpass",
+		"Park",
+		"Parks",
+		"Parkway",
+		"Parkways",
+		"Pass",
+		"Passage",
+		"Path",
+		"Pike",
+		"Pine",
+		"Pines",
+		"Place",
+		"Plain",
+		"Plains",
+		"Plains",
+		"Plaza",
+		"Plaza",
+		"Point",
+		"Points",
+		"Port",
+		"Port",
+		"Ports",
+		"Ports",
+		"Prairie",
+		"Prairie",
+		"Radial",
+		"Ramp",
+		"Ranch",
+		"Rapid",
+		"Rapids",
+		"Rest",
+		"Ridge",
+		"Ridges",
+		"River",
+		"Road",
+		"Road",
+		"Roads",
+		"Roads",
+		"Route",
+		"Row",
+		"Rue",
+		"Run",
+		"Shoal",
+		"Shoals",
+		"Shore",
+		"Shores",
+		"Skyway",
+		"Spring",
+		"Springs",
+		"Springs",
+		"Spur",
+		"Spurs",
+		"Square",
+		"Square",
+		"Squares",
+		"Squares",
+		"Station",
+		"Station",
+		"Stravenue",
+		"Stravenue",
+		"Stream",
+		"Stream",
+		"Street",
+		"Street",
+		"Streets",
+		"Summit",
+		"Summit",
+		"Terrace",
+		"Throughway",
+		"Trace",
+		"Track",
+		"Trafficway",
+		"Trail",
+		"Trail",
+		"Tunnel",
+		"Tunnel",
+		"Turnpike",
+		"Turnpike",
+		"Underpass",
+		"Union",
+		"Unions",
+		"Valley",
+		"Valleys",
+		"Via",
+		"Viaduct",
+		"View",
+		"Views",
+		"Village",
+		"Village",
+		"Villages",
+		"Ville",
+		"Vista",
+		"Vista",
+		"Walk",
+		"Walks",
+		"Wall",
+		"Way",
+		"Ways",
+		"Well",
+		"Wells"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	string wordConjunction() {
 		auto data = [
 		"after",
-		"after all",
 		"although",
 		"and",
 		"as",
-		"as a result",
-		"as if",
-		"as long as",
-		"as much as",
-		"as soon as",
-		"as though",
 		"because",
 		"before",
 		"but",
 		"consequently",
 		"even",
-		"even if",
-		"even though",
 		"finally",
 		"for",
-		"for example",
 		"furthermore",
 		"hence",
+		"how",
 		"however",
 		"if",
-		"if only",
-		"if then",
-		"if when",
-		"in addition",
-		"in fact",
-		"in order that",
 		"inasmuch",
 		"incidentally",
 		"indeed",
 		"instead",
-		"just as",
 		"lest",
 		"likewise",
 		"meanwhile",
 		"nor",
 		"now",
-		"now since",
-		"now that",
-		"now when",
 		"once",
 		"or",
 		"provided",
-		"provided that",
-		"rather than",
 		"since",
 		"so",
-		"so that",
 		"supposing",
+		"than",
 		"that",
 		"though",
+		"till",
+		"unless",
 		"until",
+		"what",
+		"when",
 		"whenever",
+		"where",
 		"whereas",
 		"wherever",
+		"whether",
 		"which",
+		"while",
 		"who",
+		"whoever",
+		"whose",
+		"why",
 		"yet"
 		];
 		return choice(data, this.rnd);
@@ -13942,7 +17841,6 @@ class Faker {
 		"consumer",
 		"consumption",
 		"contact",
-		"contact lens",
 		"contagion",
 		"container",
 		"content",
@@ -14086,7 +17984,6 @@ class Faker {
 		"credit",
 		"creditor",
 		"creek",
-		"creme brulee",
 		"crepe",
 		"crest",
 		"crew",
@@ -14541,9 +18438,7 @@ class Faker {
 		"dulcimer",
 		"dumbwaiter",
 		"dump",
-		"dump truck",
 		"dune",
-		"dune buggy",
 		"dungarees",
 		"dungeon",
 		"duplexer",
@@ -14551,7 +18446,6 @@ class Faker {
 		"durian",
 		"dusk",
 		"dust",
-		"dust storm",
 		"duster",
 		"duty",
 		"dwarf",
@@ -20748,7 +24642,7 @@ class Faker {
 		"whoa",
 		"yowza",
 		"huzzah",
-		"boo hoo",
+		"boohoo",
 		"fooey",
 		"geez",
 		"pfft",
@@ -20774,7 +24668,6 @@ class Faker {
 		"duh",
 		"ha",
 		"mmm",
-		"tsk tsk",
 		"ouch",
 		"phew",
 		"ack",
@@ -27305,3731 +31198,6 @@ class Faker {
 	}
 
 	///
-	string commerceProductDescription() {
-		auto data = [
-		"Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-		"The automobile layout consists of a front-engine design",
-		"with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-		"New ABC 13 9370",
-		"13.3",
-		"5th Gen CoreA5-8250U",
-		"8GB RAM",
-		"256GB SSD",
-		"power UHD Graphics",
-		"OS 10 Home",
-		"OS Office A & J 2016",
-		"The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-		"The Apollotech B340 is an affordable wireless mouse with reliable connectivity",
-		"12 months battery life and modern design",
-		"The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes",
-		"that started with the 1984 ABC800J",
-		"The Football Is Good For Training And Recreational Purposes",
-		"Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-		"Boston's most advanced compression wear technology increases muscle oxygenation",
-		"stabilizes active muscles",
-		"New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-		"The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-		"Andy shoes are designed to keeping in mind durability as well as trends",
-		"the most stylish range of shoes & sandals"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string commerceDepartment() {
-		auto data = [
-		"Books",
-		"Movies",
-		"Music",
-		"Games",
-		"Electronics",
-		"Computers",
-		"Home",
-		"Garden",
-		"Tools",
-		"Grocery",
-		"Health",
-		"Beauty",
-		"Toys",
-		"Kids",
-		"Baby",
-		"Clothing",
-		"Shoes",
-		"Jewelery",
-		"Sports",
-		"Outdoors",
-		"Automotive",
-		"Industrial"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressCityName() {
-		auto data = [
-		"Abilene",
-		"Akron",
-		"Alafaya",
-		"Alameda",
-		"Albany",
-		"Albany",
-		"Albany",
-		"Albuquerque",
-		"Alexandria",
-		"Alexandria",
-		"Alhambra",
-		"Aliso Viejo",
-		"Allen",
-		"Allentown",
-		"Aloha",
-		"Alpharetta",
-		"Altadena",
-		"Altamonte Springs",
-		"Altoona",
-		"Amarillo",
-		"Ames",
-		"Anaheim",
-		"Anchorage",
-		"Anderson",
-		"Ankeny",
-		"Ann Arbor",
-		"Annandale",
-		"Antelope",
-		"Antioch",
-		"Apex",
-		"Apopka",
-		"Apple Valley",
-		"Apple Valley",
-		"Appleton",
-		"Arcadia",
-		"Arden-Arcade",
-		"Arecibo",
-		"Arlington",
-		"Arlington",
-		"Arlington",
-		"Arlington Heights",
-		"Arvada",
-		"Ashburn",
-		"Asheville",
-		"Aspen Hill",
-		"Atascocita",
-		"Athens-Clarke County",
-		"Atlanta",
-		"Attleboro",
-		"Auburn",
-		"Auburn",
-		"Augusta-Richmond County",
-		"Aurora",
-		"Aurora",
-		"Austin",
-		"Avondale",
-		"Azusa",
-		"Bakersfield",
-		"Baldwin Park",
-		"Baltimore",
-		"Barnstable Town",
-		"Bartlett",
-		"Bartlett",
-		"Baton Rouge",
-		"Battle Creek",
-		"Bayamon",
-		"Bayonne",
-		"Baytown",
-		"Beaumont",
-		"Beaumont",
-		"Beavercreek",
-		"Beaverton",
-		"Bedford",
-		"Bel Air South",
-		"Bell Gardens",
-		"Belleville",
-		"Bellevue",
-		"Bellevue",
-		"Bellflower",
-		"Bellingham",
-		"Bend",
-		"Bentonville",
-		"Berkeley",
-		"Berwyn",
-		"Bethesda",
-		"Bethlehem",
-		"Billings",
-		"Biloxi",
-		"Binghamton",
-		"Birmingham",
-		"Bismarck",
-		"Blacksburg",
-		"Blaine",
-		"Bloomington",
-		"Bloomington",
-		"Bloomington",
-		"Blue Springs",
-		"Boca Raton",
-		"Boise City",
-		"Bolingbrook",
-		"Bonita Springs",
-		"Bossier City",
-		"Boston",
-		"Bothell",
-		"Boulder",
-		"Bountiful",
-		"Bowie",
-		"Bowling Green",
-		"Boynton Beach",
-		"Bozeman",
-		"Bradenton",
-		"Brandon",
-		"Brentwood",
-		"Brentwood",
-		"Bridgeport",
-		"Bristol",
-		"Brockton",
-		"Broken Arrow",
-		"Brookhaven",
-		"Brookline",
-		"Brooklyn Park",
-		"Broomfield",
-		"Brownsville",
-		"Bryan",
-		"Buckeye",
-		"Buena Park",
-		"Buffalo",
-		"Buffalo Grove",
-		"Burbank",
-		"Burien",
-		"Burke",
-		"Burleson",
-		"Burlington",
-		"Burlington",
-		"Burnsville",
-		"Caguas",
-		"Caldwell",
-		"Camarillo",
-		"Cambridge",
-		"Camden",
-		"Canton",
-		"Cape Coral",
-		"Carlsbad",
-		"Carmel",
-		"Carmichael",
-		"Carolina",
-		"Carrollton",
-		"Carson",
-		"Carson City",
-		"Cary",
-		"Casa Grande",
-		"Casas Adobes",
-		"Casper",
-		"Castle Rock",
-		"Castro Valley",
-		"Catalina Foothills",
-		"Cathedral City",
-		"Catonsville",
-		"Cedar Hill",
-		"Cedar Park",
-		"Cedar Rapids",
-		"Centennial",
-		"Centreville",
-		"Ceres",
-		"Cerritos",
-		"Champaign",
-		"Chandler",
-		"Chapel Hill",
-		"Charleston",
-		"Charleston",
-		"Charlotte",
-		"Charlottesville",
-		"Chattanooga",
-		"Cheektowaga",
-		"Chesapeake",
-		"Chesterfield",
-		"Cheyenne",
-		"Chicago",
-		"Chico",
-		"Chicopee",
-		"Chino",
-		"Chino Hills",
-		"Chula Vista",
-		"Cicero",
-		"Cincinnati",
-		"Citrus Heights",
-		"Clarksville",
-		"Clearwater",
-		"Cleveland",
-		"Cleveland",
-		"Cleveland Heights",
-		"Clifton",
-		"Clovis",
-		"Coachella",
-		"Coconut Creek",
-		"Coeur d'Alene",
-		"College Station",
-		"Collierville",
-		"Colorado Springs",
-		"Colton",
-		"Columbia",
-		"Columbia",
-		"Columbia",
-		"Columbus",
-		"Columbus",
-		"Columbus",
-		"Commerce City",
-		"Compton",
-		"Concord",
-		"Concord",
-		"Concord",
-		"Conroe",
-		"Conway",
-		"Coon Rapids",
-		"Coral Gables",
-		"Coral Springs",
-		"Corona",
-		"Corpus Christi",
-		"Corvallis",
-		"Costa Mesa",
-		"Council Bluffs",
-		"Country Club",
-		"Covina",
-		"Cranston",
-		"Cupertino",
-		"Cutler Bay",
-		"Cuyahoga Falls",
-		"Cypress",
-		"Dale City",
-		"Dallas",
-		"Daly City",
-		"Danbury",
-		"Danville",
-		"Danville",
-		"Davenport",
-		"Davie",
-		"Davis",
-		"Dayton",
-		"Daytona Beach",
-		"DeKalb",
-		"DeSoto",
-		"Dearborn",
-		"Dearborn Heights",
-		"Decatur",
-		"Decatur",
-		"Deerfield Beach",
-		"Delano",
-		"Delray Beach",
-		"Deltona",
-		"Denton",
-		"Denver",
-		"Des Moines",
-		"Des Plaines",
-		"Detroit",
-		"Diamond Bar",
-		"Doral",
-		"Dothan",
-		"Downers Grove",
-		"Downey",
-		"Draper",
-		"Dublin",
-		"Dublin",
-		"Dubuque",
-		"Duluth",
-		"Dundalk",
-		"Dunwoody",
-		"Durham",
-		"Eagan",
-		"East Hartford",
-		"East Honolulu",
-		"East Lansing",
-		"East Los Angeles",
-		"East Orange",
-		"East Providence",
-		"Eastvale",
-		"Eau Claire",
-		"Eden Prairie",
-		"Edina",
-		"Edinburg",
-		"Edmond",
-		"El Cajon",
-		"El Centro",
-		"El Dorado Hills",
-		"El Monte",
-		"El Paso",
-		"Elgin",
-		"Elizabeth",
-		"Elk Grove",
-		"Elkhart",
-		"Ellicott City",
-		"Elmhurst",
-		"Elyria",
-		"Encinitas",
-		"Enid",
-		"Enterprise",
-		"Erie",
-		"Escondido",
-		"Euclid",
-		"Eugene",
-		"Euless",
-		"Evanston",
-		"Evansville",
-		"Everett",
-		"Everett",
-		"Fairfield",
-		"Fairfield",
-		"Fall River",
-		"Fargo",
-		"Farmington",
-		"Farmington Hills",
-		"Fayetteville",
-		"Fayetteville",
-		"Federal Way",
-		"Findlay",
-		"Fishers",
-		"Flagstaff",
-		"Flint",
-		"Florence-Graham",
-		"Florin",
-		"Florissant",
-		"Flower Mound",
-		"Folsom",
-		"Fond du Lac",
-		"Fontana",
-		"Fort Collins",
-		"Fort Lauderdale",
-		"Fort Myers",
-		"Fort Pierce",
-		"Fort Smith",
-		"Fort Wayne",
-		"Fort Worth",
-		"Fountain Valley",
-		"Fountainebleau",
-		"Framingham",
-		"Franklin",
-		"Frederick",
-		"Freeport",
-		"Fremont",
-		"Fresno",
-		"Frisco",
-		"Fullerton",
-		"Gainesville",
-		"Gaithersburg",
-		"Galveston",
-		"Garden Grove",
-		"Gardena",
-		"Garland",
-		"Gary",
-		"Gastonia",
-		"Georgetown",
-		"Germantown",
-		"Gilbert",
-		"Gilroy",
-		"Glen Burnie",
-		"Glendale",
-		"Glendale",
-		"Glendora",
-		"Glenview",
-		"Goodyear",
-		"Grand Forks",
-		"Grand Island",
-		"Grand Junction",
-		"Grand Prairie",
-		"Grand Rapids",
-		"Grapevine",
-		"Great Falls",
-		"Greeley",
-		"Green Bay",
-		"Greensboro",
-		"Greenville",
-		"Greenville",
-		"Greenwood",
-		"Gresham",
-		"Guaynabo",
-		"Gulfport",
-		"Hacienda Heights",
-		"Hackensack",
-		"Haltom City",
-		"Hamilton",
-		"Hammond",
-		"Hampton",
-		"Hanford",
-		"Harlingen",
-		"Harrisburg",
-		"Harrisonburg",
-		"Hartford",
-		"Hattiesburg",
-		"Haverhill",
-		"Hawthorne",
-		"Hayward",
-		"Hemet",
-		"Hempstead",
-		"Henderson",
-		"Hendersonville",
-		"Hesperia",
-		"Hialeah",
-		"Hicksville",
-		"High Point",
-		"Highland",
-		"Highlands Ranch",
-		"Hillsboro",
-		"Hilo",
-		"Hoboken",
-		"Hoffman Estates",
-		"Hollywood",
-		"Homestead",
-		"Honolulu",
-		"Hoover",
-		"Houston",
-		"Huntersville",
-		"Huntington",
-		"Huntington Beach",
-		"Huntington Park",
-		"Huntsville",
-		"Hutchinson",
-		"Idaho Falls",
-		"Independence",
-		"Indianapolis",
-		"Indio",
-		"Inglewood",
-		"Iowa City",
-		"Irondequoit",
-		"Irvine",
-		"Irving",
-		"Jackson",
-		"Jackson",
-		"Jacksonville",
-		"Jacksonville",
-		"Janesville",
-		"Jefferson City",
-		"Jeffersonville",
-		"Jersey City",
-		"Johns Creek",
-		"Johnson City",
-		"Joliet",
-		"Jonesboro",
-		"Joplin",
-		"Jupiter",
-		"Jurupa Valley",
-		"Kalamazoo",
-		"Kannapolis",
-		"Kansas City",
-		"Kansas City",
-		"Kearny",
-		"Keller",
-		"Kendale Lakes",
-		"Kendall",
-		"Kenner",
-		"Kennewick",
-		"Kenosha",
-		"Kent",
-		"Kentwood",
-		"Kettering",
-		"Killeen",
-		"Kingsport",
-		"Kirkland",
-		"Kissimmee",
-		"Knoxville",
-		"Kokomo",
-		"La Crosse",
-		"La Habra",
-		"La Mesa",
-		"La Mirada",
-		"Lacey",
-		"Lafayette",
-		"Lafayette",
-		"Laguna Niguel",
-		"Lake Charles",
-		"Lake Elsinore",
-		"Lake Forest",
-		"Lake Havasu City",
-		"Lake Ridge",
-		"Lakeland",
-		"Lakeville",
-		"Lakewood",
-		"Lakewood",
-		"Lakewood",
-		"Lakewood",
-		"Lakewood",
-		"Lancaster",
-		"Lancaster",
-		"Lansing",
-		"Laredo",
-		"Largo",
-		"Las Cruces",
-		"Las Vegas",
-		"Lauderhill",
-		"Lawrence",
-		"Lawrence",
-		"Lawrence",
-		"Lawton",
-		"Layton",
-		"League City",
-		"Lee's Summit",
-		"Leesburg",
-		"Lehi",
-		"Lehigh Acres",
-		"Lenexa",
-		"Levittown",
-		"Levittown",
-		"Lewisville",
-		"Lexington-Fayette",
-		"Lincoln",
-		"Lincoln",
-		"Linden",
-		"Little Rock",
-		"Littleton",
-		"Livermore",
-		"Livonia",
-		"Lodi",
-		"Logan",
-		"Lombard",
-		"Lompoc",
-		"Long Beach",
-		"Longmont",
-		"Longview",
-		"Lorain",
-		"Los Angeles",
-		"Louisville/Jefferson County",
-		"Loveland",
-		"Lowell",
-		"Lubbock",
-		"Lynchburg",
-		"Lynn",
-		"Lynwood",
-		"Macon-Bibb County",
-		"Madera",
-		"Madison",
-		"Madison",
-		"Malden",
-		"Manchester",
-		"Manhattan",
-		"Mansfield",
-		"Mansfield",
-		"Manteca",
-		"Maple Grove",
-		"Margate",
-		"Maricopa",
-		"Marietta",
-		"Marysville",
-		"Mayaguez",
-		"McAllen",
-		"McKinney",
-		"McLean",
-		"Medford",
-		"Medford",
-		"Melbourne",
-		"Memphis",
-		"Menifee",
-		"Mentor",
-		"Merced",
-		"Meriden",
-		"Meridian",
-		"Mesa",
-		"Mesquite",
-		"Metairie",
-		"Methuen Town",
-		"Miami",
-		"Miami Beach",
-		"Miami Gardens",
-		"Middletown",
-		"Middletown",
-		"Midland",
-		"Midland",
-		"Midwest City",
-		"Milford",
-		"Millcreek",
-		"Milpitas",
-		"Milwaukee",
-		"Minneapolis",
-		"Minnetonka",
-		"Minot",
-		"Miramar",
-		"Mishawaka",
-		"Mission",
-		"Mission Viejo",
-		"Missoula",
-		"Missouri City",
-		"Mobile",
-		"Modesto",
-		"Moline",
-		"Monroe",
-		"Montebello",
-		"Monterey Park",
-		"Montgomery",
-		"Moore",
-		"Moreno Valley",
-		"Morgan Hill",
-		"Mount Pleasant",
-		"Mount Prospect",
-		"Mount Vernon",
-		"Mountain View",
-		"Muncie",
-		"Murfreesboro",
-		"Murray",
-		"Murrieta",
-		"Nampa",
-		"Napa",
-		"Naperville",
-		"Nashua",
-		"Nashville-Davidson",
-		"National City",
-		"New Bedford",
-		"New Braunfels",
-		"New Britain",
-		"New Brunswick",
-		"New Haven",
-		"New Orleans",
-		"New Rochelle",
-		"New York",
-		"Newark",
-		"Newark",
-		"Newark",
-		"Newport Beach",
-		"Newport News",
-		"Newton",
-		"Niagara Falls",
-		"Noblesville",
-		"Norfolk",
-		"Normal",
-		"Norman",
-		"North Bethesda",
-		"North Charleston",
-		"North Highlands",
-		"North Las Vegas",
-		"North Lauderdale",
-		"North Little Rock",
-		"North Miami",
-		"North Miami Beach",
-		"North Port",
-		"North Richland Hills",
-		"Norwalk",
-		"Norwalk",
-		"Novato",
-		"Novi",
-		"O'Fallon",
-		"Oak Lawn",
-		"Oak Park",
-		"Oakland",
-		"Oakland Park",
-		"Ocala",
-		"Oceanside",
-		"Odessa",
-		"Ogden",
-		"Oklahoma City",
-		"Olathe",
-		"Olympia",
-		"Omaha",
-		"Ontario",
-		"Orange",
-		"Orem",
-		"Orland Park",
-		"Orlando",
-		"Oro Valley",
-		"Oshkosh",
-		"Overland Park",
-		"Owensboro",
-		"Oxnard",
-		"Palatine",
-		"Palm Bay",
-		"Palm Beach Gardens",
-		"Palm Coast",
-		"Palm Desert",
-		"Palm Harbor",
-		"Palm Springs",
-		"Palmdale",
-		"Palo Alto",
-		"Paradise",
-		"Paramount",
-		"Parker",
-		"Parma",
-		"Pasadena",
-		"Pasadena",
-		"Pasco",
-		"Passaic",
-		"Paterson",
-		"Pawtucket",
-		"Peabody",
-		"Pearl City",
-		"Pearland",
-		"Pembroke Pines",
-		"Pensacola",
-		"Peoria",
-		"Peoria",
-		"Perris",
-		"Perth Amboy",
-		"Petaluma",
-		"Pflugerville",
-		"Pharr",
-		"Philadelphia",
-		"Phoenix",
-		"Pico Rivera",
-		"Pine Bluff",
-		"Pine Hills",
-		"Pinellas Park",
-		"Pittsburg",
-		"Pittsburgh",
-		"Pittsfield",
-		"Placentia",
-		"Plainfield",
-		"Plainfield",
-		"Plano",
-		"Plantation",
-		"Pleasanton",
-		"Plymouth",
-		"Pocatello",
-		"Poinciana",
-		"Pomona",
-		"Pompano Beach",
-		"Ponce",
-		"Pontiac",
-		"Port Arthur",
-		"Port Charlotte",
-		"Port Orange",
-		"Port St. Lucie",
-		"Portage",
-		"Porterville",
-		"Portland",
-		"Portland",
-		"Portsmouth",
-		"Potomac",
-		"Poway",
-		"Providence",
-		"Provo",
-		"Pueblo",
-		"Quincy",
-		"Racine",
-		"Raleigh",
-		"Rancho Cordova",
-		"Rancho Cucamonga",
-		"Rancho Palos Verdes",
-		"Rancho Santa Margarita",
-		"Rapid City",
-		"Reading",
-		"Redding",
-		"Redlands",
-		"Redmond",
-		"Redondo Beach",
-		"Redwood City",
-		"Reno",
-		"Renton",
-		"Reston",
-		"Revere",
-		"Rialto",
-		"Richardson",
-		"Richland",
-		"Richmond",
-		"Richmond",
-		"Rio Rancho",
-		"Riverside",
-		"Riverton",
-		"Riverview",
-		"Roanoke",
-		"Rochester",
-		"Rochester",
-		"Rochester Hills",
-		"Rock Hill",
-		"Rockford",
-		"Rocklin",
-		"Rockville",
-		"Rockwall",
-		"Rocky Mount",
-		"Rogers",
-		"Rohnert Park",
-		"Rosemead",
-		"Roseville",
-		"Roseville",
-		"Roswell",
-		"Roswell",
-		"Round Rock",
-		"Rowland Heights",
-		"Rowlett",
-		"Royal Oak",
-		"Sacramento",
-		"Saginaw",
-		"Salem",
-		"Salem",
-		"Salina",
-		"Salinas",
-		"Salt Lake City",
-		"Sammamish",
-		"San Angelo",
-		"San Antonio",
-		"San Bernardino",
-		"San Bruno",
-		"San Buenaventura (Ventura)",
-		"San Clemente",
-		"San Diego",
-		"San Francisco",
-		"San Jacinto",
-		"San Jose",
-		"San Juan",
-		"San Leandro",
-		"San Luis Obispo",
-		"San Marcos",
-		"San Marcos",
-		"San Mateo",
-		"San Rafael",
-		"San Ramon",
-		"San Tan Valley",
-		"Sandy",
-		"Sandy Springs",
-		"Sanford",
-		"Santa Ana",
-		"Santa Barbara",
-		"Santa Clara",
-		"Santa Clarita",
-		"Santa Cruz",
-		"Santa Fe",
-		"Santa Maria",
-		"Santa Monica",
-		"Santa Rosa",
-		"Santee",
-		"Sarasota",
-		"Savannah",
-		"Sayreville",
-		"Schaumburg",
-		"Schenectady",
-		"Scottsdale",
-		"Scranton",
-		"Seattle",
-		"Severn",
-		"Shawnee",
-		"Sheboygan",
-		"Shoreline",
-		"Shreveport",
-		"Sierra Vista",
-		"Silver Spring",
-		"Simi Valley",
-		"Sioux City",
-		"Sioux Falls",
-		"Skokie",
-		"Smyrna",
-		"Smyrna",
-		"Somerville",
-		"South Bend",
-		"South Gate",
-		"South Hill",
-		"South Jordan",
-		"South San Francisco",
-		"South Valley",
-		"South Whittier",
-		"Southaven",
-		"Southfield",
-		"Sparks",
-		"Spokane",
-		"Spokane Valley",
-		"Spring",
-		"Spring Hill",
-		"Spring Valley",
-		"Springdale",
-		"Springfield",
-		"Springfield",
-		"Springfield",
-		"Springfield",
-		"Springfield",
-		"St. Charles",
-		"St. Clair Shores",
-		"St. Cloud",
-		"St. Cloud",
-		"St. George",
-		"St. Joseph",
-		"St. Louis",
-		"St. Louis Park",
-		"St. Paul",
-		"St. Peters",
-		"St. Petersburg",
-		"Stamford",
-		"State College",
-		"Sterling Heights",
-		"Stillwater",
-		"Stockton",
-		"Stratford",
-		"Strongsville",
-		"Suffolk",
-		"Sugar Land",
-		"Summerville",
-		"Sunnyvale",
-		"Sunrise",
-		"Sunrise Manor",
-		"Surprise",
-		"Syracuse",
-		"Tacoma",
-		"Tallahassee",
-		"Tamarac",
-		"Tamiami",
-		"Tampa",
-		"Taunton",
-		"Taylor",
-		"Taylorsville",
-		"Temecula",
-		"Tempe",
-		"Temple",
-		"Terre Haute",
-		"Texas City",
-		"The Hammocks",
-		"The Villages",
-		"The Woodlands",
-		"Thornton",
-		"Thousand Oaks",
-		"Tigard",
-		"Tinley Park",
-		"Titusville",
-		"Toledo",
-		"Toms River",
-		"Tonawanda",
-		"Topeka",
-		"Torrance",
-		"Town 'n' Country",
-		"Towson",
-		"Tracy",
-		"Trenton",
-		"Troy",
-		"Troy",
-		"Trujillo Alto",
-		"Tuckahoe",
-		"Tucson",
-		"Tulare",
-		"Tulsa",
-		"Turlock",
-		"Tuscaloosa",
-		"Tustin",
-		"Twin Falls",
-		"Tyler",
-		"Union City",
-		"Union City",
-		"University",
-		"Upland",
-		"Urbana",
-		"Urbandale",
-		"Utica",
-		"Vacaville",
-		"Valdosta",
-		"Vallejo",
-		"Vancouver",
-		"Victoria",
-		"Victorville",
-		"Vineland",
-		"Virginia Beach",
-		"Visalia",
-		"Vista",
-		"Waco",
-		"Waipahu",
-		"Waldorf",
-		"Walnut Creek",
-		"Waltham",
-		"Warner Robins",
-		"Warren",
-		"Warwick",
-		"Washington",
-		"Waterbury",
-		"Waterloo",
-		"Watsonville",
-		"Waukegan",
-		"Waukesha",
-		"Wauwatosa",
-		"Wellington",
-		"Wesley Chapel",
-		"West Allis",
-		"West Babylon",
-		"West Covina",
-		"West Des Moines",
-		"West Hartford",
-		"West Haven",
-		"West Jordan",
-		"West Lafayette",
-		"West New York",
-		"West Palm Beach",
-		"West Sacramento",
-		"West Seneca",
-		"West Valley City",
-		"Westfield",
-		"Westland",
-		"Westminster",
-		"Westminster",
-		"Weston",
-		"Weymouth Town",
-		"Wheaton",
-		"Wheaton",
-		"White Plains",
-		"Whittier",
-		"Wichita",
-		"Wichita Falls",
-		"Wilmington",
-		"Wilmington",
-		"Wilson",
-		"Winston-Salem",
-		"Woodbury",
-		"Woodland",
-		"Worcester",
-		"Wylie",
-		"Wyoming",
-		"Yakima",
-		"Yonkers",
-		"Yorba Linda",
-		"York",
-		"Youngstown",
-		"Yuba City",
-		"Yucaipa",
-		"Yuma"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressState() {
-		auto data = [
-		"Alabama",
-		"Alaska",
-		"Arizona",
-		"Arkansas",
-		"California",
-		"Colorado",
-		"Connecticut",
-		"Delaware",
-		"Florida",
-		"Georgia",
-		"Hawaii",
-		"Idaho",
-		"Illinois",
-		"Indiana",
-		"Iowa",
-		"Kansas",
-		"Kentucky",
-		"Louisiana",
-		"Maine",
-		"Maryland",
-		"Massachusetts",
-		"Michigan",
-		"Minnesota",
-		"Mississippi",
-		"Missouri",
-		"Montana",
-		"Nebraska",
-		"Nevada",
-		"New Hampshire",
-		"New Jersey",
-		"New Mexico",
-		"New York",
-		"North Carolina",
-		"North Dakota",
-		"Ohio",
-		"Oklahoma",
-		"Oregon",
-		"Pennsylvania",
-		"Rhode Island",
-		"South Carolina",
-		"South Dakota",
-		"Tennessee",
-		"Texas",
-		"Utah",
-		"Vermont",
-		"Virginia",
-		"Washington",
-		"West Virginia",
-		"Wisconsin",
-		"Wyoming"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressCountry() {
-		auto data = [
-		"Afghanistan",
-		"Albania",
-		"Algeria",
-		"American Samoa",
-		"Andorra",
-		"Angola",
-		"Anguilla",
-		"Antarctica (the territory South of 60 deg S)",
-		"Antigua and Barbuda",
-		"Argentina",
-		"Armenia",
-		"Aruba",
-		"Australia",
-		"Austria",
-		"Azerbaijan",
-		"Bahamas",
-		"Bahrain",
-		"Bangladesh",
-		"Barbados",
-		"Belarus",
-		"Belgium",
-		"Belize",
-		"Benin",
-		"Bermuda",
-		"Bhutan",
-		"Bolivia",
-		"Bosnia and Herzegovina",
-		"Botswana",
-		"Bouvet Island (Bouvetoya)",
-		"Brazil",
-		"British Indian Ocean Territory (Chagos Archipelago)",
-		"Brunei Darussalam",
-		"Bulgaria",
-		"Burkina Faso",
-		"Burundi",
-		"Cambodia",
-		"Cameroon",
-		"Canada",
-		"Cape Verde",
-		"Cayman Islands",
-		"Central African Republic",
-		"Chad",
-		"Chile",
-		"China",
-		"Christmas Island",
-		"Cocos (Keeling) Islands",
-		"Colombia",
-		"Comoros",
-		"Congo",
-		"Cook Islands",
-		"Costa Rica",
-		"Cote d'Ivoire",
-		"Croatia",
-		"Cuba",
-		"Cyprus",
-		"Czech Republic",
-		"Denmark",
-		"Djibouti",
-		"Dominica",
-		"Dominican Republic",
-		"Ecuador",
-		"Egypt",
-		"El Salvador",
-		"Equatorial Guinea",
-		"Eritrea",
-		"Estonia",
-		"Ethiopia",
-		"Faroe Islands",
-		"Falkland Islands (Malvinas)",
-		"Fiji",
-		"Finland",
-		"France",
-		"French Guiana",
-		"French Polynesia",
-		"French Southern Territories",
-		"Gabon",
-		"Gambia",
-		"Georgia",
-		"Germany",
-		"Ghana",
-		"Gibraltar",
-		"Greece",
-		"Greenland",
-		"Grenada",
-		"Guadeloupe",
-		"Guam",
-		"Guatemala",
-		"Guernsey",
-		"Guinea",
-		"Guinea-Bissau",
-		"Guyana",
-		"Haiti",
-		"Heard Island and McDonald Islands",
-		"Holy See (Vatican City State)",
-		"Honduras",
-		"Hong Kong",
-		"Hungary",
-		"Iceland",
-		"India",
-		"Indonesia",
-		"Iran",
-		"Iraq",
-		"Ireland",
-		"Isle of Man",
-		"Israel",
-		"Italy",
-		"Jamaica",
-		"Japan",
-		"Jersey",
-		"Jordan",
-		"Kazakhstan",
-		"Kenya",
-		"Kiribati",
-		"Democratic People's Republic of Korea",
-		"Republic of Korea",
-		"Kuwait",
-		"Kyrgyz Republic",
-		"Lao People's Democratic Republic",
-		"Latvia",
-		"Lebanon",
-		"Lesotho",
-		"Liberia",
-		"Libyan Arab Jamahiriya",
-		"Liechtenstein",
-		"Lithuania",
-		"Luxembourg",
-		"Macao",
-		"Macedonia",
-		"Madagascar",
-		"Malawi",
-		"Malaysia",
-		"Maldives",
-		"Mali",
-		"Malta",
-		"Marshall Islands",
-		"Martinique",
-		"Mauritania",
-		"Mauritius",
-		"Mayotte",
-		"Mexico",
-		"Micronesia",
-		"Moldova",
-		"Monaco",
-		"Mongolia",
-		"Montenegro",
-		"Montserrat",
-		"Morocco",
-		"Mozambique",
-		"Myanmar",
-		"Namibia",
-		"Nauru",
-		"Nepal",
-		"Netherlands Antilles",
-		"Netherlands",
-		"New Caledonia",
-		"New Zealand",
-		"Nicaragua",
-		"Niger",
-		"Nigeria",
-		"Niue",
-		"Norfolk Island",
-		"Northern Mariana Islands",
-		"Norway",
-		"Oman",
-		"Pakistan",
-		"Palau",
-		"Palestinian Territory",
-		"Panama",
-		"Papua New Guinea",
-		"Paraguay",
-		"Peru",
-		"Philippines",
-		"Pitcairn Islands",
-		"Poland",
-		"Portugal",
-		"Puerto Rico",
-		"Qatar",
-		"Reunion",
-		"Romania",
-		"Russian Federation",
-		"Rwanda",
-		"Saint Barthelemy",
-		"Saint Helena",
-		"Saint Kitts and Nevis",
-		"Saint Lucia",
-		"Saint Martin",
-		"Saint Pierre and Miquelon",
-		"Saint Vincent and the Grenadines",
-		"Samoa",
-		"San Marino",
-		"Sao Tome and Principe",
-		"Saudi Arabia",
-		"Senegal",
-		"Serbia",
-		"Seychelles",
-		"Sierra Leone",
-		"Singapore",
-		"Slovakia (Slovak Republic)",
-		"Slovenia",
-		"Solomon Islands",
-		"Somalia",
-		"South Africa",
-		"South Georgia and the South Sandwich Islands",
-		"Spain",
-		"Sri Lanka",
-		"Sudan",
-		"Suriname",
-		"Svalbard & Jan Mayen Islands",
-		"Swaziland",
-		"Sweden",
-		"Switzerland",
-		"Syrian Arab Republic",
-		"Taiwan",
-		"Tajikistan",
-		"Tanzania",
-		"Thailand",
-		"Timor-Leste",
-		"Togo",
-		"Tokelau",
-		"Tonga",
-		"Trinidad and Tobago",
-		"Tunisia",
-		"Turkey",
-		"Turkmenistan",
-		"Turks and Caicos Islands",
-		"Tuvalu",
-		"Uganda",
-		"Ukraine",
-		"United Arab Emirates",
-		"United Kingdom",
-		"United States of America",
-		"United States Minor Outlying Islands",
-		"Uruguay",
-		"Uzbekistan",
-		"Vanuatu",
-		"Venezuela",
-		"Vietnam",
-		"Virgin Islands",
-		"British",
-		"Virgin Islands",
-		"U.S.",
-		"Wallis and Futuna",
-		"Western Sahara",
-		"Yemen",
-		"Zambia",
-		"Zimbabwe"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressStateAbbr() {
-		auto data = [
-		"AL",
-		"AK",
-		"AZ",
-		"AR",
-		"CA",
-		"CO",
-		"CT",
-		"DE",
-		"FL",
-		"GA",
-		"HI",
-		"ID",
-		"IL",
-		"IN",
-		"IA",
-		"KS",
-		"KY",
-		"LA",
-		"ME",
-		"MD",
-		"MA",
-		"MI",
-		"MN",
-		"MS",
-		"MO",
-		"MT",
-		"NE",
-		"NV",
-		"NH",
-		"NJ",
-		"NM",
-		"NY",
-		"NC",
-		"ND",
-		"OH",
-		"OK",
-		"OR",
-		"PA",
-		"RI",
-		"SC",
-		"SD",
-		"TN",
-		"TX",
-		"UT",
-		"VT",
-		"VA",
-		"WA",
-		"WV",
-		"WI",
-		"WY"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressDefaultCountry() {
-		auto data = [
-		"United States of America'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressDirection() {
-		auto data = [
-		"North",
-		"East",
-		"South",
-		"West",
-		"Northeast",
-		"Northwest",
-		"Southeast",
-		"Southwest"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressCountryCodeAlpha3() {
-		auto data = [
-		"BGD",
-		"BEL",
-		"BFA",
-		"BGR",
-		"BIH",
-		"BRB",
-		"WLF",
-		"BLM",
-		"BMU",
-		"BRN",
-		"BOL",
-		"BHR",
-		"BDI",
-		"BEN",
-		"BTN",
-		"JAM",
-		"BVT",
-		"BWA",
-		"WSM",
-		"BES",
-		"BRA",
-		"BHS",
-		"JEY",
-		"BLR",
-		"BLZ",
-		"RUS",
-		"RWA",
-		"SRB",
-		"TLS",
-		"REU",
-		"TKM",
-		"TJK",
-		"ROU",
-		"TKL",
-		"GNB",
-		"GUM",
-		"GTM",
-		"SGS",
-		"GRC",
-		"GNQ",
-		"GLP",
-		"JPN",
-		"GUY",
-		"GGY",
-		"GUF",
-		"GEO",
-		"GRD",
-		"GBR",
-		"GAB",
-		"SLV",
-		"GIN",
-		"GMB",
-		"GRL",
-		"GIB",
-		"GHA",
-		"OMN",
-		"TUN",
-		"JOR",
-		"HRV",
-		"HTI",
-		"HUN",
-		"HKG",
-		"HND",
-		"HMD",
-		"VEN",
-		"PRI",
-		"PSE",
-		"PLW",
-		"PRT",
-		"SJM",
-		"PRY",
-		"IRQ",
-		"PAN",
-		"PYF",
-		"PNG",
-		"PER",
-		"PAK",
-		"PHL",
-		"PCN",
-		"POL",
-		"SPM",
-		"ZMB",
-		"ESH",
-		"EST",
-		"EGY",
-		"ZAF",
-		"ECU",
-		"ITA",
-		"VNM",
-		"SLB",
-		"ETH",
-		"SOM",
-		"ZWE",
-		"SAU",
-		"ESP",
-		"ERI",
-		"MNE",
-		"MDA",
-		"MDG",
-		"MAF",
-		"MAR",
-		"MCO",
-		"UZB",
-		"MMR",
-		"MLI",
-		"MAC",
-		"MNG",
-		"MHL",
-		"MKD",
-		"MUS",
-		"MLT",
-		"MWI",
-		"MDV",
-		"MTQ",
-		"MNP",
-		"MSR",
-		"MRT",
-		"IMN",
-		"UGA",
-		"TZA",
-		"MYS",
-		"MEX",
-		"ISR",
-		"FRA",
-		"IOT",
-		"SHN",
-		"FIN",
-		"FJI",
-		"FLK",
-		"FSM",
-		"FRO",
-		"NIC",
-		"NLD",
-		"NOR",
-		"NAM",
-		"VUT",
-		"NCL",
-		"NER",
-		"NFK",
-		"NGA",
-		"NZL",
-		"NPL",
-		"NRU",
-		"NIU",
-		"COK",
-		"XKX",
-		"CIV",
-		"CHE",
-		"COL",
-		"CHN",
-		"CMR",
-		"CHL",
-		"CCK",
-		"CAN",
-		"COG",
-		"CAF",
-		"COD",
-		"CZE",
-		"CYP",
-		"CXR",
-		"CRI",
-		"CUW",
-		"CPV",
-		"CUB",
-		"SWZ",
-		"SYR",
-		"SXM",
-		"KGZ",
-		"KEN",
-		"SSD",
-		"SUR",
-		"KIR",
-		"KHM",
-		"KNA",
-		"COM",
-		"STP",
-		"SVK",
-		"KOR",
-		"SVN",
-		"PRK",
-		"KWT",
-		"SEN",
-		"SMR",
-		"SLE",
-		"SYC",
-		"KAZ",
-		"CYM",
-		"SGP",
-		"SWE",
-		"SDN",
-		"DOM",
-		"DMA",
-		"DJI",
-		"DNK",
-		"VGB",
-		"DEU",
-		"YEM",
-		"DZA",
-		"USA",
-		"URY",
-		"MYT",
-		"UMI",
-		"LBN",
-		"LCA",
-		"LAO",
-		"TUV",
-		"TWN",
-		"TTO",
-		"TUR",
-		"LKA",
-		"LIE",
-		"LVA",
-		"TON",
-		"LTU",
-		"LUX",
-		"LBR",
-		"LSO",
-		"THA",
-		"ATF",
-		"TGO",
-		"TCD",
-		"TCA",
-		"LBY",
-		"VAT",
-		"VCT",
-		"ARE",
-		"AND",
-		"ATG",
-		"AFG",
-		"AIA",
-		"VIR",
-		"ISL",
-		"IRN",
-		"ARM",
-		"ALB",
-		"AGO",
-		"ATA",
-		"ASM",
-		"ARG",
-		"AUS",
-		"AUT",
-		"ABW",
-		"IND",
-		"ALA",
-		"AZE",
-		"IRL",
-		"IDN",
-		"UKR",
-		"QAT",
-		"MOZ"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressCitySuffix() {
-		auto data = [
-		"town",
-		"ton",
-		"land",
-		"ville",
-		"berg",
-		"burgh",
-		"boro",
-		"borough",
-		"bury",
-		"view",
-		"port",
-		"mouth",
-		"stad",
-		"stead",
-		"furt",
-		"chester",
-		"cester",
-		"mouth",
-		"fort",
-		"field",
-		"haven",
-		"side",
-		"shire",
-		"worth"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressDirectionAbbr() {
-		auto data = [
-		"N",
-		"E",
-		"S",
-		"W",
-		"NE",
-		"NW",
-		"SE",
-		"SW'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressCityPrefix() {
-		auto data = [
-		"North",
-		"East",
-		"West",
-		"South",
-		"New",
-		"Lake",
-		"Port",
-		"Fort"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressCounty() {
-		auto data = [
-		"Avon",
-		"Bedfordshire",
-		"Berkshire",
-		"Borders",
-		"Buckinghamshire",
-		"Cambridgeshire"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressTimeZone() {
-		auto data = [
-		"Pacific/Midway",
-		"Pacific/Pago_Pago",
-		"Pacific/Honolulu",
-		"America/Juneau",
-		"America/Los_Angeles",
-		"America/Tijuana",
-		"America/Denver",
-		"America/Phoenix",
-		"America/Chihuahua",
-		"America/Mazatlan",
-		"America/Chicago",
-		"America/Regina",
-		"America/Mexico_City",
-		"America/Mexico_City",
-		"America/Monterrey",
-		"America/Guatemala",
-		"America/New_York",
-		"America/Indiana/Indianapolis",
-		"America/Bogota",
-		"America/Lima",
-		"America/Lima",
-		"America/Halifax",
-		"America/Caracas",
-		"America/La_Paz",
-		"America/Santiago",
-		"America/St_Johns",
-		"America/Sao_Paulo",
-		"America/Argentina/Buenos_Aires",
-		"America/Guyana",
-		"America/Godthab",
-		"Atlantic/South_Georgia",
-		"Atlantic/Azores",
-		"Atlantic/Cape_Verde",
-		"Europe/Dublin",
-		"Europe/London",
-		"Europe/Lisbon",
-		"Europe/London",
-		"Africa/Casablanca",
-		"Africa/Monrovia",
-		"Etc/UTC",
-		"Europe/Belgrade",
-		"Europe/Bratislava",
-		"Europe/Budapest",
-		"Europe/Ljubljana",
-		"Europe/Prague",
-		"Europe/Sarajevo",
-		"Europe/Skopje",
-		"Europe/Warsaw",
-		"Europe/Zagreb",
-		"Europe/Brussels",
-		"Europe/Copenhagen",
-		"Europe/Madrid",
-		"Europe/Paris",
-		"Europe/Amsterdam",
-		"Europe/Berlin",
-		"Europe/Berlin",
-		"Europe/Rome",
-		"Europe/Stockholm",
-		"Europe/Vienna",
-		"Africa/Algiers",
-		"Europe/Bucharest",
-		"Africa/Cairo",
-		"Europe/Helsinki",
-		"Europe/Kiev",
-		"Europe/Riga",
-		"Europe/Sofia",
-		"Europe/Tallinn",
-		"Europe/Vilnius",
-		"Europe/Athens",
-		"Europe/Istanbul",
-		"Europe/Minsk",
-		"Asia/Jerusalem",
-		"Africa/Harare",
-		"Africa/Johannesburg",
-		"Europe/Moscow",
-		"Europe/Moscow",
-		"Europe/Moscow",
-		"Asia/Kuwait",
-		"Asia/Riyadh",
-		"Africa/Nairobi",
-		"Asia/Baghdad",
-		"Asia/Tehran",
-		"Asia/Muscat",
-		"Asia/Muscat",
-		"Asia/Baku",
-		"Asia/Tbilisi",
-		"Asia/Yerevan",
-		"Asia/Kabul",
-		"Asia/Yekaterinburg",
-		"Asia/Karachi",
-		"Asia/Karachi",
-		"Asia/Tashkent",
-		"Asia/Kolkata",
-		"Asia/Kolkata",
-		"Asia/Kolkata",
-		"Asia/Kolkata",
-		"Asia/Kathmandu",
-		"Asia/Dhaka",
-		"Asia/Dhaka",
-		"Asia/Colombo",
-		"Asia/Almaty",
-		"Asia/Novosibirsk",
-		"Asia/Rangoon",
-		"Asia/Bangkok",
-		"Asia/Bangkok",
-		"Asia/Jakarta",
-		"Asia/Krasnoyarsk",
-		"Asia/Shanghai",
-		"Asia/Chongqing",
-		"Asia/Hong_Kong",
-		"Asia/Urumqi",
-		"Asia/Kuala_Lumpur",
-		"Asia/Singapore",
-		"Asia/Taipei",
-		"Australia/Perth",
-		"Asia/Irkutsk",
-		"Asia/Ulaanbaatar",
-		"Asia/Seoul",
-		"Asia/Tokyo",
-		"Asia/Tokyo",
-		"Asia/Tokyo",
-		"Asia/Yakutsk",
-		"Australia/Darwin",
-		"Australia/Adelaide",
-		"Australia/Melbourne",
-		"Australia/Melbourne",
-		"Australia/Sydney",
-		"Australia/Brisbane",
-		"Australia/Hobart",
-		"Asia/Vladivostok",
-		"Pacific/Guam",
-		"Pacific/Port_Moresby",
-		"Asia/Magadan",
-		"Asia/Magadan",
-		"Pacific/Noumea",
-		"Pacific/Fiji",
-		"Asia/Kamchatka",
-		"Pacific/Majuro",
-		"Pacific/Auckland",
-		"Pacific/Auckland",
-		"Pacific/Tongatapu",
-		"Pacific/Fakaofo",
-		"Pacific/Apia"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressCountryCode() {
-		auto data = [
-		"AD",
-		"AE",
-		"AF",
-		"AG",
-		"AI",
-		"AL",
-		"AM",
-		"AO",
-		"AQ",
-		"AR",
-		"AS",
-		"AT",
-		"AU",
-		"AW",
-		"AX",
-		"AZ",
-		"BA",
-		"BB",
-		"BD",
-		"BE",
-		"BF",
-		"BG",
-		"BH",
-		"BI",
-		"BJ",
-		"BL",
-		"BM",
-		"BN",
-		"BO",
-		"BQ",
-		"BR",
-		"BS",
-		"BT",
-		"BV",
-		"BW",
-		"BY",
-		"BZ",
-		"CA",
-		"CC",
-		"CD",
-		"CF",
-		"CG",
-		"CH",
-		"CI",
-		"CK",
-		"CL",
-		"CM",
-		"CN",
-		"CO",
-		"CR",
-		"CU",
-		"CV",
-		"CW",
-		"CX",
-		"CY",
-		"CZ",
-		"DE",
-		"DJ",
-		"DK",
-		"DM",
-		"DO",
-		"DZ",
-		"EC",
-		"EE",
-		"EG",
-		"EH",
-		"ER",
-		"ES",
-		"ET",
-		"FI",
-		"FJ",
-		"FK",
-		"FM",
-		"FO",
-		"FR",
-		"GA",
-		"GB",
-		"GD",
-		"GE",
-		"GF",
-		"GG",
-		"GH",
-		"GI",
-		"GL",
-		"GM",
-		"GN",
-		"GP",
-		"GQ",
-		"GR",
-		"GS",
-		"GT",
-		"GU",
-		"GW",
-		"GY",
-		"HK",
-		"HM",
-		"HN",
-		"HR",
-		"HT",
-		"HU",
-		"ID",
-		"IE",
-		"IL",
-		"IM",
-		"IN",
-		"IO",
-		"IQ",
-		"IR",
-		"IS",
-		"IT",
-		"JE",
-		"JM",
-		"JO",
-		"JP",
-		"KE",
-		"KG",
-		"KH",
-		"KI",
-		"KM",
-		"KN",
-		"KP",
-		"KR",
-		"KW",
-		"KY",
-		"KZ",
-		"LA",
-		"LB",
-		"LC",
-		"LI",
-		"LK",
-		"LR",
-		"LS",
-		"LT",
-		"LU",
-		"LV",
-		"LY",
-		"MA",
-		"MC",
-		"MD",
-		"ME",
-		"MF",
-		"MG",
-		"MH",
-		"MK",
-		"ML",
-		"MM",
-		"MN",
-		"MO",
-		"MP",
-		"MQ",
-		"MR",
-		"MS",
-		"MT",
-		"MU",
-		"MV",
-		"MW",
-		"MX",
-		"MY",
-		"MZ",
-		"NA",
-		"NC",
-		"NE",
-		"NF",
-		"NG",
-		"NI",
-		"NL",
-		"NO",
-		"NP",
-		"NR",
-		"NU",
-		"NZ",
-		"OM",
-		"PA",
-		"PE",
-		"PF",
-		"PG",
-		"PH",
-		"PK",
-		"PL",
-		"PM",
-		"PN",
-		"PR",
-		"PS",
-		"PT",
-		"PW",
-		"PY",
-		"QA",
-		"RE",
-		"RO",
-		"RS",
-		"RU",
-		"RW",
-		"SA",
-		"SB",
-		"SC",
-		"SD",
-		"SE",
-		"SG",
-		"SH",
-		"SI",
-		"SJ",
-		"SK",
-		"SL",
-		"SM",
-		"SN",
-		"SO",
-		"SR",
-		"SS",
-		"ST",
-		"SV",
-		"SX",
-		"SY",
-		"SZ",
-		"TC",
-		"TD",
-		"TF",
-		"TG",
-		"TH",
-		"TJ",
-		"TK",
-		"TL",
-		"TM",
-		"TN",
-		"TO",
-		"TR",
-		"TT",
-		"TV",
-		"TW",
-		"TZ",
-		"UA",
-		"UG",
-		"UM",
-		"US",
-		"UY",
-		"UZ",
-		"VA",
-		"VC",
-		"VE",
-		"VG",
-		"VI",
-		"VN",
-		"VU",
-		"WF",
-		"WS",
-		"YE",
-		"YT",
-		"ZA",
-		"ZM",
-		"ZW"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressBuildingNumber() {
-		auto data = [
-		"#####",
-		"####",
-		"###'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	string addressPostcode() {
-		auto data = [
-		"#####",
-		"#####-####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	string addressSecondaryAddress() {
-		auto data = [
-		"Apt. ###",
-		"Suite ###'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	string addressStreetSuffix() {
-		auto data = [
-		"Alley",
-		"Avenue",
-		"Branch",
-		"Bridge",
-		"Brook",
-		"Brooks",
-		"Burg",
-		"Burgs",
-		"Bypass",
-		"Camp",
-		"Canyon",
-		"Cape",
-		"Causeway",
-		"Center",
-		"Centers",
-		"Circle",
-		"Circles",
-		"Cliff",
-		"Cliffs",
-		"Club",
-		"Common",
-		"Corner",
-		"Corners",
-		"Course",
-		"Court",
-		"Courts",
-		"Cove",
-		"Coves",
-		"Creek",
-		"Crescent",
-		"Crest",
-		"Crossing",
-		"Crossroad",
-		"Curve",
-		"Dale",
-		"Dam",
-		"Divide",
-		"Drive",
-		"Drive",
-		"Drives",
-		"Estate",
-		"Estates",
-		"Expressway",
-		"Extension",
-		"Extensions",
-		"Fall",
-		"Falls",
-		"Ferry",
-		"Field",
-		"Fields",
-		"Flat",
-		"Flats",
-		"Ford",
-		"Fords",
-		"Forest",
-		"Forge",
-		"Forges",
-		"Fork",
-		"Forks",
-		"Fort",
-		"Freeway",
-		"Garden",
-		"Gardens",
-		"Gateway",
-		"Glen",
-		"Glens",
-		"Green",
-		"Greens",
-		"Grove",
-		"Groves",
-		"Harbor",
-		"Harbors",
-		"Haven",
-		"Heights",
-		"Highway",
-		"Hill",
-		"Hills",
-		"Hollow",
-		"Inlet",
-		"Inlet",
-		"Island",
-		"Island",
-		"Islands",
-		"Islands",
-		"Isle",
-		"Isle",
-		"Junction",
-		"Junctions",
-		"Key",
-		"Keys",
-		"Knoll",
-		"Knolls",
-		"Lake",
-		"Lakes",
-		"Land",
-		"Landing",
-		"Lane",
-		"Light",
-		"Lights",
-		"Loaf",
-		"Lock",
-		"Locks",
-		"Locks",
-		"Lodge",
-		"Lodge",
-		"Loop",
-		"Mall",
-		"Manor",
-		"Manors",
-		"Meadow",
-		"Meadows",
-		"Mews",
-		"Mill",
-		"Mills",
-		"Mission",
-		"Mission",
-		"Motorway",
-		"Mount",
-		"Mountain",
-		"Mountain",
-		"Mountains",
-		"Mountains",
-		"Neck",
-		"Orchard",
-		"Oval",
-		"Overpass",
-		"Park",
-		"Parks",
-		"Parkway",
-		"Parkways",
-		"Pass",
-		"Passage",
-		"Path",
-		"Pike",
-		"Pine",
-		"Pines",
-		"Place",
-		"Plain",
-		"Plains",
-		"Plains",
-		"Plaza",
-		"Plaza",
-		"Point",
-		"Points",
-		"Port",
-		"Port",
-		"Ports",
-		"Ports",
-		"Prairie",
-		"Prairie",
-		"Radial",
-		"Ramp",
-		"Ranch",
-		"Rapid",
-		"Rapids",
-		"Rest",
-		"Ridge",
-		"Ridges",
-		"River",
-		"Road",
-		"Road",
-		"Roads",
-		"Roads",
-		"Route",
-		"Row",
-		"Rue",
-		"Run",
-		"Shoal",
-		"Shoals",
-		"Shore",
-		"Shores",
-		"Skyway",
-		"Spring",
-		"Springs",
-		"Springs",
-		"Spur",
-		"Spurs",
-		"Square",
-		"Square",
-		"Squares",
-		"Squares",
-		"Station",
-		"Station",
-		"Stravenue",
-		"Stravenue",
-		"Stream",
-		"Stream",
-		"Street",
-		"Street",
-		"Streets",
-		"Summit",
-		"Summit",
-		"Terrace",
-		"Throughway",
-		"Trace",
-		"Track",
-		"Trafficway",
-		"Trail",
-		"Trail",
-		"Tunnel",
-		"Tunnel",
-		"Turnpike",
-		"Turnpike",
-		"Underpass",
-		"Union",
-		"Unions",
-		"Valley",
-		"Valleys",
-		"Via",
-		"Viaduct",
-		"View",
-		"Views",
-		"Village",
-		"Village",
-		"Villages",
-		"Ville",
-		"Vista",
-		"Vista",
-		"Walk",
-		"Walks",
-		"Wall",
-		"Way",
-		"Ways",
-		"Well",
-		"Wells"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string musicSongName() {
-		auto data = [
-		"White Christmas",
-		"Hey Jude",
-		"Every Breath You Take",
-		"Mack the Knife",
-		"Rock Around the Clock",
-		"I Want to Hold Your Hand",
-		"(I Can't Get No) Satisfaction",
-		"The Twist",
-		"(Everything I Do) I Do it For You",
-		"Bridge Over Troubled Water",
-		"When Doves Cry",
-		"Call Me",
-		"Bette Davis Eyes",
-		"I Will Always Love You",
-		"Over the Rainbow",
-		"American Pie",
-		"Flashdance. What a Feeling",
-		"The Way We Were",
-		"I Heard it Through the Grapevine",
-		"You've Lost That Lovin' Feelin",
-		"Nothing Compares 2 U",
-		"Endless Love",
-		"Yeah!",
-		"Let's Get it On",
-		"That's What Friends Are For",
-		"You Light Up My Life",
-		"(Sittin' On) the Dock of the Bay",
-		"Joy to the World",
-		"Heartbreak Hotel",
-		"Theme From 'A Summer Place",
-		"Aquarius/Let The Sunshine In",
-		"I Will Survive",
-		"It's Too Late",
-		"Respect",
-		"Sugar Sugar",
-		"Stayin' Alive",
-		"Maggie May",
-		"My Heart Will Go On",
-		"Eye of the Tiger",
-		"End of the Road",
-		"Another One Bites the Dust",
-		"Billie Jean",
-		"Let's Stay Together",
-		"Battle of New Orleans",
-		"Oh",
-		"Hound Dog",
-		"I Love Rock 'n' Roll",
-		"Smooth",
-		"Good Vibrations",
-		"Physical",
-		"Light My Fire",
-		"Low",
-		"Hey Ya!",
-		"Let it Be",
-		"Don't Be Cruel",
-		"Hotel California",
-		"We Belong Together",
-		"Le Freak",
-		"Raindrops Keep Falling On My Head",
-		"How High the Moon",
-		"My Girl",
-		"I Can't Stop Loving You",
-		"Killing Me Softly With His Song",
-		"Mona Lisa",
-		"In the Mood",
-		"She Loves You",
-		"The Letter",
-		"Mister Sandman",
-		"Careless Whisper",
-		"What's Love Got to Do With It?",
-		"I'm a Believer",
-		"Wooly Bully",
-		"Theme From 'Shaft",
-		"Hot Stuff",
-		"Centerfold",
-		"Honky Tonk Woman",
-		"I'll Be There",
-		"Gangsta's Paradise",
-		"Yesterday",
-		"My Sharona",
-		"Tennessee Waltz",
-		"Reach Out (I'll Be There)",
-		"California Dreamin",
-		"Jailhouse Rock",
-		"Irreplaceable",
-		"Dancing in the Street",
-		"Rolling In The Deep",
-		"Tie a Yellow Ribbon 'round the Old Oak Tree",
-		"Stand By Me",
-		"Sentimental Journey",
-		"The First Time Ever I Saw Your Face",
-		"Louie Louie",
-		"Another Brick in the Wall (part 2)",
-		"(Just Like) Starting Over",
-		"Night Fever",
-		"To Sir",
-		"You're So Vain",
-		"Be My Baby",
-		"Celebration",
-		"(They Long to Be) Close to You",
-		"Begin the Beguine",
-		"I Still Haven't Found What I'm Looking For",
-		"I Want You Back",
-		"Arthur's Theme (Best That You Can Do)",
-		"Boulevard of Broken Dreams",
-		"With Or Without You",
-		"Tonight's the Night (Gonna Be Alright)",
-		"Are You Lonesome Tonight?",
-		"Upside Down",
-		"Dancing Queen",
-		"Sweet Child O' Mine",
-		"Where Did Our Love Go",
-		"Unchained Melody",
-		"Rudolph",
-		"Take My Breath Away",
-		"I'll Make Love to You",
-		"Love Will Keep Us Together",
-		"When a Man Loves a Woman",
-		"Walk Like an Egyptian",
-		"Crazy in Love",
-		"Strangers in the Night",
-		"You Belong to Me",
-		"In Da Club",
-		"Say You",
-		"We Are the World",
-		"Johnny B Goode",
-		"Love Theme From 'A Star is Born' (Evergreen)",
-		"Shadow Dancing",
-		"Superstition",
-		"Beat It",
-		"Night & Day",
-		"Waterfalls",
-		"House of the Rising Sun",
-		"Paper Doll",
-		"Downtown",
-		"I Can't Help Myself (Sugar Pie",
-		"Kiss From a Rose",
-		"Believe",
-		"Ballad of the Green Berets",
-		"Proud Mary",
-		"Too Young",
-		"Umbrella",
-		"Swanee",
-		"Need You Tonight",
-		"Like a Rolling Stone",
-		"Lady",
-		"One Sweet Day",
-		"Lean On Me",
-		"Tik-Toc",
-		"Monday Monday",
-		"What'd I Say",
-		"How You Remind Me",
-		"Silly Love Songs",
-		"My Guy",
-		"Macarena",
-		"Goodnight",
-		"Just My Imagination (Running Away With Me)",
-		"The Sounds of Silence",
-		"Imagine",
-		"Me & Bobby McGee",
-		"Near You",
-		"What's Going On?",
-		"Suspicious Minds",
-		"Ode To Billie Joe",
-		"Wind Beneath My Wings",
-		"The Boy is Mine",
-		"Mr Tambourine Man",
-		"Faith",
-		"Green Onions",
-		"Mrs Robinson",
-		"How Deep is Your Love?",
-		"Hey There",
-		"Heart of Glass",
-		"Pennies From Heaven",
-		"Like a Virgin",
-		"Midnight Train to Georgia",
-		"Help!",
-		"Tossing & Turning",
-		"The Sign",
-		"Born to Be Wild",
-		"Layla",
-		"I Just Wanna Be Your Everything",
-		"War",
-		"96 Tears",
-		"I Get Around",
-		"Because You Loved Me",
-		"Summer in the City",
-		"Get Back",
-		"Secret Love",
-		"9 to 5",
-		"(Ghost) Riders in the Sky",
-		"The Loco-Motion",
-		"Play That Funky Music",
-		"Bohemian Rhapsody",
-		"Little Things Mean a Lot",
-		"Cry",
-		"All Shook Up",
-		"Up Where We Belong",
-		"Sledgehammer",
-		"Fire & Rain",
-		"Stop! in the Name of Love",
-		"Sweet Home Alabama",
-		"Another Day in Paradise",
-		"Bleeding Love",
-		"Lady Marmalade (Voulez-Vous Coucher Aver Moi Ce Soir?)",
-		"Whispering",
-		"Vogue",
-		"Under the Bridge",
-		"Sixteen Tons",
-		"Sugar Shack",
-		"Baby Love",
-		"What a Fool Believes",
-		"Lose Yourself",
-		"Hello Dolly",
-		"Brown Eyed Girl",
-		"Without You",
-		"Build Me Up Buttercup",
-		"We Found Love",
-		"Tears in Heaven",
-		"Family Affair",
-		"All I Wanna Do",
-		"Soul Man",
-		"Tequila",
-		"Rock With You",
-		"Livin' La Vida Loca",
-		"Best of My Love",
-		"Runaway",
-		"Alone Again (Naturally)",
-		"Can't Help Falling in Love",
-		"My Sweet Lord",
-		"Runaround Sue",
-		"Swinging On a Star",
-		"Gold Digger",
-		"Happy Together",
-		"Losing My Religion",
-		"Heart of Gold",
-		"Stardust",
-		"Will You Love Me Tomorrow",
-		"You Are the Sunshine of My Life",
-		"You Were Meant for Me",
-		"Take On Me",
-		"Hollaback Girl",
-		"God Bless America",
-		"I Swear",
-		"Sunshine of Your Love",
-		"Firework",
-		"Groovin",
-		"Smells Like Teen Spirit",
-		"Big Girls Don't Cry",
-		"Jack & Diane",
-		"Addicted to Love",
-		"The Last Dance",
-		"Georgia On My Mind",
-		"Money For Nothing",
-		"Jump",
-		"Vaya Con Dios (may God Be With You)",
-		"You'll Never Know",
-		"That'll Be the Day",
-		"Girls Just Wanna Have Fun",
-		"Wheel of Fortune",
-		"When You Wish Upon a Star",
-		"Don't Fence Me In",
-		"Turn! Turn! Turn! (To Everything There is a Season)",
-		"Volare",
-		"Sweet Dreams (Are Made of This)",
-		"Whole Lotta Love",
-		"You've Got a Friend",
-		"Penny Lane",
-		"People Got to Be Free",
-		"Nature Boy",
-		"Sexyback",
-		"Crying",
-		"Single Ladies (Put A Ring On It)",
-		"Bad Girls",
-		"Too Close",
-		"I Got You Babe",
-		"We've Only Just Begun",
-		"Sh-Boom (Life Could Be a Dream)",
-		"Shining Star",
-		"Kansas City",
-		"Like a Prayer",
-		"Cheek to Cheek",
-		"Papa Was a Rolling Stone",
-		"Promiscuous",
-		"Love Shack",
-		"Funkytown",
-		"Crazy",
-		"Philadelphia Freedom",
-		"Temperature",
-		"Somebody That I Used to Know",
-		"All I Have to Do is Dream",
-		"Jessie's Girl",
-		"Rhinestone Cowboy",
-		"Blue Suede Shoes",
-		"Ebony & Ivory",
-		"I'll Never Smile Again",
-		"Keep On Loving You",
-		"Since U Been Gone",
-		"The Way You Look Tonight",
-		"Crazy Little Thing Called Love",
-		"The Great Pretender",
-		"Brown Sugar",
-		"Que sera sera (Whatever will be will be)",
-		"No One",
-		"Bad Day",
-		"Boom Boom Pow",
-		"Party Rock Anthem",
-		"Because of You",
-		"Chattanooga Choo Choo",
-		"A Whiter Shade of Pale",
-		"Love Me Tender",
-		"Higher Love",
-		"Footloose",
-		"Blurred Lines",
-		"I Just Called to Say I Love You",
-		"Come Together",
-		"It's Now Or Never",
-		"Under the Boardwalk",
-		"Don't You Want Me",
-		"You Can't Hurry Love",
-		"Fame",
-		"Fallin",
-		"Poker Face",
-		"Bad Romance",
-		"Ruby Tuesday",
-		"All Night Long (All Night)",
-		"Baby Got Back",
-		"Whole Lotta Shakin' Goin' On",
-		"Frenesi",
-		"December 1963 (Oh What a Night)",
-		"Bad Moon Rising",
-		"Abracadabra",
-		"I Gotta Feeling",
-		"The Song From Moulin Rouge (Where Is Your Heart)",
-		"Waiting For a Girl Like You",
-		"Everybody Loves Somebody",
-		"I Can't Go For That (No Can Do)",
-		"Buttons & Bows",
-		"It's All in the Game",
-		"Love Train",
-		"Dance to the Music",
-		"Candle in the Wind '97",
-		"Honey",
-		"Kiss",
-		"I'll Take You There",
-		"Paint it Black",
-		"Band of Gold",
-		"Just the Way You Are",
-		"Spirit in the Sky",
-		"Vision of Love",
-		"Hips don't lie",
-		"Till The End of Time",
-		"Duke of Earl",
-		"YMCA",
-		"Oh My Papa (O Mein Papa)",
-		"Pistol Packin' Mama",
-		"Gonna Make You Sweat (Everybody Dance Now)",
-		"Dilemma",
-		"I Need You Now",
-		"Wanted",
-		"Jumpin' Jack Flash",
-		"Against All Odds (Take a Look At Me Now)",
-		"Tom Dooley",
-		"Goodbye Yellow Brick Road",
-		"Rhapsody in Blue",
-		"Bennie & the Jets",
-		"Call Me Maybe",
-		"You Really Got Me",
-		"God Bless the Child",
-		"I'm Sorry",
-		"Bad",
-		"I Can't Get Next to You",
-		"The Power of Love",
-		"Dreamlover",
-		"Only The Lonely (Know The Way I Feel)",
-		"We Are Family",
-		"At Last",
-		"Brand New Key",
-		"I've Heard That Song Before",
-		"Stay (I Missed You)",
-		"Do Ya Think I'm Sexy?",
-		"Tutti Frutti",
-		"This Ole House",
-		"Please Mr Postman",
-		"Can't Help Falling in Love",
-		"Good Times",
-		"Something",
-		"(I've Had) the Time of My Life",
-		"I Don't Want to Miss a Thing",
-		"Down Hearted Blues",
-		"Rag Doll",
-		"Blueberry Hill",
-		"Ain't No Sunshine",
-		"Wild Thing",
-		"Blaze of Glory",
-		"Crazy",
-		"Ray of Light",
-		"The Hustle",
-		"Grenade",
-		"Cathy's Clown",
-		"Minnie the Moocher",
-		"Love Is Blue (L'Amour Est Bleu)",
-		"Iris",
-		"The Boys of Summer",
-		"The Tide is High",
-		"She Drives Me Crazy",
-		"Fame",
-		"Stardust",
-		"Save the Best For Last",
-		"These Boots Are Made For Walking",
-		"I Feel Love",
-		"A Woman in Love",
-		"We Can Work it Out",
-		"The Reason",
-		"Locked Out Of Heaven",
-		"Do That to Me One More Time",
-		"That's the Way Love Goes",
-		"A Hard Day's Night",
-		"I Believe I Can Fly",
-		"Karma Chameleon",
-		"One O'Clock Jump",
-		"Mule Train",
-		"Car Wash",
-		"Rapture",
-		"Creep",
-		"Streets of Philadelphia",
-		"West End Girls",
-		"Leader of the Pack",
-		"T For Texas (Blue Yodel No 1)",
-		"Mama Told Me Not to Come",
-		"Just Dance",
-		"Mercy Mercy Me (The Ecology)",
-		"Livin' On a Prayer",
-		"Good Lovin",
-		"50 Ways to Leave Your Lover",
-		"Stronger",
-		"I Can See Clearly Now",
-		"We Are the Champions",
-		"(I've Got a Gal In) Kalamazoo",
-		"No Scrubs",
-		"Big Girls Don't Cry",
-		"How Do You Mend a Broken Heart",
-		"I Got You (I Feel Good)",
-		"Don't Let the Stars Get in Your Eyes",
-		"The Girl From Ipanema",
-		"(Sexual) Healing",
-		"Tears of a Clown",
-		"We Will Rock You",
-		"Hold On",
-		"Bye Bye Love",
-		"Chapel of Love",
-		"White Rabbit",
-		"Rock the Boat",
-		"The Gypsy",
-		"Take The 'A' Train",
-		"Crimson & Clover",
-		"Crocodile Rock",
-		"Make Love to Me",
-		"Nothing's Gonna Stop Us Now",
-		"Say Say Say",
-		"The Christmas Song (Chestnuts Roasting On An Open Fire)",
-		"Un-Break My Heart",
-		"Cherish",
-		"I'll Be Missing You",
-		"Drops of Jupiter (Tell Me)",
-		"There goes my baby",
-		"You Send Me",
-		"If (They Made Me a King)",
-		"The Prisoner's Song",
-		"ABC",
-		"Do Wah Diddy Diddy",
-		"He's So Fine",
-		"A Boy Named Sue",
-		"Roll Over Beethoven",
-		"Sweet Georgia Brown",
-		"Earth Angel",
-		"Rehab",
-		"(You Keep Me) Hangin' On",
-		"This Diamond Ring",
-		"Be My Love",
-		"Rush Rush",
-		"You're Beautiful",
-		"Roll With It",
-		"Moonlight Serenade",
-		"Unbelievable",
-		"Peg o' My Heart",
-		"This Land is Your Land",
-		"Stranger On the Shore",
-		"Rum & Coca-Cola",
-		"Hit the Road",
-		"Without Me",
-		"Crazy For You",
-		"I Want to Know What Love Is",
-		"Bye Bye",
-		"Down Under",
-		"At the Hop",
-		"One Bad Apple",
-		"Kiss & Say Goodbye",
-		"For What It's Worth (Stop",
-		"The Long & Winding Road",
-		"Baby One More Time",
-		"Stairway to Heaven",
-		"How Do I Live?",
-		"Hello",
-		"Truly Madly Deeply",
-		"Great Balls of Fire",
-		"King of the Road",
-		"I Wanna Dance With Somebody (Who Loves Me)",
-		"Reunited",
-		"Help Me",
-		"Rags to Riches",
-		"(It's No) Sin",
-		"Say My Name",
-		"Nobody Does it Better",
-		"Paperback Writer",
-		"Don't Worry Be Happy",
-		"I Fall to Pieces",
-		"Body & Soul",
-		"You're Still the One",
-		"Stormy Weather (Keeps Rainin' All the Time)",
-		"Horse With No Name",
-		"American Woman",
-		"Chattanoogie Shoe-Shine Boy",
-		"Pick Up the Pieces",
-		"Everybody Wants to Rule the World",
-		"Blue Tango",
-		"Hurt So Good",
-		"Apologize",
-		"Let's Dance",
-		"(You're My) Soul & Inspiration",
-		"I Only Have Eyes For You",
-		"Wichita Lineman",
-		"Hanging by a Moment",
-		"Spinning Wheel",
-		"Look Away",
-		"Ironic",
-		"Don't Stop 'Til You Get Enough",
-		"Empire State Of Mind",
-		"Do You Love Me?",
-		"Jive Talkin",
-		"You're the One That I Want",
-		"Sweet Soul Music",
-		"Hey There Delilah",
-		"A Whole New World (Aladdin's Theme)",
-		"Somethin' Stupid",
-		"Knock Three Times",
-		"Mickey",
-		"The Wanderer",
-		"Dancing in the Dark",
-		"It's Still Rock 'n' Roll to Me",
-		"Boogie Oogie Oogie",
-		"Can You Feel the Love Tonight",
-		"Harper Valley PTA",
-		"Seasons in the Sun",
-		"Come On-a My House",
-		"Viva La Vida",
-		"Walk On By",
-		"Family Affair",
-		"Drop it Like It's Hot",
-		"Private Eyes",
-		"Maniac",
-		"All My Lovin' (You're Never Gonna Get It)",
-		"Take a Bow",
-		"Ring of Fire",
-		"Save the Last Dance For Me",
-		"Make it With You",
-		"Don't Speak",
-		"I Shot the Sheriff",
-		"Say It Right",
-		"Sing",
-		"Twist & Shout",
-		"Twist & Shout",
-		"Walk This Way",
-		"A-Tisket A-Tasket",
-		"Let Me Love You",
-		"I Can Dream",
-		"Toxic",
-		"The Joker",
-		"Hero",
-		"In the Year 2525 (Exordium & Terminus)",
-		"Your Song",
-		"Oh Happy Day",
-		"Grease",
-		"Love In This Club",
-		"Angie",
-		"How Much is That Doggy in the Window?",
-		"Daydream Believer",
-		"Whip It",
-		"Boogie Woogie Bugle Boy",
-		"Down",
-		"Hanky Panky",
-		"Total Eclipse of the Heart",
-		"Cat's in the Cradle",
-		"Strange Fruit",
-		"Lady Marmalade (Voulez-Vous Coucher Aver Moi Ce Soir?)",
-		"Breathe",
-		"On My Own",
-		"Dizzy",
-		"Ticket to Ride",
-		"We Got The Beat",
-		"On the Atchison",
-		"Always On My Mind",
-		"Unforgettable",
-		"In the End",
-		"Just the Way You Are",
-		"Music",
-		"Can't Buy Me Love",
-		"Chain of Fools",
-		"Won't Get Fooled Again",
-		"Happy Days Are Here Again",
-		"Third Man Theme",
-		"Your Cheatin' Heart",
-		"Thriller",
-		"Venus",
-		"Time After Time",
-		"That Lucky Old Sun (Just Rolls Around Heaven All Day)",
-		"E.T.",
-		"Three Coins in the Fountain",
-		"Touch Me",
-		"You Ain't Seen Nothin' Yet",
-		"Gives You Hell",
-		"Knock On Wood",
-		"One of These Nights",
-		"Again",
-		"Doo Wop (That Thing)",
-		"Whoomp! (There it Is)",
-		"Magic",
-		"I'm Walking Behind You",
-		"We Didn't Start the Fire",
-		"Lola",
-		"Ghostbusters",
-		"Winchester Cathedral",
-		"Greatest Love of All",
-		"My Love",
-		"Wannabe",
-		"Miss You",
-		"I Feel Fine",
-		"Baby Baby",
-		"TSOP (The Sound of Philadelphia)",
-		"Loving You",
-		"This Guy's in Love With You",
-		"Till I Waltz Again With You",
-		"Why Do Fools Fall in Love?",
-		"Nights in White Satin",
-		"That's the Way (I Like It)",
-		"My Prayer",
-		"(Put Another Nickel In) Music! Music! Music!",
-		"Colors of the Wind",
-		"Morning Train (Nine to Five)",
-		"I Went to Your Wedding",
-		"Kiss Me",
-		"Gypsies",
-		"Cracklin' Rosie",
-		"Maybellene",
-		"Born in the USA",
-		"Here Without You",
-		"Mony Mony",
-		"Mmmbop",
-		"You Always Hurt the One You Love",
-		"Eight Days a Week",
-		"What Goes Around Comes Around",
-		"Kung Fu Fighting",
-		"Fantasy",
-		"Sir Duke",
-		"Ain't Misbehavin",
-		"Need You Now",
-		"Last Train to Clarksville",
-		"Yakety Yak",
-		"I'll be seeing you",
-		"Hard to Say I'm Sorry",
-		"It's My Party",
-		"Love to Love You Baby",
-		"Miss You Much",
-		"Born to Run",
-		"Instant Karma",
-		"The Rose",
-		"Purple Rain",
-		"One",
-		"Groove is in the Heart",
-		"Gimme Some Lovin",
-		"Beautiful Day",
-		"Escape (The Pina Colada Song)",
-		"Use Somebody",
-		"Fortunate Son",
-		"Afternoon Delight",
-		"Love's Theme",
-		"Sailing",
-		"Cherry Pink & Apple Blossom White",
-		"Georgy Girl",
-		"How to Save a Life",
-		"I Walk the Line",
-		"All You Need is Love",
-		"U Can't Touch This",
-		"All Out of Love",
-		"Where is the Love?",
-		"Revolution",
-		"The Love You Save",
-		"Black Or White",
-		"This Used to Be My Playground",
-		"Living For the City",
-		"School's Out",
-		"Disturbia",
-		"Riders On the Storm",
-		"Some Enchanted Evening",
-		"Weak",
-		"Maneater",
-		"More Than Words",
-		"Time of the Season",
-		"Mrs Brown You've Got a Lovely Daughter",
-		"If You Leave Me Now",
-		"Can't Get Enough of Your Love",
-		"Na Na Hey Hey (Kiss Him Goodbye)",
-		"Mr Brightside",
-		"Black Velvet",
-		"I'm Yours",
-		"My Blue Heaven",
-		"It Had to Be You",
-		"Tha Crossroads",
-		"Ac-cent-tchu-ate the Positive",
-		"Everyday People",
-		"We Are Young",
-		"Take Me Home",
-		"Smoke! Smoke! Smoke! (That Cigarette)",
-		"In the Summertime",
-		"The Tracks of My Tears",
-		"Fly Robin Fly",
-		"Love is a Many Splendoured Thing",
-		"Another Night",
-		"Long Tall Sally",
-		"You Sexy Thing",
-		"The Morning After",
-		"The Loco-Motion",
-		"Get Off of My Cloud",
-		"Roses Are Red",
-		"Thank You (Falettinme be Mice Elf Again)",
-		"Slow Poke",
-		"You Belong With Me",
-		"Stormy Weather (Keeps Rainin' All the Time)",
-		"Ain't No Mountain High Enough",
-		"Auf Wiederseh'n Sweetheart",
-		"Beauty & the Beast",
-		"St Louis Blues",
-		"Peggy Sue",
-		"U Got it Bad",
-		"Sweet Caroline (Good Times Never Seemed So Good)",
-		"Wedding Bell Blues",
-		"Freebird",
-		"Jump",
-		"Wipe Out",
-		"California Girls",
-		"Being With You",
-		"Makin' Whoopee",
-		"My Love",
-		"Shop Around",
-		"Smoke On the Water",
-		"Hungry Heart",
-		"That's Amore",
-		"My Life",
-		"Brandy (You're A Fine Girl)",
-		"Walk Don't Run",
-		"Surfin' USA",
-		"Ball of Confusion (That's What the World is Today)",
-		"Sunshine Superman",
-		"Frankenstein",
-		"Kiss You All Over",
-		"Wishing Well",
-		"Piano Man",
-		"Ben",
-		"In the Ghetto",
-		"Hang On Sloopy",
-		"Singing The Blues",
-		"Cry Like a Baby",
-		"I Honestly Love You",
-		"Brother",
-		"Lookin' Out My Back Door",
-		"Candy Man",
-		"Burn",
-		"Stagger Lee",
-		"Moonlight Cocktail",
-		"Coming Up",
-		"Pop Muzik",
-		"As Time Goes By",
-		"My Eyes Adored You",
-		"Strawberry Fields Forever",
-		"Some of These Days",
-		"I Think I Love You",
-		"Judy in Disguise (With Glasses)",
-		"All Along the Watchtower",
-		"A Thousand Miles",
-		"Fast Car",
-		"Red Red Wine",
-		"Live & Let Die",
-		"Come On Eileen",
-		"Right Back Where We Started From",
-		"Brother Louie",
-		"Ol' Man River",
-		"Band On the Run",
-		"Rich Girl",
-		"Green River",
-		"Got to Give it Up",
-		"Behind Closed Doors",
-		"Don't Go Breaking My Heart",
-		"I'm Looking Over a Four Leaf Clover",
-		"Mr Big Stuff",
-		"Tiger Rag",
-		"Kryptonite",
-		"Hey Paula",
-		"Go Your Own Way",
-		"Big Bad John",
-		"Wake Me Up Before You Go Go",
-		"Tangerine",
-		"Wayward Wind",
-		"Disco Lady",
-		"Spanish Harlem",
-		"Wicked Game",
-		"Rosanna",
-		"Papa Don't Preach",
-		"Somebody to Love",
-		"Kokomo",
-		"Manana (Is Soon Enough For Me)",
-		"Puttin' on the Ritz",
-		"One More Try",
-		"I'll Walk Alone",
-		"Shout",
-		"Woman",
-		"Ballerina",
-		"We Built This City",
-		"19th Nervous Breakdown",
-		"Working My Way Back to You",
-		"Superstar",
-		"Foolish Games",
-		"Get Down Tonight",
-		"On Bended Knee",
-		"Magic Carpet Ride",
-		"Only You (And You Alone)",
-		"A String of Pearls",
-		"A Tree in the Meadow",
-		"So Much in Love",
-		"Every Little Thing She Does is Magic",
-		"La Bamba",
-		"Tighten Up",
-		"Three Times a Lady",
-		"Airplanes",
-		"Wild Thing",
-		"Don't Leave Me This Way",
-		"Rock the Casbah",
-		"Feel Good Inc",
-		"Love Me Do",
-		"Kiss On My List",
-		"Give Me Everything",
-		"Have You Ever Really Loved a Woman?",
-		"Love Letters in the Sand",
-		"Ring My Bell",
-		"Love Child",
-		"I Feel For You",
-		"Bye",
-		"(Let Me Be Your) Teddy Bear",
-		"Soldier Boy",
-		"Papa's Got a Brand New Bag",
-		"Love Hangover",
-		"Venus",
-		"Spill the Wine",
-		"Royals",
-		"April Showers",
-		"Don't You (Forget About Me)",
-		"Travellin' Man",
-		"The Thing",
-		"You Make Me Feel Brand New",
-		"The Glow-Worm",
-		"You Don't Bring Me Flowers",
-		"Summertime Blues",
-		"Straight Up",
-		"Sunday",
-		"Wake Up Little Susie",
-		"She's a Lady",
-		"Over There",
-		"Little Darlin",
-		"Rag Mop",
-		"Shake Down",
-		"Up Around the Bend",
-		"Harbour Lights",
-		"Chances Are",
-		"Mood Indigo",
-		"Pony Time",
-		"After You've Gone",
-		"I Wanna Love You",
-		"Da Doo Ron Ron (When He Walked Me Home)",
-		"If You Don't Know Me By Now",
-		"Green Tambourine",
-		"My Man",
-		"If I Didn't Care",
-		"St George & the Dragonette",
-		"Why Don't You Believe Me?",
-		"How Will I Know",
-		"Disco Duck",
-		"Lonely Boy",
-		"Never Gonna Give You Up",
-		"Before The Next Teardrop Falls",
-		"Running Scared",
-		"Let's Hear it For the Boy",
-		"Sleep Walk",
-		"Walk On the Wild Side",
-		"Memories Are Made of This",
-		"Open Arms",
-		"Stuck On You",
-		"Personality",
-		"Feel Like Making Love",
-		"Stars & Stripes Forever",
-		"Besame Mucho",
-		"Let Me Call You Sweetheart",
-		"La Bamba",
-		"Indian Reservation (The Lament Of The Cherokee Reservation Indian)",
-		"Cars",
-		"You Make Me Feel Like Dancing",
-		"Whatcha Say",
-		"Me & Mrs Jones",
-		"Bitter Sweet Symphony",
-		"Uncle Albert (Admiral Halsey)",
-		"More Than a Feeling",
-		"My Boyfriend's Back",
-		"People",
-		"He'll Have to Go",
-		"I Can Help",
-		"The Streak",
-		"Dreams",
-		"Hair",
-		"Cold",
-		"Nothin' on You",
-		"The End of the World",
-		"Caldonia Boogie (What Makes Your Big Head So Hard)",
-		"I Kissed A Girl",
-		"Incense & Peppermints",
-		"12th Street Rag",
-		"West End Blues",
-		"The Way You Move",
-		"Smoke Gets in Your Eyes",
-		"Want Ads",
-		"Long Cool Woman in a Black Dress",
-		"Hey Baby",
-		"(Your Love Keeps Lifting Me) Higher & Higher",
-		"He's a Rebel",
-		"Alone",
-		"Thrift Shop",
-		"Don't Let the Sun Go Down On Me",
-		"The Sweet Escape",
-		"Return to Sender",
-		"Here in My Heart",
-		"Wabash Cannonball",
-		"Ain't That a Shame",
-		"Travellin' Band",
-		"I'm Your Boogie Man",
-		"I Write the Songs",
-		"This Love",
-		"Lights",
-		"Will It Go Round In Circles",
-		"Purple Haze",
-		"Rock Your Baby",
-		"Delicado",
-		"Tammy",
-		"Check On It",
-		"Breaking Up is Hard to Do",
-		"1999",
-		"Prisoner of Love",
-		"Wild Wild West",
-		"Walk Like a Man",
-		"Ain't No Mountain High Enough",
-		"I Will Follow Him",
-		"Glamorous",
-		"Yellow Rose of Texas",
-		"That Old Black Magic",
-		"I'm So Lonesome I Could Cry",
-		"Up Up & Away",
-		"Baby Come Back",
-		"Let it Snow! Let it Snow! Let it Snow!",
-		"Pon De Replay",
-		"Because I Love You (The Postman Song)",
-		"Sleepy Lagoon",
-		"Baker Street",
-		"Dardanella",
-		"You Don't Have to Be a Star (To Be in My Show)",
-		"Leaving",
-		"Glory of Love",
-		"Theme From 'Greatest American Hero' (Believe It Or Not)",
-		"Shake You Down",
-		"Ole Buttermilk Sky",
-		"I Can't Get Started",
-		"Freak Me",
-		"Hot Child In The City",
-		"Man in the Mirror",
-		"Queen of Hearts",
-		"Let's Groove",
-		"Change the World",
-		"You make Me Wanna",
-		"Someday",
-		"Eve of Destruction",
-		"One of Us",
-		"Honky Tonk",
-		"Be Bop a Lula",
-		"Two Hearts",
-		"Paper Planes"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string musicGenre() {
-		auto data = [
-		"Rock",
-		"Metal",
-		"Pop",
-		"Electronic",
-		"Folk",
-		"World",
-		"Country",
-		"Jazz",
-		"Funk",
-		"Soul",
-		"Hip Hop",
-		"Classical",
-		"Latin",
-		"Reggae",
-		"Stage And Screen",
-		"Blues",
-		"Non Music",
-		"Rap"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string colorSpace() {
-		auto data = [
-		"CIE 1931 XYZ",
-		"CIEUVW",
-		"Uniform Color Spaces (UCSs)",
-		"CIELUV",
-		"CIELAB",
-		"HSLuv",
-		"sRGB",
-		"Adobe RGB",
-		"Adobe Wide Gamut RGB",
-		"Rec. 2100",
-		"ProPhoto RGB Color Space",
-		"scRGB",
-		"DCI-P3",
-		"Display-P3",
-		"Rec. 601",
-		"Rec. 709",
-		"Academy Color Encoding System (ACES)",
-		"Rec. 2020",
-		"YPbPr",
-		"YDbDr",
-		"YIQ",
-		"xvYCC",
-		"sYCC",
-		"HSV",
-		"HSL",
-		"HWB",
-		"RGBA",
-		"HSLA",
-		"LCh",
-		"CMY",
-		"CMYK",
-		"Munsell Color System",
-		"Natural Color System (NSC)",
-		"Pantone Matching System (PMS)",
-		"RAL",
-		"Federal Standard 595C",
-		"British Standard Colour (BS)",
-		"HKS",
-		"LMS",
-		"RG",
-		"RGK"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string colorHuman() {
-		auto data = [
-		"red",
-		"green",
-		"blue",
-		"yellow",
-		"purple",
-		"mint green",
-		"teal",
-		"white",
-		"black",
-		"orange",
-		"pink",
-		"grey",
-		"maroon",
-		"violet",
-		"turquoise",
-		"tan",
-		"sky blue",
-		"salmon",
-		"plum",
-		"orchid",
-		"olive",
-		"magenta",
-		"lime",
-		"ivory",
-		"indigo",
-		"gold",
-		"fuchsia",
-		"cyan",
-		"azure",
-		"lavender",
-		"silver"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string databaseType() {
-		auto data = [
-		"int",
-		"varchar",
-		"text",
-		"date",
-		"datetime",
-		"tinyint",
-		"time",
-		"timestamp",
-		"smallint",
-		"mediumint",
-		"bigint",
-		"decimal",
-		"float",
-		"double",
-		"real",
-		"bit",
-		"boolean",
-		"serial",
-		"blob",
-		"binary",
-		"enum",
-		"set",
-		"geometry",
-		"point"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string databaseColumn() {
-		auto data = [
-		"id",
-		"title",
-		"name",
-		"email",
-		"phone",
-		"token",
-		"group",
-		"category",
-		"password",
-		"comment",
-		"avatar",
-		"status",
-		"createdAt",
-		"updatedAt"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string databaseCollation() {
-		auto data = [
-		"utf8_unicode_ci",
-		"utf8_general_ci",
-		"utf8_bin",
-		"ascii_bin",
-		"ascii_general_ci",
-		"cp1250_bin",
-		"cp1250_general_ci"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string databaseEngine() {
-		auto data = [
-		"InnoDB",
-		"MyISAM",
-		"MEMORY",
-		"CSV",
-		"BLACKHOLE",
-		"ARCHIVE'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string teamCreature() {
-		auto data = [
-		"ants",
-		"bats",
-		"bears",
-		"bees",
-		"birds",
-		"buffalo",
-		"cats",
-		"chickens",
-		"cattle",
-		"dogs",
-		"dolphins",
-		"ducks",
-		"elephants",
-		"fishes",
-		"foxes",
-		"frogs",
-		"geese",
-		"goats",
-		"horses",
-		"kangaroos",
-		"lions",
-		"monkeys",
-		"owls",
-		"oxen",
-		"penguins",
-		"people",
-		"pigs",
-		"rabbits",
-		"sheep",
-		"tigers",
-		"whales",
-		"wolves",
-		"zebras",
-		"banshees",
-		"crows",
-		"black cats",
-		"chimeras",
-		"ghosts",
-		"conspirators",
-		"dragons",
-		"dwarves",
-		"elves",
-		"enchanters",
-		"exorcists",
-		"sons",
-		"foes",
-		"giants",
-		"gnomes",
-		"goblins",
-		"gooses",
-		"griffins",
-		"lycanthropes",
-		"nemesis",
-		"ogres",
-		"oracles",
-		"prophets",
-		"sorcerors",
-		"spiders",
-		"spirits",
-		"vampires",
-		"warlocks",
-		"vixens",
-		"werewolves",
-		"witches",
-		"worshipers",
-		"zombies",
-		"druids"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	string phoneNumberFormats() {
 		auto data = [
 		"!##-!##-####",
@@ -31079,6 +31247,24 @@ class Faker {
 	}
 
 	///
+	string vehicleType() {
+		auto data = [
+		"Cargo Van",
+		"Convertible",
+		"Coupe",
+		"Crew Cab Pickup",
+		"Extended Cab Pickup",
+		"Hatchback",
+		"Minivan",
+		"Passenger Van",
+		"SUV",
+		"Sedan",
+		"Wagon"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	string vehicleManufacturer() {
 		auto data = [
 		"Aston Martin",
@@ -31113,24 +31299,6 @@ class Faker {
 		"Toyota",
 		"Volkswagen",
 		"Volvo"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string vehicleType() {
-		auto data = [
-		"Cargo Van",
-		"Convertible",
-		"Coupe",
-		"Crew Cab Pickup",
-		"Extended Cab Pickup",
-		"Hatchback",
-		"Minivan",
-		"Passenger Van",
-		"SUV",
-		"Sedan",
-		"Wagon"
 		];
 		return choice(data, this.rnd);
 	}
@@ -31270,6 +31438,3541 @@ class Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	string internetEmoji() {
+		final switch(uniform(0, 3529, this.rnd)) {
+			case 0: return "smiley: [";
+			case 1: return "😀";
+			case 2: return "😃";
+			case 3: return "😄";
+			case 4: return "😁";
+			case 5: return "😆";
+			case 6: return "😅";
+			case 7: return "🤣";
+			case 8: return "😂";
+			case 9: return "🙂";
+			case 10: return "🙃";
+			case 11: return "😉";
+			case 12: return "😊";
+			case 13: return "😇";
+			case 14: return "🥰";
+			case 15: return "😍";
+			case 16: return "🤩";
+			case 17: return "😘";
+			case 18: return "😗";
+			case 19: return "☺️";
+			case 20: return "😚";
+			case 21: return "😙";
+			case 22: return "🥲";
+			case 23: return "😋";
+			case 24: return "😛";
+			case 25: return "😜";
+			case 26: return "🤪";
+			case 27: return "😝";
+			case 28: return "🤑";
+			case 29: return "🤗";
+			case 30: return "🤭";
+			case 31: return "🤫";
+			case 32: return "🤔";
+			case 33: return "🤐";
+			case 34: return "🤨";
+			case 35: return "😐";
+			case 36: return "😑";
+			case 37: return "😶";
+			case 38: return "😶‍🌫️";
+			case 39: return "😏";
+			case 40: return "😒";
+			case 41: return "🙄";
+			case 42: return "😬";
+			case 43: return "😮‍💨";
+			case 44: return "🤥";
+			case 45: return "😌";
+			case 46: return "😔";
+			case 47: return "😪";
+			case 48: return "🤤";
+			case 49: return "😴";
+			case 50: return "😷";
+			case 51: return "🤒";
+			case 52: return "🤕";
+			case 53: return "🤢";
+			case 54: return "🤮";
+			case 55: return "🤧";
+			case 56: return "🥵";
+			case 57: return "🥶";
+			case 58: return "🥴";
+			case 59: return "😵";
+			case 60: return "😵‍💫";
+			case 61: return "🤯";
+			case 62: return "🤠";
+			case 63: return "🥳";
+			case 64: return "🥸";
+			case 65: return "😎";
+			case 66: return "🤓";
+			case 67: return "🧐";
+			case 68: return "😕";
+			case 69: return "😟";
+			case 70: return "🙁";
+			case 71: return "☹️";
+			case 72: return "😮";
+			case 73: return "😯";
+			case 74: return "😲";
+			case 75: return "😳";
+			case 76: return "🥺";
+			case 77: return "😦";
+			case 78: return "😧";
+			case 79: return "😨";
+			case 80: return "😰";
+			case 81: return "😥";
+			case 82: return "😢";
+			case 83: return "😭";
+			case 84: return "😱";
+			case 85: return "😖";
+			case 86: return "😣";
+			case 87: return "😞";
+			case 88: return "😓";
+			case 89: return "😩";
+			case 90: return "😫";
+			case 91: return "🥱";
+			case 92: return "😤";
+			case 93: return "😡";
+			case 94: return "😠";
+			case 95: return "🤬";
+			case 96: return "😈";
+			case 97: return "👿";
+			case 98: return "💀";
+			case 99: return "☠️";
+			case 100: return "💩";
+			case 101: return "🤡";
+			case 102: return "👹";
+			case 103: return "👺";
+			case 104: return "👻";
+			case 105: return "👽";
+			case 106: return "👾";
+			case 107: return "🤖";
+			case 108: return "😺";
+			case 109: return "😸";
+			case 110: return "😹";
+			case 111: return "😻";
+			case 112: return "😼";
+			case 113: return "😽";
+			case 114: return "🙀";
+			case 115: return "😿";
+			case 116: return "😾";
+			case 117: return "🙈";
+			case 118: return "🙉";
+			case 119: return "🙊";
+			case 120: return "💋";
+			case 121: return "💌";
+			case 122: return "💘";
+			case 123: return "💝";
+			case 124: return "💖";
+			case 125: return "💗";
+			case 126: return "💓";
+			case 127: return "💞";
+			case 128: return "💕";
+			case 129: return "💟";
+			case 130: return "❣️";
+			case 131: return "💔";
+			case 132: return "❤️‍🔥";
+			case 133: return "❤️‍🩹";
+			case 134: return "❤️";
+			case 135: return "🧡";
+			case 136: return "💛";
+			case 137: return "💚";
+			case 138: return "💙";
+			case 139: return "💜";
+			case 140: return "🤎";
+			case 141: return "🖤";
+			case 142: return "🤍";
+			case 143: return "💯";
+			case 144: return "💢";
+			case 145: return "💥";
+			case 146: return "💫";
+			case 147: return "💦";
+			case 148: return "💨";
+			case 149: return "🕳️";
+			case 150: return "💣";
+			case 151: return "💬";
+			case 152: return "👁️‍🗨️";
+			case 153: return "🗨️";
+			case 154: return "🗯️";
+			case 155: return "💭";
+			case 156: return "💤";
+			case 157: return "]";
+			case 158: return "body: [";
+			case 159: return "👋";
+			case 160: return "👋🏻";
+			case 161: return "👋🏼";
+			case 162: return "👋🏽";
+			case 163: return "👋🏾";
+			case 164: return "👋🏿";
+			case 165: return "🤚";
+			case 166: return "🤚🏻";
+			case 167: return "🤚🏼";
+			case 168: return "🤚🏽";
+			case 169: return "🤚🏾";
+			case 170: return "🤚🏿";
+			case 171: return "🖐️";
+			case 172: return "🖐🏻";
+			case 173: return "🖐🏼";
+			case 174: return "🖐🏽";
+			case 175: return "🖐🏾";
+			case 176: return "🖐🏿";
+			case 177: return "✋";
+			case 178: return "✋🏻";
+			case 179: return "✋🏼";
+			case 180: return "✋🏽";
+			case 181: return "✋🏾";
+			case 182: return "✋🏿";
+			case 183: return "🖖";
+			case 184: return "🖖🏻";
+			case 185: return "🖖🏼";
+			case 186: return "🖖🏽";
+			case 187: return "🖖🏾";
+			case 188: return "🖖🏿";
+			case 189: return "👌";
+			case 190: return "👌🏻";
+			case 191: return "👌🏼";
+			case 192: return "👌🏽";
+			case 193: return "👌🏾";
+			case 194: return "👌🏿";
+			case 195: return "🤌";
+			case 196: return "🤌🏻";
+			case 197: return "🤌🏼";
+			case 198: return "🤌🏽";
+			case 199: return "🤌🏾";
+			case 200: return "🤌🏿";
+			case 201: return "🤏";
+			case 202: return "🤏🏻";
+			case 203: return "🤏🏼";
+			case 204: return "🤏🏽";
+			case 205: return "🤏🏾";
+			case 206: return "🤏🏿";
+			case 207: return "✌️";
+			case 208: return "✌🏻";
+			case 209: return "✌🏼";
+			case 210: return "✌🏽";
+			case 211: return "✌🏾";
+			case 212: return "✌🏿";
+			case 213: return "🤞";
+			case 214: return "🤞🏻";
+			case 215: return "🤞🏼";
+			case 216: return "🤞🏽";
+			case 217: return "🤞🏾";
+			case 218: return "🤞🏿";
+			case 219: return "🤟";
+			case 220: return "🤟🏻";
+			case 221: return "🤟🏼";
+			case 222: return "🤟🏽";
+			case 223: return "🤟🏾";
+			case 224: return "🤟🏿";
+			case 225: return "🤘";
+			case 226: return "🤘🏻";
+			case 227: return "🤘🏼";
+			case 228: return "🤘🏽";
+			case 229: return "🤘🏾";
+			case 230: return "🤘🏿";
+			case 231: return "🤙";
+			case 232: return "🤙🏻";
+			case 233: return "🤙🏼";
+			case 234: return "🤙🏽";
+			case 235: return "🤙🏾";
+			case 236: return "🤙🏿";
+			case 237: return "👈";
+			case 238: return "👈🏻";
+			case 239: return "👈🏼";
+			case 240: return "👈🏽";
+			case 241: return "👈🏾";
+			case 242: return "👈🏿";
+			case 243: return "👉";
+			case 244: return "👉🏻";
+			case 245: return "👉🏼";
+			case 246: return "👉🏽";
+			case 247: return "👉🏾";
+			case 248: return "👉🏿";
+			case 249: return "👆";
+			case 250: return "👆🏻";
+			case 251: return "👆🏼";
+			case 252: return "👆🏽";
+			case 253: return "👆🏾";
+			case 254: return "👆🏿";
+			case 255: return "🖕";
+			case 256: return "🖕🏻";
+			case 257: return "🖕🏼";
+			case 258: return "🖕🏽";
+			case 259: return "🖕🏾";
+			case 260: return "🖕🏿";
+			case 261: return "👇";
+			case 262: return "👇🏻";
+			case 263: return "👇🏼";
+			case 264: return "👇🏽";
+			case 265: return "👇🏾";
+			case 266: return "👇🏿";
+			case 267: return "☝️";
+			case 268: return "☝🏻";
+			case 269: return "☝🏼";
+			case 270: return "☝🏽";
+			case 271: return "☝🏾";
+			case 272: return "☝🏿";
+			case 273: return "👍";
+			case 274: return "👍🏻";
+			case 275: return "👍🏼";
+			case 276: return "👍🏽";
+			case 277: return "👍🏾";
+			case 278: return "👍🏿";
+			case 279: return "👎";
+			case 280: return "👎🏻";
+			case 281: return "👎🏼";
+			case 282: return "👎🏽";
+			case 283: return "👎🏾";
+			case 284: return "👎🏿";
+			case 285: return "✊";
+			case 286: return "✊🏻";
+			case 287: return "✊🏼";
+			case 288: return "✊🏽";
+			case 289: return "✊🏾";
+			case 290: return "✊🏿";
+			case 291: return "👊";
+			case 292: return "👊🏻";
+			case 293: return "👊🏼";
+			case 294: return "👊🏽";
+			case 295: return "👊🏾";
+			case 296: return "👊🏿";
+			case 297: return "🤛";
+			case 298: return "🤛🏻";
+			case 299: return "🤛🏼";
+			case 300: return "🤛🏽";
+			case 301: return "🤛🏾";
+			case 302: return "🤛🏿";
+			case 303: return "🤜";
+			case 304: return "🤜🏻";
+			case 305: return "🤜🏼";
+			case 306: return "🤜🏽";
+			case 307: return "🤜🏾";
+			case 308: return "🤜🏿";
+			case 309: return "👏";
+			case 310: return "👏🏻";
+			case 311: return "👏🏼";
+			case 312: return "👏🏽";
+			case 313: return "👏🏾";
+			case 314: return "👏🏿";
+			case 315: return "🙌";
+			case 316: return "🙌🏻";
+			case 317: return "🙌🏼";
+			case 318: return "🙌🏽";
+			case 319: return "🙌🏾";
+			case 320: return "🙌🏿";
+			case 321: return "👐";
+			case 322: return "👐🏻";
+			case 323: return "👐🏼";
+			case 324: return "👐🏽";
+			case 325: return "👐🏾";
+			case 326: return "👐🏿";
+			case 327: return "🤲";
+			case 328: return "🤲🏻";
+			case 329: return "🤲🏼";
+			case 330: return "🤲🏽";
+			case 331: return "🤲🏾";
+			case 332: return "🤲🏿";
+			case 333: return "🤝";
+			case 334: return "🙏";
+			case 335: return "🙏🏻";
+			case 336: return "🙏🏼";
+			case 337: return "🙏🏽";
+			case 338: return "🙏🏾";
+			case 339: return "🙏🏿";
+			case 340: return "✍️";
+			case 341: return "✍🏻";
+			case 342: return "✍🏼";
+			case 343: return "✍🏽";
+			case 344: return "✍🏾";
+			case 345: return "✍🏿";
+			case 346: return "💅";
+			case 347: return "💅🏻";
+			case 348: return "💅🏼";
+			case 349: return "💅🏽";
+			case 350: return "💅🏾";
+			case 351: return "💅🏿";
+			case 352: return "🤳";
+			case 353: return "🤳🏻";
+			case 354: return "🤳🏼";
+			case 355: return "🤳🏽";
+			case 356: return "🤳🏾";
+			case 357: return "🤳🏿";
+			case 358: return "💪";
+			case 359: return "💪🏻";
+			case 360: return "💪🏼";
+			case 361: return "💪🏽";
+			case 362: return "💪🏾";
+			case 363: return "💪🏿";
+			case 364: return "🦾";
+			case 365: return "🦿";
+			case 366: return "🦵";
+			case 367: return "🦵🏻";
+			case 368: return "🦵🏼";
+			case 369: return "🦵🏽";
+			case 370: return "🦵🏾";
+			case 371: return "🦵🏿";
+			case 372: return "🦶";
+			case 373: return "🦶🏻";
+			case 374: return "🦶🏼";
+			case 375: return "🦶🏽";
+			case 376: return "🦶🏾";
+			case 377: return "🦶🏿";
+			case 378: return "👂";
+			case 379: return "👂🏻";
+			case 380: return "👂🏼";
+			case 381: return "👂🏽";
+			case 382: return "👂🏾";
+			case 383: return "👂🏿";
+			case 384: return "🦻";
+			case 385: return "🦻🏻";
+			case 386: return "🦻🏼";
+			case 387: return "🦻🏽";
+			case 388: return "🦻🏾";
+			case 389: return "🦻🏿";
+			case 390: return "👃";
+			case 391: return "👃🏻";
+			case 392: return "👃🏼";
+			case 393: return "👃🏽";
+			case 394: return "👃🏾";
+			case 395: return "👃🏿";
+			case 396: return "🧠";
+			case 397: return "🫀";
+			case 398: return "🫁";
+			case 399: return "🦷";
+			case 400: return "🦴";
+			case 401: return "👀";
+			case 402: return "👁️";
+			case 403: return "👅";
+			case 404: return "👄";
+			case 405: return "]";
+			case 406: return "person: [";
+			case 407: return "👶";
+			case 408: return "👶🏻";
+			case 409: return "👶🏼";
+			case 410: return "👶🏽";
+			case 411: return "👶🏾";
+			case 412: return "👶🏿";
+			case 413: return "🧒";
+			case 414: return "🧒🏻";
+			case 415: return "🧒🏼";
+			case 416: return "🧒🏽";
+			case 417: return "🧒🏾";
+			case 418: return "🧒🏿";
+			case 419: return "👦";
+			case 420: return "👦🏻";
+			case 421: return "👦🏼";
+			case 422: return "👦🏽";
+			case 423: return "👦🏾";
+			case 424: return "👦🏿";
+			case 425: return "👧";
+			case 426: return "👧🏻";
+			case 427: return "👧🏼";
+			case 428: return "👧🏽";
+			case 429: return "👧🏾";
+			case 430: return "👧🏿";
+			case 431: return "🧑";
+			case 432: return "🧑🏻";
+			case 433: return "🧑🏼";
+			case 434: return "🧑🏽";
+			case 435: return "🧑🏾";
+			case 436: return "🧑🏿";
+			case 437: return "👱";
+			case 438: return "👱🏻";
+			case 439: return "👱🏼";
+			case 440: return "👱🏽";
+			case 441: return "👱🏾";
+			case 442: return "👱🏿";
+			case 443: return "👨";
+			case 444: return "👨🏻";
+			case 445: return "👨🏼";
+			case 446: return "👨🏽";
+			case 447: return "👨🏾";
+			case 448: return "👨🏿";
+			case 449: return "🧔";
+			case 450: return "🧔🏻";
+			case 451: return "🧔🏼";
+			case 452: return "🧔🏽";
+			case 453: return "🧔🏾";
+			case 454: return "🧔🏿";
+			case 455: return "🧔‍♂️";
+			case 456: return "🧔🏻‍♂️";
+			case 457: return "🧔🏼‍♂️";
+			case 458: return "🧔🏽‍♂️";
+			case 459: return "🧔🏾‍♂️";
+			case 460: return "🧔🏿‍♂️";
+			case 461: return "🧔‍♀️";
+			case 462: return "🧔🏻‍♀️";
+			case 463: return "🧔🏼‍♀️";
+			case 464: return "🧔🏽‍♀️";
+			case 465: return "🧔🏾‍♀️";
+			case 466: return "🧔🏿‍♀️";
+			case 467: return "👨‍🦰";
+			case 468: return "👨🏻‍🦰";
+			case 469: return "👨🏼‍🦰";
+			case 470: return "👨🏽‍🦰";
+			case 471: return "👨🏾‍🦰";
+			case 472: return "👨🏿‍🦰";
+			case 473: return "👨‍🦱";
+			case 474: return "👨🏻‍🦱";
+			case 475: return "👨🏼‍🦱";
+			case 476: return "👨🏽‍🦱";
+			case 477: return "👨🏾‍🦱";
+			case 478: return "👨🏿‍🦱";
+			case 479: return "👨‍🦳";
+			case 480: return "👨🏻‍🦳";
+			case 481: return "👨🏼‍🦳";
+			case 482: return "👨🏽‍🦳";
+			case 483: return "👨🏾‍🦳";
+			case 484: return "👨🏿‍🦳";
+			case 485: return "👨‍🦲";
+			case 486: return "👨🏻‍🦲";
+			case 487: return "👨🏼‍🦲";
+			case 488: return "👨🏽‍🦲";
+			case 489: return "👨🏾‍🦲";
+			case 490: return "👨🏿‍🦲";
+			case 491: return "👩";
+			case 492: return "👩🏻";
+			case 493: return "👩🏼";
+			case 494: return "👩🏽";
+			case 495: return "👩🏾";
+			case 496: return "👩🏿";
+			case 497: return "👩‍🦰";
+			case 498: return "👩🏻‍🦰";
+			case 499: return "👩🏼‍🦰";
+			case 500: return "👩🏽‍🦰";
+			case 501: return "👩🏾‍🦰";
+			case 502: return "👩🏿‍🦰";
+			case 503: return "🧑‍🦰";
+			case 504: return "🧑🏻‍🦰";
+			case 505: return "🧑🏼‍🦰";
+			case 506: return "🧑🏽‍🦰";
+			case 507: return "🧑🏾‍🦰";
+			case 508: return "🧑🏿‍🦰";
+			case 509: return "👩‍🦱";
+			case 510: return "👩🏻‍🦱";
+			case 511: return "👩🏼‍🦱";
+			case 512: return "👩🏽‍🦱";
+			case 513: return "👩🏾‍🦱";
+			case 514: return "👩🏿‍🦱";
+			case 515: return "🧑‍🦱";
+			case 516: return "🧑🏻‍🦱";
+			case 517: return "🧑🏼‍🦱";
+			case 518: return "🧑🏽‍🦱";
+			case 519: return "🧑🏾‍🦱";
+			case 520: return "🧑🏿‍🦱";
+			case 521: return "👩‍🦳";
+			case 522: return "👩🏻‍🦳";
+			case 523: return "👩🏼‍🦳";
+			case 524: return "👩🏽‍🦳";
+			case 525: return "👩🏾‍🦳";
+			case 526: return "👩🏿‍🦳";
+			case 527: return "🧑‍🦳";
+			case 528: return "🧑🏻‍🦳";
+			case 529: return "🧑🏼‍🦳";
+			case 530: return "🧑🏽‍🦳";
+			case 531: return "🧑🏾‍🦳";
+			case 532: return "🧑🏿‍🦳";
+			case 533: return "👩‍🦲";
+			case 534: return "👩🏻‍🦲";
+			case 535: return "👩🏼‍🦲";
+			case 536: return "👩🏽‍🦲";
+			case 537: return "👩🏾‍🦲";
+			case 538: return "👩🏿‍🦲";
+			case 539: return "🧑‍🦲";
+			case 540: return "🧑🏻‍🦲";
+			case 541: return "🧑🏼‍🦲";
+			case 542: return "🧑🏽‍🦲";
+			case 543: return "🧑🏾‍🦲";
+			case 544: return "🧑🏿‍🦲";
+			case 545: return "👱‍♀️";
+			case 546: return "👱🏻‍♀️";
+			case 547: return "👱🏼‍♀️";
+			case 548: return "👱🏽‍♀️";
+			case 549: return "👱🏾‍♀️";
+			case 550: return "👱🏿‍♀️";
+			case 551: return "👱‍♂️";
+			case 552: return "👱🏻‍♂️";
+			case 553: return "👱🏼‍♂️";
+			case 554: return "👱🏽‍♂️";
+			case 555: return "👱🏾‍♂️";
+			case 556: return "👱🏿‍♂️";
+			case 557: return "🧓";
+			case 558: return "🧓🏻";
+			case 559: return "🧓🏼";
+			case 560: return "🧓🏽";
+			case 561: return "🧓🏾";
+			case 562: return "🧓🏿";
+			case 563: return "👴";
+			case 564: return "👴🏻";
+			case 565: return "👴🏼";
+			case 566: return "👴🏽";
+			case 567: return "👴🏾";
+			case 568: return "👴🏿";
+			case 569: return "👵";
+			case 570: return "👵🏻";
+			case 571: return "👵🏼";
+			case 572: return "👵🏽";
+			case 573: return "👵🏾";
+			case 574: return "👵🏿";
+			case 575: return "🙍";
+			case 576: return "🙍🏻";
+			case 577: return "🙍🏼";
+			case 578: return "🙍🏽";
+			case 579: return "🙍🏾";
+			case 580: return "🙍🏿";
+			case 581: return "🙍‍♂️";
+			case 582: return "🙍🏻‍♂️";
+			case 583: return "🙍🏼‍♂️";
+			case 584: return "🙍🏽‍♂️";
+			case 585: return "🙍🏾‍♂️";
+			case 586: return "🙍🏿‍♂️";
+			case 587: return "🙍‍♀️";
+			case 588: return "🙍🏻‍♀️";
+			case 589: return "🙍🏼‍♀️";
+			case 590: return "🙍🏽‍♀️";
+			case 591: return "🙍🏾‍♀️";
+			case 592: return "🙍🏿‍♀️";
+			case 593: return "🙎";
+			case 594: return "🙎🏻";
+			case 595: return "🙎🏼";
+			case 596: return "🙎🏽";
+			case 597: return "🙎🏾";
+			case 598: return "🙎🏿";
+			case 599: return "🙎‍♂️";
+			case 600: return "🙎🏻‍♂️";
+			case 601: return "🙎🏼‍♂️";
+			case 602: return "🙎🏽‍♂️";
+			case 603: return "🙎🏾‍♂️";
+			case 604: return "🙎🏿‍♂️";
+			case 605: return "🙎‍♀️";
+			case 606: return "🙎🏻‍♀️";
+			case 607: return "🙎🏼‍♀️";
+			case 608: return "🙎🏽‍♀️";
+			case 609: return "🙎🏾‍♀️";
+			case 610: return "🙎🏿‍♀️";
+			case 611: return "🙅";
+			case 612: return "🙅🏻";
+			case 613: return "🙅🏼";
+			case 614: return "🙅🏽";
+			case 615: return "🙅🏾";
+			case 616: return "🙅🏿";
+			case 617: return "🙅‍♂️";
+			case 618: return "🙅🏻‍♂️";
+			case 619: return "🙅🏼‍♂️";
+			case 620: return "🙅🏽‍♂️";
+			case 621: return "🙅🏾‍♂️";
+			case 622: return "🙅🏿‍♂️";
+			case 623: return "🙅‍♀️";
+			case 624: return "🙅🏻‍♀️";
+			case 625: return "🙅🏼‍♀️";
+			case 626: return "🙅🏽‍♀️";
+			case 627: return "🙅🏾‍♀️";
+			case 628: return "🙅🏿‍♀️";
+			case 629: return "🙆";
+			case 630: return "🙆🏻";
+			case 631: return "🙆🏼";
+			case 632: return "🙆🏽";
+			case 633: return "🙆🏾";
+			case 634: return "🙆🏿";
+			case 635: return "🙆‍♂️";
+			case 636: return "🙆🏻‍♂️";
+			case 637: return "🙆🏼‍♂️";
+			case 638: return "🙆🏽‍♂️";
+			case 639: return "🙆🏾‍♂️";
+			case 640: return "🙆🏿‍♂️";
+			case 641: return "🙆‍♀️";
+			case 642: return "🙆🏻‍♀️";
+			case 643: return "🙆🏼‍♀️";
+			case 644: return "🙆🏽‍♀️";
+			case 645: return "🙆🏾‍♀️";
+			case 646: return "🙆🏿‍♀️";
+			case 647: return "💁";
+			case 648: return "💁🏻";
+			case 649: return "💁🏼";
+			case 650: return "💁🏽";
+			case 651: return "💁🏾";
+			case 652: return "💁🏿";
+			case 653: return "💁‍♂️";
+			case 654: return "💁🏻‍♂️";
+			case 655: return "💁🏼‍♂️";
+			case 656: return "💁🏽‍♂️";
+			case 657: return "💁🏾‍♂️";
+			case 658: return "💁🏿‍♂️";
+			case 659: return "💁‍♀️";
+			case 660: return "💁🏻‍♀️";
+			case 661: return "💁🏼‍♀️";
+			case 662: return "💁🏽‍♀️";
+			case 663: return "💁🏾‍♀️";
+			case 664: return "💁🏿‍♀️";
+			case 665: return "🙋";
+			case 666: return "🙋🏻";
+			case 667: return "🙋🏼";
+			case 668: return "🙋🏽";
+			case 669: return "🙋🏾";
+			case 670: return "🙋🏿";
+			case 671: return "🙋‍♂️";
+			case 672: return "🙋🏻‍♂️";
+			case 673: return "🙋🏼‍♂️";
+			case 674: return "🙋🏽‍♂️";
+			case 675: return "🙋🏾‍♂️";
+			case 676: return "🙋🏿‍♂️";
+			case 677: return "🙋‍♀️";
+			case 678: return "🙋🏻‍♀️";
+			case 679: return "🙋🏼‍♀️";
+			case 680: return "🙋🏽‍♀️";
+			case 681: return "🙋🏾‍♀️";
+			case 682: return "🙋🏿‍♀️";
+			case 683: return "🧏";
+			case 684: return "🧏🏻";
+			case 685: return "🧏🏼";
+			case 686: return "🧏🏽";
+			case 687: return "🧏🏾";
+			case 688: return "🧏🏿";
+			case 689: return "🧏‍♂️";
+			case 690: return "🧏🏻‍♂️";
+			case 691: return "🧏🏼‍♂️";
+			case 692: return "🧏🏽‍♂️";
+			case 693: return "🧏🏾‍♂️";
+			case 694: return "🧏🏿‍♂️";
+			case 695: return "🧏‍♀️";
+			case 696: return "🧏🏻‍♀️";
+			case 697: return "🧏🏼‍♀️";
+			case 698: return "🧏🏽‍♀️";
+			case 699: return "🧏🏾‍♀️";
+			case 700: return "🧏🏿‍♀️";
+			case 701: return "🙇";
+			case 702: return "🙇🏻";
+			case 703: return "🙇🏼";
+			case 704: return "🙇🏽";
+			case 705: return "🙇🏾";
+			case 706: return "🙇🏿";
+			case 707: return "🙇‍♂️";
+			case 708: return "🙇🏻‍♂️";
+			case 709: return "🙇🏼‍♂️";
+			case 710: return "🙇🏽‍♂️";
+			case 711: return "🙇🏾‍♂️";
+			case 712: return "🙇🏿‍♂️";
+			case 713: return "🙇‍♀️";
+			case 714: return "🙇🏻‍♀️";
+			case 715: return "🙇🏼‍♀️";
+			case 716: return "🙇🏽‍♀️";
+			case 717: return "🙇🏾‍♀️";
+			case 718: return "🙇🏿‍♀️";
+			case 719: return "🤦";
+			case 720: return "🤦🏻";
+			case 721: return "🤦🏼";
+			case 722: return "🤦🏽";
+			case 723: return "🤦🏾";
+			case 724: return "🤦🏿";
+			case 725: return "🤦‍♂️";
+			case 726: return "🤦🏻‍♂️";
+			case 727: return "🤦🏼‍♂️";
+			case 728: return "🤦🏽‍♂️";
+			case 729: return "🤦🏾‍♂️";
+			case 730: return "🤦🏿‍♂️";
+			case 731: return "🤦‍♀️";
+			case 732: return "🤦🏻‍♀️";
+			case 733: return "🤦🏼‍♀️";
+			case 734: return "🤦🏽‍♀️";
+			case 735: return "🤦🏾‍♀️";
+			case 736: return "🤦🏿‍♀️";
+			case 737: return "🤷";
+			case 738: return "🤷🏻";
+			case 739: return "🤷🏼";
+			case 740: return "🤷🏽";
+			case 741: return "🤷🏾";
+			case 742: return "🤷🏿";
+			case 743: return "🤷‍♂️";
+			case 744: return "🤷🏻‍♂️";
+			case 745: return "🤷🏼‍♂️";
+			case 746: return "🤷🏽‍♂️";
+			case 747: return "🤷🏾‍♂️";
+			case 748: return "🤷🏿‍♂️";
+			case 749: return "🤷‍♀️";
+			case 750: return "🤷🏻‍♀️";
+			case 751: return "🤷🏼‍♀️";
+			case 752: return "🤷🏽‍♀️";
+			case 753: return "🤷🏾‍♀️";
+			case 754: return "🤷🏿‍♀️";
+			case 755: return "🧑‍⚕️";
+			case 756: return "🧑🏻‍⚕️";
+			case 757: return "🧑🏼‍⚕️";
+			case 758: return "🧑🏽‍⚕️";
+			case 759: return "🧑🏾‍⚕️";
+			case 760: return "🧑🏿‍⚕️";
+			case 761: return "👨‍⚕️";
+			case 762: return "👨🏻‍⚕️";
+			case 763: return "👨🏼‍⚕️";
+			case 764: return "👨🏽‍⚕️";
+			case 765: return "👨🏾‍⚕️";
+			case 766: return "👨🏿‍⚕️";
+			case 767: return "👩‍⚕️";
+			case 768: return "👩🏻‍⚕️";
+			case 769: return "👩🏼‍⚕️";
+			case 770: return "👩🏽‍⚕️";
+			case 771: return "👩🏾‍⚕️";
+			case 772: return "👩🏿‍⚕️";
+			case 773: return "🧑‍🎓";
+			case 774: return "🧑🏻‍🎓";
+			case 775: return "🧑🏼‍🎓";
+			case 776: return "🧑🏽‍🎓";
+			case 777: return "🧑🏾‍🎓";
+			case 778: return "🧑🏿‍🎓";
+			case 779: return "👨‍🎓";
+			case 780: return "👨🏻‍🎓";
+			case 781: return "👨🏼‍🎓";
+			case 782: return "👨🏽‍🎓";
+			case 783: return "👨🏾‍🎓";
+			case 784: return "👨🏿‍🎓";
+			case 785: return "👩‍🎓";
+			case 786: return "👩🏻‍🎓";
+			case 787: return "👩🏼‍🎓";
+			case 788: return "👩🏽‍🎓";
+			case 789: return "👩🏾‍🎓";
+			case 790: return "👩🏿‍🎓";
+			case 791: return "🧑‍🏫";
+			case 792: return "🧑🏻‍🏫";
+			case 793: return "🧑🏼‍🏫";
+			case 794: return "🧑🏽‍🏫";
+			case 795: return "🧑🏾‍🏫";
+			case 796: return "🧑🏿‍🏫";
+			case 797: return "👨‍🏫";
+			case 798: return "👨🏻‍🏫";
+			case 799: return "👨🏼‍🏫";
+			case 800: return "👨🏽‍🏫";
+			case 801: return "👨🏾‍🏫";
+			case 802: return "👨🏿‍🏫";
+			case 803: return "👩‍🏫";
+			case 804: return "👩🏻‍🏫";
+			case 805: return "👩🏼‍🏫";
+			case 806: return "👩🏽‍🏫";
+			case 807: return "👩🏾‍🏫";
+			case 808: return "👩🏿‍🏫";
+			case 809: return "🧑‍⚖️";
+			case 810: return "🧑🏻‍⚖️";
+			case 811: return "🧑🏼‍⚖️";
+			case 812: return "🧑🏽‍⚖️";
+			case 813: return "🧑🏾‍⚖️";
+			case 814: return "🧑🏿‍⚖️";
+			case 815: return "👨‍⚖️";
+			case 816: return "👨🏻‍⚖️";
+			case 817: return "👨🏼‍⚖️";
+			case 818: return "👨🏽‍⚖️";
+			case 819: return "👨🏾‍⚖️";
+			case 820: return "👨🏿‍⚖️";
+			case 821: return "👩‍⚖️";
+			case 822: return "👩🏻‍⚖️";
+			case 823: return "👩🏼‍⚖️";
+			case 824: return "👩🏽‍⚖️";
+			case 825: return "👩🏾‍⚖️";
+			case 826: return "👩🏿‍⚖️";
+			case 827: return "🧑‍🌾";
+			case 828: return "🧑🏻‍🌾";
+			case 829: return "🧑🏼‍🌾";
+			case 830: return "🧑🏽‍🌾";
+			case 831: return "🧑🏾‍🌾";
+			case 832: return "🧑🏿‍🌾";
+			case 833: return "👨‍🌾";
+			case 834: return "👨🏻‍🌾";
+			case 835: return "👨🏼‍🌾";
+			case 836: return "👨🏽‍🌾";
+			case 837: return "👨🏾‍🌾";
+			case 838: return "👨🏿‍🌾";
+			case 839: return "👩‍🌾";
+			case 840: return "👩🏻‍🌾";
+			case 841: return "👩🏼‍🌾";
+			case 842: return "👩🏽‍🌾";
+			case 843: return "👩🏾‍🌾";
+			case 844: return "👩🏿‍🌾";
+			case 845: return "🧑‍🍳";
+			case 846: return "🧑🏻‍🍳";
+			case 847: return "🧑🏼‍🍳";
+			case 848: return "🧑🏽‍🍳";
+			case 849: return "🧑🏾‍🍳";
+			case 850: return "🧑🏿‍🍳";
+			case 851: return "👨‍🍳";
+			case 852: return "👨🏻‍🍳";
+			case 853: return "👨🏼‍🍳";
+			case 854: return "👨🏽‍🍳";
+			case 855: return "👨🏾‍🍳";
+			case 856: return "👨🏿‍🍳";
+			case 857: return "👩‍🍳";
+			case 858: return "👩🏻‍🍳";
+			case 859: return "👩🏼‍🍳";
+			case 860: return "👩🏽‍🍳";
+			case 861: return "👩🏾‍🍳";
+			case 862: return "👩🏿‍🍳";
+			case 863: return "🧑‍🔧";
+			case 864: return "🧑🏻‍🔧";
+			case 865: return "🧑🏼‍🔧";
+			case 866: return "🧑🏽‍🔧";
+			case 867: return "🧑🏾‍🔧";
+			case 868: return "🧑🏿‍🔧";
+			case 869: return "👨‍🔧";
+			case 870: return "👨🏻‍🔧";
+			case 871: return "👨🏼‍🔧";
+			case 872: return "👨🏽‍🔧";
+			case 873: return "👨🏾‍🔧";
+			case 874: return "👨🏿‍🔧";
+			case 875: return "👩‍🔧";
+			case 876: return "👩🏻‍🔧";
+			case 877: return "👩🏼‍🔧";
+			case 878: return "👩🏽‍🔧";
+			case 879: return "👩🏾‍🔧";
+			case 880: return "👩🏿‍🔧";
+			case 881: return "🧑‍🏭";
+			case 882: return "🧑🏻‍🏭";
+			case 883: return "🧑🏼‍🏭";
+			case 884: return "🧑🏽‍🏭";
+			case 885: return "🧑🏾‍🏭";
+			case 886: return "🧑🏿‍🏭";
+			case 887: return "👨‍🏭";
+			case 888: return "👨🏻‍🏭";
+			case 889: return "👨🏼‍🏭";
+			case 890: return "👨🏽‍🏭";
+			case 891: return "👨🏾‍🏭";
+			case 892: return "👨🏿‍🏭";
+			case 893: return "👩‍🏭";
+			case 894: return "👩🏻‍🏭";
+			case 895: return "👩🏼‍🏭";
+			case 896: return "👩🏽‍🏭";
+			case 897: return "👩🏾‍🏭";
+			case 898: return "👩🏿‍🏭";
+			case 899: return "🧑‍💼";
+			case 900: return "🧑🏻‍💼";
+			case 901: return "🧑🏼‍💼";
+			case 902: return "🧑🏽‍💼";
+			case 903: return "🧑🏾‍💼";
+			case 904: return "🧑🏿‍💼";
+			case 905: return "👨‍💼";
+			case 906: return "👨🏻‍💼";
+			case 907: return "👨🏼‍💼";
+			case 908: return "👨🏽‍💼";
+			case 909: return "👨🏾‍💼";
+			case 910: return "👨🏿‍💼";
+			case 911: return "👩‍💼";
+			case 912: return "👩🏻‍💼";
+			case 913: return "👩🏼‍💼";
+			case 914: return "👩🏽‍💼";
+			case 915: return "👩🏾‍💼";
+			case 916: return "👩🏿‍💼";
+			case 917: return "🧑‍🔬";
+			case 918: return "🧑🏻‍🔬";
+			case 919: return "🧑🏼‍🔬";
+			case 920: return "🧑🏽‍🔬";
+			case 921: return "🧑🏾‍🔬";
+			case 922: return "🧑🏿‍🔬";
+			case 923: return "👨‍🔬";
+			case 924: return "👨🏻‍🔬";
+			case 925: return "👨🏼‍🔬";
+			case 926: return "👨🏽‍🔬";
+			case 927: return "👨🏾‍🔬";
+			case 928: return "👨🏿‍🔬";
+			case 929: return "👩‍🔬";
+			case 930: return "👩🏻‍🔬";
+			case 931: return "👩🏼‍🔬";
+			case 932: return "👩🏽‍🔬";
+			case 933: return "👩🏾‍🔬";
+			case 934: return "👩🏿‍🔬";
+			case 935: return "🧑‍💻";
+			case 936: return "🧑🏻‍💻";
+			case 937: return "🧑🏼‍💻";
+			case 938: return "🧑🏽‍💻";
+			case 939: return "🧑🏾‍💻";
+			case 940: return "🧑🏿‍💻";
+			case 941: return "👨‍💻";
+			case 942: return "👨🏻‍💻";
+			case 943: return "👨🏼‍💻";
+			case 944: return "👨🏽‍💻";
+			case 945: return "👨🏾‍💻";
+			case 946: return "👨🏿‍💻";
+			case 947: return "👩‍💻";
+			case 948: return "👩🏻‍💻";
+			case 949: return "👩🏼‍💻";
+			case 950: return "👩🏽‍💻";
+			case 951: return "👩🏾‍💻";
+			case 952: return "👩🏿‍💻";
+			case 953: return "🧑‍🎤";
+			case 954: return "🧑🏻‍🎤";
+			case 955: return "🧑🏼‍🎤";
+			case 956: return "🧑🏽‍🎤";
+			case 957: return "🧑🏾‍🎤";
+			case 958: return "🧑🏿‍🎤";
+			case 959: return "👨‍🎤";
+			case 960: return "👨🏻‍🎤";
+			case 961: return "👨🏼‍🎤";
+			case 962: return "👨🏽‍🎤";
+			case 963: return "👨🏾‍🎤";
+			case 964: return "👨🏿‍🎤";
+			case 965: return "👩‍🎤";
+			case 966: return "👩🏻‍🎤";
+			case 967: return "👩🏼‍🎤";
+			case 968: return "👩🏽‍🎤";
+			case 969: return "👩🏾‍🎤";
+			case 970: return "👩🏿‍🎤";
+			case 971: return "🧑‍🎨";
+			case 972: return "🧑🏻‍🎨";
+			case 973: return "🧑🏼‍🎨";
+			case 974: return "🧑🏽‍🎨";
+			case 975: return "🧑🏾‍🎨";
+			case 976: return "🧑🏿‍🎨";
+			case 977: return "👨‍🎨";
+			case 978: return "👨🏻‍🎨";
+			case 979: return "👨🏼‍🎨";
+			case 980: return "👨🏽‍🎨";
+			case 981: return "👨🏾‍🎨";
+			case 982: return "👨🏿‍🎨";
+			case 983: return "👩‍🎨";
+			case 984: return "👩🏻‍🎨";
+			case 985: return "👩🏼‍🎨";
+			case 986: return "👩🏽‍🎨";
+			case 987: return "👩🏾‍🎨";
+			case 988: return "👩🏿‍🎨";
+			case 989: return "🧑‍✈️";
+			case 990: return "🧑🏻‍✈️";
+			case 991: return "🧑🏼‍✈️";
+			case 992: return "🧑🏽‍✈️";
+			case 993: return "🧑🏾‍✈️";
+			case 994: return "🧑🏿‍✈️";
+			case 995: return "👨‍✈️";
+			case 996: return "👨🏻‍✈️";
+			case 997: return "👨🏼‍✈️";
+			case 998: return "👨🏽‍✈️";
+			case 999: return "👨🏾‍✈️";
+			case 1000: return "👨🏿‍✈️";
+			case 1001: return "👩‍✈️";
+			case 1002: return "👩🏻‍✈️";
+			case 1003: return "👩🏼‍✈️";
+			case 1004: return "👩🏽‍✈️";
+			case 1005: return "👩🏾‍✈️";
+			case 1006: return "👩🏿‍✈️";
+			case 1007: return "🧑‍🚀";
+			case 1008: return "🧑🏻‍🚀";
+			case 1009: return "🧑🏼‍🚀";
+			case 1010: return "🧑🏽‍🚀";
+			case 1011: return "🧑🏾‍🚀";
+			case 1012: return "🧑🏿‍🚀";
+			case 1013: return "👨‍🚀";
+			case 1014: return "👨🏻‍🚀";
+			case 1015: return "👨🏼‍🚀";
+			case 1016: return "👨🏽‍🚀";
+			case 1017: return "👨🏾‍🚀";
+			case 1018: return "👨🏿‍🚀";
+			case 1019: return "👩‍🚀";
+			case 1020: return "👩🏻‍🚀";
+			case 1021: return "👩🏼‍🚀";
+			case 1022: return "👩🏽‍🚀";
+			case 1023: return "👩🏾‍🚀";
+			case 1024: return "👩🏿‍🚀";
+			case 1025: return "🧑‍🚒";
+			case 1026: return "🧑🏻‍🚒";
+			case 1027: return "🧑🏼‍🚒";
+			case 1028: return "🧑🏽‍🚒";
+			case 1029: return "🧑🏾‍🚒";
+			case 1030: return "🧑🏿‍🚒";
+			case 1031: return "👨‍🚒";
+			case 1032: return "👨🏻‍🚒";
+			case 1033: return "👨🏼‍🚒";
+			case 1034: return "👨🏽‍🚒";
+			case 1035: return "👨🏾‍🚒";
+			case 1036: return "👨🏿‍🚒";
+			case 1037: return "👩‍🚒";
+			case 1038: return "👩🏻‍🚒";
+			case 1039: return "👩🏼‍🚒";
+			case 1040: return "👩🏽‍🚒";
+			case 1041: return "👩🏾‍🚒";
+			case 1042: return "👩🏿‍🚒";
+			case 1043: return "👮";
+			case 1044: return "👮🏻";
+			case 1045: return "👮🏼";
+			case 1046: return "👮🏽";
+			case 1047: return "👮🏾";
+			case 1048: return "👮🏿";
+			case 1049: return "👮‍♂️";
+			case 1050: return "👮🏻‍♂️";
+			case 1051: return "👮🏼‍♂️";
+			case 1052: return "👮🏽‍♂️";
+			case 1053: return "👮🏾‍♂️";
+			case 1054: return "👮🏿‍♂️";
+			case 1055: return "👮‍♀️";
+			case 1056: return "👮🏻‍♀️";
+			case 1057: return "👮🏼‍♀️";
+			case 1058: return "👮🏽‍♀️";
+			case 1059: return "👮🏾‍♀️";
+			case 1060: return "👮🏿‍♀️";
+			case 1061: return "🕵️";
+			case 1062: return "🕵🏻";
+			case 1063: return "🕵🏼";
+			case 1064: return "🕵🏽";
+			case 1065: return "🕵🏾";
+			case 1066: return "🕵🏿";
+			case 1067: return "🕵️‍♂️";
+			case 1068: return "🕵🏻‍♂️";
+			case 1069: return "🕵🏼‍♂️";
+			case 1070: return "🕵🏽‍♂️";
+			case 1071: return "🕵🏾‍♂️";
+			case 1072: return "🕵🏿‍♂️";
+			case 1073: return "🕵️‍♀️";
+			case 1074: return "🕵🏻‍♀️";
+			case 1075: return "🕵🏼‍♀️";
+			case 1076: return "🕵🏽‍♀️";
+			case 1077: return "🕵🏾‍♀️";
+			case 1078: return "🕵🏿‍♀️";
+			case 1079: return "💂";
+			case 1080: return "💂🏻";
+			case 1081: return "💂🏼";
+			case 1082: return "💂🏽";
+			case 1083: return "💂🏾";
+			case 1084: return "💂🏿";
+			case 1085: return "💂‍♂️";
+			case 1086: return "💂🏻‍♂️";
+			case 1087: return "💂🏼‍♂️";
+			case 1088: return "💂🏽‍♂️";
+			case 1089: return "💂🏾‍♂️";
+			case 1090: return "💂🏿‍♂️";
+			case 1091: return "💂‍♀️";
+			case 1092: return "💂🏻‍♀️";
+			case 1093: return "💂🏼‍♀️";
+			case 1094: return "💂🏽‍♀️";
+			case 1095: return "💂🏾‍♀️";
+			case 1096: return "💂🏿‍♀️";
+			case 1097: return "🥷";
+			case 1098: return "🥷🏻";
+			case 1099: return "🥷🏼";
+			case 1100: return "🥷🏽";
+			case 1101: return "🥷🏾";
+			case 1102: return "🥷🏿";
+			case 1103: return "👷";
+			case 1104: return "👷🏻";
+			case 1105: return "👷🏼";
+			case 1106: return "👷🏽";
+			case 1107: return "👷🏾";
+			case 1108: return "👷🏿";
+			case 1109: return "👷‍♂️";
+			case 1110: return "👷🏻‍♂️";
+			case 1111: return "👷🏼‍♂️";
+			case 1112: return "👷🏽‍♂️";
+			case 1113: return "👷🏾‍♂️";
+			case 1114: return "👷🏿‍♂️";
+			case 1115: return "👷‍♀️";
+			case 1116: return "👷🏻‍♀️";
+			case 1117: return "👷🏼‍♀️";
+			case 1118: return "👷🏽‍♀️";
+			case 1119: return "👷🏾‍♀️";
+			case 1120: return "👷🏿‍♀️";
+			case 1121: return "🤴";
+			case 1122: return "🤴🏻";
+			case 1123: return "🤴🏼";
+			case 1124: return "🤴🏽";
+			case 1125: return "🤴🏾";
+			case 1126: return "🤴🏿";
+			case 1127: return "👸";
+			case 1128: return "👸🏻";
+			case 1129: return "👸🏼";
+			case 1130: return "👸🏽";
+			case 1131: return "👸🏾";
+			case 1132: return "👸🏿";
+			case 1133: return "👳";
+			case 1134: return "👳🏻";
+			case 1135: return "👳🏼";
+			case 1136: return "👳🏽";
+			case 1137: return "👳🏾";
+			case 1138: return "👳🏿";
+			case 1139: return "👳‍♂️";
+			case 1140: return "👳🏻‍♂️";
+			case 1141: return "👳🏼‍♂️";
+			case 1142: return "👳🏽‍♂️";
+			case 1143: return "👳🏾‍♂️";
+			case 1144: return "👳🏿‍♂️";
+			case 1145: return "👳‍♀️";
+			case 1146: return "👳🏻‍♀️";
+			case 1147: return "👳🏼‍♀️";
+			case 1148: return "👳🏽‍♀️";
+			case 1149: return "👳🏾‍♀️";
+			case 1150: return "👳🏿‍♀️";
+			case 1151: return "👲";
+			case 1152: return "👲🏻";
+			case 1153: return "👲🏼";
+			case 1154: return "👲🏽";
+			case 1155: return "👲🏾";
+			case 1156: return "👲🏿";
+			case 1157: return "🧕";
+			case 1158: return "🧕🏻";
+			case 1159: return "🧕🏼";
+			case 1160: return "🧕🏽";
+			case 1161: return "🧕🏾";
+			case 1162: return "🧕🏿";
+			case 1163: return "🤵";
+			case 1164: return "🤵🏻";
+			case 1165: return "🤵🏼";
+			case 1166: return "🤵🏽";
+			case 1167: return "🤵🏾";
+			case 1168: return "🤵🏿";
+			case 1169: return "🤵‍♂️";
+			case 1170: return "🤵🏻‍♂️";
+			case 1171: return "🤵🏼‍♂️";
+			case 1172: return "🤵🏽‍♂️";
+			case 1173: return "🤵🏾‍♂️";
+			case 1174: return "🤵🏿‍♂️";
+			case 1175: return "🤵‍♀️";
+			case 1176: return "🤵🏻‍♀️";
+			case 1177: return "🤵🏼‍♀️";
+			case 1178: return "🤵🏽‍♀️";
+			case 1179: return "🤵🏾‍♀️";
+			case 1180: return "🤵🏿‍♀️";
+			case 1181: return "👰";
+			case 1182: return "👰🏻";
+			case 1183: return "👰🏼";
+			case 1184: return "👰🏽";
+			case 1185: return "👰🏾";
+			case 1186: return "👰🏿";
+			case 1187: return "👰‍♂️";
+			case 1188: return "👰🏻‍♂️";
+			case 1189: return "👰🏼‍♂️";
+			case 1190: return "👰🏽‍♂️";
+			case 1191: return "👰🏾‍♂️";
+			case 1192: return "👰🏿‍♂️";
+			case 1193: return "👰‍♀️";
+			case 1194: return "👰🏻‍♀️";
+			case 1195: return "👰🏼‍♀️";
+			case 1196: return "👰🏽‍♀️";
+			case 1197: return "👰🏾‍♀️";
+			case 1198: return "👰🏿‍♀️";
+			case 1199: return "🤰";
+			case 1200: return "🤰🏻";
+			case 1201: return "🤰🏼";
+			case 1202: return "🤰🏽";
+			case 1203: return "🤰🏾";
+			case 1204: return "🤰🏿";
+			case 1205: return "🤱";
+			case 1206: return "🤱🏻";
+			case 1207: return "🤱🏼";
+			case 1208: return "🤱🏽";
+			case 1209: return "🤱🏾";
+			case 1210: return "🤱🏿";
+			case 1211: return "👩‍🍼";
+			case 1212: return "👩🏻‍🍼";
+			case 1213: return "👩🏼‍🍼";
+			case 1214: return "👩🏽‍🍼";
+			case 1215: return "👩🏾‍🍼";
+			case 1216: return "👩🏿‍🍼";
+			case 1217: return "👨‍🍼";
+			case 1218: return "👨🏻‍🍼";
+			case 1219: return "👨🏼‍🍼";
+			case 1220: return "👨🏽‍🍼";
+			case 1221: return "👨🏾‍🍼";
+			case 1222: return "👨🏿‍🍼";
+			case 1223: return "🧑‍🍼";
+			case 1224: return "🧑🏻‍🍼";
+			case 1225: return "🧑🏼‍🍼";
+			case 1226: return "🧑🏽‍🍼";
+			case 1227: return "🧑🏾‍🍼";
+			case 1228: return "🧑🏿‍🍼";
+			case 1229: return "👼";
+			case 1230: return "👼🏻";
+			case 1231: return "👼🏼";
+			case 1232: return "👼🏽";
+			case 1233: return "👼🏾";
+			case 1234: return "👼🏿";
+			case 1235: return "🎅";
+			case 1236: return "🎅🏻";
+			case 1237: return "🎅🏼";
+			case 1238: return "🎅🏽";
+			case 1239: return "🎅🏾";
+			case 1240: return "🎅🏿";
+			case 1241: return "🤶";
+			case 1242: return "🤶🏻";
+			case 1243: return "🤶🏼";
+			case 1244: return "🤶🏽";
+			case 1245: return "🤶🏾";
+			case 1246: return "🤶🏿";
+			case 1247: return "🧑‍🎄";
+			case 1248: return "🧑🏻‍🎄";
+			case 1249: return "🧑🏼‍🎄";
+			case 1250: return "🧑🏽‍🎄";
+			case 1251: return "🧑🏾‍🎄";
+			case 1252: return "🧑🏿‍🎄";
+			case 1253: return "🦸";
+			case 1254: return "🦸🏻";
+			case 1255: return "🦸🏼";
+			case 1256: return "🦸🏽";
+			case 1257: return "🦸🏾";
+			case 1258: return "🦸🏿";
+			case 1259: return "🦸‍♂️";
+			case 1260: return "🦸🏻‍♂️";
+			case 1261: return "🦸🏼‍♂️";
+			case 1262: return "🦸🏽‍♂️";
+			case 1263: return "🦸🏾‍♂️";
+			case 1264: return "🦸🏿‍♂️";
+			case 1265: return "🦸‍♀️";
+			case 1266: return "🦸🏻‍♀️";
+			case 1267: return "🦸🏼‍♀️";
+			case 1268: return "🦸🏽‍♀️";
+			case 1269: return "🦸🏾‍♀️";
+			case 1270: return "🦸🏿‍♀️";
+			case 1271: return "🦹";
+			case 1272: return "🦹🏻";
+			case 1273: return "🦹🏼";
+			case 1274: return "🦹🏽";
+			case 1275: return "🦹🏾";
+			case 1276: return "🦹🏿";
+			case 1277: return "🦹‍♂️";
+			case 1278: return "🦹🏻‍♂️";
+			case 1279: return "🦹🏼‍♂️";
+			case 1280: return "🦹🏽‍♂️";
+			case 1281: return "🦹🏾‍♂️";
+			case 1282: return "🦹🏿‍♂️";
+			case 1283: return "🦹‍♀️";
+			case 1284: return "🦹🏻‍♀️";
+			case 1285: return "🦹🏼‍♀️";
+			case 1286: return "🦹🏽‍♀️";
+			case 1287: return "🦹🏾‍♀️";
+			case 1288: return "🦹🏿‍♀️";
+			case 1289: return "🧙";
+			case 1290: return "🧙🏻";
+			case 1291: return "🧙🏼";
+			case 1292: return "🧙🏽";
+			case 1293: return "🧙🏾";
+			case 1294: return "🧙🏿";
+			case 1295: return "🧙‍♂️";
+			case 1296: return "🧙🏻‍♂️";
+			case 1297: return "🧙🏼‍♂️";
+			case 1298: return "🧙🏽‍♂️";
+			case 1299: return "🧙🏾‍♂️";
+			case 1300: return "🧙🏿‍♂️";
+			case 1301: return "🧙‍♀️";
+			case 1302: return "🧙🏻‍♀️";
+			case 1303: return "🧙🏼‍♀️";
+			case 1304: return "🧙🏽‍♀️";
+			case 1305: return "🧙🏾‍♀️";
+			case 1306: return "🧙🏿‍♀️";
+			case 1307: return "🧚";
+			case 1308: return "🧚🏻";
+			case 1309: return "🧚🏼";
+			case 1310: return "🧚🏽";
+			case 1311: return "🧚🏾";
+			case 1312: return "🧚🏿";
+			case 1313: return "🧚‍♂️";
+			case 1314: return "🧚🏻‍♂️";
+			case 1315: return "🧚🏼‍♂️";
+			case 1316: return "🧚🏽‍♂️";
+			case 1317: return "🧚🏾‍♂️";
+			case 1318: return "🧚🏿‍♂️";
+			case 1319: return "🧚‍♀️";
+			case 1320: return "🧚🏻‍♀️";
+			case 1321: return "🧚🏼‍♀️";
+			case 1322: return "🧚🏽‍♀️";
+			case 1323: return "🧚🏾‍♀️";
+			case 1324: return "🧚🏿‍♀️";
+			case 1325: return "🧛";
+			case 1326: return "🧛🏻";
+			case 1327: return "🧛🏼";
+			case 1328: return "🧛🏽";
+			case 1329: return "🧛🏾";
+			case 1330: return "🧛🏿";
+			case 1331: return "🧛‍♂️";
+			case 1332: return "🧛🏻‍♂️";
+			case 1333: return "🧛🏼‍♂️";
+			case 1334: return "🧛🏽‍♂️";
+			case 1335: return "🧛🏾‍♂️";
+			case 1336: return "🧛🏿‍♂️";
+			case 1337: return "🧛‍♀️";
+			case 1338: return "🧛🏻‍♀️";
+			case 1339: return "🧛🏼‍♀️";
+			case 1340: return "🧛🏽‍♀️";
+			case 1341: return "🧛🏾‍♀️";
+			case 1342: return "🧛🏿‍♀️";
+			case 1343: return "🧜";
+			case 1344: return "🧜🏻";
+			case 1345: return "🧜🏼";
+			case 1346: return "🧜🏽";
+			case 1347: return "🧜🏾";
+			case 1348: return "🧜🏿";
+			case 1349: return "🧜‍♂️";
+			case 1350: return "🧜🏻‍♂️";
+			case 1351: return "🧜🏼‍♂️";
+			case 1352: return "🧜🏽‍♂️";
+			case 1353: return "🧜🏾‍♂️";
+			case 1354: return "🧜🏿‍♂️";
+			case 1355: return "🧜‍♀️";
+			case 1356: return "🧜🏻‍♀️";
+			case 1357: return "🧜🏼‍♀️";
+			case 1358: return "🧜🏽‍♀️";
+			case 1359: return "🧜🏾‍♀️";
+			case 1360: return "🧜🏿‍♀️";
+			case 1361: return "🧝";
+			case 1362: return "🧝🏻";
+			case 1363: return "🧝🏼";
+			case 1364: return "🧝🏽";
+			case 1365: return "🧝🏾";
+			case 1366: return "🧝🏿";
+			case 1367: return "🧝‍♂️";
+			case 1368: return "🧝🏻‍♂️";
+			case 1369: return "🧝🏼‍♂️";
+			case 1370: return "🧝🏽‍♂️";
+			case 1371: return "🧝🏾‍♂️";
+			case 1372: return "🧝🏿‍♂️";
+			case 1373: return "🧝‍♀️";
+			case 1374: return "🧝🏻‍♀️";
+			case 1375: return "🧝🏼‍♀️";
+			case 1376: return "🧝🏽‍♀️";
+			case 1377: return "🧝🏾‍♀️";
+			case 1378: return "🧝🏿‍♀️";
+			case 1379: return "🧞";
+			case 1380: return "🧞‍♂️";
+			case 1381: return "🧞‍♀️";
+			case 1382: return "🧟";
+			case 1383: return "🧟‍♂️";
+			case 1384: return "🧟‍♀️";
+			case 1385: return "💆";
+			case 1386: return "💆🏻";
+			case 1387: return "💆🏼";
+			case 1388: return "💆🏽";
+			case 1389: return "💆🏾";
+			case 1390: return "💆🏿";
+			case 1391: return "💆‍♂️";
+			case 1392: return "💆🏻‍♂️";
+			case 1393: return "💆🏼‍♂️";
+			case 1394: return "💆🏽‍♂️";
+			case 1395: return "💆🏾‍♂️";
+			case 1396: return "💆🏿‍♂️";
+			case 1397: return "💆‍♀️";
+			case 1398: return "💆🏻‍♀️";
+			case 1399: return "💆🏼‍♀️";
+			case 1400: return "💆🏽‍♀️";
+			case 1401: return "💆🏾‍♀️";
+			case 1402: return "💆🏿‍♀️";
+			case 1403: return "💇";
+			case 1404: return "💇🏻";
+			case 1405: return "💇🏼";
+			case 1406: return "💇🏽";
+			case 1407: return "💇🏾";
+			case 1408: return "💇🏿";
+			case 1409: return "💇‍♂️";
+			case 1410: return "💇🏻‍♂️";
+			case 1411: return "💇🏼‍♂️";
+			case 1412: return "💇🏽‍♂️";
+			case 1413: return "💇🏾‍♂️";
+			case 1414: return "💇🏿‍♂️";
+			case 1415: return "💇‍♀️";
+			case 1416: return "💇🏻‍♀️";
+			case 1417: return "💇🏼‍♀️";
+			case 1418: return "💇🏽‍♀️";
+			case 1419: return "💇🏾‍♀️";
+			case 1420: return "💇🏿‍♀️";
+			case 1421: return "🚶";
+			case 1422: return "🚶🏻";
+			case 1423: return "🚶🏼";
+			case 1424: return "🚶🏽";
+			case 1425: return "🚶🏾";
+			case 1426: return "🚶🏿";
+			case 1427: return "🚶‍♂️";
+			case 1428: return "🚶🏻‍♂️";
+			case 1429: return "🚶🏼‍♂️";
+			case 1430: return "🚶🏽‍♂️";
+			case 1431: return "🚶🏾‍♂️";
+			case 1432: return "🚶🏿‍♂️";
+			case 1433: return "🚶‍♀️";
+			case 1434: return "🚶🏻‍♀️";
+			case 1435: return "🚶🏼‍♀️";
+			case 1436: return "🚶🏽‍♀️";
+			case 1437: return "🚶🏾‍♀️";
+			case 1438: return "🚶🏿‍♀️";
+			case 1439: return "🧍";
+			case 1440: return "🧍🏻";
+			case 1441: return "🧍🏼";
+			case 1442: return "🧍🏽";
+			case 1443: return "🧍🏾";
+			case 1444: return "🧍🏿";
+			case 1445: return "🧍‍♂️";
+			case 1446: return "🧍🏻‍♂️";
+			case 1447: return "🧍🏼‍♂️";
+			case 1448: return "🧍🏽‍♂️";
+			case 1449: return "🧍🏾‍♂️";
+			case 1450: return "🧍🏿‍♂️";
+			case 1451: return "🧍‍♀️";
+			case 1452: return "🧍🏻‍♀️";
+			case 1453: return "🧍🏼‍♀️";
+			case 1454: return "🧍🏽‍♀️";
+			case 1455: return "🧍🏾‍♀️";
+			case 1456: return "🧍🏿‍♀️";
+			case 1457: return "🧎";
+			case 1458: return "🧎🏻";
+			case 1459: return "🧎🏼";
+			case 1460: return "🧎🏽";
+			case 1461: return "🧎🏾";
+			case 1462: return "🧎🏿";
+			case 1463: return "🧎‍♂️";
+			case 1464: return "🧎🏻‍♂️";
+			case 1465: return "🧎🏼‍♂️";
+			case 1466: return "🧎🏽‍♂️";
+			case 1467: return "🧎🏾‍♂️";
+			case 1468: return "🧎🏿‍♂️";
+			case 1469: return "🧎‍♀️";
+			case 1470: return "🧎🏻‍♀️";
+			case 1471: return "🧎🏼‍♀️";
+			case 1472: return "🧎🏽‍♀️";
+			case 1473: return "🧎🏾‍♀️";
+			case 1474: return "🧎🏿‍♀️";
+			case 1475: return "🧑‍🦯";
+			case 1476: return "🧑🏻‍🦯";
+			case 1477: return "🧑🏼‍🦯";
+			case 1478: return "🧑🏽‍🦯";
+			case 1479: return "🧑🏾‍🦯";
+			case 1480: return "🧑🏿‍🦯";
+			case 1481: return "👨‍🦯";
+			case 1482: return "👨🏻‍🦯";
+			case 1483: return "👨🏼‍🦯";
+			case 1484: return "👨🏽‍🦯";
+			case 1485: return "👨🏾‍🦯";
+			case 1486: return "👨🏿‍🦯";
+			case 1487: return "👩‍🦯";
+			case 1488: return "👩🏻‍🦯";
+			case 1489: return "👩🏼‍🦯";
+			case 1490: return "👩🏽‍🦯";
+			case 1491: return "👩🏾‍🦯";
+			case 1492: return "👩🏿‍🦯";
+			case 1493: return "🧑‍🦼";
+			case 1494: return "🧑🏻‍🦼";
+			case 1495: return "🧑🏼‍🦼";
+			case 1496: return "🧑🏽‍🦼";
+			case 1497: return "🧑🏾‍🦼";
+			case 1498: return "🧑🏿‍🦼";
+			case 1499: return "👨‍🦼";
+			case 1500: return "👨🏻‍🦼";
+			case 1501: return "👨🏼‍🦼";
+			case 1502: return "👨🏽‍🦼";
+			case 1503: return "👨🏾‍🦼";
+			case 1504: return "👨🏿‍🦼";
+			case 1505: return "👩‍🦼";
+			case 1506: return "👩🏻‍🦼";
+			case 1507: return "👩🏼‍🦼";
+			case 1508: return "👩🏽‍🦼";
+			case 1509: return "👩🏾‍🦼";
+			case 1510: return "👩🏿‍🦼";
+			case 1511: return "🧑‍🦽";
+			case 1512: return "🧑🏻‍🦽";
+			case 1513: return "🧑🏼‍🦽";
+			case 1514: return "🧑🏽‍🦽";
+			case 1515: return "🧑🏾‍🦽";
+			case 1516: return "🧑🏿‍🦽";
+			case 1517: return "👨‍🦽";
+			case 1518: return "👨🏻‍🦽";
+			case 1519: return "👨🏼‍🦽";
+			case 1520: return "👨🏽‍🦽";
+			case 1521: return "👨🏾‍🦽";
+			case 1522: return "👨🏿‍🦽";
+			case 1523: return "👩‍🦽";
+			case 1524: return "👩🏻‍🦽";
+			case 1525: return "👩🏼‍🦽";
+			case 1526: return "👩🏽‍🦽";
+			case 1527: return "👩🏾‍🦽";
+			case 1528: return "👩🏿‍🦽";
+			case 1529: return "🏃";
+			case 1530: return "🏃🏻";
+			case 1531: return "🏃🏼";
+			case 1532: return "🏃🏽";
+			case 1533: return "🏃🏾";
+			case 1534: return "🏃🏿";
+			case 1535: return "🏃‍♂️";
+			case 1536: return "🏃🏻‍♂️";
+			case 1537: return "🏃🏼‍♂️";
+			case 1538: return "🏃🏽‍♂️";
+			case 1539: return "🏃🏾‍♂️";
+			case 1540: return "🏃🏿‍♂️";
+			case 1541: return "🏃‍♀️";
+			case 1542: return "🏃🏻‍♀️";
+			case 1543: return "🏃🏼‍♀️";
+			case 1544: return "🏃🏽‍♀️";
+			case 1545: return "🏃🏾‍♀️";
+			case 1546: return "🏃🏿‍♀️";
+			case 1547: return "💃";
+			case 1548: return "💃🏻";
+			case 1549: return "💃🏼";
+			case 1550: return "💃🏽";
+			case 1551: return "💃🏾";
+			case 1552: return "💃🏿";
+			case 1553: return "🕺";
+			case 1554: return "🕺🏻";
+			case 1555: return "🕺🏼";
+			case 1556: return "🕺🏽";
+			case 1557: return "🕺🏾";
+			case 1558: return "🕺🏿";
+			case 1559: return "🕴️";
+			case 1560: return "🕴🏻";
+			case 1561: return "🕴🏼";
+			case 1562: return "🕴🏽";
+			case 1563: return "🕴🏾";
+			case 1564: return "🕴🏿";
+			case 1565: return "👯";
+			case 1566: return "👯‍♂️";
+			case 1567: return "👯‍♀️";
+			case 1568: return "🧖";
+			case 1569: return "🧖🏻";
+			case 1570: return "🧖🏼";
+			case 1571: return "🧖🏽";
+			case 1572: return "🧖🏾";
+			case 1573: return "🧖🏿";
+			case 1574: return "🧖‍♂️";
+			case 1575: return "🧖🏻‍♂️";
+			case 1576: return "🧖🏼‍♂️";
+			case 1577: return "🧖🏽‍♂️";
+			case 1578: return "🧖🏾‍♂️";
+			case 1579: return "🧖🏿‍♂️";
+			case 1580: return "🧖‍♀️";
+			case 1581: return "🧖🏻‍♀️";
+			case 1582: return "🧖🏼‍♀️";
+			case 1583: return "🧖🏽‍♀️";
+			case 1584: return "🧖🏾‍♀️";
+			case 1585: return "🧖🏿‍♀️";
+			case 1586: return "🧗";
+			case 1587: return "🧗🏻";
+			case 1588: return "🧗🏼";
+			case 1589: return "🧗🏽";
+			case 1590: return "🧗🏾";
+			case 1591: return "🧗🏿";
+			case 1592: return "🧗‍♂️";
+			case 1593: return "🧗🏻‍♂️";
+			case 1594: return "🧗🏼‍♂️";
+			case 1595: return "🧗🏽‍♂️";
+			case 1596: return "🧗🏾‍♂️";
+			case 1597: return "🧗🏿‍♂️";
+			case 1598: return "🧗‍♀️";
+			case 1599: return "🧗🏻‍♀️";
+			case 1600: return "🧗🏼‍♀️";
+			case 1601: return "🧗🏽‍♀️";
+			case 1602: return "🧗🏾‍♀️";
+			case 1603: return "🧗🏿‍♀️";
+			case 1604: return "🤺";
+			case 1605: return "🏇";
+			case 1606: return "🏇🏻";
+			case 1607: return "🏇🏼";
+			case 1608: return "🏇🏽";
+			case 1609: return "🏇🏾";
+			case 1610: return "🏇🏿";
+			case 1611: return "⛷️";
+			case 1612: return "🏂";
+			case 1613: return "🏂🏻";
+			case 1614: return "🏂🏼";
+			case 1615: return "🏂🏽";
+			case 1616: return "🏂🏾";
+			case 1617: return "🏂🏿";
+			case 1618: return "🏌️";
+			case 1619: return "🏌🏻";
+			case 1620: return "🏌🏼";
+			case 1621: return "🏌🏽";
+			case 1622: return "🏌🏾";
+			case 1623: return "🏌🏿";
+			case 1624: return "🏌️‍♂️";
+			case 1625: return "🏌🏻‍♂️";
+			case 1626: return "🏌🏼‍♂️";
+			case 1627: return "🏌🏽‍♂️";
+			case 1628: return "🏌🏾‍♂️";
+			case 1629: return "🏌🏿‍♂️";
+			case 1630: return "🏌️‍♀️";
+			case 1631: return "🏌🏻‍♀️";
+			case 1632: return "🏌🏼‍♀️";
+			case 1633: return "🏌🏽‍♀️";
+			case 1634: return "🏌🏾‍♀️";
+			case 1635: return "🏌🏿‍♀️";
+			case 1636: return "🏄";
+			case 1637: return "🏄🏻";
+			case 1638: return "🏄🏼";
+			case 1639: return "🏄🏽";
+			case 1640: return "🏄🏾";
+			case 1641: return "🏄🏿";
+			case 1642: return "🏄‍♂️";
+			case 1643: return "🏄🏻‍♂️";
+			case 1644: return "🏄🏼‍♂️";
+			case 1645: return "🏄🏽‍♂️";
+			case 1646: return "🏄🏾‍♂️";
+			case 1647: return "🏄🏿‍♂️";
+			case 1648: return "🏄‍♀️";
+			case 1649: return "🏄🏻‍♀️";
+			case 1650: return "🏄🏼‍♀️";
+			case 1651: return "🏄🏽‍♀️";
+			case 1652: return "🏄🏾‍♀️";
+			case 1653: return "🏄🏿‍♀️";
+			case 1654: return "🚣";
+			case 1655: return "🚣🏻";
+			case 1656: return "🚣🏼";
+			case 1657: return "🚣🏽";
+			case 1658: return "🚣🏾";
+			case 1659: return "🚣🏿";
+			case 1660: return "🚣‍♂️";
+			case 1661: return "🚣🏻‍♂️";
+			case 1662: return "🚣🏼‍♂️";
+			case 1663: return "🚣🏽‍♂️";
+			case 1664: return "🚣🏾‍♂️";
+			case 1665: return "🚣🏿‍♂️";
+			case 1666: return "🚣‍♀️";
+			case 1667: return "🚣🏻‍♀️";
+			case 1668: return "🚣🏼‍♀️";
+			case 1669: return "🚣🏽‍♀️";
+			case 1670: return "🚣🏾‍♀️";
+			case 1671: return "🚣🏿‍♀️";
+			case 1672: return "🏊";
+			case 1673: return "🏊🏻";
+			case 1674: return "🏊🏼";
+			case 1675: return "🏊🏽";
+			case 1676: return "🏊🏾";
+			case 1677: return "🏊🏿";
+			case 1678: return "🏊‍♂️";
+			case 1679: return "🏊🏻‍♂️";
+			case 1680: return "🏊🏼‍♂️";
+			case 1681: return "🏊🏽‍♂️";
+			case 1682: return "🏊🏾‍♂️";
+			case 1683: return "🏊🏿‍♂️";
+			case 1684: return "🏊‍♀️";
+			case 1685: return "🏊🏻‍♀️";
+			case 1686: return "🏊🏼‍♀️";
+			case 1687: return "🏊🏽‍♀️";
+			case 1688: return "🏊🏾‍♀️";
+			case 1689: return "🏊🏿‍♀️";
+			case 1690: return "⛹️";
+			case 1691: return "⛹🏻";
+			case 1692: return "⛹🏼";
+			case 1693: return "⛹🏽";
+			case 1694: return "⛹🏾";
+			case 1695: return "⛹🏿";
+			case 1696: return "⛹️‍♂️";
+			case 1697: return "⛹🏻‍♂️";
+			case 1698: return "⛹🏼‍♂️";
+			case 1699: return "⛹🏽‍♂️";
+			case 1700: return "⛹🏾‍♂️";
+			case 1701: return "⛹🏿‍♂️";
+			case 1702: return "⛹️‍♀️";
+			case 1703: return "⛹🏻‍♀️";
+			case 1704: return "⛹🏼‍♀️";
+			case 1705: return "⛹🏽‍♀️";
+			case 1706: return "⛹🏾‍♀️";
+			case 1707: return "⛹🏿‍♀️";
+			case 1708: return "🏋️";
+			case 1709: return "🏋🏻";
+			case 1710: return "🏋🏼";
+			case 1711: return "🏋🏽";
+			case 1712: return "🏋🏾";
+			case 1713: return "🏋🏿";
+			case 1714: return "🏋️‍♂️";
+			case 1715: return "🏋🏻‍♂️";
+			case 1716: return "🏋🏼‍♂️";
+			case 1717: return "🏋🏽‍♂️";
+			case 1718: return "🏋🏾‍♂️";
+			case 1719: return "🏋🏿‍♂️";
+			case 1720: return "🏋️‍♀️";
+			case 1721: return "🏋🏻‍♀️";
+			case 1722: return "🏋🏼‍♀️";
+			case 1723: return "🏋🏽‍♀️";
+			case 1724: return "🏋🏾‍♀️";
+			case 1725: return "🏋🏿‍♀️";
+			case 1726: return "🚴";
+			case 1727: return "🚴🏻";
+			case 1728: return "🚴🏼";
+			case 1729: return "🚴🏽";
+			case 1730: return "🚴🏾";
+			case 1731: return "🚴🏿";
+			case 1732: return "🚴‍♂️";
+			case 1733: return "🚴🏻‍♂️";
+			case 1734: return "🚴🏼‍♂️";
+			case 1735: return "🚴🏽‍♂️";
+			case 1736: return "🚴🏾‍♂️";
+			case 1737: return "🚴🏿‍♂️";
+			case 1738: return "🚴‍♀️";
+			case 1739: return "🚴🏻‍♀️";
+			case 1740: return "🚴🏼‍♀️";
+			case 1741: return "🚴🏽‍♀️";
+			case 1742: return "🚴🏾‍♀️";
+			case 1743: return "🚴🏿‍♀️";
+			case 1744: return "🚵";
+			case 1745: return "🚵🏻";
+			case 1746: return "🚵🏼";
+			case 1747: return "🚵🏽";
+			case 1748: return "🚵🏾";
+			case 1749: return "🚵🏿";
+			case 1750: return "🚵‍♂️";
+			case 1751: return "🚵🏻‍♂️";
+			case 1752: return "🚵🏼‍♂️";
+			case 1753: return "🚵🏽‍♂️";
+			case 1754: return "🚵🏾‍♂️";
+			case 1755: return "🚵🏿‍♂️";
+			case 1756: return "🚵‍♀️";
+			case 1757: return "🚵🏻‍♀️";
+			case 1758: return "🚵🏼‍♀️";
+			case 1759: return "🚵🏽‍♀️";
+			case 1760: return "🚵🏾‍♀️";
+			case 1761: return "🚵🏿‍♀️";
+			case 1762: return "🤸";
+			case 1763: return "🤸🏻";
+			case 1764: return "🤸🏼";
+			case 1765: return "🤸🏽";
+			case 1766: return "🤸🏾";
+			case 1767: return "🤸🏿";
+			case 1768: return "🤸‍♂️";
+			case 1769: return "🤸🏻‍♂️";
+			case 1770: return "🤸🏼‍♂️";
+			case 1771: return "🤸🏽‍♂️";
+			case 1772: return "🤸🏾‍♂️";
+			case 1773: return "🤸🏿‍♂️";
+			case 1774: return "🤸‍♀️";
+			case 1775: return "🤸🏻‍♀️";
+			case 1776: return "🤸🏼‍♀️";
+			case 1777: return "🤸🏽‍♀️";
+			case 1778: return "🤸🏾‍♀️";
+			case 1779: return "🤸🏿‍♀️";
+			case 1780: return "🤼";
+			case 1781: return "🤼‍♂️";
+			case 1782: return "🤼‍♀️";
+			case 1783: return "🤽";
+			case 1784: return "🤽🏻";
+			case 1785: return "🤽🏼";
+			case 1786: return "🤽🏽";
+			case 1787: return "🤽🏾";
+			case 1788: return "🤽🏿";
+			case 1789: return "🤽‍♂️";
+			case 1790: return "🤽🏻‍♂️";
+			case 1791: return "🤽🏼‍♂️";
+			case 1792: return "🤽🏽‍♂️";
+			case 1793: return "🤽🏾‍♂️";
+			case 1794: return "🤽🏿‍♂️";
+			case 1795: return "🤽‍♀️";
+			case 1796: return "🤽🏻‍♀️";
+			case 1797: return "🤽🏼‍♀️";
+			case 1798: return "🤽🏽‍♀️";
+			case 1799: return "🤽🏾‍♀️";
+			case 1800: return "🤽🏿‍♀️";
+			case 1801: return "🤾";
+			case 1802: return "🤾🏻";
+			case 1803: return "🤾🏼";
+			case 1804: return "🤾🏽";
+			case 1805: return "🤾🏾";
+			case 1806: return "🤾🏿";
+			case 1807: return "🤾‍♂️";
+			case 1808: return "🤾🏻‍♂️";
+			case 1809: return "🤾🏼‍♂️";
+			case 1810: return "🤾🏽‍♂️";
+			case 1811: return "🤾🏾‍♂️";
+			case 1812: return "🤾🏿‍♂️";
+			case 1813: return "🤾‍♀️";
+			case 1814: return "🤾🏻‍♀️";
+			case 1815: return "🤾🏼‍♀️";
+			case 1816: return "🤾🏽‍♀️";
+			case 1817: return "🤾🏾‍♀️";
+			case 1818: return "🤾🏿‍♀️";
+			case 1819: return "🤹";
+			case 1820: return "🤹🏻";
+			case 1821: return "🤹🏼";
+			case 1822: return "🤹🏽";
+			case 1823: return "🤹🏾";
+			case 1824: return "🤹🏿";
+			case 1825: return "🤹‍♂️";
+			case 1826: return "🤹🏻‍♂️";
+			case 1827: return "🤹🏼‍♂️";
+			case 1828: return "🤹🏽‍♂️";
+			case 1829: return "🤹🏾‍♂️";
+			case 1830: return "🤹🏿‍♂️";
+			case 1831: return "🤹‍♀️";
+			case 1832: return "🤹🏻‍♀️";
+			case 1833: return "🤹🏼‍♀️";
+			case 1834: return "🤹🏽‍♀️";
+			case 1835: return "🤹🏾‍♀️";
+			case 1836: return "🤹🏿‍♀️";
+			case 1837: return "🧘";
+			case 1838: return "🧘🏻";
+			case 1839: return "🧘🏼";
+			case 1840: return "🧘🏽";
+			case 1841: return "🧘🏾";
+			case 1842: return "🧘🏿";
+			case 1843: return "🧘‍♂️";
+			case 1844: return "🧘🏻‍♂️";
+			case 1845: return "🧘🏼‍♂️";
+			case 1846: return "🧘🏽‍♂️";
+			case 1847: return "🧘🏾‍♂️";
+			case 1848: return "🧘🏿‍♂️";
+			case 1849: return "🧘‍♀️";
+			case 1850: return "🧘🏻‍♀️";
+			case 1851: return "🧘🏼‍♀️";
+			case 1852: return "🧘🏽‍♀️";
+			case 1853: return "🧘🏾‍♀️";
+			case 1854: return "🧘🏿‍♀️";
+			case 1855: return "🛀";
+			case 1856: return "🛀🏻";
+			case 1857: return "🛀🏼";
+			case 1858: return "🛀🏽";
+			case 1859: return "🛀🏾";
+			case 1860: return "🛀🏿";
+			case 1861: return "🛌";
+			case 1862: return "🛌🏻";
+			case 1863: return "🛌🏼";
+			case 1864: return "🛌🏽";
+			case 1865: return "🛌🏾";
+			case 1866: return "🛌🏿";
+			case 1867: return "🧑‍🤝‍🧑";
+			case 1868: return "🧑🏻‍🤝‍🧑🏻";
+			case 1869: return "🧑🏻‍🤝‍🧑🏼";
+			case 1870: return "🧑🏻‍🤝‍🧑🏽";
+			case 1871: return "🧑🏻‍🤝‍🧑🏾";
+			case 1872: return "🧑🏻‍🤝‍🧑🏿";
+			case 1873: return "🧑🏼‍🤝‍🧑🏻";
+			case 1874: return "🧑🏼‍🤝‍🧑🏼";
+			case 1875: return "🧑🏼‍🤝‍🧑🏽";
+			case 1876: return "🧑🏼‍🤝‍🧑🏾";
+			case 1877: return "🧑🏼‍🤝‍🧑🏿";
+			case 1878: return "🧑🏽‍🤝‍🧑🏻";
+			case 1879: return "🧑🏽‍🤝‍🧑🏼";
+			case 1880: return "🧑🏽‍🤝‍🧑🏽";
+			case 1881: return "🧑🏽‍🤝‍🧑🏾";
+			case 1882: return "🧑🏽‍🤝‍🧑🏿";
+			case 1883: return "🧑🏾‍🤝‍🧑🏻";
+			case 1884: return "🧑🏾‍🤝‍🧑🏼";
+			case 1885: return "🧑🏾‍🤝‍🧑🏽";
+			case 1886: return "🧑🏾‍🤝‍🧑🏾";
+			case 1887: return "🧑🏾‍🤝‍🧑🏿";
+			case 1888: return "🧑🏿‍🤝‍🧑🏻";
+			case 1889: return "🧑🏿‍🤝‍🧑🏼";
+			case 1890: return "🧑🏿‍🤝‍🧑🏽";
+			case 1891: return "🧑🏿‍🤝‍🧑🏾";
+			case 1892: return "🧑🏿‍🤝‍🧑🏿";
+			case 1893: return "👭";
+			case 1894: return "👭🏻";
+			case 1895: return "👩🏻‍🤝‍👩🏼";
+			case 1896: return "👩🏻‍🤝‍👩🏽";
+			case 1897: return "👩🏻‍🤝‍👩🏾";
+			case 1898: return "👩🏻‍🤝‍👩🏿";
+			case 1899: return "👩🏼‍🤝‍👩🏻";
+			case 1900: return "👭🏼";
+			case 1901: return "👩🏼‍🤝‍👩🏽";
+			case 1902: return "👩🏼‍🤝‍👩🏾";
+			case 1903: return "👩🏼‍🤝‍👩🏿";
+			case 1904: return "👩🏽‍🤝‍👩🏻";
+			case 1905: return "👩🏽‍🤝‍👩🏼";
+			case 1906: return "👭🏽";
+			case 1907: return "👩🏽‍🤝‍👩🏾";
+			case 1908: return "👩🏽‍🤝‍👩🏿";
+			case 1909: return "👩🏾‍🤝‍👩🏻";
+			case 1910: return "👩🏾‍🤝‍👩🏼";
+			case 1911: return "👩🏾‍🤝‍👩🏽";
+			case 1912: return "👭🏾";
+			case 1913: return "👩🏾‍🤝‍👩🏿";
+			case 1914: return "👩🏿‍🤝‍👩🏻";
+			case 1915: return "👩🏿‍🤝‍👩🏼";
+			case 1916: return "👩🏿‍🤝‍👩🏽";
+			case 1917: return "👩🏿‍🤝‍👩🏾";
+			case 1918: return "👭🏿";
+			case 1919: return "👫";
+			case 1920: return "👫🏻";
+			case 1921: return "👩🏻‍🤝‍👨🏼";
+			case 1922: return "👩🏻‍🤝‍👨🏽";
+			case 1923: return "👩🏻‍🤝‍👨🏾";
+			case 1924: return "👩🏻‍🤝‍👨🏿";
+			case 1925: return "👩🏼‍🤝‍👨🏻";
+			case 1926: return "👫🏼";
+			case 1927: return "👩🏼‍🤝‍👨🏽";
+			case 1928: return "👩🏼‍🤝‍👨🏾";
+			case 1929: return "👩🏼‍🤝‍👨🏿";
+			case 1930: return "👩🏽‍🤝‍👨🏻";
+			case 1931: return "👩🏽‍🤝‍👨🏼";
+			case 1932: return "👫🏽";
+			case 1933: return "👩🏽‍🤝‍👨🏾";
+			case 1934: return "👩🏽‍🤝‍👨🏿";
+			case 1935: return "👩🏾‍🤝‍👨🏻";
+			case 1936: return "👩🏾‍🤝‍👨🏼";
+			case 1937: return "👩🏾‍🤝‍👨🏽";
+			case 1938: return "👫🏾";
+			case 1939: return "👩🏾‍🤝‍👨🏿";
+			case 1940: return "👩🏿‍🤝‍👨🏻";
+			case 1941: return "👩🏿‍🤝‍👨🏼";
+			case 1942: return "👩🏿‍🤝‍👨🏽";
+			case 1943: return "👩🏿‍🤝‍👨🏾";
+			case 1944: return "👫🏿";
+			case 1945: return "👬";
+			case 1946: return "👬🏻";
+			case 1947: return "👨🏻‍🤝‍👨🏼";
+			case 1948: return "👨🏻‍🤝‍👨🏽";
+			case 1949: return "👨🏻‍🤝‍👨🏾";
+			case 1950: return "👨🏻‍🤝‍👨🏿";
+			case 1951: return "👨🏼‍🤝‍👨🏻";
+			case 1952: return "👬🏼";
+			case 1953: return "👨🏼‍🤝‍👨🏽";
+			case 1954: return "👨🏼‍🤝‍👨🏾";
+			case 1955: return "👨🏼‍🤝‍👨🏿";
+			case 1956: return "👨🏽‍🤝‍👨🏻";
+			case 1957: return "👨🏽‍🤝‍👨🏼";
+			case 1958: return "👬🏽";
+			case 1959: return "👨🏽‍🤝‍👨🏾";
+			case 1960: return "👨🏽‍🤝‍👨🏿";
+			case 1961: return "👨🏾‍🤝‍👨🏻";
+			case 1962: return "👨🏾‍🤝‍👨🏼";
+			case 1963: return "👨🏾‍🤝‍👨🏽";
+			case 1964: return "👬🏾";
+			case 1965: return "👨🏾‍🤝‍👨🏿";
+			case 1966: return "👨🏿‍🤝‍👨🏻";
+			case 1967: return "👨🏿‍🤝‍👨🏼";
+			case 1968: return "👨🏿‍🤝‍👨🏽";
+			case 1969: return "👨🏿‍🤝‍👨🏾";
+			case 1970: return "👬🏿";
+			case 1971: return "💏";
+			case 1972: return "💏🏻";
+			case 1973: return "💏🏼";
+			case 1974: return "💏🏽";
+			case 1975: return "💏🏾";
+			case 1976: return "💏🏿";
+			case 1977: return "🧑🏻‍❤️‍💋‍🧑🏼";
+			case 1978: return "🧑🏻‍❤️‍💋‍🧑🏽";
+			case 1979: return "🧑🏻‍❤️‍💋‍🧑🏾";
+			case 1980: return "🧑🏻‍❤️‍💋‍🧑🏿";
+			case 1981: return "🧑🏼‍❤️‍💋‍🧑🏻";
+			case 1982: return "🧑🏼‍❤️‍💋‍🧑🏽";
+			case 1983: return "🧑🏼‍❤️‍💋‍🧑🏾";
+			case 1984: return "🧑🏼‍❤️‍💋‍🧑🏿";
+			case 1985: return "🧑🏽‍❤️‍💋‍🧑🏻";
+			case 1986: return "🧑🏽‍❤️‍💋‍🧑🏼";
+			case 1987: return "🧑🏽‍❤️‍💋‍🧑🏾";
+			case 1988: return "🧑🏽‍❤️‍💋‍🧑🏿";
+			case 1989: return "🧑🏾‍❤️‍💋‍🧑🏻";
+			case 1990: return "🧑🏾‍❤️‍💋‍🧑🏼";
+			case 1991: return "🧑🏾‍❤️‍💋‍🧑🏽";
+			case 1992: return "🧑🏾‍❤️‍💋‍🧑🏿";
+			case 1993: return "🧑🏿‍❤️‍💋‍🧑🏻";
+			case 1994: return "🧑🏿‍❤️‍💋‍🧑🏼";
+			case 1995: return "🧑🏿‍❤️‍💋‍🧑🏽";
+			case 1996: return "🧑🏿‍❤️‍💋‍🧑🏾";
+			case 1997: return "👩‍❤️‍💋‍👨";
+			case 1998: return "👩🏻‍❤️‍💋‍👨🏻";
+			case 1999: return "👩🏻‍❤️‍💋‍👨🏼";
+			case 2000: return "👩🏻‍❤️‍💋‍👨🏽";
+			case 2001: return "👩🏻‍❤️‍💋‍👨🏾";
+			case 2002: return "👩🏻‍❤️‍💋‍👨🏿";
+			case 2003: return "👩🏼‍❤️‍💋‍👨🏻";
+			case 2004: return "👩🏼‍❤️‍💋‍👨🏼";
+			case 2005: return "👩🏼‍❤️‍💋‍👨🏽";
+			case 2006: return "👩🏼‍❤️‍💋‍👨🏾";
+			case 2007: return "👩🏼‍❤️‍💋‍👨🏿";
+			case 2008: return "👩🏽‍❤️‍💋‍👨🏻";
+			case 2009: return "👩🏽‍❤️‍💋‍👨🏼";
+			case 2010: return "👩🏽‍❤️‍💋‍👨🏽";
+			case 2011: return "👩🏽‍❤️‍💋‍👨🏾";
+			case 2012: return "👩🏽‍❤️‍💋‍👨🏿";
+			case 2013: return "👩🏾‍❤️‍💋‍👨🏻";
+			case 2014: return "👩🏾‍❤️‍💋‍👨🏼";
+			case 2015: return "👩🏾‍❤️‍💋‍👨🏽";
+			case 2016: return "👩🏾‍❤️‍💋‍👨🏾";
+			case 2017: return "👩🏾‍❤️‍💋‍👨🏿";
+			case 2018: return "👩🏿‍❤️‍💋‍👨🏻";
+			case 2019: return "👩🏿‍❤️‍💋‍👨🏼";
+			case 2020: return "👩🏿‍❤️‍💋‍👨🏽";
+			case 2021: return "👩🏿‍❤️‍💋‍👨🏾";
+			case 2022: return "👩🏿‍❤️‍💋‍👨🏿";
+			case 2023: return "👨‍❤️‍💋‍👨";
+			case 2024: return "👨🏻‍❤️‍💋‍👨🏻";
+			case 2025: return "👨🏻‍❤️‍💋‍👨🏼";
+			case 2026: return "👨🏻‍❤️‍💋‍👨🏽";
+			case 2027: return "👨🏻‍❤️‍💋‍👨🏾";
+			case 2028: return "👨🏻‍❤️‍💋‍👨🏿";
+			case 2029: return "👨🏼‍❤️‍💋‍👨🏻";
+			case 2030: return "👨🏼‍❤️‍💋‍👨🏼";
+			case 2031: return "👨🏼‍❤️‍💋‍👨🏽";
+			case 2032: return "👨🏼‍❤️‍💋‍👨🏾";
+			case 2033: return "👨🏼‍❤️‍💋‍👨🏿";
+			case 2034: return "👨🏽‍❤️‍💋‍👨🏻";
+			case 2035: return "👨🏽‍❤️‍💋‍👨🏼";
+			case 2036: return "👨🏽‍❤️‍💋‍👨🏽";
+			case 2037: return "👨🏽‍❤️‍💋‍👨🏾";
+			case 2038: return "👨🏽‍❤️‍💋‍👨🏿";
+			case 2039: return "👨🏾‍❤️‍💋‍👨🏻";
+			case 2040: return "👨🏾‍❤️‍💋‍👨🏼";
+			case 2041: return "👨🏾‍❤️‍💋‍👨🏽";
+			case 2042: return "👨🏾‍❤️‍💋‍👨🏾";
+			case 2043: return "👨🏾‍❤️‍💋‍👨🏿";
+			case 2044: return "👨🏿‍❤️‍💋‍👨🏻";
+			case 2045: return "👨🏿‍❤️‍💋‍👨🏼";
+			case 2046: return "👨🏿‍❤️‍💋‍👨🏽";
+			case 2047: return "👨🏿‍❤️‍💋‍👨🏾";
+			case 2048: return "👨🏿‍❤️‍💋‍👨🏿";
+			case 2049: return "👩‍❤️‍💋‍👩";
+			case 2050: return "👩🏻‍❤️‍💋‍👩🏻";
+			case 2051: return "👩🏻‍❤️‍💋‍👩🏼";
+			case 2052: return "👩🏻‍❤️‍💋‍👩🏽";
+			case 2053: return "👩🏻‍❤️‍💋‍👩🏾";
+			case 2054: return "👩🏻‍❤️‍💋‍👩🏿";
+			case 2055: return "👩🏼‍❤️‍💋‍👩🏻";
+			case 2056: return "👩🏼‍❤️‍💋‍👩🏼";
+			case 2057: return "👩🏼‍❤️‍💋‍👩🏽";
+			case 2058: return "👩🏼‍❤️‍💋‍👩🏾";
+			case 2059: return "👩🏼‍❤️‍💋‍👩🏿";
+			case 2060: return "👩🏽‍❤️‍💋‍👩🏻";
+			case 2061: return "👩🏽‍❤️‍💋‍👩🏼";
+			case 2062: return "👩🏽‍❤️‍💋‍👩🏽";
+			case 2063: return "👩🏽‍❤️‍💋‍👩🏾";
+			case 2064: return "👩🏽‍❤️‍💋‍👩🏿";
+			case 2065: return "👩🏾‍❤️‍💋‍👩🏻";
+			case 2066: return "👩🏾‍❤️‍💋‍👩🏼";
+			case 2067: return "👩🏾‍❤️‍💋‍👩🏽";
+			case 2068: return "👩🏾‍❤️‍💋‍👩🏾";
+			case 2069: return "👩🏾‍❤️‍💋‍👩🏿";
+			case 2070: return "👩🏿‍❤️‍💋‍👩🏻";
+			case 2071: return "👩🏿‍❤️‍💋‍👩🏼";
+			case 2072: return "👩🏿‍❤️‍💋‍👩🏽";
+			case 2073: return "👩🏿‍❤️‍💋‍👩🏾";
+			case 2074: return "👩🏿‍❤️‍💋‍👩🏿";
+			case 2075: return "💑";
+			case 2076: return "💑🏻";
+			case 2077: return "💑🏼";
+			case 2078: return "💑🏽";
+			case 2079: return "💑🏾";
+			case 2080: return "💑🏿";
+			case 2081: return "🧑🏻‍❤️‍🧑🏼";
+			case 2082: return "🧑🏻‍❤️‍🧑🏽";
+			case 2083: return "🧑🏻‍❤️‍🧑🏾";
+			case 2084: return "🧑🏻‍❤️‍🧑🏿";
+			case 2085: return "🧑🏼‍❤️‍🧑🏻";
+			case 2086: return "🧑🏼‍❤️‍🧑🏽";
+			case 2087: return "🧑🏼‍❤️‍🧑🏾";
+			case 2088: return "🧑🏼‍❤️‍🧑🏿";
+			case 2089: return "🧑🏽‍❤️‍🧑🏻";
+			case 2090: return "🧑🏽‍❤️‍🧑🏼";
+			case 2091: return "🧑🏽‍❤️‍🧑🏾";
+			case 2092: return "🧑🏽‍❤️‍🧑🏿";
+			case 2093: return "🧑🏾‍❤️‍🧑🏻";
+			case 2094: return "🧑🏾‍❤️‍🧑🏼";
+			case 2095: return "🧑🏾‍❤️‍🧑🏽";
+			case 2096: return "🧑🏾‍❤️‍🧑🏿";
+			case 2097: return "🧑🏿‍❤️‍🧑🏻";
+			case 2098: return "🧑🏿‍❤️‍🧑🏼";
+			case 2099: return "🧑🏿‍❤️‍🧑🏽";
+			case 2100: return "🧑🏿‍❤️‍🧑🏾";
+			case 2101: return "👩‍❤️‍👨";
+			case 2102: return "👩🏻‍❤️‍👨🏻";
+			case 2103: return "👩🏻‍❤️‍👨🏼";
+			case 2104: return "👩🏻‍❤️‍👨🏽";
+			case 2105: return "👩🏻‍❤️‍👨🏾";
+			case 2106: return "👩🏻‍❤️‍👨🏿";
+			case 2107: return "👩🏼‍❤️‍👨🏻";
+			case 2108: return "👩🏼‍❤️‍👨🏼";
+			case 2109: return "👩🏼‍❤️‍👨🏽";
+			case 2110: return "👩🏼‍❤️‍👨🏾";
+			case 2111: return "👩🏼‍❤️‍👨🏿";
+			case 2112: return "👩🏽‍❤️‍👨🏻";
+			case 2113: return "👩🏽‍❤️‍👨🏼";
+			case 2114: return "👩🏽‍❤️‍👨🏽";
+			case 2115: return "👩🏽‍❤️‍👨🏾";
+			case 2116: return "👩🏽‍❤️‍👨🏿";
+			case 2117: return "👩🏾‍❤️‍👨🏻";
+			case 2118: return "👩🏾‍❤️‍👨🏼";
+			case 2119: return "👩🏾‍❤️‍👨🏽";
+			case 2120: return "👩🏾‍❤️‍👨🏾";
+			case 2121: return "👩🏾‍❤️‍👨🏿";
+			case 2122: return "👩🏿‍❤️‍👨🏻";
+			case 2123: return "👩🏿‍❤️‍👨🏼";
+			case 2124: return "👩🏿‍❤️‍👨🏽";
+			case 2125: return "👩🏿‍❤️‍👨🏾";
+			case 2126: return "👩🏿‍❤️‍👨🏿";
+			case 2127: return "👨‍❤️‍👨";
+			case 2128: return "👨🏻‍❤️‍👨🏻";
+			case 2129: return "👨🏻‍❤️‍👨🏼";
+			case 2130: return "👨🏻‍❤️‍👨🏽";
+			case 2131: return "👨🏻‍❤️‍👨🏾";
+			case 2132: return "👨🏻‍❤️‍👨🏿";
+			case 2133: return "👨🏼‍❤️‍👨🏻";
+			case 2134: return "👨🏼‍❤️‍👨🏼";
+			case 2135: return "👨🏼‍❤️‍👨🏽";
+			case 2136: return "👨🏼‍❤️‍👨🏾";
+			case 2137: return "👨🏼‍❤️‍👨🏿";
+			case 2138: return "👨🏽‍❤️‍👨🏻";
+			case 2139: return "👨🏽‍❤️‍👨🏼";
+			case 2140: return "👨🏽‍❤️‍👨🏽";
+			case 2141: return "👨🏽‍❤️‍👨🏾";
+			case 2142: return "👨🏽‍❤️‍👨🏿";
+			case 2143: return "👨🏾‍❤️‍👨🏻";
+			case 2144: return "👨🏾‍❤️‍👨🏼";
+			case 2145: return "👨🏾‍❤️‍👨🏽";
+			case 2146: return "👨🏾‍❤️‍👨🏾";
+			case 2147: return "👨🏾‍❤️‍👨🏿";
+			case 2148: return "👨🏿‍❤️‍👨🏻";
+			case 2149: return "👨🏿‍❤️‍👨🏼";
+			case 2150: return "👨🏿‍❤️‍👨🏽";
+			case 2151: return "👨🏿‍❤️‍👨🏾";
+			case 2152: return "👨🏿‍❤️‍👨🏿";
+			case 2153: return "👩‍❤️‍👩";
+			case 2154: return "👩🏻‍❤️‍👩🏻";
+			case 2155: return "👩🏻‍❤️‍👩🏼";
+			case 2156: return "👩🏻‍❤️‍👩🏽";
+			case 2157: return "👩🏻‍❤️‍👩🏾";
+			case 2158: return "👩🏻‍❤️‍👩🏿";
+			case 2159: return "👩🏼‍❤️‍👩🏻";
+			case 2160: return "👩🏼‍❤️‍👩🏼";
+			case 2161: return "👩🏼‍❤️‍👩🏽";
+			case 2162: return "👩🏼‍❤️‍👩🏾";
+			case 2163: return "👩🏼‍❤️‍👩🏿";
+			case 2164: return "👩🏽‍❤️‍👩🏻";
+			case 2165: return "👩🏽‍❤️‍👩🏼";
+			case 2166: return "👩🏽‍❤️‍👩🏽";
+			case 2167: return "👩🏽‍❤️‍👩🏾";
+			case 2168: return "👩🏽‍❤️‍👩🏿";
+			case 2169: return "👩🏾‍❤️‍👩🏻";
+			case 2170: return "👩🏾‍❤️‍👩🏼";
+			case 2171: return "👩🏾‍❤️‍👩🏽";
+			case 2172: return "👩🏾‍❤️‍👩🏾";
+			case 2173: return "👩🏾‍❤️‍👩🏿";
+			case 2174: return "👩🏿‍❤️‍👩🏻";
+			case 2175: return "👩🏿‍❤️‍👩🏼";
+			case 2176: return "👩🏿‍❤️‍👩🏽";
+			case 2177: return "👩🏿‍❤️‍👩🏾";
+			case 2178: return "👩🏿‍❤️‍👩🏿";
+			case 2179: return "👪";
+			case 2180: return "👨‍👩‍👦";
+			case 2181: return "👨‍👩‍👧";
+			case 2182: return "👨‍👩‍👧‍👦";
+			case 2183: return "👨‍👩‍👦‍👦";
+			case 2184: return "👨‍👩‍👧‍👧";
+			case 2185: return "👨‍👨‍👦";
+			case 2186: return "👨‍👨‍👧";
+			case 2187: return "👨‍👨‍👧‍👦";
+			case 2188: return "👨‍👨‍👦‍👦";
+			case 2189: return "👨‍👨‍👧‍👧";
+			case 2190: return "👩‍👩‍👦";
+			case 2191: return "👩‍👩‍👧";
+			case 2192: return "👩‍👩‍👧‍👦";
+			case 2193: return "👩‍👩‍👦‍👦";
+			case 2194: return "👩‍👩‍👧‍👧";
+			case 2195: return "👨‍👦";
+			case 2196: return "👨‍👦‍👦";
+			case 2197: return "👨‍👧";
+			case 2198: return "👨‍👧‍👦";
+			case 2199: return "👨‍👧‍👧";
+			case 2200: return "👩‍👦";
+			case 2201: return "👩‍👦‍👦";
+			case 2202: return "👩‍👧";
+			case 2203: return "👩‍👧‍👦";
+			case 2204: return "👩‍👧‍👧";
+			case 2205: return "🗣️";
+			case 2206: return "👤";
+			case 2207: return "👥";
+			case 2208: return "🫂";
+			case 2209: return "👣";
+			case 2210: return "]";
+			case 2211: return "nature: [";
+			case 2212: return "🐵";
+			case 2213: return "🐒";
+			case 2214: return "🦍";
+			case 2215: return "🦧";
+			case 2216: return "🐶";
+			case 2217: return "🐕";
+			case 2218: return "🦮";
+			case 2219: return "🐕‍🦺";
+			case 2220: return "🐩";
+			case 2221: return "🐺";
+			case 2222: return "🦊";
+			case 2223: return "🦝";
+			case 2224: return "🐱";
+			case 2225: return "🐈";
+			case 2226: return "🐈‍⬛";
+			case 2227: return "🦁";
+			case 2228: return "🐯";
+			case 2229: return "🐅";
+			case 2230: return "🐆";
+			case 2231: return "🐴";
+			case 2232: return "🐎";
+			case 2233: return "🦄";
+			case 2234: return "🦓";
+			case 2235: return "🦌";
+			case 2236: return "🦬";
+			case 2237: return "🐮";
+			case 2238: return "🐂";
+			case 2239: return "🐃";
+			case 2240: return "🐄";
+			case 2241: return "🐷";
+			case 2242: return "🐖";
+			case 2243: return "🐗";
+			case 2244: return "🐽";
+			case 2245: return "🐏";
+			case 2246: return "🐑";
+			case 2247: return "🐐";
+			case 2248: return "🐪";
+			case 2249: return "🐫";
+			case 2250: return "🦙";
+			case 2251: return "🦒";
+			case 2252: return "🐘";
+			case 2253: return "🦣";
+			case 2254: return "🦏";
+			case 2255: return "🦛";
+			case 2256: return "🐭";
+			case 2257: return "🐁";
+			case 2258: return "🐀";
+			case 2259: return "🐹";
+			case 2260: return "🐰";
+			case 2261: return "🐇";
+			case 2262: return "🐿️";
+			case 2263: return "🦫";
+			case 2264: return "🦔";
+			case 2265: return "🦇";
+			case 2266: return "🐻";
+			case 2267: return "🐻‍❄️";
+			case 2268: return "🐨";
+			case 2269: return "🐼";
+			case 2270: return "🦥";
+			case 2271: return "🦦";
+			case 2272: return "🦨";
+			case 2273: return "🦘";
+			case 2274: return "🦡";
+			case 2275: return "🐾";
+			case 2276: return "🦃";
+			case 2277: return "🐔";
+			case 2278: return "🐓";
+			case 2279: return "🐣";
+			case 2280: return "🐤";
+			case 2281: return "🐥";
+			case 2282: return "🐦";
+			case 2283: return "🐧";
+			case 2284: return "🕊️";
+			case 2285: return "🦅";
+			case 2286: return "🦆";
+			case 2287: return "🦢";
+			case 2288: return "🦉";
+			case 2289: return "🦤";
+			case 2290: return "🪶";
+			case 2291: return "🦩";
+			case 2292: return "🦚";
+			case 2293: return "🦜";
+			case 2294: return "🐸";
+			case 2295: return "🐊";
+			case 2296: return "🐢";
+			case 2297: return "🦎";
+			case 2298: return "🐍";
+			case 2299: return "🐲";
+			case 2300: return "🐉";
+			case 2301: return "🦕";
+			case 2302: return "🦖";
+			case 2303: return "🐳";
+			case 2304: return "🐋";
+			case 2305: return "🐬";
+			case 2306: return "🦭";
+			case 2307: return "🐟";
+			case 2308: return "🐠";
+			case 2309: return "🐡";
+			case 2310: return "🦈";
+			case 2311: return "🐙";
+			case 2312: return "🐚";
+			case 2313: return "🐌";
+			case 2314: return "🦋";
+			case 2315: return "🐛";
+			case 2316: return "🐜";
+			case 2317: return "🐝";
+			case 2318: return "🪲";
+			case 2319: return "🐞";
+			case 2320: return "🦗";
+			case 2321: return "🪳";
+			case 2322: return "🕷️";
+			case 2323: return "🕸️";
+			case 2324: return "🦂";
+			case 2325: return "🦟";
+			case 2326: return "🪰";
+			case 2327: return "🪱";
+			case 2328: return "🦠";
+			case 2329: return "💐";
+			case 2330: return "🌸";
+			case 2331: return "💮";
+			case 2332: return "🏵️";
+			case 2333: return "🌹";
+			case 2334: return "🥀";
+			case 2335: return "🌺";
+			case 2336: return "🌻";
+			case 2337: return "🌼";
+			case 2338: return "🌷";
+			case 2339: return "🌱";
+			case 2340: return "🪴";
+			case 2341: return "🌲";
+			case 2342: return "🌳";
+			case 2343: return "🌴";
+			case 2344: return "🌵";
+			case 2345: return "🌾";
+			case 2346: return "🌿";
+			case 2347: return "☘️";
+			case 2348: return "🍀";
+			case 2349: return "🍁";
+			case 2350: return "🍂";
+			case 2351: return "🍃";
+			case 2352: return "]";
+			case 2353: return "food: [";
+			case 2354: return "🍇";
+			case 2355: return "🍈";
+			case 2356: return "🍉";
+			case 2357: return "🍊";
+			case 2358: return "🍋";
+			case 2359: return "🍌";
+			case 2360: return "🍍";
+			case 2361: return "🥭";
+			case 2362: return "🍎";
+			case 2363: return "🍏";
+			case 2364: return "🍐";
+			case 2365: return "🍑";
+			case 2366: return "🍒";
+			case 2367: return "🍓";
+			case 2368: return "🫐";
+			case 2369: return "🥝";
+			case 2370: return "🍅";
+			case 2371: return "🫒";
+			case 2372: return "🥥";
+			case 2373: return "🥑";
+			case 2374: return "🍆";
+			case 2375: return "🥔";
+			case 2376: return "🥕";
+			case 2377: return "🌽";
+			case 2378: return "🌶️";
+			case 2379: return "🫑";
+			case 2380: return "🥒";
+			case 2381: return "🥬";
+			case 2382: return "🥦";
+			case 2383: return "🧄";
+			case 2384: return "🧅";
+			case 2385: return "🍄";
+			case 2386: return "🥜";
+			case 2387: return "🌰";
+			case 2388: return "🍞";
+			case 2389: return "🥐";
+			case 2390: return "🥖";
+			case 2391: return "🫓";
+			case 2392: return "🥨";
+			case 2393: return "🥯";
+			case 2394: return "🥞";
+			case 2395: return "🧇";
+			case 2396: return "🧀";
+			case 2397: return "🍖";
+			case 2398: return "🍗";
+			case 2399: return "🥩";
+			case 2400: return "🥓";
+			case 2401: return "🍔";
+			case 2402: return "🍟";
+			case 2403: return "🍕";
+			case 2404: return "🌭";
+			case 2405: return "🥪";
+			case 2406: return "🌮";
+			case 2407: return "🌯";
+			case 2408: return "🫔";
+			case 2409: return "🥙";
+			case 2410: return "🧆";
+			case 2411: return "🥚";
+			case 2412: return "🍳";
+			case 2413: return "🥘";
+			case 2414: return "🍲";
+			case 2415: return "🫕";
+			case 2416: return "🥣";
+			case 2417: return "🥗";
+			case 2418: return "🍿";
+			case 2419: return "🧈";
+			case 2420: return "🧂";
+			case 2421: return "🥫";
+			case 2422: return "🍱";
+			case 2423: return "🍘";
+			case 2424: return "🍙";
+			case 2425: return "🍚";
+			case 2426: return "🍛";
+			case 2427: return "🍜";
+			case 2428: return "🍝";
+			case 2429: return "🍠";
+			case 2430: return "🍢";
+			case 2431: return "🍣";
+			case 2432: return "🍤";
+			case 2433: return "🍥";
+			case 2434: return "🥮";
+			case 2435: return "🍡";
+			case 2436: return "🥟";
+			case 2437: return "🥠";
+			case 2438: return "🥡";
+			case 2439: return "🦀";
+			case 2440: return "🦞";
+			case 2441: return "🦐";
+			case 2442: return "🦑";
+			case 2443: return "🦪";
+			case 2444: return "🍦";
+			case 2445: return "🍧";
+			case 2446: return "🍨";
+			case 2447: return "🍩";
+			case 2448: return "🍪";
+			case 2449: return "🎂";
+			case 2450: return "🍰";
+			case 2451: return "🧁";
+			case 2452: return "🥧";
+			case 2453: return "🍫";
+			case 2454: return "🍬";
+			case 2455: return "🍭";
+			case 2456: return "🍮";
+			case 2457: return "🍯";
+			case 2458: return "🍼";
+			case 2459: return "🥛";
+			case 2460: return "☕";
+			case 2461: return "🫖";
+			case 2462: return "🍵";
+			case 2463: return "🍶";
+			case 2464: return "🍾";
+			case 2465: return "🍷";
+			case 2466: return "🍸";
+			case 2467: return "🍹";
+			case 2468: return "🍺";
+			case 2469: return "🍻";
+			case 2470: return "🥂";
+			case 2471: return "🥃";
+			case 2472: return "🥤";
+			case 2473: return "🧋";
+			case 2474: return "🧃";
+			case 2475: return "🧉";
+			case 2476: return "🧊";
+			case 2477: return "🥢";
+			case 2478: return "🍽️";
+			case 2479: return "🍴";
+			case 2480: return "🥄";
+			case 2481: return "🔪";
+			case 2482: return "🏺";
+			case 2483: return "]";
+			case 2484: return "travel: [";
+			case 2485: return "🌍";
+			case 2486: return "🌎";
+			case 2487: return "🌏";
+			case 2488: return "🌐";
+			case 2489: return "🗺️";
+			case 2490: return "🗾";
+			case 2491: return "🧭";
+			case 2492: return "🏔️";
+			case 2493: return "⛰️";
+			case 2494: return "🌋";
+			case 2495: return "🗻";
+			case 2496: return "🏕️";
+			case 2497: return "🏖️";
+			case 2498: return "🏜️";
+			case 2499: return "🏝️";
+			case 2500: return "🏞️";
+			case 2501: return "🏟️";
+			case 2502: return "🏛️";
+			case 2503: return "🏗️";
+			case 2504: return "🧱";
+			case 2505: return "🪨";
+			case 2506: return "🪵";
+			case 2507: return "🛖";
+			case 2508: return "🏘️";
+			case 2509: return "🏚️";
+			case 2510: return "🏠";
+			case 2511: return "🏡";
+			case 2512: return "🏢";
+			case 2513: return "🏣";
+			case 2514: return "🏤";
+			case 2515: return "🏥";
+			case 2516: return "🏦";
+			case 2517: return "🏨";
+			case 2518: return "🏩";
+			case 2519: return "🏪";
+			case 2520: return "🏫";
+			case 2521: return "🏬";
+			case 2522: return "🏭";
+			case 2523: return "🏯";
+			case 2524: return "🏰";
+			case 2525: return "💒";
+			case 2526: return "🗼";
+			case 2527: return "🗽";
+			case 2528: return "⛪";
+			case 2529: return "🕌";
+			case 2530: return "🛕";
+			case 2531: return "🕍";
+			case 2532: return "⛩️";
+			case 2533: return "🕋";
+			case 2534: return "⛲";
+			case 2535: return "⛺";
+			case 2536: return "🌁";
+			case 2537: return "🌃";
+			case 2538: return "🏙️";
+			case 2539: return "🌄";
+			case 2540: return "🌅";
+			case 2541: return "🌆";
+			case 2542: return "🌇";
+			case 2543: return "🌉";
+			case 2544: return "♨️";
+			case 2545: return "🎠";
+			case 2546: return "🎡";
+			case 2547: return "🎢";
+			case 2548: return "💈";
+			case 2549: return "🎪";
+			case 2550: return "🚂";
+			case 2551: return "🚃";
+			case 2552: return "🚄";
+			case 2553: return "🚅";
+			case 2554: return "🚆";
+			case 2555: return "🚇";
+			case 2556: return "🚈";
+			case 2557: return "🚉";
+			case 2558: return "🚊";
+			case 2559: return "🚝";
+			case 2560: return "🚞";
+			case 2561: return "🚋";
+			case 2562: return "🚌";
+			case 2563: return "🚍";
+			case 2564: return "🚎";
+			case 2565: return "🚐";
+			case 2566: return "🚑";
+			case 2567: return "🚒";
+			case 2568: return "🚓";
+			case 2569: return "🚔";
+			case 2570: return "🚕";
+			case 2571: return "🚖";
+			case 2572: return "🚗";
+			case 2573: return "🚘";
+			case 2574: return "🚙";
+			case 2575: return "🛻";
+			case 2576: return "🚚";
+			case 2577: return "🚛";
+			case 2578: return "🚜";
+			case 2579: return "🏎️";
+			case 2580: return "🏍️";
+			case 2581: return "🛵";
+			case 2582: return "🦽";
+			case 2583: return "🦼";
+			case 2584: return "🛺";
+			case 2585: return "🚲";
+			case 2586: return "🛴";
+			case 2587: return "🛹";
+			case 2588: return "🛼";
+			case 2589: return "🚏";
+			case 2590: return "🛣️";
+			case 2591: return "🛤️";
+			case 2592: return "🛢️";
+			case 2593: return "⛽";
+			case 2594: return "🚨";
+			case 2595: return "🚥";
+			case 2596: return "🚦";
+			case 2597: return "🛑";
+			case 2598: return "🚧";
+			case 2599: return "⚓";
+			case 2600: return "⛵";
+			case 2601: return "🛶";
+			case 2602: return "🚤";
+			case 2603: return "🛳️";
+			case 2604: return "⛴️";
+			case 2605: return "🛥️";
+			case 2606: return "🚢";
+			case 2607: return "✈️";
+			case 2608: return "🛩️";
+			case 2609: return "🛫";
+			case 2610: return "🛬";
+			case 2611: return "🪂";
+			case 2612: return "💺";
+			case 2613: return "🚁";
+			case 2614: return "🚟";
+			case 2615: return "🚠";
+			case 2616: return "🚡";
+			case 2617: return "🛰️";
+			case 2618: return "🚀";
+			case 2619: return "🛸";
+			case 2620: return "🛎️";
+			case 2621: return "🧳";
+			case 2622: return "⌛";
+			case 2623: return "⏳";
+			case 2624: return "⌚";
+			case 2625: return "⏰";
+			case 2626: return "⏱️";
+			case 2627: return "⏲️";
+			case 2628: return "🕰️";
+			case 2629: return "🕛";
+			case 2630: return "🕧";
+			case 2631: return "🕐";
+			case 2632: return "🕜";
+			case 2633: return "🕑";
+			case 2634: return "🕝";
+			case 2635: return "🕒";
+			case 2636: return "🕞";
+			case 2637: return "🕓";
+			case 2638: return "🕟";
+			case 2639: return "🕔";
+			case 2640: return "🕠";
+			case 2641: return "🕕";
+			case 2642: return "🕡";
+			case 2643: return "🕖";
+			case 2644: return "🕢";
+			case 2645: return "🕗";
+			case 2646: return "🕣";
+			case 2647: return "🕘";
+			case 2648: return "🕤";
+			case 2649: return "🕙";
+			case 2650: return "🕥";
+			case 2651: return "🕚";
+			case 2652: return "🕦";
+			case 2653: return "🌑";
+			case 2654: return "🌒";
+			case 2655: return "🌓";
+			case 2656: return "🌔";
+			case 2657: return "🌕";
+			case 2658: return "🌖";
+			case 2659: return "🌗";
+			case 2660: return "🌘";
+			case 2661: return "🌙";
+			case 2662: return "🌚";
+			case 2663: return "🌛";
+			case 2664: return "🌜";
+			case 2665: return "🌡️";
+			case 2666: return "☀️";
+			case 2667: return "🌝";
+			case 2668: return "🌞";
+			case 2669: return "🪐";
+			case 2670: return "⭐";
+			case 2671: return "🌟";
+			case 2672: return "🌠";
+			case 2673: return "🌌";
+			case 2674: return "☁️";
+			case 2675: return "⛅";
+			case 2676: return "⛈️";
+			case 2677: return "🌤️";
+			case 2678: return "🌥️";
+			case 2679: return "🌦️";
+			case 2680: return "🌧️";
+			case 2681: return "🌨️";
+			case 2682: return "🌩️";
+			case 2683: return "🌪️";
+			case 2684: return "🌫️";
+			case 2685: return "🌬️";
+			case 2686: return "🌀";
+			case 2687: return "🌈";
+			case 2688: return "🌂";
+			case 2689: return "☂️";
+			case 2690: return "☔";
+			case 2691: return "⛱️";
+			case 2692: return "⚡";
+			case 2693: return "❄️";
+			case 2694: return "☃️";
+			case 2695: return "⛄";
+			case 2696: return "☄️";
+			case 2697: return "🔥";
+			case 2698: return "💧";
+			case 2699: return "🌊";
+			case 2700: return "]";
+			case 2701: return "activity: [";
+			case 2702: return "🎃";
+			case 2703: return "🎄";
+			case 2704: return "🎆";
+			case 2705: return "🎇";
+			case 2706: return "🧨";
+			case 2707: return "✨";
+			case 2708: return "🎈";
+			case 2709: return "🎉";
+			case 2710: return "🎊";
+			case 2711: return "🎋";
+			case 2712: return "🎍";
+			case 2713: return "🎎";
+			case 2714: return "🎏";
+			case 2715: return "🎐";
+			case 2716: return "🎑";
+			case 2717: return "🧧";
+			case 2718: return "🎀";
+			case 2719: return "🎁";
+			case 2720: return "🎗️";
+			case 2721: return "🎟️";
+			case 2722: return "🎫";
+			case 2723: return "🎖️";
+			case 2724: return "🏆";
+			case 2725: return "🏅";
+			case 2726: return "🥇";
+			case 2727: return "🥈";
+			case 2728: return "🥉";
+			case 2729: return "⚽";
+			case 2730: return "⚾";
+			case 2731: return "🥎";
+			case 2732: return "🏀";
+			case 2733: return "🏐";
+			case 2734: return "🏈";
+			case 2735: return "🏉";
+			case 2736: return "🎾";
+			case 2737: return "🥏";
+			case 2738: return "🎳";
+			case 2739: return "🏏";
+			case 2740: return "🏑";
+			case 2741: return "🏒";
+			case 2742: return "🥍";
+			case 2743: return "🏓";
+			case 2744: return "🏸";
+			case 2745: return "🥊";
+			case 2746: return "🥋";
+			case 2747: return "🥅";
+			case 2748: return "⛳";
+			case 2749: return "⛸️";
+			case 2750: return "🎣";
+			case 2751: return "🤿";
+			case 2752: return "🎽";
+			case 2753: return "🎿";
+			case 2754: return "🛷";
+			case 2755: return "🥌";
+			case 2756: return "🎯";
+			case 2757: return "🪀";
+			case 2758: return "🪁";
+			case 2759: return "🎱";
+			case 2760: return "🔮";
+			case 2761: return "🪄";
+			case 2762: return "🧿";
+			case 2763: return "🎮";
+			case 2764: return "🕹️";
+			case 2765: return "🎰";
+			case 2766: return "🎲";
+			case 2767: return "🧩";
+			case 2768: return "🧸";
+			case 2769: return "🪅";
+			case 2770: return "🪆";
+			case 2771: return "♠️";
+			case 2772: return "♥️";
+			case 2773: return "♦️";
+			case 2774: return "♣️";
+			case 2775: return "♟️";
+			case 2776: return "🃏";
+			case 2777: return "🀄";
+			case 2778: return "🎴";
+			case 2779: return "🎭";
+			case 2780: return "🖼️";
+			case 2781: return "🎨";
+			case 2782: return "🧵";
+			case 2783: return "🪡";
+			case 2784: return "🧶";
+			case 2785: return "🪢";
+			case 2786: return "]";
+			case 2787: return "object: [";
+			case 2788: return "👓";
+			case 2789: return "🕶️";
+			case 2790: return "🥽";
+			case 2791: return "🥼";
+			case 2792: return "🦺";
+			case 2793: return "👔";
+			case 2794: return "👕";
+			case 2795: return "👖";
+			case 2796: return "🧣";
+			case 2797: return "🧤";
+			case 2798: return "🧥";
+			case 2799: return "🧦";
+			case 2800: return "👗";
+			case 2801: return "👘";
+			case 2802: return "🥻";
+			case 2803: return "🩱";
+			case 2804: return "🩲";
+			case 2805: return "🩳";
+			case 2806: return "👙";
+			case 2807: return "👚";
+			case 2808: return "👛";
+			case 2809: return "👜";
+			case 2810: return "👝";
+			case 2811: return "🛍️";
+			case 2812: return "🎒";
+			case 2813: return "🩴";
+			case 2814: return "👞";
+			case 2815: return "👟";
+			case 2816: return "🥾";
+			case 2817: return "🥿";
+			case 2818: return "👠";
+			case 2819: return "👡";
+			case 2820: return "🩰";
+			case 2821: return "👢";
+			case 2822: return "👑";
+			case 2823: return "👒";
+			case 2824: return "🎩";
+			case 2825: return "🎓";
+			case 2826: return "🧢";
+			case 2827: return "🪖";
+			case 2828: return "⛑️";
+			case 2829: return "📿";
+			case 2830: return "💄";
+			case 2831: return "💍";
+			case 2832: return "💎";
+			case 2833: return "🔇";
+			case 2834: return "🔈";
+			case 2835: return "🔉";
+			case 2836: return "🔊";
+			case 2837: return "📢";
+			case 2838: return "📣";
+			case 2839: return "📯";
+			case 2840: return "🔔";
+			case 2841: return "🔕";
+			case 2842: return "🎼";
+			case 2843: return "🎵";
+			case 2844: return "🎶";
+			case 2845: return "🎙️";
+			case 2846: return "🎚️";
+			case 2847: return "🎛️";
+			case 2848: return "🎤";
+			case 2849: return "🎧";
+			case 2850: return "📻";
+			case 2851: return "🎷";
+			case 2852: return "🪗";
+			case 2853: return "🎸";
+			case 2854: return "🎹";
+			case 2855: return "🎺";
+			case 2856: return "🎻";
+			case 2857: return "🪕";
+			case 2858: return "🥁";
+			case 2859: return "🪘";
+			case 2860: return "📱";
+			case 2861: return "📲";
+			case 2862: return "☎️";
+			case 2863: return "📞";
+			case 2864: return "📟";
+			case 2865: return "📠";
+			case 2866: return "🔋";
+			case 2867: return "🔌";
+			case 2868: return "💻";
+			case 2869: return "🖥️";
+			case 2870: return "🖨️";
+			case 2871: return "⌨️";
+			case 2872: return "🖱️";
+			case 2873: return "🖲️";
+			case 2874: return "💽";
+			case 2875: return "💾";
+			case 2876: return "💿";
+			case 2877: return "📀";
+			case 2878: return "🧮";
+			case 2879: return "🎥";
+			case 2880: return "🎞️";
+			case 2881: return "📽️";
+			case 2882: return "🎬";
+			case 2883: return "📺";
+			case 2884: return "📷";
+			case 2885: return "📸";
+			case 2886: return "📹";
+			case 2887: return "📼";
+			case 2888: return "🔍";
+			case 2889: return "🔎";
+			case 2890: return "🕯️";
+			case 2891: return "💡";
+			case 2892: return "🔦";
+			case 2893: return "🏮";
+			case 2894: return "🪔";
+			case 2895: return "📔";
+			case 2896: return "📕";
+			case 2897: return "📖";
+			case 2898: return "📗";
+			case 2899: return "📘";
+			case 2900: return "📙";
+			case 2901: return "📚";
+			case 2902: return "📓";
+			case 2903: return "📒";
+			case 2904: return "📃";
+			case 2905: return "📜";
+			case 2906: return "📄";
+			case 2907: return "📰";
+			case 2908: return "🗞️";
+			case 2909: return "📑";
+			case 2910: return "🔖";
+			case 2911: return "🏷️";
+			case 2912: return "💰";
+			case 2913: return "🪙";
+			case 2914: return "💴";
+			case 2915: return "💵";
+			case 2916: return "💶";
+			case 2917: return "💷";
+			case 2918: return "💸";
+			case 2919: return "💳";
+			case 2920: return "🧾";
+			case 2921: return "💹";
+			case 2922: return "✉️";
+			case 2923: return "📧";
+			case 2924: return "📨";
+			case 2925: return "📩";
+			case 2926: return "📤";
+			case 2927: return "📥";
+			case 2928: return "📦";
+			case 2929: return "📫";
+			case 2930: return "📪";
+			case 2931: return "📬";
+			case 2932: return "📭";
+			case 2933: return "📮";
+			case 2934: return "🗳️";
+			case 2935: return "✏️";
+			case 2936: return "✒️";
+			case 2937: return "🖋️";
+			case 2938: return "🖊️";
+			case 2939: return "🖌️";
+			case 2940: return "🖍️";
+			case 2941: return "📝";
+			case 2942: return "💼";
+			case 2943: return "📁";
+			case 2944: return "📂";
+			case 2945: return "🗂️";
+			case 2946: return "📅";
+			case 2947: return "📆";
+			case 2948: return "🗒️";
+			case 2949: return "🗓️";
+			case 2950: return "📇";
+			case 2951: return "📈";
+			case 2952: return "📉";
+			case 2953: return "📊";
+			case 2954: return "📋";
+			case 2955: return "📌";
+			case 2956: return "📍";
+			case 2957: return "📎";
+			case 2958: return "🖇️";
+			case 2959: return "📏";
+			case 2960: return "📐";
+			case 2961: return "✂️";
+			case 2962: return "🗃️";
+			case 2963: return "🗄️";
+			case 2964: return "🗑️";
+			case 2965: return "🔒";
+			case 2966: return "🔓";
+			case 2967: return "🔏";
+			case 2968: return "🔐";
+			case 2969: return "🔑";
+			case 2970: return "🗝️";
+			case 2971: return "🔨";
+			case 2972: return "🪓";
+			case 2973: return "⛏️";
+			case 2974: return "⚒️";
+			case 2975: return "🛠️";
+			case 2976: return "🗡️";
+			case 2977: return "⚔️";
+			case 2978: return "🔫";
+			case 2979: return "🪃";
+			case 2980: return "🏹";
+			case 2981: return "🛡️";
+			case 2982: return "🪚";
+			case 2983: return "🔧";
+			case 2984: return "🪛";
+			case 2985: return "🔩";
+			case 2986: return "⚙️";
+			case 2987: return "🗜️";
+			case 2988: return "⚖️";
+			case 2989: return "🦯";
+			case 2990: return "🔗";
+			case 2991: return "⛓️";
+			case 2992: return "🪝";
+			case 2993: return "🧰";
+			case 2994: return "🧲";
+			case 2995: return "🪜";
+			case 2996: return "⚗️";
+			case 2997: return "🧪";
+			case 2998: return "🧫";
+			case 2999: return "🧬";
+			case 3000: return "🔬";
+			case 3001: return "🔭";
+			case 3002: return "📡";
+			case 3003: return "💉";
+			case 3004: return "🩸";
+			case 3005: return "💊";
+			case 3006: return "🩹";
+			case 3007: return "🩺";
+			case 3008: return "🚪";
+			case 3009: return "🛗";
+			case 3010: return "🪞";
+			case 3011: return "🪟";
+			case 3012: return "🛏️";
+			case 3013: return "🛋️";
+			case 3014: return "🪑";
+			case 3015: return "🚽";
+			case 3016: return "🪠";
+			case 3017: return "🚿";
+			case 3018: return "🛁";
+			case 3019: return "🪤";
+			case 3020: return "🪒";
+			case 3021: return "🧴";
+			case 3022: return "🧷";
+			case 3023: return "🧹";
+			case 3024: return "🧺";
+			case 3025: return "🧻";
+			case 3026: return "🪣";
+			case 3027: return "🧼";
+			case 3028: return "🪥";
+			case 3029: return "🧽";
+			case 3030: return "🧯";
+			case 3031: return "🛒";
+			case 3032: return "🚬";
+			case 3033: return "⚰️";
+			case 3034: return "🪦";
+			case 3035: return "⚱️";
+			case 3036: return "🗿";
+			case 3037: return "🪧";
+			case 3038: return "]";
+			case 3039: return "symbol: [";
+			case 3040: return "🏧";
+			case 3041: return "🚮";
+			case 3042: return "🚰";
+			case 3043: return "♿";
+			case 3044: return "🚹";
+			case 3045: return "🚺";
+			case 3046: return "🚻";
+			case 3047: return "🚼";
+			case 3048: return "🚾";
+			case 3049: return "🛂";
+			case 3050: return "🛃";
+			case 3051: return "🛄";
+			case 3052: return "🛅";
+			case 3053: return "⚠️";
+			case 3054: return "🚸";
+			case 3055: return "⛔";
+			case 3056: return "🚫";
+			case 3057: return "🚳";
+			case 3058: return "🚭";
+			case 3059: return "🚯";
+			case 3060: return "🚱";
+			case 3061: return "🚷";
+			case 3062: return "📵";
+			case 3063: return "🔞";
+			case 3064: return "☢️";
+			case 3065: return "☣️";
+			case 3066: return "⬆️";
+			case 3067: return "↗️";
+			case 3068: return "➡️";
+			case 3069: return "↘️";
+			case 3070: return "⬇️";
+			case 3071: return "↙️";
+			case 3072: return "⬅️";
+			case 3073: return "↖️";
+			case 3074: return "↕️";
+			case 3075: return "↔️";
+			case 3076: return "↩️";
+			case 3077: return "↪️";
+			case 3078: return "⤴️";
+			case 3079: return "⤵️";
+			case 3080: return "🔃";
+			case 3081: return "🔄";
+			case 3082: return "🔙";
+			case 3083: return "🔚";
+			case 3084: return "🔛";
+			case 3085: return "🔜";
+			case 3086: return "🔝";
+			case 3087: return "🛐";
+			case 3088: return "⚛️";
+			case 3089: return "🕉️";
+			case 3090: return "✡️";
+			case 3091: return "☸️";
+			case 3092: return "☯️";
+			case 3093: return "✝️";
+			case 3094: return "☦️";
+			case 3095: return "☪️";
+			case 3096: return "☮️";
+			case 3097: return "🕎";
+			case 3098: return "🔯";
+			case 3099: return "♈";
+			case 3100: return "♉";
+			case 3101: return "♊";
+			case 3102: return "♋";
+			case 3103: return "♌";
+			case 3104: return "♍";
+			case 3105: return "♎";
+			case 3106: return "♏";
+			case 3107: return "♐";
+			case 3108: return "♑";
+			case 3109: return "♒";
+			case 3110: return "♓";
+			case 3111: return "⛎";
+			case 3112: return "🔀";
+			case 3113: return "🔁";
+			case 3114: return "🔂";
+			case 3115: return "▶️";
+			case 3116: return "⏩";
+			case 3117: return "⏭️";
+			case 3118: return "⏯️";
+			case 3119: return "◀️";
+			case 3120: return "⏪";
+			case 3121: return "⏮️";
+			case 3122: return "🔼";
+			case 3123: return "⏫";
+			case 3124: return "🔽";
+			case 3125: return "⏬";
+			case 3126: return "⏸️";
+			case 3127: return "⏹️";
+			case 3128: return "⏺️";
+			case 3129: return "⏏️";
+			case 3130: return "🎦";
+			case 3131: return "🔅";
+			case 3132: return "🔆";
+			case 3133: return "📶";
+			case 3134: return "📳";
+			case 3135: return "📴";
+			case 3136: return "♀️";
+			case 3137: return "♂️";
+			case 3138: return "⚧️";
+			case 3139: return "✖️";
+			case 3140: return "➕";
+			case 3141: return "➖";
+			case 3142: return "➗";
+			case 3143: return "♾️";
+			case 3144: return "‼️";
+			case 3145: return "⁉️";
+			case 3146: return "❓";
+			case 3147: return "❔";
+			case 3148: return "❕";
+			case 3149: return "❗";
+			case 3150: return "〰️";
+			case 3151: return "💱";
+			case 3152: return "💲";
+			case 3153: return "⚕️";
+			case 3154: return "♻️";
+			case 3155: return "⚜️";
+			case 3156: return "🔱";
+			case 3157: return "📛";
+			case 3158: return "🔰";
+			case 3159: return "⭕";
+			case 3160: return "✅";
+			case 3161: return "☑️";
+			case 3162: return "✔️";
+			case 3163: return "❌";
+			case 3164: return "❎";
+			case 3165: return "➰";
+			case 3166: return "➿";
+			case 3167: return "〽️";
+			case 3168: return "✳️";
+			case 3169: return "✴️";
+			case 3170: return "❇️";
+			case 3171: return "©️";
+			case 3172: return "®️";
+			case 3173: return "™️";
+			case 3174: return "#️⃣";
+			case 3175: return "*️⃣";
+			case 3176: return "0️⃣";
+			case 3177: return "1️⃣";
+			case 3178: return "2️⃣";
+			case 3179: return "3️⃣";
+			case 3180: return "4️⃣";
+			case 3181: return "5️⃣";
+			case 3182: return "6️⃣";
+			case 3183: return "7️⃣";
+			case 3184: return "8️⃣";
+			case 3185: return "9️⃣";
+			case 3186: return "🔟";
+			case 3187: return "🔠";
+			case 3188: return "🔡";
+			case 3189: return "🔢";
+			case 3190: return "🔣";
+			case 3191: return "🔤";
+			case 3192: return "🅰️";
+			case 3193: return "🆎";
+			case 3194: return "🅱️";
+			case 3195: return "🆑";
+			case 3196: return "🆒";
+			case 3197: return "🆓";
+			case 3198: return "ℹ️";
+			case 3199: return "🆔";
+			case 3200: return "Ⓜ️";
+			case 3201: return "🆕";
+			case 3202: return "🆖";
+			case 3203: return "🅾️";
+			case 3204: return "🆗";
+			case 3205: return "🅿️";
+			case 3206: return "🆘";
+			case 3207: return "🆙";
+			case 3208: return "🆚";
+			case 3209: return "🈁";
+			case 3210: return "🈂️";
+			case 3211: return "🈷️";
+			case 3212: return "🈶";
+			case 3213: return "🈯";
+			case 3214: return "🉐";
+			case 3215: return "🈹";
+			case 3216: return "🈚";
+			case 3217: return "🈲";
+			case 3218: return "🉑";
+			case 3219: return "🈸";
+			case 3220: return "🈴";
+			case 3221: return "🈳";
+			case 3222: return "㊗️";
+			case 3223: return "㊙️";
+			case 3224: return "🈺";
+			case 3225: return "🈵";
+			case 3226: return "🔴";
+			case 3227: return "🟠";
+			case 3228: return "🟡";
+			case 3229: return "🟢";
+			case 3230: return "🔵";
+			case 3231: return "🟣";
+			case 3232: return "🟤";
+			case 3233: return "⚫";
+			case 3234: return "⚪";
+			case 3235: return "🟥";
+			case 3236: return "🟧";
+			case 3237: return "🟨";
+			case 3238: return "🟩";
+			case 3239: return "🟦";
+			case 3240: return "🟪";
+			case 3241: return "🟫";
+			case 3242: return "⬛";
+			case 3243: return "⬜";
+			case 3244: return "◼️";
+			case 3245: return "◻️";
+			case 3246: return "◾";
+			case 3247: return "◽";
+			case 3248: return "▪️";
+			case 3249: return "▫️";
+			case 3250: return "🔶";
+			case 3251: return "🔷";
+			case 3252: return "🔸";
+			case 3253: return "🔹";
+			case 3254: return "🔺";
+			case 3255: return "🔻";
+			case 3256: return "💠";
+			case 3257: return "🔘";
+			case 3258: return "🔳";
+			case 3259: return "🔲";
+			case 3260: return "]";
+			case 3261: return "flag: [";
+			case 3262: return "🏁";
+			case 3263: return "🚩";
+			case 3264: return "🎌";
+			case 3265: return "🏴";
+			case 3266: return "🏳️";
+			case 3267: return "🏳️‍🌈";
+			case 3268: return "🏳️‍⚧️";
+			case 3269: return "🏴‍☠️";
+			case 3270: return "🇦🇨";
+			case 3271: return "🇦🇩";
+			case 3272: return "🇦🇪";
+			case 3273: return "🇦🇫";
+			case 3274: return "🇦🇬";
+			case 3275: return "🇦🇮";
+			case 3276: return "🇦🇱";
+			case 3277: return "🇦🇲";
+			case 3278: return "🇦🇴";
+			case 3279: return "🇦🇶";
+			case 3280: return "🇦🇷";
+			case 3281: return "🇦🇸";
+			case 3282: return "🇦🇹";
+			case 3283: return "🇦🇺";
+			case 3284: return "🇦🇼";
+			case 3285: return "🇦🇽";
+			case 3286: return "🇦🇿";
+			case 3287: return "🇧🇦";
+			case 3288: return "🇧🇧";
+			case 3289: return "🇧🇩";
+			case 3290: return "🇧🇪";
+			case 3291: return "🇧🇫";
+			case 3292: return "🇧🇬";
+			case 3293: return "🇧🇭";
+			case 3294: return "🇧🇮";
+			case 3295: return "🇧🇯";
+			case 3296: return "🇧🇱";
+			case 3297: return "🇧🇲";
+			case 3298: return "🇧🇳";
+			case 3299: return "🇧🇴";
+			case 3300: return "🇧🇶";
+			case 3301: return "🇧🇷";
+			case 3302: return "🇧🇸";
+			case 3303: return "🇧🇹";
+			case 3304: return "🇧🇻";
+			case 3305: return "🇧🇼";
+			case 3306: return "🇧🇾";
+			case 3307: return "🇧🇿";
+			case 3308: return "🇨🇦";
+			case 3309: return "🇨🇨";
+			case 3310: return "🇨🇩";
+			case 3311: return "🇨🇫";
+			case 3312: return "🇨🇬";
+			case 3313: return "🇨🇭";
+			case 3314: return "🇨🇮";
+			case 3315: return "🇨🇰";
+			case 3316: return "🇨🇱";
+			case 3317: return "🇨🇲";
+			case 3318: return "🇨🇳";
+			case 3319: return "🇨🇴";
+			case 3320: return "🇨🇵";
+			case 3321: return "🇨🇷";
+			case 3322: return "🇨🇺";
+			case 3323: return "🇨🇻";
+			case 3324: return "🇨🇼";
+			case 3325: return "🇨🇽";
+			case 3326: return "🇨🇾";
+			case 3327: return "🇨🇿";
+			case 3328: return "🇩🇪";
+			case 3329: return "🇩🇬";
+			case 3330: return "🇩🇯";
+			case 3331: return "🇩🇰";
+			case 3332: return "🇩🇲";
+			case 3333: return "🇩🇴";
+			case 3334: return "🇩🇿";
+			case 3335: return "🇪🇦";
+			case 3336: return "🇪🇨";
+			case 3337: return "🇪🇪";
+			case 3338: return "🇪🇬";
+			case 3339: return "🇪🇭";
+			case 3340: return "🇪🇷";
+			case 3341: return "🇪🇸";
+			case 3342: return "🇪🇹";
+			case 3343: return "🇪🇺";
+			case 3344: return "🇫🇮";
+			case 3345: return "🇫🇯";
+			case 3346: return "🇫🇰";
+			case 3347: return "🇫🇲";
+			case 3348: return "🇫🇴";
+			case 3349: return "🇫🇷";
+			case 3350: return "🇬🇦";
+			case 3351: return "🇬🇧";
+			case 3352: return "🇬🇩";
+			case 3353: return "🇬🇪";
+			case 3354: return "🇬🇫";
+			case 3355: return "🇬🇬";
+			case 3356: return "🇬🇭";
+			case 3357: return "🇬🇮";
+			case 3358: return "🇬🇱";
+			case 3359: return "🇬🇲";
+			case 3360: return "🇬🇳";
+			case 3361: return "🇬🇵";
+			case 3362: return "🇬🇶";
+			case 3363: return "🇬🇷";
+			case 3364: return "🇬🇸";
+			case 3365: return "🇬🇹";
+			case 3366: return "🇬🇺";
+			case 3367: return "🇬🇼";
+			case 3368: return "🇬🇾";
+			case 3369: return "🇭🇰";
+			case 3370: return "🇭🇲";
+			case 3371: return "🇭🇳";
+			case 3372: return "🇭🇷";
+			case 3373: return "🇭🇹";
+			case 3374: return "🇭🇺";
+			case 3375: return "🇮🇨";
+			case 3376: return "🇮🇩";
+			case 3377: return "🇮🇪";
+			case 3378: return "🇮🇱";
+			case 3379: return "🇮🇲";
+			case 3380: return "🇮🇳";
+			case 3381: return "🇮🇴";
+			case 3382: return "🇮🇶";
+			case 3383: return "🇮🇷";
+			case 3384: return "🇮🇸";
+			case 3385: return "🇮🇹";
+			case 3386: return "🇯🇪";
+			case 3387: return "🇯🇲";
+			case 3388: return "🇯🇴";
+			case 3389: return "🇯🇵";
+			case 3390: return "🇰🇪";
+			case 3391: return "🇰🇬";
+			case 3392: return "🇰🇭";
+			case 3393: return "🇰🇮";
+			case 3394: return "🇰🇲";
+			case 3395: return "🇰🇳";
+			case 3396: return "🇰🇵";
+			case 3397: return "🇰🇷";
+			case 3398: return "🇰🇼";
+			case 3399: return "🇰🇾";
+			case 3400: return "🇰🇿";
+			case 3401: return "🇱🇦";
+			case 3402: return "🇱🇧";
+			case 3403: return "🇱🇨";
+			case 3404: return "🇱🇮";
+			case 3405: return "🇱🇰";
+			case 3406: return "🇱🇷";
+			case 3407: return "🇱🇸";
+			case 3408: return "🇱🇹";
+			case 3409: return "🇱🇺";
+			case 3410: return "🇱🇻";
+			case 3411: return "🇱🇾";
+			case 3412: return "🇲🇦";
+			case 3413: return "🇲🇨";
+			case 3414: return "🇲🇩";
+			case 3415: return "🇲🇪";
+			case 3416: return "🇲🇫";
+			case 3417: return "🇲🇬";
+			case 3418: return "🇲🇭";
+			case 3419: return "🇲🇰";
+			case 3420: return "🇲🇱";
+			case 3421: return "🇲🇲";
+			case 3422: return "🇲🇳";
+			case 3423: return "🇲🇴";
+			case 3424: return "🇲🇵";
+			case 3425: return "🇲🇶";
+			case 3426: return "🇲🇷";
+			case 3427: return "🇲🇸";
+			case 3428: return "🇲🇹";
+			case 3429: return "🇲🇺";
+			case 3430: return "🇲🇻";
+			case 3431: return "🇲🇼";
+			case 3432: return "🇲🇽";
+			case 3433: return "🇲🇾";
+			case 3434: return "🇲🇿";
+			case 3435: return "🇳🇦";
+			case 3436: return "🇳🇨";
+			case 3437: return "🇳🇪";
+			case 3438: return "🇳🇫";
+			case 3439: return "🇳🇬";
+			case 3440: return "🇳🇮";
+			case 3441: return "🇳🇱";
+			case 3442: return "🇳🇴";
+			case 3443: return "🇳🇵";
+			case 3444: return "🇳🇷";
+			case 3445: return "🇳🇺";
+			case 3446: return "🇳🇿";
+			case 3447: return "🇴🇲";
+			case 3448: return "🇵🇦";
+			case 3449: return "🇵🇪";
+			case 3450: return "🇵🇫";
+			case 3451: return "🇵🇬";
+			case 3452: return "🇵🇭";
+			case 3453: return "🇵🇰";
+			case 3454: return "🇵🇱";
+			case 3455: return "🇵🇲";
+			case 3456: return "🇵🇳";
+			case 3457: return "🇵🇷";
+			case 3458: return "🇵🇸";
+			case 3459: return "🇵🇹";
+			case 3460: return "🇵🇼";
+			case 3461: return "🇵🇾";
+			case 3462: return "🇶🇦";
+			case 3463: return "🇷🇪";
+			case 3464: return "🇷🇴";
+			case 3465: return "🇷🇸";
+			case 3466: return "🇷🇺";
+			case 3467: return "🇷🇼";
+			case 3468: return "🇸🇦";
+			case 3469: return "🇸🇧";
+			case 3470: return "🇸🇨";
+			case 3471: return "🇸🇩";
+			case 3472: return "🇸🇪";
+			case 3473: return "🇸🇬";
+			case 3474: return "🇸🇭";
+			case 3475: return "🇸🇮";
+			case 3476: return "🇸🇯";
+			case 3477: return "🇸🇰";
+			case 3478: return "🇸🇱";
+			case 3479: return "🇸🇲";
+			case 3480: return "🇸🇳";
+			case 3481: return "🇸🇴";
+			case 3482: return "🇸🇷";
+			case 3483: return "🇸🇸";
+			case 3484: return "🇸🇹";
+			case 3485: return "🇸🇻";
+			case 3486: return "🇸🇽";
+			case 3487: return "🇸🇾";
+			case 3488: return "🇸🇿";
+			case 3489: return "🇹🇦";
+			case 3490: return "🇹🇨";
+			case 3491: return "🇹🇩";
+			case 3492: return "🇹🇫";
+			case 3493: return "🇹🇬";
+			case 3494: return "🇹🇭";
+			case 3495: return "🇹🇯";
+			case 3496: return "🇹🇰";
+			case 3497: return "🇹🇱";
+			case 3498: return "🇹🇲";
+			case 3499: return "🇹🇳";
+			case 3500: return "🇹🇴";
+			case 3501: return "🇹🇷";
+			case 3502: return "🇹🇹";
+			case 3503: return "🇹🇻";
+			case 3504: return "🇹🇼";
+			case 3505: return "🇹🇿";
+			case 3506: return "🇺🇦";
+			case 3507: return "🇺🇬";
+			case 3508: return "🇺🇲";
+			case 3509: return "🇺🇳";
+			case 3510: return "🇺🇸";
+			case 3511: return "🇺🇾";
+			case 3512: return "🇺🇿";
+			case 3513: return "🇻🇦";
+			case 3514: return "🇻🇨";
+			case 3515: return "🇻🇪";
+			case 3516: return "🇻🇬";
+			case 3517: return "🇻🇮";
+			case 3518: return "🇻🇳";
+			case 3519: return "🇻🇺";
+			case 3520: return "🇼🇫";
+			case 3521: return "🇼🇸";
+			case 3522: return "🇽🇰";
+			case 3523: return "🇾🇪";
+			case 3524: return "🇾🇹";
+			case 3525: return "🇿🇦";
+			case 3526: return "🇿🇲";
+			case 3527: return "🇿🇼";
+			case 3528: return "]";
+		}
+	}
+
 	///
 	string internetDomainSuffix() {
 		auto data = [
@@ -31291,6 +34994,77 @@ class Faker {
 		"example.net'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	string internetHttpStatusCode() {
+		final switch(uniform(0, 65, this.rnd)) {
+			case 0: return "informational: [100";
+			case 1: return "101";
+			case 2: return "102";
+			case 3: return "103]";
+			case 4: return "success: [200";
+			case 5: return "201";
+			case 6: return "202";
+			case 7: return "203";
+			case 8: return "204";
+			case 9: return "205";
+			case 10: return "206";
+			case 11: return "207";
+			case 12: return "208";
+			case 13: return "226]";
+			case 14: return "redirection: [300";
+			case 15: return "301";
+			case 16: return "302";
+			case 17: return "303";
+			case 18: return "304";
+			case 19: return "305";
+			case 20: return "306";
+			case 21: return "307";
+			case 22: return "308]";
+			case 23: return "clientError: [";
+			case 24: return "400";
+			case 25: return "401";
+			case 26: return "402";
+			case 27: return "403";
+			case 28: return "404";
+			case 29: return "405";
+			case 30: return "406";
+			case 31: return "407";
+			case 32: return "408";
+			case 33: return "409";
+			case 34: return "410";
+			case 35: return "411";
+			case 36: return "412";
+			case 37: return "413";
+			case 38: return "414";
+			case 39: return "415";
+			case 40: return "416";
+			case 41: return "417";
+			case 42: return "418";
+			case 43: return "421";
+			case 44: return "422";
+			case 45: return "423";
+			case 46: return "424";
+			case 47: return "425";
+			case 48: return "426";
+			case 49: return "428";
+			case 50: return "429";
+			case 51: return "431";
+			case 52: return "451";
+			case 53: return "]";
+			case 54: return "serverError: [500";
+			case 55: return "501";
+			case 56: return "502";
+			case 57: return "503";
+			case 58: return "504";
+			case 59: return "505";
+			case 60: return "506";
+			case 61: return "507";
+			case 62: return "508";
+			case 63: return "510";
+			case 64: return "511]";
+		}
 	}
 
 	///

@@ -30,26 +30,12 @@ class Faker_en_ng : Faker {
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"com.ng",
-		"com",
-		"org.ng",
-		"com",
-		"ng'"
-		];
-		return choice(data, this.rnd);
-	}
 
-	///
-	override string companySuffix() {
-		auto data = [
-		"Venture",
-		"Ltd",
-		"Plc'"
-		];
-		return choice(data, this.rnd);
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
+		}
 	}
 
 	///
@@ -103,6 +89,13 @@ class Faker_en_ng : Faker {
 		"####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityPrefix() ~ "'";
+		}
 	}
 
 	///
@@ -649,6 +642,28 @@ class Faker_en_ng : Faker {
 	}
 
 	///
+	override string companySuffix() {
+		auto data = [
+		"Venture",
+		"Ltd",
+		"Plc'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"com.ng",
+		"com",
+		"org.ng",
+		"com",
+		"ng'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string nameFemaleFirstName() {
 		auto data = [
 		"Adaugo",
@@ -1038,6 +1053,14 @@ class Faker_en_ng : Faker {
 		"Yusuf"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameLastName() ~ " " ~ nameFirstName();
+		}
 	}
 
 }

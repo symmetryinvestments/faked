@@ -29,54 +29,6 @@ class Faker_ko : Faker {
 	}
 
 	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"yahoo.co.kr",
-		"hanmail.net",
-		"naver.com'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"co.kr",
-		"com",
-		"biz",
-		"info",
-		"ne.kr",
-		"net",
-		"or.kr",
-		"org'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		auto data = [
-		"연구소",
-		"게임즈",
-		"그룹",
-		"전자",
-		"물산",
-		"코리아'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string companyPrefix() {
-		auto data = [
-		"주식회사",
-		"한국'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressCityName() {
 		auto data = [
 		"강릉",
@@ -119,7 +71,7 @@ class Faker_ko : Faker {
 	}
 
 	///
-	override string addressState() {
+	override string addressStateAbbr() {
 		auto data = [
 		"강원",
 		"경기",
@@ -143,7 +95,7 @@ class Faker_ko : Faker {
 	}
 
 	///
-	override string addressStateAbbr() {
+	override string addressState() {
 		auto data = [
 		"강원",
 		"경기",
@@ -174,6 +126,13 @@ class Faker_ko : Faker {
 		"군'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressStreetName() ~ addressStreetSuffix() ~ "'";
+		}
 	}
 
 	///
@@ -210,6 +169,13 @@ class Faker_ko : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ addressCitySuffix() ~ "'";
+		}
+	}
+
 	///
 	override string addressPostcode() {
 		auto data = [
@@ -225,6 +191,62 @@ class Faker_ko : Faker {
 		"읍",
 		"면",
 		"동'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"연구소",
+		"게임즈",
+		"그룹",
+		"전자",
+		"물산",
+		"코리아'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string companyPrefix() {
+		auto data = [
+		"주식회사",
+		"한국'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string companyName() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return companyPrefix() ~ " " ~ nameFirstName();
+			case 1: return nameFirstName() ~ " " ~ companySuffix();
+		}
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.co.kr",
+		"hanmail.net",
+		"naver.com'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"co.kr",
+		"com",
+		"biz",
+		"info",
+		"ne.kr",
+		"net",
+		"or.kr",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3508,6 +3530,13 @@ class Faker_ko : Faker {
 		"슬희"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ nameFirstName() ~ "'";
+		}
 	}
 
 }

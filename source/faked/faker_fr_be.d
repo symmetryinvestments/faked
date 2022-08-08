@@ -18,6 +18,186 @@ class Faker_fr_be : Faker {
         super(seed);
 	}
 
+
+	override string phoneNumberFormats() {
+		final switch(uniform(0, 105, this.rnd)) {
+			case 0: return "###/######";
+			case 1: return "###/## ## ##";
+			case 2: return "### ## ## ##";
+			case 3: return "###/### ###";
+			case 4: return "##########";
+			case 5: return "04##/### ###";
+			case 6: return "04## ## ## ##";
+			case 7: return "00324 ## ## ##";
+			case 8: return "+324 ## ## ## ##";
+			case 9: return "010######";
+			case 10: return "011######";
+			case 11: return "012######";
+			case 12: return "013######";
+			case 13: return "014######";
+			case 14: return "015######";
+			case 15: return "016######";
+			case 16: return "019######";
+			case 17: return "02#######";
+			case 18: return "Enghien";
+			case 19: return "03#######";
+			case 20: return "04######";
+			case 21: return "Fourons";
+			case 22: return "050######";
+			case 23: return "051######";
+			case 24: return "053######";
+			case 25: return "052######";
+			case 26: return "054######";
+			case 27: return "055######";
+			case 28: return "056######";
+			case 29: return "Comines-Warneton";
+			case 30: return "Mouscron";
+			case 31: return "057######";
+			case 32: return "058######";
+			case 33: return "059######";
+			case 34: return "060######";
+			case 35: return "061######";
+			case 36: return "Bastogne";
+			case 37: return "063######";
+			case 38: return "064######";
+			case 39: return "065######";
+			case 40: return "067######";
+			case 41: return "068######";
+			case 42: return "069######";
+			case 43: return "071######";
+			case 44: return "080######";
+			case 45: return "Malmedy";
+			case 46: return "Waimes";
+			case 47: return "081######";
+			case 48: return "082######";
+			case 49: return "083######";
+			case 50: return "084######";
+			case 51: return "085######";
+			case 52: return "Andenne";
+			case 53: return "086######";
+			case 54: return "087######";
+			case 55: return "089######";
+			case 56: return "09#######";
+			case 57: return "+32 10######";
+			case 58: return "+32 11######";
+			case 59: return "+32 12######";
+			case 60: return "+32 13######";
+			case 61: return "+32 14######";
+			case 62: return "+32 15######";
+			case 63: return "+32 16######";
+			case 64: return "+32 19######";
+			case 65: return "+32 2#######";
+			case 66: return "Enghien";
+			case 67: return "+32 3#######";
+			case 68: return "+32 4######";
+			case 69: return "Fourons";
+			case 70: return "+32 50######";
+			case 71: return "+32 51######";
+			case 72: return "+32 53######";
+			case 73: return "+32 52######";
+			case 74: return "+32 54######";
+			case 75: return "+32 55######";
+			case 76: return "+32 56######";
+			case 77: return "Comines-Warneton";
+			case 78: return "Mouscron";
+			case 79: return "+32 57######";
+			case 80: return "+32 58######";
+			case 81: return "+32 59######";
+			case 82: return "+32 60######";
+			case 83: return "+32 61######";
+			case 84: return "Bastogne";
+			case 85: return "+32 63######";
+			case 86: return "+32 64######";
+			case 87: return "+32 65######";
+			case 88: return "+32 67######";
+			case 89: return "+32 68######";
+			case 90: return "+32 69######";
+			case 91: return "+32 71######";
+			case 92: return "+32 80######";
+			case 93: return "Malmedy";
+			case 94: return "Waimes";
+			case 95: return "+32 81######";
+			case 96: return "+32 82######";
+			case 97: return "+32 83######";
+			case 98: return "+32 84######";
+			case 99: return "+32 85######";
+			case 100: return "Andenne";
+			case 101: return "+32 86######";
+			case 102: return "+32 87######";
+			case 103: return "+32 89######";
+			case 104: return "+32 9#######";
+		}
+	}
+
+
+	override string cellPhoneFormats() {
+		final switch(uniform(0, 37, this.rnd)) {
+			case 0: return "###/######";
+			case 1: return "###/## ## ##";
+			case 2: return "### ## ## ##";
+			case 3: return "###/### ###";
+			case 4: return "##########";
+			case 5: return "04##/### ###";
+			case 6: return "04## ## ## ##";
+			case 7: return "00324 ## ## ##";
+			case 8: return "+324 ## ## ## ##";
+			case 9: return "0455 ## ##";
+			case 10: return "0456 ## ##";
+			case 11: return "046# ## ##";
+			case 12: return "Vectone mobile";
+			case 13: return "proximus";
+			case 14: return "telenet";
+			case 15: return "047# ## ##";
+			case 16: return "048# ## ##";
+			case 17: return "049# ## ##";
+			case 18: return "0032 455 ## ##";
+			case 19: return "0032 456 ## ##";
+			case 20: return "0032 46# ## ##";
+			case 21: return "Vectone mobile";
+			case 22: return "proximus";
+			case 23: return "telenet";
+			case 24: return "0032 47# ## ##";
+			case 25: return "0032 48# ## ##";
+			case 26: return "0032 49# ## ##";
+			case 27: return "+32 455 ## ##";
+			case 28: return "+32 456 ## ##";
+			case 29: return "+32 46# ## ##";
+			case 30: return "Vectone mobile";
+			case 31: return "proximus";
+			case 32: return "telenet";
+			case 33: return "+32 47# ## ##";
+			case 34: return "+32 48# ## ##";
+			case 35: return "+32 49# ## ##";
+			case 36: return "+32 461 8# ##";
+		}
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"advalvas.be",
+		"mail.be",
+		"netbel.be",
+		"skynet.be'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"be",
+		"eu",
+		"com",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org'"
+		];
+		return choice(data, this.rnd);
+	}
+
 	///
 	override string addressStateAbbr() {
 		auto data = [
@@ -49,6 +229,14 @@ class Faker_fr_be : Faker {
 		"Brabant wallon"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+		}
 	}
 
 	///
@@ -365,6 +553,40 @@ class Faker_fr_be : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreet() {
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return addressStreetPrefix() ~ " " ~ nameFirstName();
+			case 1: return addressStreetPrefix() ~ " " ~ nameLastName();
+			case 2: return addressStreetPrefix() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return addressCityPrefix();
+			case 1: return addressCityPrefix() ~ addressCitySuffix();
+		}
+	}
+
+	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"#",
+		"##",
+		"###",
+		"# bis",
+		"## bis",
+		"### bis",
+		"###a",
+		"###b",
+		"###c",
+		"###/2"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
 	///
 	override string addressPostcode() {
 		auto data = [
@@ -586,32 +808,6 @@ class Faker_fr_be : Faker {
 		"de Vaugirard",
 		"de la Victoire",
 		"Zadkine"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetFreeEmail() {
-		auto data = [
-		"advalvas.be",
-		"mail.be",
-		"netbel.be",
-		"skynet.be'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"be",
-		"eu",
-		"com",
-		"biz",
-		"info",
-		"name",
-		"net",
-		"org'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -5756,6 +5952,18 @@ class Faker_fr_be : Faker {
 		"Edmond"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameSuffix();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 5: return nameFemaleFirstName() ~ " " ~ nameLastName();
+		}
 	}
 
 	///

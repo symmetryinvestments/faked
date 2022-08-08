@@ -83,6 +83,40 @@ class Faker_ge : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyName() {
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return companyPrefix() ~ " " ~ nameFirstName();
+			case 1: return companyPrefix() ~ " " ~ nameLastName();
+			case 2: return companyPrefix() ~ " " ~ nameLastName() ~ " " ~ companySuffix();
+			case 3: return companyPrefix() ~ " " ~ nameFirstName() ~ " " ~ companySuffix();
+			case 4: return companyPrefix() ~ " " ~ nameLastName() ~ "-" ~ nameLastName();
+		}
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.com",
+		"posta.ge'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"ge",
+		"com",
+		"net",
+		"org",
+		"com.ge",
+		"org.ge'"
+		];
+		return choice(data, this.rnd);
+	}
+
 	///
 	override string addressCityName() {
 		auto data = [
@@ -498,6 +532,14 @@ class Faker_ge : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+		}
+	}
+
 	///
 	override string addressDefaultCountry() {
 		auto data = [
@@ -526,6 +568,13 @@ class Faker_ge : Faker {
 		"ქვემო'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressStreetName() ~ " " ~ addressStreetSuffix() ~ "'";
+		}
 	}
 
 	///
@@ -951,10 +1000,24 @@ class Faker_ge : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressCity() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
+			case 2: return nameFirstName() ~ addressCitySuffix();
+			case 3: return nameFirstName() ~ addressCitySuffix();
+			case 4: return nameLastName() ~ addressCitySuffix();
+			case 5: return nameLastName() ~ addressCitySuffix();
+		}
+	}
+
 	///
-	override string addressPostcode() {
+	override string addressBuildingNumber() {
 		auto data = [
-		"01##'"
+		"###",
+		"##",
+		"#'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -969,6 +1032,14 @@ class Faker_ge : Faker {
 	}
 
 	///
+	override string addressPostcode() {
+		auto data = [
+		"01##'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressStreetSuffix() {
 		auto data = [
 		"გამზ.",
@@ -977,29 +1048,6 @@ class Faker_ge : Faker {
 		"ქუჩა",
 		"ჩიხი",
 		"ხეივანი'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"yahoo.com",
-		"posta.ge'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"ge",
-		"com",
-		"net",
-		"org",
-		"com.ge",
-		"org.ge'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1695,6 +1743,18 @@ class Faker_ge : Faker {
 		"ჰამლეტ"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameFirstName() ~ " " ~ nameLastName();
+			case 5: return nameFirstName() ~ " " ~ nameLastName();
+		}
 	}
 
 }

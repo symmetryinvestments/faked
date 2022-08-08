@@ -88,6 +88,36 @@ class Faker_en_ie : Faker {
 	}
 
 	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"ie",
+		"com",
+		"net",
+		"info",
+		"eu'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
+			case 2: return nameFirstName() ~ addressCitySuffix();
+			case 3: return nameLastName() ~ addressCitySuffix();
+		}
+	}
+
+	///
 	override string addressDefaultCountry() {
 		auto data = [
 		"Ireland'"
@@ -124,18 +154,6 @@ class Faker_en_ie : Faker {
 		"Westmeath",
 		"Wexford",
 		"Wicklow"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"ie",
-		"com",
-		"net",
-		"info",
-		"eu'"
 		];
 		return choice(data, this.rnd);
 	}

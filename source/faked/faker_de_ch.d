@@ -35,37 +35,6 @@ class Faker_de_ch : Faker {
 	}
 
 	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"com",
-		"net",
-		"biz",
-		"ch",
-		"de",
-		"li",
-		"at",
-		"ch",
-		"ch'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		auto data = [
-		"AG",
-		"GmbH",
-		"und Söhne",
-		"und Partner",
-		"& Co.",
-		"Gruppe",
-		"LLC",
-		"Inc."
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressCityName() {
 		auto data = [
 		"Aarau",
@@ -173,39 +142,6 @@ class Faker_de_ch : Faker {
 	}
 
 	///
-	override string addressState() {
-		auto data = [
-		"Aargau",
-		"Appenzell Ausserrhoden",
-		"Appenzell Innerrhoden",
-		"Basel-Land",
-		"Basel-Stadt",
-		"Bern",
-		"Freiburg",
-		"Genf",
-		"Glarus",
-		"Graubünden",
-		"Jura",
-		"Luzern",
-		"Neuenburg",
-		"Nidwalden",
-		"Obwalden",
-		"St. Gallen",
-		"Schaffhausen",
-		"Schwyz",
-		"Solothurn",
-		"Tessin",
-		"Thurgau",
-		"Uri",
-		"Waadt",
-		"Wallis",
-		"Zug",
-		"Zürich"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressStateAbbr() {
 		auto data = [
 		"AG",
@@ -239,11 +175,59 @@ class Faker_de_ch : Faker {
 	}
 
 	///
+	override string addressState() {
+		auto data = [
+		"Aargau",
+		"Appenzell Ausserrhoden",
+		"Appenzell Innerrhoden",
+		"Basel-Land",
+		"Basel-Stadt",
+		"Bern",
+		"Freiburg",
+		"Genf",
+		"Glarus",
+		"Graubünden",
+		"Jura",
+		"Luzern",
+		"Neuenburg",
+		"Nidwalden",
+		"Obwalden",
+		"St. Gallen",
+		"Schaffhausen",
+		"Schwyz",
+		"Solothurn",
+		"Tessin",
+		"Thurgau",
+		"Uri",
+		"Waadt",
+		"Wallis",
+		"Zug",
+		"Zürich"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressDefaultCountry() {
 		auto data = [
 		"Schweiz'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
 	}
 
 	///
@@ -277,6 +261,47 @@ class Faker_de_ch : Faker {
 		"9###"
 		];
 		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"AG",
+		"GmbH",
+		"und Söhne",
+		"und Partner",
+		"& Co.",
+		"Gruppe",
+		"LLC",
+		"Inc."
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string companyName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ "-" ~ nameLastName();
+			case 2: return nameLastName();
+			case 3: return nameLastName() ~ " und " ~ nameLastName();
+		}
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"com",
+		"net",
+		"biz",
+		"ch",
+		"de",
+		"li",
+		"at",
+		"ch",
+		"ch'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
@@ -846,6 +871,18 @@ class Faker_de_ch : Faker {
 		"Yvonne"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameFirstName() ~ " " ~ nameLastName();
+			case 5: return nameFirstName() ~ " " ~ nameLastName();
+		}
 	}
 
 }

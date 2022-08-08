@@ -37,403 +37,6 @@ class Faker_it : Faker {
 	}
 
 	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"yahoo.com",
-		"hotmail.com",
-		"email.it",
-		"libero.it",
-		"yahoo.it"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"com",
-		"com",
-		"com",
-		"net",
-		"org",
-		"it",
-		"it",
-		"it'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyBsVerb() {
-		auto data = [
-		"implementate",
-		"utilizzo",
-		"integrate",
-		"ottimali",
-		"evolutive",
-		"abilitate",
-		"reinventate",
-		"aggregate",
-		"migliorate",
-		"incentivate",
-		"monetizzate",
-		"sinergizzate",
-		"strategiche",
-		"deploy",
-		"marchi",
-		"accrescitive",
-		"target",
-		"sintetizzate",
-		"spedizioni",
-		"massimizzate",
-		"innovazione",
-		"guida",
-		"estensioni",
-		"generate",
-		"exploit",
-		"transizionali",
-		"matrici",
-		"ricontestualizzate"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyBsNoun() {
-		auto data = [
-		"partnerships",
-		"comunità",
-		"ROI",
-		"soluzioni",
-		"e-services",
-		"nicchie",
-		"tecnologie",
-		"contenuti",
-		"supply-chains",
-		"convergenze",
-		"relazioni",
-		"architetture",
-		"interfacce",
-		"mercati",
-		"e-commerce",
-		"sistemi",
-		"modelli",
-		"schemi",
-		"reti",
-		"applicazioni",
-		"metriche",
-		"e-business",
-		"funzionalità",
-		"esperienze",
-		"webservices",
-		"metodologie"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyDescriptor() {
-		auto data = [
-		"adattiva",
-		"avanzata",
-		"migliorata",
-		"assimilata",
-		"automatizzata",
-		"bilanciata",
-		"centralizzata",
-		"compatibile",
-		"configurabile",
-		"cross-platform",
-		"decentralizzata",
-		"digitalizzata",
-		"distribuita",
-		"piccola",
-		"ergonomica",
-		"esclusiva",
-		"espansa",
-		"estesa",
-		"configurabile",
-		"fondamentale",
-		"orizzontale",
-		"implementata",
-		"innovativa",
-		"integrata",
-		"intuitiva",
-		"inversa",
-		"gestita",
-		"obbligatoria",
-		"monitorata",
-		"multi-canale",
-		"multi-laterale",
-		"open-source",
-		"operativa",
-		"ottimizzata",
-		"organica",
-		"persistente",
-		"polarizzata",
-		"proattiva",
-		"programmabile",
-		"progressiva",
-		"reattiva",
-		"riallineata",
-		"ricontestualizzata",
-		"ridotta",
-		"robusta",
-		"sicura",
-		"condivisibile",
-		"stand-alone",
-		"switchabile",
-		"sincronizzata",
-		"sinergica",
-		"totale",
-		"universale",
-		"user-friendly",
-		"versatile",
-		"virtuale",
-		"visionaria"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyNoun() {
-		auto data = [
-		"Abilità",
-		"Access",
-		"Adattatore",
-		"Algoritmo",
-		"Alleanza",
-		"Analizzatore",
-		"Applicazione",
-		"Approccio",
-		"Architettura",
-		"Archivio",
-		"Intelligenza artificiale",
-		"Array",
-		"Attitudine",
-		"Benchmark",
-		"Capacità",
-		"Sfida",
-		"Circuito",
-		"Collaborazione",
-		"Complessità",
-		"Concetto",
-		"Conglomerato",
-		"Contingenza",
-		"Core",
-		"Database",
-		"Data-warehouse",
-		"Definizione",
-		"Emulazione",
-		"Codifica",
-		"Criptazione",
-		"Firmware",
-		"Flessibilità",
-		"Previsione",
-		"Frame",
-		"framework",
-		"Funzione",
-		"Funzionalità",
-		"Interfaccia grafica",
-		"Hardware",
-		"Help-desk",
-		"Gerarchia",
-		"Hub",
-		"Implementazione",
-		"Infrastruttura",
-		"Iniziativa",
-		"Installazione",
-		"Set di istruzioni",
-		"Interfaccia",
-		"Soluzione internet",
-		"Intranet",
-		"Conoscenza base",
-		"Matrici",
-		"Matrice",
-		"Metodologia",
-		"Middleware",
-		"Migrazione",
-		"Modello",
-		"Moderazione",
-		"Monitoraggio",
-		"Moratoria",
-		"Rete",
-		"Architettura aperta",
-		"Sistema aperto",
-		"Orchestrazione",
-		"Paradigma",
-		"Parallelismo",
-		"Policy",
-		"Portale",
-		"Struttura di prezzo",
-		"Prodotto",
-		"Produttività",
-		"Progetto",
-		"Proiezione",
-		"Protocollo",
-		"Servizio clienti",
-		"Software",
-		"Soluzione",
-		"Standardizzazione",
-		"Strategia",
-		"Struttura",
-		"Successo",
-		"Sovrastruttura",
-		"Supporto",
-		"Sinergia",
-		"Task-force",
-		"Finestra temporale",
-		"Strumenti",
-		"Utilizzazione",
-		"Sito web",
-		"Forza lavoro"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyAdjective() {
-		auto data = [
-		"24 ore",
-		"24/7",
-		"terza generazione",
-		"quarta generazione",
-		"quinta generazione",
-		"sesta generazione",
-		"asimmetrica",
-		"asincrona",
-		"background",
-		"bi-direzionale",
-		"biforcata",
-		"bottom-line",
-		"coerente",
-		"coesiva",
-		"composita",
-		"sensibile al contesto",
-		"basta sul contesto",
-		"basata sul contenuto",
-		"dedicata",
-		"didattica",
-		"direzionale",
-		"discreta",
-		"dinamica",
-		"eco-centrica",
-		"esecutiva",
-		"esplicita",
-		"full-range",
-		"globale",
-		"euristica",
-		"alto livello",
-		"olistica",
-		"omogenea",
-		"ibrida",
-		"impattante",
-		"incrementale",
-		"intangibile",
-		"interattiva",
-		"intermediaria",
-		"locale",
-		"logistica",
-		"massimizzata",
-		"metodica",
-		"mission-critical",
-		"mobile",
-		"modulare",
-		"motivazionale",
-		"multimedia",
-		"multi-tasking",
-		"nazionale",
-		"neutrale",
-		"nextgeneration",
-		"non-volatile",
-		"object-oriented",
-		"ottima",
-		"ottimizzante",
-		"radicale",
-		"real-time",
-		"reciproca",
-		"regionale",
-		"responsiva",
-		"scalabile",
-		"secondaria",
-		"stabile",
-		"statica",
-		"sistematica",
-		"sistemica",
-		"tangibile",
-		"terziaria",
-		"uniforme",
-		"valore aggiunto"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		auto data = [
-		"SPA",
-		"e figli",
-		"Group",
-		"s.r.l.'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyBsAdjective() {
-		auto data = [
-		"valore aggiunto",
-		"verticalizzate",
-		"proattive",
-		"forti",
-		"rivoluzionari",
-		"scalabili",
-		"innovativi",
-		"intuitivi",
-		"strategici",
-		"e-business",
-		"mission-critical",
-		"24/7",
-		"globali",
-		"B2B",
-		"B2C",
-		"granulari",
-		"virtuali",
-		"virali",
-		"dinamiche",
-		"magnetiche",
-		"web",
-		"interattive",
-		"sexy",
-		"back-end",
-		"real-time",
-		"efficienti",
-		"front-end",
-		"distributivi",
-		"estensibili",
-		"mondiali",
-		"open-source",
-		"cross-platform",
-		"sinergiche",
-		"out-of-the-box",
-		"enterprise",
-		"integrate",
-		"di impatto",
-		"wireless",
-		"trasparenti",
-		"next-generation",
-		"cutting-edge",
-		"visionari",
-		"plug-and-play",
-		"collaborative",
-		"olistiche",
-		"ricche"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressCityName() {
 		auto data = [
 		"Agliè",
@@ -1420,6 +1023,123 @@ class Faker_it : Faker {
 	}
 
 	///
+	override string addressStateAbbr() {
+		auto data = [
+		"AG",
+		"AL",
+		"AN",
+		"AO",
+		"AR",
+		"AP",
+		"AT",
+		"AV",
+		"BA",
+		"BT",
+		"BL",
+		"BN",
+		"BG",
+		"BI",
+		"BO",
+		"BZ",
+		"BS",
+		"BR",
+		"CA",
+		"CL",
+		"CB",
+		"CI",
+		"CE",
+		"CT",
+		"CZ",
+		"CH",
+		"CO",
+		"CS",
+		"CR",
+		"KR",
+		"CN",
+		"EN",
+		"FM",
+		"FE",
+		"FI",
+		"FG",
+		"FC",
+		"FR",
+		"GE",
+		"GO",
+		"GR",
+		"IM",
+		"IS",
+		"SP",
+		"AQ",
+		"LT",
+		"LE",
+		"LC",
+		"LI",
+		"LO",
+		"LU",
+		"MC",
+		"MN",
+		"MS",
+		"MT",
+		"ME",
+		"MI",
+		"MO",
+		"MB",
+		"NA",
+		"NO",
+		"NU",
+		"OT",
+		"OR",
+		"PD",
+		"PA",
+		"PR",
+		"PV",
+		"PG",
+		"PU",
+		"PE",
+		"PC",
+		"PI",
+		"PT",
+		"PN",
+		"PZ",
+		"PO",
+		"RG",
+		"RA",
+		"RC",
+		"RE",
+		"RI",
+		"RN",
+		"RM",
+		"RO",
+		"SA",
+		"VS",
+		"SS",
+		"SV",
+		"SI",
+		"SR",
+		"SO",
+		"TA",
+		"TE",
+		"TR",
+		"TO",
+		"OG",
+		"TP",
+		"TN",
+		"TV",
+		"TS",
+		"UD",
+		"VA",
+		"VE",
+		"VB",
+		"VC",
+		"VR",
+		"VV",
+		"VI",
+		"VT"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressState() {
 		auto data = [
 		"Agrigento",
@@ -1532,6 +1252,42 @@ class Faker_it : Faker {
 		"Vibo Valentia",
 		"Vicenza",
 		"Viterbo"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 2: return addressSecondaryAddress();
+		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"Italia'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressCitySuffix() {
+		auto data = [
+		"a mare",
+		"lido",
+		"ligure",
+		"del friuli",
+		"salentino",
+		"calabro",
+		"veneto",
+		"nell'emilia",
+		"umbro",
+		"laziale",
+		"terme",
+		"sardo"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1785,150 +1541,6 @@ class Faker_it : Faker {
 	}
 
 	///
-	override string addressStateAbbr() {
-		auto data = [
-		"AG",
-		"AL",
-		"AN",
-		"AO",
-		"AR",
-		"AP",
-		"AT",
-		"AV",
-		"BA",
-		"BT",
-		"BL",
-		"BN",
-		"BG",
-		"BI",
-		"BO",
-		"BZ",
-		"BS",
-		"BR",
-		"CA",
-		"CL",
-		"CB",
-		"CI",
-		"CE",
-		"CT",
-		"CZ",
-		"CH",
-		"CO",
-		"CS",
-		"CR",
-		"KR",
-		"CN",
-		"EN",
-		"FM",
-		"FE",
-		"FI",
-		"FG",
-		"FC",
-		"FR",
-		"GE",
-		"GO",
-		"GR",
-		"IM",
-		"IS",
-		"SP",
-		"AQ",
-		"LT",
-		"LE",
-		"LC",
-		"LI",
-		"LO",
-		"LU",
-		"MC",
-		"MN",
-		"MS",
-		"MT",
-		"ME",
-		"MI",
-		"MO",
-		"MB",
-		"NA",
-		"NO",
-		"NU",
-		"OT",
-		"OR",
-		"PD",
-		"PA",
-		"PR",
-		"PV",
-		"PG",
-		"PU",
-		"PE",
-		"PC",
-		"PI",
-		"PT",
-		"PN",
-		"PZ",
-		"PO",
-		"RG",
-		"RA",
-		"RC",
-		"RE",
-		"RI",
-		"RN",
-		"RM",
-		"RO",
-		"SA",
-		"VS",
-		"SS",
-		"SV",
-		"SI",
-		"SR",
-		"SO",
-		"TA",
-		"TE",
-		"TR",
-		"TO",
-		"OG",
-		"TP",
-		"TN",
-		"TV",
-		"TS",
-		"UD",
-		"VA",
-		"VE",
-		"VB",
-		"VC",
-		"VR",
-		"VV",
-		"VI",
-		"VT"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"Italia'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCitySuffix() {
-		auto data = [
-		"a mare",
-		"lido",
-		"ligure",
-		"del friuli",
-		"salentino",
-		"calabro",
-		"veneto",
-		"nell'emilia",
-		"umbro",
-		"laziale",
-		"terme",
-		"sardo"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressCityPrefix() {
 		auto data = [
 		"San",
@@ -1938,6 +1550,43 @@ class Faker_it : Faker {
 		"Settimo'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return addressStreetSuffix() ~ " " ~ nameFirstName();
+			case 1: return addressStreetSuffix() ~ " " ~ nameLastName();
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ " " ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
+			case 2: return nameFirstName() ~ " " ~ addressCitySuffix();
+			case 3: return nameLastName() ~ " " ~ addressCitySuffix();
+		}
+	}
+
+	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"###",
+		"##",
+		"#'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressSecondaryAddress() {
+		auto data = [
+		"Appartamento ##",
+		"Piano #'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
@@ -1958,6 +1607,413 @@ class Faker_it : Faker {
 		"Contrada",
 		"Rotonda",
 		"Incrocio"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companyBsVerb() {
+		auto data = [
+		"implementate",
+		"utilizzo",
+		"integrate",
+		"ottimali",
+		"evolutive",
+		"abilitate",
+		"reinventate",
+		"aggregate",
+		"migliorate",
+		"incentivate",
+		"monetizzate",
+		"sinergizzate",
+		"strategiche",
+		"deploy",
+		"marchi",
+		"accrescitive",
+		"target",
+		"sintetizzate",
+		"spedizioni",
+		"massimizzate",
+		"innovazione",
+		"guida",
+		"estensioni",
+		"generate",
+		"exploit",
+		"transizionali",
+		"matrici",
+		"ricontestualizzate"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companyBsNoun() {
+		auto data = [
+		"partnerships",
+		"comunità",
+		"ROI",
+		"soluzioni",
+		"e-services",
+		"nicchie",
+		"tecnologie",
+		"contenuti",
+		"supply-chains",
+		"convergenze",
+		"relazioni",
+		"architetture",
+		"interfacce",
+		"mercati",
+		"e-commerce",
+		"sistemi",
+		"modelli",
+		"schemi",
+		"reti",
+		"applicazioni",
+		"metriche",
+		"e-business",
+		"funzionalità",
+		"esperienze",
+		"webservices",
+		"metodologie"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companyDescriptor() {
+		auto data = [
+		"adattiva",
+		"avanzata",
+		"migliorata",
+		"assimilata",
+		"automatizzata",
+		"bilanciata",
+		"centralizzata",
+		"compatibile",
+		"configurabile",
+		"cross-platform",
+		"decentralizzata",
+		"digitalizzata",
+		"distribuita",
+		"piccola",
+		"ergonomica",
+		"esclusiva",
+		"espansa",
+		"estesa",
+		"configurabile",
+		"fondamentale",
+		"orizzontale",
+		"implementata",
+		"innovativa",
+		"integrata",
+		"intuitiva",
+		"inversa",
+		"gestita",
+		"obbligatoria",
+		"monitorata",
+		"multi-canale",
+		"multi-laterale",
+		"open-source",
+		"operativa",
+		"ottimizzata",
+		"organica",
+		"persistente",
+		"polarizzata",
+		"proattiva",
+		"programmabile",
+		"progressiva",
+		"reattiva",
+		"riallineata",
+		"ricontestualizzata",
+		"ridotta",
+		"robusta",
+		"sicura",
+		"condivisibile",
+		"stand-alone",
+		"switchabile",
+		"sincronizzata",
+		"sinergica",
+		"totale",
+		"universale",
+		"user-friendly",
+		"versatile",
+		"virtuale",
+		"visionaria"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companyNoun() {
+		auto data = [
+		"Abilità",
+		"Access",
+		"Adattatore",
+		"Algoritmo",
+		"Alleanza",
+		"Analizzatore",
+		"Applicazione",
+		"Approccio",
+		"Architettura",
+		"Archivio",
+		"Intelligenza artificiale",
+		"Array",
+		"Attitudine",
+		"Benchmark",
+		"Capacità",
+		"Sfida",
+		"Circuito",
+		"Collaborazione",
+		"Complessità",
+		"Concetto",
+		"Conglomerato",
+		"Contingenza",
+		"Core",
+		"Database",
+		"Data-warehouse",
+		"Definizione",
+		"Emulazione",
+		"Codifica",
+		"Criptazione",
+		"Firmware",
+		"Flessibilità",
+		"Previsione",
+		"Frame",
+		"framework",
+		"Funzione",
+		"Funzionalità",
+		"Interfaccia grafica",
+		"Hardware",
+		"Help-desk",
+		"Gerarchia",
+		"Hub",
+		"Implementazione",
+		"Infrastruttura",
+		"Iniziativa",
+		"Installazione",
+		"Set di istruzioni",
+		"Interfaccia",
+		"Soluzione internet",
+		"Intranet",
+		"Conoscenza base",
+		"Matrici",
+		"Matrice",
+		"Metodologia",
+		"Middleware",
+		"Migrazione",
+		"Modello",
+		"Moderazione",
+		"Monitoraggio",
+		"Moratoria",
+		"Rete",
+		"Architettura aperta",
+		"Sistema aperto",
+		"Orchestrazione",
+		"Paradigma",
+		"Parallelismo",
+		"Policy",
+		"Portale",
+		"Struttura di prezzo",
+		"Prodotto",
+		"Produttività",
+		"Progetto",
+		"Proiezione",
+		"Protocollo",
+		"Servizio clienti",
+		"Software",
+		"Soluzione",
+		"Standardizzazione",
+		"Strategia",
+		"Struttura",
+		"Successo",
+		"Sovrastruttura",
+		"Supporto",
+		"Sinergia",
+		"Task-force",
+		"Finestra temporale",
+		"Strumenti",
+		"Utilizzazione",
+		"Sito web",
+		"Forza lavoro"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companyAdjective() {
+		auto data = [
+		"24 ore",
+		"24/7",
+		"terza generazione",
+		"quarta generazione",
+		"quinta generazione",
+		"sesta generazione",
+		"asimmetrica",
+		"asincrona",
+		"background",
+		"bi-direzionale",
+		"biforcata",
+		"bottom-line",
+		"coerente",
+		"coesiva",
+		"composita",
+		"sensibile al contesto",
+		"basta sul contesto",
+		"basata sul contenuto",
+		"dedicata",
+		"didattica",
+		"direzionale",
+		"discreta",
+		"dinamica",
+		"eco-centrica",
+		"esecutiva",
+		"esplicita",
+		"full-range",
+		"globale",
+		"euristica",
+		"alto livello",
+		"olistica",
+		"omogenea",
+		"ibrida",
+		"impattante",
+		"incrementale",
+		"intangibile",
+		"interattiva",
+		"intermediaria",
+		"locale",
+		"logistica",
+		"massimizzata",
+		"metodica",
+		"mission-critical",
+		"mobile",
+		"modulare",
+		"motivazionale",
+		"multimedia",
+		"multi-tasking",
+		"nazionale",
+		"neutrale",
+		"nextgeneration",
+		"non-volatile",
+		"object-oriented",
+		"ottima",
+		"ottimizzante",
+		"radicale",
+		"real-time",
+		"reciproca",
+		"regionale",
+		"responsiva",
+		"scalabile",
+		"secondaria",
+		"stabile",
+		"statica",
+		"sistematica",
+		"sistemica",
+		"tangibile",
+		"terziaria",
+		"uniforme",
+		"valore aggiunto"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"SPA",
+		"e figli",
+		"Group",
+		"s.r.l.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string companyName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ "-" ~ nameLastName() ~ " " ~ companySuffix();
+			case 2: return nameLastName();
+			case 3: return nameLastName() ~ " e " ~ nameLastName() ~ " " ~ companySuffix();
+		}
+	}
+
+	///
+	override string companyBsAdjective() {
+		auto data = [
+		"valore aggiunto",
+		"verticalizzate",
+		"proattive",
+		"forti",
+		"rivoluzionari",
+		"scalabili",
+		"innovativi",
+		"intuitivi",
+		"strategici",
+		"e-business",
+		"mission-critical",
+		"24/7",
+		"globali",
+		"B2B",
+		"B2C",
+		"granulari",
+		"virtuali",
+		"virali",
+		"dinamiche",
+		"magnetiche",
+		"web",
+		"interattive",
+		"sexy",
+		"back-end",
+		"real-time",
+		"efficienti",
+		"front-end",
+		"distributivi",
+		"estensibili",
+		"mondiali",
+		"open-source",
+		"cross-platform",
+		"sinergiche",
+		"out-of-the-box",
+		"enterprise",
+		"integrate",
+		"di impatto",
+		"wireless",
+		"trasparenti",
+		"next-generation",
+		"cutting-edge",
+		"visionari",
+		"plug-and-play",
+		"collaborative",
+		"olistiche",
+		"ricche"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com",
+		"email.it",
+		"libero.it",
+		"yahoo.it"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"com",
+		"com",
+		"com",
+		"net",
+		"org",
+		"it",
+		"it",
+		"it'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3050,6 +3106,11 @@ class Faker_it : Faker {
 		"Zosimo"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameSuffix() {
+		return "";
 	}
 
 	///
@@ -6934,6 +6995,18 @@ class Faker_it : Faker {
 		"Zosima"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 5: return nameFemaleFirstName() ~ " " ~ nameLastName();
+		}
 	}
 
 	///

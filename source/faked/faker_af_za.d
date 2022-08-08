@@ -58,12 +58,34 @@ class Faker_af_za : Faker {
 	}
 
 	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"co.za",
+		"com",
+		"org.za",
+		"info",
+		"net.za'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressPostcode() {
 		auto data = [
 		"#####",
 		"####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
+			case 2: return nameFirstName() ~ addressCitySuffix();
+			case 3: return nameLastName() ~ addressCitySuffix();
+		}
 	}
 
 	///
@@ -74,16 +96,12 @@ class Faker_af_za : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"co.za",
-		"com",
-		"org.za",
-		"info",
-		"net.za'"
-		];
-		return choice(data, this.rnd);
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
+		}
 	}
 
 	///

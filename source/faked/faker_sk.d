@@ -30,547 +30,6 @@ class Faker_sk : Faker {
 	}
 
 	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"zoznam.sk",
-		"azet.sk'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"sk",
-		"com",
-		"net",
-		"eu",
-		"org'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyBsVerb() {
-		auto data = [
-		"implement",
-		"utilize",
-		"integrate",
-		"streamline",
-		"optimize",
-		"evolve",
-		"transform",
-		"embrace",
-		"enable",
-		"orchestrate",
-		"leverage",
-		"reinvent",
-		"aggregate",
-		"architect",
-		"enhance",
-		"incentivize",
-		"morph",
-		"empower",
-		"envisioneer",
-		"monetize",
-		"harness",
-		"facilitate",
-		"seize",
-		"disintermediate",
-		"synergize",
-		"strategize",
-		"deploy",
-		"brand",
-		"grow",
-		"target",
-		"syndicate",
-		"synthesize",
-		"deliver",
-		"mesh",
-		"incubate",
-		"engage",
-		"maximize",
-		"benchmark",
-		"expedite",
-		"reintermediate",
-		"whiteboard",
-		"visualize",
-		"repurpose",
-		"innovate",
-		"scale",
-		"unleash",
-		"drive",
-		"extend",
-		"engineer",
-		"revolutionize",
-		"generate",
-		"exploit",
-		"transition",
-		"e-enable",
-		"iterate",
-		"cultivate",
-		"matrix",
-		"productize",
-		"redefine",
-		"recontextualize"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyBsNoun() {
-		auto data = [
-		"clicks-and-mortar",
-		"value-added",
-		"vertical",
-		"proactive",
-		"robust",
-		"revolutionary",
-		"scalable",
-		"leading-edge",
-		"innovative",
-		"intuitive",
-		"strategic",
-		"e-business",
-		"mission-critical",
-		"sticky",
-		"one-to-one",
-		"24/7",
-		"end-to-end",
-		"global",
-		"B2B",
-		"B2C",
-		"granular",
-		"frictionless",
-		"virtual",
-		"viral",
-		"dynamic",
-		"24/365",
-		"best-of-breed",
-		"killer",
-		"magnetic",
-		"bleeding-edge",
-		"web-enabled",
-		"interactive",
-		"dot-com",
-		"sexy",
-		"back-end",
-		"real-time",
-		"efficient",
-		"front-end",
-		"distributed",
-		"seamless",
-		"extensible",
-		"turn-key",
-		"world-class",
-		"open-source",
-		"cross-platform",
-		"cross-media",
-		"synergistic",
-		"bricks-and-clicks",
-		"out-of-the-box",
-		"enterprise",
-		"integrated",
-		"impactful",
-		"wireless",
-		"transparent",
-		"next-generation",
-		"cutting-edge",
-		"user-centric",
-		"visionary",
-		"customized",
-		"ubiquitous",
-		"plug-and-play",
-		"collaborative",
-		"compelling",
-		"holistic",
-		"rich",
-		"synergies",
-		"web-readiness",
-		"paradigms",
-		"markets",
-		"partnerships",
-		"infrastructures",
-		"platforms",
-		"initiatives",
-		"channels",
-		"eyeballs",
-		"communities",
-		"ROI",
-		"solutions",
-		"e-tailers",
-		"e-services",
-		"action-items",
-		"portals",
-		"niches",
-		"technologies",
-		"content",
-		"vortals",
-		"supply-chains",
-		"convergence",
-		"relationships",
-		"architectures",
-		"interfaces",
-		"e-markets",
-		"e-commerce",
-		"systems",
-		"bandwidth",
-		"infomediaries",
-		"models",
-		"mindshare",
-		"deliverables",
-		"users",
-		"schemas",
-		"networks",
-		"applications",
-		"metrics",
-		"e-business",
-		"functionalities",
-		"experiences",
-		"web services",
-		"methodologies"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyDescriptor() {
-		auto data = [
-		"24 hour",
-		"24/7",
-		"3rd generation",
-		"4th generation",
-		"5th generation",
-		"6th generation",
-		"actuating",
-		"analyzing",
-		"asymmetric",
-		"asynchronous",
-		"attitude-oriented",
-		"background",
-		"bandwidth-monitored",
-		"bi-directional",
-		"bifurcated",
-		"bottom-line",
-		"clear-thinking",
-		"client-driven",
-		"client-server",
-		"coherent",
-		"cohesive",
-		"composite",
-		"context-sensitive",
-		"contextually-based",
-		"content-based",
-		"dedicated",
-		"demand-driven",
-		"didactic",
-		"directional",
-		"discrete",
-		"disintermediate",
-		"dynamic",
-		"eco-centric",
-		"empowering",
-		"encompassing",
-		"even-keeled",
-		"executive",
-		"explicit",
-		"exuding",
-		"fault-tolerant",
-		"foreground",
-		"fresh-thinking",
-		"full-range",
-		"global",
-		"grid-enabled",
-		"heuristic",
-		"high-level",
-		"holistic",
-		"homogeneous",
-		"human-resource",
-		"hybrid",
-		"impactful",
-		"incremental",
-		"intangible",
-		"interactive",
-		"intermediate",
-		"leading edge",
-		"local",
-		"logistical",
-		"maximized",
-		"methodical",
-		"mission-critical",
-		"mobile",
-		"modular",
-		"motivating",
-		"multimedia",
-		"multi-state",
-		"multi-tasking",
-		"national",
-		"needs-based",
-		"neutral",
-		"next generation",
-		"non-volatile",
-		"object-oriented",
-		"optimal",
-		"optimizing",
-		"radical",
-		"real-time",
-		"reciprocal",
-		"regional",
-		"responsive",
-		"scalable",
-		"secondary",
-		"solution-oriented",
-		"stable",
-		"static",
-		"systematic",
-		"systemic",
-		"system-worthy",
-		"tangible",
-		"tertiary",
-		"transitional",
-		"uniform",
-		"upward-trending",
-		"user-facing",
-		"value-added",
-		"web-enabled",
-		"well-modulated",
-		"zero administration",
-		"zero defect",
-		"zero tolerance"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyNoun() {
-		auto data = [
-		"ability",
-		"access",
-		"adapter",
-		"algorithm",
-		"alliance",
-		"analyzer",
-		"application",
-		"approach",
-		"architecture",
-		"archive",
-		"artificial intelligence",
-		"array",
-		"attitude",
-		"benchmark",
-		"budgetary management",
-		"capability",
-		"capacity",
-		"challenge",
-		"circuit",
-		"collaboration",
-		"complexity",
-		"concept",
-		"conglomeration",
-		"contingency",
-		"core",
-		"customer loyalty",
-		"database",
-		"data-warehouse",
-		"definition",
-		"emulation",
-		"encoding",
-		"encryption",
-		"extranet",
-		"firmware",
-		"flexibility",
-		"focus group",
-		"forecast",
-		"frame",
-		"framework",
-		"function",
-		"functionalities",
-		"Graphic Interface",
-		"groupware",
-		"Graphical User Interface",
-		"hardware",
-		"help-desk",
-		"hierarchy",
-		"hub",
-		"implementation",
-		"info-mediaries",
-		"infrastructure",
-		"initiative",
-		"installation",
-		"instruction set",
-		"interface",
-		"internet solution",
-		"intranet",
-		"knowledge user",
-		"knowledge base",
-		"local area network",
-		"leverage",
-		"matrices",
-		"matrix",
-		"methodology",
-		"middleware",
-		"migration",
-		"model",
-		"moderator",
-		"monitoring",
-		"moratorium",
-		"neural-net",
-		"open architecture",
-		"open system",
-		"orchestration",
-		"paradigm",
-		"parallelism",
-		"policy",
-		"portal",
-		"pricing structure",
-		"process improvement",
-		"product",
-		"productivity",
-		"project",
-		"projection",
-		"protocol",
-		"secured line",
-		"service-desk",
-		"software",
-		"solution",
-		"standardization",
-		"strategy",
-		"structure",
-		"success",
-		"superstructure",
-		"support",
-		"synergy",
-		"system engine",
-		"task-force",
-		"throughput",
-		"time-frame",
-		"toolset",
-		"utilisation",
-		"website",
-		"workforce"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyAdjective() {
-		auto data = [
-		"Adaptive",
-		"Advanced",
-		"Ameliorated",
-		"Assimilated",
-		"Automated",
-		"Balanced",
-		"Business-focused",
-		"Centralized",
-		"Cloned",
-		"Compatible",
-		"Configurable",
-		"Cross-group",
-		"Cross-platform",
-		"Customer-focused",
-		"Customizable",
-		"Decentralized",
-		"De-engineered",
-		"Devolved",
-		"Digitized",
-		"Distributed",
-		"Diverse",
-		"Down-sized",
-		"Enhanced",
-		"Enterprise-wide",
-		"Ergonomic",
-		"Exclusive",
-		"Expanded",
-		"Extended",
-		"Face to face",
-		"Focused",
-		"Front-line",
-		"Fully-configurable",
-		"Function-based",
-		"Fundamental",
-		"Future-proofed",
-		"Grass-roots",
-		"Horizontal",
-		"Implemented",
-		"Innovative",
-		"Integrated",
-		"Intuitive",
-		"Inverse",
-		"Managed",
-		"Mandatory",
-		"Monitored",
-		"Multi-channelled",
-		"Multi-lateral",
-		"Multi-layered",
-		"Multi-tiered",
-		"Networked",
-		"Object-based",
-		"Open-architected",
-		"Open-source",
-		"Operative",
-		"Optimized",
-		"Optional",
-		"Organic",
-		"Organized",
-		"Persevering",
-		"Persistent",
-		"Phased",
-		"Polarised",
-		"Pre-emptive",
-		"Proactive",
-		"Profit-focused",
-		"Profound",
-		"Programmable",
-		"Progressive",
-		"Public-key",
-		"Quality-focused",
-		"Reactive",
-		"Realigned",
-		"Re-contextualized",
-		"Re-engineered",
-		"Reduced",
-		"Reverse-engineered",
-		"Right-sized",
-		"Robust",
-		"Seamless",
-		"Secured",
-		"Self-enabling",
-		"Sharable",
-		"Stand-alone",
-		"Streamlined",
-		"Switchable",
-		"Synchronised",
-		"Synergistic",
-		"Synergized",
-		"Team-oriented",
-		"Total",
-		"Triple-buffered",
-		"Universal",
-		"Up-sized",
-		"Upgradable",
-		"User-centric",
-		"User-friendly",
-		"Versatile",
-		"Virtual",
-		"Visionary",
-		"Vision-oriented"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		auto data = [
-		"s.r.o.",
-		"a.s.",
-		"v.o.s.'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressCityName() {
 		auto data = [
 		"Bánovce nad Bebravou",
@@ -652,6 +111,58 @@ class Faker_sk : Faker {
 		"Žilina",
 		"Zlaté Moravce",
 		"Zvolen"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string addressStateAbbr() {
+		return "";
+	}
+
+
+	override string addressState() {
+		return "";
+	}
+
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"Slovensko'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressCitySuffix() {
+		auto data = [
+		"town",
+		"ton",
+		"land",
+		"ville",
+		"berg",
+		"burgh",
+		"borough",
+		"bury",
+		"view",
+		"port",
+		"mouth",
+		"stad",
+		"furt",
+		"chester",
+		"mouth",
+		"fort",
+		"haven",
+		"side",
+		"shire"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1046,40 +557,6 @@ class Faker_sk : Faker {
 	}
 
 	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"Slovensko'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCitySuffix() {
-		auto data = [
-		"town",
-		"ton",
-		"land",
-		"ville",
-		"berg",
-		"burgh",
-		"borough",
-		"bury",
-		"view",
-		"port",
-		"mouth",
-		"stad",
-		"furt",
-		"chester",
-		"mouth",
-		"fort",
-		"haven",
-		"side",
-		"shire"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressCityPrefix() {
 		auto data = [
 		"North",
@@ -1091,6 +568,13 @@ class Faker_sk : Faker {
 		"Port'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressStreetName() ~ "'";
+		}
 	}
 
 	///
@@ -2260,12 +1744,19 @@ class Faker_sk : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
+	}
+
 	///
-	override string addressPostcode() {
+	override string addressBuildingNumber() {
 		auto data = [
-		"#####",
-		"### ##",
-		"## ###'"
+		"#",
+		"##",
+		"###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -2277,6 +1768,566 @@ class Faker_sk : Faker {
 		"Suite ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressPostcode() {
+		auto data = [
+		"#####",
+		"### ##",
+		"## ###'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string companyBsVerb() {
+		auto data = [
+		"implement",
+		"utilize",
+		"integrate",
+		"streamline",
+		"optimize",
+		"evolve",
+		"transform",
+		"embrace",
+		"enable",
+		"orchestrate",
+		"leverage",
+		"reinvent",
+		"aggregate",
+		"architect",
+		"enhance",
+		"incentivize",
+		"morph",
+		"empower",
+		"envisioneer",
+		"monetize",
+		"harness",
+		"facilitate",
+		"seize",
+		"disintermediate",
+		"synergize",
+		"strategize",
+		"deploy",
+		"brand",
+		"grow",
+		"target",
+		"syndicate",
+		"synthesize",
+		"deliver",
+		"mesh",
+		"incubate",
+		"engage",
+		"maximize",
+		"benchmark",
+		"expedite",
+		"reintermediate",
+		"whiteboard",
+		"visualize",
+		"repurpose",
+		"innovate",
+		"scale",
+		"unleash",
+		"drive",
+		"extend",
+		"engineer",
+		"revolutionize",
+		"generate",
+		"exploit",
+		"transition",
+		"e-enable",
+		"iterate",
+		"cultivate",
+		"matrix",
+		"productize",
+		"redefine",
+		"recontextualize"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companyBsNoun() {
+		auto data = [
+		"clicks-and-mortar",
+		"value-added",
+		"vertical",
+		"proactive",
+		"robust",
+		"revolutionary",
+		"scalable",
+		"leading-edge",
+		"innovative",
+		"intuitive",
+		"strategic",
+		"e-business",
+		"mission-critical",
+		"sticky",
+		"one-to-one",
+		"24/7",
+		"end-to-end",
+		"global",
+		"B2B",
+		"B2C",
+		"granular",
+		"frictionless",
+		"virtual",
+		"viral",
+		"dynamic",
+		"24/365",
+		"best-of-breed",
+		"killer",
+		"magnetic",
+		"bleeding-edge",
+		"web-enabled",
+		"interactive",
+		"dot-com",
+		"sexy",
+		"back-end",
+		"real-time",
+		"efficient",
+		"front-end",
+		"distributed",
+		"seamless",
+		"extensible",
+		"turn-key",
+		"world-class",
+		"open-source",
+		"cross-platform",
+		"cross-media",
+		"synergistic",
+		"bricks-and-clicks",
+		"out-of-the-box",
+		"enterprise",
+		"integrated",
+		"impactful",
+		"wireless",
+		"transparent",
+		"next-generation",
+		"cutting-edge",
+		"user-centric",
+		"visionary",
+		"customized",
+		"ubiquitous",
+		"plug-and-play",
+		"collaborative",
+		"compelling",
+		"holistic",
+		"rich",
+		"synergies",
+		"web-readiness",
+		"paradigms",
+		"markets",
+		"partnerships",
+		"infrastructures",
+		"platforms",
+		"initiatives",
+		"channels",
+		"eyeballs",
+		"communities",
+		"ROI",
+		"solutions",
+		"e-tailers",
+		"e-services",
+		"action-items",
+		"portals",
+		"niches",
+		"technologies",
+		"content",
+		"vortals",
+		"supply-chains",
+		"convergence",
+		"relationships",
+		"architectures",
+		"interfaces",
+		"e-markets",
+		"e-commerce",
+		"systems",
+		"bandwidth",
+		"infomediaries",
+		"models",
+		"mindshare",
+		"deliverables",
+		"users",
+		"schemas",
+		"networks",
+		"applications",
+		"metrics",
+		"e-business",
+		"functionalities",
+		"experiences",
+		"web services",
+		"methodologies"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companyDescriptor() {
+		auto data = [
+		"24 hour",
+		"24/7",
+		"3rd generation",
+		"4th generation",
+		"5th generation",
+		"6th generation",
+		"actuating",
+		"analyzing",
+		"asymmetric",
+		"asynchronous",
+		"attitude-oriented",
+		"background",
+		"bandwidth-monitored",
+		"bi-directional",
+		"bifurcated",
+		"bottom-line",
+		"clear-thinking",
+		"client-driven",
+		"client-server",
+		"coherent",
+		"cohesive",
+		"composite",
+		"context-sensitive",
+		"contextually-based",
+		"content-based",
+		"dedicated",
+		"demand-driven",
+		"didactic",
+		"directional",
+		"discrete",
+		"disintermediate",
+		"dynamic",
+		"eco-centric",
+		"empowering",
+		"encompassing",
+		"even-keeled",
+		"executive",
+		"explicit",
+		"exuding",
+		"fault-tolerant",
+		"foreground",
+		"fresh-thinking",
+		"full-range",
+		"global",
+		"grid-enabled",
+		"heuristic",
+		"high-level",
+		"holistic",
+		"homogeneous",
+		"human-resource",
+		"hybrid",
+		"impactful",
+		"incremental",
+		"intangible",
+		"interactive",
+		"intermediate",
+		"leading edge",
+		"local",
+		"logistical",
+		"maximized",
+		"methodical",
+		"mission-critical",
+		"mobile",
+		"modular",
+		"motivating",
+		"multimedia",
+		"multi-state",
+		"multi-tasking",
+		"national",
+		"needs-based",
+		"neutral",
+		"next generation",
+		"non-volatile",
+		"object-oriented",
+		"optimal",
+		"optimizing",
+		"radical",
+		"real-time",
+		"reciprocal",
+		"regional",
+		"responsive",
+		"scalable",
+		"secondary",
+		"solution-oriented",
+		"stable",
+		"static",
+		"systematic",
+		"systemic",
+		"system-worthy",
+		"tangible",
+		"tertiary",
+		"transitional",
+		"uniform",
+		"upward-trending",
+		"user-facing",
+		"value-added",
+		"web-enabled",
+		"well-modulated",
+		"zero administration",
+		"zero defect",
+		"zero tolerance"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companyNoun() {
+		auto data = [
+		"ability",
+		"access",
+		"adapter",
+		"algorithm",
+		"alliance",
+		"analyzer",
+		"application",
+		"approach",
+		"architecture",
+		"archive",
+		"artificial intelligence",
+		"array",
+		"attitude",
+		"benchmark",
+		"budgetary management",
+		"capability",
+		"capacity",
+		"challenge",
+		"circuit",
+		"collaboration",
+		"complexity",
+		"concept",
+		"conglomeration",
+		"contingency",
+		"core",
+		"customer loyalty",
+		"database",
+		"data-warehouse",
+		"definition",
+		"emulation",
+		"encoding",
+		"encryption",
+		"extranet",
+		"firmware",
+		"flexibility",
+		"focus group",
+		"forecast",
+		"frame",
+		"framework",
+		"function",
+		"functionalities",
+		"Graphic Interface",
+		"groupware",
+		"Graphical User Interface",
+		"hardware",
+		"help-desk",
+		"hierarchy",
+		"hub",
+		"implementation",
+		"info-mediaries",
+		"infrastructure",
+		"initiative",
+		"installation",
+		"instruction set",
+		"interface",
+		"internet solution",
+		"intranet",
+		"knowledge user",
+		"knowledge base",
+		"local area network",
+		"leverage",
+		"matrices",
+		"matrix",
+		"methodology",
+		"middleware",
+		"migration",
+		"model",
+		"moderator",
+		"monitoring",
+		"moratorium",
+		"neural-net",
+		"open architecture",
+		"open system",
+		"orchestration",
+		"paradigm",
+		"parallelism",
+		"policy",
+		"portal",
+		"pricing structure",
+		"process improvement",
+		"product",
+		"productivity",
+		"project",
+		"projection",
+		"protocol",
+		"secured line",
+		"service-desk",
+		"software",
+		"solution",
+		"standardization",
+		"strategy",
+		"structure",
+		"success",
+		"superstructure",
+		"support",
+		"synergy",
+		"system engine",
+		"task-force",
+		"throughput",
+		"time-frame",
+		"toolset",
+		"utilisation",
+		"website",
+		"workforce"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companyAdjective() {
+		auto data = [
+		"Adaptive",
+		"Advanced",
+		"Ameliorated",
+		"Assimilated",
+		"Automated",
+		"Balanced",
+		"Business-focused",
+		"Centralized",
+		"Cloned",
+		"Compatible",
+		"Configurable",
+		"Cross-group",
+		"Cross-platform",
+		"Customer-focused",
+		"Customizable",
+		"Decentralized",
+		"De-engineered",
+		"Devolved",
+		"Digitized",
+		"Distributed",
+		"Diverse",
+		"Down-sized",
+		"Enhanced",
+		"Enterprise-wide",
+		"Ergonomic",
+		"Exclusive",
+		"Expanded",
+		"Extended",
+		"Face to face",
+		"Focused",
+		"Front-line",
+		"Fully-configurable",
+		"Function-based",
+		"Fundamental",
+		"Future-proofed",
+		"Grass-roots",
+		"Horizontal",
+		"Implemented",
+		"Innovative",
+		"Integrated",
+		"Intuitive",
+		"Inverse",
+		"Managed",
+		"Mandatory",
+		"Monitored",
+		"Multi-channelled",
+		"Multi-lateral",
+		"Multi-layered",
+		"Multi-tiered",
+		"Networked",
+		"Object-based",
+		"Open-architected",
+		"Open-source",
+		"Operative",
+		"Optimized",
+		"Optional",
+		"Organic",
+		"Organized",
+		"Persevering",
+		"Persistent",
+		"Phased",
+		"Polarised",
+		"Pre-emptive",
+		"Proactive",
+		"Profit-focused",
+		"Profound",
+		"Programmable",
+		"Progressive",
+		"Public-key",
+		"Quality-focused",
+		"Reactive",
+		"Realigned",
+		"Re-contextualized",
+		"Re-engineered",
+		"Reduced",
+		"Reverse-engineered",
+		"Right-sized",
+		"Robust",
+		"Seamless",
+		"Secured",
+		"Self-enabling",
+		"Sharable",
+		"Stand-alone",
+		"Streamlined",
+		"Switchable",
+		"Synchronised",
+		"Synergistic",
+		"Synergized",
+		"Team-oriented",
+		"Total",
+		"Triple-buffered",
+		"Universal",
+		"Up-sized",
+		"Upgradable",
+		"User-centric",
+		"User-friendly",
+		"Versatile",
+		"Virtual",
+		"Visionary",
+		"Vision-oriented"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"s.r.o.",
+		"a.s.",
+		"v.o.s.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string companyName() {
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ " " ~ companySuffix();
+			case 2: return nameMaleLastName() ~ " a " ~ nameMaleLastName() ~ " " ~ companySuffix();
+		}
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"zoznam.sk",
+		"azet.sk'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"sk",
+		"com",
+		"net",
+		"eu",
+		"org'"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
@@ -2740,6 +2791,22 @@ class Faker_sk : Faker {
 		"Phd.'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 10, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameMaleFirstName() ~ " " ~ nameMaleLastName();
+			case 1: return namePrefix() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+			case 2: return nameMaleFirstName() ~ " " ~ nameMaleLastName() ~ " " ~ nameSuffix();
+			case 3: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName() ~ " " ~ nameSuffix();
+			case 4: return nameMaleFirstName() ~ " " ~ nameMaleLastName();
+			case 5: return nameMaleFirstName() ~ " " ~ nameMaleLastName();
+			case 6: return nameMaleFirstName() ~ " " ~ nameMaleLastName();
+			case 7: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+			case 8: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+			case 9: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+		}
 	}
 
 	///

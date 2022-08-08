@@ -383,6 +383,14 @@ class Faker_el : Faker {
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
+
+	override string appAuthor() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameName();
+			case 1: return companyName() ~ "'";
+		}
+	}
+
 	///
 	override string appName() {
 		auto data = [
@@ -658,6 +666,16 @@ class Faker_el : Faker {
 		"Όμιλος'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string companyName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ "-" ~ nameLastName();
+			case 2: return nameLastName();
+			case 3: return nameLastName() ~ " and " ~ nameLastName();
+		}
 	}
 
 	///
@@ -1080,6 +1098,18 @@ class Faker_el : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameSuffix();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameFirstName() ~ " " ~ nameLastName();
+			case 5: return nameFirstName() ~ " " ~ nameLastName();
+		}
+	}
+
 	///
 	override string commerceDepartment() {
 		auto data = [
@@ -1107,6 +1137,48 @@ class Faker_el : Faker {
 		"Βιομηχανικά"
 		];
 		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
+		"κοκκικο",
+		"πράσινο",
+		"μπλε",
+		"κίτρινο",
+		"μωβ",
+		"λευκό",
+		"μαύρο",
+		"πορτοκαλί",
+		"ροζ",
+		"γκρί",
+		"βιολετί",
+		"τρικουάζ",
+		"λαδί",
+		"χρυσό",
+		"φουξια",
+		"κυανό",
+		"ασημί"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
+			case 2: return nameFirstName() ~ addressCitySuffix();
+			case 3: return nameLastName() ~ addressCitySuffix();
+		}
 	}
 
 	///
@@ -1203,30 +1275,6 @@ class Faker_el : Faker {
 	}
 
 	///
-	override string colorHuman() {
-		auto data = [
-		"κοκκικο",
-		"πράσινο",
-		"μπλε",
-		"κίτρινο",
-		"μωβ",
-		"λευκό",
-		"μαύρο",
-		"πορτοκαλί",
-		"ροζ",
-		"γκρί",
-		"βιολετί",
-		"τρικουάζ",
-		"λαδί",
-		"χρυσό",
-		"φουξια",
-		"κυανό",
-		"ασημί"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string teamCreature() {
 		auto data = [
 		"μυρμήγκια",
@@ -1295,6 +1343,13 @@ class Faker_el : Faker {
 		"Δρυίδες"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string teamName() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressState() ~ " " ~ teamCreature() ~ "'";
+		}
 	}
 
 	///

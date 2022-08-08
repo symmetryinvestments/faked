@@ -1080,6 +1080,18 @@ class Faker_lv : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return companyPrefix() ~ " " ~ nameMaleLastName();
+			case 1: return companyPrefix() ~ " " ~ nameMaleLastName() ~ " " ~ companySuffix();
+			case 2: return companyPrefix() ~ " " ~ nameFemaleLastName() ~ " " ~ companySuffix();
+			case 3: return nameMaleLastName() ~ " un " ~ nameMaleLastName();
+			case 4: return nameMaleLastName();
+			case 5: return nameMaleLastName() ~ " un " ~ nameMaleLastName();
+		}
+	}
+
 	///
 	override string nameMaleFirstName() {
 		auto data = [
@@ -1185,6 +1197,23 @@ class Faker_lv : Faker {
 		"kundze'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 11, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameMaleFirstName() ~ " " ~ nameMaleLastName();
+			case 1: return nameMaleFirstName() ~ " " ~ nameMaleLastName();
+			case 2: return nameMaleLastName() ~ " " ~ nameMaleFirstName();
+			case 3: return nameMaleFirstName() ~ " " ~ nameMaleFirstName() ~ " " ~ nameMaleLastName();
+			case 4: return nameMaleFirstName() ~ " " ~ nameMaleLastName() ~ "-" ~ nameMaleLastName();
+			case 5: return namePrefix() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+			case 6: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName() ~ " " ~ nameSuffix();
+			case 7: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+			case 8: return nameFemaleLastName() ~ " " ~ nameFemaleFirstName();
+			case 9: return nameFemaleFirstName() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+			case 10: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName() ~ "-" ~ nameFemaleLastName();
+		}
 	}
 
 	///
@@ -1770,6 +1799,136 @@ class Faker_lv : Faker {
 	}
 
 	///
+	override string colorHuman() {
+		auto data = [
+		"sarkana",
+		"zaļa",
+		"zila",
+		"dzeltena",
+		"ruda",
+		"zaļgan-zila",
+		"balta",
+		"melna",
+		"oranža",
+		"rozā",
+		"pelēka",
+		"sarkan-brūna",
+		"violeta",
+		"gaišzila",
+		"zeltaina",
+		"debess-zila",
+		"olīv",
+		"purpura",
+		"krēma",
+		"zelta",
+		"красно-пурпурный",
+		"lillā",
+		"sudrabaina"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 32, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Svētdiena";
+			case 2: return "Pirmdiena";
+			case 3: return "Otrdiena";
+			case 4: return "Trešdiena";
+			case 5: return "Ceturtdiena";
+			case 6: return "Piektdiena";
+			case 7: return "Sestdiena";
+			case 8: return "]";
+			case 9: return "wide_context: [";
+			case 10: return "svētdien";
+			case 11: return "pirmdien";
+			case 12: return "otrdien";
+			case 13: return "trešdien";
+			case 14: return "ceturtdien";
+			case 15: return "piektdien";
+			case 16: return "sestdien";
+			case 17: return "]";
+			case 18: return "abbr: ['Pr";
+			case 19: return "Ot";
+			case 20: return "Tr";
+			case 21: return "Ct";
+			case 22: return "Pk";
+			case 23: return "Se";
+			case 24: return "Sv']";
+			case 25: return "abbr_context: ['sv.";
+			case 26: return "pr.";
+			case 27: return "otr.";
+			case 28: return "tr.";
+			case 29: return "cet.";
+			case 30: return "pk.";
+			case 31: return "se.']";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 56, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "janvāris";
+			case 2: return "februāris";
+			case 3: return "marts";
+			case 4: return "aprīlis";
+			case 5: return "maijs";
+			case 6: return "jūnijs";
+			case 7: return "jūlijs";
+			case 8: return "augusts";
+			case 9: return "septembris";
+			case 10: return "oktobris";
+			case 11: return "novembris";
+			case 12: return "decembris";
+			case 13: return "]";
+			case 14: return "wide_context: [";
+			case 15: return "janvārī";
+			case 16: return "februārī";
+			case 17: return "martā";
+			case 18: return "aprīlī";
+			case 19: return "maijā";
+			case 20: return "jūnijā";
+			case 21: return "jūlijā";
+			case 22: return "augustā";
+			case 23: return "septembrī";
+			case 24: return "oktobrī";
+			case 25: return "novembrī";
+			case 26: return "decembrī";
+			case 27: return "]";
+			case 28: return "abbr: [";
+			case 29: return "jan.";
+			case 30: return "feb.";
+			case 31: return "mar.";
+			case 32: return "apr.";
+			case 33: return "mai.";
+			case 34: return "jūn.";
+			case 35: return "jūl.";
+			case 36: return "aug.";
+			case 37: return "sep.";
+			case 38: return "okt.";
+			case 39: return "nov.";
+			case 40: return "dec.";
+			case 41: return "]";
+			case 42: return "abbr_context: [";
+			case 43: return "janv.";
+			case 44: return "febr.";
+			case 45: return "mar.";
+			case 46: return "apr.";
+			case 47: return "mai.";
+			case 48: return "jūn.";
+			case 49: return "jūl.";
+			case 50: return "aug.";
+			case 51: return "sept.";
+			case 52: return "okt.";
+			case 53: return "nov.";
+			case 54: return "dec.";
+			case 55: return "]";
+		}
+	}
+
+	///
 	override string addressCityName() {
 		auto data = [
 		"Ainaži",
@@ -2070,12 +2229,27 @@ class Faker_lv : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+		}
+	}
+
 	///
 	override string addressDefaultCountry() {
 		auto data = [
 		"Latvija'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressStreetName() ~ " " ~ addressStreetSuffix() ~ "'";
+		}
 	}
 
 	///
@@ -2432,20 +2606,18 @@ class Faker_lv : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
+	}
+
 	///
 	override string addressBuildingNumber() {
 		auto data = [
 		"###",
 		"##'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressPostcode() {
-		auto data = [
-		"LV####",
-		"LV-####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -2460,6 +2632,15 @@ class Faker_lv : Faker {
 	}
 
 	///
+	override string addressPostcode() {
+		auto data = [
+		"LV####",
+		"LV-####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressStreetSuffix() {
 		auto data = [
 		"iela",
@@ -2468,36 +2649,6 @@ class Faker_lv : Faker {
 		"gāte",
 		"laukums",
 		"dambis'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"sarkana",
-		"zaļa",
-		"zila",
-		"dzeltena",
-		"ruda",
-		"zaļgan-zila",
-		"balta",
-		"melna",
-		"oranža",
-		"rozā",
-		"pelēka",
-		"sarkan-brūna",
-		"violeta",
-		"gaišzila",
-		"zeltaina",
-		"debess-zila",
-		"olīv",
-		"purpura",
-		"krēma",
-		"zelta",
-		"красно-пурпурный",
-		"lillā",
-		"sudrabaina"
 		];
 		return choice(data, this.rnd);
 	}

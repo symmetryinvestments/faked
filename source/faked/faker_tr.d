@@ -2408,6 +2408,18 @@ class Faker_tr : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 5: return nameFemaleFirstName() ~ " " ~ nameLastName();
+		}
+	}
+
 	///
 	override string commerceProductDescription() {
 		auto data = [
@@ -2468,6 +2480,44 @@ class Faker_tr : Faker {
 		"Açık Hava",
 		"Otomotiv",
 		"Sanayi"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
+		"kırmızı",
+		"yeşil",
+		"mavi",
+		"sarı",
+		"mor",
+		"nane yeşili",
+		"mavi",
+		"beyaz",
+		"siyah",
+		"turuncu",
+		"pembe",
+		"gri",
+		"bordo",
+		"menekşe",
+		"turkuaz",
+		"tan",
+		"gökyüzü mavisi",
+		"somon",
+		"erik",
+		"orkide",
+		"zeytin",
+		"eflatun",
+		"misket limonu",
+		"fildişi",
+		"indigo",
+		"altın",
+		"fuşya",
+		"camgöbeği",
+		"masmavi",
+		"lavanta",
+		"gümüş"
 		];
 		return choice(data, this.rnd);
 	}
@@ -2831,12 +2881,27 @@ class Faker_tr : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+		}
+	}
+
 	///
 	override string addressDefaultCountry() {
 		auto data = [
 		"Türkiye'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressStreetName() ~ "'";
+		}
 	}
 
 	///
@@ -2887,50 +2952,36 @@ class Faker_tr : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressCity() {
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
+			case 2: return nameFirstName() ~ addressCitySuffix();
+			case 3: return nameLastName() ~ addressCitySuffix();
+			case 4: return addressCityName();
+		}
+	}
+
+	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"###",
+		"##",
+		"#",
+		"##a",
+		"##b",
+		"##c'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
 	///
 	override string addressPostcode() {
 		auto data = [
 		"#####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"kırmızı",
-		"yeşil",
-		"mavi",
-		"sarı",
-		"mor",
-		"nane yeşili",
-		"mavi",
-		"beyaz",
-		"siyah",
-		"turuncu",
-		"pembe",
-		"gri",
-		"bordo",
-		"menekşe",
-		"turkuaz",
-		"tan",
-		"gökyüzü mavisi",
-		"somon",
-		"erik",
-		"orkide",
-		"zeytin",
-		"eflatun",
-		"misket limonu",
-		"fildişi",
-		"indigo",
-		"altın",
-		"fuşya",
-		"camgöbeği",
-		"masmavi",
-		"lavanta",
-		"gümüş"
-		];
-		return choice(data, this.rnd);
 	}
 
 	///

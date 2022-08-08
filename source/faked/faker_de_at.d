@@ -46,15 +46,26 @@ class Faker_de_at : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	string nameNobilityTitlePrefix() {
-		auto data = [
-		"zu",
-		"von",
-		"vom",
-		"von der'"
-		];
-		return choice(data, this.rnd);
+
+	override string companyName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ "-" ~ nameLastName();
+			case 2: return nameLastName();
+			case 3: return nameLastName() ~ " und " ~ nameLastName();
+		}
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameNobilityTitlePrefix() ~ " " ~ nameLastName();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameFirstName() ~ " " ~ nameLastName();
+			case 5: return nameFirstName() ~ " " ~ nameLastName();
+		}
 	}
 
 	///
@@ -2924,6 +2935,17 @@ class Faker_de_at : Faker {
 	}
 
 	///
+	string nameNobilityTitlePrefix() {
+		auto data = [
+		"zu",
+		"von",
+		"vom",
+		"von der'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string wordAdjective() {
 		auto data = [
 		"absolut",
@@ -3248,6 +3270,22 @@ class Faker_de_at : Faker {
 	}
 
 	///
+	override string addressStateAbbr() {
+		auto data = [
+		"Bgld.",
+		"Ktn.",
+		"NÖ",
+		"OÖ",
+		"Sbg.",
+		"Stmk.",
+		"T",
+		"Vbg.",
+		"W'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressState() {
 		auto data = [
 		"Burgenland",
@@ -3259,6 +3297,22 @@ class Faker_de_at : Faker {
 		"Tirol",
 		"Vorarlberg",
 		"Wien"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"Österreich'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -3507,28 +3561,11 @@ class Faker_de_at : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressStateAbbr() {
-		auto data = [
-		"Bgld.",
-		"Ktn.",
-		"NÖ",
-		"OÖ",
-		"Sbg.",
-		"Stmk.",
-		"T",
-		"Vbg.",
-		"W'"
-		];
-		return choice(data, this.rnd);
-	}
 
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"Österreich'"
-		];
-		return choice(data, this.rnd);
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressStreetName() ~ "'";
+		}
 	}
 
 	///
@@ -3734,6 +3771,36 @@ class Faker_de_at : Faker {
 		"Ötzbruck"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
+	}
+
+	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"###",
+		"##",
+		"#",
+		"##a",
+		"##b",
+		"##c'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressSecondaryAddress() {
+		auto data = [
+		"Apt. ###",
+		"Zimmer ###",
+		"# OG'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///

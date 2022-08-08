@@ -18,104 +18,15 @@ class Faker_es : Faker {
         super(seed);
 	}
 
-	///
-	override string companyNoun() {
-		auto data = [
-		"habilidad",
-		"acceso",
-		"adaptador",
-		"algoritmo",
-		"alianza",
-		"analista",
-		"aplicación",
-		"enfoque",
-		"arquitectura",
-		"archivo",
-		"inteligencia artificial",
-		"array",
-		"actitud",
-		"medición",
-		"gestión presupuestaria",
-		"capacidad",
-		"desafío",
-		"circuito",
-		"colaboración",
-		"complejidad",
-		"concepto",
-		"conglomeración",
-		"contingencia",
-		"núcleo",
-		"fidelidad",
-		"base de datos",
-		"data-warehouse",
-		"definición",
-		"emulación",
-		"codificar",
-		"encriptar",
-		"extranet",
-		"firmware",
-		"flexibilidad",
-		"focus group",
-		"previsión",
-		"base de trabajo",
-		"función",
-		"funcionalidad",
-		"Interfaz Gráfica",
-		"groupware",
-		"Interfaz gráfico de usuario",
-		"hardware",
-		"Soporte",
-		"jerarquía",
-		"conjunto",
-		"implementación",
-		"infraestructura",
-		"iniciativa",
-		"instalación",
-		"conjunto de instrucciones",
-		"interfaz",
-		"intranet",
-		"base del conocimiento",
-		"red de area local",
-		"aprovechar",
-		"matrices",
-		"metodologías",
-		"middleware",
-		"migración",
-		"modelo",
-		"moderador",
-		"monitorizar",
-		"arquitectura abierta",
-		"sistema abierto",
-		"orquestar",
-		"paradigma",
-		"paralelismo",
-		"política",
-		"portal",
-		"estructura de precios",
-		"proceso de mejora",
-		"producto",
-		"productividad",
-		"proyecto",
-		"proyección",
-		"protocolo",
-		"línea segura",
-		"software",
-		"solución",
-		"estandardización",
-		"estrategia",
-		"estructura",
-		"éxito",
-		"superestructura",
-		"soporte",
-		"sinergia",
-		"mediante",
-		"marco de tiempo",
-		"caja de herramientas",
-		"utilización",
-		"website",
-		"fuerza de trabajo"
-		];
-		return choice(data, this.rnd);
+
+	override string companyName() {
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ " y " ~ nameLastName();
+			case 2: return nameLastName() ~ " " ~ nameLastName() ~ " " ~ companySuffix();
+			case 3: return nameLastName();
+			case 4: return nameLastName() ~ " y " ~ nameLastName() ~ " Asociados";
+		}
 	}
 
 	///
@@ -305,6 +216,106 @@ class Faker_es : Faker {
 		"vía web",
 		"defectos cero",
 		"tolerancia cero"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companyNoun() {
+		auto data = [
+		"habilidad",
+		"acceso",
+		"adaptador",
+		"algoritmo",
+		"alianza",
+		"analista",
+		"aplicación",
+		"enfoque",
+		"arquitectura",
+		"archivo",
+		"inteligencia artificial",
+		"array",
+		"actitud",
+		"medición",
+		"gestión presupuestaria",
+		"capacidad",
+		"desafío",
+		"circuito",
+		"colaboración",
+		"complejidad",
+		"concepto",
+		"conglomeración",
+		"contingencia",
+		"núcleo",
+		"fidelidad",
+		"base de datos",
+		"data-warehouse",
+		"definición",
+		"emulación",
+		"codificar",
+		"encriptar",
+		"extranet",
+		"firmware",
+		"flexibilidad",
+		"focus group",
+		"previsión",
+		"base de trabajo",
+		"función",
+		"funcionalidad",
+		"Interfaz Gráfica",
+		"groupware",
+		"Interfaz gráfico de usuario",
+		"hardware",
+		"Soporte",
+		"jerarquía",
+		"conjunto",
+		"implementación",
+		"infraestructura",
+		"iniciativa",
+		"instalación",
+		"conjunto de instrucciones",
+		"interfaz",
+		"intranet",
+		"base del conocimiento",
+		"red de area local",
+		"aprovechar",
+		"matrices",
+		"metodologías",
+		"middleware",
+		"migración",
+		"modelo",
+		"moderador",
+		"monitorizar",
+		"arquitectura abierta",
+		"sistema abierto",
+		"orquestar",
+		"paradigma",
+		"paralelismo",
+		"política",
+		"portal",
+		"estructura de precios",
+		"proceso de mejora",
+		"producto",
+		"productividad",
+		"proyecto",
+		"proyección",
+		"protocolo",
+		"línea segura",
+		"software",
+		"solución",
+		"estandardización",
+		"estrategia",
+		"estructura",
+		"éxito",
+		"superestructura",
+		"soporte",
+		"sinergia",
+		"mediante",
+		"marco de tiempo",
+		"caja de herramientas",
+		"utilización",
+		"website",
+		"fuerza de trabajo"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1200,6 +1211,17 @@ class Faker_es : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameName() {
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
+			case 2: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
+			case 4: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
+		}
+	}
+
 	///
 	override string nameFemaleFirstName() {
 		auto data = [
@@ -1255,6 +1277,22 @@ class Faker_es : Faker {
 	}
 
 	///
+	override string colorHuman() {
+		auto data = [
+		"Rojo",
+		"Azul",
+		"Negro",
+		"Gris",
+		"Blanco",
+		"Amarillo",
+		"Verde",
+		"Morado",
+		"Violeta"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressStateAbbr() {
 		auto data = [
 		"And",
@@ -1274,30 +1312,6 @@ class Faker_es : Faker {
 		"Nav",
 		"Vas",
 		"Mur"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressState() {
-		auto data = [
-		"Andalucía",
-		"Aragón",
-		"Principado de Asturias",
-		"Baleares",
-		"Canarias",
-		"Cantabria",
-		"Castilla-La Mancha",
-		"Castilla y León",
-		"Cataluña",
-		"Comunidad Valenciana",
-		"Extremadura",
-		"Galicia",
-		"La Rioja",
-		"Comunidad de Madrid",
-		"Navarra",
-		"País Vasco",
-		"Región de Murcia"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1355,6 +1369,46 @@ class Faker_es : Faker {
 		"Vizcaya",
 		"Zamora",
 		"Zaragoza"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressState() {
+		auto data = [
+		"Andalucía",
+		"Aragón",
+		"Principado de Asturias",
+		"Baleares",
+		"Canarias",
+		"Cantabria",
+		"Castilla-La Mancha",
+		"Castilla y León",
+		"Cataluña",
+		"Comunidad Valenciana",
+		"Extremadura",
+		"Galicia",
+		"La Rioja",
+		"Comunidad de Madrid",
+		"Navarra",
+		"País Vasco",
+		"Región de Murcia"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"España'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1547,14 +1601,6 @@ class Faker_es : Faker {
 	}
 
 	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"España'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressCityPrefix() {
 		auto data = [
 		"Parla",
@@ -1688,6 +1734,14 @@ class Faker_es : Faker {
 		"Inca"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return addressStreetSuffix() ~ " " ~ nameFirstName();
+			case 1: return addressStreetSuffix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+		}
 	}
 
 	///
@@ -1840,12 +1894,22 @@ class Faker_es : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressPostcode() {
-		auto data = [
-		"#####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityPrefix() ~ "'";
+		}
+	}
+
+
+	override string addressBuildingNumber() {
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return " s/n.";
+			case 1: return "#";
+			case 2: return "##";
+			case 3: return " #";
+			case 4: return "##'";
+		}
 	}
 
 	///
@@ -1853,6 +1917,14 @@ class Faker_es : Faker {
 		auto data = [
 		"Esc. ###",
 		"Puerta ###'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressPostcode() {
+		auto data = [
+		"#####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -1930,22 +2002,6 @@ class Faker_es : Faker {
 		"Urbanización",
 		"Vía",
 		"Vía Pública"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"Rojo",
-		"Azul",
-		"Negro",
-		"Gris",
-		"Blanco",
-		"Amarillo",
-		"Verde",
-		"Morado",
-		"Violeta"
 		];
 		return choice(data, this.rnd);
 	}

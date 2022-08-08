@@ -22,7 +22,8 @@ Type findType(string[] lines) {
 		bool isCall = l.indexOf("#{") != -1;
 		bool isMustache = l.indexOf("{{") != -1;
 		bool isJson = l.endsWith(": {") || l.endsWith(": [");
-		bool isDigit = l.indexOf("##") != -1 || l.indexOf(".#") != -1;
+		bool isDigit = l.indexOf("##") != -1 || l.indexOf(".#") != -1
+			|| l.indexOf("#") != -1;
 
 		Type t;
 		if(isCall && !isMustache && !isJson && !isDigit) {
@@ -102,12 +103,8 @@ TypeLines jssplit(string input, const string path) {
 		.map!(strip)
 		.filter!(l => !l.empty)
 		.map!((a) => {
-			if(!a.empty && a[$ - 1] == '\'') {
-				a = a[0 .. $ - 1];
-			}
-			if(!a.empty && a[0] == '\'') {
-				a = a[1 .. $];
-			}
+			a = a.startsWith("'") ? a[1 .. $] : a;
+			a = a.endsWith("'") ? a[0 .. $ - 1] : a;
 			return a;
 		}())
 		.array;
@@ -120,7 +117,7 @@ TypeLines jssplit(string input, const string path) {
 	Type type = findType(lines);
 	if(type == Type.unknown) {
 		//writefln("unknown %(%s\n%)", lines);
-		//writefln("unknown %s", path);
+		writefln("unknown %s", path);
 	}
 
 	return TypeLines(type, lines);

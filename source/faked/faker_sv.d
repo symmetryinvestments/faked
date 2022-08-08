@@ -32,6 +32,16 @@ class Faker_sv : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ "-" ~ nameLastName();
+			case 2: return nameLastName();
+			case 3: return nameLastName() ~ " " ~ companySuffix();
+		}
+	}
+
 	///
 	override string nameMaleFirstName() {
 		auto data = [
@@ -453,6 +463,19 @@ class Faker_sv : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameName() {
+		final switch(uniform(0, 7, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameSuffix();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
+			case 5: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 6: return nameFemaleFirstName() ~ " " ~ nameLastName();
+		}
+	}
+
 	///
 	override string nameFemaleFirstName() {
 		auto data = [
@@ -592,6 +615,83 @@ class Faker_sv : Faker {
 		"Sport"
 		];
 		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
+		"vit",
+		"silver",
+		"grå",
+		"svart",
+		"röd",
+		"grön",
+		"blå",
+		"gul",
+		"lila",
+		"indigo",
+		"guld",
+		"brun",
+		"rosa",
+		"purpur",
+		"korall"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string dateWeekday() {
+		auto data = [
+		"wide: ['söndag",
+		"måndag",
+		"tisdag",
+		"onsdag",
+		"torsdag",
+		"fredag",
+		"lördag']",
+		"abbr: ['sön",
+		"mån",
+		"tis",
+		"ons",
+		"tor",
+		"fre",
+		"lör']"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 28, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "januari";
+			case 2: return "februari";
+			case 3: return "mars";
+			case 4: return "april";
+			case 5: return "maj";
+			case 6: return "juni";
+			case 7: return "juli";
+			case 8: return "augusti";
+			case 9: return "september";
+			case 10: return "oktober";
+			case 11: return "november";
+			case 12: return "december";
+			case 13: return "]";
+			case 14: return "abbr: [";
+			case 15: return "jan";
+			case 16: return "feb";
+			case 17: return "mar";
+			case 18: return "apr";
+			case 19: return "maj";
+			case 20: return "jun";
+			case 21: return "jul";
+			case 22: return "aug";
+			case 23: return "sep";
+			case 24: return "okt";
+			case 25: return "nov";
+			case 26: return "dec";
+			case 27: return "]";
+		}
 	}
 
 	///
@@ -845,6 +945,14 @@ class Faker_sv : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+		}
+	}
+
 	///
 	override string addressDefaultCountry() {
 		auto data = [
@@ -924,6 +1032,16 @@ class Faker_sv : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreet() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return addressStreetName() ~ addressStreetSuffix();
+			case 1: return addressStreetPrefix() ~ " " ~ addressStreetName() ~ addressStreetSuffix();
+			case 2: return nameFirstName() ~ addressCommonStreetSuffix();
+			case 3: return nameLastName() ~ addressCommonStreetSuffix();
+		}
+	}
+
 	///
 	string addressStreetName() {
 		auto data = [
@@ -959,10 +1077,19 @@ class Faker_sv : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityPrefix() ~ addressCitySuffix() ~ "'";
+		}
+	}
+
 	///
-	override string addressPostcode() {
+	override string addressBuildingNumber() {
 		auto data = [
-		"#####'"
+		"###",
+		"##",
+		"#'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -977,6 +1104,14 @@ class Faker_sv : Faker {
 	}
 
 	///
+	override string addressPostcode() {
+		auto data = [
+		"#####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string addressStreetSuffix() {
 		auto data = [
 		"vägen",
@@ -984,49 +1119,6 @@ class Faker_sv : Faker {
 		"gränden",
 		"gärdet",
 		"allén'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string dateWeekday() {
-		auto data = [
-		"wide: ['söndag",
-		"måndag",
-		"tisdag",
-		"onsdag",
-		"torsdag",
-		"fredag",
-		"lördag']",
-		"abbr: ['sön",
-		"mån",
-		"tis",
-		"ons",
-		"tor",
-		"fre",
-		"lör']"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"vit",
-		"silver",
-		"grå",
-		"svart",
-		"röd",
-		"grön",
-		"blå",
-		"gul",
-		"lila",
-		"indigo",
-		"guld",
-		"brun",
-		"rosa",
-		"purpur",
-		"korall"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1049,6 +1141,13 @@ class Faker_sv : Faker {
 		"IK"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string teamName() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCity() ~ " " ~ teamSuffix() ~ "'";
+		}
 	}
 
 	///

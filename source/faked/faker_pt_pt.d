@@ -142,6 +142,11 @@ class Faker_pt_pt : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameSuffix() {
+		return "";
+	}
+
 	///
 	override string nameLastName() {
 		auto data = [
@@ -445,6 +450,17 @@ class Faker_pt_pt : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameName() {
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 2: return nameFemaleFirstName() ~ " " ~ nameLastName();
+			case 3: return nameMalePrefix() ~ " " ~ nameMaleFirstName() ~ " " ~ nameLastName();
+			case 4: return nameFemalePrefix() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameLastName();
+		}
+	}
+
 	///
 	override string nameFemaleFirstName() {
 		auto data = [
@@ -545,6 +561,14 @@ class Faker_pt_pt : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string namePrefix() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFemalePrefix();
+			case 1: return nameMalePrefix() ~ "'";
+		}
+	}
+
 	///
 	override string commerceDepartment() {
 		auto data = [
@@ -572,6 +596,95 @@ class Faker_pt_pt : Faker {
 		"Industrial"
 		];
 		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
+		"vermelho",
+		"verde",
+		"azul",
+		"amarelo",
+		"roxo",
+		"branco",
+		"preto",
+		"laranja",
+		"rosa",
+		"cinzento",
+		"castanho",
+		"violeta",
+		"turquesa",
+		"bronzeado",
+		"salmão",
+		"ameixa",
+		"orquídea",
+		"magenta",
+		"lima",
+		"marfim",
+		"índigo",
+		"ouro",
+		"fúcsia",
+		"ciano",
+		"azure",
+		"lavanda",
+		"prata"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string dateWeekday() {
+		auto data = [
+		"wide: ['Segunda",
+		"Terça",
+		"Quarta",
+		"Quinta",
+		"Sexta",
+		"Sábado",
+		"Domingo']",
+		"abbr: ['Seg",
+		"Ter",
+		"Qua",
+		"Qui",
+		"Sex",
+		"Sáb",
+		"Dom']"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 28, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Janeiro";
+			case 2: return "Fevereiro";
+			case 3: return "Março";
+			case 4: return "Abril";
+			case 5: return "Maio";
+			case 6: return "Junho";
+			case 7: return "Julho";
+			case 8: return "Agosto";
+			case 9: return "Setembro";
+			case 10: return "Outubro";
+			case 11: return "Novembro";
+			case 12: return "Dezembro";
+			case 13: return "]";
+			case 14: return "abbr: [";
+			case 15: return "Jan";
+			case 16: return "Fev";
+			case 17: return "Mar";
+			case 18: return "Abr";
+			case 19: return "Mai";
+			case 20: return "Jun";
+			case 21: return "Jul";
+			case 22: return "Ago";
+			case 23: return "Set";
+			case 24: return "Out";
+			case 25: return "Nov";
+			case 26: return "Dez";
+			case 27: return "]";
+		}
 	}
 
 	///
@@ -977,6 +1090,14 @@ class Faker_pt_pt : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+		}
+	}
+
 	///
 	override string addressDefaultCountry() {
 		auto data = [
@@ -1027,67 +1148,51 @@ class Faker_pt_pt : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressCitySuffix() {
+		return "";
+	}
+
+
+	override string addressCityPrefix() {
+		return "";
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return addressStreetPrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return "N#";
+			case 2: return "N##";
+			case 3: return "N###";
+			case 4: return "N###-#";
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
+	}
+
+	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"####",
+		"###",
+		"##",
+		"#'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
 	///
 	override string addressPostcode() {
 		auto data = [
 		"####-###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	string dateWeekday() {
-		auto data = [
-		"wide: ['Segunda",
-		"Terça",
-		"Quarta",
-		"Quinta",
-		"Sexta",
-		"Sábado",
-		"Domingo']",
-		"abbr: ['Seg",
-		"Ter",
-		"Qua",
-		"Qui",
-		"Sex",
-		"Sáb",
-		"Dom']"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"vermelho",
-		"verde",
-		"azul",
-		"amarelo",
-		"roxo",
-		"branco",
-		"preto",
-		"laranja",
-		"rosa",
-		"cinzento",
-		"castanho",
-		"violeta",
-		"turquesa",
-		"bronzeado",
-		"salmão",
-		"ameixa",
-		"orquídea",
-		"magenta",
-		"lima",
-		"marfim",
-		"índigo",
-		"ouro",
-		"fúcsia",
-		"ciano",
-		"azure",
-		"lavanda",
-		"prata"
-		];
-		return choice(data, this.rnd);
 	}
 
 	///

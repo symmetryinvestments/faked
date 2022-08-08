@@ -2240,6 +2240,24 @@ class Faker_he : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameFirstName() {
+		return choice([false, true], this.rnd)
+			? nameFemaleFirstName()
+			: nameMaleFirstName();
+	}
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameSuffix();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 5: return nameFemaleFirstName() ~ " " ~ nameLastName();
+		}
+	}
+
 	///
 	override string nameFemaleFirstName() {
 		auto data = [
@@ -2760,6 +2778,154 @@ class Faker_he : Faker {
 	}
 
 	///
+	override string colorHuman() {
+		auto data = [
+		"אדום",
+		"ירוק",
+		"כחול",
+		"צהוב",
+		"סגול",
+		"ירוק מנטה",
+		"ירוק כחלחל",
+		"לבן",
+		"שחור",
+		"כתום",
+		"ורוד",
+		"אפור",
+		"חוּם עֲרמוֹנִי",
+		"סָגוֹל",
+		"טורקיז",
+		"שזוף",
+		"שמים כחולים",
+		"סלמון",
+		"שזיף",
+		"סחלב",
+		"זית",
+		"מגנטה",
+		"ליים",
+		"שנהב",
+		"אינדיגו",
+		"זהב",
+		"ורוד פוקסיה",
+		"טורקיז",
+		"צבע תכלת",
+		"לבנדר",
+		"כסף"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 38, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "יום ראשון";
+			case 2: return "יום שני";
+			case 3: return "יום שלישי";
+			case 4: return "יום רביעי";
+			case 5: return "יום חמישי";
+			case 6: return "יום שישי";
+			case 7: return "שבת";
+			case 8: return "]";
+			case 9: return "if not set then \"wide\" will be used instead";
+			case 10: return "which may differ from a stand-alone word";
+			case 11: return "wide_context: [";
+			case 12: return "יום ראשון";
+			case 13: return "יום שני";
+			case 14: return "יום שלישי";
+			case 15: return "יום רביעי";
+			case 16: return "יום חמישי";
+			case 17: return "יום שישי";
+			case 18: return "שבת";
+			case 19: return "]";
+			case 20: return "abbr: ['יום א׳";
+			case 21: return "יום ב׳";
+			case 22: return "יום ג׳";
+			case 23: return "יום ד׳";
+			case 24: return "יום ה׳";
+			case 25: return "יום ו׳";
+			case 26: return "שבת']";
+			case 27: return "if not set then \"abbr\" will be used instead";
+			case 28: return "which may differ from a stand-alone word";
+			case 29: return "abbr_context: [";
+			case 30: return "יום א׳";
+			case 31: return "יום ב׳";
+			case 32: return "יום ג׳";
+			case 33: return "יום ד׳";
+			case 34: return "יום ה׳";
+			case 35: return "יום ו׳";
+			case 36: return "שבת";
+			case 37: return "]";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 60, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "ינואר";
+			case 2: return "פברואר";
+			case 3: return "מרץ";
+			case 4: return "אפריל";
+			case 5: return "מאי";
+			case 6: return "יוני";
+			case 7: return "יולי";
+			case 8: return "אוגוסט";
+			case 9: return "ספטמבר";
+			case 10: return "אוקטובר";
+			case 11: return "נובמבר";
+			case 12: return "דצמבר";
+			case 13: return "]";
+			case 14: return "if not set then \"wide\" will be used instead";
+			case 15: return "which may differ from a stand-alone word";
+			case 16: return "wide_context: [";
+			case 17: return "ינואר";
+			case 18: return "פברואר";
+			case 19: return "מרץ";
+			case 20: return "אפריל";
+			case 21: return "מאי";
+			case 22: return "יוני";
+			case 23: return "יולי";
+			case 24: return "אוגוסט";
+			case 25: return "ספטמבר";
+			case 26: return "אוקטובר";
+			case 27: return "נובמבר";
+			case 28: return "דצמבר";
+			case 29: return "]";
+			case 30: return "abbr: [";
+			case 31: return "Jan";
+			case 32: return "Feb";
+			case 33: return "Mar";
+			case 34: return "Apr";
+			case 35: return "May";
+			case 36: return "Jun";
+			case 37: return "Jul";
+			case 38: return "Aug";
+			case 39: return "Sep";
+			case 40: return "Oct";
+			case 41: return "Nov";
+			case 42: return "Dec";
+			case 43: return "]";
+			case 44: return "if not set then \"abbr\" will be used instead";
+			case 45: return "which may differ from a stand-alone word";
+			case 46: return "abbr_context: [";
+			case 47: return "Jan";
+			case 48: return "Feb";
+			case 49: return "Mar";
+			case 50: return "Apr";
+			case 51: return "May";
+			case 52: return "Jun";
+			case 53: return "Jul";
+			case 54: return "Aug";
+			case 55: return "Sep";
+			case 56: return "Oct";
+			case 57: return "Nov";
+			case 58: return "Dec";
+			case 59: return "]";
+		}
+	}
+
+	///
 	override string addressStateAbbr() {
 		auto data = [
 		"AL",
@@ -3014,6 +3180,14 @@ class Faker_he : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressBuildingNumber() ~ " " ~ addressStreet();
+			case 1: return "full: '" ~ addressBuildingNumber() ~ " " ~ addressStreet() ~ " " ~ addressSecondaryAddress();
+		}
+	}
+
 	///
 	override string addressDefaultCountry() {
 		auto data = [
@@ -3078,6 +3252,14 @@ class Faker_he : Faker {
 		"Not relevant for Israel'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
+		}
 	}
 
 	///
@@ -3228,6 +3410,37 @@ class Faker_he : Faker {
 		"Pacific/Apia"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ nameLastName();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
+			case 2: return nameFirstName() ~ addressCitySuffix();
+			case 3: return nameLastName() ~ addressCitySuffix();
+		}
+	}
+
+	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"###",
+		"##",
+		"#'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressSecondaryAddress() {
+		auto data = [
+		"# דירה",
+		"## דירה",
+		"# חדר",
+		"## חדר'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
@@ -3467,44 +3680,6 @@ class Faker_he : Faker {
 		"Ways",
 		"Well",
 		"Wells"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"אדום",
-		"ירוק",
-		"כחול",
-		"צהוב",
-		"סגול",
-		"ירוק מנטה",
-		"ירוק כחלחל",
-		"לבן",
-		"שחור",
-		"כתום",
-		"ורוד",
-		"אפור",
-		"חוּם עֲרמוֹנִי",
-		"סָגוֹל",
-		"טורקיז",
-		"שזוף",
-		"שמים כחולים",
-		"סלמון",
-		"שזיף",
-		"סחלב",
-		"זית",
-		"מגנטה",
-		"ליים",
-		"שנהב",
-		"אינדיגו",
-		"זהב",
-		"ורוד פוקסיה",
-		"טורקיז",
-		"צבע תכלת",
-		"לבנדר",
-		"כסף"
 		];
 		return choice(data, this.rnd);
 	}

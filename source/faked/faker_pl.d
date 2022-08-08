@@ -732,6 +732,16 @@ class Faker_pl : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ "-" ~ nameLastName();
+			case 2: return nameLastName();
+			case 3: return nameLastName() ~ " and " ~ nameLastName();
+		}
+	}
+
 	///
 	override string companyBsAdjective() {
 		auto data = [
@@ -2456,6 +2466,24 @@ class Faker_pl : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameFirstName() {
+		return choice([false, true], this.rnd)
+			? nameFemaleFirstName()
+			: nameMaleFirstName();
+	}
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName();
+			case 2: return nameFirstName() ~ " " ~ nameLastName();
+			case 3: return nameFirstName() ~ " " ~ nameLastName();
+			case 4: return nameFirstName() ~ " " ~ nameLastName();
+			case 5: return nameFirstName() ~ " " ~ nameLastName();
+		}
+	}
+
 	///
 	override string nameFemaleFirstName() {
 		auto data = [
@@ -4035,6 +4063,29 @@ class Faker_pl : Faker {
 	}
 
 	///
+	override string addressStateAbbr() {
+		auto data = [
+		"DS",
+		"KP",
+		"LU",
+		"LB",
+		"LD",
+		"MA",
+		"MZ",
+		"OP",
+		"PK",
+		"PD",
+		"PM",
+		"SL",
+		"SK",
+		"WN",
+		"WP",
+		"ZP"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressState() {
 		auto data = [
 		"dolnośląskie",
@@ -4053,6 +4104,43 @@ class Faker_pl : Faker {
 		"warmińsko-mazurskie",
 		"wielkopolskie",
 		"zachodniopomorskie"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"Polska'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string addressStreetPrefix() {
+		auto data = [
+		"al.",
+		"bulw.",
+		"droga",
+		"ogród",
+		"os.",
+		"park",
+		"pl.",
+		"rondo",
+		"rynek",
+		"skwer",
+		"szosa",
+		"ul.",
+		"wyb.",
+		"wyspa"
 		];
 		return choice(data, this.rnd);
 	}
@@ -4258,62 +4346,29 @@ class Faker_pl : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressStateAbbr() {
-		auto data = [
-		"DS",
-		"KP",
-		"LU",
-		"LB",
-		"LD",
-		"MA",
-		"MZ",
-		"OP",
-		"PK",
-		"PD",
-		"PM",
-		"SL",
-		"SK",
-		"WN",
-		"WP",
-		"ZP"
-		];
-		return choice(data, this.rnd);
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressStreetPrefix() ~ " " ~ nameLastName() ~ "'";
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
 	}
 
 	///
-	override string addressDefaultCountry() {
+	override string addressBuildingNumber() {
 		auto data = [
-		"Polska'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressStreetPrefix() {
-		auto data = [
-		"al.",
-		"bulw.",
-		"droga",
-		"ogród",
-		"os.",
-		"park",
-		"pl.",
-		"rondo",
-		"rynek",
-		"skwer",
-		"szosa",
-		"ul.",
-		"wyb.",
-		"wyspa"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressPostcode() {
-		auto data = [
-		"##-###'"
+		"###",
+		"##",
+		"##a",
+		"##b",
+		"##c",
+		"#/#'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -4322,6 +4377,14 @@ class Faker_pl : Faker {
 	override string addressSecondaryAddress() {
 		auto data = [
 		"m. ###'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressPostcode() {
+		auto data = [
+		"##-###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
@@ -4342,6 +4405,13 @@ class Faker_pl : Faker {
 		"Zjednoczenie"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string teamName() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return teamPrefix() ~ " " ~ addressCity() ~ "'";
+		}
 	}
 
 	///

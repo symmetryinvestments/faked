@@ -19,419 +19,6 @@ class Faker_id_id : Faker {
 	}
 
 	///
-	override string phoneNumberFormats() {
-		auto data = [
-		"02# #### ###",
-		"02## #### ###",
-		"03## #### ###",
-		"04## #### ###",
-		"05## #### ###",
-		"06## #### ###",
-		"07## #### ###",
-		"09## #### ###",
-		"02# #### ####",
-		"02## #### ####",
-		"03## #### ####",
-		"04## #### ####",
-		"05## #### ####",
-		"06## #### ####",
-		"07## #### ####",
-		"09## #### ####",
-		"08## ### ###",
-		"08## #### ###",
-		"08## #### ####",
-		"(+62) 8## ### ###",
-		"(+62) 2# #### ###",
-		"(+62) 2## #### ###",
-		"(+62) 3## #### ###",
-		"(+62) 4## #### ###",
-		"(+62) 5## #### ###",
-		"(+62) 6## #### ###",
-		"(+62) 7## #### ###",
-		"(+62) 8## #### ###",
-		"(+62) 9## #### ###",
-		"(+62) 2# #### ####",
-		"(+62) 2## #### ####",
-		"(+62) 3## #### ####",
-		"(+62) 4## #### ####",
-		"(+62) 5## #### ####",
-		"(+62) 6## #### ####",
-		"(+62) 7## #### ####",
-		"(+62) 8## #### ####",
-		"(+62) 9## #### ####"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"yahoo.com",
-		"gmail.co.id",
-		"yahoo.co.id'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"com",
-		"net",
-		"org",
-		"asia",
-		"tv",
-		"biz",
-		"info",
-		"in",
-		"name",
-		"co",
-		"id",
-		"ac.id",
-		"sch.id",
-		"go.id",
-		"mil.id",
-		"co.id",
-		"or.id",
-		"web.id",
-		"my.id",
-		"net.id",
-		"biz.id",
-		"desa.id",
-		"ponpes.id"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		auto data = [
-		"(Persero) Tbk",
-		"Tbk'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string companyPrefix() {
-		auto data = [
-		"PT",
-		"CV",
-		"UD",
-		"PD",
-		"Perum'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCityName() {
-		auto data = [
-		"Airmadidi",
-		"Ampana",
-		"Amurang",
-		"Andolo",
-		"Banggai",
-		"Bantaeng",
-		"Barru",
-		"Bau-Bau",
-		"Benteng",
-		"Bitung",
-		"Bolaang Uki",
-		"Boroko",
-		"Bulukumba",
-		"Bungku",
-		"Buol",
-		"Buranga",
-		"Donggala",
-		"Enrekang",
-		"Gorontalo",
-		"Jeneponto",
-		"Kawangkoan",
-		"Kendari",
-		"Kolaka",
-		"Kotamobagu",
-		"Kota Raha",
-		"Kwandang",
-		"Lasusua",
-		"Luwuk",
-		"Majene",
-		"Makale",
-		"Makassar",
-		"Malili",
-		"Mamasa",
-		"Mamuju",
-		"Manado",
-		"Marisa",
-		"Maros",
-		"Masamba",
-		"Melonguane",
-		"Ondong Siau",
-		"Palopo",
-		"Palu",
-		"Pangkajene",
-		"Pare-Pare",
-		"Parigi",
-		"Pasangkayu",
-		"Pinrang",
-		"Polewali",
-		"Poso",
-		"Rantepao",
-		"Ratahan",
-		"Rumbia",
-		"Sengkang",
-		"Sidenreng",
-		"Sigi Biromaru",
-		"Sinjai",
-		"Sunggu Minasa",
-		"Suwawa",
-		"Tahuna",
-		"Takalar",
-		"Tilamuta",
-		"Toli Toli",
-		"Tomohon",
-		"Tondano",
-		"Tutuyan",
-		"Unaaha",
-		"Wangi Wangi",
-		"Wanggudu",
-		"Watampone",
-		"Watan Soppeng",
-		"Ambarawa",
-		"Anyer",
-		"Bandung",
-		"Bangil",
-		"Banjar (Jawa Barat)",
-		"Banjarnegara",
-		"Bangkalan",
-		"Bantul",
-		"Banyumas",
-		"Banyuwangi",
-		"Batang",
-		"Batu",
-		"Bekasi",
-		"Blitar",
-		"Blora",
-		"Bogor",
-		"Bojonegoro",
-		"Bondowoso",
-		"Boyolali",
-		"Bumiayu",
-		"Brebes",
-		"Caruban",
-		"Cianjur",
-		"Ciamis",
-		"Cibinong",
-		"Cikampek",
-		"Cikarang",
-		"Cilacap",
-		"Cilegon",
-		"Cirebon",
-		"Demak",
-		"Depok",
-		"Garut",
-		"Gresik",
-		"Indramayu",
-		"Jakarta",
-		"Jember",
-		"Jepara",
-		"Jombang",
-		"Kajen",
-		"Karanganyar",
-		"Kebumen",
-		"Kediri",
-		"Kendal",
-		"Kepanjen",
-		"Klaten",
-		"Pelabuhan Ratu",
-		"Kraksaan",
-		"Kudus",
-		"Kuningan",
-		"Lamongan",
-		"Lumajang",
-		"Madiun",
-		"Magelang",
-		"Magetan",
-		"Majalengka",
-		"Malang",
-		"Mojokerto",
-		"Mojosari",
-		"Mungkid",
-		"Ngamprah",
-		"Nganjuk",
-		"Ngawi",
-		"Pacitan",
-		"Pamekasan",
-		"Pandeglang",
-		"Pare",
-		"Pati",
-		"Pasuruan",
-		"Pekalongan",
-		"Pemalang",
-		"Ponorogo",
-		"Probolinggo",
-		"Purbalingga",
-		"Purwakarta",
-		"Purwodadi",
-		"Purwokerto",
-		"Purworejo",
-		"Rangkasbitung",
-		"Rembang",
-		"Salatiga",
-		"Sampang",
-		"Semarang",
-		"Serang",
-		"Sidayu",
-		"Sidoarjo",
-		"Singaparna",
-		"Situbondo",
-		"Slawi",
-		"Sleman",
-		"Soreang",
-		"Sragen",
-		"Subang",
-		"Sukabumi",
-		"Sukoharjo",
-		"Sumber",
-		"Sumedang",
-		"Sumenep",
-		"Surabaya",
-		"Surakarta",
-		"Tasikmalaya",
-		"Tangerang",
-		"Tangerang Selatan",
-		"Tegal",
-		"Temanggung",
-		"Tigaraksa",
-		"Trenggalek",
-		"Tuban",
-		"Tulungagung",
-		"Ungaran",
-		"Wates",
-		"Wlingi",
-		"Wonogiri",
-		"Wonosari",
-		"Wonosobo",
-		"Yogyakarta",
-		"Atambua",
-		"Baa",
-		"Badung",
-		"Bajawa",
-		"Bangli",
-		"Bima",
-		"Denpasar",
-		"Dompu",
-		"Ende",
-		"Gianyar",
-		"Kalabahi",
-		"Karangasem",
-		"Kefamenanu",
-		"Klungkung",
-		"Kupang",
-		"Labuhan Bajo",
-		"Larantuka",
-		"Lewoleba",
-		"Maumere",
-		"Mataram",
-		"Mbay",
-		"Negara",
-		"Praya",
-		"Raba",
-		"Ruteng",
-		"Selong",
-		"Singaraja",
-		"Soe",
-		"Sumbawa Besar",
-		"Tabanan",
-		"Taliwang",
-		"Tambolaka",
-		"Tanjung",
-		"Waibakul",
-		"Waikabubak",
-		"Waingapu",
-		"Denpasar",
-		"Negara,Bali",
-		"Singaraja",
-		"Tabanan",
-		"Bangli"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressState() {
-		auto data = [
-		"Aceh",
-		"Sumatera Utara",
-		"Sumatera Barat",
-		"Jambi",
-		"Bangka Belitung",
-		"Riau",
-		"Kepulauan Riau",
-		"Bengkulu",
-		"Sumatera Selatan",
-		"Lampung",
-		"Banten",
-		"DKI Jakarta",
-		"Jawa Barat",
-		"Jawa Tengah",
-		"Jawa Timur",
-		"Nusa Tenggara Timur",
-		"DI Yogyakarta",
-		"Bali",
-		"Nusa Tenggara Barat",
-		"Kalimantan Barat",
-		"Kalimantan Tengah",
-		"Kalimantan Selatan",
-		"Kalimantan Timur",
-		"Kalimantan Utara",
-		"Sulawesi Selatan",
-		"Sulawesi Utara",
-		"Gorontalo",
-		"Sulawesi Tengah",
-		"Sulawesi Barat",
-		"Sulawesi Tenggara",
-		"Maluku",
-		"Maluku Utara",
-		"Papua Barat",
-		"Papua"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"Indonesia'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressStreetPrefix() {
-		auto data = [
-		"Ds.",
-		"Dk.",
-		"Gg.",
-		"Jln.",
-		"Jr.",
-		"Kpg.",
-		"Ki.",
-		"Psr.'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressPostcode() {
-		auto data = [
-		"#####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
 	override string nameMaleFirstName() {
 		auto data = [
 		"Abyasa",
@@ -968,6 +555,19 @@ class Faker_id_id : Faker {
 		"Hj.'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 7, this.rnd)) {
+			case 0: return nameMaleFirstName() ~ " " ~ nameMaleLastName();
+			case 1: return nameMaleLastName() ~ " " ~ nameMaleFirstName();
+			case 2: return nameMaleFirstName() ~ " " ~ nameMaleFirstName() ~ " " ~ nameMaleLastName();
+			case 3: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+			case 4: return nameFemaleFirstName() ~ " " ~ nameMaleLastName();
+			case 5: return nameFemaleLastName() ~ " " ~ nameFemaleFirstName();
+			case 6: return nameFemaleFirstName() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+		}
 	}
 
 	///
@@ -1516,6 +1116,11 @@ class Faker_id_id : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string namePrefix() {
+		return "";
+	}
+
 	///
 	string nameMaleTitle() {
 		auto data = [
@@ -1525,6 +1130,558 @@ class Faker_id_id : Faker {
 		"Drs.",
 		"Ir.",
 		"H.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"02# #### ###",
+		"02## #### ###",
+		"03## #### ###",
+		"04## #### ###",
+		"05## #### ###",
+		"06## #### ###",
+		"07## #### ###",
+		"09## #### ###",
+		"02# #### ####",
+		"02## #### ####",
+		"03## #### ####",
+		"04## #### ####",
+		"05## #### ####",
+		"06## #### ####",
+		"07## #### ####",
+		"09## #### ####",
+		"08## ### ###",
+		"08## #### ###",
+		"08## #### ####",
+		"(+62) 8## ### ###",
+		"(+62) 2# #### ###",
+		"(+62) 2## #### ###",
+		"(+62) 3## #### ###",
+		"(+62) 4## #### ###",
+		"(+62) 5## #### ###",
+		"(+62) 6## #### ###",
+		"(+62) 7## #### ###",
+		"(+62) 8## #### ###",
+		"(+62) 9## #### ###",
+		"(+62) 2# #### ####",
+		"(+62) 2## #### ####",
+		"(+62) 3## #### ####",
+		"(+62) 4## #### ####",
+		"(+62) 5## #### ####",
+		"(+62) 6## #### ####",
+		"(+62) 7## #### ####",
+		"(+62) 8## #### ####",
+		"(+62) 9## #### ####"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressCityName() {
+		auto data = [
+		"Airmadidi",
+		"Ampana",
+		"Amurang",
+		"Andolo",
+		"Banggai",
+		"Bantaeng",
+		"Barru",
+		"Bau-Bau",
+		"Benteng",
+		"Bitung",
+		"Bolaang Uki",
+		"Boroko",
+		"Bulukumba",
+		"Bungku",
+		"Buol",
+		"Buranga",
+		"Donggala",
+		"Enrekang",
+		"Gorontalo",
+		"Jeneponto",
+		"Kawangkoan",
+		"Kendari",
+		"Kolaka",
+		"Kotamobagu",
+		"Kota Raha",
+		"Kwandang",
+		"Lasusua",
+		"Luwuk",
+		"Majene",
+		"Makale",
+		"Makassar",
+		"Malili",
+		"Mamasa",
+		"Mamuju",
+		"Manado",
+		"Marisa",
+		"Maros",
+		"Masamba",
+		"Melonguane",
+		"Ondong Siau",
+		"Palopo",
+		"Palu",
+		"Pangkajene",
+		"Pare-Pare",
+		"Parigi",
+		"Pasangkayu",
+		"Pinrang",
+		"Polewali",
+		"Poso",
+		"Rantepao",
+		"Ratahan",
+		"Rumbia",
+		"Sengkang",
+		"Sidenreng",
+		"Sigi Biromaru",
+		"Sinjai",
+		"Sunggu Minasa",
+		"Suwawa",
+		"Tahuna",
+		"Takalar",
+		"Tilamuta",
+		"Toli Toli",
+		"Tomohon",
+		"Tondano",
+		"Tutuyan",
+		"Unaaha",
+		"Wangi Wangi",
+		"Wanggudu",
+		"Watampone",
+		"Watan Soppeng",
+		"Ambarawa",
+		"Anyer",
+		"Bandung",
+		"Bangil",
+		"Banjar (Jawa Barat)",
+		"Banjarnegara",
+		"Bangkalan",
+		"Bantul",
+		"Banyumas",
+		"Banyuwangi",
+		"Batang",
+		"Batu",
+		"Bekasi",
+		"Blitar",
+		"Blora",
+		"Bogor",
+		"Bojonegoro",
+		"Bondowoso",
+		"Boyolali",
+		"Bumiayu",
+		"Brebes",
+		"Caruban",
+		"Cianjur",
+		"Ciamis",
+		"Cibinong",
+		"Cikampek",
+		"Cikarang",
+		"Cilacap",
+		"Cilegon",
+		"Cirebon",
+		"Demak",
+		"Depok",
+		"Garut",
+		"Gresik",
+		"Indramayu",
+		"Jakarta",
+		"Jember",
+		"Jepara",
+		"Jombang",
+		"Kajen",
+		"Karanganyar",
+		"Kebumen",
+		"Kediri",
+		"Kendal",
+		"Kepanjen",
+		"Klaten",
+		"Pelabuhan Ratu",
+		"Kraksaan",
+		"Kudus",
+		"Kuningan",
+		"Lamongan",
+		"Lumajang",
+		"Madiun",
+		"Magelang",
+		"Magetan",
+		"Majalengka",
+		"Malang",
+		"Mojokerto",
+		"Mojosari",
+		"Mungkid",
+		"Ngamprah",
+		"Nganjuk",
+		"Ngawi",
+		"Pacitan",
+		"Pamekasan",
+		"Pandeglang",
+		"Pare",
+		"Pati",
+		"Pasuruan",
+		"Pekalongan",
+		"Pemalang",
+		"Ponorogo",
+		"Probolinggo",
+		"Purbalingga",
+		"Purwakarta",
+		"Purwodadi",
+		"Purwokerto",
+		"Purworejo",
+		"Rangkasbitung",
+		"Rembang",
+		"Salatiga",
+		"Sampang",
+		"Semarang",
+		"Serang",
+		"Sidayu",
+		"Sidoarjo",
+		"Singaparna",
+		"Situbondo",
+		"Slawi",
+		"Sleman",
+		"Soreang",
+		"Sragen",
+		"Subang",
+		"Sukabumi",
+		"Sukoharjo",
+		"Sumber",
+		"Sumedang",
+		"Sumenep",
+		"Surabaya",
+		"Surakarta",
+		"Tasikmalaya",
+		"Tangerang",
+		"Tangerang Selatan",
+		"Tegal",
+		"Temanggung",
+		"Tigaraksa",
+		"Trenggalek",
+		"Tuban",
+		"Tulungagung",
+		"Ungaran",
+		"Wates",
+		"Wlingi",
+		"Wonogiri",
+		"Wonosari",
+		"Wonosobo",
+		"Yogyakarta",
+		"Atambua",
+		"Baa",
+		"Badung",
+		"Bajawa",
+		"Bangli",
+		"Bima",
+		"Denpasar",
+		"Dompu",
+		"Ende",
+		"Gianyar",
+		"Kalabahi",
+		"Karangasem",
+		"Kefamenanu",
+		"Klungkung",
+		"Kupang",
+		"Labuhan Bajo",
+		"Larantuka",
+		"Lewoleba",
+		"Maumere",
+		"Mataram",
+		"Mbay",
+		"Negara",
+		"Praya",
+		"Raba",
+		"Ruteng",
+		"Selong",
+		"Singaraja",
+		"Soe",
+		"Sumbawa Besar",
+		"Tabanan",
+		"Taliwang",
+		"Tambolaka",
+		"Tanjung",
+		"Waibakul",
+		"Waikabubak",
+		"Waingapu",
+		"Denpasar",
+		"Negara,Bali",
+		"Singaraja",
+		"Tabanan",
+		"Bangli"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string addressState() {
+		auto data = [
+		"Aceh",
+		"Sumatera Utara",
+		"Sumatera Barat",
+		"Jambi",
+		"Bangka Belitung",
+		"Riau",
+		"Kepulauan Riau",
+		"Bengkulu",
+		"Sumatera Selatan",
+		"Lampung",
+		"Banten",
+		"DKI Jakarta",
+		"Jawa Barat",
+		"Jawa Tengah",
+		"Jawa Timur",
+		"Nusa Tenggara Timur",
+		"DI Yogyakarta",
+		"Bali",
+		"Nusa Tenggara Barat",
+		"Kalimantan Barat",
+		"Kalimantan Tengah",
+		"Kalimantan Selatan",
+		"Kalimantan Timur",
+		"Kalimantan Utara",
+		"Sulawesi Selatan",
+		"Sulawesi Utara",
+		"Gorontalo",
+		"Sulawesi Tengah",
+		"Sulawesi Barat",
+		"Sulawesi Tenggara",
+		"Maluku",
+		"Maluku Utara",
+		"Papua Barat",
+		"Papua"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " no " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " no " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+		}
+	}
+
+	///
+	override string addressDefaultCountry() {
+		auto data = [
+		"Indonesia'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string addressStreetPrefix() {
+		auto data = [
+		"Ds.",
+		"Dk.",
+		"Gg.",
+		"Jln.",
+		"Jr.",
+		"Kpg.",
+		"Ki.",
+		"Psr.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return addressStreetPrefix() ~ " " ~ nameFirstName();
+			case 1: return addressStreetPrefix() ~ " " ~ nameLastName();
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
+	}
+
+	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"##",
+		"#'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string addressPostcode() {
+		auto data = [
+		"#####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 30, this.rnd)) {
+			case 0: return "wide: ['Minggu";
+			case 1: return "Senin";
+			case 2: return "Selasa";
+			case 3: return "Rabu";
+			case 4: return "Kamis";
+			case 5: return "Jumat";
+			case 6: return "Sabtu']";
+			case 7: return "wide_context: [";
+			case 8: return "Minggu";
+			case 9: return "Senin";
+			case 10: return "Selasa";
+			case 11: return "Rabu";
+			case 12: return "Kamis";
+			case 13: return "Jumat";
+			case 14: return "Sabtu";
+			case 15: return "]";
+			case 16: return "abbr: ['Min";
+			case 17: return "Sen";
+			case 18: return "Sel";
+			case 19: return "Rab";
+			case 20: return "Kam";
+			case 21: return "Jum";
+			case 22: return "Sab']";
+			case 23: return "abbr_context: ['Min";
+			case 24: return "Sen";
+			case 25: return "Sel";
+			case 26: return "Rab";
+			case 27: return "Kam";
+			case 28: return "Jum";
+			case 29: return "Sab']";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 56, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Januari";
+			case 2: return "Februari";
+			case 3: return "Maret";
+			case 4: return "April";
+			case 5: return "Mei";
+			case 6: return "Juni";
+			case 7: return "Juli";
+			case 8: return "Agustus";
+			case 9: return "September";
+			case 10: return "Oktober";
+			case 11: return "November";
+			case 12: return "Desember";
+			case 13: return "]";
+			case 14: return "wide_context: [";
+			case 15: return "Januari";
+			case 16: return "Februari";
+			case 17: return "Maret";
+			case 18: return "April";
+			case 19: return "Mei";
+			case 20: return "Juni";
+			case 21: return "Juli";
+			case 22: return "Agustus";
+			case 23: return "September";
+			case 24: return "Oktober";
+			case 25: return "November";
+			case 26: return "Desember";
+			case 27: return "]";
+			case 28: return "abbr: [";
+			case 29: return "Jan";
+			case 30: return "Feb";
+			case 31: return "Mar";
+			case 32: return "Apr";
+			case 33: return "Mei";
+			case 34: return "Jun";
+			case 35: return "Jul";
+			case 36: return "Ags";
+			case 37: return "Sep";
+			case 38: return "Okt";
+			case 39: return "Nov";
+			case 40: return "Des";
+			case 41: return "]";
+			case 42: return "abbr_context: [";
+			case 43: return "Jan";
+			case 44: return "Feb";
+			case 45: return "Mar";
+			case 46: return "Apr";
+			case 47: return "Mei";
+			case 48: return "Jun";
+			case 49: return "Jul";
+			case 50: return "Ags";
+			case 51: return "Sep";
+			case 52: return "Okt";
+			case 53: return "Nov";
+			case 54: return "Des";
+			case 55: return "]";
+		}
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"(Persero) Tbk",
+		"Tbk'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string companyPrefix() {
+		auto data = [
+		"PT",
+		"CV",
+		"UD",
+		"PD",
+		"Perum'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string companyName() {
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return companyPrefix() ~ " " ~ nameLastName();
+			case 1: return nameLastName() ~ " " ~ companySuffix();
+			case 2: return companyPrefix() ~ " " ~ nameLastName() ~ " " ~ companySuffix();
+		}
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.com",
+		"gmail.co.id",
+		"yahoo.co.id'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"com",
+		"net",
+		"org",
+		"asia",
+		"tv",
+		"biz",
+		"info",
+		"in",
+		"name",
+		"co",
+		"id",
+		"ac.id",
+		"sch.id",
+		"go.id",
+		"mil.id",
+		"co.id",
+		"or.id",
+		"web.id",
+		"my.id",
+		"net.id",
+		"biz.id",
+		"desa.id",
+		"ponpes.id"
 		];
 		return choice(data, this.rnd);
 	}

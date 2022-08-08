@@ -346,6 +346,24 @@ class Faker_ja : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstName() ~ addressStreetSuffix();
+			case 1: return nameLastName() ~ addressStreetSuffix();
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return addressCityPrefix() ~ nameFirstName() ~ addressCitySuffix();
+			case 1: return nameFirstName() ~ addressCitySuffix();
+			case 2: return addressCityPrefix() ~ nameLastName() ~ addressCitySuffix();
+			case 3: return nameLastName() ~ addressCitySuffix();
+		}
+	}
+
 	///
 	override string addressPostcode() {
 		auto data = [
@@ -1730,6 +1748,13 @@ class Faker_ja : Faker {
 		"歩夢"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ nameFirstName() ~ "'";
+		}
 	}
 
 }

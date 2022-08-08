@@ -54,7 +54,50 @@ class Faker_en_gb : Faker {
 	}
 
 	///
-	override string addressDefaultCountry() {
+	override string internetDomainSuffix() {
+		auto data = [
+		"ac.uk",
+		"biz",
+		"co",
+		"co.uk",
+		"com",
+		"cymru",
+		"gov.uk",
+		"info",
+		"london",
+		"ltd.uk",
+		"me.uk",
+		"name",
+		"nhs.uk",
+		"org.uk",
+		"plc.uk",
+		"sch.uk",
+		"scot",
+		"uk",
+		"wales"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
+	///
+	override string addressPostcode() {
+		auto data = [
+		"??# #??",
+		"??## #??'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	string addressUkCountry() {
 		auto data = [
 		"England",
 		"Scotland",
@@ -64,8 +107,18 @@ class Faker_en_gb : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressCity() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
+			case 2: return nameFirstName() ~ addressCitySuffix();
+			case 3: return nameLastName() ~ addressCitySuffix();
+		}
+	}
+
 	///
-	string addressUkCountry() {
+	override string addressDefaultCountry() {
 		auto data = [
 		"England",
 		"Scotland",
@@ -148,32 +201,6 @@ class Faker_en_gb : Faker {
 		"West Yorkshire",
 		"Wiltshire",
 		"Worcestershire"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"ac.uk",
-		"biz",
-		"co",
-		"co.uk",
-		"com",
-		"cymru",
-		"gov.uk",
-		"info",
-		"london",
-		"ltd.uk",
-		"me.uk",
-		"name",
-		"nhs.uk",
-		"org.uk",
-		"plc.uk",
-		"sch.uk",
-		"scot",
-		"uk",
-		"wales"
 		];
 		return choice(data, this.rnd);
 	}

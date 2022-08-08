@@ -31,6 +31,16 @@ class Faker_nb_no : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ "-" ~ nameLastName();
+			case 2: return nameLastName();
+			case 3: return nameLastName() ~ " og " ~ nameLastName();
+		}
+	}
+
 	///
 	override string scienceUnit() {
 		auto data = [
@@ -1008,6 +1018,18 @@ class Faker_nb_no : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameSuffix();
+			case 2: return nameFemaleFirstName() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameLastName();
+			case 3: return nameMaleFirstName() ~ " " ~ nameMaleFirstName() ~ " " ~ nameLastName();
+			case 4: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
+			case 5: return nameFirstName() ~ " " ~ nameLastName();
+		}
+	}
+
 	///
 	override string nameFemaleFirstName() {
 		auto data = [
@@ -1094,18 +1116,6 @@ class Faker_nb_no : Faker {
 		"pøh",
 		"å",
 		"æsj"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string wordConjunction() {
-		auto data = [
-		"eller",
-		"for",
-		"men",
-		"og",
-		"så'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1223,6 +1233,18 @@ class Faker_nb_no : Faker {
 	}
 
 	///
+	override string wordConjunction() {
+		auto data = [
+		"eller",
+		"for",
+		"men",
+		"og",
+		"så'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string commerceDepartment() {
 		auto data = [
 		"Barn",
@@ -1243,6 +1265,30 @@ class Faker_nb_no : Faker {
 		"Smykker",
 		"Sport",
 		"Verktøy"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
+		"beige",
+		"grønn",
+		"grå",
+		"gul",
+		"hvit",
+		"indigo",
+		"karmin",
+		"blå",
+		"lilla",
+		"limegrønn",
+		"magenta",
+		"oransje",
+		"rosa",
+		"rød",
+		"smaragdgrønn",
+		"svart",
+		"turkis"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1290,6 +1336,14 @@ class Faker_nb_no : Faker {
 		"'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
+			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+		}
 	}
 
 	///
@@ -1348,6 +1402,16 @@ class Faker_nb_no : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreet() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return addressStreetName() ~ addressStreetSuffix();
+			case 1: return addressStreetPrefix() ~ " " ~ addressStreetName() ~ addressStreetSuffix();
+			case 2: return nameFirstName() ~ addressCommonStreetSuffix();
+			case 3: return nameLastName() ~ addressCommonStreetSuffix();
+		}
+	}
+
 	///
 	string addressStreetName() {
 		auto data = [
@@ -1386,6 +1450,31 @@ class Faker_nb_no : Faker {
 		"Sjø"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ addressCitySuffix() ~ "'";
+		}
+	}
+
+	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"#",
+		"##'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+
+	override string addressSecondaryAddress() {
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return "Leil. ###";
+			case 1: return "Oppgang A";
+			case 2: return "Oppgang B'";
+		}
 	}
 
 	///
@@ -1448,30 +1537,6 @@ class Faker_nb_no : Faker {
 		"vollen",
 		"vika",
 		"åsen"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"beige",
-		"grønn",
-		"grå",
-		"gul",
-		"hvit",
-		"indigo",
-		"karmin",
-		"blå",
-		"lilla",
-		"limegrønn",
-		"magenta",
-		"oransje",
-		"rosa",
-		"rød",
-		"smaragdgrønn",
-		"svart",
-		"turkis"
 		];
 		return choice(data, this.rnd);
 	}

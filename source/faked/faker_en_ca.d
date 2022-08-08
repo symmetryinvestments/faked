@@ -42,6 +42,30 @@ class Faker_en_ca : Faker {
 	}
 
 	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.ca",
+		"hotmail.com'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"ca",
+		"com",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressCityName() {
 		auto data = [
 		"Argentia",
@@ -270,26 +294,6 @@ class Faker_en_ca : Faker {
 	}
 
 	///
-	override string addressState() {
-		auto data = [
-		"Alberta",
-		"British Columbia",
-		"Manitoba",
-		"New Brunswick",
-		"Newfoundland and Labrador",
-		"Nova Scotia",
-		"Northwest Territories",
-		"Nunavut",
-		"Ontario",
-		"Prince Edward Island",
-		"Quebec",
-		"Saskatchewan",
-		"Yukon"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressStateAbbr() {
 		auto data = [
 		"AB",
@@ -310,11 +314,49 @@ class Faker_en_ca : Faker {
 	}
 
 	///
+	override string addressState() {
+		auto data = [
+		"Alberta",
+		"British Columbia",
+		"Manitoba",
+		"New Brunswick",
+		"Newfoundland and Labrador",
+		"Nova Scotia",
+		"Northwest Territories",
+		"Nunavut",
+		"Ontario",
+		"Prince Edward Island",
+		"Quebec",
+		"Saskatchewan",
+		"Yukon"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string addressDefaultCountry() {
 		auto data = [
 		"Canada'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
+			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
+			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
+			case 2: return nameFirstName() ~ addressCitySuffix();
+			case 3: return nameLastName() ~ addressCitySuffix();
+		}
 	}
 
 	///
@@ -339,31 +381,7 @@ class Faker_en_ca : Faker {
 		"X#? #?#",
 		"Y#? #?#"
 		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"yahoo.ca",
-		"hotmail.com'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"ca",
-		"com",
-		"biz",
-		"info",
-		"name",
-		"net",
-		"org'"
-		];
-		return choice(data, this.rnd);
+		return this.digitBuild(choice(data, this.rnd));
 	}
 
 }

@@ -1,16 +1,19 @@
 module generator;
 
+import std.algorithm;
 import std.array;
+import std.conv : to;
+import std.exception;
+import std.format;
+import std.json;
+import std.regex;
 import std.stdio;
 import std.string;
 import std.typecons;
-import std.json;
-import std.regex;
-import std.algorithm;
-import std.format;
-import std.conv : to;
+
 import transforms.camel;
 import transforms.snake;
+
 import iban;
 
 class Generator {
@@ -257,13 +260,6 @@ class Faker {
     string phoneNumber() {
         return this.digitBuild(this.phoneNumberFormats());
     }
-
-	///
-    //string commerceProductName() {
-    //    return this.commerceProductNameAdjective() ~
-    //          this.commerceProductNameMaterial() ~ " " ~
-    //          this.commerceProductNameProduct();
-    //}
 
 	///
     string companyCatchPhrase() {
@@ -832,6 +828,99 @@ class Faker_%1$s : Faker%2$s {
         return ret;
     }
 
+	string buildConcat(string ll, string name, string sub, string data) {
+		string tmp = `
+	override string %s() {
+		return choice([false, true], this.rnd)
+			? %s()
+			: %s();
+	}
+`;
+		enum concat = ".concat(";
+		ptrdiff_t cIdx = data.indexOf(concat);
+		if(cIdx == -1) {
+			writeln("cIdx not found %s %s %s", ll, name, sub);
+			return "";
+		}
+		ptrdiff_t leadingSpace = data[0 .. cIdx].lastIndexOf(" ");
+		if(leadingSpace == -1) {
+			writeln("leadingSpace not found %s %s %s", ll, name, sub);
+			return "";
+		}
+		ptrdiff_t followingParen = data.indexOf(")", cIdx + concat.length);
+		if(followingParen == -1) {
+			writeln("followingParen not found %s %s %s", ll, name, sub);
+			return "";
+		}
+
+		string ret = format("%s_%s", name, sub).camelCase();
+		string first = format("%s_%s", name, data[leadingSpace + 1 .. cIdx].strip())
+			.camelCase();
+		string second = format("%s_%s", name
+				, data[cIdx + concat.length .. followingParen].strip())
+			.camelCase();
+
+		string toAppend = format(tmp, ret, first, second);
+		this.output ~= toAppend;
+		return ret;
+	}
+
+
+	static private string buildSingleMustache(string line, string section) {
+		string ret;
+		line = line.replace("\"", "\\\"");
+		ptrdiff_t idx = line.indexOf("{{");
+		ptrdiff_t cur = 0;
+		long cnt;
+		while(idx != -1) {
+			string interme = line[cur .. idx];
+			if(!interme.empty) {
+				ret ~= (cnt == 0 ? "\"" : " ~ \"") ~ interme ~ "\"";
+				++cnt;
+			}
+			ptrdiff_t close = line.indexOf("}}", idx);
+			enforce(close != -1, line);
+			ret ~= (cnt == 0 ? "" : " ~ ") ~ line[idx + 2 .. close]
+				.replaceDotOrSection(section).camelCase() ~ "()";
+			++cnt;
+			cur = close + 2;
+			idx = line.indexOf("{{", cur);
+		}
+		string rest = line[cur .. $];
+		if(!rest.empty) {
+			ret ~= (cnt == 0 ? "\"" : " ~ \"") ~ rest ~ "\"";
+		}
+		return ret;
+	}
+
+	string buildMustache(string ll, string name, string sub, string[] lines) {
+		if(this.locale == "fr_CH" && name == "address" && sub ==
+				"street_address")
+		{
+			writefln("SUper hack because of bug in faker.ts");
+			return "";
+		//} else {
+		//	writefln("%5s %20s %20s", this.locale, name, sub);
+		}
+		string ret = (name ~ "_" ~ sub).camelCase();
+		string tmp = format("\n\t%sstring %s() {\n"
+				, ll == "en" ? "" : "override ", ret);
+		if(lines.empty) {
+			tmp ~= "\t\treturn \"\";\n";
+		} else {
+			tmp ~= format("\t\tfinal switch(uniform(0, %s, this.rnd)) {\n"
+					, lines.length);
+			foreach(idx, line; lines) {
+				tmp ~= format("\t\t\tcase %d: return %s;\n", idx,
+						buildSingleMustache(line, name));
+			}
+			tmp ~= format("\t\t}\n");
+		}
+		tmp ~= format("\t}\n\n");
+		this.output ~= tmp;
+		return ret;
+	}
+
 	string buildString(string name, string postfix, string[] lines) {
 		import std.utf : byUTF, replacementDchar;
 		string fname = name ~ "_" ~ postfix;
@@ -850,6 +939,7 @@ class Faker_%1$s : Faker%2$s {
 				nlines ~= s;
 			} catch(Throwable t) {
 				writefln("%s %s", idx, line);
+				assert(false, format("%s %s", idx, line));
 			}
 		}
 
@@ -971,4 +1061,11 @@ JSONValue parseJson(string input) {
     input = input[0 .. $ - 1];
 
     return parseJSON(input);
+}
+
+string replaceDotOrSection(string str, string section) {
+	str = str.snakeCase();
+	return str.indexOf(".") != -1
+		? str.replace(".", "_")
+		: section ~ "_" ~ str;
 }

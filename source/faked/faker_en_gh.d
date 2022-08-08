@@ -52,31 +52,6 @@ class Faker_en_gh : Faker {
 	}
 
 	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"com.gh",
-		"edu.gh",
-		"gov.gh",
-		"org.gh",
-		"com",
-		"net",
-		"org",
-		"biz",
-		"co"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		auto data = [
-		"Venture",
-		"Ltd'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressCityName() {
 		auto data = [
 		"Goaso",
@@ -459,6 +434,14 @@ class Faker_en_gh : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ addressBuildingNumber() ~ " " ~ addressStreet();
+			case 1: return "full: '" ~ addressBuildingNumber() ~ " " ~ addressStreet() ~ " " ~ addressSecondaryAddress();
+		}
+	}
+
 	///
 	override string addressDefaultCountry() {
 		auto data = [
@@ -473,6 +456,31 @@ class Faker_en_gh : Faker {
 		"Boame'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressStreet() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ addressStreetSuffix();
+			case 1: return addressStreetPrefix() ~ " " ~ addressStreetSuffix();
+		}
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityName() ~ "'";
+		}
+	}
+
+	///
+	override string addressBuildingNumber() {
+		auto data = [
+		"###",
+		"##",
+		"#'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
@@ -495,6 +503,39 @@ class Faker_en_gh : Faker {
 		"Ln",
 		"Rd",
 		"St'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"Venture",
+		"Ltd'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string companyName() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameLastName() ~ " " ~ companySuffix();
+			case 1: return nameLastName() ~ " and " ~ nameLastName();
+		}
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"com.gh",
+		"edu.gh",
+		"gov.gh",
+		"org.gh",
+		"com",
+		"net",
+		"org",
+		"biz",
+		"co"
 		];
 		return choice(data, this.rnd);
 	}
@@ -779,6 +820,14 @@ class Faker_en_gh : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string nameFirstName() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return nameFemaleFirstName();
+			case 1: return nameMaleFirstName() ~ "'";
+		}
+	}
+
 	///
 	override string nameMaleFirstName() {
 		auto data = [
@@ -916,6 +965,16 @@ class Faker_en_gh : Faker {
 		"Yaw"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string nameName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return nameFemaleFirstName() ~ " " ~ nameLastName();
+			case 1: return nameFemaleFirstName() ~ " " ~ nameLastName() ~ "-" ~ nameLastName();
+			case 2: return nameMaleFirstName() ~ " " ~ nameLastName();
+			case 3: return nameMaleFirstName() ~ " " ~ nameLastName() ~ "-" ~ nameLastName();
+		}
 	}
 
 }

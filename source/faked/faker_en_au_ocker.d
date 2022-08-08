@@ -30,32 +30,6 @@ class Faker_en_au_ocker : Faker {
 	}
 
 	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"com.au",
-		"com",
-		"net.au",
-		"net",
-		"org.au",
-		"org'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		auto data = [
-		"Pty Ltd",
-		"and Sons",
-		"Corp",
-		"Group",
-		"Brothers",
-		"Partners'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string addressStateAbbr() {
 		auto data = [
 		"NSW",
@@ -126,6 +100,13 @@ class Faker_en_au_ocker : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string addressStreet() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressStreetName() ~ "'";
+		}
+	}
+
 	///
 	string addressStreetName() {
 		auto data = [
@@ -135,6 +116,13 @@ class Faker_en_au_ocker : Faker {
 		"Queen Street"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string addressCity() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return addressCityPrefix() ~ "'";
+		}
 	}
 
 	///
@@ -201,6 +189,32 @@ class Faker_en_au_ocker : Faker {
 		"Trail",
 		"View Rd",
 		"Way"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"Pty Ltd",
+		"and Sons",
+		"Corp",
+		"Group",
+		"Brothers",
+		"Partners'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"com.au",
+		"com",
+		"net.au",
+		"net",
+		"org.au",
+		"org'"
 		];
 		return choice(data, this.rnd);
 	}
