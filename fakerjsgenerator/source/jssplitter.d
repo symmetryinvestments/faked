@@ -5,6 +5,7 @@ import std.algorithm;
 import std.stdio;
 import std.string;
 import std.json;
+import std.typecons : Nullable, nullable;
 
 enum Type {
 	undefined,
@@ -78,7 +79,7 @@ private string[] singleLineSplit(string s) {
 	return ret2;
 }
 
-TypeLines jssplit(string input, const string path) {
+Nullable!TypeLines jssplit(string input, const string path) {
 	//string[] lines = split(input.removeLicense(), "\n")
 	string[] lines = singleLineSplit(input.removeLicense())
 		.map!(a => a.strip("\", \t\n\r"))
@@ -97,6 +98,10 @@ TypeLines jssplit(string input, const string path) {
 		, "export default {"
 	];
 	auto pf = prefixes.find!((a,b) => b.startsWith(a))(lines.front);
+	if(pf.empty) {
+		writefln("Failed to work file %s", path);
+		return Nullable!(TypeLines).init;
+	}
 	assert(!pf.empty, lines.front ~ "\n\n" ~ path);
 	lines[0] = lines[0][pf.front.length .. $].strip();
 	lines = lines[0 .. $]
@@ -120,5 +125,5 @@ TypeLines jssplit(string input, const string path) {
 		writefln("unknown %s", path);
 	}
 
-	return TypeLines(type, lines);
+	return nullable(TypeLines(type, lines));
 }

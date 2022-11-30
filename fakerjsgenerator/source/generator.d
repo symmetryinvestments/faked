@@ -763,20 +763,21 @@ class Faker_%1$s : Faker%2$s {
         return ret;
     }
 `, locale != "en" ? "override " : "");
-        tmp ~= format(`
+		if(sub.subs.length > 2) {
+			tmp ~= format(`
 	///
     %sstring financeCreditCard() {
         switch(uniform(0, %s, this.rnd)) {
 `, locale != "en" ? "override " : "", sub.subs.length - 2);
-        int cnt = 0;
-        foreach(key, value; sub.subs) {
-            if(key == "laser" || key == "maestro") {
-                continue;
-            }
-            tmp ~= format("\t\t\tcase " ~ to!string(cnt++)
-                    ~ ": \n\t\t\t\treturn financeCreditCard%s();\n",
-                to!string(toUpper(key[0])) ~ key[1 .. $].camelCase());
-        }
+			int cnt = 0;
+        	foreach(key, value; sub.subs) {
+        	    if(key == "laser" || key == "maestro") {
+        	        continue;
+        	    }
+        	    tmp ~= format("\t\t\tcase " ~ to!string(cnt++)
+        	            ~ ": \n\t\t\t\treturn financeCreditCard%s();\n",
+        	        to!string(toUpper(key[0])) ~ key[1 .. $].camelCase());
+        	}
         tmp ~= `
             default:
                 assert(false);
@@ -785,10 +786,15 @@ class Faker_%1$s : Faker%2$s {
     }
 
 `;
+		}
         this.output ~= tmp;
 
         foreach(key, value; sub.subs) {
-			TypeLines tl = jssplit(value.data, format("financeCreditCart %s", key));
+			Nullable!TypeLines tlN = jssplit(value.data, format("financeCreditCart %s", key));
+			if(tlN.isNull()) {
+				continue;
+			}
+			TypeLines tl = tlN.get();
 			if(tl.type == Type.digit) {
                 string fname = "financeCreditCard" ~ to!string(toUpper(key[0]))
                     ~ key[1 ..  $].camelCase();

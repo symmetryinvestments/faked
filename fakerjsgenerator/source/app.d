@@ -11,6 +11,7 @@ import std.file : dirEntries, SpanMode, isDir, readText, isFile, exists,
        mkdirRecurse, read;
 import std.algorithm;
 import std.string;
+import std.typecons : Nullable, nullable;
 import std.regex;
 
 import jssplitter;
@@ -24,26 +25,24 @@ void main() {
 	FakerData[] locales = scrapeFakers();
     mkdirRecurse(outputDir);
 
-	/+
-	auto list = [
-		/*"az",*/ /*"ar",*/ /*"cz",*/ "de", "de_AT", "de_CH", "en_AU", "en_AU_ocker",
-		"en_BORK", "en_CA", "en_GB", "en_IE", "en_IND", "en_US", "en_ZA", "es",
-		/*"es_MX",*/ /*"fa",*/ "fi", "fr", "fr_CA", "fr_CH", "ge", "hy", "hr", "id_ID",
-		"it", "ja", "ko", "nb_NO", "ne", "nl", "nl_BE", "pl", "pt_BR", "pt_PT",
-		"ro", "ru", /*"sk",*/ "sv", "tr", "uk", "vi", "zh_CN", "zh_TW", "af_ZA",
-		"el", "lv", "zu_ZA"
-
-	].sort.array;
-	+/
-
 	auto list =
-		[ "af_ZA", "de_AT", "en_AU_ocker", "en_IE", "es", "fr_BE", "hr", "it"
-		, "nb_NO", "pt_BR", "sv", "zh_CN" , /*"ar",*/ "de_CH", "en_BORK", "en_IND"
+		[ "af_ZA", "de_CH", "en_CA", "en_US", "fr", "hr", "ja", "nl"
+		, "ru", "vi", "ar", "el", "en_GB", "en_ZA", "fr_BE", "hu", "ko"
+		, "nl_BE", "sk", "zh_CN", "az", "en_GH", "es", "fr_CA"
+		, "hy", "lv", "pl", "sv", "zh_TW", "cz", "en_AU", "en_IE"
+		, "es_MX", "fr_CH", "id_ID", "mk", "pt_BR", "tr", "zu_ZA", "de"
+		, "en_AU_ocker", "en_IND", "fa", "ge", "pt_PT"
+		, "uk", "de_AT", "en_BORK", "en_NG", "fi", "he", "it", "ne"
+		, "ro", "ur"
+		, "af_ZA", "de_AT", "en_AU_ocker", "en_IE", "es", "fr_BE", "hr", "it"
+		, "nb_NO", "pt_BR", "sv", "zh_CN" , "ar", "de_CH", "en_BORK", "en_IND"
 		, "es_MX", "fr_CA", "hu", "ja", "ne", "pt_PT", "tr", "zh_TW", "az"
-		, "el", "en_CA", "en_NG", /*"fa",*/ "fr_CH", "hy", "ko", "nl", "ro", "uk"
+		, "el", "en_CA", "en_NG", "fa", "fr_CH", "hy", "ko", "nl", "ro", "uk"
 		, "zu_ZA", "cz", /*"en",*/ "en_GB", "en_US", "fi", "ge", "id_ID", "lv"
-		, "nl_BE", "ru", /*"ur",*/ "de", "en_AU", "en_GH", "en_ZA", "fr", "he"
-		, "mk", "pl", "sk", "vi"].sort.array;
+		, "nl_BE", "ru", "ur", "de", "en_AU", "en_GH", "en_ZA", "fr", "he"
+		, "mk", "pl", "sk", "vi"
+		].sort.uniq.array;
+
 
     auto en = locales.find!(a => a.locale == "en").front;
     string[] methods = buildFile("en", en, []);
@@ -166,6 +165,13 @@ string[] buildFile(string ll, FakerData entry, string[] toOverride) {
 		foreach(string sub, Data svalue; value.subs) {
 			Direct d = cast(Direct)svalue;
 			if(d !is null) {
+				if(ll == "ur" && key == "address" && sub == "city_name") {
+					continue;
+				}
+				if(ll == "fa" && key == "finance" && sub == "credit_card") {
+					continue;
+				}
+
                 if(key == "name" && sub == "title") {
                     methods ~= gen.buildNameTitle(d.data);
                     continue;
@@ -188,7 +194,11 @@ string[] buildFile(string ll, FakerData entry, string[] toOverride) {
 				}
 				//write(key, ".", sub, " ");
 				//writefln("%s %s %s %s", __LINE__, ll, key, sub);
-				TypeLines tl = jssplit(d.data, ll ~ " " ~ key ~ " " ~ sub);
+				Nullable!TypeLines tlN = jssplit(d.data, ll ~ " " ~ key ~ " " ~ sub);
+				if(tlN.isNull()) {
+					continue;
+				}
+				TypeLines tl = tlN.get();
 				//writeln(tl.type);
 				if(tl.type == Type.strings) {
 					methods ~= gen.buildString(key, sub, tl.lines);
@@ -243,7 +253,7 @@ string[] buildFile(string ll, FakerData entry, string[] toOverride) {
 
 const fakerFolder = "faker";
 
-const string[] ignoreListLocals = ["fa"];
+const string[] ignoreListLocals = [];
 const string[] ignoreEntries = ["system"];
 
 class Data {
