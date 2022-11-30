@@ -201,8 +201,165 @@ unittest {
 }
 
 unittest {
+	import faked.faker_ar;
+    auto faker = new Faker_ar(2);
+	for(int i = 0; i < 30; ++i) {
+		fakedAssert(faker.addressBuildingNumber(), "ar", "addressBuildingNumber", i);
+		fakedAssert(faker.addressCity(), "ar", "addressCity", i);
+		fakedAssert(faker.addressCityName(), "ar", "addressCityName", i);
+		fakedAssert(faker.addressCityPrefix(), "ar", "addressCityPrefix", i);
+		fakedAssert(faker.addressCitySuffix(), "ar", "addressCitySuffix", i);
+		fakedAssert(faker.addressCountry(), "ar", "addressCountry", i);
+		fakedAssert(faker.addressCountryCode(), "ar", "addressCountryCode", i);
+		fakedAssert(faker.addressCountryCodeAlpha3(), "ar", "addressCountryCodeAlpha3", i);
+		fakedAssert(faker.addressCounty(), "ar", "addressCounty", i);
+		fakedAssert(faker.addressDefaultCountry(), "ar", "addressDefaultCountry", i);
+		fakedAssert(faker.addressDirection(), "ar", "addressDirection", i);
+		fakedAssert(faker.addressDirectionAbbr(), "ar", "addressDirectionAbbr", i);
+		fakedAssert(faker.addressLatitude(), "ar", "addressLatitude", i);
+		fakedAssert(faker.addressLongitude(), "ar", "addressLongitude", i);
+		fakedAssert(faker.addressPostcode(), "ar", "addressPostcode", i);
+		fakedAssert(faker.addressSecondaryAddress(), "ar", "addressSecondaryAddress", i);
+		fakedAssert(faker.addressState(), "ar", "addressState", i);
+		fakedAssert(faker.addressStateAbbr(), "ar", "addressStateAbbr", i);
+		fakedAssert(faker.addressStreet(), "ar", "addressStreet", i);
+		fakedAssert(faker.addressStreetAddress(), "ar", "addressStreetAddress", i);
+		fakedAssert(faker.addressStreetSuffix(), "ar", "addressStreetSuffix", i);
+		fakedAssert(faker.addressTimeZone(), "ar", "addressTimeZone", i);
+		fakedAssert(faker.animalBear(), "ar", "animalBear", i);
+		fakedAssert(faker.animalBird(), "ar", "animalBird", i);
+		fakedAssert(faker.animalCat(), "ar", "animalCat", i);
+		fakedAssert(faker.animalCetacean(), "ar", "animalCetacean", i);
+		fakedAssert(faker.animalCow(), "ar", "animalCow", i);
+		fakedAssert(faker.animalCrocodilia(), "ar", "animalCrocodilia", i);
+		fakedAssert(faker.animalDog(), "ar", "animalDog", i);
+		fakedAssert(faker.animalFish(), "ar", "animalFish", i);
+		fakedAssert(faker.animalHorse(), "ar", "animalHorse", i);
+		fakedAssert(faker.animalInsect(), "ar", "animalInsect", i);
+		fakedAssert(faker.animalLion(), "ar", "animalLion", i);
+		fakedAssert(faker.animalRabbit(), "ar", "animalRabbit", i);
+		fakedAssert(faker.animalRodent(), "ar", "animalRodent", i);
+		fakedAssert(faker.animalSnake(), "ar", "animalSnake", i);
+		fakedAssert(faker.animalType(), "ar", "animalType", i);
+		fakedAssert(faker.appAuthor(), "ar", "appAuthor", i);
+		fakedAssert(faker.appName(), "ar", "appName", i);
+		fakedAssert(faker.appVersion(), "ar", "appVersion", i);
+		fakedAssert(faker.businessCreditCardExpiryDates(), "ar", "businessCreditCardExpiryDates", i);
+		fakedAssert(faker.businessCreditCardNumbers(), "ar", "businessCreditCardNumbers", i);
+		fakedAssert(faker.businessCreditCardTypes(), "ar", "businessCreditCardTypes", i);
+		fakedAssert(faker.cellPhoneFormats(), "ar", "cellPhoneFormats", i);
+		fakedAssert(faker.colorHuman(), "ar", "colorHuman", i);
+		fakedAssert(faker.colorSpace(), "ar", "colorSpace", i);
+		fakedAssert(faker.commerceDepartment(), "ar", "commerceDepartment", i);
+		fakedAssert(faker.commerceProductDescription(), "ar", "commerceProductDescription", i);
+		fakedAssert(faker.companyAdjective(), "ar", "companyAdjective", i);
+		fakedAssert(faker.companyBs(), "ar", "companyBs", i);
+		fakedAssert(faker.companyBsAdjective(), "ar", "companyBsAdjective", i);
+		fakedAssert(faker.companyBsNoun(), "ar", "companyBsNoun", i);
+		fakedAssert(faker.companyBsVerb(), "ar", "companyBsVerb", i);
+		fakedAssert(faker.companyCatchPhrase(), "ar", "companyCatchPhrase", i);
+		fakedAssert(faker.companyDescriptor(), "ar", "companyDescriptor", i);
+		fakedAssert(faker.companyName(), "ar", "companyName", i);
+		fakedAssert(faker.companyNoun(), "ar", "companyNoun", i);
+		fakedAssert(faker.companySuffix(), "ar", "companySuffix", i);
+		fakedAssert(faker.databaseCollation(), "ar", "databaseCollation", i);
+		fakedAssert(faker.databaseColumn(), "ar", "databaseColumn", i);
+		fakedAssert(faker.databaseEngine(), "ar", "databaseEngine", i);
+		fakedAssert(faker.databaseType(), "ar", "databaseType", i);
+		fakedAssert(faker.dateMonth(), "ar", "dateMonth", i);
+		fakedAssert(faker.dateWeekday(), "ar", "dateWeekday", i);
+		fakedAssert(faker.financeAccount(), "ar", "financeAccount", i);
+		fakedAssert(faker.financeAccountType(), "ar", "financeAccountType", i);
+		fakedAssert(faker.financeBIC(), "ar", "financeBIC", i);
+		fakedAssert(faker.financeBitcoinAddress(), "ar", "financeBitcoinAddress", i);
+		fakedAssert(faker.financeCreditCard(), "ar", "financeCreditCard", i);
+		fakedAssert(faker.financeCreditCardAmericanExpress(), "ar", "financeCreditCardAmericanExpress", i);
+		fakedAssert(faker.financeCreditCardCVV(), "ar", "financeCreditCardCVV", i);
+		fakedAssert(faker.financeCreditCardDinersClub(), "ar", "financeCreditCardDinersClub", i);
+		fakedAssert(faker.financeCreditCardDiscover(), "ar", "financeCreditCardDiscover", i);
+		fakedAssert(faker.financeCreditCardInstapayment(), "ar", "financeCreditCardInstapayment", i);
+		fakedAssert(faker.financeCreditCardJcb(), "ar", "financeCreditCardJcb", i);
+		fakedAssert(faker.financeCreditCardMastercard(), "ar", "financeCreditCardMastercard", i);
+		fakedAssert(faker.financeCreditCardSolo(), "ar", "financeCreditCardSolo", i);
+		fakedAssert(faker.financeCreditCardSwitch(), "ar", "financeCreditCardSwitch", i);
+		fakedAssert(faker.financeCreditCardVisa(), "ar", "financeCreditCardVisa", i);
+		fakedAssert(faker.financeCurrency(), "ar", "financeCurrency", i);
+		fakedAssert(faker.financeIBAN(), "ar", "financeIBAN", i);
+		fakedAssert(faker.financeMask(), "ar", "financeMask", i);
+		fakedAssert(faker.financeRoutingNumber(), "ar", "financeRoutingNumber", i);
+		fakedAssert(faker.financeTransactionType(), "ar", "financeTransactionType", i);
+		fakedAssert(faker.hackerAbbreviation(), "ar", "hackerAbbreviation", i);
+		fakedAssert(faker.hackerAdjective(), "ar", "hackerAdjective", i);
+		fakedAssert(faker.hackerIngverb(), "ar", "hackerIngverb", i);
+		fakedAssert(faker.hackerNoun(), "ar", "hackerNoun", i);
+		fakedAssert(faker.hackerPhrase(), "ar", "hackerPhrase", i);
+		fakedAssert(faker.hackerVerb(), "ar", "hackerVerb", i);
+		fakedAssert(faker.helperAlpha(), "ar", "helperAlpha", i);
+		fakedAssert(faker.helperAlphaNum(), "ar", "helperAlphaNum", i);
+		fakedAssert(faker.helperHexaDecimal(), "ar", "helperHexaDecimal", i);
+		fakedAssert(faker.internetAvatarUri(), "ar", "internetAvatarUri", i);
+		fakedAssert(faker.internetColor(), "ar", "internetColor", i);
+		fakedAssert(faker.internetDomainName(), "ar", "internetDomainName", i);
+		fakedAssert(faker.internetDomainSuffix(), "ar", "internetDomainSuffix", i);
+		fakedAssert(faker.internetDomainWord(), "ar", "internetDomainWord", i);
+		fakedAssert(faker.internetEmoji(), "ar", "internetEmoji", i);
+		fakedAssert(faker.internetExampleEmail(), "ar", "internetExampleEmail", i);
+		fakedAssert(faker.internetFreeEmail(), "ar", "internetFreeEmail", i);
+		fakedAssert(faker.internetHttpStatusCode(), "ar", "internetHttpStatusCode", i);
+		fakedAssert(faker.internetIPv4(), "ar", "internetIPv4", i);
+		fakedAssert(faker.internetIPv6(), "ar", "internetIPv6", i);
+		fakedAssert(faker.internetPassword(), "ar", "internetPassword", i);
+		fakedAssert(faker.internetProtocol(), "ar", "internetProtocol", i);
+		fakedAssert(faker.internetUrl(), "ar", "internetUrl", i);
+		fakedAssert(faker.internetUserName(), "ar", "internetUserName", i);
+		fakedAssert(faker.loremParagraph(), "ar", "loremParagraph", i);
+		fakedAssert(faker.loremParagraphs(), "ar", "loremParagraphs", i);
+		fakedAssert(faker.loremSentance(), "ar", "loremSentance", i);
+		fakedAssert(faker.loremSentances(), "ar", "loremSentances", i);
+		fakedAssert(faker.loremSupplemental(), "ar", "loremSupplemental", i);
+		fakedAssert(faker.loremText(), "ar", "loremText", i);
+		fakedAssert(faker.loremWords(), "ar", "loremWords", i);
+		fakedAssert(faker.musicGenre(), "ar", "musicGenre", i);
+		fakedAssert(faker.musicSongName(), "ar", "musicSongName", i);
+		fakedAssert(faker.nameBinaryGender(), "ar", "nameBinaryGender", i);
+		fakedAssert(faker.nameFemaleFirstName(), "ar", "nameFemaleFirstName", i);
+		fakedAssert(faker.nameFemaleMiddleName(), "ar", "nameFemaleMiddleName", i);
+		fakedAssert(faker.nameFirstName(), "ar", "nameFirstName", i);
+		fakedAssert(faker.nameGender(), "ar", "nameGender", i);
+		fakedAssert(faker.nameLastName(), "ar", "nameLastName", i);
+		fakedAssert(faker.nameMaleFirstName(), "ar", "nameMaleFirstName", i);
+		fakedAssert(faker.nameMaleMiddleName(), "ar", "nameMaleMiddleName", i);
+		fakedAssert(faker.nameMiddleName(), "ar", "nameMiddleName", i);
+		fakedAssert(faker.nameName(), "ar", "nameName", i);
+		fakedAssert(faker.namePrefix(), "ar", "namePrefix", i);
+		fakedAssert(faker.nameSuffix(), "ar", "nameSuffix", i);
+		fakedAssert(faker.phoneNumber(), "ar", "phoneNumber", i);
+		fakedAssert(faker.phoneNumberFormats(), "ar", "phoneNumberFormats", i);
+		fakedAssert(faker.scienceChemicalelement(), "ar", "scienceChemicalelement", i);
+		fakedAssert(faker.scienceUnit(), "ar", "scienceUnit", i);
+		fakedAssert(faker.teamCreature(), "ar", "teamCreature", i);
+		fakedAssert(faker.teamName(), "ar", "teamName", i);
+		fakedAssert(faker.vehicle(), "ar", "vehicle", i);
+		fakedAssert(faker.vehicleBicycleType(), "ar", "vehicleBicycleType", i);
+		fakedAssert(faker.vehicleFuel(), "ar", "vehicleFuel", i);
+		fakedAssert(faker.vehicleManufacturer(), "ar", "vehicleManufacturer", i);
+		fakedAssert(faker.vehicleModel(), "ar", "vehicleModel", i);
+		fakedAssert(faker.vehicleType(), "ar", "vehicleType", i);
+		fakedAssert(faker.vehicleVin(), "ar", "vehicleVin", i);
+		fakedAssert(faker.wordAdjective(), "ar", "wordAdjective", i);
+		fakedAssert(faker.wordAdverb(), "ar", "wordAdverb", i);
+		fakedAssert(faker.wordConjunction(), "ar", "wordConjunction", i);
+		fakedAssert(faker.wordInterjection(), "ar", "wordInterjection", i);
+		fakedAssert(faker.wordNoun(), "ar", "wordNoun", i);
+		fakedAssert(faker.wordPreposition(), "ar", "wordPreposition", i);
+		fakedAssert(faker.wordVerb(), "ar", "wordVerb", i);
+
+	}
+}
+
+unittest {
 	import faked.faker_az;
-    auto faker = new Faker_az(2);
+    auto faker = new Faker_az(3);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "az", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "az", "addressCity", i);
@@ -359,7 +516,7 @@ unittest {
 
 unittest {
 	import faked.faker_cz;
-    auto faker = new Faker_cz(3);
+    auto faker = new Faker_cz(4);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "cz", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "cz", "addressCity", i);
@@ -516,7 +673,7 @@ unittest {
 
 unittest {
 	import faked.faker_de;
-    auto faker = new Faker_de(4);
+    auto faker = new Faker_de(5);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "de", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "de", "addressCity", i);
@@ -673,7 +830,7 @@ unittest {
 
 unittest {
 	import faked.faker_de_at;
-    auto faker = new Faker_de_at(5);
+    auto faker = new Faker_de_at(6);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "de_AT", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "de_AT", "addressCity", i);
@@ -830,7 +987,7 @@ unittest {
 
 unittest {
 	import faked.faker_de_ch;
-    auto faker = new Faker_de_ch(6);
+    auto faker = new Faker_de_ch(7);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "de_CH", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "de_CH", "addressCity", i);
@@ -987,7 +1144,7 @@ unittest {
 
 unittest {
 	import faked.faker_el;
-    auto faker = new Faker_el(7);
+    auto faker = new Faker_el(8);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "el", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "el", "addressCity", i);
@@ -1144,7 +1301,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_au;
-    auto faker = new Faker_en_au(8);
+    auto faker = new Faker_en_au(9);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "en_AU", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "en_AU", "addressCity", i);
@@ -1301,7 +1458,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_au_ocker;
-    auto faker = new Faker_en_au_ocker(9);
+    auto faker = new Faker_en_au_ocker(10);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "en_AU_ocker", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "en_AU_ocker", "addressCity", i);
@@ -1458,7 +1615,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_bork;
-    auto faker = new Faker_en_bork(10);
+    auto faker = new Faker_en_bork(11);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "en_BORK", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "en_BORK", "addressCity", i);
@@ -1615,7 +1772,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_ca;
-    auto faker = new Faker_en_ca(11);
+    auto faker = new Faker_en_ca(12);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "en_CA", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "en_CA", "addressCity", i);
@@ -1772,7 +1929,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_gb;
-    auto faker = new Faker_en_gb(12);
+    auto faker = new Faker_en_gb(13);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "en_GB", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "en_GB", "addressCity", i);
@@ -1929,7 +2086,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_gh;
-    auto faker = new Faker_en_gh(13);
+    auto faker = new Faker_en_gh(14);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "en_GH", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "en_GH", "addressCity", i);
@@ -2086,7 +2243,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_ie;
-    auto faker = new Faker_en_ie(14);
+    auto faker = new Faker_en_ie(15);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "en_IE", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "en_IE", "addressCity", i);
@@ -2243,7 +2400,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_ind;
-    auto faker = new Faker_en_ind(15);
+    auto faker = new Faker_en_ind(16);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "en_IND", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "en_IND", "addressCity", i);
@@ -2400,7 +2557,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_ng;
-    auto faker = new Faker_en_ng(16);
+    auto faker = new Faker_en_ng(17);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "en_NG", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "en_NG", "addressCity", i);
@@ -2557,7 +2714,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_us;
-    auto faker = new Faker_en_us(17);
+    auto faker = new Faker_en_us(18);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "en_US", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "en_US", "addressCity", i);
@@ -2714,7 +2871,7 @@ unittest {
 
 unittest {
 	import faked.faker_en_za;
-    auto faker = new Faker_en_za(18);
+    auto faker = new Faker_en_za(19);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "en_ZA", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "en_ZA", "addressCity", i);
@@ -2871,7 +3028,7 @@ unittest {
 
 unittest {
 	import faked.faker_es;
-    auto faker = new Faker_es(19);
+    auto faker = new Faker_es(20);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "es", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "es", "addressCity", i);
@@ -3028,7 +3185,7 @@ unittest {
 
 unittest {
 	import faked.faker_es_mx;
-    auto faker = new Faker_es_mx(20);
+    auto faker = new Faker_es_mx(21);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "es_MX", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "es_MX", "addressCity", i);
@@ -3184,8 +3341,165 @@ unittest {
 }
 
 unittest {
+	import faked.faker_fa;
+    auto faker = new Faker_fa(22);
+	for(int i = 0; i < 30; ++i) {
+		fakedAssert(faker.addressBuildingNumber(), "fa", "addressBuildingNumber", i);
+		fakedAssert(faker.addressCity(), "fa", "addressCity", i);
+		fakedAssert(faker.addressCityName(), "fa", "addressCityName", i);
+		fakedAssert(faker.addressCityPrefix(), "fa", "addressCityPrefix", i);
+		fakedAssert(faker.addressCitySuffix(), "fa", "addressCitySuffix", i);
+		fakedAssert(faker.addressCountry(), "fa", "addressCountry", i);
+		fakedAssert(faker.addressCountryCode(), "fa", "addressCountryCode", i);
+		fakedAssert(faker.addressCountryCodeAlpha3(), "fa", "addressCountryCodeAlpha3", i);
+		fakedAssert(faker.addressCounty(), "fa", "addressCounty", i);
+		fakedAssert(faker.addressDefaultCountry(), "fa", "addressDefaultCountry", i);
+		fakedAssert(faker.addressDirection(), "fa", "addressDirection", i);
+		fakedAssert(faker.addressDirectionAbbr(), "fa", "addressDirectionAbbr", i);
+		fakedAssert(faker.addressLatitude(), "fa", "addressLatitude", i);
+		fakedAssert(faker.addressLongitude(), "fa", "addressLongitude", i);
+		fakedAssert(faker.addressPostcode(), "fa", "addressPostcode", i);
+		fakedAssert(faker.addressSecondaryAddress(), "fa", "addressSecondaryAddress", i);
+		fakedAssert(faker.addressState(), "fa", "addressState", i);
+		fakedAssert(faker.addressStateAbbr(), "fa", "addressStateAbbr", i);
+		fakedAssert(faker.addressStreet(), "fa", "addressStreet", i);
+		fakedAssert(faker.addressStreetAddress(), "fa", "addressStreetAddress", i);
+		fakedAssert(faker.addressStreetSuffix(), "fa", "addressStreetSuffix", i);
+		fakedAssert(faker.addressTimeZone(), "fa", "addressTimeZone", i);
+		fakedAssert(faker.animalBear(), "fa", "animalBear", i);
+		fakedAssert(faker.animalBird(), "fa", "animalBird", i);
+		fakedAssert(faker.animalCat(), "fa", "animalCat", i);
+		fakedAssert(faker.animalCetacean(), "fa", "animalCetacean", i);
+		fakedAssert(faker.animalCow(), "fa", "animalCow", i);
+		fakedAssert(faker.animalCrocodilia(), "fa", "animalCrocodilia", i);
+		fakedAssert(faker.animalDog(), "fa", "animalDog", i);
+		fakedAssert(faker.animalFish(), "fa", "animalFish", i);
+		fakedAssert(faker.animalHorse(), "fa", "animalHorse", i);
+		fakedAssert(faker.animalInsect(), "fa", "animalInsect", i);
+		fakedAssert(faker.animalLion(), "fa", "animalLion", i);
+		fakedAssert(faker.animalRabbit(), "fa", "animalRabbit", i);
+		fakedAssert(faker.animalRodent(), "fa", "animalRodent", i);
+		fakedAssert(faker.animalSnake(), "fa", "animalSnake", i);
+		fakedAssert(faker.animalType(), "fa", "animalType", i);
+		fakedAssert(faker.appAuthor(), "fa", "appAuthor", i);
+		fakedAssert(faker.appName(), "fa", "appName", i);
+		fakedAssert(faker.appVersion(), "fa", "appVersion", i);
+		fakedAssert(faker.businessCreditCardExpiryDates(), "fa", "businessCreditCardExpiryDates", i);
+		fakedAssert(faker.businessCreditCardNumbers(), "fa", "businessCreditCardNumbers", i);
+		fakedAssert(faker.businessCreditCardTypes(), "fa", "businessCreditCardTypes", i);
+		fakedAssert(faker.cellPhoneFormats(), "fa", "cellPhoneFormats", i);
+		fakedAssert(faker.colorHuman(), "fa", "colorHuman", i);
+		fakedAssert(faker.colorSpace(), "fa", "colorSpace", i);
+		fakedAssert(faker.commerceDepartment(), "fa", "commerceDepartment", i);
+		fakedAssert(faker.commerceProductDescription(), "fa", "commerceProductDescription", i);
+		fakedAssert(faker.companyAdjective(), "fa", "companyAdjective", i);
+		fakedAssert(faker.companyBs(), "fa", "companyBs", i);
+		fakedAssert(faker.companyBsAdjective(), "fa", "companyBsAdjective", i);
+		fakedAssert(faker.companyBsNoun(), "fa", "companyBsNoun", i);
+		fakedAssert(faker.companyBsVerb(), "fa", "companyBsVerb", i);
+		fakedAssert(faker.companyCatchPhrase(), "fa", "companyCatchPhrase", i);
+		fakedAssert(faker.companyDescriptor(), "fa", "companyDescriptor", i);
+		fakedAssert(faker.companyName(), "fa", "companyName", i);
+		fakedAssert(faker.companyNoun(), "fa", "companyNoun", i);
+		fakedAssert(faker.companySuffix(), "fa", "companySuffix", i);
+		fakedAssert(faker.databaseCollation(), "fa", "databaseCollation", i);
+		fakedAssert(faker.databaseColumn(), "fa", "databaseColumn", i);
+		fakedAssert(faker.databaseEngine(), "fa", "databaseEngine", i);
+		fakedAssert(faker.databaseType(), "fa", "databaseType", i);
+		fakedAssert(faker.dateMonth(), "fa", "dateMonth", i);
+		fakedAssert(faker.dateWeekday(), "fa", "dateWeekday", i);
+		fakedAssert(faker.financeAccount(), "fa", "financeAccount", i);
+		fakedAssert(faker.financeAccountType(), "fa", "financeAccountType", i);
+		fakedAssert(faker.financeBIC(), "fa", "financeBIC", i);
+		fakedAssert(faker.financeBitcoinAddress(), "fa", "financeBitcoinAddress", i);
+		fakedAssert(faker.financeCreditCard(), "fa", "financeCreditCard", i);
+		fakedAssert(faker.financeCreditCardAmericanExpress(), "fa", "financeCreditCardAmericanExpress", i);
+		fakedAssert(faker.financeCreditCardCVV(), "fa", "financeCreditCardCVV", i);
+		fakedAssert(faker.financeCreditCardDinersClub(), "fa", "financeCreditCardDinersClub", i);
+		fakedAssert(faker.financeCreditCardDiscover(), "fa", "financeCreditCardDiscover", i);
+		fakedAssert(faker.financeCreditCardInstapayment(), "fa", "financeCreditCardInstapayment", i);
+		fakedAssert(faker.financeCreditCardJcb(), "fa", "financeCreditCardJcb", i);
+		fakedAssert(faker.financeCreditCardMastercard(), "fa", "financeCreditCardMastercard", i);
+		fakedAssert(faker.financeCreditCardSolo(), "fa", "financeCreditCardSolo", i);
+		fakedAssert(faker.financeCreditCardSwitch(), "fa", "financeCreditCardSwitch", i);
+		fakedAssert(faker.financeCreditCardVisa(), "fa", "financeCreditCardVisa", i);
+		fakedAssert(faker.financeCurrency(), "fa", "financeCurrency", i);
+		fakedAssert(faker.financeIBAN(), "fa", "financeIBAN", i);
+		fakedAssert(faker.financeMask(), "fa", "financeMask", i);
+		fakedAssert(faker.financeRoutingNumber(), "fa", "financeRoutingNumber", i);
+		fakedAssert(faker.financeTransactionType(), "fa", "financeTransactionType", i);
+		fakedAssert(faker.hackerAbbreviation(), "fa", "hackerAbbreviation", i);
+		fakedAssert(faker.hackerAdjective(), "fa", "hackerAdjective", i);
+		fakedAssert(faker.hackerIngverb(), "fa", "hackerIngverb", i);
+		fakedAssert(faker.hackerNoun(), "fa", "hackerNoun", i);
+		fakedAssert(faker.hackerPhrase(), "fa", "hackerPhrase", i);
+		fakedAssert(faker.hackerVerb(), "fa", "hackerVerb", i);
+		fakedAssert(faker.helperAlpha(), "fa", "helperAlpha", i);
+		fakedAssert(faker.helperAlphaNum(), "fa", "helperAlphaNum", i);
+		fakedAssert(faker.helperHexaDecimal(), "fa", "helperHexaDecimal", i);
+		fakedAssert(faker.internetAvatarUri(), "fa", "internetAvatarUri", i);
+		fakedAssert(faker.internetColor(), "fa", "internetColor", i);
+		fakedAssert(faker.internetDomainName(), "fa", "internetDomainName", i);
+		fakedAssert(faker.internetDomainSuffix(), "fa", "internetDomainSuffix", i);
+		fakedAssert(faker.internetDomainWord(), "fa", "internetDomainWord", i);
+		fakedAssert(faker.internetEmoji(), "fa", "internetEmoji", i);
+		fakedAssert(faker.internetExampleEmail(), "fa", "internetExampleEmail", i);
+		fakedAssert(faker.internetFreeEmail(), "fa", "internetFreeEmail", i);
+		fakedAssert(faker.internetHttpStatusCode(), "fa", "internetHttpStatusCode", i);
+		fakedAssert(faker.internetIPv4(), "fa", "internetIPv4", i);
+		fakedAssert(faker.internetIPv6(), "fa", "internetIPv6", i);
+		fakedAssert(faker.internetPassword(), "fa", "internetPassword", i);
+		fakedAssert(faker.internetProtocol(), "fa", "internetProtocol", i);
+		fakedAssert(faker.internetUrl(), "fa", "internetUrl", i);
+		fakedAssert(faker.internetUserName(), "fa", "internetUserName", i);
+		fakedAssert(faker.loremParagraph(), "fa", "loremParagraph", i);
+		fakedAssert(faker.loremParagraphs(), "fa", "loremParagraphs", i);
+		fakedAssert(faker.loremSentance(), "fa", "loremSentance", i);
+		fakedAssert(faker.loremSentances(), "fa", "loremSentances", i);
+		fakedAssert(faker.loremSupplemental(), "fa", "loremSupplemental", i);
+		fakedAssert(faker.loremText(), "fa", "loremText", i);
+		fakedAssert(faker.loremWords(), "fa", "loremWords", i);
+		fakedAssert(faker.musicGenre(), "fa", "musicGenre", i);
+		fakedAssert(faker.musicSongName(), "fa", "musicSongName", i);
+		fakedAssert(faker.nameBinaryGender(), "fa", "nameBinaryGender", i);
+		fakedAssert(faker.nameFemaleFirstName(), "fa", "nameFemaleFirstName", i);
+		fakedAssert(faker.nameFemaleMiddleName(), "fa", "nameFemaleMiddleName", i);
+		fakedAssert(faker.nameFirstName(), "fa", "nameFirstName", i);
+		fakedAssert(faker.nameGender(), "fa", "nameGender", i);
+		fakedAssert(faker.nameLastName(), "fa", "nameLastName", i);
+		fakedAssert(faker.nameMaleFirstName(), "fa", "nameMaleFirstName", i);
+		fakedAssert(faker.nameMaleMiddleName(), "fa", "nameMaleMiddleName", i);
+		fakedAssert(faker.nameMiddleName(), "fa", "nameMiddleName", i);
+		fakedAssert(faker.nameName(), "fa", "nameName", i);
+		fakedAssert(faker.namePrefix(), "fa", "namePrefix", i);
+		fakedAssert(faker.nameSuffix(), "fa", "nameSuffix", i);
+		fakedAssert(faker.phoneNumber(), "fa", "phoneNumber", i);
+		fakedAssert(faker.phoneNumberFormats(), "fa", "phoneNumberFormats", i);
+		fakedAssert(faker.scienceChemicalelement(), "fa", "scienceChemicalelement", i);
+		fakedAssert(faker.scienceUnit(), "fa", "scienceUnit", i);
+		fakedAssert(faker.teamCreature(), "fa", "teamCreature", i);
+		fakedAssert(faker.teamName(), "fa", "teamName", i);
+		fakedAssert(faker.vehicle(), "fa", "vehicle", i);
+		fakedAssert(faker.vehicleBicycleType(), "fa", "vehicleBicycleType", i);
+		fakedAssert(faker.vehicleFuel(), "fa", "vehicleFuel", i);
+		fakedAssert(faker.vehicleManufacturer(), "fa", "vehicleManufacturer", i);
+		fakedAssert(faker.vehicleModel(), "fa", "vehicleModel", i);
+		fakedAssert(faker.vehicleType(), "fa", "vehicleType", i);
+		fakedAssert(faker.vehicleVin(), "fa", "vehicleVin", i);
+		fakedAssert(faker.wordAdjective(), "fa", "wordAdjective", i);
+		fakedAssert(faker.wordAdverb(), "fa", "wordAdverb", i);
+		fakedAssert(faker.wordConjunction(), "fa", "wordConjunction", i);
+		fakedAssert(faker.wordInterjection(), "fa", "wordInterjection", i);
+		fakedAssert(faker.wordNoun(), "fa", "wordNoun", i);
+		fakedAssert(faker.wordPreposition(), "fa", "wordPreposition", i);
+		fakedAssert(faker.wordVerb(), "fa", "wordVerb", i);
+
+	}
+}
+
+unittest {
 	import faked.faker_fi;
-    auto faker = new Faker_fi(21);
+    auto faker = new Faker_fi(23);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "fi", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "fi", "addressCity", i);
@@ -3342,7 +3656,7 @@ unittest {
 
 unittest {
 	import faked.faker_fr;
-    auto faker = new Faker_fr(22);
+    auto faker = new Faker_fr(24);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "fr", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "fr", "addressCity", i);
@@ -3499,7 +3813,7 @@ unittest {
 
 unittest {
 	import faked.faker_fr_be;
-    auto faker = new Faker_fr_be(23);
+    auto faker = new Faker_fr_be(25);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "fr_BE", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "fr_BE", "addressCity", i);
@@ -3656,7 +3970,7 @@ unittest {
 
 unittest {
 	import faked.faker_fr_ca;
-    auto faker = new Faker_fr_ca(24);
+    auto faker = new Faker_fr_ca(26);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "fr_CA", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "fr_CA", "addressCity", i);
@@ -3813,7 +4127,7 @@ unittest {
 
 unittest {
 	import faked.faker_fr_ch;
-    auto faker = new Faker_fr_ch(25);
+    auto faker = new Faker_fr_ch(27);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "fr_CH", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "fr_CH", "addressCity", i);
@@ -3970,7 +4284,7 @@ unittest {
 
 unittest {
 	import faked.faker_ge;
-    auto faker = new Faker_ge(26);
+    auto faker = new Faker_ge(28);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "ge", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "ge", "addressCity", i);
@@ -4127,7 +4441,7 @@ unittest {
 
 unittest {
 	import faked.faker_he;
-    auto faker = new Faker_he(27);
+    auto faker = new Faker_he(29);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "he", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "he", "addressCity", i);
@@ -4284,7 +4598,7 @@ unittest {
 
 unittest {
 	import faked.faker_hr;
-    auto faker = new Faker_hr(28);
+    auto faker = new Faker_hr(30);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "hr", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "hr", "addressCity", i);
@@ -4441,7 +4755,7 @@ unittest {
 
 unittest {
 	import faked.faker_hu;
-    auto faker = new Faker_hu(29);
+    auto faker = new Faker_hu(31);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "hu", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "hu", "addressCity", i);
@@ -4598,7 +4912,7 @@ unittest {
 
 unittest {
 	import faked.faker_hy;
-    auto faker = new Faker_hy(30);
+    auto faker = new Faker_hy(32);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "hy", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "hy", "addressCity", i);
@@ -4755,7 +5069,7 @@ unittest {
 
 unittest {
 	import faked.faker_id_id;
-    auto faker = new Faker_id_id(31);
+    auto faker = new Faker_id_id(33);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "id_ID", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "id_ID", "addressCity", i);
@@ -4912,7 +5226,7 @@ unittest {
 
 unittest {
 	import faked.faker_it;
-    auto faker = new Faker_it(32);
+    auto faker = new Faker_it(34);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "it", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "it", "addressCity", i);
@@ -5069,7 +5383,7 @@ unittest {
 
 unittest {
 	import faked.faker_ja;
-    auto faker = new Faker_ja(33);
+    auto faker = new Faker_ja(35);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "ja", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "ja", "addressCity", i);
@@ -5226,7 +5540,7 @@ unittest {
 
 unittest {
 	import faked.faker_ko;
-    auto faker = new Faker_ko(34);
+    auto faker = new Faker_ko(36);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "ko", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "ko", "addressCity", i);
@@ -5383,7 +5697,7 @@ unittest {
 
 unittest {
 	import faked.faker_lv;
-    auto faker = new Faker_lv(35);
+    auto faker = new Faker_lv(37);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "lv", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "lv", "addressCity", i);
@@ -5540,7 +5854,7 @@ unittest {
 
 unittest {
 	import faked.faker_mk;
-    auto faker = new Faker_mk(36);
+    auto faker = new Faker_mk(38);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "mk", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "mk", "addressCity", i);
@@ -5697,7 +6011,7 @@ unittest {
 
 unittest {
 	import faked.faker_nb_no;
-    auto faker = new Faker_nb_no(37);
+    auto faker = new Faker_nb_no(39);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "nb_NO", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "nb_NO", "addressCity", i);
@@ -5854,7 +6168,7 @@ unittest {
 
 unittest {
 	import faked.faker_ne;
-    auto faker = new Faker_ne(38);
+    auto faker = new Faker_ne(40);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "ne", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "ne", "addressCity", i);
@@ -6011,7 +6325,7 @@ unittest {
 
 unittest {
 	import faked.faker_nl;
-    auto faker = new Faker_nl(39);
+    auto faker = new Faker_nl(41);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "nl", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "nl", "addressCity", i);
@@ -6168,7 +6482,7 @@ unittest {
 
 unittest {
 	import faked.faker_nl_be;
-    auto faker = new Faker_nl_be(40);
+    auto faker = new Faker_nl_be(42);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "nl_BE", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "nl_BE", "addressCity", i);
@@ -6325,7 +6639,7 @@ unittest {
 
 unittest {
 	import faked.faker_pl;
-    auto faker = new Faker_pl(41);
+    auto faker = new Faker_pl(43);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "pl", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "pl", "addressCity", i);
@@ -6482,7 +6796,7 @@ unittest {
 
 unittest {
 	import faked.faker_pt_br;
-    auto faker = new Faker_pt_br(42);
+    auto faker = new Faker_pt_br(44);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "pt_BR", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "pt_BR", "addressCity", i);
@@ -6639,7 +6953,7 @@ unittest {
 
 unittest {
 	import faked.faker_pt_pt;
-    auto faker = new Faker_pt_pt(43);
+    auto faker = new Faker_pt_pt(45);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "pt_PT", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "pt_PT", "addressCity", i);
@@ -6796,7 +7110,7 @@ unittest {
 
 unittest {
 	import faked.faker_ro;
-    auto faker = new Faker_ro(44);
+    auto faker = new Faker_ro(46);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "ro", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "ro", "addressCity", i);
@@ -6953,7 +7267,7 @@ unittest {
 
 unittest {
 	import faked.faker_ru;
-    auto faker = new Faker_ru(45);
+    auto faker = new Faker_ru(47);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "ru", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "ru", "addressCity", i);
@@ -7110,7 +7424,7 @@ unittest {
 
 unittest {
 	import faked.faker_sk;
-    auto faker = new Faker_sk(46);
+    auto faker = new Faker_sk(48);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "sk", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "sk", "addressCity", i);
@@ -7267,7 +7581,7 @@ unittest {
 
 unittest {
 	import faked.faker_sv;
-    auto faker = new Faker_sv(47);
+    auto faker = new Faker_sv(49);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "sv", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "sv", "addressCity", i);
@@ -7424,7 +7738,7 @@ unittest {
 
 unittest {
 	import faked.faker_tr;
-    auto faker = new Faker_tr(48);
+    auto faker = new Faker_tr(50);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "tr", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "tr", "addressCity", i);
@@ -7581,7 +7895,7 @@ unittest {
 
 unittest {
 	import faked.faker_uk;
-    auto faker = new Faker_uk(49);
+    auto faker = new Faker_uk(51);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "uk", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "uk", "addressCity", i);
@@ -7737,8 +8051,165 @@ unittest {
 }
 
 unittest {
+	import faked.faker_ur;
+    auto faker = new Faker_ur(52);
+	for(int i = 0; i < 30; ++i) {
+		fakedAssert(faker.addressBuildingNumber(), "ur", "addressBuildingNumber", i);
+		fakedAssert(faker.addressCity(), "ur", "addressCity", i);
+		fakedAssert(faker.addressCityName(), "ur", "addressCityName", i);
+		fakedAssert(faker.addressCityPrefix(), "ur", "addressCityPrefix", i);
+		fakedAssert(faker.addressCitySuffix(), "ur", "addressCitySuffix", i);
+		fakedAssert(faker.addressCountry(), "ur", "addressCountry", i);
+		fakedAssert(faker.addressCountryCode(), "ur", "addressCountryCode", i);
+		fakedAssert(faker.addressCountryCodeAlpha3(), "ur", "addressCountryCodeAlpha3", i);
+		fakedAssert(faker.addressCounty(), "ur", "addressCounty", i);
+		fakedAssert(faker.addressDefaultCountry(), "ur", "addressDefaultCountry", i);
+		fakedAssert(faker.addressDirection(), "ur", "addressDirection", i);
+		fakedAssert(faker.addressDirectionAbbr(), "ur", "addressDirectionAbbr", i);
+		fakedAssert(faker.addressLatitude(), "ur", "addressLatitude", i);
+		fakedAssert(faker.addressLongitude(), "ur", "addressLongitude", i);
+		fakedAssert(faker.addressPostcode(), "ur", "addressPostcode", i);
+		fakedAssert(faker.addressSecondaryAddress(), "ur", "addressSecondaryAddress", i);
+		fakedAssert(faker.addressState(), "ur", "addressState", i);
+		fakedAssert(faker.addressStateAbbr(), "ur", "addressStateAbbr", i);
+		fakedAssert(faker.addressStreet(), "ur", "addressStreet", i);
+		fakedAssert(faker.addressStreetAddress(), "ur", "addressStreetAddress", i);
+		fakedAssert(faker.addressStreetSuffix(), "ur", "addressStreetSuffix", i);
+		fakedAssert(faker.addressTimeZone(), "ur", "addressTimeZone", i);
+		fakedAssert(faker.animalBear(), "ur", "animalBear", i);
+		fakedAssert(faker.animalBird(), "ur", "animalBird", i);
+		fakedAssert(faker.animalCat(), "ur", "animalCat", i);
+		fakedAssert(faker.animalCetacean(), "ur", "animalCetacean", i);
+		fakedAssert(faker.animalCow(), "ur", "animalCow", i);
+		fakedAssert(faker.animalCrocodilia(), "ur", "animalCrocodilia", i);
+		fakedAssert(faker.animalDog(), "ur", "animalDog", i);
+		fakedAssert(faker.animalFish(), "ur", "animalFish", i);
+		fakedAssert(faker.animalHorse(), "ur", "animalHorse", i);
+		fakedAssert(faker.animalInsect(), "ur", "animalInsect", i);
+		fakedAssert(faker.animalLion(), "ur", "animalLion", i);
+		fakedAssert(faker.animalRabbit(), "ur", "animalRabbit", i);
+		fakedAssert(faker.animalRodent(), "ur", "animalRodent", i);
+		fakedAssert(faker.animalSnake(), "ur", "animalSnake", i);
+		fakedAssert(faker.animalType(), "ur", "animalType", i);
+		fakedAssert(faker.appAuthor(), "ur", "appAuthor", i);
+		fakedAssert(faker.appName(), "ur", "appName", i);
+		fakedAssert(faker.appVersion(), "ur", "appVersion", i);
+		fakedAssert(faker.businessCreditCardExpiryDates(), "ur", "businessCreditCardExpiryDates", i);
+		fakedAssert(faker.businessCreditCardNumbers(), "ur", "businessCreditCardNumbers", i);
+		fakedAssert(faker.businessCreditCardTypes(), "ur", "businessCreditCardTypes", i);
+		fakedAssert(faker.cellPhoneFormats(), "ur", "cellPhoneFormats", i);
+		fakedAssert(faker.colorHuman(), "ur", "colorHuman", i);
+		fakedAssert(faker.colorSpace(), "ur", "colorSpace", i);
+		fakedAssert(faker.commerceDepartment(), "ur", "commerceDepartment", i);
+		fakedAssert(faker.commerceProductDescription(), "ur", "commerceProductDescription", i);
+		fakedAssert(faker.companyAdjective(), "ur", "companyAdjective", i);
+		fakedAssert(faker.companyBs(), "ur", "companyBs", i);
+		fakedAssert(faker.companyBsAdjective(), "ur", "companyBsAdjective", i);
+		fakedAssert(faker.companyBsNoun(), "ur", "companyBsNoun", i);
+		fakedAssert(faker.companyBsVerb(), "ur", "companyBsVerb", i);
+		fakedAssert(faker.companyCatchPhrase(), "ur", "companyCatchPhrase", i);
+		fakedAssert(faker.companyDescriptor(), "ur", "companyDescriptor", i);
+		fakedAssert(faker.companyName(), "ur", "companyName", i);
+		fakedAssert(faker.companyNoun(), "ur", "companyNoun", i);
+		fakedAssert(faker.companySuffix(), "ur", "companySuffix", i);
+		fakedAssert(faker.databaseCollation(), "ur", "databaseCollation", i);
+		fakedAssert(faker.databaseColumn(), "ur", "databaseColumn", i);
+		fakedAssert(faker.databaseEngine(), "ur", "databaseEngine", i);
+		fakedAssert(faker.databaseType(), "ur", "databaseType", i);
+		fakedAssert(faker.dateMonth(), "ur", "dateMonth", i);
+		fakedAssert(faker.dateWeekday(), "ur", "dateWeekday", i);
+		fakedAssert(faker.financeAccount(), "ur", "financeAccount", i);
+		fakedAssert(faker.financeAccountType(), "ur", "financeAccountType", i);
+		fakedAssert(faker.financeBIC(), "ur", "financeBIC", i);
+		fakedAssert(faker.financeBitcoinAddress(), "ur", "financeBitcoinAddress", i);
+		fakedAssert(faker.financeCreditCard(), "ur", "financeCreditCard", i);
+		fakedAssert(faker.financeCreditCardAmericanExpress(), "ur", "financeCreditCardAmericanExpress", i);
+		fakedAssert(faker.financeCreditCardCVV(), "ur", "financeCreditCardCVV", i);
+		fakedAssert(faker.financeCreditCardDinersClub(), "ur", "financeCreditCardDinersClub", i);
+		fakedAssert(faker.financeCreditCardDiscover(), "ur", "financeCreditCardDiscover", i);
+		fakedAssert(faker.financeCreditCardInstapayment(), "ur", "financeCreditCardInstapayment", i);
+		fakedAssert(faker.financeCreditCardJcb(), "ur", "financeCreditCardJcb", i);
+		fakedAssert(faker.financeCreditCardMastercard(), "ur", "financeCreditCardMastercard", i);
+		fakedAssert(faker.financeCreditCardSolo(), "ur", "financeCreditCardSolo", i);
+		fakedAssert(faker.financeCreditCardSwitch(), "ur", "financeCreditCardSwitch", i);
+		fakedAssert(faker.financeCreditCardVisa(), "ur", "financeCreditCardVisa", i);
+		fakedAssert(faker.financeCurrency(), "ur", "financeCurrency", i);
+		fakedAssert(faker.financeIBAN(), "ur", "financeIBAN", i);
+		fakedAssert(faker.financeMask(), "ur", "financeMask", i);
+		fakedAssert(faker.financeRoutingNumber(), "ur", "financeRoutingNumber", i);
+		fakedAssert(faker.financeTransactionType(), "ur", "financeTransactionType", i);
+		fakedAssert(faker.hackerAbbreviation(), "ur", "hackerAbbreviation", i);
+		fakedAssert(faker.hackerAdjective(), "ur", "hackerAdjective", i);
+		fakedAssert(faker.hackerIngverb(), "ur", "hackerIngverb", i);
+		fakedAssert(faker.hackerNoun(), "ur", "hackerNoun", i);
+		fakedAssert(faker.hackerPhrase(), "ur", "hackerPhrase", i);
+		fakedAssert(faker.hackerVerb(), "ur", "hackerVerb", i);
+		fakedAssert(faker.helperAlpha(), "ur", "helperAlpha", i);
+		fakedAssert(faker.helperAlphaNum(), "ur", "helperAlphaNum", i);
+		fakedAssert(faker.helperHexaDecimal(), "ur", "helperHexaDecimal", i);
+		fakedAssert(faker.internetAvatarUri(), "ur", "internetAvatarUri", i);
+		fakedAssert(faker.internetColor(), "ur", "internetColor", i);
+		fakedAssert(faker.internetDomainName(), "ur", "internetDomainName", i);
+		fakedAssert(faker.internetDomainSuffix(), "ur", "internetDomainSuffix", i);
+		fakedAssert(faker.internetDomainWord(), "ur", "internetDomainWord", i);
+		fakedAssert(faker.internetEmoji(), "ur", "internetEmoji", i);
+		fakedAssert(faker.internetExampleEmail(), "ur", "internetExampleEmail", i);
+		fakedAssert(faker.internetFreeEmail(), "ur", "internetFreeEmail", i);
+		fakedAssert(faker.internetHttpStatusCode(), "ur", "internetHttpStatusCode", i);
+		fakedAssert(faker.internetIPv4(), "ur", "internetIPv4", i);
+		fakedAssert(faker.internetIPv6(), "ur", "internetIPv6", i);
+		fakedAssert(faker.internetPassword(), "ur", "internetPassword", i);
+		fakedAssert(faker.internetProtocol(), "ur", "internetProtocol", i);
+		fakedAssert(faker.internetUrl(), "ur", "internetUrl", i);
+		fakedAssert(faker.internetUserName(), "ur", "internetUserName", i);
+		fakedAssert(faker.loremParagraph(), "ur", "loremParagraph", i);
+		fakedAssert(faker.loremParagraphs(), "ur", "loremParagraphs", i);
+		fakedAssert(faker.loremSentance(), "ur", "loremSentance", i);
+		fakedAssert(faker.loremSentances(), "ur", "loremSentances", i);
+		fakedAssert(faker.loremSupplemental(), "ur", "loremSupplemental", i);
+		fakedAssert(faker.loremText(), "ur", "loremText", i);
+		fakedAssert(faker.loremWords(), "ur", "loremWords", i);
+		fakedAssert(faker.musicGenre(), "ur", "musicGenre", i);
+		fakedAssert(faker.musicSongName(), "ur", "musicSongName", i);
+		fakedAssert(faker.nameBinaryGender(), "ur", "nameBinaryGender", i);
+		fakedAssert(faker.nameFemaleFirstName(), "ur", "nameFemaleFirstName", i);
+		fakedAssert(faker.nameFemaleMiddleName(), "ur", "nameFemaleMiddleName", i);
+		fakedAssert(faker.nameFirstName(), "ur", "nameFirstName", i);
+		fakedAssert(faker.nameGender(), "ur", "nameGender", i);
+		fakedAssert(faker.nameLastName(), "ur", "nameLastName", i);
+		fakedAssert(faker.nameMaleFirstName(), "ur", "nameMaleFirstName", i);
+		fakedAssert(faker.nameMaleMiddleName(), "ur", "nameMaleMiddleName", i);
+		fakedAssert(faker.nameMiddleName(), "ur", "nameMiddleName", i);
+		fakedAssert(faker.nameName(), "ur", "nameName", i);
+		fakedAssert(faker.namePrefix(), "ur", "namePrefix", i);
+		fakedAssert(faker.nameSuffix(), "ur", "nameSuffix", i);
+		fakedAssert(faker.phoneNumber(), "ur", "phoneNumber", i);
+		fakedAssert(faker.phoneNumberFormats(), "ur", "phoneNumberFormats", i);
+		fakedAssert(faker.scienceChemicalelement(), "ur", "scienceChemicalelement", i);
+		fakedAssert(faker.scienceUnit(), "ur", "scienceUnit", i);
+		fakedAssert(faker.teamCreature(), "ur", "teamCreature", i);
+		fakedAssert(faker.teamName(), "ur", "teamName", i);
+		fakedAssert(faker.vehicle(), "ur", "vehicle", i);
+		fakedAssert(faker.vehicleBicycleType(), "ur", "vehicleBicycleType", i);
+		fakedAssert(faker.vehicleFuel(), "ur", "vehicleFuel", i);
+		fakedAssert(faker.vehicleManufacturer(), "ur", "vehicleManufacturer", i);
+		fakedAssert(faker.vehicleModel(), "ur", "vehicleModel", i);
+		fakedAssert(faker.vehicleType(), "ur", "vehicleType", i);
+		fakedAssert(faker.vehicleVin(), "ur", "vehicleVin", i);
+		fakedAssert(faker.wordAdjective(), "ur", "wordAdjective", i);
+		fakedAssert(faker.wordAdverb(), "ur", "wordAdverb", i);
+		fakedAssert(faker.wordConjunction(), "ur", "wordConjunction", i);
+		fakedAssert(faker.wordInterjection(), "ur", "wordInterjection", i);
+		fakedAssert(faker.wordNoun(), "ur", "wordNoun", i);
+		fakedAssert(faker.wordPreposition(), "ur", "wordPreposition", i);
+		fakedAssert(faker.wordVerb(), "ur", "wordVerb", i);
+
+	}
+}
+
+unittest {
 	import faked.faker_vi;
-    auto faker = new Faker_vi(50);
+    auto faker = new Faker_vi(53);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "vi", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "vi", "addressCity", i);
@@ -7895,7 +8366,7 @@ unittest {
 
 unittest {
 	import faked.faker_zh_cn;
-    auto faker = new Faker_zh_cn(51);
+    auto faker = new Faker_zh_cn(54);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "zh_CN", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "zh_CN", "addressCity", i);
@@ -8052,7 +8523,7 @@ unittest {
 
 unittest {
 	import faked.faker_zh_tw;
-    auto faker = new Faker_zh_tw(52);
+    auto faker = new Faker_zh_tw(55);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "zh_TW", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "zh_TW", "addressCity", i);
@@ -8209,7 +8680,7 @@ unittest {
 
 unittest {
 	import faked.faker_zu_za;
-    auto faker = new Faker_zu_za(53);
+    auto faker = new Faker_zu_za(56);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "zu_ZA", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "zu_ZA", "addressCity", i);
@@ -8366,7 +8837,7 @@ unittest {
 
 unittest {
 	import faked.base;
-    auto faker = new Faker(54);
+    auto faker = new Faker(57);
 	for(int i = 0; i < 30; ++i) {
 		fakedAssert(faker.addressBuildingNumber(), "en", "addressBuildingNumber", i);
 		fakedAssert(faker.addressCity(), "en", "addressCity", i);

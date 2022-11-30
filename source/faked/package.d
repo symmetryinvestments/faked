@@ -8,6 +8,9 @@ public import faked.base;
 public import faked.faker_af_za;
 
 ///
+public import faked.faker_ar;
+
+///
 public import faked.faker_az;
 
 ///
@@ -63,6 +66,9 @@ public import faked.faker_es;
 
 ///
 public import faked.faker_es_mx;
+
+///
+public import faked.faker_fa;
 
 ///
 public import faked.faker_fi;
@@ -150,6 +156,9 @@ public import faked.faker_tr;
 
 ///
 public import faked.faker_uk;
+
+///
+public import faked.faker_ur;
 
 ///
 public import faked.faker_vi;
