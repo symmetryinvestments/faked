@@ -40,7 +40,7 @@ class Faker_uk : Faker {
 	}
 
 	///
-	override string addressCityName() {
+	override string locationCityName() {
 		auto data = [
 		"Алчевськ",
 		"Артемівськ",
@@ -104,7 +104,7 @@ class Faker_uk : Faker {
 	}
 
 	///
-	override string addressState() {
+	override string locationState() {
 		auto data = [
 		"АР Крим",
 		"Вінницька область",
@@ -138,7 +138,7 @@ class Faker_uk : Faker {
 	}
 
 	///
-	override string addressCountry() {
+	override string locationCountry() {
 		auto data = [
 		"Австралія",
 		"Австрія",
@@ -338,25 +338,41 @@ class Faker_uk : Faker {
 	}
 
 
-	override string addressStreetAddress() {
+	override string locationStreetPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return locationStreetPrefix() ~ " " ~ locationStreetName();
+			case 1: return locationStreetName() ~ " " ~ locationStreetSuffix();
+		}
+	}
+
+
+	override string locationStreetAddress() {
 		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return "normal: '" ~ addressStreet();
-			case 1: return addressBuildingNumber();
-			case 2: return "full: '" ~ addressStreet();
-			case 3: return addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+			case 0: return "normal: '" ~ locationStreet();
+			case 1: return locationBuildingNumber();
+			case 2: return "full: '" ~ locationStreet();
+			case 3: return locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
 		}
 	}
 
 	///
-	override string addressDefaultCountry() {
+	override string locationDefaultCountry() {
 		auto data = [
 		"Україна'"
 		];
 		return choice(data, this.rnd);
 	}
 
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return locationCityName();
+			case 1: return locationCityPrefix() ~ " " ~ personMaleFirstName();
+		}
+	}
+
 	///
-	string addressStreetPrefix() {
+	string locationStreetPrefix() {
 		auto data = [
 		"вул.",
 		"вулиця",
@@ -371,7 +387,7 @@ class Faker_uk : Faker {
 	}
 
 	///
-	override string addressCitySuffix() {
+	override string locationCitySuffix() {
 		auto data = [
 		"град'"
 		];
@@ -379,7 +395,7 @@ class Faker_uk : Faker {
 	}
 
 	///
-	override string addressCityPrefix() {
+	override string locationCityPrefix() {
 		auto data = [
 		"Південний",
 		"Північний",
@@ -389,16 +405,8 @@ class Faker_uk : Faker {
 		return choice(data, this.rnd);
 	}
 
-
-	override string addressStreet() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return addressStreetPrefix() ~ " " ~ addressStreetName();
-			case 1: return addressStreetName() ~ " " ~ addressStreetSuffix();
-		}
-	}
-
 	///
-	string addressStreetName() {
+	string locationStreetName() {
 		auto data = [
 		"Зелена",
 		"Молодіжна",
@@ -417,16 +425,8 @@ class Faker_uk : Faker {
 		return choice(data, this.rnd);
 	}
 
-
-	override string addressCity() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return addressCityName();
-			case 1: return addressCityPrefix() ~ " " ~ nameMaleFirstName();
-		}
-	}
-
 	///
-	override string addressBuildingNumber() {
+	override string locationBuildingNumber() {
 		auto data = [
 		"#",
 		"##",
@@ -436,7 +436,7 @@ class Faker_uk : Faker {
 	}
 
 	///
-	override string addressSecondaryAddress() {
+	override string locationSecondaryAddress() {
 		auto data = [
 		"кв. ###'"
 		];
@@ -444,7 +444,7 @@ class Faker_uk : Faker {
 	}
 
 	///
-	override string addressPostcode() {
+	override string locationPostcode() {
 		auto data = [
 		"#####'"
 		];
@@ -452,7 +452,7 @@ class Faker_uk : Faker {
 	}
 
 	///
-	override string addressStreetSuffix() {
+	override string locationStreetSuffix() {
 		auto data = [
 		"майдан'"
 		];
@@ -487,16 +487,16 @@ class Faker_uk : Faker {
 	}
 
 
-	override string companyName() {
+	override string companyNamePattern() {
 		final switch(uniform(0, 8, this.rnd)) {
-			case 0: return companyPrefix() ~ " " ~ nameFemaleFirstName();
-			case 1: return companyPrefix() ~ " " ~ nameMaleFirstName();
-			case 2: return companyPrefix() ~ " " ~ nameMaleLastName();
+			case 0: return companyPrefix() ~ " " ~ personFemaleFirstName();
+			case 1: return companyPrefix() ~ " " ~ personMaleFirstName();
+			case 2: return companyPrefix() ~ " " ~ personMaleLastName();
 			case 3: return companyPrefix() ~ " " ~ companySuffix() ~ companySuffix();
 			case 4: return companyPrefix() ~ " " ~ companySuffix() ~ companySuffix() ~ companySuffix();
-			case 5: return companyPrefix() ~ " " ~ addressCityName() ~ companySuffix();
-			case 6: return companyPrefix() ~ " " ~ addressCityName() ~ companySuffix() ~ companySuffix();
-			case 7: return companyPrefix() ~ " " ~ addressCityName() ~ companySuffix() ~ companySuffix() ~ companySuffix();
+			case 5: return companyPrefix() ~ " " ~ locationCityName() ~ companySuffix();
+			case 6: return companyPrefix() ~ " " ~ locationCityName() ~ companySuffix() ~ companySuffix();
+			case 7: return companyPrefix() ~ " " ~ locationCityName() ~ companySuffix() ~ companySuffix() ~ companySuffix();
 		}
 	}
 
@@ -555,7 +555,6 @@ class Faker_uk : Faker {
 		"odessa.ua",
 		"org.ua",
 		"pl.ua",
-		"pl.ua",
 		"poltava.ua",
 		"rovno.ua",
 		"rv.ua",
@@ -581,8 +580,24 @@ class Faker_uk : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string personMaleLastNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personMaleLastName();
+			case 1: return "weight: 1 }";
+		}
+	}
+
 	///
-	override string nameFemaleMiddleName() {
+	override string personMalePrefix() {
+		auto data = [
+		"Пан'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFemaleMiddleName() {
 		auto data = [
 		"Адамівна",
 		"Азарівна",
@@ -705,7 +720,7 @@ class Faker_uk : Faker {
 	}
 
 	///
-	override string nameMaleMiddleName() {
+	override string personMaleMiddleName() {
 		auto data = [
 		"Адамович",
 		"Азарович",
@@ -828,7 +843,15 @@ class Faker_uk : Faker {
 	}
 
 	///
-	override string nameMaleFirstName() {
+	override string personFemalePrefix() {
+		auto data = [
+		"Пані'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMaleFirstName() {
 		auto data = [
 		"Августин",
 		"Аврелій",
@@ -1030,7 +1053,7 @@ class Faker_uk : Faker {
 	}
 
 	///
-	override string nameSuffix() {
+	override string personSuffix() {
 		auto data = [
 		"проф.",
 		"доц.",
@@ -1055,21 +1078,69 @@ class Faker_uk : Faker {
 	}
 
 
-	override string nameName() {
-		final switch(uniform(0, 8, this.rnd)) {
-			case 0: return nameMaleFirstName() ~ " " ~ nameMaleLastName();
-			case 1: return nameMaleLastName() ~ " " ~ nameMaleFirstName();
-			case 2: return nameMaleFirstName() ~ " " ~ nameMaleMiddleName() ~ " " ~ nameMaleLastName();
-			case 3: return nameMaleLastName() ~ " " ~ nameMaleFirstName() ~ " " ~ nameMaleMiddleName();
-			case 4: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
-			case 5: return nameFemaleLastName() ~ " " ~ nameFemaleFirstName();
-			case 6: return nameFemaleFirstName() ~ " " ~ nameFemaleMiddleName() ~ " " ~ nameFemaleLastName();
-			case 7: return nameFemaleLastName() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameFemaleMiddleName();
+	override string personTitle() {
+		final switch(uniform(0, 38, this.rnd)) {
+			case 0: return "descriptor: [";
+			case 1: return "Головний";
+			case 2: return "Генеральний";
+			case 3: return "Провідний";
+			case 4: return "Національний";
+			case 5: return "Регіональний";
+			case 6: return "Обласний";
+			case 7: return "Районний";
+			case 8: return "Глобальний";
+			case 9: return "Міжнародний";
+			case 10: return "Центральний";
+			case 11: return "]";
+			case 12: return "level: [";
+			case 13: return "маркетинговий";
+			case 14: return "оптимізаційний";
+			case 15: return "страховий";
+			case 16: return "функціональний";
+			case 17: return "інтеграційний";
+			case 18: return "логістичний";
+			case 19: return "]";
+			case 20: return "job: [";
+			case 21: return "інженер";
+			case 22: return "агент";
+			case 23: return "адміністратор";
+			case 24: return "аналітик";
+			case 25: return "архітектор";
+			case 26: return "дизайнер";
+			case 27: return "керівник";
+			case 28: return "консультант";
+			case 29: return "координатор";
+			case 30: return "менеджер";
+			case 31: return "планувальник";
+			case 32: return "помічник";
+			case 33: return "розробник";
+			case 34: return "спеціаліст";
+			case 35: return "співробітник";
+			case 36: return "технік";
+			case 37: return "]";
+		}
+	}
+
+
+	override string personName() {
+		final switch(uniform(0, 12, this.rnd)) {
+			case 0: return "{ value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 1: return "weight: 1 }";
+			case 2: return "{ value: '" ~ personLastName() ~ " " ~ personFirstName();
+			case 3: return "weight: 1 }";
+			case 4: return "{";
+			case 5: return "value: '" ~ personFirstName() ~ " " ~ personMiddleName() ~ " " ~ personLastName();
+			case 6: return "weight: 1";
+			case 7: return "}";
+			case 8: return "{";
+			case 9: return "value: '" ~ personLastName() ~ " " ~ personFirstName() ~ " " ~ personMiddleName();
+			case 10: return "weight: 1";
+			case 11: return "}";
 		}
 	}
 
 	///
-	override string nameFemaleFirstName() {
+	override string personFemaleFirstName() {
 		auto data = [
 		"Аврелія",
 		"Аврора",
@@ -1089,7 +1160,6 @@ class Faker_uk : Faker {
 		"Алла",
 		"Альбіна",
 		"Альвіна",
-		"Анастасія",
 		"Анастасія",
 		"Анатолія",
 		"Ангеліна",
@@ -1269,7 +1339,7 @@ class Faker_uk : Faker {
 	}
 
 	///
-	string nameMaleLastName() {
+	string personMaleLastName() {
 		auto data = [
 		"Андрухович",
 		"Бабух",
@@ -1515,7 +1585,7 @@ class Faker_uk : Faker {
 	}
 
 	///
-	string nameFemaleLastName() {
+	string personFemaleLastName() {
 		auto data = [
 		"Андрухович",
 		"Бабух",
@@ -1751,13 +1821,12 @@ class Faker_uk : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string namePrefix() {
-		auto data = [
-		"Пан",
-		"Пані'"
-		];
-		return choice(data, this.rnd);
+
+	override string personFemaleLastNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personFemaleLastName();
+			case 1: return "weight: 1 }";
+		}
 	}
 
 }

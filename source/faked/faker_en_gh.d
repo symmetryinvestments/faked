@@ -52,7 +52,7 @@ class Faker_en_gh : Faker {
 	}
 
 	///
-	override string addressCityName() {
+	override string locationCityName() {
 		auto data = [
 		"Goaso",
 		"Hwidiem",
@@ -204,7 +204,6 @@ class Faker_en_gh : Faker {
 		"Koforidua",
 		"Kwabeng",
 		"Mamfe",
-		"Mampong",
 		"Mpraeso",
 		"New Abirem",
 		"Nkawkaw",
@@ -232,7 +231,6 @@ class Faker_en_gh : Faker {
 		"Adenta",
 		"Afienya",
 		"Agbogba",
-		"Airport",
 		"Amasaman",
 		"Ashiaman",
 		"Ashongman",
@@ -301,7 +299,6 @@ class Faker_en_gh : Faker {
 		"Kpassa",
 		"Nkonya",
 		"Bole",
-		"Buipe",
 		"Damango",
 		"Salaga",
 		"Sawla",
@@ -412,7 +409,7 @@ class Faker_en_gh : Faker {
 	}
 
 	///
-	override string addressState() {
+	override string locationState() {
 		auto data = [
 		"Ashanti",
 		"Brong Ahafo",
@@ -435,46 +432,46 @@ class Faker_en_gh : Faker {
 	}
 
 
-	override string addressStreetAddress() {
+	override string locationStreetPattern() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressBuildingNumber() ~ " " ~ addressStreet();
-			case 1: return "full: '" ~ addressBuildingNumber() ~ " " ~ addressStreet() ~ " " ~ addressSecondaryAddress();
+			case 0: return personLastName() ~ " " ~ locationStreetSuffix();
+			case 1: return locationStreetPrefix() ~ " " ~ locationStreetSuffix();
+		}
+	}
+
+
+	override string locationStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ locationBuildingNumber() ~ " " ~ locationStreet();
+			case 1: return "full: '" ~ locationBuildingNumber() ~ " " ~ locationStreet() ~ " " ~ locationSecondaryAddress();
 		}
 	}
 
 	///
-	override string addressDefaultCountry() {
+	override string locationDefaultCountry() {
 		auto data = [
 		"Ghana'"
 		];
 		return choice(data, this.rnd);
 	}
 
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName() ~ "'";
+		}
+	}
+
 	///
-	string addressStreetPrefix() {
+	string locationStreetPrefix() {
 		auto data = [
 		"Boame'"
 		];
 		return choice(data, this.rnd);
 	}
 
-
-	override string addressStreet() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameLastName() ~ " " ~ addressStreetSuffix();
-			case 1: return addressStreetPrefix() ~ " " ~ addressStreetSuffix();
-		}
-	}
-
-
-	override string addressCity() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressCityName() ~ "'";
-		}
-	}
-
 	///
-	override string addressBuildingNumber() {
+	override string locationBuildingNumber() {
 		auto data = [
 		"###",
 		"##",
@@ -484,7 +481,7 @@ class Faker_en_gh : Faker {
 	}
 
 	///
-	override string addressPostcode() {
+	override string locationPostcode() {
 		auto data = [
 		"??-###-####",
 		"??-####-####'"
@@ -493,7 +490,7 @@ class Faker_en_gh : Faker {
 	}
 
 	///
-	override string addressStreetSuffix() {
+	override string locationStreetSuffix() {
 		auto data = [
 		"Link",
 		"Lane",
@@ -517,10 +514,10 @@ class Faker_en_gh : Faker {
 	}
 
 
-	override string companyName() {
+	override string companyNamePattern() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameLastName() ~ " " ~ companySuffix();
-			case 1: return nameLastName() ~ " and " ~ nameLastName();
+			case 0: return personLastName() ~ " " ~ companySuffix();
+			case 1: return personLastName() ~ " and " ~ personLastName();
 		}
 	}
 
@@ -541,7 +538,7 @@ class Faker_en_gh : Faker {
 	}
 
 	///
-	override string nameFemaleFirstName() {
+	override string personFemaleFirstName() {
 		auto data = [
 		"Aba",
 		"Abena",
@@ -596,13 +593,11 @@ class Faker_en_gh : Faker {
 		"Georgina",
 		"Gifty",
 		"Grace",
-		"Grace",
 		"Hannabel",
 		"Hannah",
 		"Harriet",
 		"Helen",
 		"Irene",
-		"Janet",
 		"Janet",
 		"Janice",
 		"Jasmine",
@@ -611,7 +606,6 @@ class Faker_en_gh : Faker {
 		"Jill",
 		"Joanna",
 		"Josephine",
-		"Joyce",
 		"Joyce",
 		"Judith",
 		"Julia",
@@ -626,16 +620,12 @@ class Faker_en_gh : Faker {
 		"Lisa",
 		"Lorraine",
 		"Lucy",
-		"Lucy",
-		"Lydia",
 		"Lydia",
 		"Mandy",
-		"Margaret",
 		"Margaret",
 		"Maria",
 		"Marian",
 		"Marilyn",
-		"Mary",
 		"Mary",
 		"Maureen",
 		"Mawuena",
@@ -656,25 +646,20 @@ class Faker_en_gh : Faker {
 		"Rachael",
 		"Rachel",
 		"Rebecca",
-		"Rebecca",
 		"Regina",
 		"Rita",
 		"Roselyn",
-		"Rosemary",
 		"Rosemary",
 		"Ruth",
 		"Salomey",
 		"Samantha",
 		"Sandra",
 		"Sarah",
-		"Sarah",
-		"Sarah",
 		"Sena",
 		"Sharon",
 		"Sheila",
 		"Shirley",
 		"Stephanie",
-		"Susan",
 		"Susan",
 		"Sylvia",
 		"Teresa",
@@ -691,8 +676,18 @@ class Faker_en_gh : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string personLastNamePattern() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
+			case 2: return "{ value: '" ~ personLastName() ~ "-" ~ personLastName();
+			case 3: return "weight: 1 }";
+		}
+	}
+
 	///
-	override string nameLastName() {
+	override string personLastName() {
 		auto data = [
 		"Acheampong",
 		"Adadevoh",
@@ -704,7 +699,6 @@ class Faker_en_gh : Faker {
 		"Adutwum",
 		"Afirifa",
 		"Afoakwa",
-		"Agyapong",
 		"Agyapong",
 		"Agyare",
 		"Agyei",
@@ -727,7 +721,6 @@ class Faker_en_gh : Faker {
 		"Ankra",
 		"Anokye",
 		"Ansa",
-		"Antwi",
 		"Antwi",
 		"Appia",
 		"Appiah",
@@ -820,16 +813,8 @@ class Faker_en_gh : Faker {
 		return choice(data, this.rnd);
 	}
 
-
-	override string nameFirstName() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFemaleFirstName();
-			case 1: return nameMaleFirstName() ~ "'";
-		}
-	}
-
 	///
-	override string nameMaleFirstName() {
+	override string personMaleFirstName() {
 		auto data = [
 		"Aaron",
 		"Abeiku",
@@ -968,12 +953,10 @@ class Faker_en_gh : Faker {
 	}
 
 
-	override string nameName() {
-		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return nameFemaleFirstName() ~ " " ~ nameLastName();
-			case 1: return nameFemaleFirstName() ~ " " ~ nameLastName() ~ "-" ~ nameLastName();
-			case 2: return nameMaleFirstName() ~ " " ~ nameLastName();
-			case 3: return nameMaleFirstName() ~ " " ~ nameLastName() ~ "-" ~ nameLastName();
+	override string personName() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 1: return "weight: 1 }";
 		}
 	}
 

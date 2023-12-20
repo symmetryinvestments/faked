@@ -19,6 +19,33 @@ class Faker_hu : Faker {
 	}
 
 	///
+	override string locationState() {
+		auto data = [
+		"Bács-Kiskun",
+		"Baranya",
+		"Békés",
+		"Borsod-Abaúj-Zemplén",
+		"Budapest",
+		"Csongrád-Csanád",
+		"Fejér",
+		"Győr-Moson-Sopron",
+		"Hajdú-Bihar",
+		"Heves",
+		"Jász-Nagykun-Szolnok",
+		"Komárom-Esztergom",
+		"Nógrád",
+		"Pest",
+		"Somogy",
+		"Szabolcs-Szatmár-Bereg",
+		"Tolna",
+		"Vas",
+		"Veszprém",
+		"Zala"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string financeTransactionType() {
 		auto data = [
 		"pénzbefizetés",
@@ -72,7 +99,6 @@ class Faker_hu : Faker {
 		"Angol telivér",
 		"Appaloosa",
 		"Appendix",
-		"Appaloosa",
 		"Arab félvér",
 		"Arab telivér",
 		"Arab",
@@ -970,346 +996,25 @@ class Faker_hu : Faker {
 	}
 
 	///
-	override string nameFemaleFirstName() {
+	override string companySuffix() {
 		auto data = [
-		"Hanna",
-		"Anna",
-		"Zoé",
-		"Léna",
-		"Luca",
-		"Emma",
-		"Zsófia",
-		"Boglárka",
-		"Lili",
-		"Mira",
-		"Lilien",
-		"Nóra",
-		"Laura",
-		"Lara",
-		"Maja",
-		"Fanni",
-		"Jázmin",
-		"Izabella",
-		"Olívia",
-		"Sára",
-		"Gréta",
-		"Alíz",
-		"Adél",
-		"Lilla",
-		"Liza",
-		"Flóra",
-		"Dorka",
-		"Zselyke",
-		"Dóra",
-		"Csenge",
-		"Janka",
-		"Liliána",
-		"Viktória",
-		"Szofia",
-		"Réka",
-		"Panna",
-		"Petra",
-		"Dorina",
-		"Natasa",
-		"Blanka",
-		"Eszter",
-		"Noémi",
-		"Emília",
-		"Bianka",
-		"Kamilla",
-		"Szófia",
-		"Vivien",
-		"Rebeka",
-		"Elizabet",
-		"Linett",
-		"Szofi",
-		"Júlia",
-		"Szonja",
-		"Abigél",
-		"Mia",
-		"Bella",
-		"Lia",
-		"Natália",
-		"Tamara",
-		"Lotti",
-		"Róza",
-		"Amira",
-		"Eliza",
-		"Panka",
-		"Milla",
-		"Zorka",
-		"Hanga",
-		"Nara",
-		"Norina",
-		"Fruzsina",
-		"Mirella",
-		"Dorottya",
-		"Boróka",
-		"Emili",
-		"Regina",
-		"Johanna",
-		"Alexandra",
-		"Diána",
-		"Elena",
-		"Kinga",
-		"Hédi",
-		"Borbála",
-		"Emese",
-		"Bíborka",
-		"Barbara",
-		"Letícia",
-		"Lujza",
-		"Zita",
-		"Kincső",
-		"Nina",
-		"Vanda",
-		"Veronika",
-		"Zara",
-		"Lana",
-		"Lora",
-		"Kiara",
-		"Lívia",
-		"Rozina",
-		"Zejnep",
-		"Virág"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string namePrefix() {
-		auto data = [
-		"Dr.",
-		"Prof.'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameLastName() {
-		auto data = [
-		"Nagy",
-		"Kovács",
-		"Tóth",
-		"Szabó",
-		"Horváth",
-		"Varga",
-		"Kiss",
-		"Molnár",
-		"Németh",
-		"Farkas",
-		"Balogh",
-		"Papp",
-		"Takács",
-		"Juhász",
-		"Lakatos",
-		"Mészáros",
-		"Oláh",
-		"Simon",
-		"Rácz",
-		"Fekete",
-		"Szilágyi",
-		"Török",
-		"Fehér",
-		"Balázs",
-		"Gál",
-		"Kis",
-		"Szűcs",
-		"Kocsis",
-		"Orsós",
-		"Pintér",
-		"Fodor",
-		"Szalai",
-		"Sipos",
-		"Magyar",
-		"Lukács",
-		"Gulyás",
-		"Biró",
-		"Király",
-		"László",
-		"Katona",
-		"Jakab",
-		"Bogdán",
-		"Balog",
-		"Sándor",
-		"Boros",
-		"Fazekas",
-		"Kelemen",
-		"Váradi",
-		"Antal",
-		"Somogyi",
-		"Orosz",
-		"Fülöp",
-		"Veres",
-		"Vincze",
-		"Hegedűs",
-		"Budai",
-		"Deák",
-		"Pap",
-		"Bálint",
-		"Pál",
-		"Illés",
-		"Vass",
-		"Szőke",
-		"Vörös",
-		"Bognár",
-		"Fábián",
-		"Lengyel",
-		"Bodnár",
-		"Szücs",
-		"Hajdu",
-		"Halász",
-		"Jónás",
-		"Máté",
-		"Székely",
-		"Kozma",
-		"Gáspár",
-		"Pásztor",
-		"Bakos",
-		"Dudás",
-		"Major",
-		"Orbán",
-		"Hegedüs",
-		"Virág",
-		"Barna",
-		"Novák",
-		"Soós",
-		"Tamás",
-		"Nemes",
-		"Pataki",
-		"Balla",
-		"Faragó",
-		"Kerekes",
-		"Borbély",
-		"Barta",
-		"Péter",
-		"Szekeres",
-		"Csonka",
-		"Mezei",
-		"Márton",
-		"Sárközi"
+		"Kft.",
+		"Bt.",
+		"Zrt.",
+		"Nyrt.",
+		"Kv.",
+		"Kkt.'"
 		];
 		return choice(data, this.rnd);
 	}
 
 
-	override string nameFirstName() {
-		return choice([false, true], this.rnd)
-			? nameFemaleFirstName()
-			: nameMaleFirstName();
-	}
-	///
-	override string nameMaleFirstName() {
-		auto data = [
-		"Bence",
-		"Máté",
-		"Dominik",
-		"Levente",
-		"Noel",
-		"Dániel",
-		"Zalán",
-		"Marcell",
-		"Olivér",
-		"Ádám",
-		"Milán",
-		"Dávid",
-		"Botond",
-		"Benett",
-		"Áron",
-		"Zsombor",
-		"Balázs",
-		"Márk",
-		"Péter",
-		"Kristóf",
-		"Zétény",
-		"Nimród",
-		"László",
-		"Benedek",
-		"Tamás",
-		"Gergő",
-		"Patrik",
-		"Zente",
-		"Bálint",
-		"András",
-		"Zoltán",
-		"Attila",
-		"Barnabás",
-		"Márton",
-		"Hunor",
-		"Kornél",
-		"Martin",
-		"Ákos",
-		"Gábor",
-		"Alex",
-		"István",
-		"Vince",
-		"Ábel",
-		"Krisztián",
-		"Zsolt",
-		"János",
-		"Nolen",
-		"Erik",
-		"Bendegúz",
-		"Sándor",
-		"József",
-		"Nándor",
-		"Richárd",
-		"Benjámin",
-		"Soma",
-		"Ármin",
-		"Csaba",
-		"Kevin",
-		"Róbert",
-		"Ferenc",
-		"Mátyás",
-		"Norbert",
-		"Roland",
-		"Vencel",
-		"Viktor",
-		"Csongor",
-		"Szabolcs",
-		"Mihály",
-		"Boldizsár",
-		"Benjamin",
-		"Simon",
-		"Gergely",
-		"Bertalan",
-		"Tibor",
-		"Zénó",
-		"Adrián",
-		"Miklós",
-		"Nikolasz",
-		"Vilmos",
-		"Kende",
-		"Imre",
-		"Gellért",
-		"Krisztofer",
-		"Donát",
-		"Vendel",
-		"Bende",
-		"Brájen",
-		"Dorián",
-		"Denisz",
-		"Sámuel",
-		"Noé",
-		"Csanád",
-		"Lajos",
-		"Kolos",
-		"Alexander",
-		"Laurent",
-		"Mirkó",
-		"György",
-		"Nátán",
-		"Iván"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string nameName() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return namePrefix() ~ " " ~ nameLastName() ~ " " ~ nameFirstName();
-			case 1: return nameLastName() ~ " " ~ nameFirstName();
+	override string companyNamePattern() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return personLastName() ~ " " ~ companySuffix();
+			case 1: return personLastName() ~ " és " ~ personLastName() ~ " " ~ companySuffix();
+			case 2: return personLastName() ~ " és Tsa. " ~ companySuffix();
+			case 3: return personLastName() ~ " 2000 " ~ companySuffix();
 		}
 	}
 
@@ -23652,7 +23357,6 @@ class Faker_hu : Faker {
 		"művésznév",
 		"művésztehetség",
 		"művezető",
-		"műsorvezető",
 		"Mycena zephirus",
 		"nábhjászana",
 		"nacionálé",
@@ -27429,7 +27133,36 @@ class Faker_hu : Faker {
 	}
 
 	///
-	string commerceColor() {
+	override string commerceDepartment() {
+		auto data = [
+		"Könyv",
+		"Film",
+		"Zene",
+		"Játék",
+		"Elektronika",
+		"Számítógép",
+		"Otthon",
+		"Kert",
+		"Szerszám",
+		"Élelmiszer",
+		"Egészség",
+		"Szépség",
+		"Játékszer",
+		"Gyermek",
+		"Baba",
+		"Ruházat",
+		"Cipő",
+		"Ékszer",
+		"Sport",
+		"Szabadban",
+		"Autó",
+		"Ipari"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
 		auto data = [
 		"piros",
 		"zöld",
@@ -27464,38 +27197,9 @@ class Faker_hu : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string commerceDepartment() {
-		auto data = [
-		"Könyv",
-		"Film",
-		"Zene",
-		"Játék",
-		"Elektronika",
-		"Számítógép",
-		"Otthon",
-		"Kert",
-		"Szerszám",
-		"Élelmiszer",
-		"Egészség",
-		"Szépség",
-		"Játékszer",
-		"Gyermek",
-		"Baba",
-		"Ruházat",
-		"Cipő",
-		"Ékszer",
-		"Sport",
-		"Szabadban",
-		"Autó",
-		"Ipari"
-		];
-		return choice(data, this.rnd);
-	}
-
 
 	override string dateWeekday() {
-		final switch(uniform(0, 36, this.rnd)) {
+		final switch(uniform(0, 16, this.rnd)) {
 			case 0: return "wide: [";
 			case 1: return "hétfő";
 			case 2: return "kedd";
@@ -27505,39 +27209,19 @@ class Faker_hu : Faker {
 			case 6: return "szombat";
 			case 7: return "vasárnap";
 			case 8: return "]";
-			case 9: return "if not set then \"wide\" will be used instead";
-			case 10: return "which may differ from a stand-alone word";
-			case 11: return "wide_context: [";
-			case 12: return "hétfő";
-			case 13: return "kedd";
-			case 14: return "szerda";
-			case 15: return "csütörtök";
-			case 16: return "péntek";
-			case 17: return "szombat";
-			case 18: return "vasárnap";
-			case 19: return "]";
-			case 20: return "abbr: ['Hé";
-			case 21: return "Ke";
-			case 22: return "Sze";
-			case 23: return "Csüt";
-			case 24: return "Pé";
-			case 25: return "Szo";
-			case 26: return "Va']";
-			case 27: return "if not set then \"abbr\" will be used instead";
-			case 28: return "which may differ from a stand-alone word";
-			case 29: return "abbr_context: ['Hé";
-			case 30: return "Ke";
-			case 31: return "Sze";
-			case 32: return "Csüt";
-			case 33: return "Pé";
-			case 34: return "Szo";
-			case 35: return "Va']";
+			case 9: return "abbr: ['Hé";
+			case 10: return "Ke";
+			case 11: return "Sze";
+			case 12: return "Csüt";
+			case 13: return "Pé";
+			case 14: return "Szo";
+			case 15: return "Va']";
 		}
 	}
 
 
 	override string dateMonth() {
-		final switch(uniform(0, 60, this.rnd)) {
+		final switch(uniform(0, 28, this.rnd)) {
 			case 0: return "wide: [";
 			case 1: return "január";
 			case 2: return "február";
@@ -27552,52 +27236,20 @@ class Faker_hu : Faker {
 			case 11: return "november";
 			case 12: return "december";
 			case 13: return "]";
-			case 14: return "if not set then \"wide\" will be used instead";
-			case 15: return "which may differ from a stand-alone word";
-			case 16: return "wide_context: [";
-			case 17: return "január";
-			case 18: return "február";
-			case 19: return "március";
-			case 20: return "április";
-			case 21: return "május";
-			case 22: return "június";
-			case 23: return "július";
-			case 24: return "augusztus";
-			case 25: return "szeptember";
-			case 26: return "október";
-			case 27: return "november";
-			case 28: return "december";
-			case 29: return "]";
-			case 30: return "abbr: [";
-			case 31: return "jan.";
-			case 32: return "febr.";
-			case 33: return "márc.";
-			case 34: return "ápr.";
-			case 35: return "máj.";
-			case 36: return "jún.";
-			case 37: return "júl.";
-			case 38: return "aug.";
-			case 39: return "szept.";
-			case 40: return "okt.";
-			case 41: return "nov.";
-			case 42: return "dec.";
-			case 43: return "]";
-			case 44: return "if not set then \"abbr\" will be used instead";
-			case 45: return "which may differ from a stand-alone word";
-			case 46: return "abbr_context: [";
-			case 47: return "jan.";
-			case 48: return "febr.";
-			case 49: return "márc.";
-			case 50: return "ápr.";
-			case 51: return "máj.";
-			case 52: return "jún.";
-			case 53: return "júl.";
-			case 54: return "aug.";
-			case 55: return "szept.";
-			case 56: return "okt.";
-			case 57: return "nov.";
-			case 58: return "dec.";
-			case 59: return "]";
+			case 14: return "abbr: [";
+			case 15: return "jan.";
+			case 16: return "febr.";
+			case 17: return "márc.";
+			case 18: return "ápr.";
+			case 19: return "máj.";
+			case 20: return "jún.";
+			case 21: return "júl.";
+			case 22: return "aug.";
+			case 23: return "szept.";
+			case 24: return "okt.";
+			case 25: return "nov.";
+			case 26: return "dec.";
+			case 27: return "]";
 		}
 	}
 
@@ -27616,10 +27268,6 @@ class Faker_hu : Faker {
 		"+36 30/###-####",
 		"+36 50/###-####",
 		"+36 70/###-####",
-		"0620#######",
-		"0630#######",
-		"0650#######",
-		"0670#######",
 		"003620#######",
 		"003630#######",
 		"003650#######",
@@ -27652,6 +27300,365 @@ class Faker_hu : Faker {
 		"org'"
 		];
 		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMalePrefix() {
+		auto data = [
+		"Dr.",
+		"Prof.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFemalePrefix() {
+		auto data = [
+		"Dr.",
+		"Prof.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMaleFirstName() {
+		auto data = [
+		"Bence",
+		"Máté",
+		"Dominik",
+		"Levente",
+		"Noel",
+		"Dániel",
+		"Zalán",
+		"Marcell",
+		"Olivér",
+		"Ádám",
+		"Milán",
+		"Dávid",
+		"Botond",
+		"Benett",
+		"Áron",
+		"Zsombor",
+		"Balázs",
+		"Márk",
+		"Péter",
+		"Kristóf",
+		"Zétény",
+		"Nimród",
+		"László",
+		"Benedek",
+		"Tamás",
+		"Gergő",
+		"Patrik",
+		"Zente",
+		"Bálint",
+		"András",
+		"Zoltán",
+		"Attila",
+		"Barnabás",
+		"Márton",
+		"Hunor",
+		"Kornél",
+		"Martin",
+		"Ákos",
+		"Gábor",
+		"Alex",
+		"István",
+		"Vince",
+		"Ábel",
+		"Krisztián",
+		"Zsolt",
+		"János",
+		"Nolen",
+		"Erik",
+		"Bendegúz",
+		"Sándor",
+		"József",
+		"Nándor",
+		"Richárd",
+		"Benjámin",
+		"Soma",
+		"Ármin",
+		"Csaba",
+		"Kevin",
+		"Róbert",
+		"Ferenc",
+		"Mátyás",
+		"Norbert",
+		"Roland",
+		"Vencel",
+		"Viktor",
+		"Csongor",
+		"Szabolcs",
+		"Mihály",
+		"Boldizsár",
+		"Benjamin",
+		"Simon",
+		"Gergely",
+		"Bertalan",
+		"Tibor",
+		"Zénó",
+		"Adrián",
+		"Miklós",
+		"Nikolasz",
+		"Vilmos",
+		"Kende",
+		"Imre",
+		"Gellért",
+		"Krisztofer",
+		"Donát",
+		"Vendel",
+		"Bende",
+		"Brájen",
+		"Dorián",
+		"Denisz",
+		"Sámuel",
+		"Noé",
+		"Csanád",
+		"Lajos",
+		"Kolos",
+		"Alexander",
+		"Laurent",
+		"Mirkó",
+		"György",
+		"Nátán",
+		"Iván"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personLastName() {
+		auto data = [
+		"Nagy",
+		"Kovács",
+		"Tóth",
+		"Szabó",
+		"Horváth",
+		"Varga",
+		"Kiss",
+		"Molnár",
+		"Németh",
+		"Farkas",
+		"Balogh",
+		"Papp",
+		"Takács",
+		"Juhász",
+		"Lakatos",
+		"Mészáros",
+		"Oláh",
+		"Simon",
+		"Rácz",
+		"Fekete",
+		"Szilágyi",
+		"Török",
+		"Fehér",
+		"Balázs",
+		"Gál",
+		"Kis",
+		"Szűcs",
+		"Kocsis",
+		"Orsós",
+		"Pintér",
+		"Fodor",
+		"Szalai",
+		"Sipos",
+		"Magyar",
+		"Lukács",
+		"Gulyás",
+		"Biró",
+		"Király",
+		"László",
+		"Katona",
+		"Jakab",
+		"Bogdán",
+		"Balog",
+		"Sándor",
+		"Boros",
+		"Fazekas",
+		"Kelemen",
+		"Váradi",
+		"Antal",
+		"Somogyi",
+		"Orosz",
+		"Fülöp",
+		"Veres",
+		"Vincze",
+		"Hegedűs",
+		"Budai",
+		"Deák",
+		"Pap",
+		"Bálint",
+		"Pál",
+		"Illés",
+		"Vass",
+		"Szőke",
+		"Vörös",
+		"Bognár",
+		"Fábián",
+		"Lengyel",
+		"Bodnár",
+		"Szücs",
+		"Hajdu",
+		"Halász",
+		"Jónás",
+		"Máté",
+		"Székely",
+		"Kozma",
+		"Gáspár",
+		"Pásztor",
+		"Bakos",
+		"Dudás",
+		"Major",
+		"Orbán",
+		"Hegedüs",
+		"Virág",
+		"Barna",
+		"Novák",
+		"Soós",
+		"Tamás",
+		"Nemes",
+		"Pataki",
+		"Balla",
+		"Faragó",
+		"Kerekes",
+		"Borbély",
+		"Barta",
+		"Péter",
+		"Szekeres",
+		"Csonka",
+		"Mezei",
+		"Márton",
+		"Sárközi"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string personName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return "{";
+			case 1: return "value: '" ~ personPrefix() ~ " " ~ personLastName() ~ " " ~ personFirstName();
+			case 2: return "weight: 1";
+			case 3: return "}";
+			case 4: return "{ value: '" ~ personLastName() ~ " " ~ personFirstName();
+			case 5: return "weight: 9 }";
+		}
+	}
+
+	///
+	override string personFemaleFirstName() {
+		auto data = [
+		"Hanna",
+		"Anna",
+		"Zoé",
+		"Léna",
+		"Luca",
+		"Emma",
+		"Zsófia",
+		"Boglárka",
+		"Lili",
+		"Mira",
+		"Lilien",
+		"Nóra",
+		"Laura",
+		"Lara",
+		"Maja",
+		"Fanni",
+		"Jázmin",
+		"Izabella",
+		"Olívia",
+		"Sára",
+		"Gréta",
+		"Alíz",
+		"Adél",
+		"Lilla",
+		"Liza",
+		"Flóra",
+		"Dorka",
+		"Zselyke",
+		"Dóra",
+		"Csenge",
+		"Janka",
+		"Liliána",
+		"Viktória",
+		"Szofia",
+		"Réka",
+		"Panna",
+		"Petra",
+		"Dorina",
+		"Natasa",
+		"Blanka",
+		"Eszter",
+		"Noémi",
+		"Emília",
+		"Bianka",
+		"Kamilla",
+		"Szófia",
+		"Vivien",
+		"Rebeka",
+		"Elizabet",
+		"Linett",
+		"Szofi",
+		"Júlia",
+		"Szonja",
+		"Abigél",
+		"Mia",
+		"Bella",
+		"Lia",
+		"Natália",
+		"Tamara",
+		"Lotti",
+		"Róza",
+		"Amira",
+		"Eliza",
+		"Panka",
+		"Milla",
+		"Zorka",
+		"Hanga",
+		"Nara",
+		"Norina",
+		"Fruzsina",
+		"Mirella",
+		"Dorottya",
+		"Boróka",
+		"Emili",
+		"Regina",
+		"Johanna",
+		"Alexandra",
+		"Diána",
+		"Elena",
+		"Kinga",
+		"Hédi",
+		"Borbála",
+		"Emese",
+		"Bíborka",
+		"Barbara",
+		"Letícia",
+		"Lujza",
+		"Zita",
+		"Kincső",
+		"Nina",
+		"Vanda",
+		"Veronika",
+		"Zara",
+		"Lana",
+		"Lora",
+		"Kiara",
+		"Lívia",
+		"Rozina",
+		"Zejnep",
+		"Virág"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string personLastNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
+		}
 	}
 
 }

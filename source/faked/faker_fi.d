@@ -19,7 +19,134 @@ class Faker_fi : Faker {
 	}
 
 	///
-	override string nameFemaleFirstName() {
+	override string locationCityName() {
+		auto data = [
+		"Espoo",
+		"Helsinki",
+		"Hyvinkää",
+		"Iisalmi",
+		"Joensuu",
+		"Jyväskylä",
+		"Kokkola",
+		"Kuopio",
+		"Lahti",
+		"Oulu",
+		"Pori",
+		"Porvoo",
+		"Raisio",
+		"Rovaniemi",
+		"Sastamala",
+		"Tampere",
+		"Turku",
+		"Vaasa",
+		"Valkeakoski",
+		"Vantaa"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationState() {
+		auto data = [
+		"Ahvenanmaa",
+		"Etelä-Karjala",
+		"Etelä-Pohjanmaa",
+		"Etelä-Savo",
+		"Kainuu",
+		"Kanta-Häme",
+		"Keski-Pohjanmaa",
+		"Keski-Suomi",
+		"Kymenlaakso",
+		"Lappi",
+		"Päijät-Häme",
+		"Pirkanmaa",
+		"Pohjanmaa",
+		"Pohjois-Karjala",
+		"Pohjois-Pohjanmaa",
+		"Pohjois-Savo",
+		"Satakunta",
+		"Uusimaa",
+		"Varsinais-Suomi"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string locationStreetPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ locationStreetSuffix();
+			case 1: return personLastName() ~ locationStreetSuffix();
+		}
+	}
+
+
+	override string locationStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ locationStreet() ~ " " ~ locationBuildingNumber();
+			case 1: return "full: '" ~ locationStreet() ~ " " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
+		}
+	}
+
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName() ~ "'";
+		}
+	}
+
+	///
+	override string locationBuildingNumber() {
+		auto data = [
+		"###",
+		"##",
+		"#'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+
+	override string locationSecondaryAddress() {
+		final switch(uniform(0, 9, this.rnd)) {
+			case 0: return "A";
+			case 1: return "B";
+			case 2: return "C";
+			case 3: return "A #";
+			case 4: return "A ##";
+			case 5: return "B #";
+			case 6: return "B ##";
+			case 7: return "C #";
+			case 8: return "C ##'";
+		}
+	}
+
+	///
+	override string locationPostcode() {
+		auto data = [
+		"#####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string locationStreetSuffix() {
+		auto data = [
+		"katu",
+		"tie",
+		"kuja",
+		"polku",
+		"kaari",
+		"linja",
+		"raitti",
+		"rinne",
+		"penger",
+		"ranta",
+		"väylä"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFemaleFirstName() {
 		auto data = [
 		"Aino",
 		"Anja",
@@ -75,8 +202,16 @@ class Faker_fi : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string personLastNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
+		}
+	}
+
 	///
-	override string nameLastName() {
+	override string personLastName() {
 		auto data = [
 		"Aaltonen",
 		"Ahonen",
@@ -133,7 +268,7 @@ class Faker_fi : Faker {
 	}
 
 	///
-	override string nameFirstName() {
+	override string personFirstName() {
 		auto data = [
 		"Aleksi",
 		"Antero",
@@ -240,7 +375,7 @@ class Faker_fi : Faker {
 	}
 
 	///
-	override string nameMaleFirstName() {
+	override string personMaleFirstName() {
 		auto data = [
 		"Aleksi",
 		"Antero",
@@ -297,12 +432,10 @@ class Faker_fi : Faker {
 	}
 
 
-	override string nameName() {
-		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return nameFirstName() ~ " " ~ nameLastName();
-			case 1: return nameFirstName() ~ " " ~ nameLastName();
-			case 2: return nameMaleFirstName() ~ " " ~ nameLastName();
-			case 3: return nameFemaleFirstName() ~ " " ~ nameLastName();
+	override string personName() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 1: return "weight: 1 }";
 		}
 	}
 

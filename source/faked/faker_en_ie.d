@@ -74,51 +74,37 @@ class Faker_en_ie : Faker {
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
+
+	override string locationStreetPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+		}
+	}
+
 	///
-	override string cellPhoneFormats() {
+	override string locationPostcode() {
 		auto data = [
-		"082 ### ####",
-		"083 ### ####",
-		"085 ### ####",
-		"086 ### ####",
-		"087 ### ####",
-		"089 ### ####"
+		"A## ****",
+		"D## ****",
+		"E## ****",
+		"F## ****",
+		"H## ****",
+		"K## ****",
+		"N## ****",
+		"P## ****",
+		"R## ****",
+		"T## ****",
+		"V## ****",
+		"W## ****",
+		"X## ****",
+		"Y## ****"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"ie",
-		"com",
-		"net",
-		"info",
-		"eu'"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string addressStreet() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
-			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
-		}
-	}
-
-
-	override string addressCity() {
-		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
-			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
-			case 2: return nameFirstName() ~ addressCitySuffix();
-			case 3: return nameLastName() ~ addressCitySuffix();
-		}
-	}
-
-	///
-	override string addressDefaultCountry() {
+	override string locationDefaultCountry() {
 		auto data = [
 		"Ireland'"
 		];
@@ -126,7 +112,7 @@ class Faker_en_ie : Faker {
 	}
 
 	///
-	override string addressCounty() {
+	override string locationCounty() {
 		auto data = [
 		"Carlow",
 		"Cavan",
@@ -156,6 +142,51 @@ class Faker_en_ie : Faker {
 		"Wicklow"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return locationCityPrefix() ~ " " ~ personFirstName() ~ locationCitySuffix();
+			case 1: return locationCityPrefix() ~ " " ~ personFirstName();
+			case 2: return personFirstName() ~ locationCitySuffix();
+			case 3: return personLastName() ~ locationCitySuffix();
+		}
+	}
+
+	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"082 ### ####",
+		"083 ### ####",
+		"085 ### ####",
+		"086 ### ####",
+		"087 ### ####",
+		"089 ### ####"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"ie",
+		"com",
+		"net",
+		"info",
+		"eu'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string personLastNamePattern() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 95 }";
+			case 2: return "{ value: '" ~ personLastName() ~ "-" ~ personLastName();
+			case 3: return "weight: 5 }";
+		}
 	}
 
 }

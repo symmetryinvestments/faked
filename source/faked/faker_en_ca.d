@@ -42,31 +42,7 @@ class Faker_en_ca : Faker {
 	}
 
 	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"yahoo.ca",
-		"hotmail.com'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"ca",
-		"com",
-		"biz",
-		"info",
-		"name",
-		"net",
-		"org'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCityName() {
+	override string locationCityName() {
 		auto data = [
 		"Argentia",
 		"Asbestos",
@@ -124,7 +100,6 @@ class Faker_en_ca : Faker {
 		"Estevan",
 		"Etobicoke",
 		"Ferryland",
-		"Flin Flon",
 		"Flin Flon",
 		"Fort Erie",
 		"Fort Frances",
@@ -294,7 +269,7 @@ class Faker_en_ca : Faker {
 	}
 
 	///
-	override string addressStateAbbr() {
+	override string locationStateAbbr() {
 		auto data = [
 		"AB",
 		"BC",
@@ -314,7 +289,7 @@ class Faker_en_ca : Faker {
 	}
 
 	///
-	override string addressState() {
+	override string locationState() {
 		auto data = [
 		"Alberta",
 		"British Columbia",
@@ -333,8 +308,16 @@ class Faker_en_ca : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string locationStreetPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+		}
+	}
+
 	///
-	override string addressDefaultCountry() {
+	override string locationDefaultCountry() {
 		auto data = [
 		"Canada'"
 		];
@@ -342,25 +325,18 @@ class Faker_en_ca : Faker {
 	}
 
 
-	override string addressStreet() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
-			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
-		}
-	}
-
-
-	override string addressCity() {
-		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
-			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
-			case 2: return nameFirstName() ~ addressCitySuffix();
-			case 3: return nameLastName() ~ addressCitySuffix();
+	override string locationCityPattern() {
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return locationCityPrefix() ~ " " ~ personFirstName() ~ locationCitySuffix();
+			case 1: return locationCityPrefix() ~ " " ~ personFirstName();
+			case 2: return personFirstName() ~ locationCitySuffix();
+			case 3: return personLastName() ~ locationCitySuffix();
+			case 4: return locationCityName();
 		}
 	}
 
 	///
-	override string addressPostcode() {
+	override string locationPostcode() {
 		auto data = [
 		"A#? #?#",
 		"B#? #?#",
@@ -382,6 +358,40 @@ class Faker_en_ca : Faker {
 		"Y#? #?#"
 		];
 		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.ca",
+		"hotmail.com'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"ca",
+		"com",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string personLastNamePattern() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 95 }";
+			case 2: return "{ value: '" ~ personLastName() ~ "-" ~ personLastName();
+			case 3: return "weight: 5 }";
+		}
 	}
 
 }

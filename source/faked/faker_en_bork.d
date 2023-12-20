@@ -128,4 +128,14 @@ class Faker_en_bork : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string personLastNamePattern() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 95 }";
+			case 2: return "{ value: '" ~ personLastName() ~ "-" ~ personLastName();
+			case 3: return "weight: 5 }";
+		}
+	}
+
 }

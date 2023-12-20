@@ -30,7 +30,7 @@ class Faker_en_au : Faker {
 	}
 
 	///
-	override string addressStateAbbr() {
+	override string locationStateAbbr() {
 		auto data = [
 		"NSW",
 		"QLD",
@@ -45,7 +45,7 @@ class Faker_en_au : Faker {
 	}
 
 	///
-	override string addressState() {
+	override string locationState() {
 		auto data = [
 		"New South Wales",
 		"Queensland",
@@ -59,8 +59,16 @@ class Faker_en_au : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string locationStreetPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+		}
+	}
+
 	///
-	override string addressDefaultCountry() {
+	override string locationDefaultCountry() {
 		auto data = [
 		"Australia'"
 		];
@@ -68,25 +76,17 @@ class Faker_en_au : Faker {
 	}
 
 
-	override string addressStreet() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
-			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
-		}
-	}
-
-
-	override string addressCity() {
+	override string locationCityPattern() {
 		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
-			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
-			case 2: return nameFirstName() ~ addressCitySuffix();
-			case 3: return nameLastName() ~ addressCitySuffix();
+			case 0: return locationCityPrefix() ~ " " ~ personFirstName() ~ locationCitySuffix();
+			case 1: return locationCityPrefix() ~ " " ~ personFirstName();
+			case 2: return personFirstName() ~ locationCitySuffix();
+			case 3: return personLastName() ~ locationCitySuffix();
 		}
 	}
 
 	///
-	override string addressBuildingNumber() {
+	override string locationBuildingNumber() {
 		auto data = [
 		"####",
 		"###",
@@ -96,7 +96,7 @@ class Faker_en_au : Faker {
 	}
 
 	///
-	override string addressPostcode() {
+	override string locationPostcode() {
 		auto data = [
 		"####'"
 		];
@@ -104,7 +104,7 @@ class Faker_en_au : Faker {
 	}
 
 	///
-	override string addressStreetSuffix() {
+	override string locationStreetSuffix() {
 		auto data = [
 		"Avenue",
 		"Boulevard",
@@ -173,8 +173,18 @@ class Faker_en_au : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string personLastNamePattern() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 95 }";
+			case 2: return "{ value: '" ~ personLastName() ~ "-" ~ personLastName();
+			case 3: return "weight: 5 }";
+		}
+	}
+
 	///
-	override string nameLastName() {
+	override string personLastName() {
 		auto data = [
 		"Smith",
 		"Jones",
@@ -222,7 +232,7 @@ class Faker_en_au : Faker {
 		"Johnston",
 		"Moore",
 		"Smyth",
-		"O'neill",
+		"O'Neill",
 		"Doherty",
 		"Stewart",
 		"Quinn",
@@ -298,7 +308,7 @@ class Faker_en_au : Faker {
 		"Crooks",
 		"Cruickshank",
 		"Cummings",
-		"D'amore",
+		"D'Amore",
 		"Daniel",
 		"Dare",
 		"Daugherty",
@@ -412,12 +422,12 @@ class Faker_en_au : Faker {
 		"Nader",
 		"Nicolas",
 		"Nolan",
-		"O'connell",
-		"O'conner",
-		"O'hara",
-		"O'keefe",
+		"O'Connell",
+		"O'Conner",
+		"O'Hara",
+		"O'Keefe",
 		"Olson",
-		"O'reilly",
+		"O'Reilly",
 		"Parisian",
 		"Parker",
 		"Quigley",
@@ -467,7 +477,7 @@ class Faker_en_au : Faker {
 	}
 
 	///
-	override string nameFirstName() {
+	override string personMaleFirstName() {
 		auto data = [
 		"William",
 		"Jack",
@@ -568,7 +578,14 @@ class Faker_en_au : Faker {
 		"Phoenix",
 		"Sam",
 		"John",
-		"Joel",
+		"Joel"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFemaleFirstName() {
+		auto data = [
 		"Isabella",
 		"Ruby",
 		"Chloe",

@@ -24,7 +24,6 @@ class Faker_de_ch : Faker {
 		"0800 ### ###",
 		"0800 ## ## ##",
 		"0## ### ## ##",
-		"0## ### ## ##",
 		"+41 ## ### ## ##",
 		"0900 ### ###",
 		"076 ### ## ##",
@@ -35,7 +34,7 @@ class Faker_de_ch : Faker {
 	}
 
 	///
-	override string addressCityName() {
+	override string locationCityName() {
 		auto data = [
 		"Aarau",
 		"Adliswil",
@@ -142,7 +141,7 @@ class Faker_de_ch : Faker {
 	}
 
 	///
-	override string addressStateAbbr() {
+	override string locationStateAbbr() {
 		auto data = [
 		"AG",
 		"AR",
@@ -175,7 +174,7 @@ class Faker_de_ch : Faker {
 	}
 
 	///
-	override string addressState() {
+	override string locationState() {
 		auto data = [
 		"Aargau",
 		"Appenzell Ausserrhoden",
@@ -207,8 +206,15 @@ class Faker_de_ch : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string locationStreetPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationStreetName() ~ "'";
+		}
+	}
+
 	///
-	override string addressDefaultCountry() {
+	override string locationDefaultCountry() {
 		auto data = [
 		"Schweiz'"
 		];
@@ -216,39 +222,68 @@ class Faker_de_ch : Faker {
 	}
 
 
-	override string addressStreet() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
-			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
-		}
-	}
-
-
-	override string addressCity() {
+	override string locationCityPattern() {
 		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressCityName() ~ "'";
+			case 0: return locationCityName() ~ "'";
 		}
 	}
 
 	///
-	override string addressCountryCode() {
+	string locationStreetName() {
 		auto data = [
-		"CH",
-		"CH",
-		"CH",
-		"DE",
-		"AT",
-		"US",
-		"LI",
-		"US",
-		"HK",
-		"VN'"
+		"Amthausstrasse",
+		"Augustinergasse",
+		"Bahnhofstrasse",
+		"Birkenweg",
+		"Bierkellerweg",
+		"Columbusstrasse",
+		"Dorfstrasse",
+		"Elefantenbach",
+		"Endingerstrasse",
+		"Glockengasse",
+		"Hauptstrasse",
+		"Hirschengraben",
+		"Honiggasse",
+		"Industriestrasse",
+		"Katzenplatz",
+		"Kirchweg",
+		"Knoblauchweg",
+		"Lindenhofweg",
+		"Melonenstrasse",
+		"Oberdorfstrasse",
+		"Ödhus",
+		"Ogimatte",
+		"Rämistrasse",
+		"Rennweg",
+		"Rosenweg",
+		"Schulhausstrasse",
+		"Schulstrasse",
+		"Sihlfeldstrasse",
+		"Trittligasse",
+		"Uraniastrasse",
+		"Vorstadt"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressPostcode() {
+	string locationCountryCode() {
+		auto data = [
+		"{ alpha2: 'CH",
+		"alpha3: 'CHE",
+		"numeric: '756' }",
+		"{ alpha2: 'DE",
+		"alpha3: 'DEU",
+		"numeric: '276' }",
+		"{ alpha2: 'AT",
+		"alpha3: 'AUT",
+		"numeric: '040' }"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationPostcode() {
 		auto data = [
 		"1###",
 		"2###",
@@ -279,12 +314,12 @@ class Faker_de_ch : Faker {
 	}
 
 
-	override string companyName() {
+	override string companyNamePattern() {
 		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return nameLastName() ~ " " ~ companySuffix();
-			case 1: return nameLastName() ~ "-" ~ nameLastName();
-			case 2: return nameLastName();
-			case 3: return nameLastName() ~ " und " ~ nameLastName();
+			case 0: return personLastName() ~ " " ~ companySuffix();
+			case 1: return personLastName() ~ "-" ~ personLastName();
+			case 2: return personLastName();
+			case 3: return personLastName() ~ " und " ~ personLastName();
 		}
 	}
 
@@ -297,25 +332,219 @@ class Faker_de_ch : Faker {
 		"ch",
 		"de",
 		"li",
-		"at",
-		"ch",
-		"ch'"
+		"at'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string namePrefix() {
+	override string personMalePrefix() {
 		auto data = [
-		"Hr.",
-		"Fr.",
-		"Dr.'"
+		"Herr",
+		"Dr.",
+		"Prof. Dr.'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string nameLastName() {
+	override string personFemalePrefix() {
+		auto data = [
+		"Frau",
+		"Dr.",
+		"Prof. Dr.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMaleFirstName() {
+		auto data = [
+		"Alfons",
+		"Alfred",
+		"Alois",
+		"André",
+		"Andreas",
+		"Angelo",
+		"Antoine",
+		"Anton",
+		"Antonio",
+		"Armin",
+		"Arnold",
+		"Arthur",
+		"Beat",
+		"Bernard",
+		"Bernhard",
+		"Bruno",
+		"Carlo",
+		"Charles",
+		"Christian",
+		"Christoph",
+		"Christophe",
+		"Claude",
+		"Claudio",
+		"Daniel",
+		"Daniele",
+		"David",
+		"Denis",
+		"Didier",
+		"Dieter",
+		"Dominik",
+		"Dominique",
+		"Edgar",
+		"Eduard",
+		"Edwin",
+		"Emil",
+		"Enrico",
+		"Eric",
+		"Erich",
+		"Ernst",
+		"Erwin",
+		"Eugen",
+		"Felix",
+		"Ferdinand",
+		"Francesco",
+		"Francis",
+		"Franco",
+		"François",
+		"Frank",
+		"Franz",
+		"Frédéric",
+		"Fredy",
+		"Fridolin",
+		"Friedrich",
+		"Fritz",
+		"Gabriel",
+		"Georg",
+		"Georges",
+		"Gérald",
+		"Gérard",
+		"Gerhard",
+		"Gianni",
+		"Gilbert",
+		"Giorgio",
+		"Giovanni",
+		"Giuseppe",
+		"Gottfried",
+		"Guido",
+		"Guy",
+		"Hans",
+		"Hans-Peter",
+		"Hans-Rudolf",
+		"Hans-Ulrich",
+		"Hansjörg",
+		"Hanspeter",
+		"Hansruedi",
+		"Hansueli",
+		"Harry",
+		"Heinrich",
+		"Heinz",
+		"Helmut",
+		"Henri",
+		"Herbert",
+		"Hermann",
+		"Hubert",
+		"Hugo",
+		"Jacques",
+		"Jakob",
+		"Jan",
+		"Jean-Claude",
+		"Jean-Daniel",
+		"Jean-François",
+		"Jean-Jacques",
+		"Jean-Louis",
+		"Jean-Luc",
+		"Jean-Marc",
+		"Jean-Marie",
+		"Jean-Paul",
+		"Jean-Pierre",
+		"Johann",
+		"Johannes",
+		"John",
+		"Jörg",
+		"Josef",
+		"Joseph",
+		"Jürg",
+		"Karl",
+		"Klaus",
+		"Konrad",
+		"Kurt",
+		"Laurent",
+		"Leo",
+		"Louis",
+		"Luca",
+		"Luigi",
+		"Lukas",
+		"Manfred",
+		"Manuel",
+		"Marc",
+		"Marcel",
+		"Marco",
+		"Mario",
+		"Markus",
+		"Martin",
+		"Massimo",
+		"Matthias",
+		"Maurice",
+		"Max",
+		"Michael",
+		"Michel",
+		"Nicolas",
+		"Niklaus",
+		"Norbert",
+		"Olivier",
+		"Oskar",
+		"Otto",
+		"Paolo",
+		"Pascal",
+		"Patrick",
+		"Paul",
+		"Peter",
+		"Philipp",
+		"Philippe",
+		"Pierre",
+		"Pierre-Alain",
+		"Pierre-André",
+		"Pius",
+		"Rainer",
+		"Raymond",
+		"Reinhard",
+		"Remo",
+		"Renato",
+		"Rene",
+		"René",
+		"Reto",
+		"Richard",
+		"Rudolf",
+		"Ruedi",
+		"Samuel",
+		"Sandro",
+		"Serge",
+		"Silvio",
+		"Simon",
+		"Stefan",
+		"Stephan",
+		"Stéphane",
+		"Theo",
+		"Theodor",
+		"Thomas",
+		"Ueli",
+		"Ulrich",
+		"Urs",
+		"Victor",
+		"Viktor",
+		"Walter",
+		"Werner",
+		"Willi",
+		"Willy",
+		"Wolfgang",
+		"Yves"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personLastName() {
 		auto data = [
 		"Ackermann",
 		"Aebi",
@@ -530,243 +759,113 @@ class Faker_de_ch : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string personName() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 1: return "weight: 1 }";
+		}
+	}
+
 	///
-	override string nameFirstName() {
+	override string personFemaleFirstName() {
 		auto data = [
-		"Adolf",
-		"Adrian",
-		"Agnes",
-		"Alain",
-		"Albert",
-		"Alberto",
-		"Aldo",
-		"Alex",
-		"Alexander",
-		"Alexandre",
-		"Alfons",
-		"Alfred",
 		"Alice",
-		"Alois",
-		"André",
 		"Andrea",
-		"Andreas",
 		"Angela",
-		"Angelo",
 		"Anita",
 		"Anna",
 		"Anne",
 		"Anne-Marie",
 		"Annemarie",
-		"Antoine",
-		"Anton",
-		"Antonio",
-		"Armin",
-		"Arnold",
-		"Arthur",
 		"Astrid",
 		"Barbara",
-		"Beat",
 		"Beatrice",
 		"Beatrix",
 		"Bernadette",
-		"Bernard",
-		"Bernhard",
 		"Bettina",
 		"Brigitta",
 		"Brigitte",
-		"Bruno",
-		"Carlo",
 		"Carmen",
 		"Caroline",
 		"Catherine",
 		"Chantal",
-		"Charles",
 		"Charlotte",
 		"Christa",
-		"Christian",
 		"Christiane",
 		"Christina",
 		"Christine",
-		"Christoph",
-		"Christophe",
 		"Claire",
-		"Claude",
 		"Claudia",
 		"Claudine",
-		"Claudio",
 		"Corinne",
 		"Cornelia",
-		"Daniel",
 		"Daniela",
-		"Daniele",
 		"Danielle",
-		"David",
-		"Denis",
 		"Denise",
-		"Didier",
-		"Dieter",
-		"Dominik",
 		"Dominique",
 		"Dora",
 		"Doris",
-		"Edgar",
 		"Edith",
-		"Eduard",
-		"Edwin",
 		"Eliane",
 		"Elisabeth",
 		"Elsa",
 		"Elsbeth",
-		"Emil",
-		"Enrico",
-		"Eric",
 		"Erica",
-		"Erich",
 		"Erika",
-		"Ernst",
-		"Erwin",
 		"Esther",
-		"Eugen",
 		"Eva",
 		"Eveline",
 		"Evelyne",
 		"Fabienne",
-		"Felix",
-		"Ferdinand",
 		"Florence",
-		"Francesco",
-		"Francis",
-		"Franco",
-		"François",
 		"Françoise",
-		"Frank",
-		"Franz",
 		"Franziska",
-		"Frédéric",
-		"Fredy",
-		"Fridolin",
-		"Friedrich",
-		"Fritz",
-		"Gabriel",
 		"Gabriela",
 		"Gabrielle",
-		"Georg",
-		"Georges",
-		"Gérald",
-		"Gérard",
-		"Gerhard",
 		"Gertrud",
-		"Gianni",
-		"Gilbert",
-		"Giorgio",
-		"Giovanni",
 		"Gisela",
-		"Giuseppe",
-		"Gottfried",
-		"Guido",
-		"Guy",
 		"Hanna",
-		"Hans",
-		"Hans-Peter",
-		"Hans-Rudolf",
-		"Hans-Ulrich",
-		"Hansjörg",
-		"Hanspeter",
-		"Hansruedi",
-		"Hansueli",
-		"Harry",
 		"Heidi",
-		"Heinrich",
-		"Heinz",
 		"Helen",
 		"Helena",
 		"Helene",
-		"Helmut",
-		"Henri",
-		"Herbert",
-		"Hermann",
 		"Hildegard",
-		"Hubert",
-		"Hugo",
 		"Ingrid",
 		"Irene",
 		"Iris",
 		"Isabelle",
 		"Jacqueline",
-		"Jacques",
-		"Jakob",
-		"Jan",
 		"Janine",
 		"Jean",
-		"Jean-Claude",
-		"Jean-Daniel",
-		"Jean-François",
-		"Jean-Jacques",
-		"Jean-Louis",
-		"Jean-Luc",
-		"Jean-Marc",
-		"Jean-Marie",
-		"Jean-Paul",
-		"Jean-Pierre",
-		"Johann",
 		"Johanna",
-		"Johannes",
-		"John",
 		"Jolanda",
-		"Jörg",
-		"Josef",
-		"Joseph",
 		"Josette",
 		"Josiane",
 		"Judith",
 		"Julia",
-		"Jürg",
 		"Karin",
-		"Karl",
 		"Katharina",
-		"Klaus",
-		"Konrad",
-		"Kurt",
 		"Laura",
 		"Laurence",
-		"Laurent",
-		"Leo",
 		"Liliane",
 		"Liselotte",
-		"Louis",
-		"Luca",
-		"Luigi",
-		"Lukas",
 		"Lydia",
 		"Madeleine",
 		"Maja",
-		"Manfred",
-		"Manuel",
 		"Manuela",
-		"Marc",
-		"Marcel",
-		"Marco",
 		"Margrit",
 		"Margrith",
 		"Maria",
 		"Marianne",
-		"Mario",
 		"Marion",
-		"Markus",
 		"Marlène",
 		"Marlies",
 		"Marlis",
 		"Martha",
-		"Martin",
 		"Martina",
 		"Martine",
-		"Massimo",
-		"Matthias",
-		"Maurice",
-		"Max",
 		"Maya",
-		"Michael",
-		"Michel",
 		"Michele",
 		"Micheline",
 		"Monica",
@@ -777,96 +876,36 @@ class Faker_de_ch : Faker {
 		"Nadja",
 		"Nathalie",
 		"Nelly",
-		"Nicolas",
 		"Nicole",
-		"Niklaus",
-		"Norbert",
-		"Olivier",
-		"Oskar",
-		"Otto",
 		"Paola",
-		"Paolo",
-		"Pascal",
 		"Patricia",
-		"Patrick",
-		"Paul",
-		"Peter",
 		"Petra",
-		"Philipp",
-		"Philippe",
 		"Pia",
-		"Pierre",
-		"Pierre-Alain",
-		"Pierre-André",
-		"Pius",
 		"Priska",
-		"Rainer",
-		"Raymond",
 		"Regina",
 		"Regula",
-		"Reinhard",
-		"Remo",
 		"Renata",
 		"Renate",
-		"Renato",
-		"Rene",
-		"René",
-		"Reto",
-		"Richard",
-		"Rita",
-		"Robert",
-		"Roberto",
-		"Roger",
-		"Roland",
-		"Rolf",
-		"Roman",
-		"Rosa",
-		"Rosemarie",
-		"Rosmarie",
-		"Rudolf",
-		"Ruedi",
 		"Ruth",
 		"Sabine",
-		"Samuel",
 		"Sandra",
-		"Sandro",
-		"Serge",
 		"Silvia",
-		"Silvio",
-		"Simon",
 		"Simone",
 		"Sonia",
 		"Sonja",
-		"Stefan",
-		"Stephan",
-		"Stéphane",
 		"Stéphanie",
 		"Susanna",
 		"Susanne",
 		"Suzanne",
 		"Sylvia",
 		"Sylvie",
-		"Theo",
-		"Theodor",
 		"Therese",
-		"Thomas",
 		"Toni",
-		"Ueli",
-		"Ulrich",
-		"Urs",
 		"Ursula",
 		"Verena",
 		"Véronique",
-		"Victor",
-		"Viktor",
 		"Vreni",
-		"Walter",
-		"Werner",
-		"Willi",
-		"Willy",
-		"Wolfgang",
 		"Yolande",
-		"Yves",
 		"Yvette",
 		"Yvonne"
 		];
@@ -874,14 +913,10 @@ class Faker_de_ch : Faker {
 	}
 
 
-	override string nameName() {
-		final switch(uniform(0, 6, this.rnd)) {
-			case 0: return nameFirstName() ~ " " ~ nameLastName();
-			case 1: return nameFirstName() ~ " " ~ nameLastName();
-			case 2: return nameFirstName() ~ " " ~ nameLastName();
-			case 3: return nameFirstName() ~ " " ~ nameLastName();
-			case 4: return nameFirstName() ~ " " ~ nameLastName();
-			case 5: return nameFirstName() ~ " " ~ nameLastName();
+	override string personLastNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
 		}
 	}
 

@@ -41,63 +41,41 @@ class Faker_en_gb : Faker {
 	}
 
 	///
-	override string cellPhoneFormats() {
+	override string locationStateAbbr() {
 		auto data = [
-		"074## ######",
-		"075## ######",
-		"076## ######",
-		"077## ######",
-		"078## ######",
-		"079## ######"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"ac.uk",
-		"biz",
-		"co",
-		"co.uk",
-		"com",
-		"cymru",
-		"gov.uk",
-		"info",
-		"london",
-		"ltd.uk",
-		"me.uk",
-		"name",
-		"nhs.uk",
-		"org.uk",
-		"plc.uk",
-		"sch.uk",
-		"scot",
-		"uk",
-		"wales"
+		"ENG",
+		"NIR",
+		"SCT",
+		"WLS'"
 		];
 		return choice(data, this.rnd);
 	}
 
-
-	override string addressStreet() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
-			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
-		}
-	}
-
 	///
-	override string addressPostcode() {
+	override string locationState() {
 		auto data = [
-		"??# #??",
-		"??## #??'"
+		"England",
+		"Northern Ireland",
+		"Scotland",
+		"Wales'"
 		];
-		return this.digitBuild(choice(data, this.rnd));
+		return choice(data, this.rnd);
 	}
 
 	///
-	string addressUkCountry() {
+	string locationCityInfix() {
+		auto data = [
+		"-under-",
+		"-over-",
+		"-le-",
+		"-upon-",
+		"-on-'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationDefaultCountry() {
 		auto data = [
 		"England",
 		"Scotland",
@@ -108,28 +86,87 @@ class Faker_en_gb : Faker {
 	}
 
 
-	override string addressCity() {
+	override string locationCityPattern() {
 		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
-			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
-			case 2: return nameFirstName() ~ addressCitySuffix();
-			case 3: return nameLastName() ~ addressCitySuffix();
+			case 0: return locationCityPrefix() ~ " " ~ personLastName() ~ locationCitySuffix();
+			case 1: return locationCityPrefix() ~ " " ~ personLastName();
+			case 2: return personLastName() ~ locationCitySuffix();
+			case 3: return personLastName() ~ locationCityInfix() ~ personLastName();
+		}
+	}
+
+
+	override string locationStreetPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
 		}
 	}
 
 	///
-	override string addressDefaultCountry() {
+	override string locationCitySuffix() {
 		auto data = [
-		"England",
-		"Scotland",
-		"Wales",
-		"Northern Ireland'"
+		"ton",
+		"ham",
+		"ley",
+		"ington",
+		"ford",
+		"field",
+		"bury",
+		"don",
+		"ing",
+		"worth",
+		"well",
+		"ingham",
+		"wood",
+		"ridge",
+		"borough",
+		"stone",
+		"hill",
+		"thorpe",
+		"hampton",
+		"wick",
+		" Green",
+		" Park",
+		" Hill",
+		" Court",
+		" Heath",
+		" Bridge",
+		" End",
+		" Common",
+		" Place",
+		" Cross",
+		" Gardens"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string addressCounty() {
+	override string locationCityPrefix() {
+		auto data = [
+		"Great",
+		"Little",
+		"St.",
+		"West",
+		"East",
+		"North",
+		"South",
+		"Upper",
+		"Lower",
+		"Old",
+		"Long",
+		"New",
+		"High",
+		"Nether",
+		"Castle",
+		"Upton",
+		"Newton"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationCounty() {
 		auto data = [
 		"Avon",
 		"Bedfordshire",
@@ -203,6 +240,148 @@ class Faker_en_gb : Faker {
 		"Worcestershire"
 		];
 		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationBuildingNumber() {
+		auto data = [
+		"###",
+		"##",
+		"#'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string locationPostcode() {
+		auto data = [
+		"??# #??",
+		"??## #??'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string locationStreetSuffix() {
+		auto data = [
+		"Road",
+		"Close",
+		"Street",
+		"Lane",
+		"Avenue",
+		"Drive",
+		"Way",
+		"Place",
+		"Court",
+		"Gardens",
+		"Crescent",
+		"Grove",
+		"Terrace",
+		"Hill",
+		"View",
+		"Walk",
+		"Park",
+		"Mews",
+		"Rise",
+		"Green",
+		"Square",
+		"Croft",
+		"Bank",
+		"Row",
+		"Meadow",
+		"Gate",
+		"End",
+		"Drove",
+		"Mead",
+		"Field",
+		"Chase",
+		"Mount",
+		"Meadows",
+		"Orchard",
+		"Fields",
+		"Yard",
+		"Garth",
+		"Fold",
+		"Wynd",
+		"Parade",
+		"Vale",
+		"Brae",
+		"Grange",
+		"Approach",
+		"Wood",
+		"Paddock",
+		"Brow",
+		"Lea",
+		"Path",
+		"Side",
+		"Heights",
+		"Copse",
+		"Corner",
+		"Ridge",
+		"Glade"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"074## ######",
+		"075## ######",
+		"076## ######",
+		"077## ######",
+		"078## ######",
+		"079## ######"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"ac.uk",
+		"biz",
+		"co",
+		"co.uk",
+		"com",
+		"cymru",
+		"gov.uk",
+		"info",
+		"london",
+		"ltd.uk",
+		"me.uk",
+		"name",
+		"nhs.uk",
+		"org.uk",
+		"plc.uk",
+		"sch.uk",
+		"scot",
+		"uk",
+		"wales"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string personLastNamePattern() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 9 }";
+			case 2: return "{ value: '" ~ personLastName() ~ "-" ~ personLastName();
+			case 3: return "weight: 1 }";
+		}
+	}
+
+
+	override string personName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return "{ value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 1: return "weight: 7 }";
+			case 2: return "{";
+			case 3: return "value: '" ~ personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+			case 4: return "weight: 1";
+			case 5: return "}";
+		}
 	}
 
 }

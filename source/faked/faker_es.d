@@ -18,15 +18,569 @@ class Faker_es : Faker {
         super(seed);
 	}
 
+	///
+	override string locationCityName() {
+		auto data = [
+		"Parla",
+		"Telde",
+		"Baracaldo",
+		"San Fernando",
+		"Torrevieja",
+		"Lugo",
+		"Santiago de Compostela",
+		"Gerona",
+		"Cáceres",
+		"Lorca",
+		"Coslada",
+		"Talavera de la Reina",
+		"El Puerto de Santa María",
+		"Cornellá de Llobregat",
+		"Avilés",
+		"Palencia",
+		"Gecho",
+		"Orihuela",
+		"Pontevedra",
+		"Pozuelo de Alarcón",
+		"Toledo",
+		"El Ejido",
+		"Guadalajara",
+		"Gandía",
+		"Ceuta",
+		"Ferrol",
+		"Chiclana de la Frontera",
+		"Manresa",
+		"Roquetas de Mar",
+		"Ciudad Real",
+		"Rubí",
+		"Benidorm",
+		"San Sebastían de los Reyes",
+		"Ponferrada",
+		"Zamora",
+		"Alcalá de Guadaira",
+		"Fuengirola",
+		"Mijas",
+		"Sanlúcar de Barrameda",
+		"La Línea de la Concepción",
+		"Majadahonda",
+		"Sagunto",
+		"El Prat de LLobregat",
+		"Viladecans",
+		"Linares",
+		"Alcoy",
+		"Irún",
+		"Estepona",
+		"Torremolinos",
+		"Rivas-Vaciamadrid",
+		"Molina de Segura",
+		"Paterna",
+		"Granollers",
+		"Santa Lucía de Tirajana",
+		"Motril",
+		"Cerdañola del Vallés",
+		"Arrecife",
+		"Segovia",
+		"Torrelavega",
+		"Elda",
+		"Mérida",
+		"Ávila",
+		"Valdemoro",
+		"Cuenta",
+		"Collado Villalba",
+		"Benalmádena",
+		"Mollet del Vallés",
+		"Puertollano",
+		"Madrid",
+		"Barcelona",
+		"Valencia",
+		"Sevilla",
+		"Zaragoza",
+		"Málaga",
+		"Murcia",
+		"Palma de Mallorca",
+		"Las Palmas de Gran Canaria",
+		"Bilbao",
+		"Córdoba",
+		"Alicante",
+		"Valladolid",
+		"Vigo",
+		"Gijón",
+		"Hospitalet de LLobregat",
+		"La Coruña",
+		"Granada",
+		"Vitoria",
+		"Elche",
+		"Santa Cruz de Tenerife",
+		"Oviedo",
+		"Badalona",
+		"Cartagena",
+		"Móstoles",
+		"Jerez de la Frontera",
+		"Tarrasa",
+		"Sabadell",
+		"Alcalá de Henares",
+		"Pamplona",
+		"Fuenlabrada",
+		"Almería",
+		"San Sebastián",
+		"Leganés",
+		"Santander",
+		"Burgos",
+		"Castellón de la Plana",
+		"Alcorcón",
+		"Albacete",
+		"Getafe",
+		"Salamanca",
+		"Huelva",
+		"Logroño",
+		"Badajoz",
+		"San Cristróbal de la Laguna",
+		"León",
+		"Tarragona",
+		"Cádiz",
+		"Lérida",
+		"Marbella",
+		"Mataró",
+		"Dos Hermanas",
+		"Santa Coloma de Gramanet",
+		"Jaén",
+		"Algeciras",
+		"Torrejón de Ardoz",
+		"Orense",
+		"Alcobendas",
+		"Reus",
+		"Calahorra",
+		"Inca",
+		"Aýna"
+		];
+		return choice(data, this.rnd);
+	}
 
-	override string companyName() {
-		final switch(uniform(0, 5, this.rnd)) {
-			case 0: return nameLastName() ~ " " ~ companySuffix();
-			case 1: return nameLastName() ~ " y " ~ nameLastName();
-			case 2: return nameLastName() ~ " " ~ nameLastName() ~ " " ~ companySuffix();
-			case 3: return nameLastName();
-			case 4: return nameLastName() ~ " y " ~ nameLastName() ~ " Asociados";
+	///
+	override string locationStateAbbr() {
+		auto data = [
+		"And",
+		"Ara",
+		"Ast",
+		"Bal",
+		"Can",
+		"Cbr",
+		"Man",
+		"Leo",
+		"Cat",
+		"Com",
+		"Ext",
+		"Gal",
+		"Rio",
+		"Mad",
+		"Nav",
+		"Vas",
+		"Mur"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationState() {
+		auto data = [
+		"Andalucía",
+		"Aragón",
+		"Principado de Asturias",
+		"Baleares",
+		"Canarias",
+		"Cantabria",
+		"Castilla-La Mancha",
+		"Castilla y León",
+		"Cataluña",
+		"Comunidad Valenciana",
+		"Extremadura",
+		"Galicia",
+		"La Rioja",
+		"Comunidad de Madrid",
+		"Navarra",
+		"País Vasco",
+		"Región de Murcia"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string locationStreetPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return locationStreetSuffix() ~ " " ~ personFirstName();
+			case 1: return locationStreetSuffix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
 		}
+	}
+
+
+	override string locationStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ locationStreet() ~ locationBuildingNumber();
+			case 1: return "full: '" ~ locationStreet() ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
+		}
+	}
+
+	///
+	override string locationDefaultCountry() {
+		auto data = [
+		"España'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName() ~ "'";
+		}
+	}
+
+	///
+	override string locationCountry() {
+		auto data = [
+		"Afganistán",
+		"Albania",
+		"Argelia",
+		"Andorra",
+		"Angola",
+		"Argentina",
+		"Armenia",
+		"Aruba",
+		"Australia",
+		"Austria",
+		"Azerbayán",
+		"Bahamas",
+		"Barein",
+		"Bangladesh",
+		"Barbados",
+		"Bielorusia",
+		"Bélgica",
+		"Belice",
+		"Bermuda",
+		"Bután",
+		"Bolivia",
+		"Bosnia Herzegovina",
+		"Botswana",
+		"Brasil",
+		"Bulgaria",
+		"Burkina Faso",
+		"Burundi",
+		"Camboya",
+		"Camerún",
+		"Canada",
+		"Cabo Verde",
+		"Islas Caimán",
+		"Chad",
+		"Chile",
+		"China",
+		"Isla de Navidad",
+		"Colombia",
+		"Comodos",
+		"Congo",
+		"Costa Rica",
+		"Costa de Marfil",
+		"Croacia",
+		"Cuba",
+		"Chipre",
+		"República Checa",
+		"Dinamarca",
+		"Dominica",
+		"República Dominicana",
+		"Ecuador",
+		"Egipto",
+		"El Salvador",
+		"Guinea Ecuatorial",
+		"Eritrea",
+		"Estonia",
+		"Etiopía",
+		"Islas Faro",
+		"Fiji",
+		"Finlandia",
+		"Francia",
+		"Gabón",
+		"Gambia",
+		"Georgia",
+		"Alemania",
+		"Ghana",
+		"Grecia",
+		"Groenlandia",
+		"Granada",
+		"Guadalupe",
+		"Guam",
+		"Guatemala",
+		"Guinea",
+		"Guinea-Bisau",
+		"Guayana",
+		"Haiti",
+		"Honduras",
+		"Hong Kong",
+		"Hungria",
+		"Islandia",
+		"India",
+		"Indonesia",
+		"Iran",
+		"Irak",
+		"Irlanda",
+		"Italia",
+		"Jamaica",
+		"Japón",
+		"Jordania",
+		"Kazajistan",
+		"Kenia",
+		"Kiribati",
+		"Corea",
+		"Kuwait",
+		"Letonia",
+		"Líbano",
+		"Liberia",
+		"Liechtenstein",
+		"Lituania",
+		"Luxemburgo",
+		"Macao",
+		"Macedonia",
+		"Madagascar",
+		"Malawi",
+		"Malasia",
+		"Maldivas",
+		"Mali",
+		"Malta",
+		"Martinica",
+		"Mauritania",
+		"Méjico",
+		"Micronesia",
+		"Moldavia",
+		"Mónaco",
+		"Mongolia",
+		"Montenegro",
+		"Montserrat",
+		"Marruecos",
+		"Mozambique",
+		"Namibia",
+		"Nauru",
+		"Nepal",
+		"Países Bajos",
+		"Nueva Zelanda",
+		"Nicaragua",
+		"Niger",
+		"Nigeria",
+		"Noruega",
+		"Omán",
+		"Pakistan",
+		"Panamá",
+		"Papúa Nueva Guinea",
+		"Paraguay",
+		"Perú",
+		"Filipinas",
+		"Poland",
+		"Portugal",
+		"Puerto Rico",
+		"Rusia",
+		"Ruanda",
+		"Samoa",
+		"San Marino",
+		"Santo Tomé y Principe",
+		"Arabia Saudí",
+		"Senegal",
+		"Serbia",
+		"Seychelles",
+		"Sierra Leona",
+		"Singapur",
+		"Eslovaquia",
+		"Eslovenia",
+		"Somalia",
+		"España",
+		"Sri Lanka",
+		"Sudán",
+		"Suriname",
+		"Suecia",
+		"Suiza",
+		"Siria",
+		"Taiwan",
+		"Tajikistan",
+		"Tanzania",
+		"Tailandia",
+		"Timor-Leste",
+		"Togo",
+		"Tonga",
+		"Trinidad y Tobago",
+		"Tunez",
+		"Turquia",
+		"Uganda",
+		"Ucrania",
+		"Emiratos Árabes Unidos",
+		"Reino Unido",
+		"Estados Unidos de América",
+		"Uruguay",
+		"Uzbekistan",
+		"Vanuatu",
+		"Venezuela",
+		"Vietnam",
+		"Yemen",
+		"Zambia",
+		"Zimbabwe"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationCounty() {
+		auto data = [
+		"Álava",
+		"Albacete",
+		"Alicante",
+		"Almería",
+		"Asturias",
+		"Ávila",
+		"Badajoz",
+		"Barcelona",
+		"Burgos",
+		"Cantabria",
+		"Castellón",
+		"Ciudad Real",
+		"Cuenca",
+		"Cáceres",
+		"Cádiz",
+		"Córdoba",
+		"Gerona",
+		"Granada",
+		"Guadalajara",
+		"Guipúzcoa",
+		"Huelva",
+		"Huesca",
+		"Islas Baleares",
+		"Jaén",
+		"La Coruña",
+		"La Rioja",
+		"Las Palmas",
+		"León",
+		"Lugo",
+		"lérida",
+		"Madrid",
+		"Murcia",
+		"Málaga",
+		"Navarra",
+		"Orense",
+		"Palencia",
+		"Pontevedra",
+		"Salamanca",
+		"Santa Cruz de Tenerife",
+		"Segovia",
+		"Sevilla",
+		"Soria",
+		"Tarragona",
+		"Teruel",
+		"Toledo",
+		"Valencia",
+		"Valladolid",
+		"Vizcaya",
+		"Zamora",
+		"Zaragoza"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string locationBuildingNumber() {
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return " s/n.";
+			case 1: return "#";
+			case 2: return "##";
+			case 3: return " #";
+			case 4: return "##'";
+		}
+	}
+
+	///
+	override string locationSecondaryAddress() {
+		auto data = [
+		"Esc. ###",
+		"Puerta ###'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string locationPostcode() {
+		auto data = [
+		"#####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string locationStreetSuffix() {
+		auto data = [
+		"Aldea",
+		"Apartamento",
+		"Arrabal",
+		"Arroyo",
+		"Avenida",
+		"Bajada",
+		"Barranco",
+		"Barrio",
+		"Bloque",
+		"Calle",
+		"Calleja",
+		"Camino",
+		"Carretera",
+		"Caserio",
+		"Colegio",
+		"Colonia",
+		"Conjunto",
+		"Cuesta",
+		"Chalet",
+		"Edificio",
+		"Entrada",
+		"Escalinata",
+		"Explanada",
+		"Extramuros",
+		"Extrarradio",
+		"Ferrocarril",
+		"Glorieta",
+		"Gran Subida",
+		"Grupo",
+		"Huerta",
+		"Jardines",
+		"Lado",
+		"Lugar",
+		"Manzana",
+		"Masía",
+		"Mercado",
+		"Monte",
+		"Muelle",
+		"Municipio",
+		"Parcela",
+		"Parque",
+		"Partida",
+		"Pasaje",
+		"Paseo",
+		"Plaza",
+		"Poblado",
+		"Polígono",
+		"Prolongación",
+		"Puente",
+		"Puerta",
+		"Quinta",
+		"Ramal",
+		"Rambla",
+		"Rampa",
+		"Riera",
+		"Rincón",
+		"Ronda",
+		"Rua",
+		"Salida",
+		"Sector",
+		"Sección",
+		"Senda",
+		"Solar",
+		"Subida",
+		"Terrenos",
+		"Torrente",
+		"Travesía",
+		"Urbanización",
+		"Vía",
+		"Vía Pública"
+		];
+		return choice(data, this.rnd);
 	}
 
 	///
@@ -45,7 +599,6 @@ class Faker_es : Faker {
 		"Multi grupo",
 		"Multi plataforma",
 		"Centrado en el usuario",
-		"Configurable",
 		"Descentralizado",
 		"Digitalizado",
 		"Distribuido",
@@ -98,7 +651,6 @@ class Faker_es : Faker {
 		"Realineado",
 		"Re-contextualizado",
 		"Re-implementado",
-		"Reducido",
 		"Ingeniería inversa",
 		"Robusto",
 		"Fácil",
@@ -110,9 +662,7 @@ class Faker_es : Faker {
 		"Orientado a equipos",
 		"Total",
 		"Universal",
-		"Mejorado",
 		"Actualizable",
-		"Centrado en el usuario",
 		"Amigable",
 		"Versatil",
 		"Virtual",
@@ -220,6 +770,17 @@ class Faker_es : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string companyNamePattern() {
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return personLastName() ~ " " ~ companySuffix();
+			case 1: return personLastName() ~ " y " ~ personLastName();
+			case 2: return personLastName() ~ " " ~ personLastName() ~ " " ~ companySuffix();
+			case 3: return personLastName();
+			case 4: return personLastName() ~ " y " ~ personLastName() ~ " Asociados";
+		}
+	}
+
 	///
 	override string companyNoun() {
 		auto data = [
@@ -321,7 +882,193 @@ class Faker_es : Faker {
 	}
 
 	///
-	override string nameMaleFirstName() {
+	override string commerceDepartment() {
+		auto data = [
+		"Librería",
+		"Deportes",
+		"Videojuegos",
+		"Electrónica",
+		"Moda",
+		"Joyería",
+		"Marroquinería",
+		"Juguetería",
+		"Mascotas",
+		"Bebes",
+		"Bricolaje",
+		"Informática",
+		"Salud",
+		"Parafarmacia",
+		"Papelería",
+		"Cine",
+		"Música",
+		"Hogar",
+		"Decoración"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
+		"Rojo",
+		"Azul",
+		"Negro",
+		"Gris",
+		"Blanco",
+		"Amarillo",
+		"Verde",
+		"Morado",
+		"Violeta"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 25, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "domingo";
+			case 2: return "lunes";
+			case 3: return "martes";
+			case 4: return "miércoles";
+			case 5: return "jueves";
+			case 6: return "viernes";
+			case 7: return "sábado";
+			case 8: return "]";
+			case 9: return "abbr: ['dom";
+			case 10: return "lun";
+			case 11: return "mar";
+			case 12: return "mié";
+			case 13: return "jue";
+			case 14: return "vie";
+			case 15: return "sáb']";
+			case 16: return "if not set then \"abbr\" will be used instead";
+			case 17: return "which may differ from a stand-alone word";
+			case 18: return "abbr_context: ['dom.";
+			case 19: return "lun.";
+			case 20: return "mart.";
+			case 21: return "miérc.";
+			case 22: return "juev.";
+			case 23: return "vier.";
+			case 24: return "sáb.']";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 44, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "enero";
+			case 2: return "febrero";
+			case 3: return "marzo";
+			case 4: return "abril";
+			case 5: return "mayo";
+			case 6: return "junio";
+			case 7: return "julio";
+			case 8: return "agosto";
+			case 9: return "septiembre";
+			case 10: return "octubre";
+			case 11: return "noviembre";
+			case 12: return "diciembre";
+			case 13: return "]";
+			case 14: return "abbr: [";
+			case 15: return "ene";
+			case 16: return "feb";
+			case 17: return "mar";
+			case 18: return "abr";
+			case 19: return "may";
+			case 20: return "jun";
+			case 21: return "jul";
+			case 22: return "ago";
+			case 23: return "sep";
+			case 24: return "oct";
+			case 25: return "nov";
+			case 26: return "dic";
+			case 27: return "]";
+			case 28: return "if not set then \"abbr\" will be used instead";
+			case 29: return "which may differ from a stand-alone word";
+			case 30: return "abbr_context: [";
+			case 31: return "en.";
+			case 32: return "febr.";
+			case 33: return "mzo.";
+			case 34: return "abr.";
+			case 35: return "my.";
+			case 36: return "jun.";
+			case 37: return "jul.";
+			case 38: return "ag.";
+			case 39: return "sept.";
+			case 40: return "oct.";
+			case 41: return "nov.";
+			case 42: return "dic.";
+			case 43: return "]";
+		}
+	}
+
+	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"9##-###-###",
+		"9##.###.###",
+		"9## ### ###",
+		"9########'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"6##-###-###",
+		"6##.###.###",
+		"6## ### ###",
+		"6########'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"com",
+		"es",
+		"info",
+		"com.es",
+		"org",
+		"eus",
+		"cat'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMalePrefix() {
+		auto data = [
+		"Sr.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFemalePrefix() {
+		auto data = [
+		"Sra.",
+		"Sta.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMaleFirstName() {
 		auto data = [
 		"Josep",
 		"Ángel",
@@ -334,17 +1081,19 @@ class Faker_es : Faker {
 		"Miguel",
 		"Jorge",
 		"Sergi",
-		"Josep",
 		"Ricardo",
 		"Carles",
 		"Jordi",
-		"Manuel"
+		"Pío",
+		"Pablo",
+		"Juan Ramón",
+		"Hermenegildo"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string nameSuffix() {
+	override string personSuffix() {
 		auto data = [
 		"Jr.",
 		"Sr.",
@@ -362,7 +1111,7 @@ class Faker_es : Faker {
 	}
 
 	///
-	override string nameLastName() {
+	override string personLastName() {
 		auto data = [
 		"Abeyta",
 		"Abrego",
@@ -574,6 +1323,7 @@ class Faker_es : Faker {
 		"Espinal",
 		"Espino",
 		"Espinosa",
+		"Espinosa de los Monteros",
 		"Espinoza",
 		"Esquibel",
 		"Esquivel",
@@ -993,7 +1743,7 @@ class Faker_es : Faker {
 	}
 
 	///
-	override string nameFirstName() {
+	override string personFirstName() {
 		auto data = [
 		"Adán",
 		"Agustín",
@@ -1167,6 +1917,7 @@ class Faker_es : Faker {
 		"Margarita",
 		"María",
 		"María del Carmen",
+		"María de los Ángeles",
 		"María Cristina",
 		"María Elena",
 		"María Eugenia",
@@ -1212,18 +1963,115 @@ class Faker_es : Faker {
 	}
 
 
-	override string nameName() {
-		final switch(uniform(0, 5, this.rnd)) {
-			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
-			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
-			case 2: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
-			case 3: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
-			case 4: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
+	override string personTitle() {
+		final switch(uniform(0, 88, this.rnd)) {
+			case 0: return "descriptor: [";
+			case 1: return "Jefe";
+			case 2: return "Senior";
+			case 3: return "Directo";
+			case 4: return "Corporativo";
+			case 5: return "Dinánmico";
+			case 6: return "Futuro";
+			case 7: return "Producto";
+			case 8: return "Nacional";
+			case 9: return "Regional";
+			case 10: return "Distrito";
+			case 11: return "Central";
+			case 12: return "Global";
+			case 13: return "Cliente";
+			case 14: return "Inversor";
+			case 15: return "International";
+			case 16: return "Heredado";
+			case 17: return "Adelante";
+			case 18: return "Interno";
+			case 19: return "Humano";
+			case 20: return "Gerente";
+			case 21: return "Director";
+			case 22: return "]";
+			case 23: return "level: [";
+			case 24: return "Soluciones";
+			case 25: return "Programa";
+			case 26: return "Marca";
+			case 27: return "Seguridada";
+			case 28: return "Investigación";
+			case 29: return "Marketing";
+			case 30: return "Normas";
+			case 31: return "Implementación";
+			case 32: return "Integración";
+			case 33: return "Funcionalidad";
+			case 34: return "Respuesta";
+			case 35: return "Paradigma";
+			case 36: return "Tácticas";
+			case 37: return "Identidad";
+			case 38: return "Mercados";
+			case 39: return "Grupo";
+			case 40: return "División";
+			case 41: return "Aplicaciones";
+			case 42: return "Optimización";
+			case 43: return "Operaciones";
+			case 44: return "Infraestructura";
+			case 45: return "Intranet";
+			case 46: return "Comunicaciones";
+			case 47: return "Web";
+			case 48: return "Calidad";
+			case 49: return "Seguro";
+			case 50: return "Mobilidad";
+			case 51: return "Cuentas";
+			case 52: return "Datos";
+			case 53: return "Creativo";
+			case 54: return "Configuración";
+			case 55: return "Contabilidad";
+			case 56: return "Interacciones";
+			case 57: return "Factores";
+			case 58: return "Usabilidad";
+			case 59: return "Métricas";
+			case 60: return "]";
+			case 61: return "job: [";
+			case 62: return "Supervisor";
+			case 63: return "Asociado";
+			case 64: return "Ejecutivo";
+			case 65: return "Relacciones";
+			case 66: return "Oficial";
+			case 67: return "Gerente";
+			case 68: return "Ingeniero";
+			case 69: return "Especialista";
+			case 70: return "Director";
+			case 71: return "Coordinador";
+			case 72: return "Administrador";
+			case 73: return "Arquitecto";
+			case 74: return "Analista";
+			case 75: return "Diseñador";
+			case 76: return "Planificador";
+			case 77: return "Técnico";
+			case 78: return "Funcionario";
+			case 79: return "Desarrollador";
+			case 80: return "Productor";
+			case 81: return "Consultor";
+			case 82: return "Asistente";
+			case 83: return "Facilitador";
+			case 84: return "Agente";
+			case 85: return "Representante";
+			case 86: return "Estratega";
+			case 87: return "]";
+		}
+	}
+
+
+	override string personName() {
+		final switch(uniform(0, 8, this.rnd)) {
+			case 0: return "{";
+			case 1: return "value: '" ~ personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+			case 2: return "weight: 1";
+			case 3: return "}";
+			case 4: return "{";
+			case 5: return "value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 6: return "weight: 9";
+			case 7: return "}";
 		}
 	}
 
 	///
-	override string nameFemaleFirstName() {
+	override string personFemaleFirstName() {
 		auto data = [
 		"Marta",
 		"Andrea",
@@ -1231,823 +2079,23 @@ class Faker_es : Faker {
 		"Anni",
 		"Laura",
 		"Maica",
-		"Laura",
 		"Lorena",
 		"Matilde",
 		"Jennifer",
-		"Roser"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string namePrefix() {
-		auto data = [
-		"Sr.",
-		"Sra.",
-		"Sta.'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceDepartment() {
-		auto data = [
-		"Librería",
-		"Deportes",
-		"Videojuegos",
-		"Electrónica",
-		"Moda",
-		"Joyería",
-		"Marroquinería",
-		"Juguetería",
-		"Mascotas",
-		"Bebes",
-		"Bricolaje",
-		"Informática",
-		"Salud",
-		"Parafarmacia",
-		"Papelería",
-		"Cine",
-		"Música",
-		"Hogar",
-		"Decoración"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"Rojo",
-		"Azul",
-		"Negro",
-		"Gris",
-		"Blanco",
-		"Amarillo",
-		"Verde",
-		"Morado",
-		"Violeta"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressStateAbbr() {
-		auto data = [
-		"And",
-		"Ara",
-		"Ast",
-		"Bal",
-		"Can",
-		"Cbr",
-		"Man",
-		"Leo",
-		"Cat",
-		"Com",
-		"Ext",
-		"Gal",
-		"Rio",
-		"Mad",
-		"Nav",
-		"Vas",
-		"Mur"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressProvince() {
-		auto data = [
-		"Álava",
-		"Albacete",
-		"Alicante",
-		"Almería",
-		"Asturias",
-		"Ávila",
-		"Badajoz",
-		"Barcelona",
-		"Burgos",
-		"Cantabria",
-		"Castellón",
-		"Ciudad Real",
-		"Cuenca",
-		"Cáceres",
-		"Cádiz",
-		"Córdoba",
-		"Gerona",
-		"Granada",
-		"Guadalajara",
-		"Guipúzcoa",
-		"Huelva",
-		"Huesca",
-		"Islas Baleares",
-		"Jaén",
-		"La Coruña",
-		"La Rioja",
-		"Las Palmas",
-		"León",
-		"Lugo",
-		"lérida",
-		"Madrid",
-		"Murcia",
-		"Málaga",
-		"Navarra",
-		"Orense",
-		"Palencia",
-		"Pontevedra",
-		"Salamanca",
-		"Santa Cruz de Tenerife",
-		"Segovia",
-		"Sevilla",
-		"Soria",
-		"Tarragona",
-		"Teruel",
-		"Toledo",
-		"Valencia",
-		"Valladolid",
-		"Vizcaya",
-		"Zamora",
-		"Zaragoza"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressState() {
-		auto data = [
-		"Andalucía",
-		"Aragón",
-		"Principado de Asturias",
-		"Baleares",
-		"Canarias",
-		"Cantabria",
-		"Castilla-La Mancha",
-		"Castilla y León",
-		"Cataluña",
-		"Comunidad Valenciana",
-		"Extremadura",
-		"Galicia",
-		"La Rioja",
-		"Comunidad de Madrid",
-		"Navarra",
-		"País Vasco",
-		"Región de Murcia"
+		"Roser",
+		"María de los Ángeles"
 		];
 		return choice(data, this.rnd);
 	}
 
 
-	override string addressStreetAddress() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressStreet() ~ addressBuildingNumber();
-			case 1: return "full: '" ~ addressStreet() ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+	override string personLastNamePattern() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return "{";
+			case 1: return "value: '" ~ personLastName() ~ " " ~ personLastName();
+			case 2: return "weight: 1";
+			case 3: return "}";
 		}
-	}
-
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"España'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCountry() {
-		auto data = [
-		"Afganistán",
-		"Albania",
-		"Argelia",
-		"Andorra",
-		"Angola",
-		"Argentina",
-		"Armenia",
-		"Aruba",
-		"Australia",
-		"Austria",
-		"Azerbayán",
-		"Bahamas",
-		"Barein",
-		"Bangladesh",
-		"Barbados",
-		"Bielorusia",
-		"Bélgica",
-		"Belice",
-		"Bermuda",
-		"Bután",
-		"Bolivia",
-		"Bosnia Herzegovina",
-		"Botswana",
-		"Brasil",
-		"Bulgaria",
-		"Burkina Faso",
-		"Burundi",
-		"Camboya",
-		"Camerún",
-		"Canada",
-		"Cabo Verde",
-		"Islas Caimán",
-		"Chad",
-		"Chile",
-		"China",
-		"Isla de Navidad",
-		"Colombia",
-		"Comodos",
-		"Congo",
-		"Costa Rica",
-		"Costa de Marfil",
-		"Croacia",
-		"Cuba",
-		"Chipre",
-		"República Checa",
-		"Dinamarca",
-		"Dominica",
-		"República Dominicana",
-		"Ecuador",
-		"Egipto",
-		"El Salvador",
-		"Guinea Ecuatorial",
-		"Eritrea",
-		"Estonia",
-		"Etiopía",
-		"Islas Faro",
-		"Fiji",
-		"Finlandia",
-		"Francia",
-		"Gabón",
-		"Gambia",
-		"Georgia",
-		"Alemania",
-		"Ghana",
-		"Grecia",
-		"Groenlandia",
-		"Granada",
-		"Guadalupe",
-		"Guam",
-		"Guatemala",
-		"Guinea",
-		"Guinea-Bisau",
-		"Guayana",
-		"Haiti",
-		"Honduras",
-		"Hong Kong",
-		"Hungria",
-		"Islandia",
-		"India",
-		"Indonesia",
-		"Iran",
-		"Irak",
-		"Irlanda",
-		"Italia",
-		"Jamaica",
-		"Japón",
-		"Jordania",
-		"Kazajistan",
-		"Kenia",
-		"Kiribati",
-		"Corea",
-		"Kuwait",
-		"Letonia",
-		"Líbano",
-		"Liberia",
-		"Liechtenstein",
-		"Lituania",
-		"Luxemburgo",
-		"Macao",
-		"Macedonia",
-		"Madagascar",
-		"Malawi",
-		"Malasia",
-		"Maldivas",
-		"Mali",
-		"Malta",
-		"Martinica",
-		"Mauritania",
-		"Méjico",
-		"Micronesia",
-		"Moldavia",
-		"Mónaco",
-		"Mongolia",
-		"Montenegro",
-		"Montserrat",
-		"Marruecos",
-		"Mozambique",
-		"Namibia",
-		"Nauru",
-		"Nepal",
-		"Holanda",
-		"Nueva Zelanda",
-		"Nicaragua",
-		"Niger",
-		"Nigeria",
-		"Noruega",
-		"Omán",
-		"Pakistan",
-		"Panamá",
-		"Papúa Nueva Guinea",
-		"Paraguay",
-		"Perú",
-		"Filipinas",
-		"Poland",
-		"Portugal",
-		"Puerto Rico",
-		"Rusia",
-		"Ruanda",
-		"Samoa",
-		"San Marino",
-		"Santo Tomé y Principe",
-		"Arabia Saudí",
-		"Senegal",
-		"Serbia",
-		"Seychelles",
-		"Sierra Leona",
-		"Singapur",
-		"Eslovaquia",
-		"Eslovenia",
-		"Somalia",
-		"España",
-		"Sri Lanka",
-		"Sudán",
-		"Suriname",
-		"Suecia",
-		"Suiza",
-		"Siria",
-		"Taiwan",
-		"Tajikistan",
-		"Tanzania",
-		"Tailandia",
-		"Timor-Leste",
-		"Togo",
-		"Tonga",
-		"Trinidad y Tobago",
-		"Tunez",
-		"Turquia",
-		"Uganda",
-		"Ucrania",
-		"Emiratos Árabes Unidos",
-		"Reino Unido",
-		"Estados Unidos de América",
-		"Uruguay",
-		"Uzbekistan",
-		"Vanuatu",
-		"Venezuela",
-		"Vietnam",
-		"Yemen",
-		"Zambia",
-		"Zimbabwe"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCityPrefix() {
-		auto data = [
-		"Parla",
-		"Telde",
-		"Baracaldo",
-		"San Fernando",
-		"Torrevieja",
-		"Lugo",
-		"Santiago de Compostela",
-		"Gerona",
-		"Cáceres",
-		"Lorca",
-		"Coslada",
-		"Talavera de la Reina",
-		"El Puerto de Santa María",
-		"Cornellá de Llobregat",
-		"Avilés",
-		"Palencia",
-		"Gecho",
-		"Orihuela",
-		"Pontevedra",
-		"Pozuelo de Alarcón",
-		"Toledo",
-		"El Ejido",
-		"Guadalajara",
-		"Gandía",
-		"Ceuta",
-		"Ferrol",
-		"Chiclana de la Frontera",
-		"Manresa",
-		"Roquetas de Mar",
-		"Ciudad Real",
-		"Rubí",
-		"Benidorm",
-		"San Sebastían de los Reyes",
-		"Ponferrada",
-		"Zamora",
-		"Alcalá de Guadaira",
-		"Fuengirola",
-		"Mijas",
-		"Sanlúcar de Barrameda",
-		"La Línea de la Concepción",
-		"Majadahonda",
-		"Sagunto",
-		"El Prat de LLobregat",
-		"Viladecans",
-		"Linares",
-		"Alcoy",
-		"Irún",
-		"Estepona",
-		"Torremolinos",
-		"Rivas-Vaciamadrid",
-		"Molina de Segura",
-		"Paterna",
-		"Granollers",
-		"Santa Lucía de Tirajana",
-		"Motril",
-		"Cerdañola del Vallés",
-		"Arrecife",
-		"Segovia",
-		"Torrelavega",
-		"Elda",
-		"Mérida",
-		"Ávila",
-		"Valdemoro",
-		"Cuenta",
-		"Collado Villalba",
-		"Benalmádena",
-		"Mollet del Vallés",
-		"Puertollano",
-		"Madrid",
-		"Barcelona",
-		"Valencia",
-		"Sevilla",
-		"Zaragoza",
-		"Málaga",
-		"Murcia",
-		"Palma de Mallorca",
-		"Las Palmas de Gran Canaria",
-		"Bilbao",
-		"Córdoba",
-		"Alicante",
-		"Valladolid",
-		"Vigo",
-		"Gijón",
-		"Hospitalet de LLobregat",
-		"La Coruña",
-		"Granada",
-		"Vitoria",
-		"Elche",
-		"Santa Cruz de Tenerife",
-		"Oviedo",
-		"Badalona",
-		"Cartagena",
-		"Móstoles",
-		"Jerez de la Frontera",
-		"Tarrasa",
-		"Sabadell",
-		"Alcalá de Henares",
-		"Pamplona",
-		"Fuenlabrada",
-		"Almería",
-		"San Sebastián",
-		"Leganés",
-		"Santander",
-		"Burgos",
-		"Castellón de la Plana",
-		"Alcorcón",
-		"Albacete",
-		"Getafe",
-		"Salamanca",
-		"Huelva",
-		"Logroño",
-		"Badajoz",
-		"San Cristróbal de la Laguna",
-		"León",
-		"Tarragona",
-		"Cádiz",
-		"Lérida",
-		"Marbella",
-		"Mataró",
-		"Dos Hermanas",
-		"Santa Coloma de Gramanet",
-		"Jaén",
-		"Algeciras",
-		"Torrejón de Ardoz",
-		"Orense",
-		"Alcobendas",
-		"Reus",
-		"Calahorra",
-		"Inca"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string addressStreet() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return addressStreetSuffix() ~ " " ~ nameFirstName();
-			case 1: return addressStreetSuffix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
-		}
-	}
-
-	///
-	override string addressTimeZone() {
-		auto data = [
-		"Pacífico/Midway",
-		"Pacífico/Pago_Pago",
-		"Pacífico/Honolulu",
-		"America/Juneau",
-		"America/Los_Angeles",
-		"America/Tijuana",
-		"America/Denver",
-		"America/Phoenix",
-		"America/Chihuahua",
-		"America/Mazatlan",
-		"America/Chicago",
-		"America/Regina",
-		"America/Mexico_City",
-		"America/Mexico_City",
-		"America/Monterrey",
-		"America/Guatemala",
-		"America/New_York",
-		"America/Indiana/Indianapolis",
-		"America/Bogota",
-		"America/Lima",
-		"America/Lima",
-		"America/Halifax",
-		"America/Caracas",
-		"America/La_Paz",
-		"America/Santiago",
-		"America/St_Johns",
-		"America/Sao_Paulo",
-		"America/Argentina/Buenos_Aires",
-		"America/Guyana",
-		"America/Godthab",
-		"Atlantic/South_Georgia",
-		"Atlantic/Azores",
-		"Atlantic/Cape_Verde",
-		"Europa/Dublin",
-		"Europa/London",
-		"Europa/Lisbon",
-		"Europa/London",
-		"Africa/Casablanca",
-		"Africa/Monrovia",
-		"Etc/UTC",
-		"Europa/Belgrade",
-		"Europa/Bratislava",
-		"Europa/Budapest",
-		"Europa/Ljubljana",
-		"Europa/Prague",
-		"Europa/Sarajevo",
-		"Europa/Skopje",
-		"Europa/Warsaw",
-		"Europa/Zagreb",
-		"Europa/Brussels",
-		"Europa/Copenhagen",
-		"Europa/Madrid",
-		"Europa/Paris",
-		"Europa/Amsterdam",
-		"Europa/Berlin",
-		"Europa/Berlin",
-		"Europa/Rome",
-		"Europa/Stockholm",
-		"Europa/Vienna",
-		"Africa/Algiers",
-		"Europa/Bucharest",
-		"Africa/Cairo",
-		"Europa/Helsinki",
-		"Europa/Kiev",
-		"Europa/Riga",
-		"Europa/Sofia",
-		"Europa/Tallinn",
-		"Europa/Vilnius",
-		"Europa/Athens",
-		"Europa/Istanbul",
-		"Europa/Minsk",
-		"Asia/Jerusalen",
-		"Africa/Harare",
-		"Africa/Johannesburg",
-		"Europa/Moscú",
-		"Europa/Moscú",
-		"Europa/Moscú",
-		"Asia/Kuwait",
-		"Asia/Riyadh",
-		"Africa/Nairobi",
-		"Asia/Baghdad",
-		"Asia/Tehran",
-		"Asia/Muscat",
-		"Asia/Muscat",
-		"Asia/Baku",
-		"Asia/Tbilisi",
-		"Asia/Yerevan",
-		"Asia/Kabul",
-		"Asia/Yekaterinburg",
-		"Asia/Karachi",
-		"Asia/Karachi",
-		"Asia/Tashkent",
-		"Asia/Kolkata",
-		"Asia/Kolkata",
-		"Asia/Kolkata",
-		"Asia/Kolkata",
-		"Asia/Kathmandu",
-		"Asia/Dhaka",
-		"Asia/Dhaka",
-		"Asia/Colombo",
-		"Asia/Almaty",
-		"Asia/Novosibirsk",
-		"Asia/Rangoon",
-		"Asia/Bangkok",
-		"Asia/Bangkok",
-		"Asia/Jakarta",
-		"Asia/Krasnoyarsk",
-		"Asia/Shanghai",
-		"Asia/Chongqing",
-		"Asia/Hong_Kong",
-		"Asia/Urumqi",
-		"Asia/Kuala_Lumpur",
-		"Asia/Singapore",
-		"Asia/Taipei",
-		"Australia/Perth",
-		"Asia/Irkutsk",
-		"Asia/Ulaanbaatar",
-		"Asia/Seoul",
-		"Asia/Tokyo",
-		"Asia/Tokyo",
-		"Asia/Tokyo",
-		"Asia/Yakutsk",
-		"Australia/Darwin",
-		"Australia/Adelaide",
-		"Australia/Melbourne",
-		"Australia/Melbourne",
-		"Australia/Sydney",
-		"Australia/Brisbane",
-		"Australia/Hobart",
-		"Asia/Vladivostok",
-		"Pacífico/Guam",
-		"Pacífico/Port_Moresby",
-		"Asia/Magadan",
-		"Asia/Magadan",
-		"Pacífico/Noumea",
-		"Pacífico/Fiji",
-		"Asia/Kamchatka",
-		"Pacífico/Majuro",
-		"Pacífico/Auckland",
-		"Pacífico/Auckland",
-		"Pacífico/Tongatapu",
-		"Pacífico/Fakaofo",
-		"Pacífico/Apia"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string addressCity() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressCityPrefix() ~ "'";
-		}
-	}
-
-
-	override string addressBuildingNumber() {
-		final switch(uniform(0, 5, this.rnd)) {
-			case 0: return " s/n.";
-			case 1: return "#";
-			case 2: return "##";
-			case 3: return " #";
-			case 4: return "##'";
-		}
-	}
-
-	///
-	override string addressSecondaryAddress() {
-		auto data = [
-		"Esc. ###",
-		"Puerta ###'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressPostcode() {
-		auto data = [
-		"#####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressStreetSuffix() {
-		auto data = [
-		"Aldea",
-		"Apartamento",
-		"Arrabal",
-		"Arroyo",
-		"Avenida",
-		"Bajada",
-		"Barranco",
-		"Barrio",
-		"Bloque",
-		"Calle",
-		"Calleja",
-		"Camino",
-		"Carretera",
-		"Caserio",
-		"Colegio",
-		"Colonia",
-		"Conjunto",
-		"Cuesta",
-		"Chalet",
-		"Edificio",
-		"Entrada",
-		"Escalinata",
-		"Explanada",
-		"Extramuros",
-		"Extrarradio",
-		"Ferrocarril",
-		"Glorieta",
-		"Gran Subida",
-		"Grupo",
-		"Huerta",
-		"Jardines",
-		"Lado",
-		"Lugar",
-		"Manzana",
-		"Masía",
-		"Mercado",
-		"Monte",
-		"Muelle",
-		"Municipio",
-		"Parcela",
-		"Parque",
-		"Partida",
-		"Pasaje",
-		"Paseo",
-		"Plaza",
-		"Poblado",
-		"Polígono",
-		"Prolongación",
-		"Puente",
-		"Puerta",
-		"Quinta",
-		"Ramal",
-		"Rambla",
-		"Rampa",
-		"Riera",
-		"Rincón",
-		"Ronda",
-		"Rua",
-		"Salida",
-		"Sector",
-		"Sección",
-		"Senda",
-		"Solar",
-		"Subida",
-		"Terrenos",
-		"Torrente",
-		"Travesía",
-		"Urbanización",
-		"Vía",
-		"Vía Pública"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string phoneNumberFormats() {
-		auto data = [
-		"9##-###-###",
-		"9##.###.###",
-		"9## ### ###",
-		"9########'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string cellPhoneFormats() {
-		auto data = [
-		"6##-###-###",
-		"6##.###.###",
-		"6## ### ###",
-		"6########'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"yahoo.com",
-		"hotmail.com'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"com",
-		"es",
-		"info",
-		"com.es",
-		"org'"
-		];
-		return choice(data, this.rnd);
 	}
 
 }

@@ -19,6 +19,113 @@ class Faker_el : Faker {
 	}
 
 	///
+	override string locationCityName() {
+		auto data = [
+		"Αθήνα",
+		"Θεσσαλονίκη",
+		"Πειραιάς",
+		"Πάτρα",
+		"Ηράκλειο",
+		"Λάρισα",
+		"Βόλος",
+		"Ιωάννινα",
+		"Τρίκαλα",
+		"Σέρρες",
+		"Χαλκίδα",
+		"Αλεξανδρούπολη",
+		"Ξάνθη",
+		"Κατερίνη",
+		"Αγρίνιο",
+		"Καλαμάτα",
+		"Καβάλα",
+		"Χανιά",
+		"Λαμία",
+		"Κομοτηνή",
+		"Ρόδος",
+		"Δράμα",
+		"Βέροια",
+		"Κοζάνη",
+		"Καρδίτσα",
+		"Ρέθυμνο",
+		"Πτολεμαΐδα",
+		"Τρίπολη",
+		"Κόρινθος",
+		"Γέρακας",
+		"Γιαννιτσά",
+		"Μυτιλήνη",
+		"Χίος",
+		"Σαλαμίνα",
+		"Ελευσίνα",
+		"Κέρκυρα",
+		"Πύργος",
+		"Μέγαρα",
+		"Κιλκίς",
+		"Θήβα",
+		"Άργος",
+		"Άρτα",
+		"Άρτεμη",
+		"Λιβαδειά",
+		"Ωραιόκαστρο",
+		"Αίγιο",
+		"Κως",
+		"Κορωπί",
+		"Πρέβεζα",
+		"Νάουσα",
+		"Ορεστιάδα",
+		"Έδεσσα",
+		"Φλώρινα",
+		"Αμαλιάδα",
+		"Παλλήνη",
+		"Σπάρτη",
+		"Θέρμη",
+		"Βάρη",
+		"Νέα",
+		"Αλεξάνδρεια",
+		"Παιανία",
+		"Καλύβια",
+		"Ναύπλιο",
+		"Ναύπακτος",
+		"Καστοριά",
+		"Γρεβενά",
+		"Μεσολόγγι",
+		"Γάζι",
+		"Ιεράπετρα",
+		"Κάλυμνος",
+		"Ραφήνα",
+		"Λουτράκι",
+		"Άγιος",
+		"Ερμούπολη",
+		"Ιαλυσός",
+		"Τύρναβος",
+		"Γλυκά Νερά"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string locationStreetPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+		}
+	}
+
+	///
+	override string locationDefaultCountry() {
+		auto data = [
+		"Ελλάδα'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName() ~ "'";
+		}
+	}
+
+	///
 	override string loremWords() {
 		auto data = [
 		"alias",
@@ -46,9 +153,7 @@ class Faker_el : Faker {
 		"sunt",
 		"explicabo",
 		"aspernatur",
-		"aut",
 		"odit",
-		"aut",
 		"fugit",
 		"sed",
 		"quia",
@@ -58,21 +163,16 @@ class Faker_el : Faker {
 		"eos",
 		"qui",
 		"ratione",
-		"voluptatem",
 		"sequi",
 		"nesciunt",
 		"neque",
 		"dolorem",
 		"ipsum",
-		"quia",
 		"dolor",
-		"sit",
 		"amet",
 		"consectetur",
 		"adipisci",
 		"velit",
-		"sed",
-		"quia",
 		"non",
 		"numquam",
 		"eius",
@@ -81,13 +181,10 @@ class Faker_el : Faker {
 		"incidunt",
 		"ut",
 		"labore",
-		"et",
 		"dolore",
 		"magnam",
 		"aliquam",
 		"quaerat",
-		"voluptatem",
-		"ut",
 		"enim",
 		"ad",
 		"minima",
@@ -98,42 +195,30 @@ class Faker_el : Faker {
 		"ullam",
 		"corporis",
 		"nemo",
-		"enim",
 		"ipsam",
-		"voluptatem",
-		"quia",
 		"voluptas",
-		"sit",
 		"suscipit",
 		"laboriosam",
 		"nisi",
-		"ut",
 		"aliquid",
 		"ex",
 		"ea",
 		"commodi",
-		"consequatur",
-		"quis",
 		"autem",
 		"vel",
 		"eum",
 		"iure",
 		"reprehenderit",
-		"qui",
 		"in",
-		"ea",
 		"voluptate",
-		"velit",
 		"esse",
 		"quam",
 		"nihil",
 		"molestiae",
-		"et",
 		"iusto",
 		"odio",
 		"dignissimos",
 		"ducimus",
-		"qui",
 		"blanditiis",
 		"praesentium",
 		"laudantium",
@@ -144,18 +229,13 @@ class Faker_el : Faker {
 		"atque",
 		"corrupti",
 		"quos",
-		"dolores",
-		"et",
 		"quas",
 		"molestias",
 		"excepturi",
 		"sint",
 		"occaecati",
 		"cupiditate",
-		"non",
 		"provident",
-		"sed",
-		"ut",
 		"perspiciatis",
 		"unde",
 		"omnis",
@@ -163,10 +243,7 @@ class Faker_el : Faker {
 		"natus",
 		"error",
 		"similique",
-		"sunt",
-		"in",
 		"culpa",
-		"qui",
 		"officia",
 		"deserunt",
 		"mollitia",
@@ -174,16 +251,12 @@ class Faker_el : Faker {
 		"id",
 		"est",
 		"laborum",
-		"et",
 		"dolorum",
 		"fuga",
-		"et",
 		"harum",
 		"quidem",
 		"rerum",
 		"facilis",
-		"est",
-		"et",
 		"expedita",
 		"distinctio",
 		"nam",
@@ -192,78 +265,45 @@ class Faker_el : Faker {
 		"cum",
 		"soluta",
 		"nobis",
-		"est",
 		"eligendi",
 		"optio",
 		"cumque",
-		"nihil",
 		"impedit",
 		"quo",
 		"porro",
 		"quisquam",
-		"est",
-		"qui",
 		"minus",
-		"id",
 		"quod",
 		"maxime",
 		"placeat",
 		"facere",
 		"possimus",
-		"omnis",
-		"voluptas",
 		"assumenda",
-		"est",
-		"omnis",
-		"dolor",
 		"repellendus",
 		"temporibus",
-		"autem",
 		"quibusdam",
-		"et",
-		"aut",
-		"consequatur",
-		"vel",
 		"illum",
-		"qui",
-		"dolorem",
-		"eum",
 		"fugiat",
-		"quo",
-		"voluptas",
 		"nulla",
 		"pariatur",
 		"at",
 		"vero",
-		"eos",
-		"et",
 		"accusamus",
 		"officiis",
 		"debitis",
-		"aut",
-		"rerum",
 		"necessitatibus",
 		"saepe",
 		"eveniet",
-		"ut",
-		"et",
 		"voluptates",
 		"repudiandae",
-		"sint",
-		"et",
-		"molestiae",
-		"non",
 		"recusandae",
 		"itaque",
 		"earum",
-		"rerum",
 		"hic",
 		"tenetur",
 		"a",
 		"sapiente",
 		"delectus",
-		"ut",
-		"aut",
 		"reiciendis",
 		"voluptatibus",
 		"maiores",
@@ -386,7 +426,7 @@ class Faker_el : Faker {
 
 	override string appAuthor() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameName();
+			case 0: return personName();
 			case 1: return companyName() ~ "'";
 		}
 	}
@@ -426,84 +466,6 @@ class Faker_el : Faker {
 		"Ι. ΚΛΟΥΚΙΝΑΣ - Ι. ΛΑΠΠΑΣ ΤΕΧΝΙΚΗ ΚΑΙ ΕΜΠΟΡΙΚΗ Α.Ε.",
 		"ΕΛΙΝΟΙΛ ΕΛΛΗΝΙΚΗ ΕΤΑΙΡΙΑ ΠΕΤΡΕΛΑΙΩΝ ΑΝΩΝΥΜΗ ΕΤΑΙΡΙΑ",
 		"ΔΕΛΤΑ ΜΗΧΑΝΟΛΟΓΙΚΟΣ ΕΞΟΠΛΙΣΜΟΣ & ΟΛΟΚΛΗΡΩΜΕΝΑ ΕΡΓΑ ΑΒΕΤΕ"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyBsVerb() {
-		auto data = [
-		"χρησιμοποιούν",
-		"ενσωμάτωση",
-		"βελτιστοποιήσουν",
-		"εξελιχθεί",
-		"μεταμορφώσει",
-		"αγκαλιάζουν",
-		"επιτρέψει",
-		"ενορχηστρώσει",
-		"επανεφεύρουμε",
-		"ενισχύσουν",
-		"διευκολύνουν",
-		"αδράξουν",
-		"συνεργούν",
-		"μεγαλώνουν",
-		"συνθέσει",
-		"παραδώσει",
-		"αναλάβουν",
-		"επιταχύνει",
-		"απεικονίσει",
-		"επαναπροσδιορίσουν",
-		"καινοτομία",
-		"απελευθερώσουν",
-		"επεκτείνει",
-		"δημιουργούν",
-		"εκμεταλλεύονται",
-		"επαναλάβει",
-		"καλλιεργούν",
-		"επαναπροσδιορίσει"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyBsNoun() {
-		auto data = [
-		"συνέργειες",
-		"παραδείγματα",
-		"αγορές",
-		"συνεργασίες",
-		"υποδομές",
-		"πλατφόρμες",
-		"πρωτοβουλίες",
-		"κανάλια",
-		"μάτια",
-		"κοινότητες",
-		"λύσεις",
-		"δράση-αντικείμενα",
-		"πύλες",
-		"θέσεις",
-		"τεχνολογίες",
-		"περιεχόμενο",
-		"αλυσίδες προμηθειών",
-		"σύγκλιση",
-		"σχέσεις",
-		"αρχιτεκτονικές",
-		"διασυνδέσεις",
-		"e-αγορές",
-		"ηλεκτρονικό εμπόριο",
-		"συστήματα",
-		"μοντέλα",
-		"παραδοτέα",
-		"χρήστες",
-		"σχήματα",
-		"δίκτυα",
-		"εφαρμογές",
-		"μετρήσεις",
-		"e-business",
-		"λειτουργίες",
-		"εμπειρίες",
-		"διαδικτυακές υπηρεσίες",
-		"μεθοδολογίες"
 		];
 		return choice(data, this.rnd);
 	}
@@ -621,7 +583,6 @@ class Faker_el : Faker {
 		"Υποχρεωτικά",
 		"Πολυμερής",
 		"Πολυεπίπεδη",
-		"Πολυεπίπεδη",
 		"Δικτυωμένες",
 		"Ανοιχτή πηγή",
 		"Λειτουργικής",
@@ -632,7 +593,6 @@ class Faker_el : Faker {
 		"Μένοντας",
 		"Επίμονη",
 		"Σταδιακή",
-		"Προληπτική",
 		"Προληπτική",
 		"Ριζική",
 		"Προοδευτική",
@@ -668,18 +628,96 @@ class Faker_el : Faker {
 		return choice(data, this.rnd);
 	}
 
+	///
+	override string companyBuzzVerb() {
+		auto data = [
+		"χρησιμοποιούν",
+		"ενσωμάτωση",
+		"βελτιστοποιήσουν",
+		"εξελιχθεί",
+		"μεταμορφώσει",
+		"αγκαλιάζουν",
+		"επιτρέψει",
+		"ενορχηστρώσει",
+		"επανεφεύρουμε",
+		"ενισχύσουν",
+		"διευκολύνουν",
+		"αδράξουν",
+		"συνεργούν",
+		"μεγαλώνουν",
+		"συνθέσει",
+		"παραδώσει",
+		"αναλάβουν",
+		"επιταχύνει",
+		"απεικονίσει",
+		"επαναπροσδιορίσουν",
+		"καινοτομία",
+		"απελευθερώσουν",
+		"επεκτείνει",
+		"δημιουργούν",
+		"εκμεταλλεύονται",
+		"επαναλάβει",
+		"καλλιεργούν",
+		"επαναπροσδιορίσει"
+		];
+		return choice(data, this.rnd);
+	}
 
-	override string companyName() {
+
+	override string companyNamePattern() {
 		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return nameLastName() ~ " " ~ companySuffix();
-			case 1: return nameLastName() ~ "-" ~ nameLastName();
-			case 2: return nameLastName();
-			case 3: return nameLastName() ~ " and " ~ nameLastName();
+			case 0: return personLastName() ~ " " ~ companySuffix();
+			case 1: return personLastName() ~ "-" ~ personLastName();
+			case 2: return personLastName();
+			case 3: return personLastName() ~ " and " ~ personLastName();
 		}
 	}
 
 	///
-	override string companyBsAdjective() {
+	override string companyBuzzNoun() {
+		auto data = [
+		"συνέργειες",
+		"παραδείγματα",
+		"αγορές",
+		"συνεργασίες",
+		"υποδομές",
+		"πλατφόρμες",
+		"πρωτοβουλίες",
+		"κανάλια",
+		"μάτια",
+		"κοινότητες",
+		"λύσεις",
+		"δράση-αντικείμενα",
+		"πύλες",
+		"θέσεις",
+		"τεχνολογίες",
+		"περιεχόμενο",
+		"αλυσίδες προμηθειών",
+		"σύγκλιση",
+		"σχέσεις",
+		"αρχιτεκτονικές",
+		"διασυνδέσεις",
+		"e-αγορές",
+		"ηλεκτρονικό εμπόριο",
+		"συστήματα",
+		"μοντέλα",
+		"παραδοτέα",
+		"χρήστες",
+		"σχήματα",
+		"δίκτυα",
+		"εφαρμογές",
+		"μετρήσεις",
+		"e-business",
+		"λειτουργίες",
+		"εμπειρίες",
+		"διαδικτυακές υπηρεσίες",
+		"μεθοδολογίες"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companyBuzzAdjective() {
 		auto data = [
 		"Προστιθέμενη αξία",
 		"Κάθετη",
@@ -775,7 +813,7 @@ class Faker_el : Faker {
 	}
 
 	///
-	override string hackerAbbreviation() {
+	string hackerAbbreviation() {
 		auto data = [
 		"TCP",
 		"HTTP",
@@ -838,10 +876,228 @@ class Faker_el : Faker {
 	}
 
 	///
-	override string namePrefix() {
+	override string commerceDepartment() {
 		auto data = [
-		"Κυρία",
-		"Δυς",
+		"Βιβλία",
+		"Ταινίες",
+		"Μουσική",
+		"Παιχνίδια",
+		"Ηλεκτρονικές Συσκευές",
+		"Υπολογιστές",
+		"Σπίτι",
+		"Κήπος",
+		"Εργαλεία",
+		"Grocery",
+		"Υγεία",
+		"Ομορφιά",
+		"Παιδί",
+		"Μωρό",
+		"Ρουχισμός",
+		"Παπούτσια",
+		"Κοσμήματα",
+		"Sports",
+		"Εξοχή",
+		"Αυτοκίνητο",
+		"Βιομηχανικά"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
+		"κοκκικο",
+		"πράσινο",
+		"μπλε",
+		"κίτρινο",
+		"μωβ",
+		"λευκό",
+		"μαύρο",
+		"πορτοκαλί",
+		"ροζ",
+		"γκρί",
+		"βιολετί",
+		"τρικουάζ",
+		"λαδί",
+		"χρυσό",
+		"φουξια",
+		"κυανό",
+		"ασημί"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string teamCreature() {
+		auto data = [
+		"μυρμήγκια",
+		"νυχτερίδες",
+		"αρκούδες",
+		"μέλισσες",
+		"πουλιά",
+		"βουβάλια",
+		"γάτες",
+		"κοτόπουλα",
+		"βοοειδή",
+		"σκυλιά",
+		"δελφίνια",
+		"πάπιες",
+		"ελέφαντες",
+		"ψάρια",
+		"αλεπούδες",
+		"βατράχια",
+		"χήνες",
+		"ερίφια",
+		"άλογα",
+		"καγκουρό",
+		"λιοντάρια",
+		"μαϊμούδες",
+		"κουκουβάγιες",
+		"βόδια",
+		"πιγκουίνοι",
+		"Άνθρωποι",
+		"γουρούνια",
+		"κουνέλια",
+		"πρόβατα",
+		"τίγρεις",
+		"φάλαινες",
+		"λύκοι",
+		"ζέβρες",
+		"κοράκια",
+		"μαύρεςγάτες",
+		"χίμαιρες",
+		"φαντάσματα",
+		"συνωμότες",
+		"δράκους",
+		"νάνοι",
+		"ξωτικά",
+		"enchanters",
+		"εξορκιστές",
+		"γιοι",
+		"εχθρούς",
+		"γίγαντες",
+		"στοιχειά",
+		"γρύπες",
+		"Νέμεσις",
+		"δράκοι",
+		"χρησμούς",
+		"προφήτες",
+		"αράχνες",
+		"πνεύματα",
+		"βαμπίρ",
+		"warlocks",
+		"Vixens",
+		"λυκάνθρωποι",
+		"μάγισσες",
+		"προσκυνητές",
+		"ζόμπι",
+		"Δρυίδες"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string teamName() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationState() ~ " " ~ teamCreature() ~ "'";
+		}
+	}
+
+	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"697## ######",
+		"698## ######",
+		"699## ######",
+		"692## ######'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"2310# #####",
+		"2312# #####",
+		"2313# #####",
+		"222# ######",
+		"223# ######",
+		"227# ######",
+		"224# ######",
+		"226# ######",
+		"225# ######",
+		"232# ######",
+		"229# ######",
+		"228# ######",
+		"233# ######",
+		"234# ######",
+		"235# ######",
+		"237# ######",
+		"238# ######",
+		"239# ######",
+		"241# ######",
+		"242# ######",
+		"243# ######",
+		"244# ######",
+		"246# ######",
+		"249# ######",
+		"251# ######",
+		"252# ######",
+		"253# ######",
+		"254# ######",
+		"255# ######",
+		"259# ######",
+		"261# ######",
+		"262# ######",
+		"263# ######",
+		"264# ######",
+		"265# ######",
+		"266# ######",
+		"267# ######",
+		"268# ######",
+		"269# ######",
+		"271# ######",
+		"272# ######",
+		"273# ######",
+		"274# ######",
+		"275# ######",
+		"276# ######",
+		"279# ######",
+		"281# ######",
+		"282# ######",
+		"283# ######",
+		"284# ######",
+		"289# ######",
+		"0800 ######"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"gr",
+		"com",
+		"biz",
+		"info",
+		"name'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMalePrefix() {
+		auto data = [
 		"Κύριος",
 		"Δόκτορ'"
 		];
@@ -849,7 +1105,59 @@ class Faker_el : Faker {
 	}
 
 	///
-	override string nameLastName() {
+	override string personFemalePrefix() {
+		auto data = [
+		"Κυρία",
+		"Δόκτορ'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMaleFirstName() {
+		auto data = [
+		"Γεώργιος",
+		"Ιωάννης",
+		"Κώστας",
+		"Δημήτρης",
+		"Νικόλαος",
+		"Παναγιώτης",
+		"Βασίλης",
+		"Χρήστος",
+		"Αθανάσιος",
+		"Μιχαήλ",
+		"Ευάγγελος",
+		"Σπύρος",
+		"Αντώνης",
+		"Αναστάσιος",
+		"Θεόδωρος",
+		"Ανδρέας",
+		"Χαράλαμπος",
+		"Αλέξανδρος",
+		"Εμμανουήλ",
+		"Ηλίας",
+		"Σταύρος",
+		"Πέτρος",
+		"Σωτήριος",
+		"Στυλιανός",
+		"Ελευθέριος",
+		"Απόστολος",
+		"Φώτιος",
+		"Διονύσιος",
+		"Γρηγόριος",
+		"Άγγελος",
+		"Στέφανος",
+		"Ευστάθιος",
+		"Παύλος",
+		"Παρασκευάς",
+		"Αριστείδης",
+		"Λεωνίδας"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personLastName() {
 		auto data = [
 		"Αβραμίδης",
 		"Αγγελίδης",
@@ -884,7 +1192,7 @@ class Faker_el : Faker {
 		"Αρβανίτης",
 		"Αργυριάδης",
 		"Ασπάσιος",
-		"Αυγερινός (επώνυμο)",
+		"Αυγερινός",
 		"Βάμβας",
 		"Βαμβακάς",
 		"Βαρνακιώτης",
@@ -999,7 +1307,7 @@ class Faker_el : Faker {
 		"Λόντος",
 		"Λύτρας",
 		"Λαγός",
-		"Λαιμός (επώνυμο)",
+		"Λαιμός",
 		"Λαμέρας",
 		"Λαμπρόπουλος",
 		"Λειβαδάς",
@@ -1055,426 +1363,119 @@ class Faker_el : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string nameFirstName() {
-		auto data = [
-		"Γεώργιος",
-		"Ιωάννης",
-		"Κώστας",
-		"Δημήτρης",
-		"Νικόλαος",
-		"Παναγιώτης",
-		"Βασίλης",
-		"Χρήστος",
-		"Αθανάσιος",
-		"Μιχαήλ",
-		"Ευάγγελος",
-		"Σπύρος",
-		"Αντώνης",
-		"Αναστάσιος",
-		"Θεόδωρος",
-		"Ανδρέας",
-		"Χαράλαμπος",
-		"Αλέξανδρος",
-		"Εμμανουήλ",
-		"Ηλίας",
-		"Σταύρος",
-		"Πέτρος",
-		"Σωτήριος",
-		"Στυλιανός",
-		"Ελευθέριος",
-		"Απόστολος",
-		"Φώτιος",
-		"Διονύσιος",
-		"Γρηγόριος",
-		"Άγγελος",
-		"Στέφανος",
-		"Ευστάθιος",
-		"Παύλος",
-		"Παρασκευάς",
-		"Αριστείδης",
-		"Λεωνίδας"
-		];
-		return choice(data, this.rnd);
+
+	override string personTitle() {
+		final switch(uniform(0, 59, this.rnd)) {
+			case 0: return "descriptor: [";
+			case 1: return "Senior";
+			case 2: return "Εταιρείες";
+			case 3: return "Πελάτης";
+			case 4: return "Επενδυτής";
+			case 5: return "Εσωτερικό";
+			case 6: return "Κύριος";
+			case 7: return "]";
+			case 8: return "level: [";
+			case 9: return "Λύσεις";
+			case 10: return "Πρόγραμμα";
+			case 11: return "Μάρκα";
+			case 12: return "Ασφάλεια";
+			case 13: return "Έρευνα";
+			case 14: return "Μάρκετινγκ";
+			case 15: return "Οδηγιών";
+			case 16: return "Εφαρμογή";
+			case 17: return "Ενσωμάτωση";
+			case 18: return "Λειτουργικότητα";
+			case 19: return "Τακτική";
+			case 20: return "Ταυτότητα";
+			case 21: return "Αγορές";
+			case 22: return "Όμιλος";
+			case 23: return "Εφαρμογές";
+			case 24: return "Βελτιστοποίηση";
+			case 25: return "Δραστηριότητες";
+			case 26: return "Υποδομή";
+			case 27: return "Intranet";
+			case 28: return "Επικοινωνίες";
+			case 29: return "Web";
+			case 30: return "Branding";
+			case 31: return "Ποιότητα";
+			case 32: return "Διασφάλιση";
+			case 33: return "Κινητικότητα";
+			case 34: return "Λογαριασμοί";
+			case 35: return "Δεδομένα";
+			case 36: return "Δημιουργική";
+			case 37: return "Διαμόρφωση";
+			case 38: return "Μετρήσεις";
+			case 39: return "]";
+			case 40: return "job: [";
+			case 41: return "Επόπτης";
+			case 42: return "Συνεργάτης";
+			case 43: return "Σύμβουλος";
+			case 44: return "Διευθυντής";
+			case 45: return "Μηχανικός";
+			case 46: return "Ειδικός";
+			case 47: return "Συντονιστή";
+			case 48: return "Διαχειριστής";
+			case 49: return "Αναλυτής";
+			case 50: return "Designer";
+			case 51: return "Τεχνικός";
+			case 52: return "Προγραμματιστής";
+			case 53: return "Παραγωγός";
+			case 54: return "Βοηθός";
+			case 55: return "Συντονιστής";
+			case 56: return "Εκπρόσωπος";
+			case 57: return "Αντιπρόσωπος";
+			case 58: return "]";
+		}
 	}
 
 
-	override string nameName() {
-		final switch(uniform(0, 6, this.rnd)) {
-			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
-			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameSuffix();
-			case 2: return nameFirstName() ~ " " ~ nameLastName();
-			case 3: return nameFirstName() ~ " " ~ nameLastName();
-			case 4: return nameFirstName() ~ " " ~ nameLastName();
-			case 5: return nameFirstName() ~ " " ~ nameLastName();
+	override string personName() {
+		final switch(uniform(0, 10, this.rnd)) {
+			case 0: return "{";
+			case 1: return "value: '" ~ personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+			case 2: return "weight: 1";
+			case 3: return "}";
+			case 4: return "{";
+			case 5: return "value: '" ~ personFirstName() ~ " " ~ personLastName() ~ " " ~ personSuffix();
+			case 6: return "weight: 1";
+			case 7: return "}";
+			case 8: return "{ value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 9: return "weight: 8 }";
 		}
 	}
 
 	///
-	override string commerceDepartment() {
+	override string personFemaleFirstName() {
 		auto data = [
-		"Βιβλία",
-		"Ταινίες",
-		"Μουσική",
-		"Παιχνίδια",
-		"Ηλεκτρονικές Συσκευές",
-		"Υπολογιστές",
-		"Σπίτι",
-		"Κήπος",
-		"Εργαλεία",
-		"Grocery",
-		"Υγεία",
-		"Ομορφιά",
-		"Παιχνίδια",
-		"Παιδί",
-		"Μωρό",
-		"Ρουχισμός",
-		"Παπούτσια",
-		"Κοσμήματα",
-		"Sports",
-		"Εξοχή",
-		"Αυτοκίνητο",
-		"Βιομηχανικά"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"κοκκικο",
-		"πράσινο",
-		"μπλε",
-		"κίτρινο",
-		"μωβ",
-		"λευκό",
-		"μαύρο",
-		"πορτοκαλί",
-		"ροζ",
-		"γκρί",
-		"βιολετί",
-		"τρικουάζ",
-		"λαδί",
-		"χρυσό",
-		"φουξια",
-		"κυανό",
-		"ασημί"
+		"Μαρια",
+		"Ελενη",
+		"Αικατερινη",
+		"Ιωαννα",
+		"Δημητρα",
+		"Ευαγγελια",
+		"Γεωργια",
+		"Αναστασια",
+		"Παναγιωτα",
+		"Σοφια",
+		"Κωνσταντινα",
+		"Παρασκευη",
+		"Αννα",
+		"Χριστινα",
+		"Αθανασια",
+		"Δεσποινα",
+		"Χρυσουλα",
+		"Αλεξανδρα",
+		"Σταυρουλα"
 		];
 		return choice(data, this.rnd);
 	}
 
 
-	override string addressStreet() {
+	override string personLastNamePattern() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
-			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
 		}
-	}
-
-
-	override string addressCity() {
-		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
-			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
-			case 2: return nameFirstName() ~ addressCitySuffix();
-			case 3: return nameLastName() ~ addressCitySuffix();
-		}
-	}
-
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"Ελλάδα'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCounty() {
-		auto data = [
-		"Αθήνα",
-		"Θεσσαλονίκη",
-		"Πειραιάς",
-		"Πάτρα",
-		"Ηράκλειο",
-		"Λάρισα",
-		"Βόλος",
-		"Ιωάννινα",
-		"Τρίκαλα",
-		"Σέρρες",
-		"Χαλκίδα",
-		"Αλεξανδρούπολη",
-		"Ξάνθη",
-		"Κατερίνη",
-		"Αγρίνιο",
-		"Καλαμάτα",
-		"Καβάλα",
-		"Χανιά",
-		"Λαμία",
-		"Κομοτηνή",
-		"Ρόδος",
-		"Δράμα",
-		"Βέροια",
-		"Κοζάνη",
-		"Καρδίτσα",
-		"Ρέθυμνο",
-		"Πτολεμαΐδα",
-		"Τρίπολη",
-		"Κόρινθος",
-		"Γέρακας",
-		"Γιαννιτσά",
-		"Μυτιλήνη",
-		"Χίος",
-		"Σαλαμίνα",
-		"Ελευσίνα",
-		"Κέρκυρα",
-		"Πύργος",
-		"Μέγαρα",
-		"Κιλκίς",
-		"Θήβα",
-		"Άργος",
-		"Άρτα",
-		"Άρτεμη",
-		"Λιβαδειά",
-		"Ωραιόκαστρο",
-		"Αίγιο",
-		"Κως",
-		"Κορωπί",
-		"Πρέβεζα",
-		"Νάουσα",
-		"Ορεστιάδα",
-		"Έδεσσα",
-		"Φλώρινα",
-		"Αμαλιάδα",
-		"Παλλήνη",
-		"Σπάρτη",
-		"Θέρμη",
-		"Βάρη",
-		"Νέα",
-		"Αλεξάνδρεια",
-		"Παιανία",
-		"Καλύβια",
-		"Ναύπλιο",
-		"Ναύπακτος",
-		"Καστοριά",
-		"Γρεβενά",
-		"Νέα",
-		"Μεσολόγγι",
-		"Γάζι",
-		"Ιεράπετρα",
-		"Κάλυμνος",
-		"Ραφήνα",
-		"Λουτράκι",
-		"Άγιος",
-		"Ερμούπολη",
-		"Ιαλυσός",
-		"Τύρναβος",
-		"Γλυκά Νερά"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string teamCreature() {
-		auto data = [
-		"μυρμήγκια",
-		"νυχτερίδες",
-		"αρκούδες",
-		"μέλισσες",
-		"πουλιά",
-		"βουβάλια",
-		"γάτες",
-		"κοτόπουλα",
-		"βοοειδή",
-		"σκυλιά",
-		"δελφίνια",
-		"πάπιες",
-		"ελέφαντες",
-		"ψάρια",
-		"αλεπούδες",
-		"βατράχια",
-		"χήνες",
-		"ερίφια",
-		"άλογα",
-		"καγκουρό",
-		"λιοντάρια",
-		"μαϊμούδες",
-		"κουκουβάγιες",
-		"βόδια",
-		"πιγκουίνοι",
-		"Άνθρωποι",
-		"γουρούνια",
-		"κουνέλια",
-		"πρόβατα",
-		"τίγρεις",
-		"φάλαινες",
-		"λύκοι",
-		"ζέβρες",
-		"κοράκια",
-		"μαύρεςγάτες",
-		"χίμαιρες",
-		"φαντάσματα",
-		"συνωμότες",
-		"δράκους",
-		"νάνοι",
-		"ξωτικά",
-		"enchanters",
-		"εξορκιστές",
-		"γιοι",
-		"εχθρούς",
-		"γίγαντες",
-		"στοιχειά",
-		"ξωτικά",
-		"χήνες",
-		"γρύπες",
-		"Νέμεσις",
-		"δράκοι",
-		"χρησμούς",
-		"προφήτες",
-		"αράχνες",
-		"πνεύματα",
-		"βαμπίρ",
-		"warlocks",
-		"Vixens",
-		"λυκάνθρωποι",
-		"μάγισσες",
-		"προσκυνητές",
-		"ζόμπι",
-		"Δρυίδες"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string teamName() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressState() ~ " " ~ teamCreature() ~ "'";
-		}
-	}
-
-	///
-	override string phoneNumberFormats() {
-		auto data = [
-		"2310# #####",
-		"2312# #####",
-		"2313# #####",
-		"222# ######",
-		"223# ######",
-		"227# ######",
-		"224# ######",
-		"226# ######",
-		"225# ######",
-		"232# ######",
-		"229# ######",
-		"228# ######",
-		"233# ######",
-		"234# ######",
-		"235# ######",
-		"237# ######",
-		"238# ######",
-		"239# ######",
-		"241# ######",
-		"242# ######",
-		"243# ######",
-		"244# ######",
-		"246# ######",
-		"249# ######",
-		"251# ######",
-		"252# ######",
-		"253# ######",
-		"254# ######",
-		"255# ######",
-		"259# ######",
-		"261# ######",
-		"262# ######",
-		"263# ######",
-		"264# ######",
-		"265# ######",
-		"266# ######",
-		"267# ######",
-		"268# ######",
-		"269# ######",
-		"271# ######",
-		"272# ######",
-		"273# ######",
-		"274# ######",
-		"275# ######",
-		"276# ######",
-		"279# ######",
-		"281# ######",
-		"282# ######",
-		"283# ######",
-		"284# ######",
-		"289# ######",
-		"0800 ######"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string cellPhoneFormats() {
-		auto data = [
-		"697## ######",
-		"698## ######",
-		"699## ######",
-		"692## ######'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"yahoo.com",
-		"hotmail.com'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"gr",
-		"com",
-		"biz",
-		"info",
-		"name'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string businessCreditCardExpiryDates() {
-		auto data = [
-		"2011-10-12",
-		"2012-11-12",
-		"2015-11-11",
-		"2013-9-12'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string businessCreditCardTypes() {
-		auto data = [
-		"visa",
-		"mastercard",
-		"americanexpress",
-		"discover'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string businessCreditCardNumbers() {
-		auto data = [
-		"1234-2121-1221-1211",
-		"1212-1221-1121-1234",
-		"1211-1221-1234-2201",
-		"1228-1221-1221-1431"
-		];
-		return choice(data, this.rnd);
 	}
 
 }

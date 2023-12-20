@@ -19,6 +19,392 @@ class Faker_pt_br : Faker {
 	}
 
 	///
+	override string locationStateAbbr() {
+		auto data = [
+		"AC",
+		"AL",
+		"AP",
+		"AM",
+		"BA",
+		"CE",
+		"DF",
+		"ES",
+		"GO",
+		"MA",
+		"MT",
+		"MS",
+		"MG",
+		"PA",
+		"PB",
+		"PR",
+		"PE",
+		"PI",
+		"RJ",
+		"RN",
+		"RS",
+		"RO",
+		"RR",
+		"SC",
+		"SP",
+		"SE",
+		"TO"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationState() {
+		auto data = [
+		"Acre",
+		"Alagoas",
+		"Amapá",
+		"Amazonas",
+		"Bahia",
+		"Ceará",
+		"Distrito Federal",
+		"Espírito Santo",
+		"Goiás",
+		"Maranhão",
+		"Mato Grosso",
+		"Mato Grosso do Sul",
+		"Minas Gerais",
+		"Pará",
+		"Paraíba",
+		"Paraná",
+		"Pernambuco",
+		"Piauí",
+		"Rio de Janeiro",
+		"Rio Grande do Norte",
+		"Rio Grande do Sul",
+		"Rondônia",
+		"Roraima",
+		"Santa Catarina",
+		"São Paulo",
+		"Sergipe",
+		"Tocantins"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationCountry() {
+		auto data = [
+		"Afeganistão",
+		"Albânia",
+		"Algéria",
+		"Samoa",
+		"Andorra",
+		"Angola",
+		"Anguila",
+		"Antigua and Barbada",
+		"Argentina",
+		"Armênia",
+		"Aruba",
+		"Austrália",
+		"Áustria",
+		"Azerbaijão",
+		"Bahamas",
+		"Barém",
+		"Bangladesh",
+		"Barbados",
+		"Bélgica",
+		"Belize",
+		"Benin",
+		"Bermuda",
+		"Butão",
+		"Bolívia",
+		"Bôsnia",
+		"Botsuana",
+		"Ilha Bouvet",
+		"Brasil",
+		"Arquipélago de Chagos",
+		"Ilhas Virgens",
+		"Brunei",
+		"Bulgária",
+		"Burkina Faso",
+		"Burundi",
+		"Camboja",
+		"Camarões",
+		"Canadá",
+		"Cabo Verde",
+		"Ilhas Caiman",
+		"República da África Central",
+		"Chade",
+		"Chile",
+		"China",
+		"Ilha do Natal",
+		"Ilhas Cocos",
+		"Colômbia",
+		"Comores",
+		"Congo",
+		"Ilhas Cook",
+		"Costa Rica",
+		"Costa do Marfim",
+		"Croácia",
+		"Cuba",
+		"Chipre",
+		"República Tcheca",
+		"Dinamarca",
+		"Jibuti",
+		"Dominica",
+		"República Dominicana",
+		"Equador",
+		"Egito",
+		"El Salvador",
+		"Guiné Equatorial",
+		"Eritreia",
+		"Estônia",
+		"Etiópia",
+		"Ilhas Faroe",
+		"Malvinas",
+		"Fiji",
+		"Finlândia",
+		"França",
+		"Guiné Francesa",
+		"Polinésia Francesa",
+		"Gabão",
+		"Gâmbia",
+		"Georgia",
+		"Alemanha",
+		"Gana",
+		"Gibraltar",
+		"Grécia",
+		"Groelândia",
+		"Granada",
+		"Guadalupe",
+		"Guatemala",
+		"Guernesey",
+		"Guiné",
+		"Guiné-Bissau",
+		"Guiana",
+		"Haiti",
+		"Ilhas Heard e McDonald",
+		"Vaticano",
+		"Honduras",
+		"Hong Kong",
+		"Hungria",
+		"Islândia",
+		"Índia",
+		"Indonésia",
+		"Irã",
+		"Iraque",
+		"Irlanda",
+		"Ilha de Man",
+		"Israel",
+		"Itália",
+		"Jamaica",
+		"Japão",
+		"Jersey",
+		"Jordânia",
+		"Cazaquistão",
+		"Quênia",
+		"Quiribati",
+		"Coreia do Norte",
+		"Coreia do Sul",
+		"Kuwait",
+		"Quirguistão",
+		"Laos",
+		"Latvia",
+		"Líbano",
+		"Lesoto",
+		"Libéria",
+		"Líbia",
+		"Liechtenstein",
+		"Lituânia",
+		"Luxemburgo",
+		"Macao",
+		"Macedônia",
+		"Madagascar",
+		"Malawi",
+		"Malásia",
+		"Maldives",
+		"Mali",
+		"Malta",
+		"Ilhas Marshall",
+		"Martinica",
+		"Mauritânia",
+		"Maurícia",
+		"Maiote",
+		"México",
+		"Micronésia",
+		"Moldávia",
+		"Mônaco",
+		"Mongólia",
+		"Montenegro",
+		"Montserrat",
+		"Marrocos",
+		"Moçambique",
+		"Myanmar",
+		"Namibia",
+		"Nauru",
+		"Nepal",
+		"Antilhas Holandesas",
+		"Países Baixos",
+		"Nova Caledonia",
+		"Nova Zelândia",
+		"Nicarágua",
+		"Nigéria",
+		"Niue",
+		"Ilha Norfolk",
+		"Marianas Setentrionais",
+		"Noruega",
+		"Omã",
+		"Paquistão",
+		"Palau",
+		"Território da Palestina",
+		"Panamá",
+		"Papua-Nova Guiné",
+		"Paraguai",
+		"Peru",
+		"Filipinas",
+		"Polônia",
+		"Portugal",
+		"Porto Rico",
+		"Qatar",
+		"Romênia",
+		"Rússia",
+		"Ruanda",
+		"São Bartolomeu",
+		"Santa Helena",
+		"Santa Lúcia",
+		"São Martinho",
+		"São Pedro e Miquelão",
+		"São Vicente e Granadinas",
+		"San Marino",
+		"Sao Tomé e Príncipe",
+		"Arábia Saudita",
+		"Senegal",
+		"Sérvia",
+		"Seicheles",
+		"Serra Leoa",
+		"Singapura",
+		"Eslováquia",
+		"Eslovênia",
+		"Ilhas Salomão",
+		"Somália",
+		"África do Sul",
+		"Ilhas Geórgia do Sul e Sandwich do Sul",
+		"Espanha",
+		"Sri Lanka",
+		"Sudão",
+		"Suriname",
+		"Ilhas Svalbard & Jan Mayen",
+		"Suazilândia",
+		"Suécia",
+		"Suíça",
+		"Síria",
+		"Taiwan",
+		"Tajiquistão",
+		"Tanzânia",
+		"Tailândia",
+		"Timor-Leste",
+		"Togo",
+		"Toquelau",
+		"Tonga",
+		"Trinidad e Tobago",
+		"Tunísia",
+		"Turquia",
+		"Turcomenistão",
+		"Turcas e Caicos",
+		"Tuvalu",
+		"Uganda",
+		"Ucrânia",
+		"Emirados Árabes Unidos",
+		"Reino Unido",
+		"Estados Unidos da América",
+		"Estados Unidos das Ilhas Virgens",
+		"Uruguai",
+		"Uzbequistão",
+		"Vanuatu",
+		"Venezuela",
+		"Vietnã",
+		"Wallis e Futuna",
+		"Iêmen",
+		"Zâmbia",
+		"Zimbábue"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string locationStreetPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+		}
+	}
+
+	///
+	override string locationDefaultCountry() {
+		auto data = [
+		"Brasil'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ locationCitySuffix();
+			case 1: return personLastName() ~ locationCitySuffix();
+		}
+	}
+
+	///
+	override string locationCitySuffix() {
+		auto data = [
+		" do Descoberto",
+		" de Nossa Senhora",
+		" do Norte",
+		"do Sul'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationBuildingNumber() {
+		auto data = [
+		"#####",
+		"####",
+		"###'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string locationSecondaryAddress() {
+		auto data = [
+		"Apto. ###",
+		"Sobrado ##",
+		"Casa #",
+		"Lote ##",
+		"Quadra ##'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string locationPostcode() {
+		auto data = [
+		"#####-###'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string locationStreetSuffix() {
+		auto data = [
+		"Rua",
+		"Avenida",
+		"Travessa",
+		"Alameda",
+		"Marginal",
+		"Rodovia'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string loremWords() {
 		auto data = [
 		"alias",
@@ -46,9 +432,7 @@ class Faker_pt_br : Faker {
 		"sunt",
 		"explicabo",
 		"aspernatur",
-		"aut",
 		"odit",
-		"aut",
 		"fugit",
 		"sed",
 		"quia",
@@ -58,21 +442,16 @@ class Faker_pt_br : Faker {
 		"eos",
 		"qui",
 		"ratione",
-		"voluptatem",
 		"sequi",
 		"nesciunt",
 		"neque",
 		"dolorem",
 		"ipsum",
-		"quia",
 		"dolor",
-		"sit",
 		"amet",
 		"consectetur",
 		"adipisci",
 		"velit",
-		"sed",
-		"quia",
 		"non",
 		"numquam",
 		"eius",
@@ -81,13 +460,10 @@ class Faker_pt_br : Faker {
 		"incidunt",
 		"ut",
 		"labore",
-		"et",
 		"dolore",
 		"magnam",
 		"aliquam",
 		"quaerat",
-		"voluptatem",
-		"ut",
 		"enim",
 		"ad",
 		"minima",
@@ -98,42 +474,30 @@ class Faker_pt_br : Faker {
 		"ullam",
 		"corporis",
 		"nemo",
-		"enim",
 		"ipsam",
-		"voluptatem",
-		"quia",
 		"voluptas",
-		"sit",
 		"suscipit",
 		"laboriosam",
 		"nisi",
-		"ut",
 		"aliquid",
 		"ex",
 		"ea",
 		"commodi",
-		"consequatur",
-		"quis",
 		"autem",
 		"vel",
 		"eum",
 		"iure",
 		"reprehenderit",
-		"qui",
 		"in",
-		"ea",
 		"voluptate",
-		"velit",
 		"esse",
 		"quam",
 		"nihil",
 		"molestiae",
-		"et",
 		"iusto",
 		"odio",
 		"dignissimos",
 		"ducimus",
-		"qui",
 		"blanditiis",
 		"praesentium",
 		"laudantium",
@@ -144,18 +508,13 @@ class Faker_pt_br : Faker {
 		"atque",
 		"corrupti",
 		"quos",
-		"dolores",
-		"et",
 		"quas",
 		"molestias",
 		"excepturi",
 		"sint",
 		"occaecati",
 		"cupiditate",
-		"non",
 		"provident",
-		"sed",
-		"ut",
 		"perspiciatis",
 		"unde",
 		"omnis",
@@ -163,10 +522,7 @@ class Faker_pt_br : Faker {
 		"natus",
 		"error",
 		"similique",
-		"sunt",
-		"in",
 		"culpa",
-		"qui",
 		"officia",
 		"deserunt",
 		"mollitia",
@@ -174,16 +530,12 @@ class Faker_pt_br : Faker {
 		"id",
 		"est",
 		"laborum",
-		"et",
 		"dolorum",
 		"fuga",
-		"et",
 		"harum",
 		"quidem",
 		"rerum",
 		"facilis",
-		"est",
-		"et",
 		"expedita",
 		"distinctio",
 		"nam",
@@ -192,78 +544,45 @@ class Faker_pt_br : Faker {
 		"cum",
 		"soluta",
 		"nobis",
-		"est",
 		"eligendi",
 		"optio",
 		"cumque",
-		"nihil",
 		"impedit",
 		"quo",
 		"porro",
 		"quisquam",
-		"est",
-		"qui",
 		"minus",
-		"id",
 		"quod",
 		"maxime",
 		"placeat",
 		"facere",
 		"possimus",
-		"omnis",
-		"voluptas",
 		"assumenda",
-		"est",
-		"omnis",
-		"dolor",
 		"repellendus",
 		"temporibus",
-		"autem",
 		"quibusdam",
-		"et",
-		"aut",
-		"consequatur",
-		"vel",
 		"illum",
-		"qui",
-		"dolorem",
-		"eum",
 		"fugiat",
-		"quo",
-		"voluptas",
 		"nulla",
 		"pariatur",
 		"at",
 		"vero",
-		"eos",
-		"et",
 		"accusamus",
 		"officiis",
 		"debitis",
-		"aut",
-		"rerum",
 		"necessitatibus",
 		"saepe",
 		"eveniet",
-		"ut",
-		"et",
 		"voluptates",
 		"repudiandae",
-		"sint",
-		"et",
-		"molestiae",
-		"non",
 		"recusandae",
 		"itaque",
 		"earum",
-		"rerum",
 		"hic",
 		"tenetur",
 		"a",
 		"sapiente",
 		"delectus",
-		"ut",
-		"aut",
 		"reiciendis",
 		"voluptatibus",
 		"maiores",
@@ -287,17 +606,208 @@ class Faker_pt_br : Faker {
 	}
 
 
-	override string companyName() {
+	override string companyNamePattern() {
 		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return nameLastName() ~ " " ~ companySuffix();
-			case 1: return nameLastName() ~ "-" ~ nameLastName();
-			case 2: return nameLastName();
-			case 3: return nameLastName() ~ " e " ~ nameLastName();
+			case 0: return personLastName() ~ " " ~ companySuffix();
+			case 1: return personLastName() ~ "-" ~ personLastName();
+			case 2: return personLastName();
+			case 3: return personLastName() ~ " e " ~ personLastName();
 		}
 	}
 
 	///
-	override string nameMaleFirstName() {
+	override string commerceDepartment() {
+		auto data = [
+		"Livros",
+		"Filmes",
+		"Música",
+		"Jogos",
+		"Eletrônicos",
+		"Computadores",
+		"Casa",
+		"Jardim",
+		"Ferramentas",
+		"Mercearia",
+		"Saúde",
+		"Beleza",
+		"Brinquedos",
+		"Crianças",
+		"Bebê",
+		"Roupas",
+		"Sapatos",
+		"Jóias",
+		"Esportes",
+		"Turismo",
+		"Automotivo",
+		"Industrial"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
+		"amarelo",
+		"âmbar",
+		"ametista",
+		"azul",
+		"azul celeste",
+		"azul marinho",
+		"azul petróleo",
+		"açafrão",
+		"bordô",
+		"bronze",
+		"caramelo",
+		"castanho ",
+		"cenoura",
+		"cinza",
+		"cobre",
+		"coral",
+		"dourado",
+		"escarlate",
+		"esmeralda",
+		"ferrugem",
+		"fuligem",
+		"fúchsia",
+		"grená",
+		"índigo",
+		"jade",
+		"laranja",
+		"lilás",
+		"limão",
+		"madeira",
+		"magenta",
+		"marrom",
+		"ouro",
+		"pele",
+		"prata",
+		"preto",
+		"púrpura",
+		"rosa",
+		"roxo",
+		"salmão",
+		"turquesa",
+		"verde",
+		"verde lima",
+		"verde-azulado",
+		"vermelho",
+		"violeta"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string dateWeekday() {
+		auto data = [
+		"wide: ['Domingo",
+		"Segunda",
+		"Terça",
+		"Quarta",
+		"Quinta",
+		"Sexta",
+		"Sábado']",
+		"abbr: ['Dom",
+		"Seg",
+		"Ter",
+		"Qua",
+		"Qui",
+		"Sex",
+		"Sáb']"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 28, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Janeiro";
+			case 2: return "Fevereiro";
+			case 3: return "Março";
+			case 4: return "Abril";
+			case 5: return "Maio";
+			case 6: return "Junho";
+			case 7: return "Julho";
+			case 8: return "Agosto";
+			case 9: return "Setembro";
+			case 10: return "Outubro";
+			case 11: return "Novembro";
+			case 12: return "Dezembro";
+			case 13: return "]";
+			case 14: return "abbr: [";
+			case 15: return "Jan";
+			case 16: return "Fev";
+			case 17: return "Mar";
+			case 18: return "Abr";
+			case 19: return "Mai";
+			case 20: return "Jun";
+			case 21: return "Jul";
+			case 22: return "Ago";
+			case 23: return "Set";
+			case 24: return "Out";
+			case 25: return "Nov";
+			case 26: return "Dez";
+			case 27: return "]";
+		}
+	}
+
+	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"(##) ####-####",
+		"+55 (##) ####-####",
+		"(##) #####-####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com",
+		"live.com",
+		"bol.com.br"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"br",
+		"com",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMalePrefix() {
+		auto data = [
+		"Sr.",
+		"Dr.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFemalePrefix() {
+		auto data = [
+		"Sra.",
+		"Srta.",
+		"Dra.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMaleFirstName() {
 		auto data = [
 		"Alessandro",
 		"Alexandre",
@@ -392,7 +902,26 @@ class Faker_pt_br : Faker {
 	}
 
 	///
-	override string nameSuffix() {
+	override string personWesternZodiacSign() {
+		auto data = [
+		"Aquário",
+		"Peixes",
+		"Áries",
+		"Touro",
+		"Gêmeos",
+		"Câncer",
+		"Leão",
+		"Virgem",
+		"Libra",
+		"Escorpião",
+		"Sagitário",
+		"Capricórnio"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personSuffix() {
 		auto data = [
 		"Jr.",
 		"Neto",
@@ -402,7 +931,16 @@ class Faker_pt_br : Faker {
 	}
 
 	///
-	override string nameLastName() {
+	override string personSex() {
+		auto data = [
+		"Feminino",
+		"Masculino'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personLastName() {
 		auto data = [
 		"Silva",
 		"Souza",
@@ -418,7 +956,6 @@ class Faker_pt_br : Faker {
 		"Moraes",
 		"Costa",
 		"Pereira",
-		"Carvalho",
 		"Melo",
 		"Saraiva",
 		"Nogueira",
@@ -430,8 +967,206 @@ class Faker_pt_br : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string personTitle() {
+		final switch(uniform(0, 89, this.rnd)) {
+			case 0: return "descriptor: [";
+			case 1: return "Líder";
+			case 2: return "Senior";
+			case 3: return "Direto";
+			case 4: return "Corporativo";
+			case 5: return "Dinâmico";
+			case 6: return "Futuro";
+			case 7: return "Produto";
+			case 8: return "Nacional";
+			case 9: return "Regional";
+			case 10: return "Distrito";
+			case 11: return "Central";
+			case 12: return "Global";
+			case 13: return "Cliente";
+			case 14: return "Investidor";
+			case 15: return "International";
+			case 16: return "Legado";
+			case 17: return "Avançar";
+			case 18: return "Interno";
+			case 19: return "Humano";
+			case 20: return "Chefe";
+			case 21: return "Principal";
+			case 22: return "]";
+			case 23: return "level: [";
+			case 24: return "Soluções";
+			case 25: return "Programa";
+			case 26: return "Marca";
+			case 27: return "Segurança";
+			case 28: return "Pesquisar";
+			case 29: return "Marketing";
+			case 30: return "Diretivas";
+			case 31: return "Implementation";
+			case 32: return "Implementação";
+			case 33: return "Funcionalidade";
+			case 34: return "Resposta";
+			case 35: return "Paradigma";
+			case 36: return "Táticas";
+			case 37: return "Identidade";
+			case 38: return "Mercados";
+			case 39: return "Grupo";
+			case 40: return "Divisão";
+			case 41: return "Aplicações";
+			case 42: return "Otimização";
+			case 43: return "Operações";
+			case 44: return "Infraestrutura";
+			case 45: return "Intranet";
+			case 46: return "Comunicações";
+			case 47: return "Web";
+			case 48: return "Branding";
+			case 49: return "Qualidade";
+			case 50: return "Assurance";
+			case 51: return "Mobilidade";
+			case 52: return "Contas";
+			case 53: return "Dados";
+			case 54: return "Criativo";
+			case 55: return "Configuration";
+			case 56: return "Prestação de contas";
+			case 57: return "Interações";
+			case 58: return "Fatores";
+			case 59: return "Usabilidade";
+			case 60: return "Métricas";
+			case 61: return "]";
+			case 62: return "job: [";
+			case 63: return "Supervisor";
+			case 64: return "Associado";
+			case 65: return "Executivo";
+			case 66: return "Atentende";
+			case 67: return "Policial";
+			case 68: return "Gerente";
+			case 69: return "Engenheiro";
+			case 70: return "Especialista";
+			case 71: return "Diretor";
+			case 72: return "Coordenador";
+			case 73: return "Administrador";
+			case 74: return "Arquiteto";
+			case 75: return "Analista";
+			case 76: return "Designer";
+			case 77: return "Planejador";
+			case 78: return "Orquestrador";
+			case 79: return "Técnico";
+			case 80: return "Desenvolvedor";
+			case 81: return "Produtor";
+			case 82: return "Consultor";
+			case 83: return "Assistente";
+			case 84: return "Facilitador";
+			case 85: return "Agente";
+			case 86: return "Representante";
+			case 87: return "Estrategista";
+			case 88: return "]";
+		}
+	}
+
+
+	override string personName() {
+		final switch(uniform(0, 10, this.rnd)) {
+			case 0: return "{";
+			case 1: return "value: '" ~ personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+			case 2: return "weight: 1";
+			case 3: return "}";
+			case 4: return "{";
+			case 5: return "value: '" ~ personFirstName() ~ " " ~ personLastName() ~ " " ~ personSuffix();
+			case 6: return "weight: 1";
+			case 7: return "}";
+			case 8: return "{ value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 9: return "weight: 8 }";
+		}
+	}
+
 	///
-	override string nameFirstName() {
+	override string personFemaleFirstName() {
+		auto data = [
+		"Alessandra",
+		"Alice",
+		"Aline",
+		"Alícia",
+		"Ana Clara",
+		"Ana Júlia",
+		"Ana Laura",
+		"Ana Luiza",
+		"Antonella",
+		"Beatriz",
+		"Bruna",
+		"Carla",
+		"Cecília",
+		"Clara",
+		"Célia",
+		"Dalila",
+		"Eduarda",
+		"Elisa",
+		"Eloá",
+		"Emanuelly",
+		"Esther",
+		"Fabrícia",
+		"Felícia",
+		"Giovanna",
+		"Helena",
+		"Heloísa",
+		"Isabel",
+		"Isabela",
+		"Isabella",
+		"Isabelly",
+		"Isis",
+		"Janaína",
+		"Joana",
+		"Júlia",
+		"Karla",
+		"Lara",
+		"Larissa",
+		"Laura",
+		"Lavínia",
+		"Liz",
+		"Lorena",
+		"Lorraine",
+		"Luiza",
+		"Lívia",
+		"Maitê",
+		"Manuela",
+		"Marcela",
+		"Margarida",
+		"Maria",
+		"Maria Alice",
+		"Maria Cecília",
+		"Maria Clara",
+		"Maria Eduarda",
+		"Maria Helena",
+		"Maria Júlia",
+		"Maria Luiza",
+		"Mariana",
+		"Marina",
+		"Marli",
+		"Meire",
+		"Melissa",
+		"Morgana",
+		"Márcia",
+		"Mércia",
+		"Natália",
+		"Núbia",
+		"Ofélia",
+		"Paula",
+		"Rafaela",
+		"Rebeca",
+		"Roberta",
+		"Sara",
+		"Sarah",
+		"Sophia",
+		"Suélen",
+		"Sílvia",
+		"Talita",
+		"Valentina",
+		"Vitória",
+		"Yasmin"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFirstName() {
 		auto data = [
 		"Alessandra",
 		"Alessandro",
@@ -607,740 +1342,11 @@ class Faker_pt_br : Faker {
 	}
 
 
-	override string nameName() {
-		final switch(uniform(0, 6, this.rnd)) {
-			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
-			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameSuffix();
-			case 2: return nameFirstName() ~ " " ~ nameLastName();
-			case 3: return nameFirstName() ~ " " ~ nameLastName();
-			case 4: return nameMaleFirstName() ~ " " ~ nameLastName();
-			case 5: return nameFemaleFirstName() ~ " " ~ nameLastName();
-		}
-	}
-
-	///
-	override string nameFemaleFirstName() {
-		auto data = [
-		"Alessandra",
-		"Alice",
-		"Aline",
-		"Alícia",
-		"Ana Clara",
-		"Ana Júlia",
-		"Ana Laura",
-		"Ana Luiza",
-		"Antonella",
-		"Beatriz",
-		"Bruna",
-		"Carla",
-		"Cecília",
-		"Clara",
-		"Célia",
-		"Dalila",
-		"Eduarda",
-		"Elisa",
-		"Eloá",
-		"Emanuelly",
-		"Esther",
-		"Fabrícia",
-		"Felícia",
-		"Giovanna",
-		"Helena",
-		"Heloísa",
-		"Isabel",
-		"Isabela",
-		"Isabella",
-		"Isabelly",
-		"Isis",
-		"Janaína",
-		"Joana",
-		"Júlia",
-		"Karla",
-		"Lara",
-		"Larissa",
-		"Laura",
-		"Lavínia",
-		"Liz",
-		"Lorena",
-		"Lorraine",
-		"Luiza",
-		"Lívia",
-		"Maitê",
-		"Manuela",
-		"Marcela",
-		"Margarida",
-		"Maria",
-		"Maria Alice",
-		"Maria Cecília",
-		"Maria Clara",
-		"Maria Eduarda",
-		"Maria Helena",
-		"Maria Júlia",
-		"Maria Luiza",
-		"Mariana",
-		"Marina",
-		"Marli",
-		"Meire",
-		"Melissa",
-		"Morgana",
-		"Márcia",
-		"Mércia",
-		"Natália",
-		"Núbia",
-		"Ofélia",
-		"Paula",
-		"Rafaela",
-		"Rebeca",
-		"Roberta",
-		"Sara",
-		"Sarah",
-		"Sophia",
-		"Suélen",
-		"Sílvia",
-		"Talita",
-		"Valentina",
-		"Vitória",
-		"Yasmin"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameBinaryGender() {
-		auto data = [
-		"Feminino",
-		"Masculino'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string namePrefix() {
-		auto data = [
-		"Sr.",
-		"Sra.",
-		"Srta.",
-		"Dr.",
-		"Dra.'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceDepartment() {
-		auto data = [
-		"Livros",
-		"Filmes",
-		"Música",
-		"Jogos",
-		"Eletrônicos",
-		"Computadores",
-		"Casa",
-		"Jardim",
-		"Ferramentas",
-		"Mercearia",
-		"Saúde",
-		"Beleza",
-		"Brinquedos",
-		"Crianças",
-		"Bebê",
-		"Roupas",
-		"Sapatos",
-		"Jóias",
-		"Esportes",
-		"Turismo",
-		"Automotivo",
-		"Industrial"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"amarelo",
-		"âmbar",
-		"ametista",
-		"azul",
-		"azul celeste",
-		"azul marinho",
-		"azul petróleo",
-		"açafrão",
-		"bordô",
-		"bronze",
-		"caramelo",
-		"castanho ",
-		"cenoura",
-		"cinza",
-		"cobre",
-		"coral",
-		"dourado",
-		"escarlate",
-		"esmeralda",
-		"ferrugem",
-		"fuligem",
-		"fúchsia",
-		"grená",
-		"índigo",
-		"jade",
-		"laranja",
-		"lilás",
-		"limão",
-		"madeira",
-		"magenta",
-		"marrom",
-		"ouro",
-		"pele",
-		"prata",
-		"preto",
-		"púrpura",
-		"rosa",
-		"roxo",
-		"salmão",
-		"turquesa",
-		"verde",
-		"verde lima",
-		"verde-azulado",
-		"vermelho",
-		"violeta"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string dateWeekday() {
-		final switch(uniform(0, 34, this.rnd)) {
-			case 0: return "wide: ['Domingo";
-			case 1: return "Segunda";
-			case 2: return "Terça";
-			case 3: return "Quarta";
-			case 4: return "Quinta";
-			case 5: return "Sexta";
-			case 6: return "Sábado']";
-			case 7: return "if not set then \"wide\" will be used instead";
-			case 8: return "which may differ from a stand-alone word";
-			case 9: return "wide_context: [";
-			case 10: return "Domingo";
-			case 11: return "Segunda";
-			case 12: return "Terça";
-			case 13: return "Quarta";
-			case 14: return "Quinta";
-			case 15: return "Sexta";
-			case 16: return "Sábado";
-			case 17: return "]";
-			case 18: return "abbr: ['Dom";
-			case 19: return "Seg";
-			case 20: return "Ter";
-			case 21: return "Qua";
-			case 22: return "Qui";
-			case 23: return "Sex";
-			case 24: return "Sáb']";
-			case 25: return "if not set then \"abbr\" will be used instead";
-			case 26: return "which may differ from a stand-alone word";
-			case 27: return "abbr_context: ['Dom";
-			case 28: return "Seg";
-			case 29: return "Ter";
-			case 30: return "Qua";
-			case 31: return "Qui";
-			case 32: return "Sex";
-			case 33: return "Sáb']";
-		}
-	}
-
-
-	override string dateMonth() {
-		final switch(uniform(0, 60, this.rnd)) {
-			case 0: return "wide: [";
-			case 1: return "Janeiro";
-			case 2: return "Fevereiro";
-			case 3: return "Março";
-			case 4: return "Abril";
-			case 5: return "Maio";
-			case 6: return "Junho";
-			case 7: return "Julho";
-			case 8: return "Agosto";
-			case 9: return "Setembro";
-			case 10: return "Outubro";
-			case 11: return "Novembro";
-			case 12: return "Dezembro";
-			case 13: return "]";
-			case 14: return "if not set then \"wide\" will be used instead";
-			case 15: return "which may differ from a stand-alone word";
-			case 16: return "wide_context: [";
-			case 17: return "Janeiro";
-			case 18: return "Fevereiro";
-			case 19: return "Março";
-			case 20: return "Abril";
-			case 21: return "Maio";
-			case 22: return "Junho";
-			case 23: return "Julho";
-			case 24: return "Agosto";
-			case 25: return "Setembro";
-			case 26: return "Outubro";
-			case 27: return "Novembro";
-			case 28: return "Dezembro";
-			case 29: return "]";
-			case 30: return "abbr: [";
-			case 31: return "Jan";
-			case 32: return "Fev";
-			case 33: return "Mar";
-			case 34: return "Abr";
-			case 35: return "Mai";
-			case 36: return "Jun";
-			case 37: return "Jul";
-			case 38: return "Ago";
-			case 39: return "Set";
-			case 40: return "Out";
-			case 41: return "Nov";
-			case 42: return "Dez";
-			case 43: return "]";
-			case 44: return "if not set then \"abbr\" will be used instead";
-			case 45: return "which may differ from a stand-alone word";
-			case 46: return "abbr_context: [";
-			case 47: return "Jan";
-			case 48: return "Fev";
-			case 49: return "Mar";
-			case 50: return "Abr";
-			case 51: return "Mai";
-			case 52: return "Jun";
-			case 53: return "Jul";
-			case 54: return "Ago";
-			case 55: return "Set";
-			case 56: return "Out";
-			case 57: return "Nov";
-			case 58: return "Dez";
-			case 59: return "]";
-		}
-	}
-
-	///
-	override string addressStateAbbr() {
-		auto data = [
-		"AC",
-		"AL",
-		"AP",
-		"AM",
-		"BA",
-		"CE",
-		"DF",
-		"ES",
-		"GO",
-		"MA",
-		"MT",
-		"MS",
-		"MG",
-		"PA",
-		"PB",
-		"PR",
-		"PE",
-		"PI",
-		"RJ",
-		"RN",
-		"RS",
-		"RO",
-		"RR",
-		"SC",
-		"SP",
-		"SE",
-		"TO"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressState() {
-		auto data = [
-		"Acre",
-		"Alagoas",
-		"Amapá",
-		"Amazonas",
-		"Bahia",
-		"Ceará",
-		"Distrito Federal",
-		"Espírito Santo",
-		"Goiás",
-		"Maranhão",
-		"Mato Grosso",
-		"Mato Grosso do Sul",
-		"Minas Gerais",
-		"Pará",
-		"Paraíba",
-		"Paraná",
-		"Pernambuco",
-		"Piauí",
-		"Rio de Janeiro",
-		"Rio Grande do Norte",
-		"Rio Grande do Sul",
-		"Rondônia",
-		"Roraima",
-		"Santa Catarina",
-		"São Paulo",
-		"Sergipe",
-		"Tocantins"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCountry() {
-		auto data = [
-		"Afeganistão",
-		"Albânia",
-		"Algéria",
-		"Samoa",
-		"Andorra",
-		"Angola",
-		"Anguila",
-		"Antigua and Barbada",
-		"Argentina",
-		"Armênia",
-		"Aruba",
-		"Austrália",
-		"Áustria",
-		"Azerbaijão",
-		"Bahamas",
-		"Barém",
-		"Bangladesh",
-		"Barbados",
-		"Bélgica",
-		"Belize",
-		"Benin",
-		"Bermuda",
-		"Butão",
-		"Bolívia",
-		"Bôsnia",
-		"Botsuana",
-		"Ilha Bouvet",
-		"Brasil",
-		"Arquipélago de Chagos",
-		"Ilhas Virgens",
-		"Brunei",
-		"Bulgária",
-		"Burkina Faso",
-		"Burundi",
-		"Camboja",
-		"Camarões",
-		"Canadá",
-		"Cabo Verde",
-		"Ilhas Caiman",
-		"República da África Central",
-		"Chade",
-		"Chile",
-		"China",
-		"Ilha do Natal",
-		"Ilhas Cocos",
-		"Colômbia",
-		"Comores",
-		"Congo",
-		"Ilhas Cook",
-		"Costa Rica",
-		"Costa do Marfim",
-		"Croácia",
-		"Cuba",
-		"Chipre",
-		"República Tcheca",
-		"Dinamarca",
-		"Jibuti",
-		"Dominica",
-		"República Dominicana",
-		"Equador",
-		"Egito",
-		"El Salvador",
-		"Guiné Equatorial",
-		"Eritreia",
-		"Estônia",
-		"Etiópia",
-		"Ilhas Faroe",
-		"Malvinas",
-		"Fiji",
-		"Finlândia",
-		"França",
-		"Guiné Francesa",
-		"Polinésia Francesa",
-		"Gabão",
-		"Gâmbia",
-		"Georgia",
-		"Alemanha",
-		"Gana",
-		"Gibraltar",
-		"Grécia",
-		"Groelândia",
-		"Granada",
-		"Guadalupe",
-		"Guatemala",
-		"Guernesey",
-		"Guiné",
-		"Guiné-Bissau",
-		"Guiana",
-		"Haiti",
-		"Ilhas Heard e McDonald",
-		"Vaticano",
-		"Honduras",
-		"Hong Kong",
-		"Hungria",
-		"Islândia",
-		"Índia",
-		"Indonésia",
-		"Irã",
-		"Iraque",
-		"Irlanda",
-		"Ilha de Man",
-		"Israel",
-		"Itália",
-		"Jamaica",
-		"Japão",
-		"Jersey",
-		"Jordânia",
-		"Cazaquistão",
-		"Quênia",
-		"Quiribati",
-		"Coreia do Norte",
-		"Coreia do Sul",
-		"Kuwait",
-		"Quirguistão",
-		"Laos",
-		"Latvia",
-		"Líbano",
-		"Lesoto",
-		"Libéria",
-		"Líbia",
-		"Liechtenstein",
-		"Lituânia",
-		"Luxemburgo",
-		"Macao",
-		"Macedônia",
-		"Madagascar",
-		"Malawi",
-		"Malásia",
-		"Maldives",
-		"Mali",
-		"Malta",
-		"Ilhas Marshall",
-		"Martinica",
-		"Mauritânia",
-		"Maurícia",
-		"Maiote",
-		"México",
-		"Micronésia",
-		"Moldávia",
-		"Mônaco",
-		"Mongólia",
-		"Montenegro",
-		"Montserrat",
-		"Marrocos",
-		"Moçambique",
-		"Myanmar",
-		"Namibia",
-		"Nauru",
-		"Nepal",
-		"Antilhas Holandesas",
-		"Holanda",
-		"Nova Caledonia",
-		"Nova Zelândia",
-		"Nicarágua",
-		"Nigéria",
-		"Niue",
-		"Ilha Norfolk",
-		"Marianas Setentrionais",
-		"Noruega",
-		"Omã",
-		"Paquistão",
-		"Palau",
-		"Território da Palestina",
-		"Panamá",
-		"Papua-Nova Guiné",
-		"Paraguai",
-		"Peru",
-		"Filipinas",
-		"Polônia",
-		"Portugal",
-		"Porto Rico",
-		"Qatar",
-		"Romênia",
-		"Rússia",
-		"Ruanda",
-		"São Bartolomeu",
-		"Santa Helena",
-		"Santa Lúcia",
-		"São Martinho",
-		"São Pedro e Miquelão",
-		"São Vicente e Granadinas",
-		"Samoa",
-		"San Marino",
-		"Sao Tomé e Príncipe",
-		"Arábia Saudita",
-		"Senegal",
-		"Sérvia",
-		"Seicheles",
-		"Serra Leoa",
-		"Singapura",
-		"Eslováquia",
-		"Eslovênia",
-		"Ilhas Salomão",
-		"Somália",
-		"África do Sul",
-		"Ilhas Geórgia do Sul e Sandwich do Sul",
-		"Espanha",
-		"Sri Lanka",
-		"Sudão",
-		"Suriname",
-		"Ilhas Svalbard & Jan Mayen",
-		"Suazilândia",
-		"Suécia",
-		"Suíça",
-		"Síria",
-		"Taiwan",
-		"Tajiquistão",
-		"Tanzânia",
-		"Tailândia",
-		"Timor-Leste",
-		"Togo",
-		"Toquelau",
-		"Tonga",
-		"Trinidad e Tobago",
-		"Tunísia",
-		"Turquia",
-		"Turcomenistão",
-		"Turcas e Caicos",
-		"Tuvalu",
-		"Uganda",
-		"Ucrânia",
-		"Emirados Árabes Unidos",
-		"Reino Unido",
-		"Estados Unidos da América",
-		"Estados Unidos das Ilhas Virgens",
-		"Uruguai",
-		"Uzbequistão",
-		"Vanuatu",
-		"Venezuela",
-		"Vietnã",
-		"Wallis e Futuna",
-		"Iêmen",
-		"Zâmbia",
-		"Zimbábue"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"Brasil'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCitySuffix() {
-		auto data = [
-		" do Descoberto",
-		" de Nossa Senhora",
-		" do Norte",
-		"do Sul'"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string addressCityPrefix() {
-		return "";
-	}
-
-
-	override string addressStreet() {
+	override string personLastNamePattern() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
-			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
 		}
-	}
-
-
-	override string addressCity() {
-		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
-			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
-			case 2: return nameFirstName() ~ addressCitySuffix();
-			case 3: return nameLastName() ~ addressCitySuffix();
-		}
-	}
-
-	///
-	override string addressBuildingNumber() {
-		auto data = [
-		"#####",
-		"####",
-		"###'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressSecondaryAddress() {
-		auto data = [
-		"Apto. ###",
-		"Sobrado ##",
-		"Casa #",
-		"Lote ##",
-		"Quadra ##'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressPostcode() {
-		auto data = [
-		"#####-###'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressStreetSuffix() {
-		auto data = [
-		"Rua",
-		"Avenida",
-		"Travessa",
-		"Alameda",
-		"Marginal",
-		"Rodovia'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string phoneNumberFormats() {
-		auto data = [
-		"(##) ####-####",
-		"+55 (##) ####-####",
-		"(##) #####-####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"yahoo.com",
-		"hotmail.com",
-		"live.com",
-		"bol.com.br"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"br",
-		"com",
-		"biz",
-		"info",
-		"name",
-		"net",
-		"org'"
-		];
-		return choice(data, this.rnd);
 	}
 
 }

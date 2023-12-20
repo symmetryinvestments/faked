@@ -19,6 +19,592 @@ class Faker_es_mx : Faker {
 	}
 
 	///
+	override string locationCityName() {
+		auto data = [
+		"Aguascalientes",
+		"Apodaca",
+		"Buenavista",
+		"Campeche",
+		"Cancún",
+		"Cárdenas",
+		"Celaya",
+		"Chalco",
+		"Chetumal",
+		"Chicoloapan",
+		"Chignahuapan",
+		"Chihuahua",
+		"Chilpancingo",
+		"Chimalhuacán",
+		"Ciudad Acuña",
+		"Ciudad de México",
+		"Ciudad del Carmen",
+		"Ciudad López Mateos",
+		"Ciudad Madero",
+		"Ciudad Obregón",
+		"Ciudad Valles",
+		"Ciudad Victoria",
+		"Coatzacoalcos",
+		"Colima-Villa de Álvarez",
+		"Comitán de Dominguez",
+		"Córdoba",
+		"Cuautitlán Izcalli",
+		"Cuautla",
+		"Cuernavaca",
+		"Culiacán",
+		"Delicias",
+		"Durango",
+		"Ensenada",
+		"Fresnillo",
+		"General Escobedo",
+		"Gómez Palacio",
+		"Guadalajara",
+		"Guadalupe",
+		"Guanajuato",
+		"Guaymas",
+		"Hermosillo",
+		"Hidalgo del Parral",
+		"Iguala",
+		"Irapuato",
+		"Ixtapaluca",
+		"Jiutepec",
+		"Juárez",
+		"La Laguna",
+		"La Paz",
+		"La Piedad-Pénjamo",
+		"León",
+		"Los Cabos",
+		"Los Mochis",
+		"Manzanillo",
+		"Matamoros",
+		"Mazatlán",
+		"Mérida",
+		"Mexicali",
+		"Minatitlán",
+		"Miramar",
+		"Monclova",
+		"Monclova-Frontera",
+		"Monterrey",
+		"Morelia",
+		"Naucalpan de Juárez",
+		"Navojoa",
+		"Nezahualcóyotl",
+		"Nogales",
+		"Nuevo Laredo",
+		"Oaxaca",
+		"Ocotlán",
+		"Ojo de agua",
+		"Orizaba",
+		"Pachuca",
+		"Piedras Negras",
+		"Poza Rica",
+		"Puebla",
+		"Puerto Vallarta",
+		"Querétaro",
+		"Reynosa-Río Bravo",
+		"Rioverde-Ciudad Fernández",
+		"Salamanca",
+		"Saltillo",
+		"San Cristobal de las Casas",
+		"San Francisco Coacalco",
+		"San Francisco del Rincón",
+		"San Juan Bautista Tuxtepec",
+		"San Juan del Río",
+		"San Luis Potosí-Soledad",
+		"San Luis Río Colorado",
+		"San Nicolás de los Garza",
+		"San Pablo de las Salinas",
+		"San Pedro Garza García",
+		"Santa Catarina",
+		"Soledad de Graciano Sánchez",
+		"Tampico-Pánuco",
+		"Tapachula",
+		"Tecomán",
+		"Tehuacán",
+		"Tehuantepec-Salina Cruz",
+		"Tepexpan",
+		"Tepic",
+		"Tetela de Ocampo",
+		"Texcoco de Mora",
+		"Tijuana",
+		"Tlalnepantla",
+		"Tlaquepaque",
+		"Tlaxcala-Apizaco",
+		"Toluca",
+		"Tonalá",
+		"Torreón",
+		"Tula",
+		"Tulancingo",
+		"Tulancingo de Bravo",
+		"Tuxtla Gutiérrez",
+		"Uruapan",
+		"Uruapan del Progreso",
+		"Valle de México",
+		"Veracruz",
+		"Villa de Álvarez",
+		"Villa Nicolás Romero",
+		"Villahermosa",
+		"Xalapa",
+		"Zacatecas-Guadalupe",
+		"Zacatlan",
+		"Zacatzingo",
+		"Zamora-Jacona",
+		"Zapopan",
+		"Zitacuaro"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationStateAbbr() {
+		auto data = [
+		"AS",
+		"BC",
+		"BS",
+		"CC",
+		"CS",
+		"CH",
+		"CL",
+		"CM",
+		"DF",
+		"DG",
+		"GT",
+		"GR",
+		"HG",
+		"JC",
+		"MC",
+		"MN",
+		"MS",
+		"NT",
+		"NL",
+		"OC",
+		"PL",
+		"QT",
+		"QR",
+		"SP",
+		"SL",
+		"SR",
+		"TC",
+		"TS",
+		"TL",
+		"VZ",
+		"YN",
+		"ZS"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationState() {
+		auto data = [
+		"Aguascalientes",
+		"Baja California Norte",
+		"Baja California Sur",
+		"Estado de México",
+		"Campeche",
+		"Chiapas",
+		"Chihuahua",
+		"Coahuila",
+		"Colima",
+		"Durango",
+		"Guanajuato",
+		"Guerrero",
+		"Hidalgo",
+		"Jalisco",
+		"Michoacan",
+		"Morelos",
+		"Nayarit",
+		"Nuevo León",
+		"Oaxaca",
+		"Puebla",
+		"Querétaro",
+		"Quintana Roo",
+		"San Luis Potosí",
+		"Sinaloa",
+		"Sonora",
+		"Tabasco",
+		"Tamaulipas",
+		"Tlaxcala",
+		"Veracruz",
+		"Yucatán",
+		"Zacatecas"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string locationStreetPattern() {
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return locationStreetSuffix() ~ " " ~ personFirstName();
+			case 1: return locationStreetSuffix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+			case 2: return locationStreetSuffix() ~ " " ~ locationStreetName();
+		}
+	}
+
+
+	override string locationStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ locationStreet() ~ locationBuildingNumber();
+			case 1: return "full: '" ~ locationStreet() ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
+		}
+	}
+
+	///
+	override string locationDefaultCountry() {
+		auto data = [
+		"México'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName() ~ "'";
+		}
+	}
+
+	///
+	override string locationCountry() {
+		auto data = [
+		"Afganistán",
+		"Albania",
+		"Argelia",
+		"Andorra",
+		"Angola",
+		"Argentina",
+		"Armenia",
+		"Aruba",
+		"Australia",
+		"Austria",
+		"Azerbayán",
+		"Bahamas",
+		"Barein",
+		"Bangladesh",
+		"Barbados",
+		"Bielorusia",
+		"Bélgica",
+		"Belice",
+		"Bermuda",
+		"Bután",
+		"Bolivia",
+		"Bosnia Herzegovina",
+		"Botswana",
+		"Brasil",
+		"Bulgaria",
+		"Burkina Faso",
+		"Burundi",
+		"Camboya",
+		"Camerún",
+		"Canada",
+		"Cabo Verde",
+		"Islas Caimán",
+		"Chad",
+		"Chile",
+		"China",
+		"Isla de Navidad",
+		"Colombia",
+		"Comodos",
+		"Congo",
+		"Costa Rica",
+		"Costa de Marfil",
+		"Croacia",
+		"Cuba",
+		"Chipre",
+		"República Checa",
+		"Dinamarca",
+		"Dominica",
+		"República Dominicana",
+		"Ecuador",
+		"Egipto",
+		"El Salvador",
+		"Guinea Ecuatorial",
+		"Eritrea",
+		"Estonia",
+		"Etiopía",
+		"Islas Faro",
+		"Fiji",
+		"Finlandia",
+		"Francia",
+		"Gabón",
+		"Gambia",
+		"Georgia",
+		"Alemania",
+		"Ghana",
+		"Grecia",
+		"Groenlandia",
+		"Granada",
+		"Guadalupe",
+		"Guam",
+		"Guatemala",
+		"Guinea",
+		"Guinea-Bisau",
+		"Guayana",
+		"Haiti",
+		"Honduras",
+		"Hong Kong",
+		"Hungria",
+		"Islandia",
+		"India",
+		"Indonesia",
+		"Iran",
+		"Irak",
+		"Irlanda",
+		"Italia",
+		"Jamaica",
+		"Japón",
+		"Jordania",
+		"Kazajistan",
+		"Kenia",
+		"Kiribati",
+		"Corea",
+		"Kuwait",
+		"Letonia",
+		"Líbano",
+		"Liberia",
+		"Liechtenstein",
+		"Lituania",
+		"Luxemburgo",
+		"Macao",
+		"Macedonia",
+		"Madagascar",
+		"Malawi",
+		"Malasia",
+		"Maldivas",
+		"Mali",
+		"Malta",
+		"Martinica",
+		"Mauritania",
+		"México",
+		"Micronesia",
+		"Moldavia",
+		"Mónaco",
+		"Mongolia",
+		"Montenegro",
+		"Montserrat",
+		"Marruecos",
+		"Mozambique",
+		"Namibia",
+		"Nauru",
+		"Nepal",
+		"Países Bajos",
+		"Nueva Zelanda",
+		"Nicaragua",
+		"Niger",
+		"Nigeria",
+		"Noruega",
+		"Omán",
+		"Pakistan",
+		"Panamá",
+		"Papúa Nueva Guinea",
+		"Paraguay",
+		"Perú",
+		"Filipinas",
+		"Poland",
+		"Portugal",
+		"Puerto Rico",
+		"Rusia",
+		"Ruanda",
+		"Samoa",
+		"San Marino",
+		"Santo Tomé y Principe",
+		"Arabia Saudí",
+		"Senegal",
+		"Serbia",
+		"Seychelles",
+		"Sierra Leona",
+		"Singapur",
+		"Eslovaquia",
+		"Eslovenia",
+		"Somalia",
+		"España",
+		"Sri Lanka",
+		"Sudán",
+		"Suriname",
+		"Suecia",
+		"Suiza",
+		"Siria",
+		"Taiwan",
+		"Tajikistan",
+		"Tanzania",
+		"Tailandia",
+		"Timor-Leste",
+		"Togo",
+		"Tonga",
+		"Trinidad y Tobago",
+		"Tunez",
+		"Turquia",
+		"Uganda",
+		"Ucrania",
+		"Emiratos Árabes Unidos",
+		"Reino Unido",
+		"Estados Unidos de América",
+		"Uruguay",
+		"Uzbekistan",
+		"Vanuatu",
+		"Venezuela",
+		"Vietnam",
+		"Yemen",
+		"Zambia",
+		"Zimbabwe"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string locationStreetName() {
+		auto data = [
+		"20 de Noviembre",
+		"Cinco de Mayo",
+		"Cuahutemoc",
+		"Manzanares",
+		"Donceles",
+		"Francisco I. Madero",
+		"Juárez",
+		"Repúplica de Cuba",
+		"Repúplica de Chile",
+		"Repúplica de Argentina",
+		"Repúplica de Uruguay",
+		"Isabel la Católica",
+		"Izazaga",
+		"Eje Central",
+		"Eje 6",
+		"Eje 5",
+		"La viga",
+		"Aniceto Ortega",
+		"Miguel Ángel de Quevedo",
+		"Amores",
+		"Coyoacán",
+		"Coruña",
+		"Batalla de Naco",
+		"La otra banda",
+		"Piedra del Comal",
+		"Balcón de los edecanes",
+		"Barrio la Lonja",
+		"Jicolapa",
+		"Zacatlán",
+		"Zapata",
+		"Polotitlan",
+		"Calimaya",
+		"Flor Marina",
+		"Flor Solvestre",
+		"San Miguel",
+		"Naranjo",
+		"Cedro",
+		"Jalisco",
+		"Avena"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string locationBuildingNumber() {
+		final switch(uniform(0, 7, this.rnd)) {
+			case 0: return " s/n.";
+			case 1: return "#";
+			case 2: return "##";
+			case 3: return " #";
+			case 4: return " ##";
+			case 5: return " ###";
+			case 6: return "####'";
+		}
+	}
+
+	///
+	override string locationSecondaryAddress() {
+		auto data = [
+		"Esc. ###",
+		"Puerta ###",
+		"Edificio #'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string locationPostcode() {
+		auto data = [
+		"#####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string locationStreetSuffix() {
+		auto data = [
+		"Aldea",
+		"Apartamento",
+		"Arrabal",
+		"Arroyo",
+		"Avenida",
+		"Bajada",
+		"Barranco",
+		"Barrio",
+		"Bloque",
+		"Calle",
+		"Calleja",
+		"Camino",
+		"Carretera",
+		"Caserio",
+		"Colegio",
+		"Colonia",
+		"Conjunto",
+		"Cuesta",
+		"Chalet",
+		"Edificio",
+		"Entrada",
+		"Escalinata",
+		"Explanada",
+		"Extramuros",
+		"Extrarradio",
+		"Ferrocarril",
+		"Glorieta",
+		"Gran Subida",
+		"Grupo",
+		"Huerta",
+		"Jardines",
+		"Lado",
+		"Lugar",
+		"Manzana",
+		"Masía",
+		"Mercado",
+		"Monte",
+		"Muelle",
+		"Municipio",
+		"Parcela",
+		"Parque",
+		"Partida",
+		"Pasaje",
+		"Paseo",
+		"Plaza",
+		"Poblado",
+		"Polígono",
+		"Prolongación",
+		"Puente",
+		"Puerta",
+		"Quinta",
+		"Ramal",
+		"Rambla",
+		"Rampa",
+		"Riera",
+		"Rincón",
+		"Ronda",
+		"Rua",
+		"Salida",
+		"Sector",
+		"Sección",
+		"Senda",
+		"Solar",
+		"Subida",
+		"Terrenos",
+		"Torrente",
+		"Travesía",
+		"Urbanización",
+		"Vía",
+		"Vía Pública"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string loremWords() {
 		auto data = [
 		"Abacalero",
@@ -294,124 +880,6 @@ class Faker_es_mx : Faker {
 	}
 
 	///
-	override string companyBsVerb() {
-		auto data = [
-		"poner en práctica",
-		"utilizar",
-		"integrar",
-		"racionalizar",
-		"optimizar",
-		"evolucionar",
-		"transformar",
-		"abrazar",
-		"habilitar",
-		"orquestar",
-		"apalancamiento",
-		"reinventar",
-		"agregado",
-		"arquitecto",
-		"mejorar",
-		"incentivar",
-		"transformarse",
-		"empoderar",
-		"Envisioneer",
-		"monetizar",
-		"arnés",
-		"facilitar",
-		"aprovechar",
-		"desintermediar",
-		"sinergia",
-		"estrategias",
-		"desplegar",
-		"marca",
-		"crecer",
-		"objetivo",
-		"sindicato",
-		"sintetizar",
-		"entregue",
-		"malla",
-		"incubar",
-		"enganchar",
-		"maximizar",
-		"punto de referencia",
-		"acelerar",
-		"reintermediate",
-		"pizarra",
-		"visualizar",
-		"reutilizar",
-		"innovar",
-		"escala",
-		"desatar",
-		"conducir",
-		"extender",
-		"ingeniero",
-		"revolucionar",
-		"generar",
-		"explotar",
-		"transición",
-		"e-enable",
-		"repetir",
-		"cultivar",
-		"matriz",
-		"productize",
-		"redefinir",
-		"recontextualizar"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyBsNoun() {
-		auto data = [
-		"sinergias",
-		"web-readiness",
-		"paradigmas",
-		"mercados",
-		"asociaciones",
-		"infraestructuras",
-		"plataformas",
-		"iniciativas",
-		"canales",
-		"ojos",
-		"comunidades",
-		"ROI",
-		"soluciones",
-		"minoristas electrónicos",
-		"e-servicios",
-		"elementos de acción",
-		"portales",
-		"nichos",
-		"tecnologías",
-		"contenido",
-		"vortales",
-		"cadenas de suministro",
-		"convergencia",
-		"relaciones",
-		"arquitecturas",
-		"interfaces",
-		"mercados electrónicos",
-		"e-commerce",
-		"sistemas",
-		"ancho de banda",
-		"infomediarios",
-		"modelos",
-		"Mindshare",
-		"entregables",
-		"usuarios",
-		"esquemas",
-		"redes",
-		"aplicaciones",
-		"métricas",
-		"e-business",
-		"funcionalidades",
-		"experiencias",
-		"servicios web",
-		"metodologías"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string companyDescriptor() {
 		auto data = [
 		"24 horas",
@@ -615,7 +1083,6 @@ class Faker_es_mx : Faker {
 		"Multi grupo",
 		"Multi plataforma",
 		"Centrado en el usuario",
-		"Configurable",
 		"Descentralizado",
 		"Digitalizado",
 		"Distribuido",
@@ -668,7 +1135,6 @@ class Faker_es_mx : Faker {
 		"Realineado",
 		"Re-contextualizado",
 		"Re-implementado",
-		"Reducido",
 		"Ingenieria inversa",
 		"Robusto",
 		"Fácil",
@@ -680,9 +1146,7 @@ class Faker_es_mx : Faker {
 		"Orientado a equipos",
 		"Total",
 		"Universal",
-		"Mejorado",
 		"Actualizable",
-		"Centrado en el usuario",
 		"Amigable",
 		"Versatil",
 		"Virtual",
@@ -702,19 +1166,137 @@ class Faker_es_mx : Faker {
 		return choice(data, this.rnd);
 	}
 
+	///
+	override string companyBuzzVerb() {
+		auto data = [
+		"poner en práctica",
+		"utilizar",
+		"integrar",
+		"racionalizar",
+		"optimizar",
+		"evolucionar",
+		"transformar",
+		"abrazar",
+		"habilitar",
+		"orquestar",
+		"apalancamiento",
+		"reinventar",
+		"agregado",
+		"arquitecto",
+		"mejorar",
+		"incentivar",
+		"transformarse",
+		"empoderar",
+		"Envisioneer",
+		"monetizar",
+		"arnés",
+		"facilitar",
+		"aprovechar",
+		"desintermediar",
+		"sinergia",
+		"estrategias",
+		"desplegar",
+		"marca",
+		"crecer",
+		"objetivo",
+		"sindicato",
+		"sintetizar",
+		"entregue",
+		"malla",
+		"incubar",
+		"enganchar",
+		"maximizar",
+		"punto de referencia",
+		"acelerar",
+		"reintermediate",
+		"pizarra",
+		"visualizar",
+		"reutilizar",
+		"innovar",
+		"escala",
+		"desatar",
+		"conducir",
+		"extender",
+		"ingeniero",
+		"revolucionar",
+		"generar",
+		"explotar",
+		"transición",
+		"e-enable",
+		"repetir",
+		"cultivar",
+		"matriz",
+		"productize",
+		"redefinir",
+		"recontextualizar"
+		];
+		return choice(data, this.rnd);
+	}
 
-	override string companyName() {
+
+	override string companyNamePattern() {
 		final switch(uniform(0, 5, this.rnd)) {
-			case 0: return nameLastName() ~ " " ~ companySuffix();
-			case 1: return nameLastName() ~ " y " ~ nameLastName();
-			case 2: return nameLastName() ~ " " ~ nameLastName() ~ " " ~ companySuffix();
-			case 3: return nameLastName();
-			case 4: return nameLastName() ~ " y " ~ nameLastName() ~ " Asociados";
+			case 0: return personLastName() ~ " " ~ companySuffix();
+			case 1: return personLastName() ~ " y " ~ personLastName();
+			case 2: return personLastName() ~ " " ~ personLastName() ~ " " ~ companySuffix();
+			case 3: return personLastName();
+			case 4: return personLastName() ~ " y " ~ personLastName() ~ " Asociados";
 		}
 	}
 
 	///
-	override string companyBsAdjective() {
+	override string companyBuzzNoun() {
+		auto data = [
+		"sinergias",
+		"web-readiness",
+		"paradigmas",
+		"mercados",
+		"asociaciones",
+		"infraestructuras",
+		"plataformas",
+		"iniciativas",
+		"canales",
+		"ojos",
+		"comunidades",
+		"ROI",
+		"soluciones",
+		"minoristas electrónicos",
+		"e-servicios",
+		"elementos de acción",
+		"portales",
+		"nichos",
+		"tecnologías",
+		"contenido",
+		"vortales",
+		"cadenas de suministro",
+		"convergencia",
+		"relaciones",
+		"arquitecturas",
+		"interfaces",
+		"mercados electrónicos",
+		"e-commerce",
+		"sistemas",
+		"ancho de banda",
+		"infomediarios",
+		"modelos",
+		"Mindshare",
+		"entregables",
+		"usuarios",
+		"esquemas",
+		"redes",
+		"aplicaciones",
+		"métricas",
+		"e-business",
+		"funcionalidades",
+		"experiencias",
+		"servicios web",
+		"metodologías"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companyBuzzAdjective() {
 		auto data = [
 		"Clics y mortero",
 		"Valor añadido",
@@ -771,7 +1353,6 @@ class Faker_es_mx : Faker {
 		"Inalámbrico",
 		"Transparente",
 		"Próxima generación",
-		"Innovador",
 		"User-centric",
 		"Visionario",
 		"A medida",
@@ -786,7 +1367,362 @@ class Faker_es_mx : Faker {
 	}
 
 	///
-	override string nameSuffix() {
+	override string commerceDepartment() {
+		auto data = [
+		"Libros",
+		"Películas",
+		"Música",
+		"Juegos",
+		"Electrónica",
+		"Ordenadores",
+		"Hogar",
+		"Jardín",
+		"Herramientas",
+		"Ultramarinos",
+		"Salud",
+		"Belleza",
+		"Juguetes",
+		"Kids",
+		"Baby",
+		"Ropa",
+		"Zapatos",
+		"Joyería",
+		"Deportes",
+		"Aire libre",
+		"Automoción",
+		"Industrial"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
+		"rojo",
+		"verde",
+		"azul",
+		"amarillo",
+		"morado",
+		"Menta verde",
+		"teal",
+		"blanco",
+		"negro",
+		"Naranja",
+		"Rosa",
+		"gris",
+		"marrón",
+		"violeta",
+		"turquesa",
+		"tan",
+		"cielo azul",
+		"salmón",
+		"ciruela",
+		"orquídea",
+		"aceituna",
+		"magenta",
+		"Lima",
+		"marfil",
+		"índigo",
+		"oro",
+		"fucsia",
+		"cian",
+		"lavanda",
+		"plata"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string teamCreature() {
+		auto data = [
+		"hormigas",
+		"murciélagos",
+		"osos",
+		"abejas",
+		"pájaros",
+		"búfalo",
+		"gatos",
+		"pollos",
+		"ganado",
+		"perros",
+		"delfines",
+		"patos",
+		"elefantes",
+		"peces",
+		"zorros",
+		"ranas",
+		"gansos",
+		"cabras",
+		"caballos",
+		"canguros",
+		"leones",
+		"monos",
+		"búhos",
+		"bueyes",
+		"pingüinos",
+		"pueblo",
+		"cerdos",
+		"conejos",
+		"ovejas",
+		"tigres",
+		"ballenas",
+		"lobos",
+		"cebras",
+		"almas en pena",
+		"cuervos",
+		"gatos negros",
+		"quimeras",
+		"fantasmas",
+		"conspiradores",
+		"dragones",
+		"enanos",
+		"duendes",
+		"encantadores",
+		"exorcistas",
+		"hijos",
+		"enemigos",
+		"gigantes",
+		"gnomos",
+		"grifos",
+		"licántropos",
+		"némesis",
+		"ogros",
+		"oráculos",
+		"profetas",
+		"hechiceros",
+		"arañas",
+		"espíritus",
+		"vampiros",
+		"brujos",
+		"zorras",
+		"hombres lobo",
+		"brujas",
+		"adoradores",
+		"zombies",
+		"druidas"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string teamName() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationState() ~ " " ~ teamCreature() ~ "'";
+		}
+	}
+
+	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"5###-###-###",
+		"5##.###.###",
+		"5## ### ###",
+		"5########'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"5##-###-###",
+		"5##.###.###",
+		"5## ### ###",
+		"5########'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com",
+		"nearbpo.com",
+		"corpfolder.com"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"com",
+		"mx",
+		"info",
+		"com.mx",
+		"org",
+		"gob.mx'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMalePrefix() {
+		auto data = [
+		"Sr.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFemalePrefix() {
+		auto data = [
+		"Sra.",
+		"Sta.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMaleFirstName() {
+		auto data = [
+		"Aarón",
+		"Abraham",
+		"Adán",
+		"Agustín",
+		"Alan",
+		"Alberto",
+		"Alejandro",
+		"Alexander",
+		"Alexis",
+		"Alfonso",
+		"Alfredo",
+		"Andrés",
+		"Ángel Daniel",
+		"Ángel Gabriel",
+		"Antonio",
+		"Armando",
+		"Arturo",
+		"Axel",
+		"Benito",
+		"Benjamín",
+		"Bernardo",
+		"Brandon",
+		"Brayan",
+		"Carlos",
+		"César",
+		"Claudio",
+		"Clemente",
+		"Cristian",
+		"Cristobal",
+		"Damián",
+		"Daniel",
+		"David",
+		"Diego",
+		"Eduardo",
+		"Elías",
+		"Emiliano",
+		"Emilio",
+		"Emmanuel",
+		"Enrique",
+		"Erick",
+		"Ernesto",
+		"Esteban",
+		"Federico",
+		"Felipe",
+		"Fernando",
+		"Fernando Javier",
+		"Francisco",
+		"Francisco Javier",
+		"Gabriel",
+		"Gael",
+		"Gerardo",
+		"Germán",
+		"Gilberto",
+		"Gonzalo",
+		"Gregorio",
+		"Guillermo",
+		"Gustavo",
+		"Hernán",
+		"Homero",
+		"Horacio",
+		"Hugo",
+		"Ignacio",
+		"Iker",
+		"Isaac",
+		"Isaias",
+		"Israel",
+		"Ivan",
+		"Jacobo",
+		"Jaime",
+		"Javier",
+		"Jerónimo",
+		"Jesús",
+		"Joaquín",
+		"Jorge",
+		"Jorge Luis",
+		"José",
+		"José Antonio",
+		"Jose Daniel",
+		"José Eduardo",
+		"José Emilio",
+		"José Luis",
+		"José María",
+		"José Miguel",
+		"Juan",
+		"Juan Carlos",
+		"Juan Manuel",
+		"Juan Pablo",
+		"Julio",
+		"Julio César",
+		"Kevin",
+		"Leonardo",
+		"Lorenzo",
+		"Lucas",
+		"Luis",
+		"Luis Ángel",
+		"Luis Fernando",
+		"Luis Gabino",
+		"Luis Miguel",
+		"Manuel",
+		"Marco Antonio",
+		"Marcos",
+		"Mariano",
+		"Mario",
+		"Martín",
+		"Mateo",
+		"Matías",
+		"Mauricio",
+		"Maximiliano",
+		"Miguel",
+		"Miguel Ángel",
+		"Nicolás",
+		"Octavio",
+		"Óscar",
+		"Pablo",
+		"Patricio",
+		"Pedro",
+		"Rafael",
+		"Ramiro",
+		"Ramón",
+		"Raúl",
+		"Ricardo",
+		"Roberto",
+		"Rodrigo",
+		"Rubén",
+		"Salvador",
+		"Samuel",
+		"Sancho",
+		"Santiago",
+		"Saúl",
+		"Sebastian",
+		"Sergio",
+		"Tadeo",
+		"Teodoro",
+		"Timoteo",
+		"Tomás",
+		"Uriel",
+		"Vicente",
+		"Víctor",
+		"Victor Manuel"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personSuffix() {
 		auto data = [
 		"Jr.",
 		"Sr.",
@@ -808,17 +1744,7 @@ class Faker_es_mx : Faker {
 	}
 
 	///
-	override string namePrefix() {
-		auto data = [
-		"Sr.",
-		"Sra.",
-		"Sta.'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameLastName() {
+	override string personLastName() {
 		auto data = [
 		"Abeyta",
 		"Abrego",
@@ -1511,156 +2437,140 @@ class Faker_es_mx : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string personTitle() {
+		final switch(uniform(0, 93, this.rnd)) {
+			case 0: return "descriptor: [";
+			case 1: return "Jefe";
+			case 2: return "Senior";
+			case 3: return "Directo";
+			case 4: return "Corporativo";
+			case 5: return "Dinánmico";
+			case 6: return "Futuro";
+			case 7: return "Producto";
+			case 8: return "Nacional";
+			case 9: return "Regional";
+			case 10: return "Distrito";
+			case 11: return "Central";
+			case 12: return "Global";
+			case 13: return "Cliente";
+			case 14: return "Inversor";
+			case 15: return "International";
+			case 16: return "Heredado";
+			case 17: return "Adelante";
+			case 18: return "Interno";
+			case 19: return "Humano";
+			case 20: return "Gerente";
+			case 21: return "SubGerente";
+			case 22: return "Director";
+			case 23: return "]";
+			case 24: return "level: [";
+			case 25: return "Soluciones";
+			case 26: return "Programa";
+			case 27: return "Marca";
+			case 28: return "Seguridad";
+			case 29: return "Investigación";
+			case 30: return "Marketing";
+			case 31: return "Normas";
+			case 32: return "Implementación";
+			case 33: return "Integración";
+			case 34: return "Funcionalidad";
+			case 35: return "Respuesta";
+			case 36: return "Paradigma";
+			case 37: return "Tácticas";
+			case 38: return "Identidad";
+			case 39: return "Mercados";
+			case 40: return "Grupo";
+			case 41: return "División";
+			case 42: return "Aplicaciones";
+			case 43: return "Optimización";
+			case 44: return "Operaciones";
+			case 45: return "Infraestructura";
+			case 46: return "Intranet";
+			case 47: return "Comunicaciones";
+			case 48: return "Web";
+			case 49: return "Calidad";
+			case 50: return "Seguro";
+			case 51: return "Mobilidad";
+			case 52: return "Cuentas";
+			case 53: return "Datos";
+			case 54: return "Creativo";
+			case 55: return "Configuración";
+			case 56: return "Contabilidad";
+			case 57: return "Interacciones";
+			case 58: return "Factores";
+			case 59: return "Usabilidad";
+			case 60: return "Métricas";
+			case 61: return "]";
+			case 62: return "job: [";
+			case 63: return "Supervisor";
+			case 64: return "Asociado";
+			case 65: return "Ejecutivo";
+			case 66: return "Relacciones";
+			case 67: return "Oficial";
+			case 68: return "Gerente";
+			case 69: return "Ingeniero";
+			case 70: return "Especialista";
+			case 71: return "Director";
+			case 72: return "Coordinador";
+			case 73: return "Administrador";
+			case 74: return "Arquitecto";
+			case 75: return "Analista";
+			case 76: return "Diseñador";
+			case 77: return "Planificador";
+			case 78: return "Técnico";
+			case 79: return "Funcionario";
+			case 80: return "Desarrollador";
+			case 81: return "Productor";
+			case 82: return "Consultor";
+			case 83: return "Asistente";
+			case 84: return "Facilitador";
+			case 85: return "Agente";
+			case 86: return "Representante";
+			case 87: return "Estratega";
+			case 88: return "Scrum Master";
+			case 89: return "Scrum Owner";
+			case 90: return "Product Owner";
+			case 91: return "Scrum Developer";
+			case 92: return "]";
+		}
+	}
+
+
+	override string personName() {
+		final switch(uniform(0, 12, this.rnd)) {
+			case 0: return "{";
+			case 1: return "value: '" ~ personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+			case 2: return "weight: 1";
+			case 3: return "}";
+			case 4: return "{";
+			case 5: return "value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 6: return "weight: 8";
+			case 7: return "}";
+			case 8: return "{";
+			case 9: return "value: '" ~ personFirstName() ~ " " ~ personLastName() ~ " " ~ personSuffix();
+			case 10: return "weight: 1";
+			case 11: return "}";
+		}
+	}
+
 	///
-	override string nameFirstName() {
+	override string personFemaleFirstName() {
 		auto data = [
-		"Aarón",
-		"Abraham",
-		"Adán",
-		"Agustín",
-		"Alan",
-		"Alberto",
-		"Alejandro",
-		"Alexander",
-		"Alexis",
-		"Alfonso",
-		"Alfredo",
-		"Andrés",
-		"Ángel Daniel",
-		"Ángel Gabriel",
-		"Antonio",
-		"Armando",
-		"Arturo",
-		"Axel",
-		"Benito",
-		"Benjamín",
-		"Bernardo",
-		"Brandon",
-		"Brayan",
-		"Carlos",
-		"César",
-		"Claudio",
-		"Clemente",
-		"Cristian",
-		"Cristobal",
-		"Damián",
-		"Daniel",
-		"David",
-		"Diego",
-		"Eduardo",
-		"Elías",
-		"Emiliano",
-		"Emilio",
-		"Emilio",
-		"Emmanuel",
-		"Enrique",
-		"Erick",
-		"Ernesto",
-		"Esteban",
-		"Federico",
-		"Felipe",
-		"Fernando",
-		"Fernando Javier",
-		"Francisco",
-		"Francisco Javier",
-		"Gabriel",
-		"Gael",
-		"Gerardo",
-		"Germán",
-		"Gilberto",
-		"Gonzalo",
-		"Gregorio",
-		"Guillermo",
-		"Gustavo",
-		"Hernán",
-		"Homero",
-		"Horacio",
-		"Hugo",
-		"Ignacio",
-		"Iker",
-		"Isaac",
-		"Isaias",
-		"Israel",
-		"Ivan",
-		"Jacobo",
-		"Jaime",
-		"Javier",
-		"Jerónimo",
-		"Jesús",
-		"Joaquín",
-		"Jorge",
-		"Jorge Luis",
-		"José",
-		"José Antonio",
-		"Jose Daniel",
-		"José Eduardo",
-		"José Emilio",
-		"José Luis",
-		"José María",
-		"José Miguel",
-		"Juan",
-		"Juan Carlos",
-		"Juan Manuel",
-		"Juan Pablo",
-		"Julio",
-		"Julio César",
-		"Kevin",
-		"Leonardo",
-		"Lorenzo",
-		"Lucas",
-		"Luis",
-		"Luis Ángel",
-		"Luis Fernando",
-		"Luis Gabino",
-		"Luis Miguel",
-		"Manuel",
-		"Marco Antonio",
-		"Marcos",
-		"Mariano",
-		"Mario",
-		"Martín",
-		"Mateo",
-		"Matías",
-		"Mauricio",
-		"Maximiliano",
-		"Miguel",
-		"Miguel Ángel",
-		"Nicolás",
-		"Octavio",
-		"Óscar",
-		"Pablo",
-		"Patricio",
-		"Pedro",
-		"Rafael",
-		"Ramiro",
-		"Ramón",
-		"Raúl",
-		"Ricardo",
-		"Roberto",
-		"Rodrigo",
-		"Rubén",
-		"Salvador",
-		"Samuel",
-		"Sancho",
-		"Santiago",
-		"Saúl",
-		"Sebastian",
-		"Sergio",
-		"Tadeo",
-		"Teodoro",
-		"Timoteo",
-		"Tomás",
-		"Uriel",
-		"Vicente",
-		"Víctor",
-		"Victor Manuel",
+		"Abigail",
+		"Abril",
+		"Adela",
 		"Adriana",
 		"Alejandra",
+		"Alexa",
 		"Alicia",
+		"Alondra Romina",
 		"Amalia",
-		"Ana",
 		"Ana Luisa",
 		"Ana María",
+		"Ana Sofía",
+		"Ana Victoria",
+		"Ana",
 		"Andrea",
 		"Ángela",
 		"Anita",
@@ -1671,6 +2581,7 @@ class Faker_es_mx : Faker {
 		"Beatriz",
 		"Berta",
 		"Blanca",
+		"Camila",
 		"Caridad",
 		"Carla",
 		"Carlota",
@@ -1688,6 +2599,7 @@ class Faker_es_mx : Faker {
 		"Diana",
 		"Dolores",
 		"Dorotea",
+		"Dulce María",
 		"Elena",
 		"Elisa",
 		"Elizabeth",
@@ -1695,10 +2607,15 @@ class Faker_es_mx : Faker {
 		"Elsa",
 		"Elvira",
 		"Emilia",
+		"Emily",
+		"Esmeralda",
 		"Esperanza",
+		"Estefanía",
 		"Estela",
 		"Ester",
 		"Eva",
+		"Evelyn",
+		"Fatima",
 		"Florencia",
 		"Francisca",
 		"Gabriela",
@@ -1710,13 +2627,21 @@ class Faker_es_mx : Faker {
 		"Irene",
 		"Isabel",
 		"Isabela",
+		"Ivanna",
+		"Jazmin",
+		"Jennifer",
+		"Jimena",
 		"Josefina",
 		"Juana",
 		"Julia",
+		"Julieta",
+		"Kimberly",
 		"Laura",
 		"Leonor",
 		"Leticia",
 		"Lilia",
+		"Liliana",
+		"Lizbeth",
 		"Lola",
 		"Lorena",
 		"Lourdes",
@@ -1727,39 +2652,50 @@ class Faker_es_mx : Faker {
 		"Manuela",
 		"Marcela",
 		"Margarita",
-		"María",
 		"María Cristina",
 		"María de Jesús",
 		"María de los Ángeles",
 		"María del Carmen",
 		"María Elena",
 		"María Eugenia",
+		"María Fernanda",
 		"María Guadalupe",
 		"María José",
 		"María Luisa",
 		"María Soledad",
 		"María Teresa",
+		"María",
 		"Mariana",
 		"Maricarmen",
 		"Marilu",
 		"Marisol",
 		"Marta",
 		"Mayte",
+		"Melany",
+		"Melissa",
 		"Mercedes",
 		"Micaela",
+		"Miranda",
 		"Mónica",
+		"Monserrat",
+		"Naomi",
 		"Natalia",
+		"Nicole",
 		"Norma",
 		"Olivia",
+		"Paola",
 		"Patricia",
+		"Paulina",
 		"Pilar",
 		"Ramona",
 		"Raquel",
 		"Rebeca",
+		"Regina",
 		"Reina",
+		"Renata",
 		"Rocio",
-		"Rosa",
 		"Rosa María",
+		"Rosa",
 		"Rosalia",
 		"Rosario",
 		"Sara",
@@ -1769,1028 +2705,35 @@ class Faker_es_mx : Faker {
 		"Sonia",
 		"Susana",
 		"Teresa",
-		"Verónica",
-		"Victoria",
-		"Virginia",
-		"Xochitl",
-		"Yolanda",
-		"Abigail",
-		"Abril",
-		"Adela",
-		"Alexa",
-		"Alondra Romina",
-		"Ana Sofía",
-		"Ana Victoria",
-		"Camila",
-		"Carolina",
-		"Daniela",
-		"Dulce María",
-		"Emily",
-		"Esmeralda",
-		"Estefanía",
-		"Evelyn",
-		"Fatima",
-		"Ivanna",
-		"Jazmin",
-		"Jennifer",
-		"Jimena",
-		"Julieta",
-		"Kimberly",
-		"Liliana",
-		"Lizbeth",
-		"María Fernanda",
-		"Melany",
-		"Melissa",
-		"Miranda",
-		"Monserrat",
-		"Naomi",
-		"Natalia",
-		"Nicole",
-		"Paola",
-		"Paulina",
-		"Regina",
-		"Renata",
 		"Valentina",
 		"Valeria",
 		"Vanessa",
-		"Ximena",
+		"Verónica",
+		"Victoria",
+		"Virginia",
 		"Ximena Guadalupe",
+		"Ximena",
+		"Xochitl",
 		"Yamileth",
 		"Yaretzi",
+		"Yolanda",
 		"Zoe"
 		];
 		return choice(data, this.rnd);
 	}
 
 
-	override string nameName() {
-		final switch(uniform(0, 5, this.rnd)) {
-			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
-			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " de " ~ nameLastName();
-			case 2: return nameSuffix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
-			case 3: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
-			case 4: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameLastName();
+	override string personLastNamePattern() {
+		final switch(uniform(0, 8, this.rnd)) {
+			case 0: return "{";
+			case 1: return "value: '" ~ personLastName() ~ " " ~ personLastName();
+			case 2: return "weight: 5";
+			case 3: return "}";
+			case 4: return "{";
+			case 5: return "value: '" ~ personLastName() ~ " de " ~ personLastName();
+			case 6: return "weight: 1";
+			case 7: return "}";
 		}
-	}
-
-	///
-	override string commerceDepartment() {
-		auto data = [
-		"Libros",
-		"Películas",
-		"Música",
-		"Juegos",
-		"Electrónica",
-		"Ordenadores",
-		"Hogar",
-		"Jardín",
-		"Herramientas",
-		"Ultramarinos",
-		"Salud",
-		"Belleza",
-		"Juguetes",
-		"Kids",
-		"Baby",
-		"Ropa",
-		"Zapatos",
-		"Joyería",
-		"Deportes",
-		"Aire libre",
-		"Automoción",
-		"Industrial"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"rojo",
-		"verde",
-		"azul",
-		"amarillo",
-		"morado",
-		"Menta verde",
-		"teal",
-		"blanco",
-		"negro",
-		"Naranja",
-		"Rosa",
-		"gris",
-		"marrón",
-		"violeta",
-		"turquesa",
-		"tan",
-		"cielo azul",
-		"salmón",
-		"ciruela",
-		"orquídea",
-		"aceituna",
-		"magenta",
-		"Lima",
-		"marfil",
-		"índigo",
-		"oro",
-		"fucsia",
-		"cian",
-		"azul",
-		"lavanda",
-		"plata"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressStateAbbr() {
-		auto data = [
-		"AS",
-		"BC",
-		"BS",
-		"CC",
-		"CS",
-		"CH",
-		"CL",
-		"CM",
-		"DF",
-		"DG",
-		"GT",
-		"GR",
-		"HG",
-		"JC",
-		"MC",
-		"MN",
-		"MS",
-		"NT",
-		"NL",
-		"OC",
-		"PL",
-		"QT",
-		"QR",
-		"SP",
-		"SL",
-		"SR",
-		"TC",
-		"TS",
-		"TL",
-		"VZ",
-		"YN",
-		"ZS"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressState() {
-		auto data = [
-		"Aguascalientes",
-		"Baja California Norte",
-		"Baja California Sur",
-		"Estado de México",
-		"Campeche",
-		"Chiapas",
-		"Chihuahua",
-		"Coahuila",
-		"Colima",
-		"Durango",
-		"Guanajuato",
-		"Guerrero",
-		"Hidalgo",
-		"Jalisco",
-		"Michoacan",
-		"Morelos",
-		"Nayarit",
-		"Nuevo León",
-		"Oaxaca",
-		"Puebla",
-		"Querétaro",
-		"Quintana Roo",
-		"San Luis Potosí",
-		"Sinaloa",
-		"Sonora",
-		"Tabasco",
-		"Tamaulipas",
-		"Tlaxcala",
-		"Veracruz",
-		"Yucatán",
-		"Zacatecas"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCountry() {
-		auto data = [
-		"Afganistán",
-		"Albania",
-		"Argelia",
-		"Andorra",
-		"Angola",
-		"Argentina",
-		"Armenia",
-		"Aruba",
-		"Australia",
-		"Austria",
-		"Azerbayán",
-		"Bahamas",
-		"Barein",
-		"Bangladesh",
-		"Barbados",
-		"Bielorusia",
-		"Bélgica",
-		"Belice",
-		"Bermuda",
-		"Bután",
-		"Bolivia",
-		"Bosnia Herzegovina",
-		"Botswana",
-		"Brasil",
-		"Bulgaria",
-		"Burkina Faso",
-		"Burundi",
-		"Camboya",
-		"Camerún",
-		"Canada",
-		"Cabo Verde",
-		"Islas Caimán",
-		"Chad",
-		"Chile",
-		"China",
-		"Isla de Navidad",
-		"Colombia",
-		"Comodos",
-		"Congo",
-		"Costa Rica",
-		"Costa de Marfil",
-		"Croacia",
-		"Cuba",
-		"Chipre",
-		"República Checa",
-		"Dinamarca",
-		"Dominica",
-		"República Dominicana",
-		"Ecuador",
-		"Egipto",
-		"El Salvador",
-		"Guinea Ecuatorial",
-		"Eritrea",
-		"Estonia",
-		"Etiopía",
-		"Islas Faro",
-		"Fiji",
-		"Finlandia",
-		"Francia",
-		"Gabón",
-		"Gambia",
-		"Georgia",
-		"Alemania",
-		"Ghana",
-		"Grecia",
-		"Groenlandia",
-		"Granada",
-		"Guadalupe",
-		"Guam",
-		"Guatemala",
-		"Guinea",
-		"Guinea-Bisau",
-		"Guayana",
-		"Haiti",
-		"Honduras",
-		"Hong Kong",
-		"Hungria",
-		"Islandia",
-		"India",
-		"Indonesia",
-		"Iran",
-		"Irak",
-		"Irlanda",
-		"Italia",
-		"Jamaica",
-		"Japón",
-		"Jordania",
-		"Kazajistan",
-		"Kenia",
-		"Kiribati",
-		"Corea",
-		"Kuwait",
-		"Letonia",
-		"Líbano",
-		"Liberia",
-		"Liechtenstein",
-		"Lituania",
-		"Luxemburgo",
-		"Macao",
-		"Macedonia",
-		"Madagascar",
-		"Malawi",
-		"Malasia",
-		"Maldivas",
-		"Mali",
-		"Malta",
-		"Martinica",
-		"Mauritania",
-		"México",
-		"Micronesia",
-		"Moldavia",
-		"Mónaco",
-		"Mongolia",
-		"Montenegro",
-		"Montserrat",
-		"Marruecos",
-		"Mozambique",
-		"Namibia",
-		"Nauru",
-		"Nepal",
-		"Holanda",
-		"Nueva Zelanda",
-		"Nicaragua",
-		"Niger",
-		"Nigeria",
-		"Noruega",
-		"Omán",
-		"Pakistan",
-		"Panamá",
-		"Papúa Nueva Guinea",
-		"Paraguay",
-		"Perú",
-		"Filipinas",
-		"Poland",
-		"Portugal",
-		"Puerto Rico",
-		"Rusia",
-		"Ruanda",
-		"Samoa",
-		"San Marino",
-		"Santo Tomé y Principe",
-		"Arabia Saudí",
-		"Senegal",
-		"Serbia",
-		"Seychelles",
-		"Sierra Leona",
-		"Singapur",
-		"Eslovaquia",
-		"Eslovenia",
-		"Somalia",
-		"España",
-		"Sri Lanka",
-		"Sudán",
-		"Suriname",
-		"Suecia",
-		"Suiza",
-		"Siria",
-		"Taiwan",
-		"Tajikistan",
-		"Tanzania",
-		"Tailandia",
-		"Timor-Leste",
-		"Togo",
-		"Tonga",
-		"Trinidad y Tobago",
-		"Tunez",
-		"Turquia",
-		"Uganda",
-		"Ucrania",
-		"Emiratos Árabes Unidos",
-		"Reino Unido",
-		"Estados Unidos de América",
-		"Uruguay",
-		"Uzbekistan",
-		"Vanuatu",
-		"Venezuela",
-		"Vietnam",
-		"Yemen",
-		"Zambia",
-		"Zimbabwe"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string addressStreetAddress() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressStreet() ~ addressBuildingNumber();
-			case 1: return "full: '" ~ addressStreet() ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
-		}
-	}
-
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"México'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCitySuffix() {
-		auto data = [
-		"town",
-		"ton",
-		"land",
-		"ville",
-		"berg",
-		"burgh",
-		"borough",
-		"bury",
-		"view",
-		"port",
-		"mouth",
-		"stad",
-		"furt",
-		"chester",
-		"mouth",
-		"fort",
-		"haven",
-		"side",
-		"shire"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCityPrefix() {
-		auto data = [
-		"Aguascalientes",
-		"Apodaca",
-		"Buenavista",
-		"Campeche",
-		"Cancún",
-		"Cárdenas",
-		"Celaya",
-		"Chalco",
-		"Chetumal",
-		"Chicoloapan",
-		"Chignahuapan",
-		"Chihuahua",
-		"Chilpancingo",
-		"Chimalhuacán",
-		"Ciudad Acuña",
-		"Ciudad de México",
-		"Ciudad del Carmen",
-		"Ciudad López Mateos",
-		"Ciudad Madero",
-		"Ciudad Obregón",
-		"Ciudad Valles",
-		"Ciudad Victoria",
-		"Coatzacoalcos",
-		"Colima-Villa de Álvarez",
-		"Comitán de Dominguez",
-		"Córdoba",
-		"Cuautitlán Izcalli",
-		"Cuautla",
-		"Cuernavaca",
-		"Culiacán",
-		"Delicias",
-		"Durango",
-		"Ensenada",
-		"Fresnillo",
-		"General Escobedo",
-		"Gómez Palacio",
-		"Guadalajara",
-		"Guadalupe",
-		"Guanajuato",
-		"Guaymas",
-		"Hermosillo",
-		"Hidalgo del Parral",
-		"Iguala",
-		"Irapuato",
-		"Ixtapaluca",
-		"Jiutepec",
-		"Juárez",
-		"La Laguna",
-		"La Paz",
-		"La Piedad-Pénjamo",
-		"León",
-		"Los Cabos",
-		"Los Mochis",
-		"Manzanillo",
-		"Matamoros",
-		"Mazatlán",
-		"Mérida",
-		"Mexicali",
-		"Minatitlán",
-		"Miramar",
-		"Monclova",
-		"Monclova-Frontera",
-		"Monterrey",
-		"Morelia",
-		"Naucalpan de Juárez",
-		"Navojoa",
-		"Nezahualcóyotl",
-		"Nogales",
-		"Nuevo Laredo",
-		"Oaxaca",
-		"Ocotlán",
-		"Ojo de agua",
-		"Orizaba",
-		"Pachuca",
-		"Piedras Negras",
-		"Poza Rica",
-		"Puebla",
-		"Puerto Vallarta",
-		"Querétaro",
-		"Reynosa-Río Bravo",
-		"Rioverde-Ciudad Fernández",
-		"Salamanca",
-		"Saltillo",
-		"San Cristobal de las Casas",
-		"San Francisco Coacalco",
-		"San Francisco del Rincón",
-		"San Juan Bautista Tuxtepec",
-		"San Juan del Río",
-		"San Luis Potosí-Soledad",
-		"San Luis Río Colorado",
-		"San Nicolás de los Garza",
-		"San Pablo de las Salinas",
-		"San Pedro Garza García",
-		"Santa Catarina",
-		"Soledad de Graciano Sánchez",
-		"Tampico-Pánuco",
-		"Tapachula",
-		"Tecomán",
-		"Tehuacán",
-		"Tehuacán",
-		"Tehuantepec-Salina Cruz",
-		"Tepexpan",
-		"Tepic",
-		"Tetela de Ocampo",
-		"Texcoco de Mora",
-		"Tijuana",
-		"Tlalnepantla",
-		"Tlaquepaque",
-		"Tlaxcala-Apizaco",
-		"Toluca",
-		"Tonalá",
-		"Torreón",
-		"Tula",
-		"Tulancingo",
-		"Tulancingo de Bravo",
-		"Tuxtla Gutiérrez",
-		"Uruapan",
-		"Uruapan del Progreso",
-		"Valle de México",
-		"Veracruz",
-		"Villa de Álvarez",
-		"Villa Nicolás Romero",
-		"Villahermosa",
-		"Xalapa",
-		"Zacatecas-Guadalupe",
-		"Zacatlan",
-		"Zacatzingo",
-		"Zamora-Jacona",
-		"Zapopan",
-		"Zitacuaro"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string addressStreet() {
-		final switch(uniform(0, 6, this.rnd)) {
-			case 0: return addressStreetSuffix() ~ " " ~ nameFirstName();
-			case 1: return addressStreetSuffix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
-			case 2: return addressStreetSuffix() ~ " " ~ addressStreetName();
-			case 3: return addressStreetSuffix() ~ " " ~ addressStreetName();
-			case 4: return addressStreetSuffix() ~ " " ~ addressStreetName();
-			case 5: return addressStreetSuffix() ~ " " ~ addressStreetName();
-		}
-	}
-
-	///
-	override string addressTimeZone() {
-		auto data = [
-		"Pacífico/Midway",
-		"Pacífico/Pago_Pago",
-		"Pacífico/Honolulu",
-		"America/Juneau",
-		"America/Los_Angeles",
-		"America/Tijuana",
-		"America/Denver",
-		"America/Phoenix",
-		"America/Chihuahua",
-		"America/Mazatlan",
-		"America/Chicago",
-		"America/Regina",
-		"America/Mexico_City",
-		"America/Monterrey",
-		"America/Guatemala",
-		"America/New_York",
-		"America/Indiana/Indianapolis",
-		"America/Bogota",
-		"America/Lima",
-		"America/Lima",
-		"America/Halifax",
-		"America/Caracas",
-		"America/La_Paz",
-		"America/Santiago",
-		"America/St_Johns",
-		"America/Sao_Paulo",
-		"America/Argentina/Buenos_Aires",
-		"America/Guyana",
-		"America/Godthab",
-		"Atlantic/South_Georgia",
-		"Atlantic/Azores",
-		"Atlantic/Cape_Verde",
-		"Europa/Dublin",
-		"Europa/London",
-		"Europa/Lisbon",
-		"Europa/London",
-		"Africa/Casablanca",
-		"Africa/Monrovia",
-		"Etc/UTC",
-		"Europa/Belgrade",
-		"Europa/Bratislava",
-		"Europa/Budapest",
-		"Europa/Ljubljana",
-		"Europa/Prague",
-		"Europa/Sarajevo",
-		"Europa/Skopje",
-		"Europa/Warsaw",
-		"Europa/Zagreb",
-		"Europa/Brussels",
-		"Europa/Copenhagen",
-		"Europa/Madrid",
-		"Europa/Paris",
-		"Europa/Amsterdam",
-		"Europa/Berlin",
-		"Europa/Berlin",
-		"Europa/Rome",
-		"Europa/Stockholm",
-		"Europa/Vienna",
-		"Africa/Algiers",
-		"Europa/Bucharest",
-		"Africa/Cairo",
-		"Europa/Helsinki",
-		"Europa/Kiev",
-		"Europa/Riga",
-		"Europa/Sofia",
-		"Europa/Tallinn",
-		"Europa/Vilnius",
-		"Europa/Athens",
-		"Europa/Istanbul",
-		"Europa/Minsk",
-		"Asia/Jerusalen",
-		"Africa/Harare",
-		"Africa/Johannesburg",
-		"Europa/Moscú",
-		"Europa/Moscú",
-		"Europa/Moscú",
-		"Asia/Kuwait",
-		"Asia/Riyadh",
-		"Africa/Nairobi",
-		"Asia/Baghdad",
-		"Asia/Tehran",
-		"Asia/Muscat",
-		"Asia/Muscat",
-		"Asia/Baku",
-		"Asia/Tbilisi",
-		"Asia/Yerevan",
-		"Asia/Kabul",
-		"Asia/Yekaterinburg",
-		"Asia/Karachi",
-		"Asia/Karachi",
-		"Asia/Tashkent",
-		"Asia/Kolkata",
-		"Asia/Kolkata",
-		"Asia/Kolkata",
-		"Asia/Kolkata",
-		"Asia/Kathmandu",
-		"Asia/Dhaka",
-		"Asia/Dhaka",
-		"Asia/Colombo",
-		"Asia/Almaty",
-		"Asia/Novosibirsk",
-		"Asia/Rangoon",
-		"Asia/Bangkok",
-		"Asia/Bangkok",
-		"Asia/Jakarta",
-		"Asia/Krasnoyarsk",
-		"Asia/Shanghai",
-		"Asia/Chongqing",
-		"Asia/Hong_Kong",
-		"Asia/Urumqi",
-		"Asia/Kuala_Lumpur",
-		"Asia/Singapore",
-		"Asia/Taipei",
-		"Australia/Perth",
-		"Asia/Irkutsk",
-		"Asia/Ulaanbaatar",
-		"Asia/Seoul",
-		"Asia/Tokyo",
-		"Asia/Tokyo",
-		"Asia/Tokyo",
-		"Asia/Yakutsk",
-		"Australia/Darwin",
-		"Australia/Adelaide",
-		"Australia/Melbourne",
-		"Australia/Melbourne",
-		"Australia/Sydney",
-		"Australia/Brisbane",
-		"Australia/Hobart",
-		"Asia/Vladivostok",
-		"Pacífico/Guam",
-		"Pacífico/Port_Moresby",
-		"Asia/Magadan",
-		"Asia/Magadan",
-		"Pacífico/Noumea",
-		"Pacífico/Fiji",
-		"Asia/Kamchatka",
-		"Pacífico/Majuro",
-		"Pacífico/Auckland",
-		"Pacífico/Auckland",
-		"Pacífico/Tongatapu",
-		"Pacífico/Fakaofo",
-		"Pacífico/Apia"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressStreetName() {
-		auto data = [
-		"20 de Noviembre",
-		"Cinco de Mayo",
-		"Cuahutemoc",
-		"Manzanares",
-		"Donceles",
-		"Francisco I. Madero",
-		"Juárez",
-		"Repúplica de Cuba",
-		"Repúplica de Chile",
-		"Repúplica de Argentina",
-		"Repúplica de Uruguay",
-		"Isabel la Católica",
-		"Izazaga",
-		"Eje Central",
-		"Eje 6",
-		"Eje 5",
-		"La viga",
-		"Aniceto Ortega",
-		"Miguel Ángel de Quevedo",
-		"Amores",
-		"Coyoacán",
-		"Coruña",
-		"Batalla de Naco",
-		"La otra banda",
-		"Piedra del Comal",
-		"Balcón de los edecanes",
-		"Barrio la Lonja",
-		"Jicolapa",
-		"Zacatlán",
-		"Zapata",
-		"Polotitlan",
-		"Calimaya",
-		"Flor Marina",
-		"Flor Solvestre",
-		"San Miguel",
-		"Naranjo",
-		"Cedro",
-		"Jalisco",
-		"Avena"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string addressCity() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressCityPrefix() ~ "'";
-		}
-	}
-
-
-	override string addressBuildingNumber() {
-		final switch(uniform(0, 7, this.rnd)) {
-			case 0: return " s/n.";
-			case 1: return "#";
-			case 2: return "##";
-			case 3: return " #";
-			case 4: return " ##";
-			case 5: return " ###";
-			case 6: return "####'";
-		}
-	}
-
-	///
-	override string addressSecondaryAddress() {
-		auto data = [
-		"Esc. ###",
-		"Puerta ###",
-		"Edificio #'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressPostcode() {
-		auto data = [
-		"#####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressStreetSuffix() {
-		auto data = [
-		"Aldea",
-		"Apartamento",
-		"Arrabal",
-		"Arroyo",
-		"Avenida",
-		"Bajada",
-		"Barranco",
-		"Barrio",
-		"Bloque",
-		"Calle",
-		"Calleja",
-		"Camino",
-		"Carretera",
-		"Caserio",
-		"Colegio",
-		"Colonia",
-		"Conjunto",
-		"Cuesta",
-		"Chalet",
-		"Edificio",
-		"Entrada",
-		"Escalinata",
-		"Explanada",
-		"Extramuros",
-		"Extrarradio",
-		"Ferrocarril",
-		"Glorieta",
-		"Gran Subida",
-		"Grupo",
-		"Huerta",
-		"Jardines",
-		"Lado",
-		"Lugar",
-		"Manzana",
-		"Masía",
-		"Mercado",
-		"Monte",
-		"Muelle",
-		"Municipio",
-		"Parcela",
-		"Parque",
-		"Partida",
-		"Pasaje",
-		"Paseo",
-		"Plaza",
-		"Poblado",
-		"Polígono",
-		"Prolongación",
-		"Puente",
-		"Puerta",
-		"Quinta",
-		"Ramal",
-		"Rambla",
-		"Rampa",
-		"Riera",
-		"Rincón",
-		"Ronda",
-		"Rua",
-		"Salida",
-		"Sector",
-		"Sección",
-		"Senda",
-		"Solar",
-		"Subida",
-		"Terrenos",
-		"Torrente",
-		"Travesía",
-		"Urbanización",
-		"Vía",
-		"Vía Pública"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string teamCreature() {
-		auto data = [
-		"hormigas",
-		"murciélagos",
-		"osos",
-		"abejas",
-		"pájaros",
-		"búfalo",
-		"gatos",
-		"pollos",
-		"ganado",
-		"perros",
-		"delfines",
-		"patos",
-		"elefantes",
-		"peces",
-		"zorros",
-		"ranas",
-		"gansos",
-		"cabras",
-		"caballos",
-		"canguros",
-		"leones",
-		"monos",
-		"búhos",
-		"bueyes",
-		"pingüinos",
-		"pueblo",
-		"cerdos",
-		"conejos",
-		"ovejas",
-		"tigres",
-		"ballenas",
-		"lobos",
-		"cebras",
-		"almas en pena",
-		"cuervos",
-		"gatos negros",
-		"quimeras",
-		"fantasmas",
-		"conspiradores",
-		"dragones",
-		"enanos",
-		"duendes",
-		"encantadores",
-		"exorcistas",
-		"hijos",
-		"enemigos",
-		"gigantes",
-		"gnomos",
-		"duendes",
-		"gansos",
-		"grifos",
-		"licántropos",
-		"némesis",
-		"ogros",
-		"oráculos",
-		"profetas",
-		"hechiceros",
-		"arañas",
-		"espíritus",
-		"vampiros",
-		"brujos",
-		"zorras",
-		"hombres lobo",
-		"brujas",
-		"adoradores",
-		"zombies",
-		"druidas"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string teamName() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressState() ~ " " ~ teamCreature() ~ "'";
-		}
-	}
-
-	///
-	override string phoneNumberFormats() {
-		auto data = [
-		"5###-###-###",
-		"5##.###.###",
-		"5## ### ###",
-		"5########'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string cellPhoneFormats() {
-		auto data = [
-		"5##-###-###",
-		"5##.###.###",
-		"5## ### ###",
-		"5########'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"yahoo.com",
-		"hotmail.com",
-		"nearbpo.com",
-		"corpfolder.com"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"com",
-		"mx",
-		"info",
-		"com.mx",
-		"org",
-		"gob.mx'"
-		];
-		return choice(data, this.rnd);
 	}
 
 }

@@ -30,76 +30,8 @@ class Faker_en_ng : Faker {
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
-
-	override string addressStreet() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
-			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
-		}
-	}
-
 	///
-	override string addressState() {
-		auto data = [
-		"FCT",
-		"ABIA",
-		"ADAMAWA",
-		"Akwa Ibom",
-		"Anambra",
-		"Bauchi",
-		"Bayelsa",
-		"Benue",
-		"Bornu",
-		"Cross River",
-		"Delta",
-		"Ebonyi",
-		"Edo",
-		"Ekiti",
-		"Enugu",
-		"Gombe",
-		"Imo",
-		"Jigawa",
-		"Kaduna",
-		"Kano",
-		"Katsina",
-		"Kebbi",
-		"Kogi",
-		"Kwara",
-		"Lagos",
-		"Nasarawa",
-		"Niger",
-		"Ogun",
-		"Ondo",
-		"Osun",
-		"Oyo",
-		"Plateau",
-		"Rivers",
-		"Sokoto",
-		"Taraba",
-		"Yobe",
-		"Zamfara"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressPostcode() {
-		auto data = [
-		"#####",
-		"####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-
-	override string addressCity() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressCityPrefix() ~ "'";
-		}
-	}
-
-	///
-	override string addressCityPrefix() {
+	override string locationCityName() {
 		auto data = [
 		"Abala",
 		"Abalakiri",
@@ -218,8 +150,6 @@ class Faker_en_ng : Faker {
 		"Alagbede",
 		"Alagbon",
 		"Alago",
-		"name",
-		" ",
 		"Alagogo",
 		"Alaguntan",
 		"Alaiyabiagba",
@@ -320,8 +250,6 @@ class Faker_en_ng : Faker {
 		"Eggan",
 		"Egudu Bale",
 		"Egun",
-		"name",
-		" ",
 		"Eiyekose",
 		"Ejigbo",
 		"Ejinrin",
@@ -422,8 +350,6 @@ class Faker_en_ng : Faker {
 		"Idiori",
 		"Idiroko",
 		"Idobarun",
-		"name",
-		" ",
 		"Idoforo",
 		"Idolanja",
 		"Idole",
@@ -524,8 +450,6 @@ class Faker_en_ng : Faker {
 		"Ilashe",
 		"Ilemere",
 		"Ilepa",
-		"name",
-		" ",
 		"Ileppaw",
 		"Ilera",
 		"Ilikiti",
@@ -631,7 +555,68 @@ class Faker_en_ng : Faker {
 	}
 
 	///
-	override string addressDefaultCountry() {
+	override string locationState() {
+		auto data = [
+		"FCT",
+		"ABIA",
+		"ADAMAWA",
+		"Akwa Ibom",
+		"Anambra",
+		"Bauchi",
+		"Bayelsa",
+		"Benue",
+		"Bornu",
+		"Cross River",
+		"Delta",
+		"Ebonyi",
+		"Edo",
+		"Ekiti",
+		"Enugu",
+		"Gombe",
+		"Imo",
+		"Jigawa",
+		"Kaduna",
+		"Kano",
+		"Katsina",
+		"Kebbi",
+		"Kogi",
+		"Kwara",
+		"Lagos",
+		"Nasarawa",
+		"Niger",
+		"Ogun",
+		"Ondo",
+		"Osun",
+		"Oyo",
+		"Plateau",
+		"Rivers",
+		"Sokoto",
+		"Taraba",
+		"Yobe",
+		"Zamfara"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationPostcode() {
+		auto data = [
+		"#####",
+		"####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+
+	override string locationStreetPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+		}
+	}
+
+	///
+	override string locationDefaultCountry() {
 		auto data = [
 		"Nigeria",
 		"Federal Republic of Nigeria",
@@ -639,6 +624,13 @@ class Faker_en_ng : Faker {
 		"NGN'"
 		];
 		return choice(data, this.rnd);
+	}
+
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName() ~ "'";
+		}
 	}
 
 	///
@@ -657,14 +649,13 @@ class Faker_en_ng : Faker {
 		"com.ng",
 		"com",
 		"org.ng",
-		"com",
 		"ng'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string nameFemaleFirstName() {
+	override string personFemaleFirstName() {
 		auto data = [
 		"Adaugo",
 		"Akunna",
@@ -701,8 +692,18 @@ class Faker_en_ng : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string personLastNamePattern() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 95 }";
+			case 2: return "{ value: '" ~ personLastName() ~ "-" ~ personLastName();
+			case 3: return "weight: 5 }";
+		}
+	}
+
 	///
-	override string nameLastName() {
+	override string personLastName() {
 		auto data = [
 		"Abiodun",
 		"Abiola",
@@ -720,14 +721,11 @@ class Faker_en_ng : Faker {
 		"Aderonke",
 		"Adesina",
 		"Adewale",
-		"Adewale",
-		"Adewale",
 		"Adewunmi",
 		"Adewura",
 		"Adeyemo",
 		"Afolabi",
 		"Afunku",
-		"Agboola",
 		"Agboola",
 		"Agnes",
 		"Aigbiniode",
@@ -744,7 +742,6 @@ class Faker_en_ng : Faker {
 		"Ayisat",
 		"Ayobami",
 		"Ayomide",
-		"Ayomide",
 		"Babalola",
 		"Babatunde",
 		"Balogun",
@@ -758,16 +755,12 @@ class Faker_en_ng : Faker {
 		"Christian",
 		"Clare",
 		"David",
-		"David",
 		"Ebubechukwu",
 		"Egbochukwu",
 		"Ehigiator",
 		"Ekwueme",
 		"Elebiyo",
 		"Elizabeth",
-		"Elizabeth",
-		"Elizabeth",
-		"Emmanuel",
 		"Emmanuel",
 		"Esther",
 		"Funmilayo",
@@ -786,7 +779,6 @@ class Faker_en_ng : Faker {
 		"Joshua",
 		"Justina",
 		"Katherine",
-		"Kayode",
 		"Kayode",
 		"Kimberly",
 		"Ladega",
@@ -813,7 +805,6 @@ class Faker_en_ng : Faker {
 		"Nwuzor",
 		"Obiageli",
 		"Obianuju",
-		"Odunayo",
 		"Odunayo",
 		"Ogunbanwo",
 		"Ogunwande",
@@ -875,7 +866,7 @@ class Faker_en_ng : Faker {
 	}
 
 	///
-	override string nameFirstName() {
+	override string personFirstName() {
 		auto data = [
 		"Adaugo",
 		"Akunna",
@@ -974,14 +965,13 @@ class Faker_en_ng : Faker {
 		"Uzodimma",
 		"Wale",
 		"Yakubu",
-		"Yusuf",
 		"Yusuf"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string nameMaleFirstName() {
+	override string personMaleFirstName() {
 		auto data = [
 		"Abimbola",
 		"Abisola",
@@ -1049,17 +1039,18 @@ class Faker_en_ng : Faker {
 		"Uzodimma",
 		"Wale",
 		"Yakubu",
-		"Yusuf",
 		"Yusuf"
 		];
 		return choice(data, this.rnd);
 	}
 
 
-	override string nameName() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstName() ~ " " ~ nameLastName();
-			case 1: return nameLastName() ~ " " ~ nameFirstName();
+	override string personName() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return "{ value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 1: return "weight: 1 }";
+			case 2: return "{ value: '" ~ personLastName() ~ " " ~ personFirstName();
+			case 3: return "weight: 1 }";
 		}
 	}
 

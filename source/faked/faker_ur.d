@@ -19,1167 +19,57 @@ class Faker_ur : Faker {
 	}
 
 	///
-	override string loremWords() {
+	override string locationCityName() {
 		auto data = [
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد"
+		"اسلام آباد",
+		"پشاور",
+		"لاہور",
+		"کراچی",
+		"ملتان",
+		"نوشہرہ",
+		"مردان",
+		"چارسدہ",
+		"گوجرنوالہ",
+		"گجرات",
+		"منگورہ",
+		"ملاکنڈ",
+		"درگیٗ",
+		"حیدرآباد",
+		"ایبٹ آباد",
+		"ناران",
+		"فیصل آباد",
+		"راولپنڈی",
+		"کوئٹہ",
+		"بہاولپور",
+		"سیالکوٹ",
+		"لاڑکانہ",
+		"رحیم یار خان",
+		"قصُور",
+		"نواب شاہ",
+		"چنیوٹ",
+		"حافظ آباد",
+		"کوھاٹ",
+		"جہلم",
+		"وارسک",
+		"خانپور",
+		"حب",
+		"دسکہ",
+		"خزدار",
+		"مری",
+		"گوجرہ",
+		"دادو",
+		"چشتیاں",
+		"ٹیکسلا",
+		"کبل",
+		"گوٹکی",
+		"نارو وال",
+		"گوادر"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string loremSupplemental() {
-		auto data = [
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسداسدھدسبابگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبادفھناسدھ",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدباسدفنباسد",
-		"رعابھ",
-		"ابسانفسدد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سندافاھگسدبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"ساسدبھ اسدفگبطاسدفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدطاسدگاسدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چاسدسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد",
-		"سگ",
-		"دگاس",
-		"ساد",
-		"دسھا",
-		"باس",
-		"نان",
-		"انب",
-		"ابس",
-		"ادسگ",
-		"ابنسد",
-		"سفد",
-		"دف",
-		"بس",
-		"باسدب",
-		"باسدبا",
-		"رعابھ",
-		"ابسد",
-		"سب",
-		"ساد",
-		"ط",
-		"اسدبگ",
-		"اسدگ",
-		"اھگسد",
-		"سدگ",
-		"اسگ",
-		"شبچ",
-		"عو",
-		"سدبگا",
-		"اسبد",
-		"ساب",
-		"سدب",
-		"سبا",
-		"باسد",
-		"دسب",
-		"طسد",
-		"چسد"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string financeTransactionType() {
-		auto data = [
-		"deposit",
-		"withdrawal",
-		"payment",
-		"invoice'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string financeAccountType() {
-		auto data = [
-		"Savings",
-		"Current'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string animalType() {
-		auto data = [
-		"bear",
-		"lion",
-		"insect",
-		"crocodilia",
-		"cow'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string animalCrocodilia() {
-		auto data = [
-		"امریکی گڑیال",
-		"آسٹریلیائ تازہ پانی کا گڑیال",
-		"نیل گڑیال",
-		"مشرقی افریقی گڑیال",
-		"نمکین پانی کا گڑیال",
-		"گڑیال"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string animalBear() {
-		auto data = [
-		"پانڈا",
-		"بھالو",
-		"امریکی کالا بھالو",
-		"ایشیایٰ کالا بھالو",
-		"بھورا بھالو"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string animalCow() {
-		auto data = [
-		"گائے",
-		"نیلی گاٗیے",
-		"امریکی گاٗیے'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string animalLion() {
-		auto data = [
-		"ایشیایْ شیر",
-		"مشرقی افریقی شیر",
-		"شمالی مغربی کانگو کا شیر'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string animalInsect() {
-		auto data = [
-		"شہد کی مکھی",
-		"مکھی",
-		"چیونٹی'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string appVersion() {
-		auto data = [
-		"0.#.#",
-		"0.##",
-		"#.##",
-		"#.#",
-		"#.#.#'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-
-	override string appAuthor() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameName();
-			case 1: return companyName() ~ "'";
-		}
-	}
-
-	///
-	override string appName() {
-		auto data = [
-		"اوقات نماز",
-		"قسط حساب",
-		"نقشہ نگار",
-		"دبیٗ وقت",
-		"ڈالر رپیہ",
-		"دراز",
-		"پاک وھیلز",
-		"واٹس ایپ"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameMaleFirstName() {
-		auto data = [
-		"عمیر",
-		"ابراہیم",
-		"احسن",
-		"عبداللہ",
-		"عثمان",
-		"حمزہ",
-		"سیف",
-		"ولید",
-		"وسیم",
-		"محسن",
-		"یاسین",
-		"کمال",
-		"عادل",
-		"اویس",
-		"مسود",
-		"شفیع",
-		"فرہان",
-		"ممتاز"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameSuffix() {
-		auto data = [
-		"چھوٹے",
-		"بڑے",
-		"پہل",
-		"دوم",
-		"سوم",
-		"چہارم",
-		"پنجم",
-		"ششم",
-		"هفتم",
-		"نوئم",
-		"دسم"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameLastName() {
-		auto data = [
-		"اعوان",
-		"ملک",
-		"جبران",
-		"احمد",
-		"علی",
-		"خان",
-		"جان",
-		"آفریدی",
-		"باجوڑی",
-		"میمن",
-		"راجپوت",
-		"عبدالی",
-		"نیازی",
-		"شریف",
-		"چوہدری",
-		"ملوک",
-		"اللَہ",
-		"شنواری",
-		"حسین",
-		"الحق"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameFirstName() {
-		auto data = [
-		"منایل",
-		"عایشہ",
-		"آمنہ",
-		"عمائم",
-		"خدیجہ",
-		"حفصہ",
-		"رابعہ",
-		"اقدس",
-		"حسنہ",
-		"مریم",
-		"حمیرہ",
-		"وردہ",
-		"شہناز",
-		"نوشین",
-		"مشال",
-		"روبینہ",
-		"روزینہ",
-		"حدید",
-		"عمیر",
-		"ابراہیم",
-		"احسن",
-		"عبداللہ",
-		"عثمان",
-		"حمزہ",
-		"سیف",
-		"ولید",
-		"وسیم",
-		"محسن",
-		"یاسین",
-		"کمال",
-		"عادل",
-		"اویس",
-		"مسود",
-		"شفیع",
-		"فرہان",
-		"ممتاز"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string nameName() {
-		final switch(uniform(0, 8, this.rnd)) {
-			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
-			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameSuffix();
-			case 2: return nameFirstName() ~ " " ~ nameLastName();
-			case 3: return nameFirstName() ~ " " ~ nameLastName();
-			case 4: return nameMaleFirstName() ~ " " ~ nameLastName();
-			case 5: return nameFemaleFirstName() ~ " " ~ nameLastName();
-			case 6: return nameMaleFirstName() ~ " بن " ~ nameMaleFirstName();
-			case 7: return nameFemaleFirstName() ~ " بنت " ~ nameMaleFirstName();
-		}
-	}
-
-	///
-	override string nameFemaleFirstName() {
-		auto data = [
-		"منایل",
-		"عایشہ",
-		"آمنہ",
-		"عمائم",
-		"خدیجہ",
-		"حفصہ",
-		"رابعہ",
-		"اقدس",
-		"حسنہ",
-		"مریم",
-		"حمیرہ",
-		"وردہ",
-		"شہناز",
-		"نوشین",
-		"مشال",
-		"روبینہ",
-		"روزینہ",
-		"حدید"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameBinaryGender() {
-		auto data = [
-		"عورت",
-		"مرد'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string namePrefix() {
-		auto data = [
-		"محترم.",
-		"محترمہ.",
-		"ڈاکٹر'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string musicGenre() {
-		auto data = [
-		"پاپ",
-		"فلک",
-		"دنیایٰ",
-		"جاز",
-		"فنک",
-		"کلاسکی",
-		"لاطینی",
-		"پرانی",
-		"ریپ"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string commerceDepartment() {
-		auto data = [
-		"کتابیہ",
-		"فلم",
-		"گانی",
-		"کھیل",
-		"بجلی",
-		"کمپیوٹر",
-		"گھر",
-		"باغ",
-		"اوزار",
-		"اشیاء",
-		"صحر",
-		"خوبصورتی",
-		"کھلونہ",
-		"بچے",
-		"کپڑے",
-		"جوتے",
-		"گاڑیاں",
-		"کارغانے"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"سرخ",
-		"ہرا",
-		"نیلا",
-		"پیلا",
-		"ہلکا ہرا",
-		"سفہد",
-		"کالا",
-		"نارنجی",
-		"پیکا",
-		"مہندی",
-		"آسمانی",
-		"سنہری",
-		"چاندنی"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressStateAbbr() {
+	override string locationStateAbbr() {
 		auto data = [
 		"KP",
 		"ICT",
@@ -1193,7 +83,7 @@ class Faker_ur : Faker {
 	}
 
 	///
-	override string addressState() {
+	override string locationState() {
 		auto data = [
 		"خیبر پختونخواہ",
 		"اسلام آباد",
@@ -1207,15 +97,23 @@ class Faker_ur : Faker {
 	}
 
 
-	override string addressStreetAddress() {
+	override string locationStreetPattern() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressBuildingNumber() ~ " " ~ addressStreet();
-			case 1: return "full: '" ~ addressBuildingNumber() ~ " " ~ addressStreet() ~ " " ~ addressSecondaryAddress();
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+		}
+	}
+
+
+	override string locationStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ locationBuildingNumber() ~ " " ~ locationStreet();
+			case 1: return "full: '" ~ locationBuildingNumber() ~ " " ~ locationStreet() ~ " " ~ locationSecondaryAddress();
 		}
 	}
 
 	///
-	override string addressDefaultCountry() {
+	override string locationDefaultCountry() {
 		auto data = [
 		"اسلامی جمہوریہ پاکستان'"
 		];
@@ -1223,7 +121,7 @@ class Faker_ur : Faker {
 	}
 
 	///
-	override string addressDirection() {
+	override string locationDirection() {
 		auto data = [
 		"شمال",
 		"مشرق",
@@ -1238,15 +136,26 @@ class Faker_ur : Faker {
 	}
 
 	///
-	override string addressCitySuffix() {
+	override string locationCitySuffix() {
 		auto data = [
 		"ٹاوْن'"
 		];
 		return choice(data, this.rnd);
 	}
 
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return locationCityPrefix() ~ " " ~ personFirstName() ~ locationCitySuffix();
+			case 1: return locationCityPrefix() ~ " " ~ personFirstName();
+			case 2: return personFirstName() ~ locationCitySuffix();
+			case 3: return personLastName() ~ locationCitySuffix();
+			case 4: return locationCityName();
+		}
+	}
+
 	///
-	override string addressCountry() {
+	override string locationCountry() {
 		auto data = [
 		"افغانستان",
 		"البانیا",
@@ -1409,7 +318,7 @@ class Faker_ur : Faker {
 	}
 
 	///
-	override string addressCityPrefix() {
+	override string locationCityPrefix() {
 		auto data = [
 		"مشرق",
 		"مغرب",
@@ -1422,26 +331,8 @@ class Faker_ur : Faker {
 		return choice(data, this.rnd);
 	}
 
-
-	override string addressStreet() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
-			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
-		}
-	}
-
-
-	override string addressCity() {
-		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
-			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
-			case 2: return nameFirstName() ~ addressCitySuffix();
-			case 3: return nameLastName() ~ addressCitySuffix();
-		}
-	}
-
 	///
-	override string addressBuildingNumber() {
+	override string locationBuildingNumber() {
 		auto data = [
 		"#####",
 		"####",
@@ -1451,7 +342,7 @@ class Faker_ur : Faker {
 	}
 
 	///
-	override string addressSecondaryAddress() {
+	override string locationSecondaryAddress() {
 		auto data = [
 		"گھر. ###",
 		"گلی ###'"
@@ -1460,7 +351,7 @@ class Faker_ur : Faker {
 	}
 
 	///
-	override string addressPostcode() {
+	override string locationPostcode() {
 		auto data = [
 		"#####'"
 		];
@@ -1468,7 +359,7 @@ class Faker_ur : Faker {
 	}
 
 	///
-	override string addressStreetSuffix() {
+	override string locationStreetSuffix() {
 		auto data = [
 		"گاوْں",
 		"گلی",
@@ -1477,6 +368,275 @@ class Faker_ur : Faker {
 		"گھڑی'"
 		];
 		return choice(data, this.rnd);
+	}
+
+	///
+	override string loremWords() {
+		auto data = [
+		"سگ",
+		"دگاس",
+		"ساد",
+		"دسھا",
+		"باس",
+		"نان",
+		"انب",
+		"ابس",
+		"ادسگ",
+		"ابنسد",
+		"سفد",
+		"دف",
+		"بس",
+		"باسدب",
+		"باسدبا",
+		"رعابھ",
+		"ابسد",
+		"سب",
+		"ط",
+		"اسدبگ",
+		"اسدگ",
+		"اھگسد",
+		"سدگ",
+		"اسگ",
+		"شبچ",
+		"عو",
+		"سدبگا",
+		"اسبد",
+		"ساب",
+		"سدب",
+		"سبا",
+		"باسد",
+		"دسب",
+		"طسد",
+		"چسد",
+		"اسداسدھدسبابگ",
+		"سبادفھناسدھ",
+		"باسدباسدفنباسد",
+		"ابسانفسدد",
+		"سندافاھگسدبا",
+		"ساسدبھ اسدفگبطاسدفد",
+		"سدطاسدگاسدگ",
+		"چاسدسد"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string financeTransactionType() {
+		auto data = [
+		"deposit",
+		"withdrawal",
+		"payment",
+		"invoice'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string financeAccountType() {
+		auto data = [
+		"Savings",
+		"Current'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string animalType() {
+		auto data = [
+		"bear",
+		"lion",
+		"insect",
+		"crocodilia",
+		"cow'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string animalCrocodilia() {
+		auto data = [
+		"امریکی گڑیال",
+		"آسٹریلیائ تازہ پانی کا گڑیال",
+		"نیل گڑیال",
+		"مشرقی افریقی گڑیال",
+		"نمکین پانی کا گڑیال",
+		"گڑیال"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string animalBear() {
+		auto data = [
+		"پانڈا",
+		"بھالو",
+		"امریکی کالا بھالو",
+		"ایشیایٰ کالا بھالو",
+		"بھورا بھالو"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string animalCow() {
+		auto data = [
+		"گائے",
+		"نیلی گاٗیے",
+		"امریکی گاٗیے'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string animalLion() {
+		auto data = [
+		"ایشیایْ شیر",
+		"مشرقی افریقی شیر",
+		"شمالی مغربی کانگو کا شیر'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string animalInsect() {
+		auto data = [
+		"شہد کی مکھی",
+		"مکھی",
+		"چیونٹی'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string appVersion() {
+		auto data = [
+		"0.#.#",
+		"0.##",
+		"#.##",
+		"#.#",
+		"#.#.#'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+
+	override string appAuthor() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personName();
+			case 1: return companyName() ~ "'";
+		}
+	}
+
+	///
+	override string appName() {
+		auto data = [
+		"اوقات نماز",
+		"قسط حساب",
+		"نقشہ نگار",
+		"دبیٗ وقت",
+		"ڈالر رپیہ",
+		"دراز",
+		"پاک وھیلز",
+		"واٹس ایپ"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string musicGenre() {
+		auto data = [
+		"پاپ",
+		"فلک",
+		"دنیایٰ",
+		"جاز",
+		"فنک",
+		"کلاسکی",
+		"لاطینی",
+		"پرانی",
+		"ریپ"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string commerceDepartment() {
+		auto data = [
+		"کتابیہ",
+		"فلم",
+		"گانی",
+		"کھیل",
+		"بجلی",
+		"کمپیوٹر",
+		"گھر",
+		"باغ",
+		"اوزار",
+		"اشیاء",
+		"صحر",
+		"خوبصورتی",
+		"کھلونہ",
+		"بچے",
+		"کپڑے",
+		"جوتے",
+		"گاڑیاں",
+		"کارغانے"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
+		"سرخ",
+		"ہرا",
+		"نیلا",
+		"پیلا",
+		"ہلکا ہرا",
+		"سفہد",
+		"کالا",
+		"نارنجی",
+		"پیکا",
+		"مہندی",
+		"آسمانی",
+		"سنہری",
+		"چاندنی"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string dateWeekday() {
+		auto data = [
+		"abbr: null",
+		"wide: ['اتور",
+		"پیر",
+		"منگل",
+		"بدھ",
+		"جمعرات",
+		"جمعہ",
+		"ہفتہ']"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 15, this.rnd)) {
+			case 0: return "abbr: null";
+			case 1: return "wide: [";
+			case 2: return "جنوری";
+			case 3: return "فروری";
+			case 4: return "مارچ";
+			case 5: return "اپریل";
+			case 6: return "مئ";
+			case 7: return "جون";
+			case 8: return "جولائ";
+			case 9: return "اگست";
+			case 10: return "ستمبر";
+			case 11: return "اکتوبر";
+			case 12: return "نومبر";
+			case 13: return "دسمبر";
+			case 14: return "]";
+		}
 	}
 
 	///
@@ -1524,7 +684,7 @@ class Faker_ur : Faker {
 
 	override string teamName() {
 		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressState() ~ " " ~ teamCreature() ~ "'";
+			case 0: return locationState() ~ " " ~ teamCreature() ~ "'";
 		}
 	}
 
@@ -1593,14 +753,230 @@ class Faker_ur : Faker {
 	}
 
 	///
-	override string businessCreditCardTypes() {
+	override string personMalePrefix() {
 		auto data = [
-		"visa",
-		"mastercard",
-		"link one",
-		"paypak'"
+		"محترم.",
+		"ڈاکٹر'"
 		];
 		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFemalePrefix() {
+		auto data = [
+		"محترمہ.",
+		"ڈاکٹر'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMaleFirstName() {
+		auto data = [
+		"عمیر",
+		"ابراہیم",
+		"احسن",
+		"عبداللہ",
+		"عثمان",
+		"حمزہ",
+		"سیف",
+		"ولید",
+		"وسیم",
+		"محسن",
+		"یاسین",
+		"کمال",
+		"عادل",
+		"اویس",
+		"مسود",
+		"شفیع",
+		"فرہان",
+		"ممتاز"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personSuffix() {
+		auto data = [
+		"چھوٹے",
+		"بڑے",
+		"پہل",
+		"دوم",
+		"سوم",
+		"چہارم",
+		"پنجم",
+		"ششم",
+		"هفتم",
+		"نوئم",
+		"دسم"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personSex() {
+		auto data = [
+		"عورت",
+		"مرد'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personLastName() {
+		auto data = [
+		"اعوان",
+		"ملک",
+		"جبران",
+		"احمد",
+		"علی",
+		"خان",
+		"جان",
+		"آفریدی",
+		"باجوڑی",
+		"میمن",
+		"راجپوت",
+		"عبدالی",
+		"نیازی",
+		"شریف",
+		"چوہدری",
+		"ملوک",
+		"اللَہ",
+		"شنواری",
+		"حسین",
+		"الحق"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string personTitle() {
+		final switch(uniform(0, 32, this.rnd)) {
+			case 0: return "descriptor: [";
+			case 1: return "سربراہ";
+			case 2: return "اعلیٰ";
+			case 3: return "مستقبل";
+			case 4: return "شہری";
+			case 5: return "ڈسٹرکٹ";
+			case 6: return "درمیانہ";
+			case 7: return "گلوبل";
+			case 8: return "گاہک";
+			case 9: return "بین ال اقوامی";
+			case 10: return "آگے";
+			case 11: return "اندرونی";
+			case 12: return "انسانی";
+			case 13: return "چیف";
+			case 14: return "پرنسپل";
+			case 15: return "]";
+			case 16: return "level: [";
+			case 17: return "حل";
+			case 18: return "پروگرام";
+			case 19: return "برانڈ";
+			case 20: return "سکیورٹی";
+			case 21: return "ریسرچ";
+			case 22: return "آگاہی";
+			case 23: return "حربہ";
+			case 24: return "شناخت";
+			case 25: return "بازار";
+			case 26: return "گروہ";
+			case 27: return "تقسیم";
+			case 28: return "استعمال";
+			case 29: return "بات چیت";
+			case 30: return "جال";
+			case 31: return "]";
+		}
+	}
+
+
+	override string personName() {
+		final switch(uniform(0, 10, this.rnd)) {
+			case 0: return "{";
+			case 1: return "value: '" ~ personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+			case 2: return "weight: 1";
+			case 3: return "}";
+			case 4: return "{";
+			case 5: return "value: '" ~ personFirstName() ~ " " ~ personLastName() ~ " " ~ personSuffix();
+			case 6: return "weight: 1";
+			case 7: return "}";
+			case 8: return "{ value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 9: return "weight: 8 }";
+		}
+	}
+
+	///
+	override string personFemaleFirstName() {
+		auto data = [
+		"منایل",
+		"عایشہ",
+		"آمنہ",
+		"عمائم",
+		"خدیجہ",
+		"حفصہ",
+		"رابعہ",
+		"اقدس",
+		"حسنہ",
+		"مریم",
+		"حمیرہ",
+		"وردہ",
+		"شہناز",
+		"نوشین",
+		"مشال",
+		"روبینہ",
+		"روزینہ",
+		"حدید"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFirstName() {
+		auto data = [
+		"منایل",
+		"عایشہ",
+		"آمنہ",
+		"عمائم",
+		"خدیجہ",
+		"حفصہ",
+		"رابعہ",
+		"اقدس",
+		"حسنہ",
+		"مریم",
+		"حمیرہ",
+		"وردہ",
+		"شہناز",
+		"نوشین",
+		"مشال",
+		"روبینہ",
+		"روزینہ",
+		"حدید",
+		"عمیر",
+		"ابراہیم",
+		"احسن",
+		"عبداللہ",
+		"عثمان",
+		"حمزہ",
+		"سیف",
+		"ولید",
+		"وسیم",
+		"محسن",
+		"یاسین",
+		"کمال",
+		"عادل",
+		"اویس",
+		"مسود",
+		"شفیع",
+		"فرہان",
+		"ممتاز"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string personLastNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
+		}
 	}
 
 }

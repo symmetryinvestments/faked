@@ -19,18 +19,7 @@ class Faker_sk : Faker {
 	}
 
 	///
-	override string phoneNumberFormats() {
-		auto data = [
-		"09## ### ###",
-		"0## #### ####",
-		"0# #### ####",
-		"+421 ### ### ###"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressCityName() {
+	override string locationCityName() {
 		auto data = [
 		"Bánovce nad Bebravou",
 		"Banská Bystrica",
@@ -116,59 +105,37 @@ class Faker_sk : Faker {
 	}
 
 
-	override string addressStateAbbr() {
-		return "";
+	override string locationStreetPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationStreetName() ~ "'";
+		}
 	}
 
 
-	override string addressState() {
-		return "";
-	}
-
-
-	override string addressStreetAddress() {
+	override string locationStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
-			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+			case 0: return "normal: '" ~ locationStreet() ~ " " ~ locationBuildingNumber();
+			case 1: return "full: '" ~ locationStreet() ~ " " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
 		}
 	}
 
 	///
-	override string addressDefaultCountry() {
+	override string locationDefaultCountry() {
 		auto data = [
 		"Slovensko'"
 		];
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressCitySuffix() {
-		auto data = [
-		"town",
-		"ton",
-		"land",
-		"ville",
-		"berg",
-		"burgh",
-		"borough",
-		"bury",
-		"view",
-		"port",
-		"mouth",
-		"stad",
-		"furt",
-		"chester",
-		"mouth",
-		"fort",
-		"haven",
-		"side",
-		"shire"
-		];
-		return choice(data, this.rnd);
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName() ~ "'";
+		}
 	}
 
 	///
-	override string addressCountry() {
+	override string locationCountry() {
 		auto data = [
 		"Afganistan",
 		"Afgánsky islamský štát",
@@ -180,7 +147,6 @@ class Faker_sk : Faker {
 		"Andorrské kniežatsvo",
 		"Angola",
 		"Angolská republika",
-		"Antigua a Barbuda",
 		"Antigua a Barbuda",
 		"Argentína",
 		"Argentínska republika",
@@ -197,10 +163,8 @@ class Faker_sk : Faker {
 		"Bangladéš",
 		"Bangladéšska ľudová republika",
 		"Barbados",
-		"Barbados",
 		"Belgicko",
 		"Belgické kráľovstvo",
-		"Belize",
 		"Belize",
 		"Benin",
 		"Beninská republika",
@@ -221,7 +185,6 @@ class Faker_sk : Faker {
 		"Bulharsko",
 		"Bulharská republika",
 		"Burkina Faso",
-		"Burkina Faso",
 		"Burundi",
 		"Burundská republika",
 		"Cyprus",
@@ -236,7 +199,6 @@ class Faker_sk : Faker {
 		"Dánsko kráľovstvo",
 		"Dominika",
 		"Spoločenstvo Dominika",
-		"Dominikánska republika",
 		"Dominikánska republika",
 		"Džibutsko",
 		"Džibutská republika",
@@ -267,8 +229,6 @@ class Faker_sk : Faker {
 		"Grécko",
 		"Helénska republika",
 		"Grenada",
-		"Grenada",
-		"Gruzínsko",
 		"Gruzínsko",
 		"Guatemala",
 		"Guatemalská republika",
@@ -303,8 +263,6 @@ class Faker_sk : Faker {
 		"Írsko",
 		"Írska republika",
 		"Jamajka",
-		"Jamajka",
-		"Japonsko",
 		"Japonsko",
 		"Jemen",
 		"Jemenská republika",
@@ -316,7 +274,6 @@ class Faker_sk : Faker {
 		"Kambodžské kráľovstvo",
 		"Kamerun",
 		"Kamerunská republika",
-		"Kanada",
 		"Kanada",
 		"Kapverdy",
 		"Kapverdská republika",
@@ -373,14 +330,12 @@ class Faker_sk : Faker {
 		"Maďarsko",
 		"Maďarská republika",
 		"Malajzia",
-		"Malajzia",
 		"Malawi",
 		"Malawijská republika",
 		"Maldivy",
 		"Maldivská republika",
 		"Mali",
 		"Malijská republika",
-		"Malta",
 		"Malta",
 		"Maroko",
 		"Marocké kráľovstvo",
@@ -401,7 +356,6 @@ class Faker_sk : Faker {
 		"Monako",
 		"Monacké kniežatstvo",
 		"Mongolsko",
-		"Mongolsko",
 		"Mozambik",
 		"Mozambická republika",
 		"Namíbia",
@@ -418,7 +372,6 @@ class Faker_sk : Faker {
 		"Nigérijská federatívna republika",
 		"Nikaragua",
 		"Nikaragujská republika",
-		"Nový Zéland",
 		"Nový Zéland",
 		"Nórsko",
 		"Nórske kráľovstvo",
@@ -447,7 +400,6 @@ class Faker_sk : Faker {
 		"Rovníková Guinea",
 		"Republika Rovníková Guinea",
 		"Rumunsko",
-		"Rumunsko",
 		"Rusko",
 		"Ruská federácia",
 		"Rwanda",
@@ -475,14 +427,10 @@ class Faker_sk : Faker {
 		"Somálsko",
 		"Somálska demokratická republika",
 		"Spojené arabské emiráty",
-		"Spojené arabské emiráty",
 		"Spojené štáty americké",
-		"Spojené štáty americké",
-		"Srbsko a Čierna Hora",
 		"Srbsko a Čierna Hora",
 		"Srí Lanka",
 		"Demokratická socialistická republika Srí Lanka",
-		"Stredoafrická republika",
 		"Stredoafrická republika",
 		"Sudán",
 		"Sudánska republika",
@@ -490,7 +438,6 @@ class Faker_sk : Faker {
 		"Surinamská republika",
 		"Svazijsko",
 		"Svazijské kráľovstvo",
-		"Svätá Lucia",
 		"Svätá Lucia",
 		"Svätý Krištof a Nevis",
 		"Federácia Svätý Krištof a Nevis",
@@ -500,7 +447,6 @@ class Faker_sk : Faker {
 		"Svätý Vincent a Grenadíny",
 		"Sýria",
 		"Sýrska arabská republika",
-		"Šalamúnove ostrovy",
 		"Šalamúnove ostrovy",
 		"Španielsko",
 		"Španielske kráľovstvo",
@@ -527,8 +473,6 @@ class Faker_sk : Faker {
 		"Turecko",
 		"Turecká republika",
 		"Turkménsko",
-		"Turkménsko",
-		"Tuvalu",
 		"Tuvalu",
 		"Uganda",
 		"Ugandská republika",
@@ -557,28 +501,7 @@ class Faker_sk : Faker {
 	}
 
 	///
-	override string addressCityPrefix() {
-		auto data = [
-		"North",
-		"East",
-		"West",
-		"South",
-		"New",
-		"Lake",
-		"Port'"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string addressStreet() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressStreetName() ~ "'";
-		}
-	}
-
-	///
-	string addressStreetName() {
+	string locationStreetName() {
 		auto data = [
 		"Adámiho",
 		"Ahoj",
@@ -593,11 +516,9 @@ class Faker_sk : Faker {
 		"Ambrušova",
 		"Americká",
 		"Americké námestie",
-		"Americké námestie",
 		"Andreja Mráza",
 		"Andreja Plávku",
 		"Andrusovova",
-		"Anenská",
 		"Anenská",
 		"Antolská",
 		"Astronomická",
@@ -606,11 +527,6 @@ class Faker_sk : Faker {
 		"Azovská",
 		"Babuškova",
 		"Bachova",
-		"Bajkalská",
-		"Bajkalská",
-		"Bajkalská",
-		"Bajkalská",
-		"Bajkalská",
 		"Bajkalská",
 		"Bajzova",
 		"Bancíkovej",
@@ -671,11 +587,8 @@ class Faker_sk : Faker {
 		"Broskyňová",
 		"Břeclavská",
 		"Budatínska",
-		"Budatínska",
-		"Budatínska",
 		"Búdkova  cesta",
 		"Budovateľská",
-		"Budyšínska",
 		"Budyšínska",
 		"Buková",
 		"Bukureštská",
@@ -684,7 +597,6 @@ class Faker_sk : Faker {
 		"Bystrého",
 		"Bzovícka",
 		"Cablkova",
-		"Cesta na Červený most",
 		"Cesta na Červený most",
 		"Cesta na Senec",
 		"Cikkerova",
@@ -721,7 +633,6 @@ class Faker_sk : Faker {
 		"Dlhé diely II.",
 		"Dlhé diely III.",
 		"Dobrovičova",
-		"Dobrovičova",
 		"Dobrovského",
 		"Dobšinského",
 		"Dohnalova",
@@ -737,10 +648,6 @@ class Faker_sk : Faker {
 		"Dr. Vladimíra Clemen",
 		"Drevená",
 		"Drieňová",
-		"Drieňová",
-		"Drieňová",
-		"Drotárska cesta",
-		"Drotárska cesta",
 		"Drotárska cesta",
 		"Družicová",
 		"Družstevná",
@@ -748,7 +655,6 @@ class Faker_sk : Faker {
 		"Dubová",
 		"Dúbravská cesta",
 		"Dudova",
-		"Dulovo námestie",
 		"Dulovo námestie",
 		"Dunajská",
 		"Dvořákovo nábrežie",
@@ -777,10 +683,7 @@ class Faker_sk : Faker {
 		"Františkánska",
 		"Františkánske námest",
 		"Furdekova",
-		"Furdekova",
 		"Gabčíkova",
-		"Gagarinova",
-		"Gagarinova",
 		"Gagarinova",
 		"Gajova",
 		"Galaktická",
@@ -822,12 +725,10 @@ class Faker_sk : Faker {
 		"Havrania",
 		"Haydnova",
 		"Herlianska",
-		"Herlianska",
 		"Heydukova",
 		"Hlaváčikova",
 		"Hlavatého",
 		"Hlavné námestie",
-		"Hlboká cesta",
 		"Hlboká cesta",
 		"Hlivová",
 		"Hlučínska",
@@ -840,7 +741,6 @@ class Faker_sk : Faker {
 		"Hontianska",
 		"Horárska",
 		"Horné Židiny",
-		"Horská",
 		"Horská",
 		"Hrad",
 		"Hradné údolie",
@@ -856,17 +756,14 @@ class Faker_sk : Faker {
 		"Humenské námestie",
 		"Hummelova",
 		"Hurbanovo námestie",
-		"Hurbanovo námestie",
 		"Hviezdoslavovo námes",
 		"Hýrošova",
 		"Chalupkova",
 		"Chemická",
 		"Chlumeckého",
 		"Chorvátska",
-		"Chorvátska",
 		"Iľjušinova",
 		"Ilkovičova",
-		"Inovecká",
 		"Inovecká",
 		"Iskerníková",
 		"Ivana Horvátha",
@@ -925,9 +822,6 @@ class Faker_sk : Faker {
 		"Kapucínska",
 		"Kapušianska",
 		"Karadžičova",
-		"Karadžičova",
-		"Karadžičova",
-		"Karadžičova",
 		"Karloveská",
 		"Karloveské rameno",
 		"Karpatská",
@@ -939,7 +833,6 @@ class Faker_sk : Faker {
 		"Kladnianska",
 		"Klariská",
 		"Kláštorská",
-		"Klatovská",
 		"Klatovská",
 		"Klemensova",
 		"Klincová",
@@ -953,10 +846,8 @@ class Faker_sk : Faker {
 		"Kolárska",
 		"Kolískova",
 		"Kollárovo námestie",
-		"Kollárovo námestie",
 		"Kolmá",
 		"Komárňanská",
-		"Komárnická",
 		"Komárnická",
 		"Komenského námestie",
 		"Kominárska",
@@ -971,8 +862,6 @@ class Faker_sk : Faker {
 		"Koreničova",
 		"Kostlivého",
 		"Kostolná",
-		"Košická",
-		"Košická",
 		"Košická",
 		"Kováčska",
 		"Kovorobotnícka",
@@ -993,9 +882,6 @@ class Faker_sk : Faker {
 		"Kresánkova",
 		"Krivá",
 		"Križkova",
-		"Krížna",
-		"Krížna",
-		"Krížna",
 		"Krížna",
 		"Krmanova",
 		"Krompašská",
@@ -1025,7 +911,6 @@ class Faker_sk : Faker {
 		"Lachova",
 		"Ľaliová",
 		"Lamačská cesta",
-		"Lamačská cesta",
 		"Lamanského",
 		"Landererova",
 		"Langsfeldova",
@@ -1034,11 +919,8 @@ class Faker_sk : Faker {
 		"Laučekova",
 		"Laurinská",
 		"Lazaretská",
-		"Lazaretská",
 		"Legerského",
 		"Legionárska",
-		"Legionárska",
-		"Lehockého",
 		"Lehockého",
 		"Lenardova",
 		"Lermontovova",
@@ -1092,7 +974,6 @@ class Faker_sk : Faker {
 		"Malý Draždiak",
 		"Malý trh",
 		"Mamateyova",
-		"Mamateyova",
 		"Mánesovo námestie",
 		"Mariánska",
 		"Marie Curie-Sklodows",
@@ -1100,7 +981,6 @@ class Faker_sk : Faker {
 		"Markova",
 		"Marótyho",
 		"Martákovej",
-		"Martinčekova",
 		"Martinčekova",
 		"Martinengova",
 		"Martinská",
@@ -1122,20 +1002,11 @@ class Faker_sk : Faker {
 		"Mikovíniho",
 		"Mikulášska",
 		"Miletičova",
-		"Miletičova",
-		"Mišíkova",
-		"Mišíkova",
 		"Mišíkova",
 		"Mliekárenská",
 		"Mlynarovičova",
 		"Mlynská dolina",
-		"Mlynská dolina",
-		"Mlynská dolina",
 		"Mlynské luhy",
-		"Mlynské nivy",
-		"Mlynské nivy",
-		"Mlynské nivy",
-		"Mlynské nivy",
 		"Mlynské nivy",
 		"Mlyny",
 		"Modranská",
@@ -1154,15 +1025,12 @@ class Faker_sk : Faker {
 		"Mozartova",
 		"Mraziarenská",
 		"Mudroňova",
-		"Mudroňova",
-		"Mudroňova",
 		"Muchovo námestie",
 		"Murgašova",
 		"Muškátová",
 		"Muštová",
 		"Múzejná",
 		"Myjavská",
-		"Mýtna",
 		"Mýtna",
 		"Na Baránku",
 		"Na Brezinách",
@@ -1188,7 +1056,6 @@ class Faker_sk : Faker {
 		"Nad Dunajom",
 		"Nad lomom",
 		"Nad lúčkami",
-		"Nad lúčkami",
 		"Nad ostrovom",
 		"Nad Sihoťou",
 		"Námestie 1. mája",
@@ -1200,8 +1067,6 @@ class Faker_sk : Faker {
 		"Námestie Martina Ben",
 		"Nám. M.R.Štefánika",
 		"Námestie slobody",
-		"Námestie slobody",
-		"Námestie SNP",
 		"Námestie SNP",
 		"Námestie sv. Františ",
 		"Narcisová",
@@ -1231,14 +1096,11 @@ class Faker_sk : Faker {
 		"Novobanská",
 		"Novohradská",
 		"Novosvetská",
-		"Novosvetská",
-		"Novosvetská",
 		"Obežná",
 		"Obchodná",
 		"Očovská",
 		"Odbojárov",
 		"Odborárska",
-		"Odborárske námestie",
 		"Odborárske námestie",
 		"Ohnicová",
 		"Okánikova",
@@ -1263,10 +1125,7 @@ class Faker_sk : Faker {
 		"Pajštúnska",
 		"Palackého",
 		"Palárikova",
-		"Palárikova",
 		"Pálavská",
-		"Palisády",
-		"Palisády",
 		"Palisády",
 		"Palkovičova",
 		"Panenská",
@@ -1324,13 +1183,10 @@ class Faker_sk : Faker {
 		"Poštová",
 		"Považská",
 		"Povraznícka",
-		"Povraznícka",
 		"Pražská",
 		"Predstaničné námesti",
 		"Prepoštská",
 		"Prešernova",
-		"Prešovská",
-		"Prešovská",
 		"Prešovská",
 		"Pri Bielom kríži",
 		"Pri dvore",
@@ -1345,16 +1201,11 @@ class Faker_sk : Faker {
 		"Pri Suchom mlyne",
 		"Pri zvonici",
 		"Pribinova",
-		"Pribinova",
-		"Pribinova",
 		"Pribišova",
 		"Pribylinská",
 		"Priečna",
 		"Priekopy",
 		"Priemyselná",
-		"Priemyselná",
-		"Prievozská",
-		"Prievozská",
 		"Prievozská",
 		"Príkopova",
 		"Primaciálne námestie",
@@ -1368,7 +1219,6 @@ class Faker_sk : Faker {
 		"Púpavová",
 		"Pustá",
 		"Puškinova",
-		"Račianska",
 		"Račianska",
 		"Račianske mýto",
 		"Radarová",
@@ -1389,7 +1239,6 @@ class Faker_sk : Faker {
 		"Revúcka",
 		"Rezedová",
 		"Riazanská",
-		"Riazanská",
 		"Ribayová",
 		"Riečna",
 		"Rigeleho",
@@ -1404,23 +1253,17 @@ class Faker_sk : Faker {
 		"Rovníková",
 		"Rozmarínová",
 		"Rožňavská",
-		"Rožňavská",
-		"Rožňavská",
 		"Rubinsteinova",
 		"Rudnayovo námestie",
 		"Rumančeková",
 		"Rusovská cesta",
 		"Ružičková",
 		"Ružinovská",
-		"Ružinovská",
-		"Ružinovská",
 		"Ružomberská",
-		"Ružová dolina",
 		"Ružová dolina",
 		"Rybárska brána",
 		"Rybné námestie",
 		"Rýdziková",
-		"Sabinovská",
 		"Sabinovská",
 		"Sad Janka Kráľa",
 		"Sadová",
@@ -1468,7 +1311,6 @@ class Faker_sk : Faker {
 		"Sokolská",
 		"Solivarská",
 		"Sološnická",
-		"Somolického",
 		"Somolického",
 		"Sosnová",
 		"Spišská",
@@ -1518,7 +1360,6 @@ class Faker_sk : Faker {
 		"Súťažná",
 		"Svätého Vincenta",
 		"Svätoplukova",
-		"Svätoplukova",
 		"Svätovojtešská",
 		"Svetlá",
 		"Svíbová",
@@ -1527,13 +1368,9 @@ class Faker_sk : Faker {
 		"Svrčia",
 		"Syslia",
 		"Šafárikovo námestie",
-		"Šafárikovo námestie",
 		"Šafránová",
 		"Šagátova",
 		"Šalviová",
-		"Šancová",
-		"Šancová",
-		"Šancová",
 		"Šancová",
 		"Šándorova",
 		"Šarišská",
@@ -1554,16 +1391,12 @@ class Faker_sk : Faker {
 		"Šťastná",
 		"Štedrá",
 		"Štefánikova",
-		"Štefánikova",
-		"Štefánikova",
 		"Štefanovičova",
 		"Štefunkova",
 		"Štetinova",
 		"Štiavnická",
 		"Štúrova",
 		"Štyndlova",
-		"Šulekova",
-		"Šulekova",
 		"Šulekova",
 		"Šumavská",
 		"Šuňavcova",
@@ -1592,22 +1425,12 @@ class Faker_sk : Faker {
 		"Tolstého",
 		"Tománkova",
 		"Tomášikova",
-		"Tomášikova",
-		"Tomášikova",
-		"Tomášikova",
-		"Tomášikova",
 		"Topoľčianska",
 		"Topoľová",
 		"Továrenská",
 		"Trebišovská",
-		"Trebišovská",
-		"Trebišovská",
 		"Trenčianska",
 		"Treskoňova",
-		"Trnavská cesta",
-		"Trnavská cesta",
-		"Trnavská cesta",
-		"Trnavská cesta",
 		"Trnavská cesta",
 		"Trnavské mýto",
 		"Tŕňová",
@@ -1625,9 +1448,6 @@ class Faker_sk : Faker {
 		"Uhorková",
 		"Ukrajinská",
 		"Ulica 29. augusta",
-		"Ulica 29. augusta",
-		"Ulica 29. augusta",
-		"Ulica 29. augusta",
 		"Ulica Imricha Karvaš",
 		"Ulica Jozefa Krónera",
 		"Ulica Viktora Tegelh",
@@ -1641,20 +1461,11 @@ class Faker_sk : Faker {
 		"V záhradách",
 		"Vajanského nábrežie",
 		"Vajnorská",
-		"Vajnorská",
-		"Vajnorská",
-		"Vajnorská",
-		"Vajnorská",
-		"Vajnorská",
-		"Vajnorská",
-		"Vajnorská",
-		"Vajnorská",
 		"Valašská",
 		"Valchárska",
 		"Vansovej",
 		"Vápenná",
 		"Varínska",
-		"Varšavská",
 		"Varšavská",
 		"Vavilovova",
 		"Vavrínova",
@@ -1667,7 +1478,6 @@ class Faker_sk : Faker {
 		"Veternicová",
 		"Vetvová",
 		"Viedenská cesta",
-		"Viedenská cesta",
 		"Vietnamská",
 		"Vígľašská",
 		"Vihorlatská",
@@ -1676,8 +1486,6 @@ class Faker_sk : Faker {
 		"Vincenta Hložníka",
 		"Vínna",
 		"Vlastenecké námestie",
-		"Vlčkova",
-		"Vlčkova",
 		"Vlčkova",
 		"Vodný vrch",
 		"Votrubova",
@@ -1703,10 +1511,6 @@ class Faker_sk : Faker {
 		"Zadunajská cesta",
 		"Záhorácka",
 		"Záhradnícka",
-		"Záhradnícka",
-		"Záhradnícka",
-		"Záhradnícka",
-		"Záhrebská",
 		"Záhrebská",
 		"Zálužická",
 		"Zámocká",
@@ -1736,7 +1540,6 @@ class Faker_sk : Faker {
 		"Žiarska",
 		"Židovská",
 		"Žilinská",
-		"Žilinská",
 		"Živnostenská",
 		"Žižkova",
 		"Župné námestie"
@@ -1744,15 +1547,8 @@ class Faker_sk : Faker {
 		return choice(data, this.rnd);
 	}
 
-
-	override string addressCity() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressCityName() ~ "'";
-		}
-	}
-
 	///
-	override string addressBuildingNumber() {
+	override string locationBuildingNumber() {
 		auto data = [
 		"#",
 		"##",
@@ -1762,7 +1558,7 @@ class Faker_sk : Faker {
 	}
 
 	///
-	override string addressSecondaryAddress() {
+	override string locationSecondaryAddress() {
 		auto data = [
 		"Apt. ###",
 		"Suite ###'"
@@ -1771,563 +1567,13 @@ class Faker_sk : Faker {
 	}
 
 	///
-	override string addressPostcode() {
+	override string locationPostcode() {
 		auto data = [
 		"#####",
 		"### ##",
 		"## ###'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string companyBsVerb() {
-		auto data = [
-		"implement",
-		"utilize",
-		"integrate",
-		"streamline",
-		"optimize",
-		"evolve",
-		"transform",
-		"embrace",
-		"enable",
-		"orchestrate",
-		"leverage",
-		"reinvent",
-		"aggregate",
-		"architect",
-		"enhance",
-		"incentivize",
-		"morph",
-		"empower",
-		"envisioneer",
-		"monetize",
-		"harness",
-		"facilitate",
-		"seize",
-		"disintermediate",
-		"synergize",
-		"strategize",
-		"deploy",
-		"brand",
-		"grow",
-		"target",
-		"syndicate",
-		"synthesize",
-		"deliver",
-		"mesh",
-		"incubate",
-		"engage",
-		"maximize",
-		"benchmark",
-		"expedite",
-		"reintermediate",
-		"whiteboard",
-		"visualize",
-		"repurpose",
-		"innovate",
-		"scale",
-		"unleash",
-		"drive",
-		"extend",
-		"engineer",
-		"revolutionize",
-		"generate",
-		"exploit",
-		"transition",
-		"e-enable",
-		"iterate",
-		"cultivate",
-		"matrix",
-		"productize",
-		"redefine",
-		"recontextualize"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyBsNoun() {
-		auto data = [
-		"clicks-and-mortar",
-		"value-added",
-		"vertical",
-		"proactive",
-		"robust",
-		"revolutionary",
-		"scalable",
-		"leading-edge",
-		"innovative",
-		"intuitive",
-		"strategic",
-		"e-business",
-		"mission-critical",
-		"sticky",
-		"one-to-one",
-		"24/7",
-		"end-to-end",
-		"global",
-		"B2B",
-		"B2C",
-		"granular",
-		"frictionless",
-		"virtual",
-		"viral",
-		"dynamic",
-		"24/365",
-		"best-of-breed",
-		"killer",
-		"magnetic",
-		"bleeding-edge",
-		"web-enabled",
-		"interactive",
-		"dot-com",
-		"sexy",
-		"back-end",
-		"real-time",
-		"efficient",
-		"front-end",
-		"distributed",
-		"seamless",
-		"extensible",
-		"turn-key",
-		"world-class",
-		"open-source",
-		"cross-platform",
-		"cross-media",
-		"synergistic",
-		"bricks-and-clicks",
-		"out-of-the-box",
-		"enterprise",
-		"integrated",
-		"impactful",
-		"wireless",
-		"transparent",
-		"next-generation",
-		"cutting-edge",
-		"user-centric",
-		"visionary",
-		"customized",
-		"ubiquitous",
-		"plug-and-play",
-		"collaborative",
-		"compelling",
-		"holistic",
-		"rich",
-		"synergies",
-		"web-readiness",
-		"paradigms",
-		"markets",
-		"partnerships",
-		"infrastructures",
-		"platforms",
-		"initiatives",
-		"channels",
-		"eyeballs",
-		"communities",
-		"ROI",
-		"solutions",
-		"e-tailers",
-		"e-services",
-		"action-items",
-		"portals",
-		"niches",
-		"technologies",
-		"content",
-		"vortals",
-		"supply-chains",
-		"convergence",
-		"relationships",
-		"architectures",
-		"interfaces",
-		"e-markets",
-		"e-commerce",
-		"systems",
-		"bandwidth",
-		"infomediaries",
-		"models",
-		"mindshare",
-		"deliverables",
-		"users",
-		"schemas",
-		"networks",
-		"applications",
-		"metrics",
-		"e-business",
-		"functionalities",
-		"experiences",
-		"web services",
-		"methodologies"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyDescriptor() {
-		auto data = [
-		"24 hour",
-		"24/7",
-		"3rd generation",
-		"4th generation",
-		"5th generation",
-		"6th generation",
-		"actuating",
-		"analyzing",
-		"asymmetric",
-		"asynchronous",
-		"attitude-oriented",
-		"background",
-		"bandwidth-monitored",
-		"bi-directional",
-		"bifurcated",
-		"bottom-line",
-		"clear-thinking",
-		"client-driven",
-		"client-server",
-		"coherent",
-		"cohesive",
-		"composite",
-		"context-sensitive",
-		"contextually-based",
-		"content-based",
-		"dedicated",
-		"demand-driven",
-		"didactic",
-		"directional",
-		"discrete",
-		"disintermediate",
-		"dynamic",
-		"eco-centric",
-		"empowering",
-		"encompassing",
-		"even-keeled",
-		"executive",
-		"explicit",
-		"exuding",
-		"fault-tolerant",
-		"foreground",
-		"fresh-thinking",
-		"full-range",
-		"global",
-		"grid-enabled",
-		"heuristic",
-		"high-level",
-		"holistic",
-		"homogeneous",
-		"human-resource",
-		"hybrid",
-		"impactful",
-		"incremental",
-		"intangible",
-		"interactive",
-		"intermediate",
-		"leading edge",
-		"local",
-		"logistical",
-		"maximized",
-		"methodical",
-		"mission-critical",
-		"mobile",
-		"modular",
-		"motivating",
-		"multimedia",
-		"multi-state",
-		"multi-tasking",
-		"national",
-		"needs-based",
-		"neutral",
-		"next generation",
-		"non-volatile",
-		"object-oriented",
-		"optimal",
-		"optimizing",
-		"radical",
-		"real-time",
-		"reciprocal",
-		"regional",
-		"responsive",
-		"scalable",
-		"secondary",
-		"solution-oriented",
-		"stable",
-		"static",
-		"systematic",
-		"systemic",
-		"system-worthy",
-		"tangible",
-		"tertiary",
-		"transitional",
-		"uniform",
-		"upward-trending",
-		"user-facing",
-		"value-added",
-		"web-enabled",
-		"well-modulated",
-		"zero administration",
-		"zero defect",
-		"zero tolerance"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyNoun() {
-		auto data = [
-		"ability",
-		"access",
-		"adapter",
-		"algorithm",
-		"alliance",
-		"analyzer",
-		"application",
-		"approach",
-		"architecture",
-		"archive",
-		"artificial intelligence",
-		"array",
-		"attitude",
-		"benchmark",
-		"budgetary management",
-		"capability",
-		"capacity",
-		"challenge",
-		"circuit",
-		"collaboration",
-		"complexity",
-		"concept",
-		"conglomeration",
-		"contingency",
-		"core",
-		"customer loyalty",
-		"database",
-		"data-warehouse",
-		"definition",
-		"emulation",
-		"encoding",
-		"encryption",
-		"extranet",
-		"firmware",
-		"flexibility",
-		"focus group",
-		"forecast",
-		"frame",
-		"framework",
-		"function",
-		"functionalities",
-		"Graphic Interface",
-		"groupware",
-		"Graphical User Interface",
-		"hardware",
-		"help-desk",
-		"hierarchy",
-		"hub",
-		"implementation",
-		"info-mediaries",
-		"infrastructure",
-		"initiative",
-		"installation",
-		"instruction set",
-		"interface",
-		"internet solution",
-		"intranet",
-		"knowledge user",
-		"knowledge base",
-		"local area network",
-		"leverage",
-		"matrices",
-		"matrix",
-		"methodology",
-		"middleware",
-		"migration",
-		"model",
-		"moderator",
-		"monitoring",
-		"moratorium",
-		"neural-net",
-		"open architecture",
-		"open system",
-		"orchestration",
-		"paradigm",
-		"parallelism",
-		"policy",
-		"portal",
-		"pricing structure",
-		"process improvement",
-		"product",
-		"productivity",
-		"project",
-		"projection",
-		"protocol",
-		"secured line",
-		"service-desk",
-		"software",
-		"solution",
-		"standardization",
-		"strategy",
-		"structure",
-		"success",
-		"superstructure",
-		"support",
-		"synergy",
-		"system engine",
-		"task-force",
-		"throughput",
-		"time-frame",
-		"toolset",
-		"utilisation",
-		"website",
-		"workforce"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyAdjective() {
-		auto data = [
-		"Adaptive",
-		"Advanced",
-		"Ameliorated",
-		"Assimilated",
-		"Automated",
-		"Balanced",
-		"Business-focused",
-		"Centralized",
-		"Cloned",
-		"Compatible",
-		"Configurable",
-		"Cross-group",
-		"Cross-platform",
-		"Customer-focused",
-		"Customizable",
-		"Decentralized",
-		"De-engineered",
-		"Devolved",
-		"Digitized",
-		"Distributed",
-		"Diverse",
-		"Down-sized",
-		"Enhanced",
-		"Enterprise-wide",
-		"Ergonomic",
-		"Exclusive",
-		"Expanded",
-		"Extended",
-		"Face to face",
-		"Focused",
-		"Front-line",
-		"Fully-configurable",
-		"Function-based",
-		"Fundamental",
-		"Future-proofed",
-		"Grass-roots",
-		"Horizontal",
-		"Implemented",
-		"Innovative",
-		"Integrated",
-		"Intuitive",
-		"Inverse",
-		"Managed",
-		"Mandatory",
-		"Monitored",
-		"Multi-channelled",
-		"Multi-lateral",
-		"Multi-layered",
-		"Multi-tiered",
-		"Networked",
-		"Object-based",
-		"Open-architected",
-		"Open-source",
-		"Operative",
-		"Optimized",
-		"Optional",
-		"Organic",
-		"Organized",
-		"Persevering",
-		"Persistent",
-		"Phased",
-		"Polarised",
-		"Pre-emptive",
-		"Proactive",
-		"Profit-focused",
-		"Profound",
-		"Programmable",
-		"Progressive",
-		"Public-key",
-		"Quality-focused",
-		"Reactive",
-		"Realigned",
-		"Re-contextualized",
-		"Re-engineered",
-		"Reduced",
-		"Reverse-engineered",
-		"Right-sized",
-		"Robust",
-		"Seamless",
-		"Secured",
-		"Self-enabling",
-		"Sharable",
-		"Stand-alone",
-		"Streamlined",
-		"Switchable",
-		"Synchronised",
-		"Synergistic",
-		"Synergized",
-		"Team-oriented",
-		"Total",
-		"Triple-buffered",
-		"Universal",
-		"Up-sized",
-		"Upgradable",
-		"User-centric",
-		"User-friendly",
-		"Versatile",
-		"Virtual",
-		"Visionary",
-		"Vision-oriented"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		auto data = [
-		"s.r.o.",
-		"a.s.",
-		"v.o.s.'"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string companyName() {
-		final switch(uniform(0, 3, this.rnd)) {
-			case 0: return nameLastName() ~ " " ~ companySuffix();
-			case 1: return nameLastName() ~ " " ~ companySuffix();
-			case 2: return nameMaleLastName() ~ " a " ~ nameMaleLastName() ~ " " ~ companySuffix();
-		}
-	}
-
-	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"zoznam.sk",
-		"azet.sk'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"sk",
-		"com",
-		"net",
-		"eu",
-		"org'"
-		];
-		return choice(data, this.rnd);
 	}
 
 	///
@@ -2358,9 +1604,7 @@ class Faker_sk : Faker {
 		"sunt",
 		"explicabo",
 		"aspernatur",
-		"aut",
 		"odit",
-		"aut",
 		"fugit",
 		"sed",
 		"quia",
@@ -2370,21 +1614,16 @@ class Faker_sk : Faker {
 		"eos",
 		"qui",
 		"ratione",
-		"voluptatem",
 		"sequi",
 		"nesciunt",
 		"neque",
 		"dolorem",
 		"ipsum",
-		"quia",
 		"dolor",
-		"sit",
 		"amet",
 		"consectetur",
 		"adipisci",
 		"velit",
-		"sed",
-		"quia",
 		"non",
 		"numquam",
 		"eius",
@@ -2393,13 +1632,10 @@ class Faker_sk : Faker {
 		"incidunt",
 		"ut",
 		"labore",
-		"et",
 		"dolore",
 		"magnam",
 		"aliquam",
 		"quaerat",
-		"voluptatem",
-		"ut",
 		"enim",
 		"ad",
 		"minima",
@@ -2410,42 +1646,30 @@ class Faker_sk : Faker {
 		"ullam",
 		"corporis",
 		"nemo",
-		"enim",
 		"ipsam",
-		"voluptatem",
-		"quia",
 		"voluptas",
-		"sit",
 		"suscipit",
 		"laboriosam",
 		"nisi",
-		"ut",
 		"aliquid",
 		"ex",
 		"ea",
 		"commodi",
-		"consequatur",
-		"quis",
 		"autem",
 		"vel",
 		"eum",
 		"iure",
 		"reprehenderit",
-		"qui",
 		"in",
-		"ea",
 		"voluptate",
-		"velit",
 		"esse",
 		"quam",
 		"nihil",
 		"molestiae",
-		"et",
 		"iusto",
 		"odio",
 		"dignissimos",
 		"ducimus",
-		"qui",
 		"blanditiis",
 		"praesentium",
 		"laudantium",
@@ -2456,18 +1680,13 @@ class Faker_sk : Faker {
 		"atque",
 		"corrupti",
 		"quos",
-		"dolores",
-		"et",
 		"quas",
 		"molestias",
 		"excepturi",
 		"sint",
 		"occaecati",
 		"cupiditate",
-		"non",
 		"provident",
-		"sed",
-		"ut",
 		"perspiciatis",
 		"unde",
 		"omnis",
@@ -2475,10 +1694,7 @@ class Faker_sk : Faker {
 		"natus",
 		"error",
 		"similique",
-		"sunt",
-		"in",
 		"culpa",
-		"qui",
 		"officia",
 		"deserunt",
 		"mollitia",
@@ -2486,16 +1702,12 @@ class Faker_sk : Faker {
 		"id",
 		"est",
 		"laborum",
-		"et",
 		"dolorum",
 		"fuga",
-		"et",
 		"harum",
 		"quidem",
 		"rerum",
 		"facilis",
-		"est",
-		"et",
 		"expedita",
 		"distinctio",
 		"nam",
@@ -2504,78 +1716,45 @@ class Faker_sk : Faker {
 		"cum",
 		"soluta",
 		"nobis",
-		"est",
 		"eligendi",
 		"optio",
 		"cumque",
-		"nihil",
 		"impedit",
 		"quo",
 		"porro",
 		"quisquam",
-		"est",
-		"qui",
 		"minus",
-		"id",
 		"quod",
 		"maxime",
 		"placeat",
 		"facere",
 		"possimus",
-		"omnis",
-		"voluptas",
 		"assumenda",
-		"est",
-		"omnis",
-		"dolor",
 		"repellendus",
 		"temporibus",
-		"autem",
 		"quibusdam",
-		"et",
-		"aut",
-		"consequatur",
-		"vel",
 		"illum",
-		"qui",
-		"dolorem",
-		"eum",
 		"fugiat",
-		"quo",
-		"voluptas",
 		"nulla",
 		"pariatur",
 		"at",
 		"vero",
-		"eos",
-		"et",
 		"accusamus",
 		"officiis",
 		"debitis",
-		"aut",
-		"rerum",
 		"necessitatibus",
 		"saepe",
 		"eveniet",
-		"ut",
-		"et",
 		"voluptates",
 		"repudiandae",
-		"sint",
-		"et",
-		"molestiae",
-		"non",
 		"recusandae",
 		"itaque",
 		"earum",
-		"rerum",
 		"hic",
 		"tenetur",
 		"a",
 		"sapiente",
 		"delectus",
-		"ut",
-		"aut",
 		"reiciendis",
 		"voluptatibus",
 		"maiores",
@@ -2587,7 +1766,88 @@ class Faker_sk : Faker {
 	}
 
 	///
-	override string nameMaleFirstName() {
+	override string companySuffix() {
+		auto data = [
+		"s.r.o.",
+		"a.s.",
+		"v.o.s.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string companyNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personLastName() ~ " " ~ companySuffix();
+			case 1: return personMaleLastName() ~ " a " ~ personMaleLastName() ~ " " ~ companySuffix();
+		}
+	}
+
+	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"09## ### ###",
+		"0## #### ####",
+		"0# #### ####",
+		"+421 ### ### ###"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"zoznam.sk",
+		"azet.sk'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"sk",
+		"com",
+		"net",
+		"eu",
+		"org'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string personMaleLastNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personMaleLastName();
+			case 1: return "weight: 1 }";
+		}
+	}
+
+	///
+	override string personMalePrefix() {
+		auto data = [
+		"Ing.",
+		"Mgr.",
+		"JUDr.",
+		"MUDr.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFemalePrefix() {
+		auto data = [
+		"Ing.",
+		"Mgr.",
+		"JUDr.",
+		"MUDr.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMaleFirstName() {
 		auto data = [
 		"Drahoslav",
 		"Severín",
@@ -2786,7 +2046,7 @@ class Faker_sk : Faker {
 	}
 
 	///
-	override string nameSuffix() {
+	override string personSuffix() {
 		auto data = [
 		"Phd.'"
 		];
@@ -2794,23 +2054,118 @@ class Faker_sk : Faker {
 	}
 
 
-	override string nameName() {
+	override string personTitle() {
+		final switch(uniform(0, 89, this.rnd)) {
+			case 0: return "descriptor: [";
+			case 1: return "Lead";
+			case 2: return "Senior";
+			case 3: return "Direct";
+			case 4: return "Corporate";
+			case 5: return "Dynamic";
+			case 6: return "Future";
+			case 7: return "Product";
+			case 8: return "National";
+			case 9: return "Regional";
+			case 10: return "District";
+			case 11: return "Central";
+			case 12: return "Global";
+			case 13: return "Customer";
+			case 14: return "Investor";
+			case 15: return "International";
+			case 16: return "Legacy";
+			case 17: return "Forward";
+			case 18: return "Internal";
+			case 19: return "Human";
+			case 20: return "Chief";
+			case 21: return "Principal";
+			case 22: return "]";
+			case 23: return "level: [";
+			case 24: return "Solutions";
+			case 25: return "Program";
+			case 26: return "Brand";
+			case 27: return "Security";
+			case 28: return "Research";
+			case 29: return "Marketing";
+			case 30: return "Directives";
+			case 31: return "Implementation";
+			case 32: return "Integration";
+			case 33: return "Functionality";
+			case 34: return "Response";
+			case 35: return "Paradigm";
+			case 36: return "Tactics";
+			case 37: return "Identity";
+			case 38: return "Markets";
+			case 39: return "Group";
+			case 40: return "Division";
+			case 41: return "Applications";
+			case 42: return "Optimization";
+			case 43: return "Operations";
+			case 44: return "Infrastructure";
+			case 45: return "Intranet";
+			case 46: return "Communications";
+			case 47: return "Web";
+			case 48: return "Branding";
+			case 49: return "Quality";
+			case 50: return "Assurance";
+			case 51: return "Mobility";
+			case 52: return "Accounts";
+			case 53: return "Data";
+			case 54: return "Creative";
+			case 55: return "Configuration";
+			case 56: return "Accountability";
+			case 57: return "Interactions";
+			case 58: return "Factors";
+			case 59: return "Usability";
+			case 60: return "Metrics";
+			case 61: return "]";
+			case 62: return "job: [";
+			case 63: return "Supervisor";
+			case 64: return "Associate";
+			case 65: return "Executive";
+			case 66: return "Liaison";
+			case 67: return "Officer";
+			case 68: return "Manager";
+			case 69: return "Engineer";
+			case 70: return "Specialist";
+			case 71: return "Director";
+			case 72: return "Coordinator";
+			case 73: return "Administrator";
+			case 74: return "Architect";
+			case 75: return "Analyst";
+			case 76: return "Designer";
+			case 77: return "Planner";
+			case 78: return "Orchestrator";
+			case 79: return "Technician";
+			case 80: return "Developer";
+			case 81: return "Producer";
+			case 82: return "Consultant";
+			case 83: return "Assistant";
+			case 84: return "Facilitator";
+			case 85: return "Agent";
+			case 86: return "Representative";
+			case 87: return "Strategist";
+			case 88: return "]";
+		}
+	}
+
+
+	override string personName() {
 		final switch(uniform(0, 10, this.rnd)) {
-			case 0: return namePrefix() ~ " " ~ nameMaleFirstName() ~ " " ~ nameMaleLastName();
-			case 1: return namePrefix() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
-			case 2: return nameMaleFirstName() ~ " " ~ nameMaleLastName() ~ " " ~ nameSuffix();
-			case 3: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName() ~ " " ~ nameSuffix();
-			case 4: return nameMaleFirstName() ~ " " ~ nameMaleLastName();
-			case 5: return nameMaleFirstName() ~ " " ~ nameMaleLastName();
-			case 6: return nameMaleFirstName() ~ " " ~ nameMaleLastName();
-			case 7: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
-			case 8: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
-			case 9: return nameFemaleFirstName() ~ " " ~ nameFemaleLastName();
+			case 0: return "{";
+			case 1: return "value: '" ~ personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+			case 2: return "weight: 1";
+			case 3: return "}";
+			case 4: return "{";
+			case 5: return "value: '" ~ personFirstName() ~ " " ~ personLastName() ~ " " ~ personSuffix();
+			case 6: return "weight: 1";
+			case 7: return "}";
+			case 8: return "{ value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 9: return "weight: 8 }";
 		}
 	}
 
 	///
-	override string nameFemaleFirstName() {
+	override string personFemaleFirstName() {
 		auto data = [
 		"Alexandra",
 		"Karina",
@@ -3017,7 +2372,7 @@ class Faker_sk : Faker {
 	}
 
 	///
-	string nameMaleLastName() {
+	string personMaleLastName() {
 		auto data = [
 		"Antal",
 		"Babka",
@@ -3281,7 +2636,7 @@ class Faker_sk : Faker {
 	}
 
 	///
-	string nameFemaleLastName() {
+	string personFemaleLastName() {
 		auto data = [
 		"Antalová",
 		"Babková",
@@ -3538,15 +2893,12 @@ class Faker_sk : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string namePrefix() {
-		auto data = [
-		"Ing.",
-		"Mgr.",
-		"JUDr.",
-		"MUDr.'"
-		];
-		return choice(data, this.rnd);
+
+	override string personFemaleLastNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personFemaleLastName();
+			case 1: return "weight: 1 }";
+		}
 	}
 
 }

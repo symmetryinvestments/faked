@@ -19,6 +19,85 @@ class Faker_zu_za : Faker {
 	}
 
 	///
+	override string locationCityName() {
+		auto data = [
+		"Polokwane",
+		"eGoli",
+		"Pretoria",
+		"uTshwane",
+		"eThekwini",
+		"umGungundlovu",
+		"Mbombela",
+		"eKapa",
+		"Stellenbosch",
+		"iBhayi",
+		"eMonti",
+		"Kimberley",
+		"Rustenburg",
+		"Bloemfontein"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationState() {
+		auto data = [
+		"EGoli",
+		"IFuleyisitata",
+		"IKwaZulu-Natali",
+		"ILimpopo",
+		"IMpumalanga Kapa",
+		"IMpumalanga",
+		"INtshonalanga Kapa",
+		"INyakatho Kapa",
+		"INyakatho-Ntshonalanga"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationPostcode() {
+		auto data = [
+		"#####",
+		"####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+
+	override string locationStreetPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+		}
+	}
+
+	///
+	override string locationDefaultCountry() {
+		auto data = [
+		"South Africa'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName() ~ "'";
+		}
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"Pty Ltd",
+		"Ltd",
+		"CC'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string phoneNumberFormats() {
 		auto data = [
 		"01# ### #####",
@@ -48,16 +127,6 @@ class Faker_zu_za : Faker {
 	}
 
 	///
-	override string companySuffix() {
-		auto data = [
-		"Pty Ltd",
-		"Ltd",
-		"CC'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string internetDomainSuffix() {
 		auto data = [
 		"co.za",
@@ -69,365 +138,331 @@ class Faker_zu_za : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressPostcode() {
-		auto data = [
-		"#####",
-		"####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
 
-
-	override string addressCity() {
-		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
-			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
-			case 2: return nameFirstName() ~ addressCitySuffix();
-			case 3: return nameLastName() ~ addressCitySuffix();
-		}
-	}
-
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"South Africa'"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string addressStreet() {
+	override string personLastNamePattern() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
-			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
 		}
 	}
 
 	///
-	override string nameLastName() {
+	override string personLastName() {
 		auto data = [
+		"Bayeni",
 		"Bengu",
-		"Bhengu",
-		"Buthelezi",
-		"Bhuyeni",
 		"Bhembe",
 		"Bhengani",
-		"Bayeni",
-		"Chiliza",
-		"Cele",
+		"Bhengu",
+		"Bhuyeni",
+		"Biyela",
+		"Buthelezi",
 		"Cebekhulu",
+		"Cele",
+		"Chiliza",
+		"Delazy",
+		"Dhlomo",
 		"Dingiswayo",
 		"Dlamini",
 		"Dube",
 		"Fuze",
-		"Gwacela",
-		"Gigaba",
-		"Gumede",
-		"Guliwe",
-		"Gwala",
+		"Gabhezi",
 		"Gama",
+		"Gigaba",
+		"Guliwe",
 		"Gumede",
+		"Gwacela",
+		"Gwala",
 		"Hlongwa",
+		"Khawula",
+		"Khumalo",
+		"Khuzwayo",
+		"Kunene",
+		"Lamula",
+		"Lembede",
 		"Luthuli",
-		"Msibi",
-		"Mthethwa",
+		"Mabhida",
+		"Mabizela",
+		"Maduma",
+		"Magoza",
+		"Malinga",
+		"Maphisa",
 		"Mashinini",
+		"Mavundla",
+		"Mbatha",
+		"Mbende",
+		"Mbuso",
+		"Mehloluhlaza",
+		"Mfeka",
+		"Mfumu",
+		"Mgenge",
+		"Mkhatshwa",
+		"Moseley",
+		"Mqwebu",
+		"Msibi",
+		"Mthembu",
+		"Mthethwa",
+		"Mtolo",
+		"Musi",
+		"Ncusi",
+		"Ndandali",
 		"Ndebele",
+		"Ngcolosi",
+		"Ngema",
 		"Ngubane",
+		"Ngwazi",
+		"Nhleko",
+		"Nomvethe",
 		"Nondlela",
+		"Nonyana",
+		"Nozulu",
+		"Nsele",
+		"Ntanzi",
+		"Ntombela",
+		"Nyanda",
 		"Nzimande",
 		"Radebe",
 		"Seme",
 		"Senzangakhona",
-		"Sondisa",
-		"Zuma",
-		"Dhlomo",
-		"Nhleko",
-		"Mabizela",
-		"Khumalo",
-		"Kunene",
-		"Khawula",
-		"Khuzwayo",
-		"Lamula",
-		"Lembede",
-		"Lamula",
-		"Mkhatshwa",
-		"Moseley",
-		"Mavundla",
-		"Magoza",
-		"Malinga",
-		"Mbatha",
-		"Mqwebu",
-		"Mbende",
-		"Maduma",
-		"Mgenge",
-		"Mehloluhlaza",
-		"Maphisa",
-		"Mfeka",
-		"Mfumu",
-		"Musi",
-		"Mtolo",
-		"Nonyana",
-		"Ngema",
-		"Ngwazi",
-		"Nozulu",
-		"Ntombela",
-		"Ntanzi",
-		"Mbuso",
-		"Ngcolosi",
-		"Gabhezi",
-		"Nsele",
-		"Nyanda",
-		"Thusi",
-		"Mbatha",
-		"Biyela",
-		"Gumede",
-		"Nomvethe",
-		"Ndandali",
-		"Ncusi",
-		"Sibiya",
-		"Siyaya",
-		"Sothole",
-		"Sokhela",
-		"Sithuli",
 		"Shezi",
+		"Sibiya",
+		"Sithuli",
 		"Siwele",
-		"Tshabalala",
+		"Siyaya",
+		"Sokhela",
+		"Sondisa",
+		"Sothole",
 		"Thoyana",
 		"Thumbeza",
-		"Delazy",
-		"Zungu",
-		"Mthembu",
-		"Vilakazi",
+		"Thusi",
+		"Tshabalala",
 		"Vezi",
-		"Mabhida",
+		"Vilakazi",
 		"Wosiyane",
 		"Yengwa",
-		"Zondo",
 		"Zondi",
-		"Zubane"
+		"Zondo",
+		"Zubane",
+		"Zuma",
+		"Zungu"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string nameFirstName() {
+	override string personFirstName() {
 		auto data = [
-		"Ayanda",
-		"Uluthando",
-		"Nofoto",
-		"Yibanathi",
-		"Thadie",
-		"Ulwazi",
-		"Lerato",
 		"Amahle",
-		"Khulekani",
-		"Jabulile",
-		"Mthunzi",
-		"Sindisiwe",
-		"Inyoni",
-		"Ntombizodwa",
-		"Zobuhle",
-		"Samukelisiwe",
-		"Nonhlanhla",
-		"Nhlakanipho",
-		"Liyana",
-		"Nonjabulo",
-		"Ntokozo",
-		"Nokuthula",
-		"Buhle",
-		"Isisa",
-		"Thobeka",
-		"Thabisa",
-		"Zanele",
-		"Sizani",
-		"Nkosingiphile",
-		"Mhambi",
-		"Nomvula",
-		"Thulisile",
-		"Lukhona",
-		"Mbalienhle",
-		"Sizakele",
-		"Khethiwe",
-		"Nolwazi",
-		"Sinenhlanhla",
+		"Anele",
+		"Ayanda",
 		"Ayize",
-		"Duduzile",
+		"Bafana",
+		"Bangizwe",
+		"Bhekimuzi",
+		"Bhekizizwe",
+		"Bhekumbuso",
+		"Bonginkosi",
+		"Buhle",
 		"Busisiwe",
+		"Duduzile",
+		"Dumisani",
+		"Fanyana",
+		"Funani",
+		"Gatsha",
 		"Hlengiwe",
+		"Inyoni",
+		"Isisa",
 		"Jabulile",
+		"Kagiso",
+		"Kgabu",
 		"Khanyisile",
+		"Khethiwe",
+		"Khulekani",
+		"Langa",
+		"Lerato",
+		"Linda",
+		"Liyana",
+		"Lukhona",
+		"Lungelo",
+		"Lwandle",
+		"Mandla",
+		"Maphikelela",
+		"Mbalienhle",
+		"Mhambi",
+		"Mpilo",
+		"Mpumelelo",
+		"Msizi",
+		"Mthunzi",
+		"Musawenkosi",
 		"Nandi",
+		"Ndleleni",
 		"Ndondoloza",
-		"Nozipho",
+		"Nhlakanipho",
+		"Nkanyezi",
+		"Nkosenye",
+		"Nkosingiphile",
+		"Nkosinhle",
+		"Nkosiyabo",
+		"Nofoto",
+		"Nokuthula",
+		"Nolwazi",
+		"Nomvula",
+		"Nonhlanhla",
+		"Nonjabulo",
 		"Nonkululeko",
+		"Nozipho",
+		"Ntokozo",
+		"Ntombizodwa",
+		"Phila",
+		"Philani",
+		"Phiwokwakhe",
+		"Samukelisiwe",
+		"Sanele",
+		"Sfiso",
+		"Shaka",
 		"Sibongile",
+		"Sibusiso",
+		"Sifiso",
+		"Sindisiwe",
+		"Sinenhlanhla",
 		"Siphephelo",
-		"Bonginkosi",
-		"Kagiso",
-		"Bhekizizwe",
-		"Bhekumbuso",
-		"Shaka",
-		"Funani",
-		"Kgabu",
-		"Solomon",
-		"Gatsha",
-		"Langa",
-		"Phila",
-		"Msizi",
-		"Nkosiyabo",
-		"Linda",
-		"Mpilo",
-		"Siyanda",
-		"Nkanyezi",
-		"Bafana",
-		"Lwandle",
-		"Sfiso",
-		"Thulani",
-		"Thando",
-		"Sanele",
-		"Anele",
-		"Lungelo",
-		"Dumisani",
-		"Bangizwe",
-		"Fanyana",
-		"Bhekimuzi",
-		"Mandla",
-		"Maphikelela",
-		"Mpumelelo",
-		"Mthunzi",
-		"Philani",
-		"Musawenkosi",
-		"Nkosenye",
-		"Nkosinhle",
-		"Phiwokwakhe",
-		"Sifiso",
-		"Zithulele",
-		"Sithembiso",
-		"Sipho",
 		"Siphiwe",
-		"Sibusiso",
-		"Velaphi",
-		"Thamsanqa",
-		"Vusumuzi",
-		"Themba",
-		"Zenzele",
-		"Ndleleni"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameMaleFirstName() {
-		auto data = [
-		"Bonginkosi",
-		"Kagiso",
-		"Bhekizizwe",
-		"Bhekumbuso",
-		"Shaka",
-		"Funani",
-		"Kgabu",
-		"Solomon",
-		"Gatsha",
-		"Langa",
-		"Phila",
-		"Msizi",
-		"Nkosiyabo",
-		"Linda",
-		"Mpilo",
-		"Siyanda",
-		"Nkanyezi",
-		"Bafana",
-		"Lwandle",
-		"Sfiso",
-		"Thulani",
-		"Thando",
-		"Sanele",
-		"Anele",
-		"Lungelo",
-		"Dumisani",
-		"Bangizwe",
-		"Fanyana",
-		"Bhekimuzi",
-		"Mandla",
-		"Maphikelela",
-		"Mpumelelo",
-		"Mthunzi",
-		"Philani",
-		"Musawenkosi",
-		"Nkosenye",
-		"Nkosinhle",
-		"Phiwokwakhe",
-		"Sifiso",
-		"Zithulele",
-		"Sithembiso",
 		"Sipho",
-		"Siphiwe",
-		"Sibusiso",
-		"Velaphi",
-		"Thamsanqa",
-		"Vusumuzi",
-		"Themba",
-		"Zenzele",
-		"Ndleleni"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameFemaleFirstName() {
-		auto data = [
-		"Ayanda",
-		"Uluthando",
-		"Nofoto",
-		"Yibanathi",
-		"Thadie",
-		"Ulwazi",
-		"Lerato",
-		"Amahle",
-		"Khulekani",
-		"Jabulile",
-		"Mthunzi",
-		"Sindisiwe",
-		"Inyoni",
-		"Ntombizodwa",
-		"Zobuhle",
-		"Samukelisiwe",
-		"Nonhlanhla",
-		"Nhlakanipho",
-		"Liyana",
-		"Nonjabulo",
-		"Ntokozo",
-		"Nokuthula",
-		"Buhle",
-		"Isisa",
-		"Thobeka",
-		"Thabisa",
-		"Zanele",
-		"Sizani",
-		"Nkosingiphile",
-		"Mhambi",
-		"Nomvula",
-		"Thulisile",
-		"Lukhona",
-		"Mbalienhle",
+		"Sithembiso",
+		"Siyanda",
 		"Sizakele",
-		"Khethiwe",
-		"Nolwazi",
-		"Sinenhlanhla",
+		"Sizani",
+		"Solomon",
+		"Thabisa",
+		"Thadie",
+		"Thamsanqa",
+		"Thando",
+		"Themba",
+		"Thobeka",
+		"Thulani",
+		"Thulisile",
+		"Uluthando",
+		"Ulwazi",
+		"Velaphi",
+		"Vusumuzi",
+		"Yibanathi",
+		"Zanele",
+		"Zenzele",
+		"Zithulele",
+		"Zobuhle"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMaleFirstName() {
+		auto data = [
+		"Bonginkosi",
+		"Kagiso",
+		"Bhekizizwe",
+		"Bhekumbuso",
+		"Shaka",
+		"Funani",
+		"Kgabu",
+		"Solomon",
+		"Gatsha",
+		"Langa",
+		"Phila",
+		"Msizi",
+		"Nkosiyabo",
+		"Linda",
+		"Mpilo",
+		"Siyanda",
+		"Nkanyezi",
+		"Bafana",
+		"Lwandle",
+		"Sfiso",
+		"Thulani",
+		"Thando",
+		"Sanele",
+		"Anele",
+		"Lungelo",
+		"Dumisani",
+		"Bangizwe",
+		"Fanyana",
+		"Bhekimuzi",
+		"Mandla",
+		"Maphikelela",
+		"Mpumelelo",
+		"Mthunzi",
+		"Philani",
+		"Musawenkosi",
+		"Nkosenye",
+		"Nkosinhle",
+		"Phiwokwakhe",
+		"Sifiso",
+		"Zithulele",
+		"Sithembiso",
+		"Sipho",
+		"Siphiwe",
+		"Sibusiso",
+		"Velaphi",
+		"Thamsanqa",
+		"Vusumuzi",
+		"Themba",
+		"Zenzele",
+		"Ndleleni"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFemaleFirstName() {
+		auto data = [
+		"Amahle",
+		"Ayanda",
 		"Ayize",
-		"Duduzile",
+		"Buhle",
 		"Busisiwe",
+		"Duduzile",
 		"Hlengiwe",
+		"Inyoni",
+		"Isisa",
 		"Jabulile",
 		"Khanyisile",
+		"Khethiwe",
+		"Khulekani",
+		"Lerato",
+		"Liyana",
+		"Lukhona",
+		"Mbalienhle",
+		"Mhambi",
+		"Mthunzi",
 		"Nandi",
 		"Ndondoloza",
-		"Nozipho",
+		"Nhlakanipho",
+		"Nkosingiphile",
+		"Nofoto",
+		"Nokuthula",
+		"Nolwazi",
+		"Nomvula",
+		"Nonhlanhla",
+		"Nonjabulo",
 		"Nonkululeko",
+		"Nozipho",
+		"Ntokozo",
+		"Ntombizodwa",
+		"Samukelisiwe",
 		"Sibongile",
-		"Siphephelo"
+		"Sindisiwe",
+		"Sinenhlanhla",
+		"Siphephelo",
+		"Sizakele",
+		"Sizani",
+		"Thabisa",
+		"Thadie",
+		"Thobeka",
+		"Thulisile",
+		"Uluthando",
+		"Ulwazi",
+		"Yibanathi",
+		"Zanele",
+		"Zobuhle"
 		];
 		return choice(data, this.rnd);
 	}

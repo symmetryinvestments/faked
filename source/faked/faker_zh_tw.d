@@ -29,7 +29,7 @@ class Faker_zh_tw : Faker {
 	}
 
 	///
-	override string addressStateAbbr() {
+	override string locationStateAbbr() {
 		auto data = [
 		"北",
 		"新北",
@@ -57,7 +57,7 @@ class Faker_zh_tw : Faker {
 	}
 
 	///
-	override string addressState() {
+	override string locationState() {
 		auto data = [
 		"福建省",
 		"台灣省'"
@@ -66,23 +66,37 @@ class Faker_zh_tw : Faker {
 	}
 
 
-	override string addressStreetAddress() {
+	override string locationStreetPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return personLastName() ~ locationStreetSuffix() ~ "'";
+		}
+	}
+
+
+	override string locationStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressStreet() ~ addressBuildingNumber() ~ "號";
-			case 1: return "full: '" ~ addressStreet() ~ addressBuildingNumber() ~ "號 " ~ addressSecondaryAddress();
+			case 0: return "normal: '" ~ locationStreet() ~ locationBuildingNumber() ~ "號";
+			case 1: return "full: '" ~ locationStreet() ~ locationBuildingNumber() ~ "號 " ~ locationSecondaryAddress();
 		}
 	}
 
 	///
-	override string addressDefaultCountry() {
+	override string locationDefaultCountry() {
 		auto data = [
 		"Taiwan (R.O.C.)'"
 		];
 		return choice(data, this.rnd);
 	}
 
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityPrefix() ~ locationCitySuffix() ~ "'";
+		}
+	}
+
 	///
-	override string addressCitySuffix() {
+	override string locationCitySuffix() {
 		auto data = [
 		"縣",
 		"市'"
@@ -91,7 +105,7 @@ class Faker_zh_tw : Faker {
 	}
 
 	///
-	override string addressCityPrefix() {
+	override string locationCityPrefix() {
 		auto data = [
 		"臺北",
 		"新北",
@@ -117,22 +131,8 @@ class Faker_zh_tw : Faker {
 		return choice(data, this.rnd);
 	}
 
-
-	override string addressStreet() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return nameLastName() ~ addressStreetSuffix() ~ "'";
-		}
-	}
-
-
-	override string addressCity() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressCityPrefix() ~ addressCitySuffix() ~ "'";
-		}
-	}
-
 	///
-	override string addressBuildingNumber() {
+	override string locationBuildingNumber() {
 		auto data = [
 		"####",
 		"###",
@@ -143,7 +143,7 @@ class Faker_zh_tw : Faker {
 	}
 
 	///
-	override string addressPostcode() {
+	override string locationPostcode() {
 		auto data = [
 		"######'"
 		];
@@ -151,7 +151,7 @@ class Faker_zh_tw : Faker {
 	}
 
 	///
-	override string addressStreetSuffix() {
+	override string locationStreetSuffix() {
 		auto data = [
 		"街",
 		"路",
@@ -164,7 +164,174 @@ class Faker_zh_tw : Faker {
 	}
 
 	///
-	override string nameLastName() {
+	override string colorHuman() {
+		auto data = [
+		"紅色",
+		"綠色",
+		"藍色",
+		"黃色",
+		"紫色",
+		"薄荷綠色",
+		"藍綠色",
+		"白色",
+		"黑色",
+		"橙色",
+		"粉紅色",
+		"灰色",
+		"紅褐色",
+		"藍紫色",
+		"青綠色",
+		"棕褐色",
+		"天藍色",
+		"淺橙色",
+		"紫紅色",
+		"淡紫色",
+		"淡褐色",
+		"青檸色",
+		"乳白色",
+		"靛藍色",
+		"金色",
+		"銀色"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string dateWeekday() {
+		auto data = [
+		"wide: ['星期天",
+		"星期一",
+		"星期二",
+		"星期三",
+		"星期四",
+		"星期五",
+		"星期六']",
+		"abbr: ['週日",
+		"週一",
+		"週二",
+		"週三",
+		"週四",
+		"週五",
+		"週六']"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 28, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "1月";
+			case 2: return "2月";
+			case 3: return "3月";
+			case 4: return "4月";
+			case 5: return "5月";
+			case 6: return "6月";
+			case 7: return "7月";
+			case 8: return "8月";
+			case 9: return "9月";
+			case 10: return "10月";
+			case 11: return "11月";
+			case 12: return "12月";
+			case 13: return "]";
+			case 14: return "abbr: [";
+			case 15: return "1月";
+			case 16: return "2月";
+			case 17: return "3月";
+			case 18: return "4月";
+			case 19: return "5月";
+			case 20: return "6月";
+			case 21: return "7月";
+			case 22: return "8月";
+			case 23: return "9月";
+			case 24: return "10月";
+			case 25: return "11月";
+			case 26: return "12月";
+			case 27: return "]";
+		}
+	}
+
+	///
+	override string personMaleFirstName() {
+		auto data = [
+		"修傑",
+		"修潔",
+		"偉宸",
+		"偉澤",
+		"偉祺",
+		"偉誠",
+		"健柏",
+		"健雄",
+		"博文",
+		"博超",
+		"君浩",
+		"哲瀚",
+		"嘉熙",
+		"天宇",
+		"天磊",
+		"天翊",
+		"子軒",
+		"展鵬",
+		"峻熙",
+		"建輝",
+		"弘文",
+		"志強",
+		"志澤",
+		"思源",
+		"思聰",
+		"思遠",
+		"振家",
+		"擎宇",
+		"文博",
+		"文昊",
+		"文軒",
+		"昊天",
+		"昊強",
+		"昊然",
+		"明哲",
+		"明杰",
+		"明軒",
+		"明輝",
+		"晉鵬",
+		"智輝",
+		"梓晨",
+		"榮軒",
+		"正豪",
+		"浩宇",
+		"浩然",
+		"浩軒",
+		"澤洋",
+		"炎彬",
+		"燁偉",
+		"瑞霖",
+		"皓軒",
+		"立果",
+		"立誠",
+		"立輝",
+		"紹輝",
+		"紹齊",
+		"耀傑",
+		"胤祥",
+		"致遠",
+		"語堂",
+		"越澤",
+		"遠航",
+		"金鑫",
+		"鑫磊",
+		"鑫鵬",
+		"雨澤",
+		"雪松",
+		"鴻濤",
+		"鴻煊",
+		"鵬濤",
+		"鵬煊",
+		"鵬飛"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personLastName() {
 		auto data = [
 		"王",
 		"李",
@@ -270,140 +437,67 @@ class Faker_zh_tw : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string personName() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName() ~ personFirstName();
+			case 1: return "weight: 1 }";
+		}
+	}
+
 	///
-	override string nameFirstName() {
+	override string personFemaleFirstName() {
 		auto data = [
-		"紹齊",
-		"博文",
-		"梓晨",
-		"胤祥",
-		"瑞霖",
-		"明哲",
-		"天翊",
+		"俊馳",
 		"凱瑞",
-		"健雄",
-		"耀傑",
-		"瀟然",
+		"博濤",
+		"嘉懿",
 		"子涵",
+		"子騫",
+		"子默",
+		"思淼",
+		"懿軒",
+		"擎蒼",
+		"旭堯",
+		"昊焱",
+		"晟睿",
+		"智宸",
+		"智淵",
+		"曉博",
+		"曉嘯",
+		"楷瑞",
+		"樂駒",
+		"瀟然",
+		"炫明",
+		"煜城",
+		"煜祺",
+		"熠彤",
+		"燁磊",
+		"燁華",
+		"燁霖",
+		"瑾瑜",
+		"睿淵",
+		"立軒",
+		"笑愚",
+		"聰健",
+		"苑博",
 		"越彬",
 		"鈺軒",
-		"智輝",
-		"致遠",
-		"俊馳",
-		"雨澤",
-		"燁磊",
-		"晟睿",
-		"文昊",
-		"修潔",
-		"黎昕",
-		"遠航",
-		"旭堯",
-		"鴻濤",
-		"偉祺",
-		"榮軒",
-		"越澤",
-		"浩宇",
-		"瑾瑜",
-		"皓軒",
-		"擎蒼",
-		"擎宇",
-		"志澤",
-		"子軒",
-		"睿淵",
-		"弘文",
-		"哲瀚",
-		"雨澤",
-		"楷瑞",
-		"建輝",
-		"晉鵬",
-		"天磊",
-		"紹輝",
-		"澤洋",
-		"鑫磊",
-		"鵬煊",
-		"昊強",
-		"偉宸",
-		"博超",
-		"君浩",
-		"子騫",
-		"鵬濤",
-		"炎彬",
-		"鶴軒",
-		"越彬",
-		"風華",
-		"靖琪",
-		"明輝",
-		"偉誠",
-		"明軒",
-		"健柏",
-		"修傑",
-		"志澤",
-		"弘文",
-		"峻熙",
-		"嘉懿",
-		"煜城",
-		"懿軒",
-		"燁偉",
-		"苑博",
-		"偉澤",
-		"熠彤",
-		"鴻煊",
-		"博濤",
-		"燁霖",
-		"燁華",
-		"煜祺",
-		"智宸",
-		"正豪",
-		"昊然",
-		"明杰",
-		"立誠",
-		"立軒",
-		"立輝",
-		"峻熙",
-		"弘文",
-		"熠彤",
-		"鴻煊",
-		"燁霖",
-		"哲瀚",
-		"鑫鵬",
-		"昊天",
-		"思聰",
-		"展鵬",
-		"笑愚",
-		"志強",
-		"炫明",
-		"雪松",
-		"思源",
-		"智淵",
-		"思淼",
-		"曉嘯",
-		"天宇",
-		"浩然",
-		"文軒",
-		"鷺洋",
-		"振家",
-		"樂駒",
-		"曉博",
-		"文博",
-		"昊焱",
-		"立果",
-		"金鑫",
 		"錦程",
-		"嘉熙",
-		"鵬飛",
-		"子默",
-		"思遠",
-		"浩軒",
-		"語堂",
-		"聰健"
+		"靖琪",
+		"風華",
+		"鶴軒",
+		"鷺洋",
+		"黎昕"
 		];
 		return choice(data, this.rnd);
 	}
 
 
-	override string nameName() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return nameFirstName() ~ nameLastName() ~ "'";
+	override string personLastNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
 		}
 	}
 

@@ -19,17 +19,7 @@ class Faker_ko : Faker {
 	}
 
 	///
-	override string phoneNumberFormats() {
-		auto data = [
-		"0#-#####-####",
-		"0##-###-####",
-		"0##-####-####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressCityName() {
+	override string locationCityName() {
 		auto data = [
 		"강릉",
 		"양양",
@@ -71,7 +61,7 @@ class Faker_ko : Faker {
 	}
 
 	///
-	override string addressStateAbbr() {
+	override string locationStateAbbr() {
 		auto data = [
 		"강원",
 		"경기",
@@ -95,7 +85,7 @@ class Faker_ko : Faker {
 	}
 
 	///
-	override string addressState() {
+	override string locationState() {
 		auto data = [
 		"강원",
 		"경기",
@@ -118,8 +108,22 @@ class Faker_ko : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string locationStreetPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationStreetName() ~ locationStreetSuffix() ~ "'";
+		}
+	}
+
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName() ~ locationCitySuffix() ~ "'";
+		}
+	}
+
 	///
-	override string addressCitySuffix() {
+	override string locationCitySuffix() {
 		auto data = [
 		"구",
 		"시",
@@ -128,15 +132,8 @@ class Faker_ko : Faker {
 		return choice(data, this.rnd);
 	}
 
-
-	override string addressStreet() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressStreetName() ~ addressStreetSuffix() ~ "'";
-		}
-	}
-
 	///
-	string addressStreetName() {
+	string locationStreetName() {
 		auto data = [
 		"상계",
 		"화곡",
@@ -169,15 +166,17 @@ class Faker_ko : Faker {
 		return choice(data, this.rnd);
 	}
 
-
-	override string addressCity() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressCityName() ~ addressCitySuffix() ~ "'";
-		}
+	///
+	override string locationSecondaryAddress() {
+		auto data = [
+		"아파트 ###동",
+		"###호'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
 	}
 
 	///
-	override string addressPostcode() {
+	override string locationPostcode() {
 		auto data = [
 		"###-###",
 		"#####'"
@@ -186,67 +185,11 @@ class Faker_ko : Faker {
 	}
 
 	///
-	override string addressStreetSuffix() {
+	override string locationStreetSuffix() {
 		auto data = [
 		"읍",
 		"면",
 		"동'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companySuffix() {
-		auto data = [
-		"연구소",
-		"게임즈",
-		"그룹",
-		"전자",
-		"물산",
-		"코리아'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string companyPrefix() {
-		auto data = [
-		"주식회사",
-		"한국'"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string companyName() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return companyPrefix() ~ " " ~ nameFirstName();
-			case 1: return nameFirstName() ~ " " ~ companySuffix();
-		}
-	}
-
-	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"yahoo.co.kr",
-		"hanmail.net",
-		"naver.com'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"co.kr",
-		"com",
-		"biz",
-		"info",
-		"ne.kr",
-		"net",
-		"or.kr",
-		"org'"
 		];
 		return choice(data, this.rnd);
 	}
@@ -268,7 +211,6 @@ class Faker_ko : Faker {
 		"신체의",
 		"자유를",
 		"가진다.",
-		"국가는",
 		"전통문화의",
 		"계승·발전과",
 		"민족문화의",
@@ -286,7 +228,6 @@ class Faker_ko : Faker {
 		"법률로",
 		"정한다.",
 		"헌법에",
-		"의하여",
 		"체결·공포된",
 		"조약과",
 		"일반적으로",
@@ -295,7 +236,6 @@ class Faker_ko : Faker {
 		"국내법과",
 		"같은",
 		"효력을",
-		"가진다.",
 		"다만,",
 		"현행범인인",
 		"경우와",
@@ -329,11 +269,8 @@ class Faker_ko : Faker {
 		"때까지는",
 		"무죄로",
 		"추정된다.",
-		"모든",
-		"국민은",
 		"행위시의",
 		"법률에",
-		"의하여",
 		"범죄를",
 		"구성하지",
 		"아니하는",
@@ -346,48 +283,566 @@ class Faker_ko : Faker {
 		"거듭",
 		"처벌받지",
 		"아니한다.",
-		"국가는",
 		"평생교육을",
 		"진흥하여야",
-		"한다.",
-		"모든",
-		"국민은",
 		"사생활의",
 		"비밀과",
-		"자유를",
 		"침해받지",
-		"아니한다.",
 		"의무교육은",
 		"무상으로",
-		"한다.",
-		"저작자·발명가·과학기술자와",
-		"예술가의",
-		"권리는",
-		"법률로써",
-		"보호한다.",
-		"국가는",
 		"모성의",
-		"보호를",
-		"위하여",
-		"노력하여야",
-		"한다.",
-		"헌법에",
-		"의하여",
-		"체결·공포된",
-		"조약과",
-		"일반적으로",
-		"승인된",
-		"국제법규는",
-		"국내법과",
-		"같은",
-		"효력을",
-		"가진다."
+		"보호를"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string nameLastName() {
+	override string companySuffix() {
+		auto data = [
+		"연구소",
+		"게임즈",
+		"그룹",
+		"전자",
+		"물산",
+		"코리아",
+		"공사",
+		"증권",
+		"은행",
+		"중공업"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string companyPrefix() {
+		auto data = [
+		"주식회사",
+		"한국'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string companyNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return companyPrefix() ~ " " ~ personFirstName();
+			case 1: return personFirstName() ~ " " ~ companySuffix();
+		}
+	}
+
+	///
+	override string wordAdverb() {
+		auto data = [
+		"간단히",
+		"거꾸로",
+		"거만하게",
+		"거의",
+		"고요히",
+		"고의로",
+		"극진히",
+		"깊이",
+		"나중에",
+		"노하여",
+		"다소",
+		"다채롭게",
+		"대담하게",
+		"대체로",
+		"도전적으로",
+		"똑똑하게",
+		"마구",
+		"맹목적으로",
+		"면밀히",
+		"명랑하게",
+		"몹시",
+		"바르게",
+		"바쁘게",
+		"밝게",
+		"분명히",
+		"비정상적으로",
+		"빠르게",
+		"심하게",
+		"아름답게",
+		"어색하게",
+		"언제나",
+		"열심히",
+		"용감하게",
+		"우연히",
+		"유감스럽게",
+		"의심스럽게",
+		"자랑스럽게",
+		"잔인하게",
+		"즐겁게",
+		"지속적으로",
+		"천하게",
+		"쿨하게",
+		"행복하게",
+		"흥미롭게",
+		"희미하게"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string wordAdjective() {
+		auto data = [
+		"감정적인",
+		"같은",
+		"거대한",
+		"거창한",
+		"건조한",
+		"겁 없는",
+		"격렬한",
+		"결정적인",
+		"경솔한",
+		"경험한",
+		"고귀한",
+		"고급의",
+		"고대의",
+		"공정한",
+		"관심 있는",
+		"굉장한",
+		"교양 있는",
+		"교육받은",
+		"교활한",
+		"구부러진",
+		"굴곡진",
+		"굵은",
+		"권위 있는",
+		"귀여운",
+		"극적인",
+		"금발의",
+		"기민한",
+		"기분 좋은",
+		"기쁜",
+		"기초적인",
+		"깊은",
+		"깨끗한",
+		"깨진",
+		"끊임없는",
+		"끔찍한",
+		"나쁜",
+		"날씬한",
+		"냉담한",
+		"넓은 마음을 가진",
+		"놀라운",
+		"눈부신",
+		"눈이 먼",
+		"늙은",
+		"능숙한",
+		"다른",
+		"단조로운",
+		"단호한",
+		"닫힌",
+		"당황스러운",
+		"대담한",
+		"대량",
+		"더러운",
+		"동굴 같은",
+		"두려운",
+		"뛰어난",
+		"마른",
+		"막대한",
+		"맛있는",
+		"매력적인",
+		"매혹적인",
+		"먹을 수 있는",
+		"먼",
+		"멍든",
+		"메마른",
+		"명확한",
+		"모범적인",
+		"무더운",
+		"무서운",
+		"무심한",
+		"미친",
+		"밀집한",
+		"밝은",
+		"방어",
+		"방음",
+		"버려진",
+		"별개의",
+		"복잡한",
+		"부끄러운",
+		"부담스러운",
+		"부드러운",
+		"부러워하는",
+		"부정한",
+		"부족한",
+		"분명한",
+		"분주한",
+		"불결한",
+		"불룩한",
+		"불안한",
+		"불충실한",
+		"붐비는",
+		"비뚤어진",
+		"비싼",
+		"비어 있는",
+		"비참한",
+		"빠른",
+		"사랑스러운",
+		"사랑하는",
+		"사려 깊은",
+		"사악한",
+		"살아 있는",
+		"상세한",
+		"상쾌한",
+		"생기 있는",
+		"생분해성",
+		"성실한",
+		"세련된",
+		"소름 끼치는",
+		"솔직한",
+		"순수한",
+		"쉬운",
+		"습한",
+		"시원한",
+		"신나는",
+		"신뢰할 수 있는",
+		"싼",
+		"아름다운",
+		"알고 있는",
+		"약간의",
+		"어느",
+		"어두운",
+		"어려운",
+		"어리석은",
+		"어색한",
+		"어설픈",
+		"어지러운",
+		"억센",
+		"엄청난",
+		"역겨운",
+		"열심히",
+		"영리한",
+		"예술적인",
+		"예의 바른",
+		"온화한",
+		"완벽한",
+		"외향적인",
+		"용감한",
+		"용기 있는",
+		"우아한",
+		"원통형",
+		"위독한",
+		"윙윙",
+		"유리한",
+		"유명한",
+		"유익한",
+		"유치한",
+		"윤리적",
+		"음침한",
+		"의기 양양한",
+		"의식하는",
+		"이국적인",
+		"이타적인",
+		"인기 많은",
+		"인정 많은",
+		"일찍",
+		"자신 있는",
+		"잔혹한",
+		"저명한",
+		"저주받은",
+		"적극적인",
+		"적절한",
+		"전통적인",
+		"젊은",
+		"정교한",
+		"정통한",
+		"정확한",
+		"조잡한",
+		"존경하는",
+		"주의 깊은",
+		"죽은",
+		"즐거운",
+		"지루한",
+		"진지한",
+		"짧은",
+		"차가운",
+		"창의적인",
+		"철저한",
+		"추운",
+		"충실한",
+		"치명적인",
+		"친숙한",
+		"친절한",
+		"침착한",
+		"쾌활한",
+		"큰",
+		"타원형의",
+		"탄력 있는",
+		"탈진한",
+		"탐욕스러운",
+		"통통한",
+		"편안한",
+		"품위 있는",
+		"풍부한",
+		"필수적인",
+		"행복한",
+		"향긋한",
+		"혼란스러운",
+		"화난",
+		"화려한",
+		"환상적",
+		"활동적인",
+		"활발한",
+		"훌륭한",
+		"흔한",
+		"흥분한",
+		"희미한"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string wordNoun() {
+		auto data = [
+		"가입",
+		"경보",
+		"고뇌",
+		"고도",
+		"고문",
+		"골목",
+		"공군",
+		"공기",
+		"공적",
+		"공항",
+		"관리",
+		"관리자",
+		"광고",
+		"구급차",
+		"구실",
+		"나이",
+		"내세",
+		"놀람",
+		"농업",
+		"달력",
+		"대사",
+		"대수학",
+		"대안",
+		"대행사",
+		"도토리",
+		"동맹",
+		"동작",
+		"무정부주의자",
+		"반침",
+		"배당",
+		"배우",
+		"변경",
+		"별명",
+		"보적",
+		"보좌관",
+		"부사",
+		"분석",
+		"분석자",
+		"분위기",
+		"불쌍한",
+		"비행기",
+		"비행사",
+		"비행선",
+		"비행장",
+		"성인",
+		"성취",
+		"성취자",
+		"쇠붙이",
+		"술",
+		"승인",
+		"아드레날린",
+		"아마존",
+		"아몬드",
+		"악어",
+		"안건",
+		"알파벳",
+		"알파카",
+		"애프터셰이브",
+		"앨범",
+		"양",
+		"양자",
+		"어댑터",
+		"에어백",
+		"에이전트",
+		"에일",
+		"여배우",
+		"여진",
+		"여파",
+		"연산",
+		"예의",
+		"오후",
+		"옹호",
+		"외계인",
+		"용돈",
+		"유연",
+		"유추",
+		"음향학",
+		"응집",
+		"이점",
+		"일",
+		"적응",
+		"전능자",
+		"전진",
+		"제단",
+		"조언",
+		"조정",
+		"주소",
+		"즐거움",
+		"지원",
+		"진보",
+		"진술",
+		"진술서",
+		"출현",
+		"침략",
+		"탄약",
+		"탐닉",
+		"특사",
+		"합금",
+		"합의",
+		"항공기",
+		"항공료",
+		"항공편",
+		"해석학",
+		"행동",
+		"형용사",
+		"호박색",
+		"활동",
+		"활동가",
+		"활성화"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
+		"검은색",
+		"금색",
+		"난초색",
+		"노란색",
+		"라임색",
+		"마젠타",
+		"민트색",
+		"분홍색",
+		"빨간색",
+		"상아색",
+		"연보라색",
+		"연어색",
+		"옥색",
+		"올리브",
+		"은색",
+		"자두색",
+		"자주색",
+		"적갈색",
+		"주황색",
+		"청록색",
+		"초록색",
+		"푸른색",
+		"하늘색",
+		"하얀색",
+		"회색"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string dateWeekday() {
+		auto data = [
+		"wide: ['일요일",
+		"월요일",
+		"화요일",
+		"수요일",
+		"목요일",
+		"금요일",
+		"토요일']",
+		"abbr: ['일",
+		"월",
+		"화",
+		"수",
+		"목",
+		"금",
+		"토']"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 28, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "1월";
+			case 2: return "2월";
+			case 3: return "3월";
+			case 4: return "4월";
+			case 5: return "5월";
+			case 6: return "6월";
+			case 7: return "7월";
+			case 8: return "8월";
+			case 9: return "9월";
+			case 10: return "10월";
+			case 11: return "11월";
+			case 12: return "12월";
+			case 13: return "]";
+			case 14: return "abbr: [";
+			case 15: return "1월";
+			case 16: return "2월";
+			case 17: return "3월";
+			case 18: return "4월";
+			case 19: return "5월";
+			case 20: return "6월";
+			case 21: return "7월";
+			case 22: return "8월";
+			case 23: return "9월";
+			case 24: return "10월";
+			case 25: return "11월";
+			case 26: return "12월";
+			case 27: return "]";
+		}
+	}
+
+	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"0#-#####-####",
+		"0##-###-####",
+		"0##-####-####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.co.kr",
+		"hanmail.net",
+		"naver.com'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"co.kr",
+		"com",
+		"biz",
+		"info",
+		"ne.kr",
+		"net",
+		"or.kr",
+		"org'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string personLastNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
+		}
+	}
+
+	///
+	override string personLastName() {
 		auto data = [
 		"김",
 		"이",
@@ -477,7 +932,6 @@ class Faker_ko : Faker {
 		"봉",
 		"사",
 		"부",
-		"황",
 		"가",
 		"복",
 		"태",
@@ -487,22 +941,18 @@ class Faker_ko : Faker {
 		"두",
 		"감",
 		"호",
-		"제",
 		"음",
 		"빈",
 		"동",
 		"온",
-		"사",
 		"시",
 		"범",
-		"선",
 		"좌",
 		"팽",
 		"승",
 		"간",
 		"상",
 		"갈",
-		"서",
 		"단",
 		"견",
 		"당"
@@ -511,7 +961,7 @@ class Faker_ko : Faker {
 	}
 
 	///
-	override string nameFirstName() {
+	override string personFirstName() {
 		auto data = [
 		"서연",
 		"민서",
@@ -1585,7 +2035,6 @@ class Faker_ko : Faker {
 		"승용",
 		"유섭",
 		"민강",
-		"민강",
 		"래현",
 		"한음",
 		"라현",
@@ -1875,7 +2324,6 @@ class Faker_ko : Faker {
 		"태권",
 		"찬슬",
 		"명환",
-		"찬슬",
 		"성엽",
 		"승일",
 		"영윤",
@@ -2165,10 +2613,8 @@ class Faker_ko : Faker {
 		"유솔",
 		"치호",
 		"선제",
-		"치호",
 		"찬홍",
 		"기석",
-		"유솔",
 		"종진",
 		"다울",
 		"시웅",
@@ -2226,7 +2672,6 @@ class Faker_ko : Faker {
 		"성열",
 		"효상",
 		"원일",
-		"제이",
 		"여민",
 		"선용",
 		"상명",
@@ -2264,7 +2709,6 @@ class Faker_ko : Faker {
 		"리완",
 		"은중",
 		"은산",
-		"은중",
 		"규완",
 		"준택",
 		"기욱",
@@ -2361,12 +2805,7 @@ class Faker_ko : Faker {
 		"중호",
 		"민엽",
 		"효제",
-		"율민",
 		"예헌",
-		"에릭",
-		"준익",
-		"이정",
-		"민엽",
 		"강휘",
 		"그루",
 		"승록",
@@ -2459,12 +2898,10 @@ class Faker_ko : Faker {
 		"인범",
 		"남윤",
 		"원섭",
-		"남윤",
 		"대용",
 		"찬승",
 		"효범",
 		"성택",
-		"원섭",
 		"서담",
 		"호형",
 		"산호",
@@ -2663,7 +3100,6 @@ class Faker_ko : Faker {
 		"시울",
 		"동겸",
 		"여훈",
-		"동범",
 		"규서",
 		"원중",
 		"여울",
@@ -2749,12 +3185,9 @@ class Faker_ko : Faker {
 		"강이",
 		"형선",
 		"기동",
-		"규보",
-		"형선",
 		"원용",
 		"나라",
 		"창하",
-		"은태",
 		"세주",
 		"이음",
 		"해람",
@@ -2848,12 +3281,10 @@ class Faker_ko : Faker {
 		"채웅",
 		"범호",
 		"남기",
-		"보건",
 		"수언",
 		"무율",
 		"라일",
 		"준회",
-		"은별",
 		"진효",
 		"재국",
 		"근원",
@@ -2911,7 +3342,6 @@ class Faker_ko : Faker {
 		"루리",
 		"이율",
 		"종규",
-		"알렉",
 		"희훈",
 		"종완",
 		"상건",
@@ -2944,12 +3374,8 @@ class Faker_ko : Faker {
 		"선주",
 		"권준",
 		"승배",
-		"경은",
-		"순민",
 		"현결",
 		"인교",
-		"대형",
-		"휘진",
 		"채건",
 		"영식",
 		"윤표",
@@ -3040,12 +3466,7 @@ class Faker_ko : Faker {
 		"원하",
 		"학현",
 		"아서",
-		"훈서",
-		"학현",
-		"유래",
-		"영대",
 		"장희",
-		"아서",
 		"여명",
 		"재신",
 		"래호",
@@ -3137,26 +3558,19 @@ class Faker_ko : Faker {
 		"현묵",
 		"철환",
 		"준웅",
-		"도안",
 		"관형",
 		"현표",
 		"린우",
 		"벼리",
-		"준웅",
 		"은탁",
-		"하일",
 		"영신",
 		"창근",
 		"재담",
-		"철환",
 		"저스",
-		"조운",
 		"자훈",
 		"진철",
 		"태의",
-		"근희",
 		"규희",
-		"기륜",
 		"기택",
 		"광명",
 		"병후",
@@ -3211,7 +3625,6 @@ class Faker_ko : Faker {
 		"대민",
 		"래인",
 		"태평",
-		"제이",
 		"웅빈",
 		"헨리",
 		"이윤",
@@ -3235,9 +3648,6 @@ class Faker_ko : Faker {
 		"빛찬",
 		"용혁",
 		"병하",
-		"승룡",
-		"용혁",
-		"서린",
 		"충민",
 		"소담",
 		"광휘",
@@ -3331,13 +3741,10 @@ class Faker_ko : Faker {
 		"경동",
 		"평온",
 		"신현",
-		"루카",
 		"다하",
 		"나온",
-		"다하",
 		"성학",
 		"다진",
-		"재필",
 		"건화",
 		"시몬",
 		"승곤",
@@ -3345,15 +3752,11 @@ class Faker_ko : Faker {
 		"형태",
 		"두형",
 		"단하",
-		"루카",
-		"평온",
 		"창엽",
 		"이룩",
 		"홍윤",
-		"상태",
 		"성흠",
 		"아담",
-		"경동",
 		"태신",
 		"재륜",
 		"원근",
@@ -3429,13 +3832,8 @@ class Faker_ko : Faker {
 		"강수",
 		"형훈",
 		"정유",
-		"유단",
 		"명선",
-		"세희",
-		"정유",
 		"하론",
-		"보율",
-		"신재",
 		"용균",
 		"찬익",
 		"도결",
@@ -3533,9 +3931,10 @@ class Faker_ko : Faker {
 	}
 
 
-	override string nameName() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return nameLastName() ~ " " ~ nameFirstName() ~ "'";
+	override string personName() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName() ~ " " ~ personFirstName();
+			case 1: return "weight: 1 }";
 		}
 	}
 

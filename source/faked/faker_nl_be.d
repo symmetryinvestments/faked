@@ -35,7 +35,7 @@ class Faker_nl_be : Faker {
 	}
 
 	///
-	override string addressStateAbbr() {
+	override string locationStateAbbr() {
 		auto data = [
 		"WVL",
 		"OVL",
@@ -48,7 +48,7 @@ class Faker_nl_be : Faker {
 	}
 
 	///
-	override string addressState() {
+	override string locationState() {
 		auto data = [
 		"West-Vlaanderen",
 		"Oost-Vlaanderen",
@@ -61,23 +61,39 @@ class Faker_nl_be : Faker {
 	}
 
 
-	override string addressStreetAddress() {
+	override string locationStreetPattern() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
-			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+			case 0: return personFirstName() ~ locationStreetSuffix();
+			case 1: return personLastName() ~ locationStreetSuffix();
+		}
+	}
+
+
+	override string locationStreetAddress() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "normal: '" ~ locationStreet() ~ " " ~ locationBuildingNumber();
+			case 1: return "full: '" ~ locationStreet() ~ " " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
 		}
 	}
 
 	///
-	override string addressDefaultCountry() {
+	override string locationDefaultCountry() {
 		auto data = [
 		"België'"
 		];
 		return choice(data, this.rnd);
 	}
 
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return locationCityPrefix();
+			case 1: return locationCityPrefix() ~ locationCitySuffix();
+		}
+	}
+
 	///
-	override string addressCitySuffix() {
+	override string locationCitySuffix() {
 		auto data = [
 		"gem",
 		"tem",
@@ -88,14 +104,13 @@ class Faker_nl_be : Faker {
 	}
 
 	///
-	override string addressCityPrefix() {
+	override string locationCityPrefix() {
 		auto data = [
 		"s Herenelderen",
 		"s-Gravenvoeren",
 		"s-Gravenwezel",
 		"Aaigem",
 		"Aalbeke",
-		"Aalst",
 		"Aalst",
 		"Aalter",
 		"Aarschot",
@@ -162,9 +177,7 @@ class Faker_nl_be : Faker {
 		"Belsele",
 		"Berbroek",
 		"Berchem",
-		"Berchem",
 		"Berendrecht-Zandvliet-Lillo",
-		"Berg",
 		"Berg",
 		"Beringen",
 		"Berlaar",
@@ -176,9 +189,6 @@ class Faker_nl_be : Faker {
 		"Bevel",
 		"Bever",
 		"Bevere",
-		"Beveren",
-		"Beveren",
-		"Beveren",
 		"Beveren",
 		"Beverlo",
 		"Beverst",
@@ -258,7 +268,6 @@ class Faker_nl_be : Faker {
 		"Destelbergen",
 		"Desteldonk",
 		"Deurle",
-		"Deurne",
 		"Deurne",
 		"Diegem",
 		"Diepenbeek",
@@ -385,10 +394,8 @@ class Faker_nl_be : Faker {
 		"Halen",
 		"Hallaar",
 		"Halle",
-		"Halle",
 		"Halle-Booienhoven",
 		"Halmaal",
-		"Hamme",
 		"Hamme",
 		"Hamont",
 		"Handzame",
@@ -431,7 +438,6 @@ class Faker_nl_be : Faker {
 		"Heule",
 		"Heurne",
 		"Heusden",
-		"Heusden",
 		"Hever",
 		"Heverlee",
 		"Hillegem",
@@ -445,7 +451,6 @@ class Faker_nl_be : Faker {
 		"Hoepertingen",
 		"Hoeselt",
 		"Hoevenen",
-		"Hofstade",
 		"Hofstade",
 		"Hollebeke",
 		"Holsbeek",
@@ -492,7 +497,6 @@ class Faker_nl_be : Faker {
 		"Kanegem",
 		"Kanne",
 		"Kapelle-op-den-Bos",
-		"Kapellen",
 		"Kapellen",
 		"Kaprijke",
 		"Kaster",
@@ -619,7 +623,6 @@ class Faker_nl_be : Faker {
 		"Maarke-Kerkem",
 		"Maaseik",
 		"Machelen",
-		"Machelen",
 		"Mal",
 		"Maldegem",
 		"Malderen",
@@ -651,8 +654,6 @@ class Faker_nl_be : Faker {
 		"Meise",
 		"Melden",
 		"Meldert",
-		"Meldert",
-		"Meldert",
 		"Melkwezer",
 		"Melle",
 		"Melsbroek",
@@ -682,7 +683,6 @@ class Faker_nl_be : Faker {
 		"Moelingen",
 		"Moen",
 		"Moerbeke",
-		"Moerbeke",
 		"Moere",
 		"Moerkerke",
 		"Moerzeke",
@@ -700,7 +700,6 @@ class Faker_nl_be : Faker {
 		"Moregem",
 		"Morkhoven",
 		"Mortsel",
-		"Muizen",
 		"Muizen",
 		"Mullem",
 		"Munkzwalm",
@@ -732,7 +731,6 @@ class Faker_nl_be : Faker {
 		"Niel-bij-Sint-Truiden",
 		"Nieuwenhove",
 		"Nieuwenrode",
-		"Nieuwerkerken",
 		"Nieuwerkerken",
 		"Nieuwkapelle",
 		"Nieuwkerke",
@@ -773,7 +771,6 @@ class Faker_nl_be : Faker {
 		"Oosterzele",
 		"Oostham",
 		"Oostkamp",
-		"Oostkerke",
 		"Oostkerke",
 		"Oostmalle",
 		"Oostnieuwkerke",
@@ -847,7 +844,6 @@ class Faker_nl_be : Faker {
 		"Ramsdonk",
 		"Ramsel",
 		"Ramskapelle",
-		"Ramskapelle",
 		"Ransberg",
 		"Ranst",
 		"Ravels",
@@ -884,7 +880,6 @@ class Faker_nl_be : Faker {
 		"Rozebeke",
 		"Ruddervoorde",
 		"Ruien",
-		"Ruisbroek",
 		"Ruisbroek",
 		"Ruiselede",
 		"Rukkelingen-Loon",
@@ -939,7 +934,6 @@ class Faker_nl_be : Faker {
 		"Sint-Jan-in-Eremo",
 		"Sint-Job-in-'t-Goor",
 		"Sint-Joris",
-		"Sint-Joris",
 		"Sint-Joris-Weert",
 		"Sint-Joris-Winge",
 		"Sint-Katelijne-Waver",
@@ -969,7 +963,6 @@ class Faker_nl_be : Faker {
 		"Sint-Michiels",
 		"Sint-Niklaas",
 		"Sint-Pauwels",
-		"Sint-Pieters-Kapelle",
 		"Sint-Pieters-Kapelle",
 		"Sint-Pieters-Leeuw",
 		"Sint-Pieters-Rode",
@@ -1018,13 +1011,11 @@ class Faker_nl_be : Faker {
 		"Tielen",
 		"Tielrode",
 		"Tielt",
-		"Tielt",
 		"Tienen",
 		"Tildonk",
 		"Tisselt",
 		"Tollembeek",
 		"Tongeren",
-		"Tongerlo",
 		"Tongerlo",
 		"Torhout",
 		"Tremelo",
@@ -1176,7 +1167,6 @@ class Faker_nl_be : Faker {
 		"Zande",
 		"Zandhoven",
 		"Zandvoorde",
-		"Zandvoorde",
 		"Zarlardinge",
 		"Zarren",
 		"Zaventem",
@@ -1220,24 +1210,8 @@ class Faker_nl_be : Faker {
 		return choice(data, this.rnd);
 	}
 
-
-	override string addressStreet() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstName() ~ addressStreetSuffix();
-			case 1: return nameLastName() ~ addressStreetSuffix();
-		}
-	}
-
-
-	override string addressCity() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return addressCityPrefix();
-			case 1: return addressCityPrefix() ~ addressCitySuffix();
-		}
-	}
-
 	///
-	override string addressBuildingNumber() {
+	override string locationBuildingNumber() {
 		auto data = [
 		"#",
 		"##",
@@ -1250,7 +1224,7 @@ class Faker_nl_be : Faker {
 	}
 
 	///
-	override string addressSecondaryAddress() {
+	override string locationSecondaryAddress() {
 		auto data = [
 		"1e verdieping",
 		"2e verdieping",
@@ -1260,7 +1234,7 @@ class Faker_nl_be : Faker {
 	}
 
 	///
-	override string addressPostcode() {
+	override string locationPostcode() {
 		auto data = [
 		"####'"
 		];
@@ -1268,7 +1242,7 @@ class Faker_nl_be : Faker {
 	}
 
 	///
-	override string addressStreetSuffix() {
+	override string locationStreetSuffix() {
 		auto data = [
 		"straat",
 		"laan",
@@ -1316,16 +1290,7 @@ class Faker_nl_be : Faker {
 	}
 
 	///
-	override string nameSuffix() {
-		auto data = [
-		"MBA",
-		"Phd.'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string namePrefix() {
+	override string personMalePrefix() {
 		auto data = [
 		"Dr.",
 		"Ir.",
@@ -1336,46 +1301,18 @@ class Faker_nl_be : Faker {
 	}
 
 	///
-	override string nameLastName() {
+	override string personFemalePrefix() {
 		auto data = [
-		"Claes",
-		"Claeys",
-		"Declerck",
-		"Declercq",
-		"Decock",
-		"Decoster",
-		"Desmet",
-		"Devos",
-		"Dewilde",
-		"Gielen",
-		"Goossens",
-		"Hermans",
-		"Jacobs",
-		"Janssen",
-		"Janssens",
-		"Lemmens",
-		"Maes",
-		"Martens",
-		"Mertens",
-		"Michiels",
-		"Peeters",
-		"Smet",
-		"Smets",
-		"Thijs",
-		"Vandamme",
-		"Vandenberghe",
-		"Vandenbroeck",
-		"Vandevelde",
-		"Verhaeghe",
-		"Verstraete",
-		"Willems",
-		"Wouters"
+		"Dr.",
+		"Ir.",
+		"Ing.",
+		"Prof.'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string nameFirstName() {
+	override string personMaleFirstName() {
 		auto data = [
 		"Lucas",
 		"Liam",
@@ -1476,7 +1413,78 @@ class Faker_nl_be : Faker {
 		"Ilyas",
 		"Gabriel",
 		"Robin",
-		"Kasper",
+		"Kasper"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personSuffix() {
+		auto data = [
+		"MBA",
+		"Phd.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personLastName() {
+		auto data = [
+		"Claes",
+		"Claeys",
+		"Declerck",
+		"Declercq",
+		"Decock",
+		"Decoster",
+		"Desmet",
+		"Devos",
+		"Dewilde",
+		"Gielen",
+		"Goossens",
+		"Hermans",
+		"Jacobs",
+		"Janssen",
+		"Janssens",
+		"Lemmens",
+		"Maes",
+		"Martens",
+		"Mertens",
+		"Michiels",
+		"Peeters",
+		"Smet",
+		"Smets",
+		"Thijs",
+		"Vandamme",
+		"Vandenberghe",
+		"Vandenbroeck",
+		"Vandevelde",
+		"Verhaeghe",
+		"Verstraete",
+		"Willems",
+		"Wouters"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string personName() {
+		final switch(uniform(0, 10, this.rnd)) {
+			case 0: return "{";
+			case 1: return "value: '" ~ personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+			case 2: return "weight: 1";
+			case 3: return "}";
+			case 4: return "{";
+			case 5: return "value: '" ~ personFirstName() ~ " " ~ personLastName() ~ " " ~ personSuffix();
+			case 6: return "weight: 1";
+			case 7: return "}";
+			case 8: return "{ value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 9: return "weight: 8 }";
+		}
+	}
+
+	///
+	override string personFemaleFirstName() {
+		auto data = [
 		"Emma",
 		"Louise",
 		"Marie",
@@ -1543,7 +1551,6 @@ class Faker_nl_be : Faker {
 		"Laure",
 		"Merel",
 		"Marthe",
-		"Sam",
 		"Yana",
 		"Renée",
 		"Paulien",
@@ -1582,12 +1589,10 @@ class Faker_nl_be : Faker {
 	}
 
 
-	override string nameName() {
-		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
-			case 1: return nameFirstName() ~ " " ~ nameLastName() ~ " " ~ nameSuffix();
-			case 2: return nameFirstName() ~ " " ~ nameLastName();
-			case 3: return nameFirstName() ~ " " ~ nameLastName();
+	override string personLastNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
 		}
 	}
 

@@ -14,9 +14,6 @@ public import faked.faker_ar;
 public import faked.faker_az;
 
 ///
-public import faked.faker_cz;
-
-///
 public import faked.faker_de;
 
 ///
@@ -50,9 +47,6 @@ public import faked.faker_en_gh;
 public import faked.faker_en_ie;
 
 ///
-public import faked.faker_en_ind;
-
-///
 public import faked.faker_en_ng;
 
 ///
@@ -84,9 +78,6 @@ public import faked.faker_fr_ca;
 
 ///
 public import faked.faker_fr_ch;
-
-///
-public import faked.faker_ge;
 
 ///
 public import faked.faker_he;

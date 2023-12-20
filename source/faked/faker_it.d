@@ -37,7 +37,7 @@ class Faker_it : Faker {
 	}
 
 	///
-	override string addressCityName() {
+	override string locationCityName() {
 		auto data = [
 		"Agliè",
 		"Andezeno",
@@ -1023,7 +1023,7 @@ class Faker_it : Faker {
 	}
 
 	///
-	override string addressStateAbbr() {
+	override string locationStateAbbr() {
 		auto data = [
 		"AG",
 		"AL",
@@ -1140,7 +1140,7 @@ class Faker_it : Faker {
 	}
 
 	///
-	override string addressState() {
+	override string locationState() {
 		auto data = [
 		"Agrigento",
 		"Alessandria",
@@ -1257,24 +1257,43 @@ class Faker_it : Faker {
 	}
 
 
-	override string addressStreetAddress() {
+	override string locationStreetPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return locationStreetSuffix() ~ " " ~ personFirstName();
+			case 1: return locationStreetSuffix() ~ " " ~ personLastName();
+		}
+	}
+
+
+	override string locationStreetAddress() {
 		final switch(uniform(0, 3, this.rnd)) {
-			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
-			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
-			case 2: return addressSecondaryAddress();
+			case 0: return "normal: '" ~ locationStreet() ~ " " ~ locationBuildingNumber();
+			case 1: return "full: '" ~ locationStreet() ~ " " ~ locationBuildingNumber();
+			case 2: return locationSecondaryAddress();
 		}
 	}
 
 	///
-	override string addressDefaultCountry() {
+	override string locationDefaultCountry() {
 		auto data = [
 		"Italia'"
 		];
 		return choice(data, this.rnd);
 	}
 
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return locationCityPrefix() ~ " " ~ personFirstName() ~ " " ~ locationCitySuffix();
+			case 1: return locationCityPrefix() ~ " " ~ personFirstName();
+			case 2: return personFirstName() ~ " " ~ locationCitySuffix();
+			case 3: return personLastName() ~ " " ~ locationCitySuffix();
+			case 4: return locationCityName();
+		}
+	}
+
 	///
-	override string addressCitySuffix() {
+	override string locationCitySuffix() {
 		auto data = [
 		"a mare",
 		"lido",
@@ -1293,7 +1312,7 @@ class Faker_it : Faker {
 	}
 
 	///
-	override string addressCountry() {
+	override string locationCountry() {
 		auto data = [
 		"Afghanistan",
 		"Albania",
@@ -1541,7 +1560,7 @@ class Faker_it : Faker {
 	}
 
 	///
-	override string addressCityPrefix() {
+	override string locationCityPrefix() {
 		auto data = [
 		"San",
 		"Borgo",
@@ -1552,26 +1571,8 @@ class Faker_it : Faker {
 		return choice(data, this.rnd);
 	}
 
-
-	override string addressStreet() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return addressStreetSuffix() ~ " " ~ nameFirstName();
-			case 1: return addressStreetSuffix() ~ " " ~ nameLastName();
-		}
-	}
-
-
-	override string addressCity() {
-		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ " " ~ addressCitySuffix();
-			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
-			case 2: return nameFirstName() ~ " " ~ addressCitySuffix();
-			case 3: return nameLastName() ~ " " ~ addressCitySuffix();
-		}
-	}
-
 	///
-	override string addressBuildingNumber() {
+	override string locationBuildingNumber() {
 		auto data = [
 		"###",
 		"##",
@@ -1581,7 +1582,7 @@ class Faker_it : Faker {
 	}
 
 	///
-	override string addressSecondaryAddress() {
+	override string locationSecondaryAddress() {
 		auto data = [
 		"Appartamento ##",
 		"Piano #'"
@@ -1590,7 +1591,7 @@ class Faker_it : Faker {
 	}
 
 	///
-	override string addressPostcode() {
+	override string locationPostcode() {
 		auto data = [
 		"#####'"
 		];
@@ -1598,7 +1599,7 @@ class Faker_it : Faker {
 	}
 
 	///
-	override string addressStreetSuffix() {
+	override string locationStreetSuffix() {
 		auto data = [
 		"Piazza",
 		"Strada",
@@ -1607,74 +1608,6 @@ class Faker_it : Faker {
 		"Contrada",
 		"Rotonda",
 		"Incrocio"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyBsVerb() {
-		auto data = [
-		"implementate",
-		"utilizzo",
-		"integrate",
-		"ottimali",
-		"evolutive",
-		"abilitate",
-		"reinventate",
-		"aggregate",
-		"migliorate",
-		"incentivate",
-		"monetizzate",
-		"sinergizzate",
-		"strategiche",
-		"deploy",
-		"marchi",
-		"accrescitive",
-		"target",
-		"sintetizzate",
-		"spedizioni",
-		"massimizzate",
-		"innovazione",
-		"guida",
-		"estensioni",
-		"generate",
-		"exploit",
-		"transizionali",
-		"matrici",
-		"ricontestualizzate"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string companyBsNoun() {
-		auto data = [
-		"partnerships",
-		"comunità",
-		"ROI",
-		"soluzioni",
-		"e-services",
-		"nicchie",
-		"tecnologie",
-		"contenuti",
-		"supply-chains",
-		"convergenze",
-		"relazioni",
-		"architetture",
-		"interfacce",
-		"mercati",
-		"e-commerce",
-		"sistemi",
-		"modelli",
-		"schemi",
-		"reti",
-		"applicazioni",
-		"metriche",
-		"e-business",
-		"funzionalità",
-		"esperienze",
-		"webservices",
-		"metodologie"
 		];
 		return choice(data, this.rnd);
 	}
@@ -1700,7 +1633,6 @@ class Faker_it : Faker {
 		"esclusiva",
 		"espansa",
 		"estesa",
-		"configurabile",
 		"fondamentale",
 		"orizzontale",
 		"implementata",
@@ -1927,18 +1859,86 @@ class Faker_it : Faker {
 		return choice(data, this.rnd);
 	}
 
+	///
+	override string companyBuzzVerb() {
+		auto data = [
+		"implementate",
+		"utilizzo",
+		"integrate",
+		"ottimali",
+		"evolutive",
+		"abilitate",
+		"reinventate",
+		"aggregate",
+		"migliorate",
+		"incentivate",
+		"monetizzate",
+		"sinergizzate",
+		"strategiche",
+		"deploy",
+		"marchi",
+		"accrescitive",
+		"target",
+		"sintetizzate",
+		"spedizioni",
+		"massimizzate",
+		"innovazione",
+		"guida",
+		"estensioni",
+		"generate",
+		"exploit",
+		"transizionali",
+		"matrici",
+		"ricontestualizzate"
+		];
+		return choice(data, this.rnd);
+	}
 
-	override string companyName() {
+
+	override string companyNamePattern() {
 		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return nameLastName() ~ " " ~ companySuffix();
-			case 1: return nameLastName() ~ "-" ~ nameLastName() ~ " " ~ companySuffix();
-			case 2: return nameLastName();
-			case 3: return nameLastName() ~ " e " ~ nameLastName() ~ " " ~ companySuffix();
+			case 0: return personLastName() ~ " " ~ companySuffix();
+			case 1: return personLastName() ~ "-" ~ personLastName() ~ " " ~ companySuffix();
+			case 2: return personLastName();
+			case 3: return personLastName() ~ " e " ~ personLastName() ~ " " ~ companySuffix();
 		}
 	}
 
 	///
-	override string companyBsAdjective() {
+	override string companyBuzzNoun() {
+		auto data = [
+		"partnerships",
+		"comunità",
+		"ROI",
+		"soluzioni",
+		"e-services",
+		"nicchie",
+		"tecnologie",
+		"contenuti",
+		"supply-chains",
+		"convergenze",
+		"relazioni",
+		"architetture",
+		"interfacce",
+		"mercati",
+		"e-commerce",
+		"sistemi",
+		"modelli",
+		"schemi",
+		"reti",
+		"applicazioni",
+		"metriche",
+		"e-business",
+		"funzionalità",
+		"esperienze",
+		"webservices",
+		"metodologie"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string companyBuzzAdjective() {
 		auto data = [
 		"valore aggiunto",
 		"verticalizzate",
@@ -2007,19 +2007,37 @@ class Faker_it : Faker {
 	override string internetDomainSuffix() {
 		auto data = [
 		"com",
-		"com",
-		"com",
 		"net",
 		"org",
-		"it",
-		"it",
 		"it'"
 		];
 		return choice(data, this.rnd);
 	}
 
 	///
-	override string nameMaleFirstName() {
+	override string personMalePrefix() {
+		auto data = [
+		"Sig.",
+		"Dott.",
+		"Dr.",
+		"Ing.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFemalePrefix() {
+		auto data = [
+		"Sig.",
+		"Dott.",
+		"Dr.",
+		"Ing.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMaleFirstName() {
 		auto data = [
 		"Abaco",
 		"Abbondanzio",
@@ -3108,13 +3126,8 @@ class Faker_it : Faker {
 		return choice(data, this.rnd);
 	}
 
-
-	override string nameSuffix() {
-		return "";
-	}
-
 	///
-	override string nameLastName() {
+	override string personLastName() {
 		auto data = [
 		"Abate",
 		"Abbate",
@@ -5291,7 +5304,7 @@ class Faker_it : Faker {
 	}
 
 	///
-	override string nameFirstName() {
+	override string personFirstName() {
 		auto data = [
 		"Abaco",
 		"Abbondanzio",
@@ -6998,19 +7011,19 @@ class Faker_it : Faker {
 	}
 
 
-	override string nameName() {
+	override string personName() {
 		final switch(uniform(0, 6, this.rnd)) {
-			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
-			case 1: return nameFirstName() ~ " " ~ nameLastName();
-			case 2: return nameFirstName() ~ " " ~ nameLastName();
-			case 3: return nameFirstName() ~ " " ~ nameLastName();
-			case 4: return nameMaleFirstName() ~ " " ~ nameLastName();
-			case 5: return nameFemaleFirstName() ~ " " ~ nameLastName();
+			case 0: return "{";
+			case 1: return "value: '" ~ personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+			case 2: return "weight: 1";
+			case 3: return "}";
+			case 4: return "{ value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 5: return "weight: 9 }";
 		}
 	}
 
 	///
-	override string nameFemaleFirstName() {
+	override string personFemaleFirstName() {
 		auto data = [
 		"Abbondanza",
 		"Acilia",
@@ -7633,15 +7646,12 @@ class Faker_it : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string namePrefix() {
-		auto data = [
-		"Sig.",
-		"Dott.",
-		"Dr.",
-		"Ing.'"
-		];
-		return choice(data, this.rnd);
+
+	override string personLastNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
+		}
 	}
 
 }

@@ -30,45 +30,7 @@ class Faker_en_au_ocker : Faker {
 	}
 
 	///
-	override string addressStateAbbr() {
-		auto data = [
-		"NSW",
-		"QLD",
-		"NT",
-		"SA",
-		"WA",
-		"TAS",
-		"ACT",
-		"VIC'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressState() {
-		auto data = [
-		"New South Wales",
-		"Queensland",
-		"Northern Territory",
-		"South Australia",
-		"Western Australia",
-		"Tasmania",
-		"Australian Capital Territory",
-		"Victoria"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"Australia'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCityPrefix() {
+	override string locationCityName() {
 		auto data = [
 		"Bondi",
 		"Burleigh Heads",
@@ -87,7 +49,59 @@ class Faker_en_au_ocker : Faker {
 	}
 
 	///
-	string addressRegion() {
+	override string locationStateAbbr() {
+		auto data = [
+		"NSW",
+		"QLD",
+		"NT",
+		"SA",
+		"WA",
+		"TAS",
+		"ACT",
+		"VIC'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationState() {
+		auto data = [
+		"New South Wales",
+		"Queensland",
+		"Northern Territory",
+		"South Australia",
+		"Western Australia",
+		"Tasmania",
+		"Australian Capital Territory",
+		"Victoria"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string locationStreetPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationStreetName() ~ "'";
+		}
+	}
+
+	///
+	override string locationDefaultCountry() {
+		auto data = [
+		"Australia'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName() ~ "'";
+		}
+	}
+
+	///
+	string locationRegion() {
 		auto data = [
 		"South East Queensland",
 		"Wide Bay Burnett",
@@ -100,15 +114,8 @@ class Faker_en_au_ocker : Faker {
 		return choice(data, this.rnd);
 	}
 
-
-	override string addressStreet() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressStreetName() ~ "'";
-		}
-	}
-
 	///
-	string addressStreetName() {
+	string locationStreetName() {
 		auto data = [
 		"Ramsay Street",
 		"Bonnie Doon",
@@ -118,15 +125,8 @@ class Faker_en_au_ocker : Faker {
 		return choice(data, this.rnd);
 	}
 
-
-	override string addressCity() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressCityPrefix() ~ "'";
-		}
-	}
-
 	///
-	override string addressBuildingNumber() {
+	override string locationBuildingNumber() {
 		auto data = [
 		"####",
 		"###",
@@ -136,7 +136,7 @@ class Faker_en_au_ocker : Faker {
 	}
 
 	///
-	override string addressPostcode() {
+	override string locationPostcode() {
 		auto data = [
 		"0###",
 		"2###",
@@ -150,7 +150,7 @@ class Faker_en_au_ocker : Faker {
 	}
 
 	///
-	override string addressStreetSuffix() {
+	override string locationStreetSuffix() {
 		auto data = [
 		"Avenue",
 		"Boulevard",
@@ -219,8 +219,18 @@ class Faker_en_au_ocker : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string personLastNamePattern() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 95 }";
+			case 2: return "{ value: '" ~ personLastName() ~ "-" ~ personLastName();
+			case 3: return "weight: 5 }";
+		}
+	}
+
 	///
-	override string nameLastName() {
+	override string personLastName() {
 		auto data = [
 		"Smith",
 		"Jones",
@@ -251,7 +261,7 @@ class Faker_en_au_ocker : Faker {
 	}
 
 	///
-	string nameOckerFirstName() {
+	string personOckerFirstName() {
 		auto data = [
 		"Bazza",
 		"Bluey",
@@ -264,7 +274,7 @@ class Faker_en_au_ocker : Faker {
 	}
 
 	///
-	override string nameFirstName() {
+	override string personFirstName() {
 		auto data = [
 		"Charlotte",
 		"Ava",

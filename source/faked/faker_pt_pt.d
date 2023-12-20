@@ -19,676 +19,7 @@ class Faker_pt_pt : Faker {
 	}
 
 	///
-	string nameMalePrefix() {
-		auto data = [
-		"Sr.",
-		"Dr.",
-		"Prof.",
-		"Eng.º'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string nameFemalePrefix() {
-		auto data = [
-		"Sra.",
-		"Dra.",
-		"Prof.ª",
-		"Eng.ª'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameMaleFirstName() {
-		auto data = [
-		"Afonso",
-		"Alexandre",
-		"André",
-		"Ângelo",
-		"António",
-		"Artur",
-		"Benjamim",
-		"Bernardo",
-		"Bruno",
-		"Carlos",
-		"César",
-		"Cristiano",
-		"Daniel",
-		"David",
-		"Dinis",
-		"Diogo",
-		"Duarte",
-		"Edgar",
-		"Eduardo",
-		"Elias",
-		"Emanuel",
-		"Fábio",
-		"Feliciano",
-		"Fernando",
-		"Filipe",
-		"Francisco",
-		"Frederico",
-		"Gabriel",
-		"Gaspar",
-		"Gil",
-		"Gonçalo",
-		"Guilherme",
-		"Gustavo",
-		"Hélio",
-		"Henrique",
-		"Hugo",
-		"Igor",
-		"Ígor",
-		"Isac",
-		"Ivan",
-		"Ivo",
-		"Jaime",
-		"João",
-		"Joaquim",
-		"Jorge",
-		"José",
-		"Josué",
-		"Júlio",
-		"Leandro",
-		"Leonardo",
-		"Lourenço",
-		"Lucas",
-		"Luís",
-		"Manel",
-		"Manuel",
-		"Marcelo",
-		"Marco",
-		"Marcos",
-		"Mário",
-		"Martim",
-		"Mateus",
-		"Matias",
-		"Mauro",
-		"Micael",
-		"Miguel",
-		"Moisés",
-		"Norberto",
-		"Nuno",
-		"Paulo",
-		"Pedro",
-		"Rafael",
-		"Raul",
-		"Renato",
-		"Ricardo",
-		"Roberto",
-		"Rodrigo",
-		"Romeu",
-		"Rúben",
-		"Rui",
-		"Salvador",
-		"Samuel",
-		"Sandro",
-		"Santiago",
-		"Sebastião",
-		"Sérgio",
-		"Simão",
-		"Tiago",
-		"Tomás",
-		"Tomé",
-		"Valentim",
-		"Valter",
-		"Vasco",
-		"Vicente",
-		"Vítor",
-		"Xavier"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string nameSuffix() {
-		return "";
-	}
-
-	///
-	override string nameLastName() {
-		auto data = [
-		"Abreu",
-		"Albuquerque",
-		"Almeida",
-		"Alves",
-		"Amaral",
-		"Amorim",
-		"Andrade",
-		"Anjos",
-		"Antunes",
-		"Araújo",
-		"Assunção",
-		"Azevedo",
-		"Baptista",
-		"Barbosa",
-		"Barros",
-		"Batista",
-		"Borges",
-		"Braga",
-		"Branco",
-		"Brito",
-		"Campos",
-		"Cardoso",
-		"Carneiro",
-		"Carvalho",
-		"Castro",
-		"Coelho",
-		"Correia",
-		"Costa",
-		"Cruz",
-		"Cunha",
-		"Domingues",
-		"Esteves",
-		"Faria",
-		"Fernandes",
-		"Ferreira",
-		"Figueiredo",
-		"Fonseca",
-		"Freitas",
-		"Garcia",
-		"Gaspar",
-		"Gomes",
-		"Gonçalves",
-		"Guerreiro",
-		"Henriques",
-		"Jesus",
-		"Leal",
-		"Leite",
-		"Lima",
-		"Lopes",
-		"Loureiro",
-		"Lourenço",
-		"Macedo",
-		"Machado",
-		"Magalhães",
-		"Maia",
-		"Marques",
-		"Martins",
-		"Matias",
-		"Matos",
-		"Melo",
-		"Mendes",
-		"Miranda",
-		"Monteiro",
-		"Morais",
-		"Moreira",
-		"Mota",
-		"Moura",
-		"Nascimento",
-		"Neto",
-		"Neves",
-		"Nobre",
-		"Nogueira",
-		"Nunes",
-		"Oliveira",
-		"Pacheco",
-		"Paiva",
-		"Pereira",
-		"Pinheiro",
-		"Pinho",
-		"Pinto",
-		"Pires",
-		"Ramos",
-		"Raposo",
-		"Reis",
-		"Ribeiro",
-		"Rocha",
-		"Rodrigues",
-		"Santos",
-		"Saraiva",
-		"Silva",
-		"Simões",
-		"Soares",
-		"Sousa",
-		"Sá",
-		"Tavares",
-		"Teixeira",
-		"Torres",
-		"Valente",
-		"Vaz",
-		"Vicente",
-		"Vieira"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameFirstName() {
-		auto data = [
-		"Adriana",
-		"Afonso",
-		"Alexandra",
-		"Alexandre",
-		"Alice",
-		"Amélia",
-		"Ana",
-		"André",
-		"Ângelo",
-		"António",
-		"Ariana",
-		"Artur",
-		"Áurea",
-		"Aurora",
-		"Bárbara",
-		"Beatriz",
-		"Benedita",
-		"Benjamim",
-		"Bernardo",
-		"Bruna",
-		"Bruno",
-		"Caetana",
-		"Camila",
-		"Carla",
-		"Carlos",
-		"Carlota",
-		"Carminho",
-		"Carmo",
-		"Carolina",
-		"Catarina",
-		"Cecília",
-		"Célia",
-		"César",
-		"Clara",
-		"Constança",
-		"Cristiano",
-		"Daniel",
-		"Daniela",
-		"David",
-		"Débora",
-		"Diana",
-		"Dinis",
-		"Diogo",
-		"Duarte",
-		"Edgar",
-		"Eduarda",
-		"Eduardo",
-		"Elias",
-		"Elisa",
-		"Ema",
-		"Emanuel",
-		"Emília",
-		"Érica",
-		"Eva",
-		"Fabiana",
-		"Fábio",
-		"Feliciano",
-		"Fernando",
-		"Filipa",
-		"Filipe",
-		"Flor",
-		"Francisca",
-		"Francisco",
-		"Frederica",
-		"Frederico",
-		"Gabriel",
-		"Gabriela",
-		"Gaspar",
-		"Gil",
-		"Gonçalo",
-		"Guilherme",
-		"Gustavo",
-		"Helena",
-		"Hélio",
-		"Henrique",
-		"Hugo",
-		"Igor",
-		"Ígor",
-		"Inês",
-		"Irina",
-		"Íris",
-		"Isabel",
-		"Isac",
-		"Ivan",
-		"Ivo",
-		"Jaime",
-		"Jéssica",
-		"Joana",
-		"João",
-		"Joaquim",
-		"Jorge",
-		"José",
-		"Josué",
-		"Júlia",
-		"Juliana",
-		"Julieta",
-		"Júlio",
-		"Lara",
-		"Laura",
-		"Leandro",
-		"Leonardo",
-		"Leonor",
-		"Letícia",
-		"Lia",
-		"Lorena",
-		"Lourenço",
-		"Luana",
-		"Lucas",
-		"Luena",
-		"Luís",
-		"Luísa",
-		"Luna",
-		"Madalena",
-		"Mafalda",
-		"Manel",
-		"Manuel",
-		"Mara",
-		"Marcelo",
-		"Márcia",
-		"Marco",
-		"Marcos",
-		"Margarida",
-		"Maria",
-		"Mariana",
-		"Mário",
-		"Marta",
-		"Martim",
-		"Mateus",
-		"Matias",
-		"Matilde",
-		"Mauro",
-		"Melissa",
-		"Mia",
-		"Micael",
-		"Miguel",
-		"Miriam",
-		"Moisés",
-		"Natália",
-		"Nicole",
-		"Norberto",
-		"Nuno",
-		"Núria",
-		"Ofélia",
-		"Olívia",
-		"Paula",
-		"Paulo",
-		"Pedro",
-		"Pilar",
-		"Rafael",
-		"Rafaela",
-		"Raquel",
-		"Raul",
-		"Renato",
-		"Ricardo",
-		"Rita",
-		"Roberto",
-		"Rodrigo",
-		"Romeu",
-		"Rosa",
-		"Rúben",
-		"Rui",
-		"Safira",
-		"Salvador",
-		"Samuel",
-		"Sandro",
-		"Santiago",
-		"Sara",
-		"Sebastião",
-		"Sérgio",
-		"Sílvia",
-		"Simão",
-		"Sofia",
-		"Soraia",
-		"Tatiana",
-		"Teresa",
-		"Tiago",
-		"Tomás",
-		"Tomé",
-		"Valentim",
-		"Valentina",
-		"Valter",
-		"Vânia",
-		"Vasco",
-		"Vera",
-		"Vicente",
-		"Vítor",
-		"Vitória",
-		"Xavier"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string nameName() {
-		final switch(uniform(0, 5, this.rnd)) {
-			case 0: return nameFirstName() ~ " " ~ nameLastName();
-			case 1: return nameMaleFirstName() ~ " " ~ nameLastName();
-			case 2: return nameFemaleFirstName() ~ " " ~ nameLastName();
-			case 3: return nameMalePrefix() ~ " " ~ nameMaleFirstName() ~ " " ~ nameLastName();
-			case 4: return nameFemalePrefix() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameLastName();
-		}
-	}
-
-	///
-	override string nameFemaleFirstName() {
-		auto data = [
-		"Adriana",
-		"Alexandra",
-		"Alice",
-		"Amélia",
-		"Ana",
-		"Ariana",
-		"Áurea",
-		"Aurora",
-		"Bárbara",
-		"Beatriz",
-		"Benedita",
-		"Bruna",
-		"Caetana",
-		"Camila",
-		"Carla",
-		"Carlota",
-		"Carminho",
-		"Carmo",
-		"Carolina",
-		"Catarina",
-		"Cecília",
-		"Célia",
-		"Clara",
-		"Constança",
-		"Daniela",
-		"Débora",
-		"Diana",
-		"Eduarda",
-		"Elisa",
-		"Ema",
-		"Emília",
-		"Érica",
-		"Eva",
-		"Fabiana",
-		"Filipa",
-		"Flor",
-		"Francisca",
-		"Frederica",
-		"Gabriela",
-		"Helena",
-		"Inês",
-		"Irina",
-		"Íris",
-		"Isabel",
-		"Jéssica",
-		"Joana",
-		"Júlia",
-		"Juliana",
-		"Julieta",
-		"Lara",
-		"Laura",
-		"Leonor",
-		"Letícia",
-		"Lia",
-		"Lorena",
-		"Luana",
-		"Luena",
-		"Luísa",
-		"Luna",
-		"Madalena",
-		"Mafalda",
-		"Mara",
-		"Márcia",
-		"Margarida",
-		"Maria",
-		"Mariana",
-		"Marta",
-		"Matilde",
-		"Melissa",
-		"Mia",
-		"Miriam",
-		"Natália",
-		"Nicole",
-		"Núria",
-		"Ofélia",
-		"Olívia",
-		"Paula",
-		"Pilar",
-		"Rafaela",
-		"Raquel",
-		"Rita",
-		"Rosa",
-		"Safira",
-		"Sara",
-		"Sílvia",
-		"Sofia",
-		"Soraia",
-		"Tatiana",
-		"Teresa",
-		"Valentina",
-		"Vânia",
-		"Vera",
-		"Vitória"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string namePrefix() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFemalePrefix();
-			case 1: return nameMalePrefix() ~ "'";
-		}
-	}
-
-	///
-	override string commerceDepartment() {
-		auto data = [
-		"Livros",
-		"Filmes",
-		"Música",
-		"Jogos",
-		"Electrónica",
-		"Computadores",
-		"Casa",
-		"Jardim",
-		"Ferramentas",
-		"Mercearia",
-		"Saúde",
-		"Beleza",
-		"Brinquedos",
-		"Crianças",
-		"Bebé",
-		"Roupas",
-		"Sapatos",
-		"Jóias",
-		"Desporto",
-		"Ar Livre",
-		"Automóveis",
-		"Industrial"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string colorHuman() {
-		auto data = [
-		"vermelho",
-		"verde",
-		"azul",
-		"amarelo",
-		"roxo",
-		"branco",
-		"preto",
-		"laranja",
-		"rosa",
-		"cinzento",
-		"castanho",
-		"violeta",
-		"turquesa",
-		"bronzeado",
-		"salmão",
-		"ameixa",
-		"orquídea",
-		"magenta",
-		"lima",
-		"marfim",
-		"índigo",
-		"ouro",
-		"fúcsia",
-		"ciano",
-		"azure",
-		"lavanda",
-		"prata"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string dateWeekday() {
-		auto data = [
-		"wide: ['Segunda",
-		"Terça",
-		"Quarta",
-		"Quinta",
-		"Sexta",
-		"Sábado",
-		"Domingo']",
-		"abbr: ['Seg",
-		"Ter",
-		"Qua",
-		"Qui",
-		"Sex",
-		"Sáb",
-		"Dom']"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string dateMonth() {
-		final switch(uniform(0, 28, this.rnd)) {
-			case 0: return "wide: [";
-			case 1: return "Janeiro";
-			case 2: return "Fevereiro";
-			case 3: return "Março";
-			case 4: return "Abril";
-			case 5: return "Maio";
-			case 6: return "Junho";
-			case 7: return "Julho";
-			case 8: return "Agosto";
-			case 9: return "Setembro";
-			case 10: return "Outubro";
-			case 11: return "Novembro";
-			case 12: return "Dezembro";
-			case 13: return "]";
-			case 14: return "abbr: [";
-			case 15: return "Jan";
-			case 16: return "Fev";
-			case 17: return "Mar";
-			case 18: return "Abr";
-			case 19: return "Mai";
-			case 20: return "Jun";
-			case 21: return "Jul";
-			case 22: return "Ago";
-			case 23: return "Set";
-			case 24: return "Out";
-			case 25: return "Nov";
-			case 26: return "Dez";
-			case 27: return "]";
-		}
-	}
-
-	///
-	override string addressCityName() {
+	override string locationCityName() {
 		auto data = [
 		"Abrantes",
 		"Agualva-Cacém",
@@ -846,7 +177,34 @@ class Faker_pt_pt : Faker {
 	}
 
 	///
-	override string addressCountry() {
+	override string locationState() {
+		auto data = [
+		"Azores",
+		"Aveiro",
+		"Beja",
+		"Braga",
+		"Bragança",
+		"Castelo Branco",
+		"Coimbra",
+		"Évora",
+		"Faro",
+		"Guarda",
+		"Leiria",
+		"Lisbon",
+		"Madeira",
+		"Portalegre",
+		"Porto",
+		"Santarém",
+		"Setúbal",
+		"Viana do Castelo",
+		"Vila Real",
+		"Viseu"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationCountry() {
 		auto data = [
 		"África do Sul",
 		"Áustria",
@@ -1091,15 +449,22 @@ class Faker_pt_pt : Faker {
 	}
 
 
-	override string addressStreetAddress() {
+	override string locationStreetPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationStreetPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+		}
+	}
+
+
+	override string locationStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
-			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+			case 0: return "normal: '" ~ locationStreet() ~ " " ~ locationBuildingNumber();
+			case 1: return "full: '" ~ locationStreet() ~ " " ~ locationBuildingNumber() ~ "-" ~ locationSecondaryAddress();
 		}
 	}
 
 	///
-	override string addressDefaultCountry() {
+	override string locationDefaultCountry() {
 		auto data = [
 		"Portugal'"
 		];
@@ -1107,7 +472,7 @@ class Faker_pt_pt : Faker {
 	}
 
 	///
-	override string addressDirection() {
+	override string locationDirection() {
 		auto data = [
 		"Norte",
 		"Este",
@@ -1122,7 +487,7 @@ class Faker_pt_pt : Faker {
 	}
 
 	///
-	string addressStreetPrefix() {
+	string locationStreetPrefix() {
 		auto data = [
 		"Acesso",
 		"Alameda",
@@ -1149,35 +514,14 @@ class Faker_pt_pt : Faker {
 	}
 
 
-	override string addressCitySuffix() {
-		return "";
-	}
-
-
-	override string addressCityPrefix() {
-		return "";
-	}
-
-
-	override string addressStreet() {
-		final switch(uniform(0, 5, this.rnd)) {
-			case 0: return addressStreetPrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
-			case 1: return "N#";
-			case 2: return "N##";
-			case 3: return "N###";
-			case 4: return "N###-#";
-		}
-	}
-
-
-	override string addressCity() {
+	override string locationCityPattern() {
 		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressCityName() ~ "'";
+			case 0: return locationCityName() ~ "'";
 		}
 	}
 
 	///
-	override string addressBuildingNumber() {
+	override string locationBuildingNumber() {
 		auto data = [
 		"####",
 		"###",
@@ -1187,8 +531,22 @@ class Faker_pt_pt : Faker {
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
+
+	override string locationSecondaryAddress() {
+		final switch(uniform(0, 8, this.rnd)) {
+			case 0: return "#Drt.";
+			case 1: return "#Esq.";
+			case 2: return "#Frt";
+			case 3: return "R/C";
+			case 4: return "Cv";
+			case 5: return "#A";
+			case 6: return "#B";
+			case 7: return "#C'";
+		}
+	}
+
 	///
-	override string addressPostcode() {
+	override string locationPostcode() {
 		auto data = [
 		"####-###'"
 		];
@@ -1196,10 +554,127 @@ class Faker_pt_pt : Faker {
 	}
 
 	///
+	override string commerceDepartment() {
+		auto data = [
+		"Livros",
+		"Filmes",
+		"Música",
+		"Jogos",
+		"Electrónica",
+		"Computadores",
+		"Casa",
+		"Jardim",
+		"Ferramentas",
+		"Mercearia",
+		"Saúde",
+		"Beleza",
+		"Brinquedos",
+		"Crianças",
+		"Bebé",
+		"Roupas",
+		"Sapatos",
+		"Jóias",
+		"Desporto",
+		"Ar Livre",
+		"Automóveis",
+		"Industrial"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string colorHuman() {
+		auto data = [
+		"vermelho",
+		"verde",
+		"azul",
+		"amarelo",
+		"roxo",
+		"branco",
+		"preto",
+		"laranja",
+		"rosa",
+		"cinzento",
+		"castanho",
+		"violeta",
+		"turquesa",
+		"bronzeado",
+		"salmão",
+		"ameixa",
+		"orquídea",
+		"magenta",
+		"lima",
+		"marfim",
+		"índigo",
+		"ouro",
+		"fúcsia",
+		"ciano",
+		"azure",
+		"lavanda",
+		"prata"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string dateWeekday() {
+		auto data = [
+		"wide: ['Segunda",
+		"Terça",
+		"Quarta",
+		"Quinta",
+		"Sexta",
+		"Sábado",
+		"Domingo']",
+		"abbr: ['Seg",
+		"Ter",
+		"Qua",
+		"Qui",
+		"Sex",
+		"Sáb",
+		"Dom']"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 28, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Janeiro";
+			case 2: return "Fevereiro";
+			case 3: return "Março";
+			case 4: return "Abril";
+			case 5: return "Maio";
+			case 6: return "Junho";
+			case 7: return "Julho";
+			case 8: return "Agosto";
+			case 9: return "Setembro";
+			case 10: return "Outubro";
+			case 11: return "Novembro";
+			case 12: return "Dezembro";
+			case 13: return "]";
+			case 14: return "abbr: [";
+			case 15: return "Jan";
+			case 16: return "Fev";
+			case 17: return "Mar";
+			case 18: return "Abr";
+			case 19: return "Mai";
+			case 20: return "Jun";
+			case 21: return "Jul";
+			case 22: return "Ago";
+			case 23: return "Set";
+			case 24: return "Out";
+			case 25: return "Nov";
+			case 26: return "Dez";
+			case 27: return "]";
+		}
+	}
+
+	///
 	override string phoneNumberFormats() {
 		auto data = [
 		"+351 2########",
-		"+351 3########",
 		"+351 91#######",
 		"+351 92#######",
 		"+351 93#######",
@@ -1250,6 +725,553 @@ class Faker_pt_pt : Faker {
 		"org"
 		];
 		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMalePrefix() {
+		auto data = [
+		"Sr.",
+		"Dr.",
+		"Prof.",
+		"Eng.º'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFemalePrefix() {
+		auto data = [
+		"Sra.",
+		"Dra.",
+		"Prof.ª",
+		"Eng.ª'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMaleFirstName() {
+		auto data = [
+		"Afonso",
+		"Alexandre",
+		"André",
+		"Ângelo",
+		"António",
+		"Artur",
+		"Benjamim",
+		"Bernardo",
+		"Bruno",
+		"Carlos",
+		"César",
+		"Cristiano",
+		"Daniel",
+		"David",
+		"Dinis",
+		"Diogo",
+		"Duarte",
+		"Edgar",
+		"Eduardo",
+		"Elias",
+		"Emanuel",
+		"Fábio",
+		"Feliciano",
+		"Fernando",
+		"Filipe",
+		"Francisco",
+		"Frederico",
+		"Gabriel",
+		"Gaspar",
+		"Gil",
+		"Gonçalo",
+		"Guilherme",
+		"Gustavo",
+		"Hélio",
+		"Henrique",
+		"Hugo",
+		"Igor",
+		"Ígor",
+		"Isac",
+		"Ivan",
+		"Ivo",
+		"Jaime",
+		"João",
+		"Joaquim",
+		"Jorge",
+		"José",
+		"Josué",
+		"Júlio",
+		"Leandro",
+		"Leonardo",
+		"Lourenço",
+		"Lucas",
+		"Luís",
+		"Manel",
+		"Manuel",
+		"Marcelo",
+		"Marco",
+		"Marcos",
+		"Mário",
+		"Martim",
+		"Mateus",
+		"Matias",
+		"Mauro",
+		"Micael",
+		"Miguel",
+		"Moisés",
+		"Norberto",
+		"Nuno",
+		"Paulo",
+		"Pedro",
+		"Rafael",
+		"Raul",
+		"Renato",
+		"Ricardo",
+		"Roberto",
+		"Rodrigo",
+		"Romeu",
+		"Rúben",
+		"Rui",
+		"Salvador",
+		"Samuel",
+		"Sandro",
+		"Santiago",
+		"Sebastião",
+		"Sérgio",
+		"Simão",
+		"Tiago",
+		"Tomás",
+		"Tomé",
+		"Valentim",
+		"Valter",
+		"Vasco",
+		"Vicente",
+		"Vítor",
+		"Xavier"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personLastName() {
+		auto data = [
+		"Abreu",
+		"Albuquerque",
+		"Almeida",
+		"Alves",
+		"Amaral",
+		"Amorim",
+		"Andrade",
+		"Anjos",
+		"Antunes",
+		"Araújo",
+		"Assunção",
+		"Azevedo",
+		"Baptista",
+		"Barbosa",
+		"Barros",
+		"Batista",
+		"Borges",
+		"Braga",
+		"Branco",
+		"Brito",
+		"Campos",
+		"Cardoso",
+		"Carneiro",
+		"Carvalho",
+		"Castro",
+		"Coelho",
+		"Correia",
+		"Costa",
+		"Cruz",
+		"Cunha",
+		"Domingues",
+		"Esteves",
+		"Faria",
+		"Fernandes",
+		"Ferreira",
+		"Figueiredo",
+		"Fonseca",
+		"Freitas",
+		"Garcia",
+		"Gaspar",
+		"Gomes",
+		"Gonçalves",
+		"Guerreiro",
+		"Henriques",
+		"Jesus",
+		"Leal",
+		"Leite",
+		"Lima",
+		"Lopes",
+		"Loureiro",
+		"Lourenço",
+		"Macedo",
+		"Machado",
+		"Magalhães",
+		"Maia",
+		"Marques",
+		"Martins",
+		"Matias",
+		"Matos",
+		"Melo",
+		"Mendes",
+		"Miranda",
+		"Monteiro",
+		"Morais",
+		"Moreira",
+		"Mota",
+		"Moura",
+		"Nascimento",
+		"Neto",
+		"Neves",
+		"Nobre",
+		"Nogueira",
+		"Nunes",
+		"Oliveira",
+		"Pacheco",
+		"Paiva",
+		"Pereira",
+		"Pinheiro",
+		"Pinho",
+		"Pinto",
+		"Pires",
+		"Ramos",
+		"Raposo",
+		"Reis",
+		"Ribeiro",
+		"Rocha",
+		"Rodrigues",
+		"Santos",
+		"Saraiva",
+		"Silva",
+		"Simões",
+		"Soares",
+		"Sousa",
+		"Sá",
+		"Tavares",
+		"Teixeira",
+		"Torres",
+		"Valente",
+		"Vaz",
+		"Vicente",
+		"Vieira"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFirstName() {
+		auto data = [
+		"Adriana",
+		"Afonso",
+		"Alexandra",
+		"Alexandre",
+		"Alice",
+		"Amélia",
+		"Ana",
+		"André",
+		"Ângelo",
+		"António",
+		"Ariana",
+		"Artur",
+		"Áurea",
+		"Aurora",
+		"Bárbara",
+		"Beatriz",
+		"Benedita",
+		"Benjamim",
+		"Bernardo",
+		"Bruna",
+		"Bruno",
+		"Caetana",
+		"Camila",
+		"Carla",
+		"Carlos",
+		"Carlota",
+		"Carminho",
+		"Carmo",
+		"Carolina",
+		"Catarina",
+		"Cecília",
+		"Célia",
+		"César",
+		"Clara",
+		"Constança",
+		"Cristiano",
+		"Daniel",
+		"Daniela",
+		"David",
+		"Débora",
+		"Diana",
+		"Dinis",
+		"Diogo",
+		"Duarte",
+		"Edgar",
+		"Eduarda",
+		"Eduardo",
+		"Elias",
+		"Elisa",
+		"Ema",
+		"Emanuel",
+		"Emília",
+		"Érica",
+		"Eva",
+		"Fabiana",
+		"Fábio",
+		"Feliciano",
+		"Fernando",
+		"Filipa",
+		"Filipe",
+		"Flor",
+		"Francisca",
+		"Francisco",
+		"Frederica",
+		"Frederico",
+		"Gabriel",
+		"Gabriela",
+		"Gaspar",
+		"Gil",
+		"Gonçalo",
+		"Guilherme",
+		"Gustavo",
+		"Helena",
+		"Hélio",
+		"Henrique",
+		"Hugo",
+		"Igor",
+		"Ígor",
+		"Inês",
+		"Irina",
+		"Íris",
+		"Isabel",
+		"Isac",
+		"Ivan",
+		"Ivo",
+		"Jaime",
+		"Jéssica",
+		"Joana",
+		"João",
+		"Joaquim",
+		"Jorge",
+		"José",
+		"Josué",
+		"Júlia",
+		"Juliana",
+		"Julieta",
+		"Júlio",
+		"Lara",
+		"Laura",
+		"Leandro",
+		"Leonardo",
+		"Leonor",
+		"Letícia",
+		"Lia",
+		"Lorena",
+		"Lourenço",
+		"Luana",
+		"Lucas",
+		"Luena",
+		"Luís",
+		"Luísa",
+		"Luna",
+		"Madalena",
+		"Mafalda",
+		"Manel",
+		"Manuel",
+		"Mara",
+		"Marcelo",
+		"Márcia",
+		"Marco",
+		"Marcos",
+		"Margarida",
+		"Maria",
+		"Mariana",
+		"Mário",
+		"Marta",
+		"Martim",
+		"Mateus",
+		"Matias",
+		"Matilde",
+		"Mauro",
+		"Melissa",
+		"Mia",
+		"Micael",
+		"Miguel",
+		"Miriam",
+		"Moisés",
+		"Natália",
+		"Nicole",
+		"Norberto",
+		"Nuno",
+		"Núria",
+		"Ofélia",
+		"Olívia",
+		"Paula",
+		"Paulo",
+		"Pedro",
+		"Pilar",
+		"Rafael",
+		"Rafaela",
+		"Raquel",
+		"Raul",
+		"Renato",
+		"Ricardo",
+		"Rita",
+		"Roberto",
+		"Rodrigo",
+		"Romeu",
+		"Rosa",
+		"Rúben",
+		"Rui",
+		"Safira",
+		"Salvador",
+		"Samuel",
+		"Sandro",
+		"Santiago",
+		"Sara",
+		"Sebastião",
+		"Sérgio",
+		"Sílvia",
+		"Simão",
+		"Sofia",
+		"Soraia",
+		"Tatiana",
+		"Teresa",
+		"Tiago",
+		"Tomás",
+		"Tomé",
+		"Valentim",
+		"Valentina",
+		"Valter",
+		"Vânia",
+		"Vasco",
+		"Vera",
+		"Vicente",
+		"Vítor",
+		"Vitória",
+		"Xavier"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string personName() {
+		final switch(uniform(0, 6, this.rnd)) {
+			case 0: return "{ value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 1: return "weight: 9 }";
+			case 2: return "{";
+			case 3: return "value: '" ~ personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+			case 4: return "weight: 1";
+			case 5: return "}";
+		}
+	}
+
+	///
+	override string personFemaleFirstName() {
+		auto data = [
+		"Adriana",
+		"Alexandra",
+		"Alice",
+		"Amélia",
+		"Ana",
+		"Ariana",
+		"Áurea",
+		"Aurora",
+		"Bárbara",
+		"Beatriz",
+		"Benedita",
+		"Bruna",
+		"Caetana",
+		"Camila",
+		"Carla",
+		"Carlota",
+		"Carminho",
+		"Carmo",
+		"Carolina",
+		"Catarina",
+		"Cecília",
+		"Célia",
+		"Clara",
+		"Constança",
+		"Daniela",
+		"Débora",
+		"Diana",
+		"Eduarda",
+		"Elisa",
+		"Ema",
+		"Emília",
+		"Érica",
+		"Eva",
+		"Fabiana",
+		"Filipa",
+		"Flor",
+		"Francisca",
+		"Frederica",
+		"Gabriela",
+		"Helena",
+		"Inês",
+		"Irina",
+		"Íris",
+		"Isabel",
+		"Jéssica",
+		"Joana",
+		"Júlia",
+		"Juliana",
+		"Julieta",
+		"Lara",
+		"Laura",
+		"Leonor",
+		"Letícia",
+		"Lia",
+		"Lorena",
+		"Luana",
+		"Luena",
+		"Luísa",
+		"Luna",
+		"Madalena",
+		"Mafalda",
+		"Mara",
+		"Márcia",
+		"Margarida",
+		"Maria",
+		"Mariana",
+		"Marta",
+		"Matilde",
+		"Melissa",
+		"Mia",
+		"Miriam",
+		"Natália",
+		"Nicole",
+		"Núria",
+		"Ofélia",
+		"Olívia",
+		"Paula",
+		"Pilar",
+		"Rafaela",
+		"Raquel",
+		"Rita",
+		"Rosa",
+		"Safira",
+		"Sara",
+		"Sílvia",
+		"Sofia",
+		"Soraia",
+		"Tatiana",
+		"Teresa",
+		"Valentina",
+		"Vânia",
+		"Vera",
+		"Vitória"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string personLastNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
+		}
 	}
 
 }

@@ -29,7 +29,7 @@ class Faker_ne : Faker {
 	}
 
 	///
-	override string addressCityName() {
+	override string locationCityName() {
 		auto data = [
 		"Bhaktapur",
 		"Biratnagar",
@@ -52,7 +52,7 @@ class Faker_ne : Faker {
 	}
 
 	///
-	override string addressState() {
+	override string locationState() {
 		auto data = [
 		"Baglung",
 		"Banke",
@@ -111,19 +111,28 @@ class Faker_ne : Faker {
 		return choice(data, this.rnd);
 	}
 
+	///
+	override string locationPostcode() {
+		auto data = [
+		"1####",
+		"2####",
+		"3####",
+		"4####",
+		"5####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
 
-	override string addressCity() {
-		final switch(uniform(0, 5, this.rnd)) {
-			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
-			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
-			case 2: return nameFirstName() ~ addressCitySuffix();
-			case 3: return nameLastName() ~ addressCitySuffix();
-			case 4: return addressCityName();
+
+	override string locationStreetPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
 		}
 	}
 
 	///
-	override string addressDefaultCountry() {
+	override string locationDefaultCountry() {
 		auto data = [
 		"Nepal'"
 		];
@@ -131,10 +140,9 @@ class Faker_ne : Faker {
 	}
 
 
-	override string addressStreet() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
-			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
+	override string locationCityPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName() ~ "'";
 		}
 	}
 
@@ -172,8 +180,16 @@ class Faker_ne : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string personLastNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
+		}
+	}
+
 	///
-	override string nameLastName() {
+	override string personLastName() {
 		auto data = [
 		"Adhikari",
 		"Aryal",
@@ -219,63 +235,70 @@ class Faker_ne : Faker {
 	}
 
 	///
-	override string nameFirstName() {
+	override string personMaleFirstName() {
 		auto data = [
 		"Aarav",
-		"Ajita",
 		"Amit",
-		"Amita",
 		"Amrit",
 		"Arijit",
-		"Ashmi",
-		"Asmita",
 		"Bibek",
 		"Bijay",
 		"Bikash",
-		"Bina",
 		"Bishal",
 		"Bishnu",
 		"Buddha",
-		"Deepika",
 		"Dipendra",
 		"Gagan",
 		"Ganesh",
 		"Khem",
 		"Krishna",
-		"Laxmi",
-		"Manisha",
 		"Nabin",
-		"Nikita",
 		"Niraj",
 		"Nischal",
 		"Padam",
-		"Pooja",
 		"Prabin",
 		"Prakash",
 		"Prashant",
 		"Prem",
 		"Purna",
 		"Rajendra",
-		"Rajina",
 		"Raju",
 		"Rakesh",
 		"Ranjan",
-		"Ratna",
 		"Sagar",
 		"Sandeep",
 		"Sanjay",
 		"Santosh",
+		"Siddhartha",
+		"Subash",
+		"Sumeet",
+		"Suraj",
+		"Sushant"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFemaleFirstName() {
+		auto data = [
+		"Ajita",
+		"Amita",
+		"Ashmi",
+		"Asmita",
+		"Bina",
+		"Deepika",
+		"Laxmi",
+		"Manisha",
+		"Nikita",
+		"Pooja",
+		"Rajina",
+		"Ratna",
 		"Sarita",
 		"Shilpa",
 		"Shirisha",
 		"Shristi",
-		"Siddhartha",
-		"Subash",
-		"Sumeet",
 		"Sunita",
-		"Suraj",
-		"Susan",
-		"Sushant"
+		"Susan"
 		];
 		return choice(data, this.rnd);
 	}

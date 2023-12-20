@@ -19,305 +19,7 @@ class Faker_ro : Faker {
 	}
 
 	///
-	override string phoneNumberFormats() {
-		auto data = [
-		"021######",
-		"031######",
-		"0258######",
-		"0358######",
-		"0257######",
-		"0357######",
-		"0248######",
-		"0348######",
-		"0234######",
-		"0334######",
-		"0259######",
-		"0359######",
-		"0263######",
-		"0363######",
-		"0231######",
-		"0331######",
-		"0239######",
-		"0339######",
-		"0268######",
-		"0368######",
-		"0238######",
-		"0338######",
-		"0242######",
-		"0342######",
-		"0255######",
-		"0355######",
-		"0264######",
-		"0364######",
-		"0241######",
-		"0341######",
-		"0267######",
-		"0367######",
-		"0245######",
-		"0345######",
-		"0251######",
-		"0351######",
-		"0236######",
-		"0336######",
-		"0246######",
-		"0346######",
-		"0253######",
-		"0353######",
-		"0266######",
-		"0366######",
-		"0254######",
-		"0354######",
-		"0243######",
-		"0343######",
-		"0232######",
-		"0332######",
-		"0262######",
-		"0362######",
-		"0252######",
-		"0352######",
-		"0265######",
-		"0365######",
-		"0233######",
-		"0333######",
-		"0249######",
-		"0349######",
-		"0244######",
-		"0344######",
-		"0260######",
-		"0360######",
-		"0261######",
-		"0361######",
-		"0269######",
-		"0369######",
-		"0230######",
-		"0330######",
-		"0247######",
-		"0347######",
-		"0256######",
-		"0356######",
-		"0240######",
-		"0340######",
-		"0250######",
-		"0350######",
-		"0235######",
-		"0335######",
-		"0237######",
-		"0337######"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string cellPhoneFormats() {
-		auto data = [
-		"0726######",
-		"0723######",
-		"0722######",
-		"0721######",
-		"0720######",
-		"0728######",
-		"0729######",
-		"0730######",
-		"0739######",
-		"0738######",
-		"0737######",
-		"0736######",
-		"0735######",
-		"0734######",
-		"0733######",
-		"0732######",
-		"0731######",
-		"0780######",
-		"0788######",
-		"0753######",
-		"0754######",
-		"0755######",
-		"0756######",
-		"0757######",
-		"0758######",
-		"0759######",
-		"0748######",
-		"0747######",
-		"0746######",
-		"0740######",
-		"0741######",
-		"0742######",
-		"0743######",
-		"0744######",
-		"0745######",
-		"0711######",
-		"0727######",
-		"0725######",
-		"0724######",
-		"0786######",
-		"0760######",
-		"0761######",
-		"0762######",
-		"0763######",
-		"0764######",
-		"0765######",
-		"0766######",
-		"0767######",
-		"0785######",
-		"0768######",
-		"0769######",
-		"0784######",
-		"0770######",
-		"0772######",
-		"0771######",
-		"0749######",
-		"0750######",
-		"0751######",
-		"0752######"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-
-	override string dateWeekday() {
-		final switch(uniform(0, 36, this.rnd)) {
-			case 0: return "wide: ['Luni";
-			case 1: return "Marți";
-			case 2: return "Miercuri";
-			case 3: return "Joi";
-			case 4: return "Vineri";
-			case 5: return "Sâmbătă";
-			case 6: return "Duminică']";
-			case 7: return "if not set then \"wide\" will be used instead";
-			case 8: return "which may differ from a stand-alone word";
-			case 9: return "wide_context: [";
-			case 10: return "Luni";
-			case 11: return "Marți";
-			case 12: return "Miercuri";
-			case 13: return "Joi";
-			case 14: return "Vineri";
-			case 15: return "Sâmbătă";
-			case 16: return "Duminică";
-			case 17: return "]";
-			case 18: return "abbr: ['Luni";
-			case 19: return "Marți";
-			case 20: return "Miercuri";
-			case 21: return "Joi";
-			case 22: return "Vineri";
-			case 23: return "Sâmbătă";
-			case 24: return "Duminică']";
-			case 25: return "if not set then \"abbr\" will be used instead";
-			case 26: return "which may differ from a stand-alone word";
-			case 27: return "abbr_context: [";
-			case 28: return "Luni";
-			case 29: return "Marți";
-			case 30: return "Miercuri";
-			case 31: return "Joi";
-			case 32: return "Vineri";
-			case 33: return "Sâmbătă";
-			case 34: return "Duminică";
-			case 35: return "]";
-		}
-	}
-
-
-	override string dateMonth() {
-		final switch(uniform(0, 60, this.rnd)) {
-			case 0: return "wide: [";
-			case 1: return "Ianuarie";
-			case 2: return "Februarie";
-			case 3: return "Martie";
-			case 4: return "Aprilie";
-			case 5: return "Mai";
-			case 6: return "Iunie";
-			case 7: return "Iulie";
-			case 8: return "August";
-			case 9: return "Septembrie";
-			case 10: return "Octombrie";
-			case 11: return "Noiembrie";
-			case 12: return "Decembrie";
-			case 13: return "]";
-			case 14: return "if not set then \"wide\" will be used instead";
-			case 15: return "which may differ from a stand-alone word";
-			case 16: return "wide_context: [";
-			case 17: return "Ianuarie";
-			case 18: return "Februarie";
-			case 19: return "Martie";
-			case 20: return "Aprilie";
-			case 21: return "Mai";
-			case 22: return "Iunie";
-			case 23: return "Iulie";
-			case 24: return "August";
-			case 25: return "Septembrie";
-			case 26: return "Octombrie";
-			case 27: return "Noiembrie";
-			case 28: return "Decembrie";
-			case 29: return "]";
-			case 30: return "abbr: [";
-			case 31: return "Ian";
-			case 32: return "Feb";
-			case 33: return "Mar";
-			case 34: return "Apr";
-			case 35: return "Mai";
-			case 36: return "Iun";
-			case 37: return "Iul";
-			case 38: return "Aug";
-			case 39: return "Sep";
-			case 40: return "Oct";
-			case 41: return "Noi";
-			case 42: return "Dec";
-			case 43: return "]";
-			case 44: return "if not set then \"abbr\" will be used instead";
-			case 45: return "which may differ from a stand-alone word";
-			case 46: return "abbr_context: [";
-			case 47: return "Ian";
-			case 48: return "Feb";
-			case 49: return "Mar";
-			case 50: return "Apr";
-			case 51: return "Mai";
-			case 52: return "Iun";
-			case 53: return "Iul";
-			case 54: return "Aug";
-			case 55: return "Sep";
-			case 56: return "Oct";
-			case 57: return "Noi";
-			case 58: return "Dec";
-			case 59: return "]";
-		}
-	}
-
-	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"yahoo.com",
-		"hotmail.com'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"com",
-		"biz",
-		"info",
-		"name",
-		"net",
-		"org",
-		"ro",
-		"com.ro",
-		"org.ro",
-		"tm.ro",
-		"store.ro",
-		"info.ro",
-		"nom.ro",
-		"nt.ro",
-		"firm.ro",
-		"www.ro",
-		"arts.ro",
-		"rec.ro"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCityName() {
+	override string locationCityName() {
 		auto data = [
 		"București",
 		"Cluj-Napoca",
@@ -624,7 +326,7 @@ class Faker_ro : Faker {
 	}
 
 	///
-	override string addressStateAbbr() {
+	override string locationStateAbbr() {
 		auto data = [
 		"AB",
 		"AR",
@@ -673,7 +375,7 @@ class Faker_ro : Faker {
 	}
 
 	///
-	override string addressState() {
+	override string locationState() {
 		auto data = [
 		"Alba",
 		"Arad",
@@ -722,18 +424,25 @@ class Faker_ro : Faker {
 	}
 
 
-	override string addressStreetAddress() {
+	override string locationStreetPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationStreetSuffix() ~ " " ~ locationStreetName() ~ "'";
+		}
+	}
+
+
+	override string locationStreetAddress() {
 		final switch(uniform(0, 5, this.rnd)) {
-			case 0: return "normal: '" ~ addressStreet();
-			case 1: return addressBuildingNumber();
-			case 2: return "full: '" ~ addressStreet();
-			case 3: return addressBuildingNumber();
-			case 4: return addressSecondaryAddress();
+			case 0: return "normal: '" ~ locationStreet();
+			case 1: return locationBuildingNumber();
+			case 2: return "full: '" ~ locationStreet();
+			case 3: return locationBuildingNumber();
+			case 4: return locationSecondaryAddress();
 		}
 	}
 
 	///
-	override string addressDefaultCountry() {
+	override string locationDefaultCountry() {
 		auto data = [
 		"România'"
 		];
@@ -741,14 +450,14 @@ class Faker_ro : Faker {
 	}
 
 
-	override string addressStreet() {
+	override string locationCityPattern() {
 		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressStreetSuffix() ~ " " ~ addressStreetName() ~ "'";
+			case 0: return locationCityName() ~ "'";
 		}
 	}
 
 	///
-	override string addressCounty() {
+	override string locationCounty() {
 		auto data = [
 		"Alba",
 		"Arad",
@@ -797,7 +506,7 @@ class Faker_ro : Faker {
 	}
 
 	///
-	string addressStreetName() {
+	string locationStreetName() {
 		auto data = [
 		"Capalna",
 		"Gheorghe Duca",
@@ -903,19 +612,8 @@ class Faker_ro : Faker {
 		return choice(data, this.rnd);
 	}
 
-
-	override string addressCity() {
-		final switch(uniform(0, 5, this.rnd)) {
-			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
-			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
-			case 2: return nameFirstName() ~ addressCitySuffix();
-			case 3: return nameLastName() ~ addressCitySuffix();
-			case 4: return addressCityName();
-		}
-	}
-
 	///
-	override string addressBuildingNumber() {
+	override string locationBuildingNumber() {
 		auto data = [
 		"Bloc ##'"
 		];
@@ -923,7 +621,7 @@ class Faker_ro : Faker {
 	}
 
 	///
-	override string addressSecondaryAddress() {
+	override string locationSecondaryAddress() {
 		auto data = [
 		"Ap. ##",
 		"Ap. ###'"
@@ -932,7 +630,7 @@ class Faker_ro : Faker {
 	}
 
 	///
-	override string addressPostcode() {
+	override string locationPostcode() {
 		auto data = [
 		"######'"
 		];
@@ -940,7 +638,7 @@ class Faker_ro : Faker {
 	}
 
 	///
-	override string addressStreetSuffix() {
+	override string locationStreetSuffix() {
 		auto data = [
 		"Aleea",
 		"Bulevardul",
@@ -950,7 +648,894 @@ class Faker_ro : Faker {
 	}
 
 	///
-	override string nameFemaleFirstName() {
+	override string dateWeekday() {
+		auto data = [
+		"wide: ['Luni",
+		"Marți",
+		"Miercuri",
+		"Joi",
+		"Vineri",
+		"Sâmbătă",
+		"Duminică']",
+		"abbr: ['Luni",
+		"Marți",
+		"Miercuri",
+		"Joi",
+		"Vineri",
+		"Sâmbătă",
+		"Duminică']"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 28, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Ianuarie";
+			case 2: return "Februarie";
+			case 3: return "Martie";
+			case 4: return "Aprilie";
+			case 5: return "Mai";
+			case 6: return "Iunie";
+			case 7: return "Iulie";
+			case 8: return "August";
+			case 9: return "Septembrie";
+			case 10: return "Octombrie";
+			case 11: return "Noiembrie";
+			case 12: return "Decembrie";
+			case 13: return "]";
+			case 14: return "abbr: [";
+			case 15: return "Ian";
+			case 16: return "Feb";
+			case 17: return "Mar";
+			case 18: return "Apr";
+			case 19: return "Mai";
+			case 20: return "Iun";
+			case 21: return "Iul";
+			case 22: return "Aug";
+			case 23: return "Sep";
+			case 24: return "Oct";
+			case 25: return "Noi";
+			case 26: return "Dec";
+			case 27: return "]";
+		}
+	}
+
+	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"021######",
+		"031######",
+		"0258######",
+		"0358######",
+		"0257######",
+		"0357######",
+		"0248######",
+		"0348######",
+		"0234######",
+		"0334######",
+		"0259######",
+		"0359######",
+		"0263######",
+		"0363######",
+		"0231######",
+		"0331######",
+		"0239######",
+		"0339######",
+		"0268######",
+		"0368######",
+		"0238######",
+		"0338######",
+		"0242######",
+		"0342######",
+		"0255######",
+		"0355######",
+		"0264######",
+		"0364######",
+		"0241######",
+		"0341######",
+		"0267######",
+		"0367######",
+		"0245######",
+		"0345######",
+		"0251######",
+		"0351######",
+		"0236######",
+		"0336######",
+		"0246######",
+		"0346######",
+		"0253######",
+		"0353######",
+		"0266######",
+		"0366######",
+		"0254######",
+		"0354######",
+		"0243######",
+		"0343######",
+		"0232######",
+		"0332######",
+		"0262######",
+		"0362######",
+		"0252######",
+		"0352######",
+		"0265######",
+		"0365######",
+		"0233######",
+		"0333######",
+		"0249######",
+		"0349######",
+		"0244######",
+		"0344######",
+		"0260######",
+		"0360######",
+		"0261######",
+		"0361######",
+		"0269######",
+		"0369######",
+		"0230######",
+		"0330######",
+		"0247######",
+		"0347######",
+		"0256######",
+		"0356######",
+		"0240######",
+		"0340######",
+		"0250######",
+		"0350######",
+		"0235######",
+		"0335######",
+		"0237######",
+		"0337######"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"0726######",
+		"0723######",
+		"0722######",
+		"0721######",
+		"0720######",
+		"0728######",
+		"0729######",
+		"0730######",
+		"0739######",
+		"0738######",
+		"0737######",
+		"0736######",
+		"0735######",
+		"0734######",
+		"0733######",
+		"0732######",
+		"0731######",
+		"0780######",
+		"0788######",
+		"0753######",
+		"0754######",
+		"0755######",
+		"0756######",
+		"0757######",
+		"0758######",
+		"0759######",
+		"0748######",
+		"0747######",
+		"0746######",
+		"0740######",
+		"0741######",
+		"0742######",
+		"0743######",
+		"0744######",
+		"0745######",
+		"0711######",
+		"0727######",
+		"0725######",
+		"0724######",
+		"0786######",
+		"0760######",
+		"0761######",
+		"0762######",
+		"0763######",
+		"0764######",
+		"0765######",
+		"0766######",
+		"0767######",
+		"0785######",
+		"0768######",
+		"0769######",
+		"0784######",
+		"0770######",
+		"0772######",
+		"0771######",
+		"0749######",
+		"0750######",
+		"0751######",
+		"0752######"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"yahoo.com",
+		"hotmail.com'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"com",
+		"biz",
+		"info",
+		"name",
+		"net",
+		"org",
+		"ro",
+		"com.ro",
+		"org.ro",
+		"tm.ro",
+		"store.ro",
+		"info.ro",
+		"nom.ro",
+		"nt.ro",
+		"firm.ro",
+		"www.ro",
+		"arts.ro",
+		"rec.ro"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMalePrefix() {
+		auto data = [
+		"Dl",
+		"Dra'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFemalePrefix() {
+		auto data = [
+		"Dna",
+		"Dra'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMaleFirstName() {
+		auto data = [
+		"Achim",
+		"Adam",
+		"Adelin",
+		"Adonis",
+		"Adrian",
+		"Adi",
+		"Agnos",
+		"Albert",
+		"Alex",
+		"Alexandru",
+		"Alexe",
+		"Aleodor",
+		"Alin",
+		"Alistar",
+		"Amedeu",
+		"Amza",
+		"Anatolie",
+		"Andrei",
+		"Angel",
+		"Anghel",
+		"Antim",
+		"Anton",
+		"Antonie",
+		"Antoniu",
+		"Arian",
+		"Aristide",
+		"Arsenie",
+		"Augustin",
+		"Aurel",
+		"Aurelian",
+		"Aurică",
+		"Avram",
+		"Axinte",
+		"Barbu",
+		"Bartolomeu",
+		"Basarab",
+		"Bănel",
+		"Bebe",
+		"Beniamin",
+		"Benone",
+		"Bernard",
+		"Bogdan",
+		"Brăduț",
+		"Bucur",
+		"Caius",
+		"Camil",
+		"Cantemir",
+		"Carol",
+		"Casian",
+		"Cazimir",
+		"Călin",
+		"Cătălin",
+		"Cedrin",
+		"Cezar",
+		"Ciprian",
+		"Claudiu",
+		"Codin",
+		"Codrin",
+		"Codruț",
+		"Cornel",
+		"Corneliu",
+		"Corvin",
+		"Constantin",
+		"Cosmin",
+		"Costache",
+		"Costel",
+		"Costin",
+		"Crin",
+		"Cristea",
+		"Cristian",
+		"Cristobal",
+		"Cristofor",
+		"Dacian",
+		"Damian",
+		"Dan",
+		"Daniel",
+		"Darius",
+		"David",
+		"Decebal",
+		"Denis",
+		"Dinu",
+		"Dominic",
+		"Dorel",
+		"Dorian",
+		"Dorin",
+		"Dorinel",
+		"Doru",
+		"Dragoș",
+		"Ducu",
+		"Dumitru",
+		"Edgar",
+		"Edmond",
+		"Eduard",
+		"Eftimie",
+		"Emil",
+		"Emilian",
+		"Emanoil",
+		"Emanuel",
+		"Emanuil",
+		"Eremia",
+		"Eric",
+		"Ernest",
+		"Eugen",
+		"Eusebiu",
+		"Eustațiu",
+		"Fabian",
+		"Felix",
+		"Filip",
+		"Fiodor",
+		"Flaviu",
+		"Florea",
+		"Florentin",
+		"Florian",
+		"Florin",
+		"Francisc",
+		"Frederic",
+		"Gabi",
+		"Gabriel",
+		"Gelu",
+		"George",
+		"Georgel",
+		"Georgian",
+		"Ghenadie",
+		"Gheorghe",
+		"Gheorghiță",
+		"Ghiță",
+		"Gică",
+		"Gicu",
+		"Giorgian",
+		"Grațian",
+		"Gregorian",
+		"Grigore",
+		"Haralamb",
+		"Haralambie",
+		"Horațiu",
+		"Horea",
+		"Horia",
+		"Iacob",
+		"Iancu",
+		"Ianis",
+		"Ieremia",
+		"Ilarie",
+		"Ilarion",
+		"Ilie",
+		"Inocențiu",
+		"Ioan",
+		"Ion",
+		"Ionel",
+		"Ionică",
+		"Ionuț",
+		"Iosif",
+		"Irinel",
+		"Iulian",
+		"Iuliu",
+		"Iurie",
+		"Iustin",
+		"Iustinian",
+		"Ivan",
+		"Jan",
+		"Jean",
+		"Jenel",
+		"Ladislau",
+		"Lascăr",
+		"Laurențiu",
+		"Laurian",
+		"Lazăr",
+		"Leonard",
+		"Leontin",
+		"Lică",
+		"Liviu",
+		"Lorin",
+		"Luca",
+		"Lucențiu",
+		"Lucian",
+		"Lucrețiu",
+		"Ludovic",
+		"Manole",
+		"Marcel",
+		"Marcu",
+		"Marian",
+		"Marin",
+		"Marius",
+		"Martin",
+		"Matei",
+		"Maxim",
+		"Maximilian",
+		"Mădălin",
+		"Mihai",
+		"Mihail",
+		"Mihnea",
+		"Mircea",
+		"Miron",
+		"Mitică",
+		"Mitruț",
+		"Mugur",
+		"Mugurel",
+		"Nae",
+		"Narcis",
+		"Nechifor",
+		"Nelu",
+		"Nichifor",
+		"Nicoară",
+		"Nicodim",
+		"Nicolae",
+		"Nicolaie",
+		"Nicu",
+		"Nicuță",
+		"Niculiță",
+		"Nicușor",
+		"Norbert",
+		"Norman",
+		"Octav",
+		"Octavian",
+		"Octaviu",
+		"Olimpian",
+		"Olimpiu",
+		"Oliviu",
+		"Ovidiu",
+		"Pamfil",
+		"Panait",
+		"Panagachie",
+		"Paul",
+		"Pavel",
+		"Pătru",
+		"Petre",
+		"Petrică",
+		"Petrișor",
+		"Petru",
+		"Petruț",
+		"Pompiliu",
+		"Radu",
+		"Rafael",
+		"Rareș",
+		"Raul",
+		"Răducu",
+		"Răzvan",
+		"Relu",
+		"Remus",
+		"Robert",
+		"Romeo",
+		"Romulus",
+		"Sabin",
+		"Sandu",
+		"Sava",
+		"Sebastian",
+		"Sergiu",
+		"Sever",
+		"Severin",
+		"Silvian",
+		"Silviu",
+		"Simi",
+		"Simion",
+		"Sinică",
+		"Sorin",
+		"Stan",
+		"Stancu",
+		"Stelian",
+		"Șerban",
+		"Ștefan",
+		"Teodor",
+		"Teofil",
+		"Teohari",
+		"Theodor",
+		"Tiberiu",
+		"Timotei",
+		"Titus",
+		"Todor",
+		"Toma",
+		"Traian",
+		"Tudor",
+		"Valentin",
+		"Valeriu",
+		"Valter",
+		"Vasile",
+		"Vasilică",
+		"Veniamin",
+		"Vicențiu",
+		"Victor",
+		"Vincențiu",
+		"Viorel",
+		"Visarion",
+		"Vlad",
+		"Vladimir",
+		"Vlaicu",
+		"Voicu",
+		"Zamfir",
+		"Zeno"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personSuffix() {
+		auto data = [
+		"Jr.",
+		"Sr.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personLastName() {
+		auto data = [
+		"Achim",
+		"Adam",
+		"Albu",
+		"Aldea",
+		"Alexa",
+		"Alexandrescu",
+		"Alexandru",
+		"Alexe",
+		"Andrei",
+		"Anghel",
+		"Antal",
+		"Anton",
+		"Apostol",
+		"Ardelean",
+		"Ardeleanu",
+		"Avram",
+		"Baciu",
+		"Badea",
+		"Balan",
+		"Balint",
+		"Banica",
+		"Banu",
+		"Barbu",
+		"Barbulescu",
+		"Bejan",
+		"Biro",
+		"Blaga",
+		"Boboc",
+		"Bodea",
+		"Bogdan",
+		"Bota",
+		"Botezatu",
+		"Bratu",
+		"Bucur",
+		"Buda",
+		"Bunea",
+		"Burlacu",
+		"Calin",
+		"Catana",
+		"Cazacu",
+		"Chiriac",
+		"Chirila",
+		"Chirita",
+		"Chis",
+		"Chivu",
+		"Ciobanu",
+		"Ciocan",
+		"Cojocaru",
+		"Coman",
+		"Constantin",
+		"Constantinescu",
+		"Cornea",
+		"Cosma",
+		"Costache",
+		"Costea",
+		"Costin",
+		"Covaci",
+		"Cozma",
+		"Craciun",
+		"Cretu",
+		"Crisan",
+		"Cristea",
+		"Cristescu",
+		"Croitoru",
+		"Cucu",
+		"Damian",
+		"Dan",
+		"Danciu",
+		"Danila",
+		"Dascalu",
+		"David",
+		"Diaconescu",
+		"Diaconu",
+		"Dima",
+		"Dinca",
+		"Dinu",
+		"Dobre",
+		"Dobrescu",
+		"Dogaru",
+		"Dragan",
+		"Draghici",
+		"Dragoi",
+		"Dragomir",
+		"Dumitrache",
+		"Dumitrascu",
+		"Dumitrescu",
+		"Dumitriu",
+		"Dumitru",
+		"Duta",
+		"Enache",
+		"Ene",
+		"Farcas",
+		"Filimon",
+		"Filip",
+		"Florea",
+		"Florescu",
+		"Fodor",
+		"Fratila",
+		"Gabor",
+		"Gal",
+		"Ganea",
+		"Gavrila",
+		"Georgescu",
+		"Gheorghe",
+		"Gheorghita",
+		"Gheorghiu",
+		"Gherman",
+		"Ghita",
+		"Giurgiu",
+		"Grecu",
+		"Grigoras",
+		"Grigore",
+		"Grigorescu",
+		"Grosu",
+		"Groza",
+		"Horvath",
+		"Iacob",
+		"Iancu",
+		"Ichim",
+		"Ignat",
+		"Ilie",
+		"Iliescu",
+		"Ion",
+		"Ionescu",
+		"Ionita",
+		"Iordache",
+		"Iorga",
+		"Iosif",
+		"Irimia",
+		"Ispas",
+		"Istrate",
+		"Ivan",
+		"Ivascu",
+		"Kiss",
+		"Kovacs",
+		"Lazar",
+		"Luca",
+		"Lungu",
+		"Lupu",
+		"Macovei",
+		"Maftei",
+		"Man",
+		"Manea",
+		"Manolache",
+		"Manole",
+		"Marcu",
+		"Marginean",
+		"Marian",
+		"Marin",
+		"Marinescu",
+		"Martin",
+		"Mateescu",
+		"Matei",
+		"Maxim",
+		"Mazilu",
+		"Micu",
+		"Mihai",
+		"Mihaila",
+		"Mihailescu",
+		"Mihalache",
+		"Mihalcea",
+		"Milea",
+		"Militaru",
+		"Mircea",
+		"Mirea",
+		"Miron",
+		"Miu",
+		"Mocanu",
+		"Moga",
+		"Moise",
+		"Moldovan",
+		"Moldoveanu",
+		"Molnar",
+		"Morar",
+		"Moraru",
+		"Muntean",
+		"Munteanu",
+		"Muresan",
+		"Musat",
+		"Nagy",
+		"Nastase",
+		"Neacsu",
+		"Neagoe",
+		"Neagu",
+		"Neamtu",
+		"Nechita",
+		"Necula",
+		"Nedelcu",
+		"Negoita",
+		"Negrea",
+		"Negru",
+		"Nemes",
+		"Nica",
+		"Nicoara",
+		"Nicolae",
+		"Nicolescu",
+		"Niculae",
+		"Niculescu",
+		"Nistor",
+		"Nita",
+		"Nitu",
+		"Oancea",
+		"Olariu",
+		"Olaru",
+		"Oltean",
+		"Olteanu",
+		"Oprea",
+		"Opris",
+		"Paduraru",
+		"Pana",
+		"Panait",
+		"Paraschiv",
+		"Parvu",
+		"Pasca",
+		"Pascu",
+		"Patrascu",
+		"Paun",
+		"Pavel",
+		"Petcu",
+		"Peter",
+		"Petre",
+		"Petrea",
+		"Petrescu",
+		"Pintea",
+		"Pintilie",
+		"Pirvu",
+		"Pop",
+		"Popa",
+		"Popescu",
+		"Popovici",
+		"Preda",
+		"Prodan",
+		"Puiu",
+		"Radoi",
+		"Radu",
+		"Radulescu",
+		"Roman",
+		"Rosca",
+		"Rosu",
+		"Rotaru",
+		"Rus",
+		"Rusu",
+		"Sabau",
+		"Sandor",
+		"Sandu",
+		"Sarbu",
+		"Sava",
+		"Savu",
+		"Serban",
+		"Sima",
+		"Simion",
+		"Simionescu",
+		"Simon",
+		"Sirbu",
+		"Soare",
+		"Solomon",
+		"Staicu",
+		"Stan",
+		"Stanciu",
+		"Stancu",
+		"Stanescu",
+		"Stefan",
+		"Stefanescu",
+		"Stoian",
+		"Stoica",
+		"Stroe",
+		"Suciu",
+		"Szabo",
+		"Szasz",
+		"Szekely",
+		"Tamas",
+		"Tanase",
+		"Tataru",
+		"Teodorescu",
+		"Toader",
+		"Toma",
+		"Tomescu",
+		"Toth",
+		"Trandafir",
+		"Trif",
+		"Trifan",
+		"Tudor",
+		"Tudorache",
+		"Tudose",
+		"Turcu",
+		"Ungureanu",
+		"Ursu",
+		"Vaduva",
+		"Varga",
+		"Vasile",
+		"Vasilescu",
+		"Vasiliu",
+		"Veres",
+		"Vintila",
+		"Visan",
+		"Vlad",
+		"Voicu",
+		"Voinea",
+		"Zaharia",
+		"Zamfir"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string personName() {
+		final switch(uniform(0, 8, this.rnd)) {
+			case 0: return "{ value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 1: return "weight: 8 }";
+			case 2: return "{ value: '" ~ personLastName() ~ " " ~ personFirstName();
+			case 3: return "weight: 1 }";
+			case 4: return "{";
+			case 5: return "value: '" ~ personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+			case 6: return "weight: 1";
+			case 7: return "}";
+		}
+	}
+
+	///
+	override string personFemaleFirstName() {
 		auto data = [
 		"Ada",
 		"Adela",
@@ -1343,664 +1928,11 @@ class Faker_ro : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string nameSuffix() {
-		auto data = [
-		"Jr.",
-		"Sr.'"
-		];
-		return choice(data, this.rnd);
-	}
 
-	///
-	override string namePrefix() {
-		auto data = [
-		"Dl",
-		"Dna",
-		"Dra'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameLastName() {
-		auto data = [
-		"Achim",
-		"Adam",
-		"Albu",
-		"Aldea",
-		"Alexa",
-		"Alexandrescu",
-		"Alexandru",
-		"Alexe",
-		"Andrei",
-		"Anghel",
-		"Antal",
-		"Anton",
-		"Apostol",
-		"Ardelean",
-		"Ardeleanu",
-		"Avram",
-		"Baciu",
-		"Badea",
-		"Balan",
-		"Balint",
-		"Banica",
-		"Banu",
-		"Barbu",
-		"Barbulescu",
-		"Bejan",
-		"Biro",
-		"Blaga",
-		"Boboc",
-		"Bodea",
-		"Bogdan",
-		"Bota",
-		"Botezatu",
-		"Bratu",
-		"Bucur",
-		"Buda",
-		"Bunea",
-		"Burlacu",
-		"Calin",
-		"Catana",
-		"Cazacu",
-		"Chiriac",
-		"Chirila",
-		"Chirita",
-		"Chis",
-		"Chivu",
-		"Ciobanu",
-		"Ciocan",
-		"Cojocaru",
-		"Coman",
-		"Constantin",
-		"Constantinescu",
-		"Cornea",
-		"Cosma",
-		"Costache",
-		"Costea",
-		"Costin",
-		"Covaci",
-		"Cozma",
-		"Craciun",
-		"Cretu",
-		"Crisan",
-		"Cristea",
-		"Cristescu",
-		"Croitoru",
-		"Cucu",
-		"Damian",
-		"Dan",
-		"Danciu",
-		"Danila",
-		"Dascalu",
-		"David",
-		"Diaconescu",
-		"Diaconu",
-		"Dima",
-		"Dinca",
-		"Dinu",
-		"Dobre",
-		"Dobrescu",
-		"Dogaru",
-		"Dragan",
-		"Draghici",
-		"Dragoi",
-		"Dragomir",
-		"Dumitrache",
-		"Dumitrascu",
-		"Dumitrescu",
-		"Dumitriu",
-		"Dumitru",
-		"Duta",
-		"Enache",
-		"Ene",
-		"Farcas",
-		"Filimon",
-		"Filip",
-		"Florea",
-		"Florescu",
-		"Fodor",
-		"Fratila",
-		"Gabor",
-		"Gal",
-		"Ganea",
-		"Gavrila",
-		"Georgescu",
-		"Gheorghe",
-		"Gheorghita",
-		"Gheorghiu",
-		"Gherman",
-		"Ghita",
-		"Giurgiu",
-		"Grecu",
-		"Grigoras",
-		"Grigore",
-		"Grigorescu",
-		"Grosu",
-		"Groza",
-		"Horvath",
-		"Iacob",
-		"Iancu",
-		"Ichim",
-		"Ignat",
-		"Ilie",
-		"Iliescu",
-		"Ion",
-		"Ionescu",
-		"Ionita",
-		"Iordache",
-		"Iorga",
-		"Iosif",
-		"Irimia",
-		"Ispas",
-		"Istrate",
-		"Ivan",
-		"Ivascu",
-		"Kiss",
-		"Kovacs",
-		"Lazar",
-		"Luca",
-		"Lungu",
-		"Lupu",
-		"Macovei",
-		"Maftei",
-		"Man",
-		"Manea",
-		"Manolache",
-		"Manole",
-		"Marcu",
-		"Marginean",
-		"Marian",
-		"Marin",
-		"Marinescu",
-		"Martin",
-		"Mateescu",
-		"Matei",
-		"Maxim",
-		"Mazilu",
-		"Micu",
-		"Mihai",
-		"Mihaila",
-		"Mihailescu",
-		"Mihalache",
-		"Mihalcea",
-		"Milea",
-		"Militaru",
-		"Mircea",
-		"Mirea",
-		"Miron",
-		"Miu",
-		"Mocanu",
-		"Moga",
-		"Moise",
-		"Moldovan",
-		"Moldoveanu",
-		"Molnar",
-		"Morar",
-		"Moraru",
-		"Muntean",
-		"Munteanu",
-		"Muresan",
-		"Musat",
-		"Nagy",
-		"Nastase",
-		"Neacsu",
-		"Neagoe",
-		"Neagu",
-		"Neamtu",
-		"Nechita",
-		"Necula",
-		"Nedelcu",
-		"Negoita",
-		"Negrea",
-		"Negru",
-		"Nemes",
-		"Nica",
-		"Nicoara",
-		"Nicolae",
-		"Nicolescu",
-		"Niculae",
-		"Niculescu",
-		"Nistor",
-		"Nita",
-		"Nitu",
-		"Oancea",
-		"Olariu",
-		"Olaru",
-		"Oltean",
-		"Olteanu",
-		"Oprea",
-		"Opris",
-		"Paduraru",
-		"Pana",
-		"Panait",
-		"Paraschiv",
-		"Parvu",
-		"Pasca",
-		"Pascu",
-		"Patrascu",
-		"Paun",
-		"Pavel",
-		"Petcu",
-		"Peter",
-		"Petre",
-		"Petrea",
-		"Petrescu",
-		"Pintea",
-		"Pintilie",
-		"Pirvu",
-		"Pop",
-		"Popa",
-		"Popescu",
-		"Popovici",
-		"Preda",
-		"Prodan",
-		"Puiu",
-		"Radoi",
-		"Radu",
-		"Radulescu",
-		"Roman",
-		"Rosca",
-		"Rosu",
-		"Rotaru",
-		"Rus",
-		"Rusu",
-		"Sabau",
-		"Sandor",
-		"Sandu",
-		"Sarbu",
-		"Sava",
-		"Savu",
-		"Serban",
-		"Sima",
-		"Simion",
-		"Simionescu",
-		"Simon",
-		"Sirbu",
-		"Soare",
-		"Solomon",
-		"Staicu",
-		"Stan",
-		"Stanciu",
-		"Stancu",
-		"Stanescu",
-		"Stefan",
-		"Stefanescu",
-		"Stoian",
-		"Stoica",
-		"Stroe",
-		"Suciu",
-		"Szabo",
-		"Szasz",
-		"Szekely",
-		"Tamas",
-		"Tanase",
-		"Tataru",
-		"Teodorescu",
-		"Toader",
-		"Toma",
-		"Tomescu",
-		"Toth",
-		"Trandafir",
-		"Trif",
-		"Trifan",
-		"Tudor",
-		"Tudorache",
-		"Tudose",
-		"Turcu",
-		"Ungureanu",
-		"Ursu",
-		"Vaduva",
-		"Varga",
-		"Vasile",
-		"Vasilescu",
-		"Vasiliu",
-		"Veres",
-		"Vintila",
-		"Visan",
-		"Vlad",
-		"Voicu",
-		"Voinea",
-		"Zaharia",
-		"Zamfir"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameMaleFirstName() {
-		auto data = [
-		"Achim",
-		"Adam",
-		"Adelin",
-		"Adonis",
-		"Adrian",
-		"Adi",
-		"Agnos",
-		"Albert",
-		"Alex",
-		"Alexandru",
-		"Alexe",
-		"Aleodor",
-		"Alin",
-		"Alistar",
-		"Amedeu",
-		"Amza",
-		"Anatolie",
-		"Andrei",
-		"Angel",
-		"Anghel",
-		"Antim",
-		"Anton",
-		"Antonie",
-		"Antoniu",
-		"Arian",
-		"Aristide",
-		"Arsenie",
-		"Augustin",
-		"Aurel",
-		"Aurelian",
-		"Aurică",
-		"Avram",
-		"Axinte",
-		"Barbu",
-		"Bartolomeu",
-		"Basarab",
-		"Bănel",
-		"Bebe",
-		"Beniamin",
-		"Benone",
-		"Bernard",
-		"Bogdan",
-		"Brăduț",
-		"Bucur",
-		"Caius",
-		"Camil",
-		"Cantemir",
-		"Carol",
-		"Casian",
-		"Cazimir",
-		"Călin",
-		"Cătălin",
-		"Cedrin",
-		"Cezar",
-		"Ciprian",
-		"Claudiu",
-		"Codin",
-		"Codrin",
-		"Codruț",
-		"Cornel",
-		"Corneliu",
-		"Corvin",
-		"Constantin",
-		"Cosmin",
-		"Costache",
-		"Costel",
-		"Costin",
-		"Crin",
-		"Cristea",
-		"Cristian",
-		"Cristobal",
-		"Cristofor",
-		"Dacian",
-		"Damian",
-		"Dan",
-		"Daniel",
-		"Darius",
-		"David",
-		"Decebal",
-		"Denis",
-		"Dinu",
-		"Dominic",
-		"Dorel",
-		"Dorian",
-		"Dorin",
-		"Dorinel",
-		"Doru",
-		"Dragoș",
-		"Ducu",
-		"Dumitru",
-		"Edgar",
-		"Edmond",
-		"Eduard",
-		"Eftimie",
-		"Emil",
-		"Emilian",
-		"Emanoil",
-		"Emanuel",
-		"Emanuil",
-		"Eremia",
-		"Eric",
-		"Ernest",
-		"Eugen",
-		"Eusebiu",
-		"Eustațiu",
-		"Fabian",
-		"Felix",
-		"Filip",
-		"Fiodor",
-		"Flaviu",
-		"Florea",
-		"Florentin",
-		"Florian",
-		"Florin",
-		"Francisc",
-		"Frederic",
-		"Gabi",
-		"Gabriel",
-		"Gelu",
-		"George",
-		"Georgel",
-		"Georgian",
-		"Ghenadie",
-		"Gheorghe",
-		"Gheorghiță",
-		"Ghiță",
-		"Gică",
-		"Gicu",
-		"Giorgian",
-		"Grațian",
-		"Gregorian",
-		"Grigore",
-		"Haralamb",
-		"Haralambie",
-		"Horațiu",
-		"Horea",
-		"Horia",
-		"Iacob",
-		"Iancu",
-		"Ianis",
-		"Ieremia",
-		"Ilarie",
-		"Ilarion",
-		"Ilie",
-		"Inocențiu",
-		"Ioan",
-		"Ion",
-		"Ionel",
-		"Ionică",
-		"Ionuț",
-		"Iosif",
-		"Irinel",
-		"Iulian",
-		"Iuliu",
-		"Iurie",
-		"Iustin",
-		"Iustinian",
-		"Ivan",
-		"Jan",
-		"Jean",
-		"Jenel",
-		"Ladislau",
-		"Lascăr",
-		"Laurențiu",
-		"Laurian",
-		"Lazăr",
-		"Leonard",
-		"Leontin",
-		"Lică",
-		"Liviu",
-		"Lorin",
-		"Luca",
-		"Lucențiu",
-		"Lucian",
-		"Lucrețiu",
-		"Ludovic",
-		"Manole",
-		"Marcel",
-		"Marcu",
-		"Marian",
-		"Marin",
-		"Marius",
-		"Martin",
-		"Matei",
-		"Maxim",
-		"Maximilian",
-		"Mădălin",
-		"Mihai",
-		"Mihail",
-		"Mihnea",
-		"Mircea",
-		"Miron",
-		"Mitică",
-		"Mitruț",
-		"Mugur",
-		"Mugurel",
-		"Nae",
-		"Narcis",
-		"Nechifor",
-		"Nelu",
-		"Nichifor",
-		"Nicoară",
-		"Nicodim",
-		"Nicolae",
-		"Nicolaie",
-		"Nicu",
-		"Nicuță",
-		"Niculiță",
-		"Nicușor",
-		"Norbert",
-		"Norman",
-		"Octav",
-		"Octavian",
-		"Octaviu",
-		"Olimpian",
-		"Olimpiu",
-		"Oliviu",
-		"Ovidiu",
-		"Pamfil",
-		"Panait",
-		"Panagachie",
-		"Paul",
-		"Pavel",
-		"Pătru",
-		"Petre",
-		"Petrică",
-		"Petrișor",
-		"Petru",
-		"Petruț",
-		"Pompiliu",
-		"Radu",
-		"Rafael",
-		"Rareș",
-		"Raul",
-		"Răducu",
-		"Răzvan",
-		"Relu",
-		"Remus",
-		"Robert",
-		"Romeo",
-		"Romulus",
-		"Sabin",
-		"Sandu",
-		"Sava",
-		"Sebastian",
-		"Sergiu",
-		"Sever",
-		"Severin",
-		"Silvian",
-		"Silviu",
-		"Simi",
-		"Simion",
-		"Sinică",
-		"Sorin",
-		"Stan",
-		"Stancu",
-		"Stelian",
-		"Sandu",
-		"Șerban",
-		"Ștefan",
-		"Teodor",
-		"Teofil",
-		"Teohari",
-		"Theodor",
-		"Tiberiu",
-		"Timotei",
-		"Titus",
-		"Todor",
-		"Toma",
-		"Traian",
-		"Tudor",
-		"Valentin",
-		"Valeriu",
-		"Valter",
-		"Vasile",
-		"Vasilică",
-		"Veniamin",
-		"Vicențiu",
-		"Victor",
-		"Vincențiu",
-		"Viorel",
-		"Visarion",
-		"Vlad",
-		"Vladimir",
-		"Vlaicu",
-		"Voicu",
-		"Zamfir",
-		"Zeno"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string nameName() {
-		final switch(uniform(0, 34, this.rnd)) {
-			case 0: return nameMaleFirstName() ~ " " ~ nameLastName();
-			case 1: return nameMaleFirstName() ~ " " ~ nameLastName();
-			case 2: return nameMaleFirstName() ~ " " ~ nameLastName();
-			case 3: return nameMaleFirstName() ~ " " ~ nameLastName();
-			case 4: return nameMaleFirstName() ~ " " ~ nameLastName();
-			case 5: return nameMaleFirstName() ~ " " ~ nameLastName();
-			case 6: return nameLastName() ~ " " ~ nameMaleFirstName();
-			case 7: return nameLastName() ~ " " ~ nameMaleFirstName();
-			case 8: return nameLastName() ~ " " ~ nameMaleFirstName();
-			case 9: return nameLastName() ~ " " ~ nameMaleFirstName();
-			case 10: return nameLastName() ~ " " ~ nameMaleFirstName();
-			case 11: return nameLastName() ~ " " ~ nameMaleFirstName();
-			case 12: return namePrefix() ~ " " ~ nameMaleFirstName() ~ " " ~ nameLastName();
-			case 13: return namePrefix() ~ " " ~ nameMaleFirstName() ~ " " ~ nameLastName();
-			case 14: return namePrefix() ~ " " ~ nameMaleFirstName() ~ " " ~ nameLastName();
-			case 15: return nameMaleFirstName() ~ " " ~ nameLastName();
-			case 16: return nameSuffix();
-			case 17: return namePrefix() ~ " " ~ nameMaleFirstName() ~ " " ~ nameLastName();
-			case 18: return nameSuffix();
-			case 19: return nameFemaleFirstName() ~ " " ~ nameLastName();
-			case 20: return nameFemaleFirstName() ~ " " ~ nameLastName();
-			case 21: return nameFemaleFirstName() ~ " " ~ nameLastName();
-			case 22: return nameFemaleFirstName() ~ " " ~ nameLastName();
-			case 23: return nameFemaleFirstName() ~ " " ~ nameLastName();
-			case 24: return nameFemaleFirstName() ~ " " ~ nameLastName();
-			case 25: return nameLastName() ~ " " ~ nameFemaleFirstName();
-			case 26: return nameLastName() ~ " " ~ nameFemaleFirstName();
-			case 27: return nameLastName() ~ " " ~ nameFemaleFirstName();
-			case 28: return nameLastName() ~ " " ~ nameFemaleFirstName();
-			case 29: return nameLastName() ~ " " ~ nameFemaleFirstName();
-			case 30: return nameLastName() ~ " " ~ nameFemaleFirstName();
-			case 31: return namePrefix() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameLastName();
-			case 32: return namePrefix() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameLastName();
-			case 33: return namePrefix() ~ " " ~ nameFemaleFirstName() ~ " " ~ nameLastName();
+	override string personLastNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
 		}
 	}
 

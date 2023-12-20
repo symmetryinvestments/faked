@@ -19,28 +19,7 @@ class Faker_ja : Faker {
 	}
 
 	///
-	override string phoneNumberFormats() {
-		auto data = [
-		"0####-#-####",
-		"0###-##-####",
-		"0##-###-####",
-		"0#-####-####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string cellPhoneFormats() {
-		auto data = [
-		"090-####-####",
-		"080-####-####",
-		"070-####-####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string addressStateAbbr() {
+	override string locationStateAbbr() {
 		auto data = [
 		"1",
 		"2",
@@ -94,7 +73,7 @@ class Faker_ja : Faker {
 	}
 
 	///
-	override string addressState() {
+	override string locationState() {
 		auto data = [
 		"北海道",
 		"青森県",
@@ -148,25 +127,15 @@ class Faker_ja : Faker {
 	}
 
 	///
-	override string addressCountry() {
+	override string locationCountry() {
 		auto data = [
-		"アフリカ",
-		"南極大陸",
-		"アジア",
-		"ヨーロッパ",
-		"北アメリカ",
-		"南アメリカ",
-		"南極",
-		"北極",
 		"アフガニスタン",
 		"アルバニア",
 		"アルジェリア",
 		"アメリカ",
-		"米国",
 		"アンゴラ",
 		"アルゼンチン",
 		"オーストラリア",
-		"濠洲",
 		"オーストリア",
 		"バハマ",
 		"バーレーン",
@@ -210,7 +179,6 @@ class Faker_ja : Faker {
 		"ガンビア",
 		"ドイツ",
 		"ガーナ",
-		"英国",
 		"イギリス",
 		"ギリシャ",
 		"グリーンランド",
@@ -254,7 +222,6 @@ class Faker_ja : Faker {
 		"メキシコ",
 		"モルドバ",
 		"モナコ",
-		"蒙古",
 		"モンゴル",
 		"モロッコ",
 		"モザンビーク",
@@ -321,8 +288,41 @@ class Faker_ja : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string locationStreetPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ locationStreetSuffix();
+			case 1: return personLastName() ~ locationStreetSuffix();
+		}
+	}
+
 	///
-	override string addressCitySuffix() {
+	override string locationDirection() {
+		auto data = [
+		"北",
+		"東",
+		"南",
+		"西",
+		"北東",
+		"北西",
+		"南東",
+		"南西'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return locationCityPrefix() ~ personFirstName() ~ locationCitySuffix();
+			case 1: return personFirstName() ~ locationCitySuffix();
+			case 2: return locationCityPrefix() ~ personLastName() ~ locationCitySuffix();
+			case 3: return personLastName() ~ locationCitySuffix();
+		}
+	}
+
+	///
+	override string locationCitySuffix() {
 		auto data = [
 		"市",
 		"区",
@@ -333,7 +333,7 @@ class Faker_ja : Faker {
 	}
 
 	///
-	override string addressCityPrefix() {
+	override string locationCityPrefix() {
 		auto data = [
 		"北",
 		"東",
@@ -346,26 +346,8 @@ class Faker_ja : Faker {
 		return choice(data, this.rnd);
 	}
 
-
-	override string addressStreet() {
-		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstName() ~ addressStreetSuffix();
-			case 1: return nameLastName() ~ addressStreetSuffix();
-		}
-	}
-
-
-	override string addressCity() {
-		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return addressCityPrefix() ~ nameFirstName() ~ addressCitySuffix();
-			case 1: return nameFirstName() ~ addressCitySuffix();
-			case 2: return addressCityPrefix() ~ nameLastName() ~ addressCitySuffix();
-			case 3: return nameLastName() ~ addressCitySuffix();
-		}
-	}
-
 	///
-	override string addressPostcode() {
+	override string locationPostcode() {
 		auto data = [
 		"###-####'"
 		];
@@ -654,7 +636,6 @@ class Faker_ja : Faker {
 		"禍根",
 		"かたみち",
 		"山葵",
-		"店舗",
 		"渦巻き",
 		"おととい",
 		"いっさくじつ",
@@ -694,7 +675,6 @@ class Faker_ja : Faker {
 		"ちゅうもんする",
 		"じっかん",
 		"境",
-		"施行",
 		"つく",
 		"活用",
 		"ぶき",
@@ -713,7 +693,6 @@ class Faker_ja : Faker {
 		"せいしん",
 		"指紋",
 		"超〜",
-		"うえる",
 		"つまる",
 		"靖国神社",
 		"とりあえず",
@@ -855,7 +834,6 @@ class Faker_ja : Faker {
 		"色盲",
 		"形",
 		"希望する",
-		"こうせい",
 		"いちだい",
 		"春休み",
 		"縛る",
@@ -883,14 +861,7 @@ class Faker_ja : Faker {
 		"けいけんしゃ",
 		"きょうふ",
 		"せいぞう",
-		"きんく"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string loremSupplemental() {
-		auto data = [
+		"きんく",
 		"おどりば",
 		"料理人",
 		"いち",
@@ -903,7 +874,6 @@ class Faker_ja : Faker {
 		"はきだす",
 		"歯",
 		"憶測",
-		"すむ",
 		"墨",
 		"胃腸",
 		"駆け出す",
@@ -996,7 +966,6 @@ class Faker_ja : Faker {
 		"扇",
 		"性病",
 		"濃紺",
-		"洗浄剤",
 		"舞踏",
 		"つぎ",
 		"しめる",
@@ -1005,7 +974,6 @@ class Faker_ja : Faker {
 		"ざせき",
 		"もくひょう",
 		"宝くじ",
-		"劣悪",
 		"はなみ",
 		"同音異義語",
 		"たいほう",
@@ -1059,7 +1027,6 @@ class Faker_ja : Faker {
 		"順序",
 		"首",
 		"むれる",
-		"しめる",
 		"移す",
 		"分ける",
 		"しょうげき",
@@ -1078,7 +1045,6 @@ class Faker_ja : Faker {
 		"賀状",
 		"詰め込む",
 		"数える",
-		"ずいじ",
 		"いっぱく",
 		"聴者",
 		"そうぐう",
@@ -1203,7 +1169,6 @@ class Faker_ja : Faker {
 		"親子丼",
 		"反則",
 		"しゅうり",
-		"かくにん",
 		"生える",
 		"けむし",
 		"すける",
@@ -1300,10 +1265,8 @@ class Faker_ja : Faker {
 		"雑費",
 		"おくれる",
 		"面倒臭い",
-		"しょうじょう",
 		"たおす",
 		"順番",
-		"天皇",
 		"しゅいん",
 		"動揺",
 		"乙",
@@ -1360,7 +1323,6 @@ class Faker_ja : Faker {
 		"月刊",
 		"となえる",
 		"せんのう",
-		"営業中",
 		"ながさき",
 		"げんまい",
 		"二つ",
@@ -1392,8 +1354,6 @@ class Faker_ja : Faker {
 		"はかる",
 		"図説",
 		"どうめい",
-		"ようじ",
-		"ふねんごみ",
 		"ふねんゴミ",
 		"鎮める",
 		"しゅくん"
@@ -1402,7 +1362,68 @@ class Faker_ja : Faker {
 	}
 
 	///
-	override string nameFemaleFirstName() {
+	string companyType() {
+		auto data = [
+		"株式会社",
+		"有限会社",
+		"合名会社",
+		"合資会社",
+		"合同会社'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	string companyCategory() {
+		auto data = [
+		"水産",
+		"農林",
+		"鉱業",
+		"建設",
+		"食品",
+		"印刷",
+		"電気",
+		"ガス",
+		"情報",
+		"通信",
+		"運輸",
+		"銀行",
+		"保険"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string companyNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return companyType() ~ personLastName() ~ companyCategory();
+			case 1: return personLastName() ~ companyCategory() ~ companyType();
+		}
+	}
+
+	///
+	override string phoneNumberFormats() {
+		auto data = [
+		"0####-#-####",
+		"0###-##-####",
+		"0##-###-####",
+		"0#-####-####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"090-####-####",
+		"080-####-####",
+		"070-####-####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string personFemaleFirstName() {
 		auto data = [
 		"千代子",
 		"静子",
@@ -1553,8 +1574,16 @@ class Faker_ja : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string personLastNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
+		}
+	}
+
 	///
-	override string nameLastName() {
+	override string personLastName() {
 		auto data = [
 		"佐藤",
 		"鈴木",
@@ -1581,35 +1610,7 @@ class Faker_ja : Faker {
 	}
 
 	///
-	override string nameFirstName() {
-		auto data = [
-		"大翔",
-		"蓮",
-		"颯太",
-		"樹",
-		"大和",
-		"陽翔",
-		"陸斗",
-		"太一",
-		"海翔",
-		"蒼空",
-		"翼",
-		"陽菜",
-		"結愛",
-		"結衣",
-		"杏",
-		"莉子",
-		"美羽",
-		"結菜",
-		"心愛",
-		"愛菜",
-		"美咲"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string nameMaleFirstName() {
+	override string personMaleFirstName() {
 		auto data = [
 		"正一",
 		"正二",
@@ -1751,9 +1752,10 @@ class Faker_ja : Faker {
 	}
 
 
-	override string nameName() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return nameLastName() ~ " " ~ nameFirstName() ~ "'";
+	override string personName() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName() ~ " " ~ personFirstName();
+			case 1: return "weight: 1 }";
 		}
 	}
 

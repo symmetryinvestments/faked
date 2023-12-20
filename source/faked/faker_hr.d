@@ -19,159 +19,7 @@ class Faker_hr : Faker {
 	}
 
 	///
-	override string phoneNumberFormats() {
-		auto data = [
-		"### ###",
-		"### ###",
-		"### ###",
-		"### ### ####",
-		"+385 ## ### ###",
-		"00385 ## ### ###"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string cellPhoneFormats() {
-		auto data = [
-		"09# ### ####",
-		"+385 9# ### ####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-
-	override string dateWeekday() {
-		final switch(uniform(0, 36, this.rnd)) {
-			case 0: return "wide: [";
-			case 1: return "nedjelja";
-			case 2: return "ponedjeljak";
-			case 3: return "utorak";
-			case 4: return "srijeda";
-			case 5: return "četvrtak";
-			case 6: return "petak";
-			case 7: return "subota";
-			case 8: return "]";
-			case 9: return "if not set then \"wide\" will be used instead";
-			case 10: return "which may differ from a stand-alone word";
-			case 11: return "wide_context: [";
-			case 12: return "nedjelja";
-			case 13: return "ponedjeljak";
-			case 14: return "utorak";
-			case 15: return "srijeda";
-			case 16: return "četvrtak";
-			case 17: return "petak";
-			case 18: return "subota";
-			case 19: return "]";
-			case 20: return "abbr: ['ned";
-			case 21: return "pon";
-			case 22: return "uto";
-			case 23: return "sri";
-			case 24: return "čet";
-			case 25: return "pet";
-			case 26: return "sub']";
-			case 27: return "if not set then \"abbr\" will be used instead";
-			case 28: return "which may differ from a stand-alone word";
-			case 29: return "abbr_context: ['ned";
-			case 30: return "pon";
-			case 31: return "uto";
-			case 32: return "sri";
-			case 33: return "čet";
-			case 34: return "pet";
-			case 35: return "sub']";
-		}
-	}
-
-
-	override string dateMonth() {
-		final switch(uniform(0, 60, this.rnd)) {
-			case 0: return "wide: [";
-			case 1: return "siječanj";
-			case 2: return "veljača";
-			case 3: return "ožujak";
-			case 4: return "travanj";
-			case 5: return "svibanj";
-			case 6: return "lipanj";
-			case 7: return "srpanj";
-			case 8: return "kolovoz";
-			case 9: return "rujan";
-			case 10: return "listopad";
-			case 11: return "studeni";
-			case 12: return "prosinac";
-			case 13: return "]";
-			case 14: return "if not set then \"wide\" will be used instead";
-			case 15: return "which may differ from a stand-alone word";
-			case 16: return "wide_context: [";
-			case 17: return "siječanj";
-			case 18: return "veljača";
-			case 19: return "ožujak";
-			case 20: return "travanj";
-			case 21: return "svibanj";
-			case 22: return "lipanj";
-			case 23: return "srpanj";
-			case 24: return "kolovoz";
-			case 25: return "rujan";
-			case 26: return "listopad";
-			case 27: return "studeni";
-			case 28: return "prosinac";
-			case 29: return "]";
-			case 30: return "abbr: [";
-			case 31: return "sij";
-			case 32: return "vel";
-			case 33: return "ožu";
-			case 34: return "tra";
-			case 35: return "svi";
-			case 36: return "lip";
-			case 37: return "srp";
-			case 38: return "kol";
-			case 39: return "ruj";
-			case 40: return "lis";
-			case 41: return "stu";
-			case 42: return "pro";
-			case 43: return "]";
-			case 44: return "if not set then \"abbr\" will be used instead";
-			case 45: return "which may differ from a stand-alone word";
-			case 46: return "abbr_context: [";
-			case 47: return "sij";
-			case 48: return "vel";
-			case 49: return "ožu";
-			case 50: return "tra";
-			case 51: return "svi";
-			case 52: return "lip";
-			case 53: return "srp";
-			case 54: return "kol";
-			case 55: return "ruj";
-			case 56: return "lis";
-			case 57: return "stu";
-			case 58: return "pro";
-			case 59: return "]";
-		}
-	}
-
-	///
-	override string internetFreeEmail() {
-		auto data = [
-		"gmail.com",
-		"hrnet.hr",
-		"mailhr.hr'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"hr",
-		"com",
-		"net",
-		"eu",
-		"org'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCityName() {
+	override string locationCityName() {
 		auto data = [
 		"Bakar",
 		"Beli Manastir",
@@ -306,7 +154,35 @@ class Faker_hr : Faker {
 	}
 
 	///
-	override string addressCountry() {
+	override string locationState() {
+		auto data = [
+		"Bjelovarsko-bilogorska",
+		"Brodsko-posavska",
+		"Dubrovačko-neretvanska",
+		"Grad Zagreb",
+		"Istarska",
+		"Karlovačka",
+		"Koprivničko-križevačka",
+		"Krapinsko-zagorska",
+		"Ličko-senjska",
+		"Međimurska",
+		"Osječko-baranjska",
+		"Požeško-slavonska",
+		"Primorsko-goranska",
+		"Sisačko-moslavačka",
+		"Splitsko-dalmatinska",
+		"Šibensko-kninska",
+		"Varaždinska",
+		"Virovitičko-podravska",
+		"Vukovarsko-srijemska",
+		"Zadarska",
+		"Zagrebačka"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationCountry() {
 		auto data = [
 		"Afganistan",
 		"Albanija",
@@ -559,15 +435,22 @@ class Faker_hr : Faker {
 	}
 
 
-	override string addressStreetAddress() {
+	override string locationStreetPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationStreetName() ~ "'";
+		}
+	}
+
+
+	override string locationStreetAddress() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return "normal: '" ~ addressStreet() ~ " " ~ addressBuildingNumber();
-			case 1: return "full: '" ~ addressStreet() ~ " " ~ addressBuildingNumber() ~ " " ~ addressSecondaryAddress();
+			case 0: return "normal: '" ~ locationStreet() ~ " " ~ locationBuildingNumber();
+			case 1: return "full: '" ~ locationStreet() ~ " " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
 		}
 	}
 
 	///
-	override string addressDefaultCountry() {
+	override string locationDefaultCountry() {
 		auto data = [
 		"Hrvatska'"
 		];
@@ -575,148 +458,14 @@ class Faker_hr : Faker {
 	}
 
 
-	override string addressStreet() {
+	override string locationCityPattern() {
 		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressStreetName() ~ "'";
+			case 0: return locationCityName() ~ "'";
 		}
 	}
 
 	///
-	override string addressTimeZone() {
-		auto data = [
-		"Pacifik/Midway",
-		"Pacifik/Pago_Pago",
-		"Pacifik/Honolulu",
-		"Amerika/Juneau",
-		"Amerika/Los_Angeles",
-		"Amerika/Tijuana",
-		"Amerika/Denver",
-		"Amerika/Phoenix",
-		"Amerika/Chihuahua",
-		"Amerika/Mazatlan",
-		"Amerika/Chicago",
-		"Amerika/Regina",
-		"Amerika/Mexico_City",
-		"Amerika/Monterrey",
-		"Amerika/Guatemala",
-		"Amerika/New_York",
-		"Amerika/Indiana/Indianapolis",
-		"Amerika/Bogota",
-		"Amerika/Lima",
-		"Amerika/Lima",
-		"Amerika/Halifax",
-		"Amerika/Caracas",
-		"Amerika/La_Paz",
-		"Amerika/Santiago",
-		"Amerika/St_Johns",
-		"Amerika/Sao_Paulo",
-		"Amerika/Argentina/Buenos_Aires",
-		"Amerika/Guyana",
-		"Amerika/Godthab",
-		"Atlantik/South_Georgia",
-		"Atlantik/Azori",
-		"Atlantik/Cape_Verde",
-		"Europa/Dublin",
-		"Europa/London",
-		"Europa/Lisbon",
-		"Europa/London",
-		"Africa/Casablanca",
-		"Africa/Monrovia",
-		"Etc/UTC",
-		"Europa/Beograd",
-		"Europa/Bratislava",
-		"Europa/Budapest",
-		"Europa/Ljubljana",
-		"Europa/Prague",
-		"Europa/Sarajevo",
-		"Europa/Skopje",
-		"Europa/Varšava",
-		"Europa/Zagreb",
-		"Europa/Brussels",
-		"Europa/Copenhagen",
-		"Europa/Madrid",
-		"Europa/Paris",
-		"Europa/Amsterdam",
-		"Europa/Berlin",
-		"Europa/Rim",
-		"Europa/Stockholm",
-		"Europa/Beč",
-		"Africa/Alžir",
-		"Europa/Bukurešt",
-		"Africa/Kairo",
-		"Europa/Helsinki",
-		"Europa/Kiev",
-		"Europa/Riga",
-		"Europa/Sofia",
-		"Europa/Tallinn",
-		"Europa/Vilnius",
-		"Europa/Atena",
-		"Europa/Istanbul",
-		"Europa/Minsk",
-		"Azija/Jeruzalem",
-		"Africa/Harare",
-		"Africa/Johannesburg",
-		"Europa/Moskva",
-		"Azija/Kuwait",
-		"Azija/Riyadh",
-		"Africa/Nairobi",
-		"Azija/Baghdad",
-		"Azija/Tehran",
-		"Azija/Muscat",
-		"Azija/Baku",
-		"Azija/Tbilisi",
-		"Azija/Yerevan",
-		"Azija/Kabul",
-		"Azija/Yekaterinburg",
-		"Azija/Karachi",
-		"Azija/Tashkent",
-		"Azija/Kolkata",
-		"Azija/Kathmandu",
-		"Azija/Dhaka",
-		"Azija/Colombo",
-		"Azija/Almaty",
-		"Azija/Novosibirsk",
-		"Azija/Rangoon",
-		"Azija/Bangkok",
-		"Azija/Jakarta",
-		"Azija/Krasnoyarsk",
-		"Azija/Shanghai",
-		"Azija/Chongqing",
-		"Azija/Hong_Kong",
-		"Azija/Urumqi",
-		"Azija/Kuala_Lumpur",
-		"Azija/Singapore",
-		"Azija/Taipei",
-		"Australia/Perth",
-		"Azija/Irkutsk",
-		"Azija/Ulaanbaatar",
-		"Azija/Seoul",
-		"Azija/Tokyo",
-		"Azija/Yakutsk",
-		"Australia/Darwin",
-		"Australia/Adelaide",
-		"Australia/Melbourne",
-		"Australia/Sydney",
-		"Australia/Brisbane",
-		"Australia/Hobart",
-		"Azija/Vladivostok",
-		"Pacifik/Guam",
-		"Pacifik/Port_Moresby",
-		"Azija/Magadan",
-		"Pacifik/Noumea",
-		"Pacifik/Fiji",
-		"Azija/Kamchatka",
-		"Pacifik/Majuro",
-		"Pacifik/Auckland",
-		"Pacifik/Tongatapu",
-		"Pacifik/Fakaofo",
-		"Pacifik/Apia"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	string addressStreetName() {
+	string locationStreetName() {
 		auto data = [
 		"Adolfa Waldingera",
 		"Alanska",
@@ -734,7 +483,6 @@ class Faker_hr : Faker {
 		"Banova",
 		"Bapska",
 		"Baranjska",
-		"Bartula Kašića",
 		"Bartula Kašića",
 		"Baščanska",
 		"Bele Bartoka",
@@ -756,7 +504,6 @@ class Faker_hr : Faker {
 		"Brodska",
 		"Brune Bjelinskog",
 		"Buzetska",
-		"Cara Hadrijana",
 		"Cara Hadrijana",
 		"Ćelijska",
 		"Christiana Monspergera",
@@ -787,7 +534,6 @@ class Faker_hr : Faker {
 		"Erdutska",
 		"Esperantska",
 		"Eugena Kumičića",
-		"Europska avenija",
 		"Europska avenija",
 		"Fakultetska",
 		"Ferde Livadića",
@@ -841,7 +587,6 @@ class Faker_hr : Faker {
 		"Kaštelanska",
 		"Klanac",
 		"Kneza Borne",
-		"Kneza Trpimira",
 		"Kneza Trpimira",
 		"Kninska",
 		"Kolodvorska",
@@ -961,7 +706,6 @@ class Faker_hr : Faker {
 		"Rapska",
 		"Rastanci",
 		"Reisnerova",
-		"Reisnerova",
 		"Retfala nova",
 		"Ribarska",
 		"Riječka",
@@ -975,7 +719,6 @@ class Faker_hr : Faker {
 		"Šarengradska",
 		"Sarvaška",
 		"Senjska",
-		"Šetalište kardinala Franje Šepera",
 		"Šetalište kardinala Franje Šepera",
 		"Šetalište Petra Preradovića",
 		"Šetalište Vjekoslava Hengla",
@@ -1080,7 +823,6 @@ class Faker_hr : Faker {
 		"Vrt Jagode Truhelke",
 		"Vrtna",
 		"Vukovarska cesta",
-		"Vukovarska cesta",
 		"Woodrowa Wilsona",
 		"Zadarska",
 		"Zagorska",
@@ -1097,15 +839,8 @@ class Faker_hr : Faker {
 		return choice(data, this.rnd);
 	}
 
-
-	override string addressCity() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressCityName() ~ "'";
-		}
-	}
-
 	///
-	override string addressBuildingNumber() {
+	override string locationBuildingNumber() {
 		auto data = [
 		"#",
 		"##",
@@ -1115,7 +850,7 @@ class Faker_hr : Faker {
 	}
 
 	///
-	override string addressSecondaryAddress() {
+	override string locationSecondaryAddress() {
 		auto data = [
 		"Kat #",
 		"Stan ##'"
@@ -1124,15 +859,132 @@ class Faker_hr : Faker {
 	}
 
 	///
-	override string addressPostcode() {
+	override string locationPostcode() {
 		auto data = [
 		"#####'"
 		];
 		return this.digitBuild(choice(data, this.rnd));
 	}
 
+
+	override string dateWeekday() {
+		final switch(uniform(0, 16, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "nedjelja";
+			case 2: return "ponedjeljak";
+			case 3: return "utorak";
+			case 4: return "srijeda";
+			case 5: return "četvrtak";
+			case 6: return "petak";
+			case 7: return "subota";
+			case 8: return "]";
+			case 9: return "abbr: ['ned";
+			case 10: return "pon";
+			case 11: return "uto";
+			case 12: return "sri";
+			case 13: return "čet";
+			case 14: return "pet";
+			case 15: return "sub']";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 28, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "siječanj";
+			case 2: return "veljača";
+			case 3: return "ožujak";
+			case 4: return "travanj";
+			case 5: return "svibanj";
+			case 6: return "lipanj";
+			case 7: return "srpanj";
+			case 8: return "kolovoz";
+			case 9: return "rujan";
+			case 10: return "listopad";
+			case 11: return "studeni";
+			case 12: return "prosinac";
+			case 13: return "]";
+			case 14: return "abbr: [";
+			case 15: return "sij";
+			case 16: return "vel";
+			case 17: return "ožu";
+			case 18: return "tra";
+			case 19: return "svi";
+			case 20: return "lip";
+			case 21: return "srp";
+			case 22: return "kol";
+			case 23: return "ruj";
+			case 24: return "lis";
+			case 25: return "stu";
+			case 26: return "pro";
+			case 27: return "]";
+		}
+	}
+
 	///
-	override string nameMaleFirstName() {
+	override string phoneNumberFormats() {
+		auto data = [
+		"### ###",
+		"### ### ####",
+		"+385 ## ### ###",
+		"00385 ## ### ###"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"09# ### ####",
+		"+385 9# ### ####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string internetFreeEmail() {
+		auto data = [
+		"gmail.com",
+		"hrnet.hr",
+		"mailhr.hr'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"hr",
+		"com",
+		"net",
+		"eu",
+		"org'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMalePrefix() {
+		auto data = [
+		"g.",
+		"dr.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFemalePrefix() {
+		auto data = [
+		"gđa.",
+		"gđa",
+		"dr.'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personMaleFirstName() {
 		auto data = [
 		"Adi",
 		"Ado",
@@ -1310,7 +1162,7 @@ class Faker_hr : Faker {
 	}
 
 	///
-	override string nameSuffix() {
+	override string personSuffix() {
 		auto data = [
 		"dipl.oecc",
 		"dipl.ing'"
@@ -1319,7 +1171,7 @@ class Faker_hr : Faker {
 	}
 
 	///
-	override string nameLastName() {
+	override string personLastName() {
 		auto data = [
 		"Abadžić",
 		"Abadžija",
@@ -12943,7 +12795,7 @@ class Faker_hr : Faker {
 	}
 
 	///
-	override string nameFirstName() {
+	override string personFirstName() {
 		auto data = [
 		"Ada",
 		"Adina",
@@ -13005,7 +12857,7 @@ class Faker_hr : Faker {
 		"Dara",
 		"Darinka",
 		"Dea",
-		"Ðina",
+		"Đina",
 		"Dona",
 		"Donka",
 		"Dora",
@@ -13119,7 +12971,7 @@ class Faker_hr : Faker {
 		"Dragica",
 		"Dubravka",
 		"Dunja",
-		"Ðurda",
+		"Đurda",
 		"Edita",
 		"Elena",
 		"Ema",
@@ -13189,7 +13041,6 @@ class Faker_hr : Faker {
 		"Andelin",
 		"Andelko",
 		"Andelo",
-		"Andi",
 		"Andras",
 		"Andrej",
 		"Andrija",
@@ -13200,12 +13051,10 @@ class Faker_hr : Faker {
 		"Antonin",
 		"Antonio",
 		"Antun",
-		"Bela",
 		"Belimir",
 		"Berti",
 		"Boris",
 		"Borko",
-		"Borna",
 		"Božidar",
 		"Branimir",
 		"Bruno",
@@ -13252,7 +13101,6 @@ class Faker_hr : Faker {
 		"Ivan",
 		"Ive",
 		"Ivek",
-		"Ivica",
 		"Ivo",
 		"Jadran",
 		"Jadranko",
@@ -13359,20 +13207,90 @@ class Faker_hr : Faker {
 	}
 
 
-	override string nameName() {
-		final switch(uniform(0, 7, this.rnd)) {
-			case 0: return namePrefix() ~ " " ~ nameFirstName() ~ " " ~ nameLastName();
-			case 1: return nameFirstName() ~ " " ~ nameLastName();
-			case 2: return nameSuffix();
-			case 3: return nameFirstName() ~ " " ~ nameLastName();
-			case 4: return nameFirstName() ~ " " ~ nameLastName();
-			case 5: return nameMaleFirstName() ~ " " ~ nameLastName();
-			case 6: return nameFemaleFirstName() ~ " " ~ nameLastName();
+	override string personTitle() {
+		final switch(uniform(0, 60, this.rnd)) {
+			case 0: return "descriptor: [";
+			case 1: return "Glavni";
+			case 2: return "Senior";
+			case 3: return "Korporativni";
+			case 4: return "Nacionalni";
+			case 5: return "Regionalni";
+			case 6: return "Okružni";
+			case 7: return "Središnji";
+			case 8: return "Globalni";
+			case 9: return "Međunarodni";
+			case 10: return "Operativni";
+			case 11: return "]";
+			case 12: return "level: [";
+			case 13: return "programski";
+			case 14: return "brand";
+			case 15: return "sigurnosni";
+			case 16: return "marketing";
+			case 17: return "implementacijski";
+			case 18: return "integracijski";
+			case 19: return "funkcionalni";
+			case 20: return "tržišni";
+			case 21: return "grupni";
+			case 22: return "aplikacijski";
+			case 23: return "optimizacijski";
+			case 24: return "operativni";
+			case 25: return "infrastrukturni";
+			case 26: return "komercijalni";
+			case 27: return "prodajni";
+			case 28: return "web";
+			case 29: return "financijski";
+			case 30: return "podatkovni";
+			case 31: return "logistički";
+			case 32: return "kreativni";
+			case 33: return "računovodstveni";
+			case 34: return "]";
+			case 35: return "job: [";
+			case 36: return "voditelj";
+			case 37: return "suradnik";
+			case 38: return "službenik";
+			case 39: return "menadžer";
+			case 40: return "inženjer";
+			case 41: return "specijalist";
+			case 42: return "direktor";
+			case 43: return "koordinator";
+			case 44: return "administrator";
+			case 45: return "arhitekt";
+			case 46: return "analist";
+			case 47: return "dizajner";
+			case 48: return "planer";
+			case 49: return "ekspert";
+			case 50: return "savjetnik";
+			case 51: return "organizator";
+			case 52: return "tehničar";
+			case 53: return "konzultant";
+			case 54: return "asistent";
+			case 55: return "agent";
+			case 56: return "predstavnik";
+			case 57: return "referent";
+			case 58: return "strateg";
+			case 59: return "]";
+		}
+	}
+
+
+	override string personName() {
+		final switch(uniform(0, 11, this.rnd)) {
+			case 0: return "{";
+			case 1: return "value: '" ~ personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+			case 2: return "weight: 1";
+			case 3: return "}";
+			case 4: return "{";
+			case 5: return "value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 6: return personSuffix();
+			case 7: return "weight: 1";
+			case 8: return "}";
+			case 9: return "{ value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 10: return "weight: 8 }";
 		}
 	}
 
 	///
-	override string nameFemaleFirstName() {
+	override string personFemaleFirstName() {
 		auto data = [
 		"Ada",
 		"Adina",
@@ -13434,7 +13352,7 @@ class Faker_hr : Faker {
 		"Dara",
 		"Darinka",
 		"Dea",
-		"Ðina",
+		"Đina",
 		"Dona",
 		"Donka",
 		"Dora",
@@ -13548,7 +13466,7 @@ class Faker_hr : Faker {
 		"Dragica",
 		"Dubravka",
 		"Dunja",
-		"Ðurda",
+		"Đurda",
 		"Edita",
 		"Elena",
 		"Ema",
@@ -13616,16 +13534,12 @@ class Faker_hr : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string namePrefix() {
-		auto data = [
-		"g.",
-		"gđa.",
-		"gđa.",
-		"gđa",
-		"dr.'"
-		];
-		return choice(data, this.rnd);
+
+	override string personLastNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
+		}
 	}
 
 }

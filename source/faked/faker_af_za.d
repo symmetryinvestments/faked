@@ -19,6 +19,85 @@ class Faker_af_za : Faker {
 	}
 
 	///
+	override string locationCityName() {
+		auto data = [
+		"Polokwane",
+		"Johannesburg",
+		"Pretoria",
+		"Tshwane",
+		"Durban",
+		"Pietermaritzburg",
+		"Nelspruit",
+		"Kaapstad",
+		"Stellenbosch",
+		"Port Elizabeth",
+		"Oos-Londen",
+		"Kimberley",
+		"Rustenburg",
+		"Bloemfontein"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationState() {
+		auto data = [
+		"Gauteng",
+		"KwaZulu-Natal",
+		"Limpopo",
+		"Mpumalanga",
+		"Noord-Kaap",
+		"Noordwes",
+		"Oos-Kaap",
+		"Vrystaat",
+		"Wes-Kaap"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationPostcode() {
+		auto data = [
+		"#####",
+		"####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+
+	override string locationStreetPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+		}
+	}
+
+	///
+	override string locationDefaultCountry() {
+		auto data = [
+		"South Africa'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName() ~ "'";
+		}
+	}
+
+	///
+	override string companySuffix() {
+		auto data = [
+		"Pty Ltd",
+		"Ltd",
+		"CC'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
 	override string phoneNumberFormats() {
 		auto data = [
 		"01# ### #####",
@@ -48,16 +127,6 @@ class Faker_af_za : Faker {
 	}
 
 	///
-	override string companySuffix() {
-		auto data = [
-		"Pty Ltd",
-		"Ltd",
-		"CC'"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
 	override string internetDomainSuffix() {
 		auto data = [
 		"co.za",
@@ -69,43 +138,16 @@ class Faker_af_za : Faker {
 		return choice(data, this.rnd);
 	}
 
-	///
-	override string addressPostcode() {
-		auto data = [
-		"#####",
-		"####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
 
-
-	override string addressCity() {
-		final switch(uniform(0, 4, this.rnd)) {
-			case 0: return addressCityPrefix() ~ " " ~ nameFirstName() ~ addressCitySuffix();
-			case 1: return addressCityPrefix() ~ " " ~ nameFirstName();
-			case 2: return nameFirstName() ~ addressCitySuffix();
-			case 3: return nameLastName() ~ addressCitySuffix();
-		}
-	}
-
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"South Africa'"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string addressStreet() {
+	override string personLastNamePattern() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
-			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
 		}
 	}
 
 	///
-	override string nameLastName() {
+	override string personLastName() {
 		auto data = [
 		"van de Merwe",
 		"Schoeman",
@@ -212,12 +254,9 @@ class Faker_af_za : Faker {
 		"Lochner",
 		"Hanekom",
 		"Schmidt",
-		"Bekker",
 		"Wentzel",
-		"van Zyl",
 		"Bezuidenhout",
 		"Cilliers",
-		"Truter",
 		"Naude",
 		"de Vos",
 		"Goosen",
@@ -277,13 +316,12 @@ class Faker_af_za : Faker {
 	}
 
 	///
-	override string nameFirstName() {
+	override string personFirstName() {
 		auto data = [
 		"Susan",
 		"Monica",
 		"Linda",
 		"Elsa",
-		"Susan",
 		"Margaret",
 		"Lisa",
 		"Karen",
@@ -338,9 +376,7 @@ class Faker_af_za : Faker {
 		"Vanessa",
 		"Alma",
 		"Sue-Marie",
-		"Elsa",
 		"Carla",
-		"Rosemarie",
 		"Wilma",
 		"Kristin",
 		"Natalie",
@@ -357,7 +393,6 @@ class Faker_af_za : Faker {
 		"Jenny",
 		"Sonia",
 		"Kristina",
-		"Erika",
 		"Katrina",
 		"Belinda",
 		"Natasha",
@@ -387,7 +422,6 @@ class Faker_af_za : Faker {
 		"Jenna",
 		"Tasha",
 		"Sonja",
-		"Elsa",
 		"Elisa",
 		"Kristie",
 		"Johan",
@@ -472,7 +506,6 @@ class Faker_af_za : Faker {
 		"Rick",
 		"Ruben",
 		"Cecil",
-		"Andre",
 		"Roland",
 		"Harvey",
 		"Adriaan",
@@ -509,7 +542,7 @@ class Faker_af_za : Faker {
 	}
 
 	///
-	override string nameMaleFirstName() {
+	override string personMaleFirstName() {
 		auto data = [
 		"Johan",
 		"Robert",
@@ -593,7 +626,6 @@ class Faker_af_za : Faker {
 		"Rick",
 		"Ruben",
 		"Cecil",
-		"Andre",
 		"Roland",
 		"Harvey",
 		"Adriaan",
@@ -630,13 +662,12 @@ class Faker_af_za : Faker {
 	}
 
 	///
-	override string nameFemaleFirstName() {
+	override string personFemaleFirstName() {
 		auto data = [
 		"Susan",
 		"Monica",
 		"Linda",
 		"Elsa",
-		"Susan",
 		"Margaret",
 		"Lisa",
 		"Karen",
@@ -691,7 +722,6 @@ class Faker_af_za : Faker {
 		"Vanessa",
 		"Alma",
 		"Sue-Marie",
-		"Elsa",
 		"Carla",
 		"Rosemary",
 		"Wilma",
@@ -710,7 +740,6 @@ class Faker_af_za : Faker {
 		"Jenny",
 		"Sonia",
 		"Kristina",
-		"Erika",
 		"Katrina",
 		"Belinda",
 		"Natasha",
@@ -740,7 +769,6 @@ class Faker_af_za : Faker {
 		"Jenna",
 		"Tasha",
 		"Sonja",
-		"Elsa",
 		"Elisa",
 		"Kristie"
 		];

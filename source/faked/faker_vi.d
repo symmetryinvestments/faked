@@ -19,6 +19,345 @@ class Faker_vi : Faker {
 	}
 
 	///
+	override string locationCityName() {
+		auto data = [
+		"An Nhơn",
+		"Biên Hòa",
+		"Buôn Ma Thuột",
+		"Bắc Ninh",
+		"Cà Mau",
+		"Cần Thơ",
+		"Haiphong",
+		"Hanoi",
+		"Ho Chi Minh City",
+		"Huế",
+		"Hải Dương",
+		"Long Xuyên",
+		"Mỹ Tho",
+		"Nam Định",
+		"Nghi Sơn",
+		"Nha Trang",
+		"Phan Thiết",
+		"Quy Nhơn",
+		"Quảng Hà",
+		"Sóc Trăng",
+		"Thanh Hóa",
+		"Thái Bình",
+		"Thái Nguyên",
+		"Thủ Dầu Một",
+		"Thủ Đức",
+		"Tân An",
+		"Tân Uyên",
+		"Vinh",
+		"Việt Trì",
+		"Vũng Tàu"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationState() {
+		auto data = [
+		"An Giang",
+		"Bà Rịa-Vũng Tàu",
+		"Bắc Giang",
+		"Bắc Kạn",
+		"Bạc Liêu",
+		"Bắc Ninh",
+		"Bến Tre",
+		"Bình Định",
+		"Bình Dương",
+		"Bình Phước",
+		"Bình Thuận",
+		"Cà Mau",
+		"Cần Thơ",
+		"Cao Bằng",
+		"Đà Nẵng",
+		"Đắk Lắk",
+		"Đắk Nông",
+		"Điện Biên",
+		"Đồng Nai",
+		"Đồng Tháp",
+		"Gia Lai",
+		"Hà Giang",
+		"Hà Nam",
+		"Hà Tây",
+		"Hà Tĩnh",
+		"Hải Dương",
+		"Hải Phòng",
+		"Hà Nội",
+		"Hậu Giang",
+		"Hồ Chí Minh",
+		"Hòa Bình",
+		"Hưng Yên",
+		"Khánh Hòa",
+		"Kiên Giang",
+		"Kon Tum",
+		"Lai Châu",
+		"Lâm Đồng",
+		"Lạng Sơn",
+		"Lào Cai",
+		"Long An",
+		"Nam Định",
+		"Nghệ An",
+		"Ninh Bình",
+		"Ninh Thuận",
+		"Phú Thọ",
+		"Phú Yên",
+		"Quảng Bình",
+		"Quảng Nam",
+		"Quảng Ngãi",
+		"Quảng Ninh",
+		"Quảng Trị",
+		"Sóc Trăng",
+		"Sơn La",
+		"Tây Ninh",
+		"Thái Bình",
+		"Thái Nguyên",
+		"Thanh Hóa",
+		"Thừa Thiên-Huế",
+		"Tiền Giang",
+		"Trà Vinh",
+		"Tuyên Quang",
+		"Vĩnh Long",
+		"Vĩnh Phúc",
+		"Yên Bái"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string locationCountry() {
+		auto data = [
+		"Afghanistan",
+		"Ai Cập",
+		"Albania",
+		"Algérie",
+		"Andorra",
+		"Angola",
+		"Vương quốc Liên hiệp Anh và Bắc Ireland",
+		"Antigua và Barbuda",
+		"Áo",
+		"Ả Rập Xê Út",
+		"Argentina",
+		"Armenia",
+		"Azerbaijan",
+		"Ấn Độ",
+		"Bahamas",
+		"Bahrain",
+		"Bangladesh",
+		"Barbados",
+		"Belarus",
+		"Belize",
+		"Bénin",
+		"Bhutan",
+		"Bỉ",
+		"Bolivia",
+		"Bosna và Hercegovina",
+		"Botswana",
+		"Bồ Đào Nha",
+		"Bờ Biển Ngà",
+		"Brasil",
+		"Brunei",
+		"Bulgaria",
+		"Burkina Faso",
+		"Burundi",
+		"Cabo Verde",
+		"Các Tiểu Vương quốc Ả Rập Thống nhất",
+		"Cameroon",
+		"Campuchia",
+		"Canada",
+		"Chile",
+		"Colombia",
+		"Comoros",
+		"Cộng hòa Congo",
+		"Cộng hòa Dân chủ Congo",
+		"Costa Rica",
+		"Croatia",
+		"Cuba",
+		"Djibouti",
+		"Dominica",
+		"Cộng hòa Dominica",
+		"Đan Mạch",
+		"Đông Timor",
+		"Đức",
+		"Ecuador",
+		"El Salvador",
+		"Eritrea",
+		"Estonia",
+		"Ethiopia",
+		"Fiji",
+		"Gabon",
+		"Gambia",
+		"Ghana",
+		"Grenada",
+		"Gruzia",
+		"Guatemala",
+		"Guiné-Bissau",
+		"Guinea Xích Đạo",
+		"Guinée",
+		"Guyana",
+		"Haiti",
+		"Hà Lan",
+		"Hàn Quốc",
+		"Hoa Kỳ",
+		"Honduras",
+		"Hungary",
+		"Hy Lạp",
+		"Iceland",
+		"Indonesia",
+		"Iran",
+		"Iraq",
+		"Ireland",
+		"Israel",
+		"Jamaica",
+		"Jordan",
+		"Kazakhstan",
+		"Kenya",
+		"Kiribati",
+		"Kosovo",
+		"Kuwait",
+		"Kyrgyzstan",
+		"Lào",
+		"Latvia",
+		"Lesotho",
+		"Liban",
+		"Liberia",
+		"Libya",
+		"Liechtenstein",
+		"Litva",
+		"Luxembourg",
+		"Macedonia",
+		"Madagascar",
+		"Malaysia",
+		"Mali",
+		"Malta",
+		"Maroc",
+		"Quần đảo Marshall",
+		"Mauritanie",
+		"Mauritius",
+		"México",
+		"Micronesia",
+		"Moldova",
+		"Monaco",
+		"Mông Cổ",
+		"Montenegro",
+		"Mozambique",
+		"Myanmar",
+		"Namibia",
+		"Nam Sudan",
+		"Nam Phi",
+		"Nauru",
+		"Na Uy",
+		"Nepal",
+		"New Zealand",
+		"Nicaragua",
+		"Niger",
+		"Nigeria",
+		"Nga",
+		"Nhật Bản",
+		"Oman",
+		"Pakistan",
+		"Palau",
+		"Palestine",
+		"Panama",
+		"Papua New Guinea",
+		"Paraguay",
+		"Peru",
+		"Pháp",
+		"Phần Lan",
+		"Philippines",
+		"Qatar",
+		"România",
+		"Rwanda",
+		"Saint Kitts và Nevis",
+		"Saint Lucia",
+		"Saint Vincent và Grenadines",
+		"Samoa",
+		"San Marino",
+		"São Tomé và Príncipe",
+		"Séc",
+		"Sénégal",
+		"Serbia",
+		"Seychelles",
+		"Sierra Leone",
+		"Singapore",
+		"Síp",
+		"Slovakia",
+		"Slovenia",
+		"Solomon",
+		"Somalia",
+		"Sri Lanka",
+		"Sudan",
+		"Suriname",
+		"Swaziland",
+		"Syria",
+		"Tajikistan",
+		"Tanzania",
+		"Tây Ban Nha",
+		"Tchad",
+		"Thái Lan",
+		"Thổ Nhĩ Kỳ",
+		"Thụy Điển",
+		"Thụy Sĩ",
+		"Togo",
+		"Tonga",
+		"Triều Tiên",
+		"Trinidad và Tobago",
+		"Trung Quốc",
+		"Trung Phi",
+		"Tunisia",
+		"Turkmenistan",
+		"Tuvalu",
+		"Úc",
+		"Uganda",
+		"Ukraina",
+		"Uruguay",
+		"Uzbekistan",
+		"Vanuatu",
+		"Vatican",
+		"Venezuela",
+		"Việt Nam",
+		"Ý",
+		"Yemen",
+		"Zambia",
+		"Zimbabwe"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string locationStreetPattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+		}
+	}
+
+	///
+	override string locationDefaultCountry() {
+		auto data = [
+		"Việt Nam'"
+		];
+		return choice(data, this.rnd);
+	}
+
+
+	override string locationCityPattern() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName() ~ "'";
+		}
+	}
+
+	///
+	override string locationPostcode() {
+		auto data = [
+		"#####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
 	override string loremWords() {
 		auto data = [
 		"đã",
@@ -101,7 +440,6 @@ class Faker_vi : Faker {
 		"ghét",
 		"giết",
 		"chết",
-		"hết",
 		"tôi",
 		"bạn",
 		"tui",
@@ -142,14 +480,114 @@ class Faker_vi : Faker {
 	}
 
 
-	override string companyName() {
+	override string companyNamePattern() {
 		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return companyPrefix() ~ " " ~ nameLastName() ~ "'";
+			case 0: return companyPrefix() ~ " " ~ personLastName() ~ "'";
+		}
+	}
+
+
+	override string dateWeekday() {
+		final switch(uniform(0, 27, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Chủ nhật";
+			case 2: return "Thứ hai";
+			case 3: return "Thứ ba";
+			case 4: return "Thứ tư";
+			case 5: return "Thứ năm";
+			case 6: return "Thứ sáu";
+			case 7: return "Thứ bảy";
+			case 8: return "]";
+			case 9: return "abbr: ['CN";
+			case 10: return "T2";
+			case 11: return "T3";
+			case 12: return "T4";
+			case 13: return "T5";
+			case 14: return "T6";
+			case 15: return "T7']";
+			case 16: return "if not set then \"abbr\" will be used instead";
+			case 17: return "which may differ from a stand-alone word";
+			case 18: return "abbr_context: [";
+			case 19: return "C.Nhật";
+			case 20: return "Thứ 2";
+			case 21: return "Thứ 3";
+			case 22: return "Thứ 4";
+			case 23: return "Thứ 5";
+			case 24: return "Thứ 6";
+			case 25: return "Thứ 7";
+			case 26: return "]";
+		}
+	}
+
+
+	override string dateMonth() {
+		final switch(uniform(0, 28, this.rnd)) {
+			case 0: return "wide: [";
+			case 1: return "Tháng Giêng";
+			case 2: return "Tháng Hai";
+			case 3: return "Tháng Ba";
+			case 4: return "Tháng Tư";
+			case 5: return "Tháng Năm";
+			case 6: return "Tháng Sáu";
+			case 7: return "Tháng Bảy";
+			case 8: return "Tháng Tám";
+			case 9: return "Tháng Chín";
+			case 10: return "Tháng Mười";
+			case 11: return "Tháng Mười Một";
+			case 12: return "Tháng Mười Hai";
+			case 13: return "]";
+			case 14: return "abbr: [";
+			case 15: return "Tháng 1";
+			case 16: return "Tháng 2";
+			case 17: return "Tháng 3";
+			case 18: return "Tháng 4";
+			case 19: return "Tháng 5";
+			case 20: return "Tháng 6";
+			case 21: return "Tháng 7";
+			case 22: return "Tháng 8";
+			case 23: return "Tháng 9";
+			case 24: return "Tháng 10";
+			case 25: return "Tháng 11";
+			case 26: return "Tháng 12";
+			case 27: return "]";
 		}
 	}
 
 	///
-	override string nameFemaleFirstName() {
+	override string phoneNumberFormats() {
+		auto data = [
+		"02# #### ####",
+		"02## #### ####'"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string cellPhoneFormats() {
+		auto data = [
+		"03# ### ####",
+		"05# ### ####",
+		"07# ### ####",
+		"08# ### ####",
+		"09# ### ####"
+		];
+		return this.digitBuild(choice(data, this.rnd));
+	}
+
+	///
+	override string internetDomainSuffix() {
+		auto data = [
+		"com",
+		"net",
+		"info",
+		"vn",
+		"com.vn'"
+		];
+		return choice(data, this.rnd);
+	}
+
+	///
+	override string personFemaleFirstName() {
 		auto data = [
 		"An Bình",
 		"An Di",
@@ -168,7 +606,7 @@ class Faker_vi : Faker {
 		"Anh Thư",
 		"Anh Thảo",
 		"Anh Vũ",
-		"Anh Ðào",
+		"Anh Đào",
 		"Ban Mai",
 		"Bình Minh",
 		"Bình Yên",
@@ -205,8 +643,8 @@ class Faker_vi : Faker {
 		"Bích Trâm",
 		"Bích Ty",
 		"Bích Vân",
-		"Bích Ðiệp",
-		"Bích Ðào",
+		"Bích Điệp",
+		"Bích Đào",
 		"Băng Băng",
 		"Băng Tâm",
 		"Bạch Cúc",
@@ -464,7 +902,7 @@ class Faker_vi : Faker {
 		"Hải Vân",
 		"Hải Yến",
 		"Hải Ân",
-		"Hải Ðường",
+		"Hải Đường",
 		"Hảo Nhi",
 		"Hằng Anh",
 		"Hằng Nga",
@@ -505,8 +943,8 @@ class Faker_vi : Faker {
 		"Hồng Tâm",
 		"Hồng Vân",
 		"Hồng Xuân",
-		"Hồng Ðiệp",
-		"Hồng Ðào",
+		"Hồng Điệp",
+		"Hồng Đào",
 		"Hồng Đăng",
 		"Khiết Linh",
 		"Khiết Tâm",
@@ -623,7 +1061,7 @@ class Faker_vi : Faker {
 		"Linh Phượng",
 		"Linh San",
 		"Linh Trang",
-		"Linh Ðan",
+		"Linh Đan",
 		"Liên Chi",
 		"Liên Hoa",
 		"Liên Hương",
@@ -731,7 +1169,7 @@ class Faker_vi : Faker {
 		"Mộng Vi",
 		"Mộng Vy",
 		"Mộng Vân",
-		"Mộng Ðiệp",
+		"Mộng Điệp",
 		"Mỹ Anh",
 		"Mỹ Diễm",
 		"Mỹ Dung",
@@ -839,9 +1277,9 @@ class Faker_vi : Faker {
 		"Ngọc Yến",
 		"Ngọc Ái",
 		"Ngọc Ánh",
-		"Ngọc Ðiệp",
-		"Ngọc Ðàn",
-		"Ngọc Ðào",
+		"Ngọc Điệp",
+		"Ngọc Đàn",
+		"Ngọc Đào",
 		"Nhan Hồng",
 		"Nhã Hương",
 		"Nhã Hồng",
@@ -1174,9 +1612,9 @@ class Faker_vi : Faker {
 		"Thục Tâm",
 		"Thục Uyên",
 		"Thục Vân",
-		"Thục Ðoan",
-		"Thục Ðào",
-		"Thục Ðình",
+		"Thục Đoan",
+		"Thục Đào",
+		"Thục Đình",
 		"Thụy Du",
 		"Thụy Khanh",
 		"Thụy Linh",
@@ -1187,7 +1625,7 @@ class Faker_vi : Faker {
 		"Thụy Trâm",
 		"Thụy Uyên",
 		"Thụy Vân",
-		"Thụy Ðào",
+		"Thụy Đào",
 		"Thủy Hằng",
 		"Thủy Hồng",
 		"Thủy Linh",
@@ -1206,7 +1644,7 @@ class Faker_vi : Faker {
 		"Trang Linh",
 		"Trang Nhã",
 		"Trang Tâm",
-		"Trang Ðài",
+		"Trang Đài",
 		"Triều Nguyệt",
 		"Triều Thanh",
 		"Triệu Mẫn",
@@ -1230,7 +1668,6 @@ class Faker_vi : Faker {
 		"Trúc Quỳnh",
 		"Trúc Vy",
 		"Trúc Vân",
-		"Trúc Ðào",
 		"Trúc Đào",
 		"Trầm Hương",
 		"Tuyết Anh",
@@ -1270,7 +1707,7 @@ class Faker_vi : Faker {
 		"Tâm Như",
 		"Tâm Thanh",
 		"Tâm Trang",
-		"Tâm Ðoan",
+		"Tâm Đoan",
 		"Tâm Đan",
 		"Tùng Linh",
 		"Tùng Lâm",
@@ -1390,7 +1827,6 @@ class Faker_vi : Faker {
 		"Yên Bằng",
 		"Yên Mai",
 		"Yên Nhi",
-		"Yên Ðan",
 		"Yên Đan",
 		"Yến Anh",
 		"Yến Hồng",
@@ -1406,7 +1842,7 @@ class Faker_vi : Faker {
 		"Yến Trang",
 		"Yến Trinh",
 		"Yến Trâm",
-		"Yến Ðan",
+		"Yến Đan",
 		"Ái Hồng",
 		"Ái Khanh",
 		"Ái Linh",
@@ -1427,37 +1863,27 @@ class Faker_vi : Faker {
 		"Ánh Trang",
 		"Ánh Tuyết",
 		"Ánh Xuân",
-		"Ðan Khanh",
-		"Ðan Quỳnh",
-		"Đan Thu",
-		"Ðinh Hương",
-		"Ðoan Thanh",
-		"Ðoan Trang",
-		"Ðài Trang",
-		"Ðông Nghi",
-		"Ðông Nhi",
-		"Ðông Trà",
-		"Ðông Tuyền",
-		"Ðông Vy",
-		"Ðông Ðào",
-		"Ðồng Dao",
-		"Ý Bình",
-		"Ý Lan",
-		"Ý Nhi",
-		"Đan Linh",
+		"Đan Khanh",
 		"Đan Quỳnh",
-		"Đan Thanh",
 		"Đan Thu",
-		"Đan Thư",
-		"Đan Tâm",
 		"Đinh Hương",
 		"Đoan Thanh",
 		"Đoan Trang",
 		"Đài Trang",
 		"Đông Nghi",
+		"Đông Nhi",
 		"Đông Trà",
 		"Đông Tuyền",
 		"Đông Vy",
+		"Đông Đào",
+		"Đồng Dao",
+		"Ý Bình",
+		"Ý Lan",
+		"Ý Nhi",
+		"Đan Linh",
+		"Đan Thanh",
+		"Đan Thư",
+		"Đan Tâm",
 		"Đơn Thuần",
 		"Đức Hạnh",
 		"Ấu Lăng"
@@ -1465,8 +1891,16 @@ class Faker_vi : Faker {
 		return choice(data, this.rnd);
 	}
 
+
+	override string personLastNamePattern() {
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return "{ value: '" ~ personLastName();
+			case 1: return "weight: 1 }";
+		}
+	}
+
 	///
-	override string nameLastName() {
+	override string personLastName() {
 		auto data = [
 		"Phạm",
 		"Nguyễn",
@@ -1498,14 +1932,8 @@ class Faker_vi : Faker {
 		return choice(data, this.rnd);
 	}
 
-
-	override string nameFirstName() {
-		return choice([false, true], this.rnd)
-			? nameFemaleFirstName()
-			: nameMaleFirstName();
-	}
 	///
-	override string nameMaleFirstName() {
+	override string personMaleFirstName() {
 		auto data = [
 		"An Cơ",
 		"An Khang",
@@ -1516,7 +1944,7 @@ class Faker_vi : Faker {
 		"An Tâm",
 		"Ân Thiện",
 		"An Tường",
-		"Anh Ðức",
+		"Anh Đức",
 		"Anh Dũng",
 		"Anh Duy",
 		"Anh Hoàng",
@@ -1551,7 +1979,7 @@ class Faker_vi : Faker {
 		"Bảo An",
 		"Bảo Bảo",
 		"Bảo Chấn",
-		"Bảo Ðịnh",
+		"Bảo Định",
 		"Bảo Duy",
 		"Bảo Giang",
 		"Bảo Hiển",
@@ -1573,8 +2001,8 @@ class Faker_vi : Faker {
 		"Bích Nhã",
 		"Bình An",
 		"Bình Dân",
-		"Bình Ðạt",
-		"Bình Ðịnh",
+		"Bình Đạt",
+		"Bình Định",
 		"Bình Dương",
 		"Bình Hòa",
 		"Bình Minh",
@@ -1650,112 +2078,111 @@ class Faker_vi : Faker {
 		"Cương Nghị",
 		"Cương Quyết",
 		"Cường Thịnh",
-		"Ðắc Cường",
-		"Ðắc Di",
-		"Ðắc Lộ",
-		"Ðắc Lực",
-		"Ðắc Thái",
-		"Ðắc Thành",
-		"Ðắc Trọng",
-		"Ðại Dương",
-		"Ðại Hành",
-		"Ðại Ngọc",
-		"Ðại Thống",
+		"Đắc Cường",
+		"Đắc Di",
+		"Đắc Lộ",
+		"Đắc Lực",
+		"Đắc Thái",
+		"Đắc Thành",
+		"Đắc Trọng",
+		"Đại Dương",
+		"Đại Hành",
+		"Đại Ngọc",
+		"Đại Thống",
 		"Dân Hiệp",
 		"Dân Khánh",
-		"Ðan Quế",
-		"Ðan Tâm",
-		"Ðăng An",
-		"Ðăng Ðạt",
-		"Ðăng Khánh",
-		"Ðăng Khoa",
+		"Đan Quế",
+		"Đan Tâm",
+		"Đăng An",
+		"Đăng Đạt",
+		"Đăng Khánh",
+		"Đăng Khoa",
 		"Đăng Khương",
-		"Ðăng Minh",
+		"Đăng Minh",
 		"Đăng Quang",
 		"Danh Nhân",
 		"Danh Sơn",
 		"Danh Thành",
 		"Danh Văn",
-		"Ðạt Dũng",
-		"Ðạt Hòa",
-		"Ðình Chiểu",
-		"Ðình Chương",
-		"Ðình Cường",
-		"Ðình Diệu",
-		"Ðình Ðôn",
-		"Ðình Dương",
-		"Ðình Hảo",
-		"Ðình Hợp",
-		"Ðình Kim",
-		"Ðinh Lộc",
-		"Ðình Lộc",
-		"Ðình Luận",
-		"Ðịnh Lực",
-		"Ðình Nam",
-		"Ðình Ngân",
-		"Ðình Nguyên",
-		"Ðình Nhân",
-		"Ðình Phú",
-		"Ðình Phúc",
-		"Ðình Quảng",
-		"Ðình Sang",
-		"Ðịnh Siêu",
-		"Ðình Thắng",
-		"Ðình Thiện",
-		"Ðình Toàn",
-		"Ðình Trung",
-		"Ðình Tuấn",
-		"Ðoàn Tụ",
-		"Ðồng Bằng",
-		"Ðông Dương",
-		"Ðông Hải",
-		"Ðồng Khánh",
-		"Ðông Nguyên",
-		"Ðông Phong",
-		"Ðông Phương",
-		"Ðông Quân",
-		"Ðông Sơn",
-		"Ðức Ân",
-		"Ðức Anh",
-		"Ðức Bằng",
-		"Ðức Bảo",
-		"Ðức Bình",
-		"Ðức Chính",
-		"Ðức Duy",
-		"Ðức Giang",
-		"Ðức Hải",
-		"Ðức Hạnh",
+		"Đạt Dũng",
+		"Đạt Hòa",
+		"Đình Chiểu",
+		"Đình Chương",
+		"Đình Cường",
+		"Đình Diệu",
+		"Đình Đôn",
+		"Đình Dương",
+		"Đình Hảo",
+		"Đình Hợp",
+		"Đình Kim",
+		"Đinh Lộc",
+		"Đình Lộc",
+		"Đình Luận",
+		"Định Lực",
+		"Đình Nam",
+		"Đình Ngân",
+		"Đình Nguyên",
+		"Đình Nhân",
+		"Đình Phú",
+		"Đình Phúc",
+		"Đình Quảng",
+		"Đình Sang",
+		"Định Siêu",
+		"Đình Thắng",
+		"Đình Thiện",
+		"Đình Toàn",
+		"Đình Trung",
+		"Đình Tuấn",
+		"Đoàn Tụ",
+		"Đồng Bằng",
+		"Đông Dương",
+		"Đông Hải",
+		"Đồng Khánh",
+		"Đông Nguyên",
+		"Đông Phong",
+		"Đông Phương",
+		"Đông Quân",
+		"Đông Sơn",
+		"Đức Ân",
+		"Đức Anh",
+		"Đức Bằng",
+		"Đức Bảo",
+		"Đức Bình",
+		"Đức Chính",
+		"Đức Duy",
+		"Đức Giang",
+		"Đức Hải",
+		"Đức Hạnh",
 		"Đức Hòa",
-		"Ðức Hòa",
-		"Ðức Huy",
-		"Ðức Khải",
-		"Ðức Khang",
-		"Ðức Khiêm",
-		"Ðức Kiên",
-		"Ðức Long",
-		"Ðức Mạnh",
-		"Ðức Minh",
-		"Ðức Nhân",
-		"Ðức Phi",
-		"Ðức Phong",
-		"Ðức Phú",
-		"Ðức Quang",
-		"Ðức Quảng",
-		"Ðức Quyền",
-		"Ðức Siêu",
-		"Ðức Sinh",
-		"Ðức Tài",
-		"Ðức Tâm",
-		"Ðức Thắng",
-		"Ðức Thành",
-		"Ðức Thọ",
-		"Ðức Toàn",
-		"Ðức Toản",
-		"Ðức Trí",
-		"Ðức Trung",
-		"Ðức Tuấn",
-		"Ðức Tuệ",
-		"Ðức Tường",
+		"Đức Huy",
+		"Đức Khải",
+		"Đức Khang",
+		"Đức Khiêm",
+		"Đức Kiên",
+		"Đức Long",
+		"Đức Mạnh",
+		"Đức Minh",
+		"Đức Nhân",
+		"Đức Phi",
+		"Đức Phong",
+		"Đức Phú",
+		"Đức Quang",
+		"Đức Quảng",
+		"Đức Quyền",
+		"Đức Siêu",
+		"Đức Sinh",
+		"Đức Tài",
+		"Đức Tâm",
+		"Đức Thắng",
+		"Đức Thành",
+		"Đức Thọ",
+		"Đức Toàn",
+		"Đức Toản",
+		"Đức Trí",
+		"Đức Trung",
+		"Đức Tuấn",
+		"Đức Tuệ",
+		"Đức Tường",
 		"Dũng Trí",
 		"Dũng Việt",
 		"Dương Anh",
@@ -1796,8 +2223,8 @@ class Faker_vi : Faker {
 		"Gia Cần",
 		"Gia Cẩn",
 		"Gia Cảnh",
-		"Gia Ðạo",
-		"Gia Ðức",
+		"Gia Đạo",
+		"Gia Đức",
 		"Gia Hiệp",
 		"Gia Hòa",
 		"Gia Hoàng",
@@ -1826,7 +2253,7 @@ class Faker_vi : Faker {
 		"Hà Hải",
 		"Hải Bằng",
 		"Hải Bình",
-		"Hải Ðăng",
+		"Hải Đăng",
 		"Hải Dương",
 		"Hải Giang",
 		"Hải Hà",
@@ -1895,7 +2322,7 @@ class Faker_vi : Faker {
 		"Hoàng Thái",
 		"Hoàng Việt",
 		"Hoàng Xuân",
-		"Hồng Ðăng",
+		"Hồng Đăng",
 		"Hồng Đức",
 		"Hồng Giang",
 		"Hồng Lân",
@@ -1915,7 +2342,7 @@ class Faker_vi : Faker {
 		"Huân Võ",
 		"Hùng Anh",
 		"Hùng Cường",
-		"Hưng Ðạo",
+		"Hưng Đạo",
 		"Hùng Dũng",
 		"Hùng Ngọc",
 		"Hùng Phong",
@@ -1935,8 +2362,8 @@ class Faker_vi : Faker {
 		"Hữu Chiến",
 		"Hữu Cương",
 		"Hữu Cường",
-		"Hữu Ðạt",
-		"Hữu Ðịnh",
+		"Hữu Đạt",
+		"Hữu Định",
 		"Hữu Hạnh",
 		"Hữu Hiệp",
 		"Hữu Hoàng",
@@ -2006,7 +2433,7 @@ class Faker_vi : Faker {
 		"Khang Kiện",
 		"Khánh An",
 		"Khánh Bình",
-		"Khánh Ðan",
+		"Khánh Đan",
 		"Khánh Duy",
 		"Khánh Giang",
 		"Khánh Hải",
@@ -2027,13 +2454,13 @@ class Faker_vi : Faker {
 		"Kiên Bình",
 		"Kiến Bình",
 		"Kiên Cường",
-		"Kiến Ðức",
+		"Kiến Đức",
 		"Kiên Giang",
 		"Kiên Lâm",
 		"Kiên Trung",
 		"Kiến Văn",
 		"Kiệt Võ",
-		"Kim Ðan",
+		"Kim Đan",
 		"Kim Hoàng",
 		"Kim Long",
 		"Kim Phú",
@@ -2045,7 +2472,7 @@ class Faker_vi : Faker {
 		"Kỳ Võ",
 		"Lạc Nhân",
 		"Lạc Phúc",
-		"Lâm Ðồng",
+		"Lâm Đồng",
 		"Lâm Dũng",
 		"Lam Giang",
 		"Lam Phương",
@@ -2065,7 +2492,7 @@ class Faker_vi : Faker {
 		"Lương Tuyền",
 		"Mạnh Cương",
 		"Mạnh Cường",
-		"Mạnh Ðình",
+		"Mạnh Đình",
 		"Mạnh Dũng",
 		"Mạnh Hùng",
 		"Mạnh Nghiêm",
@@ -2081,10 +2508,10 @@ class Faker_vi : Faker {
 		"Minh Anh",
 		"Minh Cảnh",
 		"Minh Dân",
-		"Minh Ðan",
+		"Minh Đan",
 		"Minh Danh",
-		"Minh Ðạt",
-		"Minh Ðức",
+		"Minh Đạt",
+		"Minh Đức",
 		"Minh Dũng",
 		"Minh Giang",
 		"Minh Hải",
@@ -2158,7 +2585,7 @@ class Faker_vi : Faker {
 		"Ngọc Cảnh",
 		"Ngọc Cường",
 		"Ngọc Danh",
-		"Ngọc Ðoàn",
+		"Ngọc Đoàn",
 		"Ngọc Dũng",
 		"Ngọc Hải",
 		"Ngọc Hiển",
@@ -2181,7 +2608,7 @@ class Faker_vi : Faker {
 		"Ngọc Tuấn",
 		"Nguyên Bảo",
 		"Nguyên Bổng",
-		"Nguyên Ðan",
+		"Nguyên Đan",
 		"Nguyên Giang",
 		"Nguyên Giáp",
 		"Nguyễn Hải An",
@@ -2218,7 +2645,7 @@ class Faker_vi : Faker {
 		"Như Khang",
 		"Niệm Nhiên",
 		"Phi Cường",
-		"Phi Ðiệp",
+		"Phi Điệp",
 		"Phi Hải",
 		"Phi Hoàng",
 		"Phi Hùng",
@@ -2226,7 +2653,7 @@ class Faker_vi : Faker {
 		"Phi Nhạn",
 		"Phong Châu",
 		"Phong Dinh",
-		"Phong Ðộ",
+		"Phong Độ",
 		"Phú Ân",
 		"Phú Bình",
 		"Phú Hải",
@@ -2237,7 +2664,7 @@ class Faker_vi : Faker {
 		"Phú Thọ",
 		"Phú Thời",
 		"Phúc Cường",
-		"Phúc Ðiền",
+		"Phúc Điền",
 		"Phúc Duy",
 		"Phúc Hòa",
 		"Phúc Hưng",
@@ -2264,11 +2691,11 @@ class Faker_vi : Faker {
 		"Quân Dương",
 		"Quang Anh",
 		"Quang Bửu",
-		"Quảng Ðại",
+		"Quảng Đại",
 		"Quang Danh",
-		"Quang Ðạt",
-		"Quảng Ðạt",
-		"Quang Ðức",
+		"Quang Đạt",
+		"Quảng Đạt",
+		"Quang Đức",
 		"Quang Dũng",
 		"Quang Dương",
 		"Quang Hà",
@@ -2310,8 +2737,8 @@ class Faker_vi : Faker {
 		"Quốc Anh",
 		"Quốc Bảo",
 		"Quốc Bình",
-		"Quốc Ðại",
-		"Quốc Ðiền",
+		"Quốc Đại",
+		"Quốc Điền",
 		"Quốc Hải",
 		"Quốc Hạnh",
 		"Quốc Hiền",
@@ -2360,16 +2787,16 @@ class Faker_vi : Faker {
 		"Sơn Trang",
 		"Sơn Tùng",
 		"Song Lam",
-		"Sỹ Ðan",
+		"Sỹ Đan",
 		"Sỹ Hoàng",
 		"Sỹ Phú",
 		"Sỹ Thực",
 		"Tạ Hiền",
-		"Tài Ðức",
+		"Tài Đức",
 		"Tài Nguyên",
 		"Tâm Thiện",
 		"Tân Bình",
-		"Tân Ðịnh",
+		"Tân Định",
 		"Tấn Dũng",
 		"Tấn Khang",
 		"Tấn Lợi",
@@ -2389,7 +2816,7 @@ class Faker_vi : Faker {
 		"Thạch Sơn",
 		"Thạch Tùng",
 		"Thái Bình",
-		"Thái Ðức",
+		"Thái Đức",
 		"Thái Dương",
 		"Thái Duy",
 		"Thái Hòa",
@@ -2408,10 +2835,10 @@ class Faker_vi : Faker {
 		"Thành Châu",
 		"Thành Công",
 		"Thành Danh",
-		"Thanh Ðạo",
-		"Thành Ðạt",
-		"Thành Ðệ",
-		"Thanh Ðoàn",
+		"Thanh Đạo",
+		"Thành Đạt",
+		"Thành Đệ",
+		"Thanh Đoàn",
 		"Thành Doanh",
 		"Thanh Hải",
 		"Thanh Hào",
@@ -2478,8 +2905,8 @@ class Faker_vi : Faker {
 		"Thiên Ân",
 		"Thiện Ân",
 		"Thiên Bửu",
-		"Thiên Ðức",
-		"Thiện Ðức",
+		"Thiên Đức",
+		"Thiện Đức",
 		"Thiện Dũng",
 		"Thiện Giang",
 		"Thiên Hưng",
@@ -2503,7 +2930,7 @@ class Faker_vi : Faker {
 		"Thiếu Cường",
 		"Thịnh Cường",
 		"Thời Nhiệm",
-		"Thông Ðạt",
+		"Thông Đạt",
 		"Thông Minh",
 		"Thống Nhất",
 		"Thông Tuệ",
@@ -2527,9 +2954,9 @@ class Faker_vi : Faker {
 		"Thụy Long",
 		"Thụy Miên",
 		"Thụy Vũ",
-		"Tích Ðức",
+		"Tích Đức",
 		"Tích Thiện",
-		"Tiến Ðức",
+		"Tiến Đức",
 		"Tiến Dũng",
 		"Tiền Giang",
 		"Tiến Hiệp",
@@ -2569,7 +2996,7 @@ class Faker_vi : Faker {
 		"Trung Anh",
 		"Trung Chính",
 		"Trung Chuyên",
-		"Trung Ðức",
+		"Trung Đức",
 		"Trung Dũng",
 		"Trung Hải",
 		"Trung Hiếu",
@@ -2599,11 +3026,11 @@ class Faker_vi : Faker {
 		"Trường Thành",
 		"Trường Vinh",
 		"Trường Vũ",
-		"Từ Ðông",
+		"Từ Đông",
 		"Tuấn Anh",
 		"Tuấn Châu",
 		"Tuấn Chương",
-		"Tuấn Ðức",
+		"Tuấn Đức",
 		"Tuấn Dũng",
 		"Tuấn Hải",
 		"Tuấn Hoàng",
@@ -2648,7 +3075,7 @@ class Faker_vi : Faker {
 		"Vạn Thông",
 		"Văn Tuyển",
 		"Viễn Cảnh",
-		"Viễn Ðông",
+		"Viễn Đông",
 		"Viễn Phương",
 		"Viễn Thông",
 		"Việt An",
@@ -2737,456 +3164,11 @@ class Faker_vi : Faker {
 	}
 
 
-	override string nameName() {
-		final switch(uniform(0, 3, this.rnd)) {
-			case 0: return nameMaleFirstName() ~ " " ~ nameLastName();
-			case 1: return nameFemaleFirstName() ~ " " ~ nameLastName();
-			case 2: return nameFirstName() ~ " " ~ nameLastName();
-		}
-	}
-
-
-	override string dateWeekday() {
-		final switch(uniform(0, 38, this.rnd)) {
-			case 0: return "wide: [";
-			case 1: return "Chủ nhật";
-			case 2: return "Thứ hai";
-			case 3: return "Thứ ba";
-			case 4: return "Thứ tư";
-			case 5: return "Thứ năm";
-			case 6: return "Thứ sáu";
-			case 7: return "Thứ bảy";
-			case 8: return "]";
-			case 9: return "if not set then \"wide\" will be used instead";
-			case 10: return "which may differ from a stand-alone word";
-			case 11: return "wide_context: [";
-			case 12: return "Chủ nhật";
-			case 13: return "Thứ hai";
-			case 14: return "Thứ ba";
-			case 15: return "Thứ tư";
-			case 16: return "Thứ năm";
-			case 17: return "Thứ sáu";
-			case 18: return "Thứ bảy";
-			case 19: return "]";
-			case 20: return "abbr: ['CN";
-			case 21: return "T2";
-			case 22: return "T3";
-			case 23: return "T4";
-			case 24: return "T5";
-			case 25: return "T6";
-			case 26: return "T7']";
-			case 27: return "if not set then \"abbr\" will be used instead";
-			case 28: return "which may differ from a stand-alone word";
-			case 29: return "abbr_context: [";
-			case 30: return "C.Nhật";
-			case 31: return "Thứ 2";
-			case 32: return "Thứ 3";
-			case 33: return "Thứ 4";
-			case 34: return "Thứ 5";
-			case 35: return "Thứ 6";
-			case 36: return "Thứ 7";
-			case 37: return "]";
-		}
-	}
-
-
-	override string dateMonth() {
-		final switch(uniform(0, 60, this.rnd)) {
-			case 0: return "wide: [";
-			case 1: return "Tháng Giêng";
-			case 2: return "Tháng Hai";
-			case 3: return "Tháng Ba";
-			case 4: return "Tháng Tư";
-			case 5: return "Tháng Năm";
-			case 6: return "Tháng Sáu";
-			case 7: return "Tháng Bảy";
-			case 8: return "Tháng Tám";
-			case 9: return "Tháng Chín";
-			case 10: return "Tháng Mười";
-			case 11: return "Tháng Mười Một";
-			case 12: return "Tháng Mười Hai";
-			case 13: return "]";
-			case 14: return "if not set then \"wide\" will be used instead";
-			case 15: return "which may differ from a stand-alone word";
-			case 16: return "wide_context: [";
-			case 17: return "Tháng Giêng";
-			case 18: return "Tháng Hai";
-			case 19: return "Tháng Ba";
-			case 20: return "Tháng Tư";
-			case 21: return "Tháng Năm";
-			case 22: return "Tháng Sáu";
-			case 23: return "Tháng Bảy";
-			case 24: return "Tháng Tám";
-			case 25: return "Tháng Chín";
-			case 26: return "Tháng Mười";
-			case 27: return "Tháng Mười Một";
-			case 28: return "Tháng Mười Hai";
-			case 29: return "]";
-			case 30: return "abbr: [";
-			case 31: return "Tháng 1";
-			case 32: return "Tháng 2";
-			case 33: return "Tháng 3";
-			case 34: return "Tháng 4";
-			case 35: return "Tháng 5";
-			case 36: return "Tháng 6";
-			case 37: return "Tháng 7";
-			case 38: return "Tháng 8";
-			case 39: return "Tháng 9";
-			case 40: return "Tháng 10";
-			case 41: return "Tháng 11";
-			case 42: return "Tháng 12";
-			case 43: return "]";
-			case 44: return "if not set then \"abbr\" will be used instead";
-			case 45: return "which may differ from a stand-alone word";
-			case 46: return "abbr_context: [";
-			case 47: return "Tháng 1";
-			case 48: return "Tháng 2";
-			case 49: return "Tháng 3";
-			case 50: return "Tháng 4";
-			case 51: return "Tháng 5";
-			case 52: return "Tháng 6";
-			case 53: return "Tháng 7";
-			case 54: return "Tháng 8";
-			case 55: return "Tháng 9";
-			case 56: return "Tháng 10";
-			case 57: return "Tháng 11";
-			case 58: return "Tháng 12";
-			case 59: return "]";
-		}
-	}
-
-	///
-	override string addressCityName() {
-		auto data = [
-		"An Giang",
-		"Bà Rịa-Vũng Tàu",
-		"Bạc Liêu",
-		"Bắc Kạn",
-		"Bắc Giang",
-		"Bắc Ninh",
-		"Bến Tre",
-		"Bình Dương",
-		"Bình Định",
-		"Bình Phước",
-		"Bình Thuận",
-		"Cà Mau",
-		"Cao Bằng",
-		"Cần Thơ",
-		"Đà Nẵng",
-		"Đắk Lắk",
-		"Đắk Nông",
-		"Điện Biên",
-		"Đồng Nai",
-		"Đồng Tháp",
-		"Gia Lai",
-		"Hà Giang",
-		"Hà Nam",
-		"Hà Nội",
-		"Hà Tĩnh",
-		"Hải Dương",
-		"Hải Phòng",
-		"Hậu Giang",
-		"Hòa Bình",
-		"TP. Hồ Chí Minh",
-		"Hưng Yên",
-		"Khánh Hoà",
-		"Kiên Giang",
-		"Kon Tum",
-		"Lai Châu",
-		"Lạng Sơn",
-		"Lào Cai",
-		"Lâm Đồng",
-		"Long An",
-		"Nam Định",
-		"Nghệ An",
-		"Ninh Bình",
-		"Ninh Thuận",
-		"Phú Thọ",
-		"Phú Yên",
-		"Quảng Bình",
-		"Quảng Nam",
-		"Quảng Ngãi",
-		"Quảng Ninh",
-		"Quảng Trị",
-		"Sóc Trăng",
-		"Sơn La",
-		"Tây Ninh",
-		"Thái Bình",
-		"Thái Nguyên",
-		"Thanh Hoá",
-		"Thừa Thiên-Huế",
-		"Tiền Giang",
-		"Trà Vinh",
-		"Tuyên Quang",
-		"Vĩnh Long",
-		"Vĩnh Phúc",
-		"Yên Bái"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressCountry() {
-		auto data = [
-		"Afghanistan",
-		"Ai Cập",
-		"Albania",
-		"Algérie",
-		"Andorra",
-		"Angola",
-		"Vương quốc Liên hiệp Anh và Bắc Ireland",
-		"Antigua và Barbuda",
-		"Áo",
-		"Ả Rập Xê Út",
-		"Argentina",
-		"Armenia",
-		"Azerbaijan",
-		"Ấn Độ",
-		"Bahamas",
-		"Bahrain",
-		"Bangladesh",
-		"Barbados",
-		"Belarus",
-		"Belize",
-		"Bénin",
-		"Bhutan",
-		"Bỉ",
-		"Bolivia",
-		"Bosna và Hercegovina",
-		"Botswana",
-		"Bồ Đào Nha",
-		"Bờ Biển Ngà",
-		"Brasil",
-		"Brunei",
-		"Bulgaria",
-		"Burkina Faso",
-		"Burundi",
-		"Cabo Verde",
-		"Các Tiểu Vương quốc Ả Rập Thống nhất",
-		"Cameroon",
-		"Campuchia",
-		"Canada",
-		"Chile",
-		"Colombia",
-		"Comoros",
-		"Cộng hòa Congo",
-		"Cộng hòa Dân chủ Congo",
-		"Costa Rica",
-		"Croatia",
-		"Cuba",
-		"Djibouti",
-		"Dominica",
-		"Cộng hòa Dominica",
-		"Đan Mạch",
-		"Đông Timor",
-		"Đức",
-		"Ecuador",
-		"El Salvador",
-		"Eritrea",
-		"Estonia",
-		"Ethiopia",
-		"Fiji",
-		"Gabon",
-		"Gambia",
-		"Ghana",
-		"Grenada",
-		"Gruzia",
-		"Guatemala",
-		"Guiné-Bissau",
-		"Guinea Xích Đạo",
-		"Guinée",
-		"Guyana",
-		"Haiti",
-		"Hà Lan",
-		"Hàn Quốc",
-		"Hoa Kỳ",
-		"Honduras",
-		"Hungary",
-		"Hy Lạp",
-		"Iceland",
-		"Indonesia",
-		"Iran",
-		"Iraq",
-		"Ireland",
-		"Israel",
-		"Jamaica",
-		"Jordan",
-		"Kazakhstan",
-		"Kenya",
-		"Kiribati",
-		"Kosovo",
-		"Kuwait",
-		"Kyrgyzstan",
-		"Lào",
-		"Latvia",
-		"Lesotho",
-		"Liban",
-		"Liberia",
-		"Libya",
-		"Liechtenstein",
-		"Litva",
-		"Luxembourg",
-		"Macedonia",
-		"Madagascar",
-		"Malaysia",
-		"Mali",
-		"Malta",
-		"Maroc",
-		"Quần đảo Marshall",
-		"Mauritanie",
-		"Mauritius",
-		"México",
-		"Micronesia",
-		"Moldova",
-		"Monaco",
-		"Mông Cổ",
-		"Montenegro",
-		"Mozambique",
-		"Myanmar",
-		"Namibia",
-		"Nam Sudan",
-		"Nam Phi",
-		"Nauru",
-		"Na Uy",
-		"Nepal",
-		"New Zealand",
-		"Nicaragua",
-		"Niger",
-		"Nigeria",
-		"Nga",
-		"Nhật Bản",
-		"Oman",
-		"Pakistan",
-		"Palau",
-		"Palestine",
-		"Panama",
-		"Papua New Guinea",
-		"Paraguay",
-		"Peru",
-		"Pháp",
-		"Phần Lan",
-		"Philippines",
-		"Qatar",
-		"România",
-		"Rwanda",
-		"Saint Kitts và Nevis",
-		"Saint Lucia",
-		"Saint Vincent và Grenadines",
-		"Samoa",
-		"San Marino",
-		"São Tomé và Príncipe",
-		"Séc",
-		"Sénégal",
-		"Serbia",
-		"Seychelles",
-		"Sierra Leone",
-		"Singapore",
-		"Síp",
-		"Slovakia",
-		"Slovenia",
-		"Solomon",
-		"Somalia",
-		"Sri Lanka",
-		"Sudan",
-		"Suriname",
-		"Swaziland",
-		"Syria",
-		"Tajikistan",
-		"Tanzania",
-		"Tây Ban Nha",
-		"Tchad",
-		"Thái Lan",
-		"Thổ Nhĩ Kỳ",
-		"Thụy Điển",
-		"Thụy Sĩ",
-		"Togo",
-		"Tonga",
-		"Triều Tiên",
-		"Trinidad và Tobago",
-		"Trung Quốc",
-		"Trung Phi",
-		"Tunisia",
-		"Turkmenistan",
-		"Tuvalu",
-		"Úc",
-		"Uganda",
-		"Ukraina",
-		"Uruguay",
-		"Uzbekistan",
-		"Vanuatu",
-		"Vatican",
-		"Venezuela",
-		"Việt Nam",
-		"Ý",
-		"Yemen",
-		"Zambia",
-		"Zimbabwe"
-		];
-		return choice(data, this.rnd);
-	}
-
-	///
-	override string addressPostcode() {
-		auto data = [
-		"#####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-
-	override string addressCity() {
-		final switch(uniform(0, 1, this.rnd)) {
-			case 0: return addressCityName() ~ "'";
-		}
-	}
-
-	///
-	override string addressDefaultCountry() {
-		auto data = [
-		"Việt Nam'"
-		];
-		return choice(data, this.rnd);
-	}
-
-
-	override string addressStreet() {
+	override string personName() {
 		final switch(uniform(0, 2, this.rnd)) {
-			case 0: return nameFirstName() ~ " " ~ addressStreetSuffix();
-			case 1: return nameLastName() ~ " " ~ addressStreetSuffix();
+			case 0: return "{ value: '" ~ personFirstName() ~ " " ~ personLastName();
+			case 1: return "weight: 1 }";
 		}
-	}
-
-	///
-	override string phoneNumberFormats() {
-		auto data = [
-		"02# #### ####",
-		"02## #### ####'"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string cellPhoneFormats() {
-		auto data = [
-		"03# ### ####",
-		"05# ### ####",
-		"07# ### ####",
-		"08# ### ####",
-		"09# ### ####"
-		];
-		return this.digitBuild(choice(data, this.rnd));
-	}
-
-	///
-	override string internetDomainSuffix() {
-		auto data = [
-		"com",
-		"net",
-		"info",
-		"vn",
-		"com.vn'"
-		];
-		return choice(data, this.rnd);
 	}
 
 }
