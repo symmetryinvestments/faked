@@ -35,9 +35,9 @@ struct Airport {
 }
 
 struct AirlineFolder {
-	Airline airline;
-	Airplane airplane;
-	Airport airport;
+	Airline[] airline;
+	Airplane[] airplane;
+	Airport[] airport;
 }
 
 struct AnimalFolder {
@@ -132,7 +132,7 @@ struct Currency {
 struct FinanceFolder {
 	Credit_CardFolder credit_card;
 	string[] account_type;
-	Currency currency;
+	Currency[] currency;
 	string[] transaction_type;
 }
 

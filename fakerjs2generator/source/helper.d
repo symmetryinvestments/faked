@@ -39,8 +39,11 @@ string stripImports(string s) {
 }
 
 string openAndTrimFile(string[] path) {
-	const prefixes = [ "export default" ];
-	const postfixes = [ ";" ];
+	const prefixes = [ "export default Object.freeze("
+		, "Object.freeze("
+		, "export default"
+		];
+	const postfixes = [ ");", ";" ];
 	string s = "faker/src/locales/" ~ path.joiner("/").to!string() ~ ".ts";
 	bool e = exists(s);
 	if(!e) {

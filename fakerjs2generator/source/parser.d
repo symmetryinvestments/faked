@@ -33,26 +33,12 @@ T parseFolder(T)(string[] path) {
 				string trimFolder = MemType.stringof[0 .. $ - 6].toLower();
 				__traits(getMember, ret, mem) = parseFolder!(MemType)(path ~ trimFolder);
 			} else {
-				static if(is(MemType == MustacheWeight)) {
-					assert(false, format("%--(%s,%),%s", path, mem));
-				} else static if(is(MemType == MergeArray)) {
-					assert(false, format("%--(%s,%),%s", path, mem));
-				} else static if(isArray!(MemType) &&
-						is(ElementEncodingType!(MemType) == Number))
-				{
-					assert(false, format("%--(%s,%),%s", path, mem));
-				} else static if(isArray!(MemType) &&
-						is(ElementEncodingType!(MemType) == Mustache))
-				{
-					__traits(getMember, ret, mem) = parseMustacheArray(path ~ mem);
-				} else static if(isArray!(MemType) &&
-						is(ElementEncodingType!(MemType) == string))
-				{
-					__traits(getMember, ret, mem) = parseStringArray(path ~ mem);
-				} else static if(is(MemType == Mustache[string])) {
+				static if(is(MemType == Mustache[string])) {
 					__traits(getMember, ret, mem) = parseMustacheObject(path ~ mem);
-				} else static if(is(MemType == struct)) {
-					assert(false, format("%--(%s,%),%s", path, mem));
+				} else static if(is(MemType == MergeArray)) {
+					__traits(getMember, ret, mem) = parseMergeArray(path ~ mem);
+				} else {
+					__traits(getMember, ret, mem) = parseStruct!(MemType)(path ~ mem);
 				}
 			}
 		} catch(Exception e) {
@@ -92,6 +78,41 @@ Mustache[] parseMustacheArray(string[] path) {
 	}
 }
 
+Number[] parseNumberArray(string[] path) {
+	string f = openAndTrimFile(path);
+	if(f.empty) {
+		//writefln("empty %(%s, %)", path);
+		return [];
+	} else {
+		JSONValue j = parseJSON(f);
+		return j.arrayNoRef
+			.map!((JSONValue it) {
+				return Number(it.get!string());
+			})
+			.array;
+	}
+}
+
+MergeArray parseMergeArray(string[] path) {
+	MergeArray ret;
+	string f = openAndTrimFile(path);
+	if(f.empty) {
+		return ret;
+	} else {
+		string s = f;
+		const pre = "mergeArrays(";
+		const post = ");";
+		enforce(s.startsWith(pre)
+				, format("not mergeArray prefix '%s'", s));
+		enforce(s.endsWith(post)
+				, format("not mergeArray postfix '%s'", s));
+		s = s[pre.length .. $ - post.length];
+		return MergeArray(s.splitter(",")
+				.map!(it => it.strip())
+				.array);
+	}
+}
+
 Mustache[string] parseMustacheObject(string[] path) {
 	string f = openAndTrimFile(path);
 	Mustache[string] ret;
@@ -112,27 +133,65 @@ T parseStruct(T)(string[] path) {
 	if(f.empty) {
 		return ret;
 	} else {
-		JSONValue j = parseJSON(f);
+		JSONValue j;
+		try {
+			j = parseJSON(f);
+		} catch(Exception e) {
+			throw new Exception("Failed to json parse " ~ f);
+		}
 		ret = parseStruct!(T)(j);
 		return ret;
 	}
 }
 
 T parseStruct(T)(JSONValue j) {
-	T ret;
 	static if(isArray!(T) && !isSomeString!(T)) {
 		enforce(j.type == JSONType.array
 				, format("Not an array but %s", j.toPrettyString()));
 		alias ET = ElementEncodingType!(T);
-		ret = j.arrayNoRef()
-			.map!(it => it.parseStruct!(T)())
+		T ret = j.arrayNoRef()
+			.map!(it => it.parseStruct!(ET)())
 			.array;
+		return ret;
+	} else static if(isSomeString!(T)) {
+		return j.get!(string)();
+	} else static if(is(T == Mustache)) {
+		enforce(j.type == JSONType.string
+				, format("expected an Mustache got '%s'", j.toPrettyString()));
+		return Mustache(j.get!string());
+	} else static if(is(T == Number)) {
+		enforce(j.type == JSONType.string
+				, format("expected an Number got '%s'", j.toPrettyString()));
+		return Number(j.get!string());
+	} else static if(is(T == MustacheWeight)) {
+		enforce(j.type == JSONType.object
+				, format("expected an MustacheWeight got '%s'", j.toPrettyString()));
+		MustacheWeight wm;
+
+		JSONValue* vPtr = "value" in j;
+		enforce(vPtr !is null
+				, format("'value' not in '%s'", j.toPrettyString()));
+		enforce((*vPtr).type == JSONType.string
+				, format("'value' not in a string but '%s'", j.toPrettyString()));
+		wm.value = Mustache((*vPtr).get!string());
+
+		JSONValue* wPtr = "weight" in j;
+		enforce(wPtr !is null
+				, format("'weight' not in '%s'", j.toPrettyString()));
+		enforce((wPtr).type == JSONType.integer
+				, format("'weight' not in a integer but '%s'", j.toPrettyString()));
+		wm.weight = (*wPtr).get!int();
+
+		return wm;
 	} else {
-		static foreach(mem; FieldNameTuple!(T)) {{
+		T ret;
+		static foreach(string mem; [FieldNameTuple!(T)].filter!(m => !m.empty)) {{
 			enum memJS = stripTrailingUnderscore(mem);
+			enforce(j.type == JSONType.object
+					, format("expected an object got '%s'", j.toPrettyString()));
 			JSONValue* mPtr = memJS in j;
 			enforce(mPtr !is null
-					, format("%s not in %s", memJS, j.toPrettyString()));
+					, format("%s not in '%s'", memJS, j.toPrettyString()));
 
 			alias MemType = typeof(__traits(getMember, T, mem));
 			static if(is(MemType == string)) {
@@ -140,11 +199,11 @@ T parseStruct(T)(JSONValue j) {
 			} else static if(isIntegral!(MemType)) {
 				__traits(getMember, ret, mem) = (*mPtr).get!int();
 			} else {
-				static assert(false, T.stringof ~ "." ~ mem);
+				__traits(getMember, ret, mem) = parseStruct!(MemType)(*mPtr);
 			}
 		}}
+		return ret;
 	}
-	return ret;
 }
 
 string stripTrailingUnderscore(string s) {
