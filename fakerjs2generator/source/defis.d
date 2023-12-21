@@ -1,7 +1,5 @@
 module defis;
 
-import std.typecons : Nullable;
-
 struct Mustache {
 	string str;
 }
