@@ -6,6 +6,8 @@ import std.file : exists, readText;
 import std.stdio;
 import std.range : empty;
 import std.conv : to;
+import std.uni;
+import std.utf;
 import std.string : strip;
 
 bool isImportLine(string l) {
@@ -41,6 +43,7 @@ string stripImports(string s) {
 string openAndTrimFile(string[] path) {
 	const prefixes = [ "export default Object.freeze("
 		, "Object.freeze("
+		, "export default null;"
 		, "export default"
 		];
 	const postfixes = [ ");", ";" ];
@@ -54,14 +57,20 @@ string openAndTrimFile(string[] path) {
 		foreach(pre; prefixes) {
 			if(r.startsWith(pre)) {
 				r = r[pre.length .. $];
+				r = r.strip();
 			}
 		}
 		foreach(post; postfixes) {
 			if(r.startsWith(post)) {
 				r = r[0 .. $ - post.length];
+				r = r.strip();
 			}
 		}
 
-		return r.strip();
+		return r.strip().validateString();
 	}
+}
+
+string validateString(string s) {
+	return s.byUTF!(dchar).to!string();
 }

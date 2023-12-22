@@ -1,11 +1,17 @@
 module defis;
 
+import std.sumtype;
+
 struct Mustache {
 	string str;
 }
 
 struct Number {
 	string num;
+}
+
+struct ForwardToOther {
+	string fwd;
 }
 
 struct MustacheWeight {
@@ -189,15 +195,15 @@ struct PersonFolder {
 	Mustache[] bio_pattern;
 	string[] bio_supporter;
 	string[] female_first_name;
-	string[] female_middle_name;
+	SumType!(string[],ForwardToOther) female_middle_name;
 	string[] female_prefix;
-	string[] first_name;
+	SumType!(string[],MergeArray) first_name;
 	string[] gender;
 	Mustache[] job_title_pattern;
-	string[] last_name;
+	SumType!(string[],MergeArray) last_name;
 	MustacheWeight[] last_name_pattern;
 	string[] male_first_name;
-	string[] male_middle_name;
+	SumType!(string[],ForwardToOther) male_middle_name;
 	string[] male_prefix;
 	string[] middle_name;
 	MustacheWeight[] name;

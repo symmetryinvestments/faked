@@ -13,6 +13,7 @@ import std.stdio;
 import std.typecons : Nullable, nullable;
 import std.traits : FieldNameTuple, isArray, isIntegral, isSomeString;
 import std.uni : toLower;
+import std.sumtype;
 
 import json2;
 import defis;
@@ -35,8 +36,12 @@ T parseFolder(T)(string[] path) {
 			} else {
 				static if(is(MemType == Mustache[string])) {
 					__traits(getMember, ret, mem) = parseMustacheObject(path ~ mem);
+				} else static if(is(MemType == SumType!(TT), TT...)) {
+					__traits(getMember, ret, mem) = parseSumType!(TT)(path ~ mem);
 				} else static if(is(MemType == MergeArray)) {
 					__traits(getMember, ret, mem) = parseMergeArray(path ~ mem);
+				} else static if(is(MemType == ForwardToOther)) {
+					__traits(getMember, ret, mem) = parseForwardToOther(path ~ mem);
 				} else {
 					__traits(getMember, ret, mem) = parseStruct!(MemType)(path ~ mem);
 				}
@@ -137,11 +142,20 @@ T parseStruct(T)(string[] path) {
 		try {
 			j = parseJSON(f);
 		} catch(Exception e) {
-			throw new Exception("Failed to json parse " ~ f);
+			throw new Exception("Failed to json parse '" ~ f ~ "'");
 		}
 		ret = parseStruct!(T)(j);
 		return ret;
 	}
+}
+
+ForwardToOther parseForwardToOther(string[] path) {
+	string f = openAndTrimFile(path);
+	ForwardToOther ret;
+	if(!f.empty) {
+		ret.fwd = f.strip();
+	}
+	return ret;
 }
 
 T parseStruct(T)(JSONValue j) {
@@ -196,6 +210,8 @@ T parseStruct(T)(JSONValue j) {
 			alias MemType = typeof(__traits(getMember, T, mem));
 			static if(is(MemType == string)) {
 				__traits(getMember, ret, mem) = (*mPtr).get!string();
+			} else static if(is(MemType == SumType!(TT), TT...)) {
+				writeln("SumType ", T.stringof);
 			} else static if(isIntegral!(MemType)) {
 				__traits(getMember, ret, mem) = (*mPtr).get!int();
 			} else {
@@ -204,6 +220,23 @@ T parseStruct(T)(JSONValue j) {
 		}}
 		return ret;
 	}
+}
+
+SumType!(TT) parseSumType(TT...)(string[] path) {
+	SumType!(TT) ret;
+	static foreach(T; TT) {
+		try {
+			static if(is(T == string[])) {
+				ret = parseStringArray(path);
+			} else static if(is(MemType == ForwardToOther)) {
+				ret = parseForwardToOther(path);
+			} else static if(is(T == MergeArray)) {
+				ret = parseMergeArray(path);
+			}
+		} catch(Exception e) {
+		}
+	}
+	return ret;
 }
 
 string stripTrailingUnderscore(string s) {

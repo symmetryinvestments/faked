@@ -10,6 +10,7 @@ import std.format : formattedWrite;
 import std.range : empty;
 import std.traits : FieldNameTuple;
 import std.stdio;
+import std.sumtype;
 
 import defis;
 
@@ -27,14 +28,17 @@ void traverse(T,Out)(T t, ref Out o, string[] path) {
 	} else {
 		static if(is(T == string[])) {
 			genStringArray(t, o, path);
-		}
-		static if(is(T == Number[])) {
-			genNumberArray(t, o, path);
+		} else static if(is(T == Number[])) {
+			//genNumberArray(t, o, path);
+		} else static if(is(T == SumType!(TT), TT...)) {
+			static foreach(R; TT) {
+				t.match!(
+					  (R r) { traverse(r, o, path); }
+					, (_) { return; }
+					);
+			}
 		}
 	}
-}
-
-void genNumberArray(Out)(Number[] strs, ref Out o, string[] path) {
 }
 
 void genStringArray(Out)(string[] strs, ref Out o, string[] path) {
