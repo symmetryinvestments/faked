@@ -29,15 +29,26 @@ void traverse(T,Out)(T t, ref Out o, string[] path) {
 			genStringArray(t, o, path);
 		} else static if(is(T == Number[])) {
 			//genNumberArray(t, o, path);
+		} else static if(is(T == ForwardToOther)) {
+			writeln("ForwardToOther");
+			genForwardToOther(t, o, path);
 		} else static if(is(T == SumType!(TT), TT...)) {
-			static foreach(R; TT) {
-				t.match!(
-					  (R r) { writeln("SumType " ~ R.stringof); traverse(r, o, path); }
-					, (_) { return; }
-					);
-			}
+			writeln("SumType");
+			enum m = buildForwarder!(TT);
+			pragma(msg, m);
+			mixin(m);
+		} else {
+			writefln("Unhandled %s", T.stringof);
 		}
 	}
+}
+
+void genForwardToOther(Out)(ForwardToOther fto, ref Out o, string[] path) {
+	auto app = appender!string();
+	iformat(app, 1, "string %s() {\n", pathToFuncName(path));
+	iformat(app, 2, "return %s();\n", fto.fwd);
+	iformat(app, 0, "}\n", fto.fwd);
+	writeln(app.data);
 }
 
 void genStringArray(Out)(string[] strs, ref Out o, string[] path) {
@@ -100,4 +111,13 @@ void str80(Out)(ref Out o, string[] strs, size_t tabs) {
 			curLength += s.length + 2;
 		}
 	}
+}
+
+string buildForwarder(TT...)() {
+	string ret = "t.match!(";
+	static foreach(T; TT) {
+		ret ~= "\n\t(" ~ T.stringof ~ " h) { writefln(\"\\tMatch %s\", `" ~ T.stringof ~ "`); traverse(h, o, path); }, ";
+	}
+	ret ~= "\n);\n";
+	return ret;
 }

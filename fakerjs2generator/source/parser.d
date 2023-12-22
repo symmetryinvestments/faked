@@ -1,7 +1,8 @@
 module parser;
 
 import std.array : array;
-import std.algorithm.searching : endsWith, startsWith;
+import std.ascii : isAlphaNum;
+import std.algorithm.searching : all, endsWith, startsWith;
 import std.algorithm.iteration : filter, joiner, map, splitter;
 import std.exception : enforce;
 import std.conv : to;
@@ -13,6 +14,7 @@ import std.stdio;
 import std.typecons : Nullable, nullable;
 import std.traits : FieldNameTuple, isArray, isIntegral, isSomeString;
 import std.uni : toLower;
+import std.utf : byDchar;
 import std.sumtype;
 
 import json2;
@@ -42,6 +44,8 @@ T parseFolder(T)(string[] path) {
 					__traits(getMember, ret, mem) = parseMergeArray(path ~ mem);
 				} else static if(is(MemType == ForwardToOther)) {
 					__traits(getMember, ret, mem) = parseForwardToOther(path ~ mem);
+				} else static if(is(MemType == Number[])) {
+					//writeln("Number[]");
 				} else {
 					__traits(getMember, ret, mem) = parseStruct!(MemType)(path ~ mem);
 				}
@@ -112,9 +116,10 @@ MergeArray parseMergeArray(string[] path) {
 		enforce(s.endsWith(post)
 				, format("not mergeArray postfix '%s'", s));
 		s = s[pre.length .. $ - post.length];
-		return MergeArray(s.splitter(",")
+		ret = MergeArray(s.splitter(",")
 				.map!(it => it.strip())
 				.array);
+		return ret;
 	}
 }
 
@@ -153,13 +158,27 @@ ForwardToOther parseForwardToOther(string[] path) {
 	string f = openAndTrimFile(path);
 	ForwardToOther ret;
 	if(!f.empty) {
-		ret.fwd = f.strip();
+		string t = f.strip();
+		t = t.strip(";");
+		t = t.strip();
+		bool isValidFwd = t.byDchar().all!(c => isAlphaNum(c) || c == '_');
+		if(t.length < 16) {
+			writefln("%s %s", t, isValidFwd);
+		}
+		if(isValidFwd) {
+			ret.fwd = t;
+			return ret;
+		}
 	}
 	return ret;
 }
 
 T parseStruct(T)(JSONValue j) {
-	static if(isArray!(T) && !isSomeString!(T)) {
+	static if(is(T == Nullable!F, F)) {
+		return j.isNull()
+			? T.init
+			: nullable(parseStruct!(F)(j));
+	} else static if(isArray!(T) && !isSomeString!(T)) {
 		enforce(j.type == JSONType.array
 				, format("Not an array but %s", j.toPrettyString()));
 		alias ET = ElementEncodingType!(T);
@@ -204,18 +223,25 @@ T parseStruct(T)(JSONValue j) {
 			enforce(j.type == JSONType.object
 					, format("expected an object got '%s'", j.toPrettyString()));
 			JSONValue* mPtr = memJS in j;
-			enforce(mPtr !is null
-					, format("%s not in '%s'", memJS, j.toPrettyString()));
 
 			alias MemType = typeof(__traits(getMember, T, mem));
-			static if(is(MemType == string)) {
-				__traits(getMember, ret, mem) = (*mPtr).get!string();
-			} else static if(is(MemType == SumType!(TT), TT...)) {
-				writeln("SumType ", T.stringof);
-			} else static if(isIntegral!(MemType)) {
-				__traits(getMember, ret, mem) = (*mPtr).get!int();
+			static if(is(MemType == Nullable!F, F)) {
+				if(mPtr !is null) {
+					__traits(getMember, ret, mem) = parseStruct!(F)(*mPtr);
+				}
 			} else {
-				__traits(getMember, ret, mem) = parseStruct!(MemType)(*mPtr);
+				enforce(mPtr !is null
+						, format("%s not in '%s'", memJS, j.toPrettyString()));
+
+				static if(is(MemType == string)) {
+					__traits(getMember, ret, mem) = (*mPtr).get!string();
+				} else static if(is(MemType == SumType!(TT), TT...)) {
+					writeln("SumType ", T.stringof);
+				} else static if(isIntegral!(MemType)) {
+					__traits(getMember, ret, mem) = (*mPtr).get!int();
+				} else {
+					__traits(getMember, ret, mem) = parseStruct!(MemType)(*mPtr);
+				}
 			}
 		}}
 		return ret;
@@ -224,14 +250,29 @@ T parseStruct(T)(JSONValue j) {
 
 SumType!(TT) parseSumType(TT...)(string[] path) {
 	SumType!(TT) ret;
+	string f = openAndTrimFile(path);
 	static foreach(T; TT) {
 		try {
 			static if(is(T == string[])) {
-				ret = parseStringArray(path);
-			} else static if(is(MemType == ForwardToOther)) {
-				ret = parseForwardToOther(path);
+				string[] r = parseStringArray(path);
+				if(!r.empty) {
+					ret = r;
+					return ret;
+				}
+			} else static if(is(T == ForwardToOther)) {
+				ForwardToOther r = parseForwardToOther(path);
+				if(!r.fwd.empty) {
+					ret = r;
+					return ret;
+				}
 			} else static if(is(T == MergeArray)) {
-				ret = parseMergeArray(path);
+				MergeArray r = parseMergeArray(path);
+				if(!r.arrayNames.empty) {
+					ret = r;
+					return ret;
+				}
+			} else {
+				static assert(false, T.stringof ~ " Not Handled");
 			}
 		} catch(Exception e) {
 		}

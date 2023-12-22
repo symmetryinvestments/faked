@@ -1,5 +1,6 @@
 module defis;
 
+import std.typecons : Nullable;
 import std.sumtype;
 
 struct Mustache {
@@ -161,7 +162,7 @@ struct LocationFolder {
 	string[] city_prefix;
 	string[] city_suffix;
 	string[] country;
-	string[] county;
+	SumType!(ForwardToOther,string[]) county;
 	string[] default_country;
 	string[] direction;
 	string[] direction_abbr;
@@ -185,9 +186,9 @@ struct MusicFolder {
 }
 
 struct Title {
-	string[] descriptor;
-	string[] level;
-	string[] job;
+	Nullable!(string[]) descriptor;
+	Nullable!(string[]) level;
+	Nullable!(string[]) job;
 }
 
 struct PersonFolder {
@@ -195,15 +196,15 @@ struct PersonFolder {
 	Mustache[] bio_pattern;
 	string[] bio_supporter;
 	string[] female_first_name;
-	SumType!(string[],ForwardToOther) female_middle_name;
+	SumType!(ForwardToOther,string[]) female_middle_name;
 	string[] female_prefix;
-	SumType!(string[],MergeArray) first_name;
+	SumType!(MergeArray,string[]) first_name;
 	string[] gender;
 	Mustache[] job_title_pattern;
-	SumType!(string[],MergeArray) last_name;
+	SumType!(MergeArray,string[]) last_name;
 	MustacheWeight[] last_name_pattern;
 	string[] male_first_name;
-	SumType!(string[],ForwardToOther) male_middle_name;
+	SumType!(ForwardToOther,string[]) male_middle_name;
 	string[] male_prefix;
 	string[] middle_name;
 	MustacheWeight[] name;
