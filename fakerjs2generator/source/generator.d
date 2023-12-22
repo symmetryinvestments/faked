@@ -17,7 +17,6 @@ import defis;
 void generate(Language lang, string langName) {
 	auto app = appender!string();
 	traverse(lang, app, []);
-	writeln(app.data);
 }
 
 void traverse(T,Out)(T t, ref Out o, string[] path) {
@@ -33,7 +32,7 @@ void traverse(T,Out)(T t, ref Out o, string[] path) {
 		} else static if(is(T == SumType!(TT), TT...)) {
 			static foreach(R; TT) {
 				t.match!(
-					  (R r) { traverse(r, o, path); }
+					  (R r) { writeln("SumType " ~ R.stringof); traverse(r, o, path); }
 					, (_) { return; }
 					);
 			}
