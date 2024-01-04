@@ -16,10 +16,130 @@ import std.traits : FieldNameTuple, isArray, isIntegral, isSomeString;
 import std.uni : toLower;
 import std.utf : byDchar;
 import std.sumtype;
+import std.json;
 
-import json2;
 import defis;
 import helper;
+
+string[][] mergeArray =
+	[ [ "person", "first_name" ]
+	, [ "person", "last_name" ]
+	, [ "person", "prefix" ]
+	];
+
+void backFillMergeArray(ref JsonFile l) {
+	if(!l.first_name.isNull()) {
+		if(l.data.person.isNull()) {
+			l.data.person = PersonFolder.init;
+		}
+		writeln("first_name");
+		l.data.person.get().first_name = l.first_name.get();
+	}
+	if(!l.last_name.isNull()) {
+		if(l.data.person.isNull()) {
+			l.data.person = PersonFolder.init;
+		}
+		writeln("last_name");
+		l.data.person.get().last_name = l.last_name.get();
+	}
+	if(!l.prefix.isNull()) {
+		if(l.data.person.isNull()) {
+			l.data.person = PersonFolder.init;
+		}
+		writeln("prefix");
+		l.data.person.get().prefix = l.prefix.get();
+	}
+	if(!l.female_middle_name.isNull()) {
+		if(l.data.person.isNull()) {
+			l.data.person = PersonFolder.init;
+		}
+		writeln("female_middle_name");
+		l.data.person.get().female_middle_name = l.female_middle_name.get();
+	}
+	if(!l.male_middle_name.isNull()) {
+		if(l.data.person.isNull()) {
+			l.data.person = PersonFolder.init;
+		}
+		writeln("male_middle_name");
+		l.data.person.get().male_middle_name = l.male_middle_name.get();
+	}
+	if(!l.county.isNull()) {
+		if(l.data.location.isNull()) {
+			l.data.location = LocationFolder.init;
+		}
+		writeln("county");
+		l.data.location.get().county = l.county.get();
+	}
+}
+
+T parseJson(T)(JSONValue jv) {
+	return parseJson!(T)(jv, []);
+}
+
+private T parseJson(T)(JSONValue jv, string[] path) {
+	static if(isArray!T && !isSomeString!T) {
+		enforce(jv.type == JSONType.array, format("Got '%s' wanted array in %s type %s"
+					, jv, path, jv.type));
+		alias EET = ElementEncodingType!T;
+		return jv.arrayNoRef()
+			.map!(it => parseJson!(EET)(it, path))
+			.array;
+	} else static if(is(T == Nullable!F, F)) {
+		return jv.type == JSONType.null_
+			? T.init
+			: parseJson!(F)(jv, path).nullable();
+	} else static if(is(T == Mustache[string])) {{
+		T ret;
+		foreach(key, value; jv.objectNoRef()) {
+			ret[key] = Mustache(value.get!string());
+		}
+		return ret;
+	}} else static if(is(T == SumType!(TT), TT...)) {{
+		T ret;
+		static foreach(H; TT) {
+			try {
+				static if(is(H == string[])) {
+					ret = parseJson!(H)(jv, path);
+				}
+			} catch(Exception e) {
+				//writefln("parseSumType %s '%s'", path, e.msg);
+			}
+		}
+		return ret;
+	}} else static if(is(T == Number)) {{
+		return Number(jv.get!string());
+	}} else static if(is(T == Mustache)) {{
+		return Mustache(jv.get!string());
+	}} else static if(is(T == string)) {
+		return jv.get!string();
+	} else static if(is(T == struct)) {
+		T ret;
+		static foreach(string mem; [FieldNameTuple!(T)].filter!(m => !m.empty)) {{
+			enum memJS = stripTrailingUnderscore(mem);
+			enforce(jv.type == JSONType.object
+					, format("expected an object got '%s' %s", jv.toPrettyString()
+						, path ~ mem));
+			JSONValue* mPtr = memJS in jv;
+
+			alias MemType = typeof(__traits(getMember, T, mem));
+			static if(is(MemType == string)) {
+				__traits(getMember, ret, mem) = (*mPtr).get!string();
+			} else static if(is(MemType == Nullable!F, F)) {
+				if(mPtr !is null && (*mPtr).type != JSONType.null_) {
+					__traits(getMember, ret, mem) = parseJson!(F)(*mPtr, path ~ mem);
+				}
+			} else static if(isIntegral!(MemType)) {
+				__traits(getMember, ret, mem) = (*mPtr).get!int();
+			} else {
+				enforce(mPtr !is null, format("Expected non null %s", path ~ mem));
+				__traits(getMember, ret, mem) = parseJson!(MemType)(*mPtr, path ~ mem);
+			}
+		}}
+		return ret;
+	} else {
+		static assert(false, "Not handled " ~ T.stringof);
+	}
+}
 
 Language parseLanguage(string folder) {
 	return parseFolder!(Language)([folder]);
@@ -154,21 +274,21 @@ T parseStruct(T)(string[] path) {
 	}
 }
 
+Dummy parseDummy(string[] path) {
+	return Dummy.init;
+}
+
 ForwardToOther parseForwardToOther(string[] path) {
 	string f = openAndTrimFile(path);
 	ForwardToOther ret;
-	if(!f.empty) {
-		string t = f.strip();
-		t = t.strip(";");
-		t = t.strip();
-		bool isValidFwd = t.byDchar().all!(c => isAlphaNum(c) || c == '_');
-		if(t.length < 16) {
-			writefln("%s %s", t, isValidFwd);
-		}
-		if(isValidFwd) {
-			ret.fwd = t;
-			return ret;
-		}
+	string t = f.strip();
+	t = t.strip(";");
+	t = t.strip();
+	bool isValidFwd = t.byDchar().all!(c => isAlphaNum(c) || c == '_');
+	if(!t.empty && isValidFwd) {
+		ret.fwd = t;
+	} else {
+		throw new Exception("ForwardToOther failed on '" ~ t ~ "'");
 	}
 	return ret;
 }
@@ -188,6 +308,8 @@ T parseStruct(T)(JSONValue j) {
 		return ret;
 	} else static if(isSomeString!(T)) {
 		return j.get!(string)();
+	} else static if(is(T == Dummy)) {
+		return Dummy.init;
 	} else static if(is(T == Mustache)) {
 		enforce(j.type == JSONType.string
 				, format("expected an Mustache got '%s'", j.toPrettyString()));
@@ -238,7 +360,7 @@ T parseStruct(T)(JSONValue j) {
 				} else static if(is(MemType == SumType!(TT), TT...)) {
 					writeln("SumType ", T.stringof);
 				} else static if(isIntegral!(MemType)) {
-					__traits(getMember, ret, mem) = (*mPtr).get!int();
+					__traits(getMember, ret, mem) = cast(MemType)(*mPtr).get!int();
 				} else {
 					__traits(getMember, ret, mem) = parseStruct!(MemType)(*mPtr);
 				}
@@ -251,6 +373,9 @@ T parseStruct(T)(JSONValue j) {
 SumType!(TT) parseSumType(TT...)(string[] path) {
 	SumType!(TT) ret;
 	string f = openAndTrimFile(path);
+	if(f.empty) {
+		return ret;
+	}
 	static foreach(T; TT) {
 		try {
 			static if(is(T == string[])) {
@@ -271,18 +396,14 @@ SumType!(TT) parseSumType(TT...)(string[] path) {
 					ret = r;
 					return ret;
 				}
-			} else {
+			} else static if(!is(T == Dummy)) {
 				static assert(false, T.stringof ~ " Not Handled");
 			}
 		} catch(Exception e) {
+			writefln("parseSumType %s '%s'", path, e.msg);
 		}
 	}
 	return ret;
 }
 
-string stripTrailingUnderscore(string s) {
-	return s.endsWith("_")
-		? s[0 .. $ - 1]
-		: s;
-}
 

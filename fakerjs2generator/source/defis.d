@@ -3,6 +3,10 @@ module defis;
 import std.typecons : Nullable;
 import std.sumtype;
 
+struct Dummy {
+	string alwaysEmpty;
+}
+
 struct Mustache {
 	string str;
 }
@@ -25,18 +29,18 @@ struct MergeArray {
 }
 
 struct Airline {
-	string name;
-	string iataCode;
+	Nullable!(string) name;
+	Nullable!(string) iataCode;
 }
 
 struct Airplane {
-	string name;
-	string iataTypeCode;
+	Nullable!(string) name;
+	Nullable!(string) iataTypeCode;
 }
 
 struct Airport {
-	string name;
-	string iataCode;
+	Nullable!(string) name;
+	Nullable!(string) iataCode;
 }
 
 struct AirlineFolder {
@@ -46,71 +50,71 @@ struct AirlineFolder {
 }
 
 struct AnimalFolder {
-	string[] bear;
-	string[] bird;
-	string[] cat;
-	string[] cetacean;
-	string[] cow;
-	string[] crocodilia;
-	string[] dog;
-	string[] fish;
-	string[] horse;
-	string[] insect;
-	string[] lion;
-	string[] rabbit;
-	string[] rodent;
-	string[] snake;
+	Nullable!(string[]) bear;
+	Nullable!(string[]) bird;
+	Nullable!(string[]) cat;
+	Nullable!(string[]) cetacean;
+	Nullable!(string[]) cow;
+	Nullable!(string[]) crocodilia;
+	Nullable!(string[]) dog;
+	Nullable!(string[]) fish;
+	Nullable!(string[]) horse;
+	Nullable!(string[]) insect;
+	Nullable!(string[]) lion;
+	Nullable!(string[]) rabbit;
+	Nullable!(string[]) rodent;
+	Nullable!(string[]) snake;
 }
 
 struct AppFolder {
-	Mustache[] author;
-	string[] name;
-	Number[] version_;
+	Nullable!(Mustache[]) author;
+	Nullable!(string[]) name;
+	Nullable!(Number[]) version_;
 }
 
 struct Cell_PhoneFolder {
-	Number[] formats;
+	Nullable!(Number[]) formats;
 }
 
 struct ColorFolder {
-	string[] human;
+	Nullable!(string[]) human;
 }
 
 struct Product_Name {
-	string[] adjective;
-	string[] material;
-	string[] product;
+	Nullable!(string[]) adjective;
+	Nullable!(string[]) material;
+	Nullable!(string[]) product;
 }
 
 struct CommerceFolder {
-	string[] departments;
-	string[] product_description;
-	Product_Name product_name;
+	Nullable!(string[]) departments;
+	Nullable!(string[]) product_description;
+	Nullable!(Product_Name) product_name;
 }
 
 struct CompanyFolder {
-	string[] adjective;
-	string[] buzz_adjective;
-	string[] buzz_noun;
-	string[] buzz_verb;
-	string[] descriptor;
-	Mustache[] name_pattern;
-	string[] noun;
-	string[] suffix;
+	Nullable!(string[]) adjective;
+	Nullable!(string[]) buzz_adjective;
+	Nullable!(string[]) buzz_noun;
+	Nullable!(string[]) buzz_verb;
+	Nullable!(string[]) descriptor;
+	Nullable!(Mustache[]) name_pattern;
+	Nullable!(string[]) noun;
+	Nullable!(string[]) suffix;
 }
 
 struct DatabaseFolder {
-	string[] column;
+	Nullable!(string[]) column;
 }
 
 struct DateMonth {
-	string[] wide;
-	string[] abbr;
+	Nullable!(string[]) wide;
+	Nullable!(string[]) abbr;
 }
 
 struct DateWeekday {
-	string[] wide;
-	string[] abbr;
+	Nullable!(string[]) wide;
+	Nullable!(string[]) abbr;
 }
 
 struct DateFolder {
@@ -119,13 +123,13 @@ struct DateFolder {
 }
 
 struct Credit_CardFolder {
-	Number[] american_express;
-	Number[] diners_club;
-	Number[] discover;
-	Number[] jcb;
-	Number[] maestro;
-	Number[] mastercard;
-	Number[] visa;
+	Nullable!(Number[]) american_express;
+	Nullable!(Number[]) diners_club;
+	Nullable!(Number[]) discover;
+	Nullable!(Number[]) jcb;
+	Nullable!(Number[]) maestro;
+	Nullable!(Number[]) mastercard;
+	Nullable!(Number[]) visa;
 }
 
 struct Currency {
@@ -135,54 +139,54 @@ struct Currency {
 }
 
 struct FinanceFolder {
-	Credit_CardFolder credit_card;
-	string[] account_type;
-	Currency[] currency;
-	string[] transaction_type;
+	Nullable!(Credit_CardFolder) credit_card;
+	Nullable!(string[]) account_type;
+	Nullable!(Currency[]) currency;
+	Nullable!(string[]) transaction_type;
 }
 
 struct HackerFolder {
-	string[] adjective;
-	string[] ingverb;
-	string[] noun;
-	Mustache[] phrase;
-	string[] verb;
+	Nullable!(string[]) adjective;
+	Nullable!(string[]) ingverb;
+	Nullable!(string[]) noun;
+	Nullable!(Mustache[]) phrase;
+	Nullable!(string[]) verb;
 }
 
 struct InternetFolder {
-	string[] domain_suffix;
-	string[] example_email;
-	string[] free_email;
+	Nullable!(string[]) domain_suffix;
+	Nullable!(string[]) example_email;
+	Nullable!(string[]) free_email;
 }
 
 struct LocationFolder {
-	Number[] building_number;
-	string[] city_name;
-	Mustache[] city_pattern;
-	string[] city_prefix;
-	string[] city_suffix;
-	string[] country;
-	SumType!(ForwardToOther,string[]) county;
-	string[] default_country;
-	string[] direction;
-	string[] direction_abbr;
-	Number[] postcode;
-	Number[] secondary_address;
-	string[] state;
-	string[] state_abbr;
-	Mustache[string] street_address;
-	string[] street_name;
-	Mustache[] street_pattern;
-	string[] street_suffix;
+	Nullable!(Number[]) building_number;
+	Nullable!(string[]) city_name;
+	Nullable!(Mustache[]) city_pattern;
+	Nullable!(string[]) city_prefix;
+	Nullable!(string[]) city_suffix;
+	Nullable!(string[]) country;
+	Nullable!(string[]) county;
+	Nullable!(string[]) default_country;
+	Nullable!(string[]) direction;
+	Nullable!(string[]) direction_abbr;
+	Nullable!(Number[]) postcode;
+	Nullable!(Number[]) secondary_address;
+	Nullable!(string[]) state;
+	Nullable!(string[]) state_abbr;
+	Nullable!(Mustache[string]) street_address;
+	Nullable!(string[]) street_name;
+	Nullable!(Mustache[]) street_pattern;
+	Nullable!(string[]) street_suffix;
 }
 
 struct LoremFolder {
-	string[] words;
+	Nullable!(string[]) words;
 }
 
 struct MusicFolder {
-	string[] genre;
-	string[] song_name;
+	Nullable!(string[]) genre;
+	Nullable!(string[]) song_name;
 }
 
 struct Title {
@@ -192,31 +196,31 @@ struct Title {
 }
 
 struct PersonFolder {
-	string[] bio_part;
-	Mustache[] bio_pattern;
-	string[] bio_supporter;
-	string[] female_first_name;
-	SumType!(ForwardToOther,string[]) female_middle_name;
-	string[] female_prefix;
-	SumType!(MergeArray,string[]) first_name;
-	string[] gender;
-	Mustache[] job_title_pattern;
-	SumType!(MergeArray,string[]) last_name;
-	MustacheWeight[] last_name_pattern;
-	string[] male_first_name;
-	SumType!(ForwardToOther,string[]) male_middle_name;
-	string[] male_prefix;
-	string[] middle_name;
-	MustacheWeight[] name;
-	MergeArray prefix;
-	string[] sex;
-	string[] suffix;
-	Title title;
-	string[] western_zodiac_sign;
+	Nullable!(string[]) bio_part;
+	Nullable!(Mustache[]) bio_pattern;
+	Nullable!(string[]) bio_supporter;
+	Nullable!(string[]) female_first_name;
+	Nullable!(string[]) female_middle_name;
+	Nullable!(string[]) female_prefix;
+	Nullable!(string[]) first_name;
+	Nullable!(string[]) gender;
+	Nullable!(Mustache[]) job_title_pattern;
+	Nullable!(string[]) last_name;
+	Nullable!(MustacheWeight[]) last_name_pattern;
+	Nullable!(string[]) male_first_name;
+	Nullable!(string[]) male_middle_name;
+	Nullable!(string[]) male_prefix;
+	Nullable!(string[]) middle_name;
+	Nullable!(MustacheWeight[]) name;
+	Nullable!(string[]) prefix;
+	Nullable!(string[]) sex;
+	Nullable!(string[]) suffix;
+	Nullable!(Title) title;
+	Nullable!(string[]) western_zodiac_sign;
 }
 
 struct Phone_NumberFolder {
-	Number[] formats;
+	Nullable!(Number[]) formats;
 }
 
 struct ChemicalElement {
@@ -231,52 +235,63 @@ struct ChemicalUnit {
 }
 
 struct ScienceFolder {
-	ChemicalElement[] chemicalElement;
-	ChemicalUnit[] unit;
+	Nullable!(ChemicalElement[]) chemicalElement;
+	Nullable!(ChemicalUnit[]) unit;
 }
 
 struct TeamFolder {
-	string[] creature;
-	Mustache[] name;
+	Nullable!(string[]) creature;
+	Nullable!(Mustache[]) name;
 }
 
 struct VehicleFolder {
-	string[] bicycle_type;
-	string[] fuel;
-	string[] manufacturer;
-	string[] model;
-	string[] type;
+	Nullable!(string[]) bicycle_type;
+	Nullable!(string[]) fuel;
+	Nullable!(string[]) manufacturer;
+	Nullable!(string[]) model;
+	Nullable!(string[]) type;
 }
 
 struct WordFolder {
-	string[] adjective;
-	string[] adverb;
-	string[] conjunction;
-	string[] interjection;
-	string[] noun;
-	string[] preposition;
-	string[] verb;
+	Nullable!(string[]) adjective;
+	Nullable!(string[]) adverb;
+	Nullable!(string[]) conjunction;
+	Nullable!(string[]) interjection;
+	Nullable!(string[]) noun;
+	Nullable!(string[]) preposition;
+	Nullable!(string[]) verb;
 }
 
 struct Language {
-	AirlineFolder airline;
-	AnimalFolder animal;
-	AppFolder app;
-	Cell_PhoneFolder cell_phone;
-	CommerceFolder commerce;
-	CompanyFolder company;
-	DatabaseFolder database;
-	DateFolder date;
-	FinanceFolder finance;
-	HackerFolder hacker;
-	InternetFolder internet;
-	LocationFolder location;
-	LoremFolder lorem;
-	MusicFolder music;
-	PersonFolder person;
-	Phone_NumberFolder phone_number;
-	ScienceFolder science;
-	TeamFolder team;
-	VehicleFolder vehicle;
-	WordFolder word;
+	Nullable!AirlineFolder airline;
+	Nullable!(AnimalFolder) animal;
+	Nullable!(AppFolder) app;
+	Nullable!(Cell_PhoneFolder) cell_phone;
+	Nullable!(CommerceFolder) commerce;
+	Nullable!(CompanyFolder) company;
+	Nullable!(DatabaseFolder) database;
+	Nullable!(DateFolder) date;
+	Nullable!(FinanceFolder) finance;
+	Nullable!(HackerFolder) hacker;
+	Nullable!(InternetFolder) internet;
+	Nullable!(LocationFolder) location;
+	Nullable!(LoremFolder) lorem;
+	Nullable!(MusicFolder) music;
+	Nullable!(PersonFolder) person;
+	Nullable!(Phone_NumberFolder) phone_number;
+	Nullable!(ScienceFolder) science;
+	Nullable!(TeamFolder) team;
+	Nullable!(VehicleFolder) vehicle;
+	Nullable!(WordFolder) word;
+}
+
+struct JsonFile {
+	Language data;
+	string[] chain;
+	Nullable!(string[]) first_name;
+	Nullable!(string[]) last_name;
+	Nullable!(string[]) prefix;
+	Nullable!(string[]) female_middle_name;
+	Nullable!(string[]) male_middle_name;
+	Nullable!(string[]) county;
 }

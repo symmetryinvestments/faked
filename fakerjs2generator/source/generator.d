@@ -35,7 +35,6 @@ void traverse(T,Out)(T t, ref Out o, string[] path) {
 		} else static if(is(T == SumType!(TT), TT...)) {
 			writeln("SumType");
 			enum m = buildForwarder!(TT);
-			pragma(msg, m);
 			mixin(m);
 		} else {
 			writefln("Unhandled %s", T.stringof);
@@ -44,11 +43,9 @@ void traverse(T,Out)(T t, ref Out o, string[] path) {
 }
 
 void genForwardToOther(Out)(ForwardToOther fto, ref Out o, string[] path) {
-	auto app = appender!string();
-	iformat(app, 1, "string %s() {\n", pathToFuncName(path));
-	iformat(app, 2, "return %s();\n", fto.fwd);
-	iformat(app, 0, "}\n", fto.fwd);
-	writeln(app.data);
+	iformat(o, 1, "string %s() {\n", pathToFuncName(path));
+	iformat(o, 2, "return %s();\n", fto.fwd);
+	iformat(o, 1, "}\n", fto.fwd);
 }
 
 void genStringArray(Out)(string[] strs, ref Out o, string[] path) {

@@ -74,3 +74,9 @@ string openAndTrimFile(string[] path) {
 string validateString(string s) {
 	return s.byUTF!(dchar).to!string();
 }
+
+string stripTrailingUnderscore(string s) {
+	return s.endsWith("_")
+		? s[0 .. $ - 1]
+		: s;
+}

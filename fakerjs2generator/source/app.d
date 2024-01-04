@@ -1,22 +1,20 @@
 import std.stdio;
-import std.file : dirEntries, SpanMode;
+import std.algorithm.iteration : filter;
+import std.file : dirEntries, SpanMode, readText;
 import std.string : lastIndexOf;
+import std.json;
 
 import parser;
 import defis;
 import generator;
 
 void main() {
-	writeln("Edit source/app.d to start your project.");
-
-	foreach(d; dirEntries("faker/src/locale/", SpanMode.shallow)) {
-		string n = d.name;
-		ptrdiff_t s = n.lastIndexOf('/');
-		n = n[s + 1 .. $ - 3];
-		writeln(n);
-		Language en = parseLanguage(n);
+	foreach(j; dirEntries("", "*.json", SpanMode.shallow)
+			.filter!(it => it.name != "dub.json"))
+	{
+		writeln(j.name);
+		JSONValue jv = parseJSON(readText(j.name));
+		JsonFile jf = parseJson!(JsonFile)(jv, [j.name]);
+		backFillMergeArray(jf);
 	}
-
-	//Language en = parseLanguage("en");
-	//generate(en, "en");
 }
