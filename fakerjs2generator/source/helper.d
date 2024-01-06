@@ -1,6 +1,6 @@
 module helper;
 
-import std.algorithm.searching : endsWith, startsWith;
+import std.algorithm.searching : canFind, endsWith, startsWith;
 import std.algorithm.iteration : filter, joiner, map, splitter;
 import std.file : exists, readText;
 import std.stdio;
@@ -79,4 +79,24 @@ string stripTrailingUnderscore(string s) {
 	return s.endsWith("_")
 		? s[0 .. $ - 1]
 		: s;
+}
+
+string camelCase(const string input, dchar[] separaters = ['_']) {
+	string output;
+	bool upcaseNext = false;
+	foreach(c; input) {
+		if (!separaters.canFind(c)) {
+			if (upcaseNext) {
+				output ~= c.toUpper;
+				upcaseNext = false;
+			}
+			else
+				output ~= c.toLower;
+		}
+		else {
+			upcaseNext = true;
+		}
+	}
+
+	return output;
 }

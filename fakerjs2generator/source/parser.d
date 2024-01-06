@@ -2,7 +2,7 @@ module parser;
 
 import std.array : array;
 import std.ascii : isAlphaNum;
-import std.algorithm.searching : all, endsWith, startsWith;
+import std.algorithm.searching : all, canFind, endsWith, startsWith;
 import std.algorithm.iteration : filter, joiner, map, splitter;
 import std.exception : enforce;
 import std.conv : to;
@@ -13,7 +13,7 @@ import std.string : strip;
 import std.stdio;
 import std.typecons : Nullable, nullable;
 import std.traits : FieldNameTuple, isArray, isIntegral, isSomeString;
-import std.uni : toLower;
+import std.uni : toLower, isControl;
 import std.utf : byDchar;
 import std.sumtype;
 import std.json;
@@ -32,42 +32,36 @@ void backFillMergeArray(ref JsonFile l) {
 		if(l.data.person.isNull()) {
 			l.data.person = PersonFolder.init;
 		}
-		writeln("first_name");
 		l.data.person.get().first_name = l.first_name.get();
 	}
 	if(!l.last_name.isNull()) {
 		if(l.data.person.isNull()) {
 			l.data.person = PersonFolder.init;
 		}
-		writeln("last_name");
 		l.data.person.get().last_name = l.last_name.get();
 	}
 	if(!l.prefix.isNull()) {
 		if(l.data.person.isNull()) {
 			l.data.person = PersonFolder.init;
 		}
-		writeln("prefix");
 		l.data.person.get().prefix = l.prefix.get();
 	}
 	if(!l.female_middle_name.isNull()) {
 		if(l.data.person.isNull()) {
 			l.data.person = PersonFolder.init;
 		}
-		writeln("female_middle_name");
 		l.data.person.get().female_middle_name = l.female_middle_name.get();
 	}
 	if(!l.male_middle_name.isNull()) {
 		if(l.data.person.isNull()) {
 			l.data.person = PersonFolder.init;
 		}
-		writeln("male_middle_name");
 		l.data.person.get().male_middle_name = l.male_middle_name.get();
 	}
 	if(!l.county.isNull()) {
 		if(l.data.location.isNull()) {
 			l.data.location = LocationFolder.init;
 		}
-		writeln("county");
 		l.data.location.get().county = l.county.get();
 	}
 }
@@ -76,14 +70,33 @@ T parseJson(T)(JSONValue jv) {
 	return parseJson!(T)(jv, []);
 }
 
+private bool containsControlCharacter(string s) {
+	dchar[] cs = [ '\u061C', '\u200E', '\u200F', '\u202A', '\u202B'
+		, '\u202C','\u202D', '\u202E', '\u2066', '\u2067', '\u2068', '\u2069'
+		];
+	foreach(dchar c; s) {
+		if(isControl(c) || canFind(cs, c)) {
+			return true;
+		}
+	}
+	return false;
+}
+
 private T parseJson(T)(JSONValue jv, string[] path) {
 	static if(isArray!T && !isSomeString!T) {
 		enforce(jv.type == JSONType.array, format("Got '%s' wanted array in %s type %s"
 					, jv, path, jv.type));
 		alias EET = ElementEncodingType!T;
-		return jv.arrayNoRef()
-			.map!(it => parseJson!(EET)(it, path))
-			.array;
+		static if(is(EET == string)) {
+			return jv.arrayNoRef()
+				.map!(it => parseJson!(EET)(it, path))
+				.filter!(s => !containsControlCharacter(s))
+				.array;
+		} else {
+			return jv.arrayNoRef()
+				.map!(it => parseJson!(EET)(it, path))
+				.array;
+		}
 	} else static if(is(T == Nullable!F, F)) {
 		return jv.type == JSONType.null_
 			? T.init
