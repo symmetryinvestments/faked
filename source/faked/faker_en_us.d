@@ -1,17 +1,20 @@
-module faker.faker_en_us;
+module faked.faker_en_us;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
+import faked.customtypes;
 
-class Faker_en_us : Faker {
+import faked.faker_en;
+
+class Faker_en_us : Faker_en {
 @safe:
 	this(int seed) {
 		super(seed);

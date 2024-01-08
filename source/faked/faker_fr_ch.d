@@ -1,16 +1,18 @@
-module faker.faker_fr_ch;
+module faked.faker_fr_ch;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
-import faker.faker_fr;
+import faked.customtypes;
+
+import faked.faker_fr;
 
 class Faker_fr_ch : Faker_fr {
 @safe:
@@ -23,7 +25,7 @@ class Faker_fr_ch : Faker_fr {
 		[ q"{076 ### ## ##}", q"{079 ### ## ##}", q"{078 ### ## ##}", q"{+41 76 ### ## ##}", q"{+41 78 ### ## ##}"
 		, q"{+41 79 ### ## ##}", q"{0041 76 ### ## ##}", q"{0041 78 ### ## ##}", q"{0041 79 ### ## ##}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string internetDomainSuffix() {
@@ -44,7 +46,7 @@ class Faker_fr_ch : Faker_fr {
 		const string[] strs =
 		[ q"{####}", q"{###}", q"{##}", q"{#}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationCityName() {
@@ -143,14 +145,14 @@ class Faker_fr_ch : Faker_fr {
 		const string[] strs =
 		[ q"{1###}", q"{2###}", q"{3###}", q"{4###}", q"{5###}", q"{6###}", q"{7###}", q"{8###}", q"{9###}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationSecondaryAddress() {
 		const string[] strs =
 		[ q"{Apt. ###}", q"{# étage}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -661,7 +663,7 @@ class Faker_fr_ch : Faker_fr {
 		, q"{076 ### ## ##}", q"{079 ### ## ##}", q"{078 ### ## ##}", q"{+41 76 ### ## ##}", q"{+41 78 ### ## ##}"
 		, q"{+41 79 ### ## ##}", q"{0041 76 ### ## ##}", q"{0041 78 ### ## ##}", q"{0041 79 ### ## ##}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 }

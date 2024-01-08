@@ -1,17 +1,20 @@
-module faker.faker_en_ie;
+module faked.faker_en_ie;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
+import faked.customtypes;
 
-class Faker_en_ie : Faker {
+import faked.faker_en;
+
+class Faker_en_ie : Faker_en {
 @safe:
 	this(int seed) {
 		super(seed);
@@ -22,7 +25,7 @@ class Faker_en_ie : Faker {
 		[ q"{082 ### ####}", q"{083 ### ####}", q"{085 ### ####}", q"{086 ### ####}", q"{087 ### ####}"
 		, q"{089 ### ####}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string internetDomainSuffix() {
@@ -64,7 +67,7 @@ class Faker_en_ie : Faker {
 		[ q"{A## ****}", q"{D## ****}", q"{E## ****}", q"{F## ****}", q"{H## ****}", q"{K## ****}", q"{N## ****}"
 		, q"{P## ****}", q"{R## ****}", q"{T## ****}", q"{V## ****}", q"{W## ****}", q"{X## ****}", q"{Y## ****}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationStreetPattern() {
@@ -101,7 +104,7 @@ class Faker_en_ie : Faker {
 		, q"{091 #######}", q"{093 #######}", q"{094 #######}", q"{095 #######}", q"{096 #######}"
 		, q"{097 #######}", q"{098 #######}", q"{099 #######}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 }

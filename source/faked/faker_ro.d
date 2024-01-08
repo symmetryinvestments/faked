@@ -1,17 +1,20 @@
-module faker.faker_ro;
+module faked.faker_ro;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
+import faked.customtypes;
 
-class Faker_ro : Faker {
+import faked.faker_en;
+
+class Faker_ro : Faker_en {
 @safe:
 	this(int seed) {
 		super(seed);
@@ -30,7 +33,7 @@ class Faker_ro : Faker {
 		, q"{0785######}", q"{0768######}", q"{0769######}", q"{0784######}", q"{0770######}", q"{0772######}"
 		, q"{0771######}", q"{0749######}", q"{0750######}", q"{0751######}", q"{0752######}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string dateMonthWide() {
@@ -83,7 +86,7 @@ class Faker_ro : Faker {
 		const string[] strs =
 		[ q"{Bloc ##}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationCityName() {
@@ -171,14 +174,14 @@ class Faker_ro : Faker {
 		const string[] strs =
 		[ q"{######}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationSecondaryAddress() {
 		const string[] strs =
 		[ q"{Ap. ##}", q"{Ap. ###}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -573,7 +576,7 @@ class Faker_ro : Faker {
 		, q"{0256######}", q"{0356######}", q"{0240######}", q"{0340######}", q"{0250######}", q"{0350######}"
 		, q"{0235######}", q"{0335######}", q"{0237######}", q"{0337######}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 }

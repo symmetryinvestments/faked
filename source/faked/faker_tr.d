@@ -1,17 +1,20 @@
-module faker.faker_tr;
+module faked.faker_tr;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
+import faked.customtypes;
 
-class Faker_tr : Faker {
+import faked.faker_en;
+
+class Faker_tr : Faker_en {
 @safe:
 	this(int seed) {
 		super(seed);
@@ -21,7 +24,7 @@ class Faker_tr : Faker {
 		const string[] strs =
 		[ q"{+90-53#-###-##-##}", q"{+90-54#-###-##-##}", q"{+90-55#-###-##-##}", q"{+90-50#-###-##-##}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string commerceProductDescription() {
@@ -75,7 +78,7 @@ class Faker_tr : Faker {
 		const string[] strs =
 		[ q"{###}", q"{##}", q"{#}", q"{##a}", q"{##b}", q"{##c}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationCityName() {
@@ -165,7 +168,7 @@ class Faker_tr : Faker {
 		const string[] strs =
 		[ q"{#####}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -609,7 +612,7 @@ class Faker_tr : Faker {
 		const string[] strs =
 		[ q"{+90-###-###-##-##}", q"{+90-###-###-#-###}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 }

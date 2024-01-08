@@ -1,17 +1,20 @@
-module faker.faker_nb_no;
+module faked.faker_nb_no;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
+import faked.customtypes;
 
-class Faker_nb_no : Faker {
+import faked.faker_en;
+
+class Faker_nb_no : Faker_en {
 @safe:
 	this(int seed) {
 		super(seed);
@@ -44,7 +47,7 @@ class Faker_nb_no : Faker {
 		const string[] strs =
 		[ q"{#}", q"{##}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationCityName() {
@@ -82,14 +85,14 @@ class Faker_nb_no : Faker {
 		const string[] strs =
 		[ q"{####}", q"{0###}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationSecondaryAddress() {
 		const string[] strs =
 		[ q"{Leil. ###}", q"{Oppgang A}", q"{Oppgang B}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -269,7 +272,7 @@ class Faker_nb_no : Faker {
 		const string[] strs =
 		[ q"{########}", q"{## ## ## ##}", q"{### ## ###}", q"{+47 ## ## ## ##}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override ChemicalElement scienceChemicalElement() {

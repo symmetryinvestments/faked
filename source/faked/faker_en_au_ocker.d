@@ -1,16 +1,18 @@
-module faker.faker_en_au_ocker;
+module faked.faker_en_au_ocker;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
-import faker.faker_en_au;
+import faked.customtypes;
+
+import faked.faker_en_au;
 
 class Faker_en_au_ocker : Faker_en_au {
 @safe:
@@ -36,7 +38,7 @@ class Faker_en_au_ocker : Faker_en_au {
 		const string[] strs =
 		[ q"{####}", q"{###}", q"{##}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationCityName() {
@@ -65,7 +67,7 @@ class Faker_en_au_ocker : Faker_en_au {
 		const string[] strs =
 		[ q"{0###}", q"{2###}", q"{3###}", q"{4###}", q"{5###}", q"{6###}", q"{7###}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -154,7 +156,7 @@ class Faker_en_au_ocker : Faker_en_au {
 		const string[] strs =
 		[ q"{0# #### ####}", q"{+61 # #### ####}", q"{04## ### ###}", q"{+61 4## ### ###}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 }

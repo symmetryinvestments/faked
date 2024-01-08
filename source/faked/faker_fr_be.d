@@ -1,16 +1,18 @@
-module faker.faker_fr_be;
+module faked.faker_fr_be;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
-import faker.faker_fr;
+import faked.customtypes;
+
+import faked.faker_fr;
 
 class Faker_fr_be : Faker_fr {
 @safe:
@@ -27,7 +29,7 @@ class Faker_fr_be : Faker_fr {
 		, q"{+32 455 ## ##}", q"{+32 456 ## ##}", q"{+32 46# ## ##}", q"{+32 47# ## ##}", q"{+32 48# ## ##}"
 		, q"{+32 49# ## ##}", q"{+32 461 8# ##}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string internetDomainSuffix() {
@@ -48,7 +50,7 @@ class Faker_fr_be : Faker_fr {
 		const string[] strs =
 		[ q"{#}", q"{##}", q"{###}", q"{# bis}", q"{## bis}", q"{### bis}", q"{###a}", q"{###b}", q"{###c}", q"{###/2}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationCityPattern() {
@@ -126,7 +128,7 @@ class Faker_fr_be : Faker_fr {
 		const string[] strs =
 		[ q"{####}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -1070,7 +1072,7 @@ class Faker_fr_be : Faker_fr {
 		, q"{+32 83######}", q"{+32 84######}", q"{+32 85######}", q"{+32 86######}", q"{+32 87######}"
 		, q"{+32 89######}", q"{+32 9#######}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 }

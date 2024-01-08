@@ -1,17 +1,20 @@
-module faker.faker_ru;
+module faked.faker_ru;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
+import faked.customtypes;
 
-class Faker_ru : Faker {
+import faked.faker_en;
+
+class Faker_ru : Faker_en {
 @safe:
 	this(int seed) {
 		super(seed);
@@ -139,14 +142,14 @@ class Faker_ru : Faker {
 
 	override string hackerPhrase() {
 		final switch(uniform(0, 8, this.rnd)) {
-			case 0: return "Чтобы " ~ verb() ~ " " ~ noun() ~ ", мы можем получить " ~ abbreviation() ~ " " ~ noun() ~ " через " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ "!";
-			case 1: return "Необходимо " ~ verb() ~ " " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ "!";
-			case 2: return "Попробуйте " ~ verb() ~ " " ~ abbreviation() ~ " " ~ noun() ~ ", возможно это позволит " ~ verb() ~ " " ~ adjective() ~ " " ~ noun() ~ "!";
-			case 3: return "Вы не можете " ~ verb() ~ " " ~ noun() ~ ", требуется " ~ ingverb() ~ " или " ~ ingverb() ~ "!";
-			case 4: return "Используйте " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ ", для того чтобы " ~ verb() ~ " " ~ adjective() ~ " " ~ noun() ~ "!";
-			case 5: return abbreviation() ~ " " ~ noun() ~ " недоступен, требуется " ~ verb() ~ " " ~ adjective() ~ " " ~ noun() ~ ", чтобы мы могли " ~ verb() ~ " " ~ abbreviation() ~ " " ~ noun() ~ "!";
-			case 6: return ingverb() ~ " не работает, попробуйте " ~ verb() ~ " " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ "!";
-			case 7: return "Я планирую " ~ verb() ~ " " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ ", это должно помочь " ~ verb() ~ " " ~ abbreviation() ~ " " ~ noun() ~ "!";
+			case 0: return "Чтобы " ~ hackerVerb() ~ " " ~ hackerNoun() ~ ", мы можем получить " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " через " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+			case 1: return "Необходимо " ~ hackerVerb() ~ " " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+			case 2: return "Попробуйте " ~ hackerVerb() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ ", возможно это позволит " ~ hackerVerb() ~ " " ~ hackerAdjective() ~ " " ~ hackerNoun() ~ "!";
+			case 3: return "Вы не можете " ~ hackerVerb() ~ " " ~ hackerNoun() ~ ", требуется " ~ hackerIngverb() ~ " или " ~ hackerIngverb() ~ "!";
+			case 4: return "Используйте " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ ", для того чтобы " ~ hackerVerb() ~ " " ~ hackerAdjective() ~ " " ~ hackerNoun() ~ "!";
+			case 5: return hackerAbbreviation() ~ " " ~ hackerNoun() ~ " недоступен, требуется " ~ hackerVerb() ~ " " ~ hackerAdjective() ~ " " ~ hackerNoun() ~ ", чтобы мы могли " ~ hackerVerb() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+			case 6: return hackerIngverb() ~ " не работает, попробуйте " ~ hackerVerb() ~ " " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+			case 7: return "Я планирую " ~ hackerVerb() ~ " " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ ", это должно помочь " ~ hackerVerb() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
 		}
 		return "";
 	}
@@ -160,6 +163,16 @@ class Faker_ru : Faker {
 		, q"{квантифицировать}", q"{вычислить}", q"{синтезировать}"
 		, q"{ввести}", q"{передать}", q"{запрограммировать}"
 		, q"{перезагрузить}", q"{разобрать}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	override string hackerAbbreviation() {
+		const string[] strs =
+		[ q"{БИОС}", q"{Гб}", q"{ИИ}", q"{ОС}", q"{ОЗУ}", q"{ПО}", q"{СУБД}", q"{ХЗ}", q"{ЭВМ}"
+		, q"{HTTP}", q"{SDD}", q"{CSS}", q"{SSL}", q"{AGP}", q"{FTP}", q"{PCI}", q"{ADP}", q"{RSS}", q"{XML}", q"{EXE}"
+		, q"{COM}", q"{НМЖД}", q"{ПЗУ}", q"{SMTP}", q"{SMS}", q"{USB}", q"{PNG}", q"{SAS}", q"{JSON}"
+		, q"{XSS}" ];
 
 		return choice(strs, this.rnd);
 	}
@@ -184,7 +197,7 @@ class Faker_ru : Faker {
 		const string[] strs =
 		[ q"{###}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationCityName() {
@@ -436,14 +449,14 @@ class Faker_ru : Faker {
 		const string[] strs =
 		[ q"{######}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationSecondaryAddress() {
 		const string[] strs =
 		[ q"{кв. ###}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -966,7 +979,7 @@ class Faker_ru : Faker {
 		const string[] strs =
 		[ q"{(9##)###-##-##}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 }

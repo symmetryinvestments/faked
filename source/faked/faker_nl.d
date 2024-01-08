@@ -1,17 +1,20 @@
-module faker.faker_nl;
+module faked.faker_nl;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
+import faked.customtypes;
 
-class Faker_nl : Faker {
+import faked.faker_en;
+
+class Faker_nl : Faker_en {
 @safe:
 	this(int seed) {
 		super(seed);
@@ -121,14 +124,14 @@ class Faker_nl : Faker {
 
 	override string hackerPhrase() {
 		final switch(uniform(0, 8, this.rnd)) {
-			case 0: return "Als we de " ~ noun() ~ " " ~ verb() ~ ", dan kunnen we naar de " ~ abbreviation() ~ " " ~ noun() ~ " via de " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ "!";
-			case 1: return "We moeten de " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ " " ~ verb() ~ "!";
-			case 2: return "Probeer om de " ~ abbreviation() ~ " " ~ noun() ~ " te " ~ verb() ~ ", misschien gaat dat de " ~ adjective() ~ " " ~ noun() ~ " " ~ verb() ~ "!";
-			case 3: return "Je kan de " ~ noun() ~ " niet " ~ verb() ~ " zonder de " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ " te " ~ verb() ~ "!";
-			case 4: return "Gebruik de " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ ", dan kan je de " ~ adjective() ~ " " ~ noun() ~ " " ~ verb() ~ "!";
-			case 5: return "De " ~ abbreviation() ~ " " ~ noun() ~ " ligt eruit, jullie moeten de " ~ adjective() ~ " " ~ noun() ~ " " ~ verb() ~ " zodat we de " ~ abbreviation() ~ " " ~ noun() ~ " kunnen " ~ verb() ~ "!";
-			case 6: return "Het maakt niet uit of we de " ~ noun() ~ " " ~ verb() ~ ", we moeten de " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ " " ~ verb() ~ "!";
-			case 7: return "Ik ga de " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ " " ~ verb() ~ ", dat zou de " ~ noun() ~ " moeten " ~ verb() ~ "!";
+			case 0: return "Als we de " ~ hackerNoun() ~ " " ~ hackerVerb() ~ ", dan kunnen we naar de " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " via de " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+			case 1: return "We moeten de " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " " ~ hackerVerb() ~ "!";
+			case 2: return "Probeer om de " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " te " ~ hackerVerb() ~ ", misschien gaat dat de " ~ hackerAdjective() ~ " " ~ hackerNoun() ~ " " ~ hackerVerb() ~ "!";
+			case 3: return "Je kan de " ~ hackerNoun() ~ " niet " ~ hackerVerb() ~ " zonder de " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " te " ~ hackerVerb() ~ "!";
+			case 4: return "Gebruik de " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ ", dan kan je de " ~ hackerAdjective() ~ " " ~ hackerNoun() ~ " " ~ hackerVerb() ~ "!";
+			case 5: return "De " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " ligt eruit, jullie moeten de " ~ hackerAdjective() ~ " " ~ hackerNoun() ~ " " ~ hackerVerb() ~ " zodat we de " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " kunnen " ~ hackerVerb() ~ "!";
+			case 6: return "Het maakt niet uit of we de " ~ hackerNoun() ~ " " ~ hackerVerb() ~ ", we moeten de " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " " ~ hackerVerb() ~ "!";
+			case 7: return "Ik ga de " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " " ~ hackerVerb() ~ ", dat zou de " ~ hackerNoun() ~ " moeten " ~ hackerVerb() ~ "!";
 		}
 		return "";
 	}
@@ -161,7 +164,7 @@ class Faker_nl : Faker {
 		const string[] strs =
 		[ q"{#}", q"{##}", q"{###}", q"{###a}", q"{###b}", q"{###c}", q"{### I}", q"{### II}", q"{### III}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationCityPattern() {
@@ -588,14 +591,14 @@ class Faker_nl : Faker {
 		[ q"{1### ??}", q"{2### ??}", q"{3### ??}", q"{4### ??}", q"{5### ??}", q"{6### ??}", q"{7### ??}"
 		, q"{8### ??}", q"{9### ??}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationSecondaryAddress() {
 		const string[] strs =
 		[ q"{1 hoog}", q"{2 hoog}", q"{3 hoog}", q"{3 hoog achter}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -912,7 +915,7 @@ class Faker_nl : Faker {
 		[ q"{(0###) ######}", q"{06 #### ####}", q"{0#########}", q"{06########}", q"{+31#########}"
 		, q"{+316########}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 }

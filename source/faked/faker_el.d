@@ -1,17 +1,20 @@
-module faker.faker_el;
+module faked.faker_el;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
+import faked.customtypes;
 
-class Faker_el : Faker {
+import faked.faker_en;
+
+class Faker_el : Faker_en {
 @safe:
 	this(int seed) {
 		super(seed);
@@ -50,14 +53,14 @@ class Faker_el : Faker {
 		const string[] strs =
 		[ q"{0.#.#}", q"{0.##}", q"{#.##}", q"{#.#}", q"{#.#.#}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string cellPhoneFormats() {
 		const string[] strs =
 		[ q"{697## ######}", q"{698## ######}", q"{699## ######}", q"{692## ######}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string commerceProductNameAdjective() {
@@ -215,7 +218,7 @@ class Faker_el : Faker {
 		const string[] strs =
 		[ q"{/34##-######-####L/}", q"{/37##-######-####L/}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string financeCreditCardDiscover() {
@@ -223,28 +226,28 @@ class Faker_el : Faker {
 		[ q"{/6011-####-####-###L/}", q"{/65##-####-####-###L/}", q"{/64[4-9]#-####-####-###L/}"
 		, q"{/6011-62##-####-####-###L/}", q"{/65##-62##-####-####-###L/}", q"{/64[4-9]#-62##-####-####-###L/}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string financeCreditCardMaestro() {
 		const string[] strs =
 		[ q"{/50#{9,16}L/}", q"{/5[6-8]#{9,16}L/}", q"{/56##{9,16}L/}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string financeCreditCardMastercard() {
 		const string[] strs =
 		[ q"{5[1-5]##-####-####-###L}", q"{2[221-720]-####-####-###L}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string financeCreditCardVisa() {
 		const string[] strs =
 		[ q"{/4###########L/}", q"{/4###-####-####-###L/}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string financeAccountType() {
@@ -292,6 +295,15 @@ class Faker_el : Faker {
 		[ q"{back up}", q"{bypass}", q"{hack}", q"{προσπέραση}", q"{συμπίεση}", q"{αντιγραφή}"
 		, q"{περιήγηση}", q"{σύνδεση}", q"{υπολογισμός}", q"{είσοδος}"
 		, q"{μεταφορά}", q"{πρόγραμμα}", q"{επανεκκίνηση}", q"{προσπέλαση}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	override string hackerAbbreviation() {
+		const string[] strs =
+		[ q"{TCP}", q"{HTTP}", q"{SDD}", q"{RAM}", q"{GB}", q"{CSS}", q"{SSL}", q"{AGP}", q"{SQL}", q"{FTP}", q"{PCI}"
+		, q"{AI}", q"{ADP}", q"{RSS}", q"{XML}", q"{EXE}", q"{COM}", q"{HDD}", q"{THX}", q"{SMTP}", q"{SMS}", q"{USB}"
+		, q"{PNG}", q"{SAS}", q"{IB}", q"{SCSI}", q"{JSON}", q"{XSS}", q"{JBOD}" ];
 
 		return choice(strs, this.rnd);
 	}
@@ -585,7 +597,7 @@ class Faker_el : Faker {
 		, q"{279# ######}", q"{281# ######}", q"{282# ######}", q"{283# ######}", q"{284# ######}"
 		, q"{289# ######}", q"{0800 ######}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string teamCreature() {

@@ -1,17 +1,20 @@
-module faker.faker_pl;
+module faked.faker_pl;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
+import faked.customtypes;
 
-class Faker_pl : Faker {
+import faked.faker_en;
+
+class Faker_pl : Faker_en {
 @safe:
 	this(int seed) {
 		super(seed);
@@ -83,7 +86,7 @@ class Faker_pl : Faker {
 		, q"{66#-###-###}", q"{69#-###-###}", q"{72#-###-###}", q"{73#-###-###}", q"{78#-###-###}"
 		, q"{79#-###-###}", q"{88#-###-###}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string companyNamePattern() {
@@ -122,7 +125,7 @@ class Faker_pl : Faker {
 		const string[] strs =
 		[ q"{###}", q"{##}", q"{##a}", q"{##b}", q"{##c}", q"{#/#}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationCityName() {
@@ -355,14 +358,14 @@ class Faker_pl : Faker {
 		const string[] strs =
 		[ q"{##-###}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationSecondaryAddress() {
 		const string[] strs =
 		[ q"{m. ###}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -856,7 +859,7 @@ class Faker_pl : Faker {
 		, q"{83-###-##-##}", q"{84-###-##-##}", q"{85-###-##-##}", q"{86-###-##-##}", q"{87-###-##-##}"
 		, q"{89-###-##-##}", q"{91-###-##-##}", q"{94-###-##-##}", q"{95-###-##-##}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override ChemicalElement scienceChemicalElement() {

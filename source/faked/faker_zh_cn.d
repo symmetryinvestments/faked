@@ -1,17 +1,20 @@
-module faker.faker_zh_cn;
+module faked.faker_zh_cn;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
+import faked.customtypes;
 
-class Faker_zh_cn : Faker {
+import faked.faker_en;
+
+class Faker_zh_cn : Faker_en {
 @safe:
 	this(int seed) {
 		super(seed);
@@ -564,14 +567,14 @@ class Faker_zh_cn : Faker {
 		const string[] strs =
 		[ q"{5[1-5]##-####-####-###L}", q"{2[221-720]-####-####-###L}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string financeCreditCardVisa() {
 		const string[] strs =
 		[ q"{4###########L}", q"{4###-####-####-###L}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string financeAccountType() {
@@ -771,14 +774,14 @@ class Faker_zh_cn : Faker {
 
 	override string hackerPhrase() {
 		final switch(uniform(0, 8, this.rnd)) {
-			case 0: return "倘若我们" ~ verb() ~ noun() ~ "，我们就可以通过" ~ adjective() ~ abbreviation() ~ noun() ~ "获得" ~ abbreviation() ~ noun() ~ "！";
-			case 1: return "我们需要" ~ verb() ~ adjective() ~ abbreviation() ~ noun() ~ "！";
-			case 2: return "尝试" ~ verb() ~ abbreviation() ~ noun() ~ "，也许会" ~ verb() ~ adjective() ~ noun() ~ "！";
-			case 3: return "在没有" ~ verb() ~ adjective() ~ abbreviation() ~ noun() ~ "的情况下，你不能" ~ verb() ~ noun() ~ "！";
-			case 4: return "使用" ~ adjective() ~ abbreviation() ~ noun() ~ "，然后你就能" ~ verb() ~ adjective() ~ noun() ~ "！";
-			case 5: return abbreviation() ~ noun() ~ "已关闭，因为" ~ adjective() ~ noun() ~ "所以我们能" ~ verb() ~ abbreviation() ~ noun() ~ "！";
-			case 6: return verb() ~ noun() ~ "是无济于事的，我们需要" ~ verb() ~ adjective() ~ abbreviation() ~ noun() ~ "！";
-			case 7: return "我将" ~ verb() ~ adjective() ~ abbreviation() ~ noun() ~ "，那是应该" ~ noun() ~ abbreviation() ~ noun() ~ "！";
+			case 0: return "倘若我们" ~ hackerVerb() ~ hackerNoun() ~ "，我们就可以通过" ~ hackerAdjective() ~ hackerAbbreviation() ~ hackerNoun() ~ "获得" ~ hackerAbbreviation() ~ hackerNoun() ~ "！";
+			case 1: return "我们需要" ~ hackerVerb() ~ hackerAdjective() ~ hackerAbbreviation() ~ hackerNoun() ~ "！";
+			case 2: return "尝试" ~ hackerVerb() ~ hackerAbbreviation() ~ hackerNoun() ~ "，也许会" ~ hackerVerb() ~ hackerAdjective() ~ hackerNoun() ~ "！";
+			case 3: return "在没有" ~ hackerVerb() ~ hackerAdjective() ~ hackerAbbreviation() ~ hackerNoun() ~ "的情况下，你不能" ~ hackerVerb() ~ hackerNoun() ~ "！";
+			case 4: return "使用" ~ hackerAdjective() ~ hackerAbbreviation() ~ hackerNoun() ~ "，然后你就能" ~ hackerVerb() ~ hackerAdjective() ~ hackerNoun() ~ "！";
+			case 5: return hackerAbbreviation() ~ hackerNoun() ~ "已关闭，因为" ~ hackerAdjective() ~ hackerNoun() ~ "所以我们能" ~ hackerVerb() ~ hackerAbbreviation() ~ hackerNoun() ~ "！";
+			case 6: return hackerVerb() ~ hackerNoun() ~ "是无济于事的，我们需要" ~ hackerVerb() ~ hackerAdjective() ~ hackerAbbreviation() ~ hackerNoun() ~ "！";
+			case 7: return "我将" ~ hackerVerb() ~ hackerAdjective() ~ hackerAbbreviation() ~ hackerNoun() ~ "，那是应该" ~ hackerNoun() ~ hackerAbbreviation() ~ hackerNoun() ~ "！";
 		}
 		return "";
 	}
@@ -805,7 +808,7 @@ class Faker_zh_cn : Faker {
 		const string[] strs =
 		[ q"{#####}", q"{####}", q"{###}", q"{##}", q"{#}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationCityPattern() {
@@ -843,7 +846,7 @@ class Faker_zh_cn : Faker {
 		const string[] strs =
 		[ q"{######}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -1148,7 +1151,7 @@ class Faker_zh_cn : Faker {
 		const string[] strs =
 		[ q"{0##-########}", q"{0###-########}", q"{1##########}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override ChemicalElement scienceChemicalElement() {

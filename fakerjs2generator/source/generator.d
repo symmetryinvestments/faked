@@ -18,6 +18,94 @@ import std.sumtype;
 import helper;
 import defis;
 
+void generateForward(JsonFile bs, string[] langs) {
+	auto f = File("../source/faked/fakerforwarder.d", "w");
+	f.writefln(`module faked.fakerforwarder;
+
+import faked.customtypes;
+` ~ "%--(%s\n%)" ~ `
+
+class FakerForwarder {
+@safe:
+	Faker[] toPassThrough = [ new Faker(1337), ` ~ "%--(%s, %)" ~ ` ];
+`
+	, langs.map!(l => "import faked.faker_" ~ l.toLower() ~ ";")
+	, langs.map!(l => "new Faker_" ~ l.toLower() ~ "(1337)")
+	);
+
+	auto ltw = f.lockingTextWriter();
+	traverseFwd(bs.data, ltw, []);
+
+	f.writeln("}");
+}
+
+void traverseFwd(T,Out)(T t, ref Out o, string[] path) {
+	static if(T.stringof.endsWith("Folder")
+			|| is(T == Language)
+			|| is(T == Product_Name)
+			|| is(T == DateWeekday)
+			|| is(T == Title)
+			|| is(T == DateMonth))
+	{
+		static foreach(string mem; [FieldNameTuple!(T)].filter!(m => !m.empty)) {{
+			traverseFwd(__traits(getMember, t, mem), o, path ~ mem);
+		}}
+	} else static if(is(T == Nullable!F, F)) {
+		if(!t.isNull()) {
+			traverseFwd(t.get(), o, path);
+		}
+	} else {
+		string ptfn = pathToFuncName(path);
+		static if(is(T == string[])) {
+			iformat(o, 1, "final string %s() {\n", ptfn);
+			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+					, ptfn);
+		} else static if(is(T == Mustache[])) {
+			iformat(o, 1, "final string %s() {\n", ptfn);
+			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+					, ptfn);
+		} else static if(is(T == Airplane[])) {
+			iformat(o, 1, "final Airline %s() {\n", ptfn);
+			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+					, ptfn);
+		} else static if(is(T == Airport[])) {
+			iformat(o, 1, "final Airport %s() {\n", ptfn);
+			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+					, ptfn);
+		} else static if(is(T == Currency[])) {
+			iformat(o, 1, "final Currency %s() {\n", ptfn);
+			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+					, ptfn);
+		} else static if(is(T == ChemicalUnit[])) {
+			iformat(o, 1, "final ChemicalUnit %s() {\n", ptfn);
+			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+					, ptfn);
+		} else static if(is(T == ChemicalElement[])) {
+			iformat(o, 1, "final ChemicalElement %s() {\n", ptfn);
+			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+					, ptfn);
+		} else static if(is(T == Airline[])) {
+			iformat(o, 1, "final Airline %s() {\n", ptfn);
+			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+					, ptfn);
+		} else static if(is(T == MustacheWeight[])) {
+			iformat(o, 1, "final string %s() {\n", ptfn);
+			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+					, ptfn);
+		} else static if(is(T == Mustache[string])) {
+			iformat(o, 1, "final string %s() {\n", ptfn);
+			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+					, ptfn);
+		} else static if(is(T == Number[])) {
+			iformat(o, 1, "final string %s() {\n", ptfn);
+			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+					, ptfn);
+		} else {
+			writefln("Unhandled %s", T.stringof);
+		}
+	}
+}
+
 void generate(Language lang, string langName, const bool base) {
 	auto app = appender!string();
 	traverse(lang, app, [], base);
@@ -27,6 +115,33 @@ void generate(Language lang, string langName, const bool base) {
 
 void generate(Out)(Language lang, auto ref Out o, string[] path, const bool base) {
 	traverse(lang, o, path, base);
+}
+
+void traverseMustachAAs(T,Out)(T t, auto ref Out o, string[] path) {
+	static if(T.stringof.endsWith("Folder")
+			|| is(T == Language)
+			|| is(T == Product_Name)
+			|| is(T == DateWeekday)
+			|| is(T == Title)
+			|| is(T == DateMonth))
+	{
+		static foreach(string mem; [FieldNameTuple!(T)].filter!(m => !m.empty)) {{
+			traverseMustachAAs(__traits(getMember, t, mem), o, path ~ mem);
+		}}
+	} else static if(is(T == Nullable!F, F)) {
+		if(!t.isNull()) {
+			traverseMustachAAs(t.get(), o, path);
+		}
+	} else {
+		static if(is(T == Mustache[string])) {
+			string enumName = toFirstUpper(pathToFuncName(path));
+			formattedWrite(o, "enum %sEnum {\n", enumName);
+			foreach(idx, key; t.keys()) {
+				iformat(o, 1, "%s %s\n", idx == 0 ? " " : ",", key);
+			}
+			formattedWrite(o, "}\n\n");
+		}
+	}
 }
 
 void traverse(T,Out)(T t, ref Out o, string[] path, const bool base) {
@@ -89,7 +204,7 @@ void genNumber(Out)(Number[] n, ref Out o, string[] path, const bool base) {
 	iformat(o, 2, "const string[] strs =\n\t\t[ ");
 	str80(o, n.map!(it => it.num).array, 2);
 	o.put(" ];\n\n");
-	iformat(o, 2, "return numberBuild(choice(str, this.rnd));\n");
+	iformat(o, 2, "return numberBuild(choice(strs, this.rnd));\n");
 	iformat(o, 1, "}");
 }
 
@@ -294,7 +409,7 @@ string mustacheToFuncIdentifer(string s) {
 
 void genCustomTypes() {
 	auto file = File("../source/faked/customtypes.d", "w");
-	file.writeln(`module faker.customtypes;
+	file.writeln(`module faked.customtypes;
 
 import std.typecons : Nullable;
 
@@ -335,19 +450,21 @@ struct ChemicalUnit {
 
 void genTopMatter(Out)(ref JsonFile jf, auto ref Out o, const string language, const bool base) {
 	if(base) {
-		iformat(o, 0, `module faker.base;
+		iformat(o, 0, `module faked.faker_base;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
+import faked.customtypes;
 
-class Faker {
+class Faker_base {
 @safe:
 	Random rnd;
 	this(int seed) {
@@ -384,31 +501,38 @@ class Faker {
 
 `);
 	} else {
-		string chain = jf.chain.length == 1 ? "en" : jf.chain[0];
-		chain = chain == "en"
-			? "Faker"
-			: "Faker_" ~ chain.toLower();
-		iformat(o, 0, `module faker.faker_%1$s;
+		writeln(language.toLower, " ", jf.chain);
+		string chain =
+			jf.chain.empty
+				? ""
+				: (" : Faker_" ~ jf.chain[0].toLower());
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
+		string import_ = jf.chain.empty
+			? ""
+			: "\nimport faked.faker_" ~ jf.chain[0].toLower() ~ ";";
+
+		iformat(o, 0, `module faked.faker_%1$s;
+
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;%3$s
+import faked.customtypes;
+%3$s
 
-class Faker_%1$s : %2$s {
+class Faker_%1$s%2$s {
 @safe:
 	this(int seed) {
 		super(seed);
 	}
 
-`, language.toLower(), chain
-, chain != "Faker" ? "\nimport faker.faker_%s;".format(jf.chain[0].toLower()) : "");
+`, language.toLower(), chain, import_);
 	}
 }
 

@@ -1,17 +1,20 @@
-module faker.faker_hu;
+module faked.faker_hu;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
+import faked.customtypes;
 
-class Faker_hu : Faker {
+import faked.faker_en;
+
+class Faker_hu : Faker_en {
 @safe:
 	this(int seed) {
 		super(seed);
@@ -517,7 +520,7 @@ class Faker_hu : Faker {
 		, q"{+36 50/###-####}", q"{+36 70/###-####}", q"{003620#######}", q"{003630#######}", q"{003650#######}"
 		, q"{003670#######}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string wordAdjective() {

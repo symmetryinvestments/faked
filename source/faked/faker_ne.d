@@ -1,17 +1,20 @@
-module faker.faker_ne;
+module faked.faker_ne;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
+import faked.customtypes;
 
-class Faker_ne : Faker {
+import faked.faker_en;
+
+class Faker_ne : Faker_en {
 @safe:
 	this(int seed) {
 		super(seed);
@@ -65,7 +68,7 @@ class Faker_ne : Faker {
 		const string[] strs =
 		[ q"{1####}", q"{2####}", q"{3####}", q"{4####}", q"{5####}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -148,7 +151,7 @@ class Faker_ne : Faker {
 		const string[] strs =
 		[ q"{##-#######}", q"{+977-#-#######}", q"{+977########}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 }

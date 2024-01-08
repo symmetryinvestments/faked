@@ -1,16 +1,18 @@
-module faker.faker_fr_ca;
+module faked.faker_fr_ca;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
-import faker.faker_fr;
+import faked.customtypes;
+
+import faked.faker_fr;
 
 class Faker_fr_ca : Faker_fr {
 @safe:
@@ -55,7 +57,7 @@ class Faker_fr_ca : Faker_fr {
 		, q"{K#? #?#}", q"{L#? #?#}", q"{M#? #?#}", q"{N#? #?#}", q"{P#? #?#}", q"{R#? #?#}", q"{S#? #?#}"
 		, q"{T#? #?#}", q"{V#? #?#}", q"{X#? #?#}", q"{Y#? #?#}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -96,7 +98,7 @@ class Faker_fr_ca : Faker_fr {
 		const string[] strs =
 		[ q"{### ###-####}", q"{1 ### ###-####}", q"{### ###-####, poste ###}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 }

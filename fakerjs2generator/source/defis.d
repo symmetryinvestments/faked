@@ -70,6 +70,7 @@ struct Cell_PhoneFolder {
 
 struct ColorFolder {
 	Nullable!(string[]) human;
+	Nullable!(string[]) space;
 }
 
 struct Product_Name {
@@ -97,6 +98,9 @@ struct CompanyFolder {
 
 struct DatabaseFolder {
 	Nullable!(string[]) column;
+	Nullable!(string[]) collation;
+	Nullable!(string[]) engine;
+	Nullable!(string[]) type;
 }
 
 struct DateMonth {
@@ -143,12 +147,33 @@ struct HackerFolder {
 	Nullable!(string[]) noun;
 	Nullable!(Mustache[]) phrase;
 	Nullable!(string[]) verb;
+	Nullable!(string[]) abbreviation;
+}
+
+struct EmojiFolder {
+	Nullable!(string[]) smiley;
+	Nullable!(string[]) body_;
+	Nullable!(string[]) person;
+	Nullable!(string[]) nature;
+	Nullable!(string[]) food;
+	Nullable!(string[]) travel;
+	Nullable!(string[]) activity;
+	Nullable!(string[]) object;
+	Nullable!(string[]) symbol;
+	Nullable!(string[]) flag;
 }
 
 struct InternetFolder {
 	Nullable!(string[]) domain_suffix;
 	Nullable!(string[]) example_email;
 	Nullable!(string[]) free_email;
+	Nullable!(EmojiFolder) emoji;
+}
+
+struct Country_Code {
+	Nullable!(string) alpha2;
+	Nullable!(string) alpha3;
+	Nullable!(string) numeric;
 }
 
 struct LocationFolder {
@@ -170,6 +195,8 @@ struct LocationFolder {
 	Nullable!(string[]) street_name;
 	Nullable!(Mustache[]) street_pattern;
 	Nullable!(string[]) street_suffix;
+	Nullable!(Country_Code[]) country_code;
+	Nullable!(string[]) time_zone;
 }
 
 struct LoremFolder {
@@ -254,6 +281,10 @@ struct WordFolder {
 	Nullable!(string[]) verb;
 }
 
+struct SystemFolder {
+	Nullable!(string[]) directoryPaths;
+}
+
 struct Language {
 	Nullable!AirlineFolder airline;
 	Nullable!(AnimalFolder) animal;
@@ -275,6 +306,7 @@ struct Language {
 	Nullable!(TeamFolder) team;
 	Nullable!(VehicleFolder) vehicle;
 	Nullable!(WordFolder) word;
+	Nullable!(SystemFolder) system;
 }
 
 struct JsonFile {

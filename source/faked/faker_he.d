@@ -1,17 +1,20 @@
-module faker.faker_he;
+module faked.faker_he;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
+import faked.customtypes;
 
-class Faker_he : Faker {
+import faked.faker_en;
+
+class Faker_he : Faker_en {
 @safe:
 	this(int seed) {
 		super(seed);
@@ -24,7 +27,7 @@ class Faker_he : Faker {
 		, q"{+972-52-#######}", q"{+972-53-#######}", q"{+972-54-#######}", q"{+972-55-#######}"
 		, q"{+972-57-#######}", q"{+972-58-#######}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string commerceProductDescription() {
@@ -104,7 +107,7 @@ class Faker_he : Faker {
 		const string[] strs =
 		[ q"{###}", q"{##}", q"{#}", q"{'ב##}", q"{'א##}", q"{'א#}", q"{'ב#}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationCityName() {
@@ -471,14 +474,14 @@ class Faker_he : Faker {
 		const string[] strs =
 		[ q"{#####}", q"{#######}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationSecondaryAddress() {
 		const string[] strs =
 		[ q"{# דירה}", q"{## דירה}", q"{# חדר}", q"{## חדר}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -1441,7 +1444,7 @@ class Faker_he : Faker {
 		, q"{+972-2-#######}", q"{+972-3-#######}", q"{+972-4-#######}", q"{+972-8-#######}", q"{+972-9-#######}"
 		, q"{+972-77-#######}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 }

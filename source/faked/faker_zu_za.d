@@ -1,17 +1,20 @@
-module faker.faker_zu_za;
+module faked.faker_zu_za;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
+import faked.customtypes;
 
-class Faker_zu_za : Faker {
+import faked.faker_en;
+
+class Faker_zu_za : Faker_en {
 @safe:
 	this(int seed) {
 		super(seed);
@@ -22,7 +25,7 @@ class Faker_zu_za : Faker {
 		[ q"{082 ### ####}", q"{084 ### ####}", q"{083 ### ####}", q"{065 ### ####}", q"{082#######}"
 		, q"{082 #######}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string companySuffix() {
@@ -66,7 +69,7 @@ class Faker_zu_za : Faker {
 		const string[] strs =
 		[ q"{#####}", q"{####}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -169,7 +172,7 @@ class Faker_zu_za : Faker {
 		[ q"{01# ### #####}", q"{02# ### #####}", q"{03# ### #####}", q"{04# ### #####}", q"{05# ### #####}"
 		, q"{0800 ### ###}", q"{0860 ### ###}", q"{01#########}", q"{01# ########}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 }

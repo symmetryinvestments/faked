@@ -1,16 +1,18 @@
-module faker.faker_de_at;
+module faked.faker_de_at;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
-import faker.faker_de;
+import faked.customtypes;
+
+import faked.faker_de;
 
 class Faker_de_at : Faker_de {
 @safe:
@@ -22,7 +24,7 @@ class Faker_de_at : Faker_de {
 		const string[] strs =
 		[ q"{+43-6##-#######}", q"{06##-########}", q"{+436#########}", q"{06##########}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string companyNamePattern() {
@@ -59,7 +61,7 @@ class Faker_de_at : Faker_de {
 		const string[] strs =
 		[ q"{###}", q"{##}", q"{#}", q"{##a}", q"{##b}", q"{##c}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationCityName() {
@@ -161,14 +163,14 @@ class Faker_de_at : Faker_de {
 		const string[] strs =
 		[ q"{####}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationSecondaryAddress() {
 		const string[] strs =
 		[ q"{Apt. ###}", q"{Zimmer ###}", q"{# OG}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -845,7 +847,7 @@ class Faker_de_at : Faker_de {
 		[ q"{01 #######}", q"{01#######}", q"{+43-1-#######}", q"{+431#######}", q"{0#### ####}", q"{0#########}"
 		, q"{+43-####-####}", q"{+43 ########}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string wordAdjective() {

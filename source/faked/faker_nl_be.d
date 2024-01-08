@@ -1,16 +1,18 @@
-module faker.faker_nl_be;
+module faked.faker_nl_be;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
-import faker.faker_nl;
+import faked.customtypes;
+
+import faked.faker_nl;
 
 class Faker_nl_be : Faker_nl {
 @safe:
@@ -43,7 +45,7 @@ class Faker_nl_be : Faker_nl {
 		const string[] strs =
 		[ q"{#}", q"{##}", q"{###}", q"{###a}", q"{###b}", q"{###c}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationCityPattern() {
@@ -256,14 +258,14 @@ class Faker_nl_be : Faker_nl {
 		const string[] strs =
 		[ q"{####}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationSecondaryAddress() {
 		const string[] strs =
 		[ q"{1e verdieping}", q"{2e verdieping}", q"{3e verdieping}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -444,7 +446,7 @@ class Faker_nl_be : Faker_nl {
 		[ q"{###/######}", q"{###/## ## ##}", q"{### ## ## ##}", q"{###/### ###}", q"{##########}"
 		, q"{04##/### ###}", q"{04## ## ## ##}", q"{00324 ## ## ##}", q"{+324 ## ## ## ##}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 }

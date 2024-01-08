@@ -1,17 +1,20 @@
-module faker.faker_fa;
+module faked.faker_fa;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
+import faked.customtypes;
 
-class Faker_fa : Faker {
+import faked.faker_en;
+
+class Faker_fa : Faker_en {
 @safe:
 	this(int seed) {
 		super(seed);
@@ -24,7 +27,7 @@ class Faker_fa : Faker {
 		, q"{0935 ### ####}", q"{0933 ### ####}", q"{0901 ### ####}", q"{0902 ### ####}", q"{0903 ### ####}"
 		, q"{0904 ### ####}", q"{0905 ### ####}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string commerceProductNameAdjective() {
@@ -204,14 +207,14 @@ class Faker_fa : Faker {
 		const string[] strs =
 		[ q"{5[1-5]##-####-####-###L}", q"{2[221-720]-####-####-###L}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string financeCreditCardVisa() {
 		const string[] strs =
 		[ q"{4###########L}", q"{4###-####-####-###L}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string financeAccountType() {
@@ -287,7 +290,7 @@ class Faker_fa : Faker {
 		const string[] strs =
 		[ q"{##}", q"{#}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationCityName() {
@@ -406,14 +409,14 @@ class Faker_fa : Faker {
 		const string[] strs =
 		[ q"{#####-#####}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationSecondaryAddress() {
 		const string[] strs =
 		[ q"{واحد #}", q"{# طبقه}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -791,7 +794,7 @@ class Faker_fa : Faker {
 		, q"{051 ### #####}", q"{058 ### #####}", q"{028 ### #####}", q"{026 ### #####}", q"{044 ### #####}"
 		, q"{024 ### #####}", q"{023 ### #####}", q"{076 ### #####}", q"{+98 21 ### #####}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string vehicleFuel() {

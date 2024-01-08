@@ -1,17 +1,20 @@
-module faker.faker_ar;
+module faked.faker_ar;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
+import faked.customtypes;
 
-class Faker_ar : Faker {
+import faked.faker_en;
+
+class Faker_ar : Faker_en {
 @safe:
 	this(int seed) {
 		super(seed);
@@ -21,7 +24,7 @@ class Faker_ar : Faker {
 		const string[] strs =
 		[ q"{###-###-####}", q"{(###) ###-####}", q"{1-###-###-####}", q"{###.###.####}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string commerceProductNameAdjective() {
@@ -83,7 +86,7 @@ class Faker_ar : Faker {
 		const string[] strs =
 		[ q"{#####}", q"{####}", q"{###}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationCityName() {
@@ -204,14 +207,14 @@ class Faker_ar : Faker {
 		const string[] strs =
 		[ q"{#####}", q"{#####-####}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationSecondaryAddress() {
 		const string[] strs =
 		[ q"{### عمارة}", q"{### طابق}", q"{### شقة}", q"{### بناية}", q"{### بيت}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -624,7 +627,7 @@ class Faker_ar : Faker {
 		, q"{(###) ###-#### x####}", q"{1-###-###-#### x####}", q"{###.###.#### x####}", q"{###-###-#### x#####}"
 		, q"{(###) ###-#### x#####}", q"{1-###-###-#### x#####}", q"{###.###.#### x#####}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string teamCreature() {

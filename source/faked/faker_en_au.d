@@ -1,17 +1,20 @@
-module faker.faker_en_au;
+module faked.faker_en_au;
 
-import std.random;
-import std.array;
-import std.format;
-import std.conv : to;
-import std.string : toUpper;
-import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+import std.array;
+import std.conv : to;
+import std.exception : enforce;
+import std.format;
+import std.random;
+import std.range : iota, take, repeat;
+import std.string : toUpper;
+import std.typecons : Nullable, nullable;
 
-import faker.customtypes;
-import faker.base;
+import faked.customtypes;
 
-class Faker_en_au : Faker {
+import faked.faker_en;
+
+class Faker_en_au : Faker_en {
 @safe:
 	this(int seed) {
 		super(seed);
@@ -35,7 +38,7 @@ class Faker_en_au : Faker {
 		const string[] strs =
 		[ q"{####}", q"{###}", q"{##}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationCityPattern() {
@@ -59,7 +62,7 @@ class Faker_en_au : Faker {
 		const string[] strs =
 		[ q"{####}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 	override string locationState() {
@@ -226,7 +229,7 @@ class Faker_en_au : Faker {
 		const string[] strs =
 		[ q"{0# #### ####}", q"{+61 # #### ####}", q"{04## ### ###}", q"{+61 4## ### ###}" ];
 
-		return numberBuild(choice(str, this.rnd));
+		return numberBuild(choice(strs, this.rnd));
 	}
 
 }
