@@ -910,6 +910,98 @@ class Faker_fr : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override Currency financeCurrency() {
+		final switch(uniform(0, 86, this.rnd)) {
+			case 0: return Currency(q"{Dollar}", q"{USD}", q"{$}");
+			case 1: return Currency(q"{Dollar canadien}", q"{CAD}", q"{$}");
+			case 2: return Currency(q"{Peso mexicain}", q"{MXN}", q"{$}");
+			case 3: return Currency(q"{Florin}", q"{AWG}", q"{ƒ}");
+			case 4: return Currency(q"{Baisse du dollar}", q"{BBD}", q"{$}");
+			case 5: return Currency(q"{Dollar bermudien}", q"{BMD}", q"{$}");
+			case 6: return Currency(q"{Dollar des Bahamas}", q"{BSD}", q"{$}");
+			case 7: return Currency(q"{Peso dominicain}", q"{DOP}", q"{$}");
+			case 8: return Currency(q"{Dollar jamaïcain}", q"{JMD}", q"{$}");
+			case 9: return Currency(q"{Quetzal guatémaltèque}", q"{GTQ}", q"{Q}");
+			case 10: return Currency(q"{Balboa panaméen}", q"{PAB}", q"{B/.}");
+			case 11: return Currency(q"{Dollar des Caraïbes}", q"{XCD}", q"{$}");
+			case 12: return Currency(q"{euro}", q"{EUR}", q"{€}");
+			case 13: return Currency(q"{Livre sterling}", q"{GBP}", q"{£}");
+			case 14: return Currency(q"{Course géorgienne}", q"{GEL}", q"{₾}");
+			case 15: return Currency(q"{Lev bulgare}", q"{BGN}", q"{лв}");
+			case 16: return Currency(q"{Franc suisse}", q"{CHF}", q"{CHF}");
+			case 17: return Currency(q"{Couronne danoise}", q"{DKK}", q"{kr}");
+			case 18: return Currency(q"{République tchèque Couronne}", q"{CZK}", q"{Kč}");
+			case 19: return Currency(q"{Kuna croate}", q"{HRK}", q"{kn}");
+			case 20: return Currency(q"{Forint hongrois}", q"{HUF}", q"{ft}");
+			case 21: return Currency(q"{couronne norvégienne}", q"{NOK}", q"{kr}");
+			case 22: return Currency(q"{Rouble russe}", q"{RUB}", q"{₽}");
+			case 23: return Currency(q"{Zloty polonais}", q"{PLN}", q"{zł}");
+			case 24: return Currency(q"{Leu roumain}", q"{RON}", q"{lei}");
+			case 25: return Currency(q"{couronne suédoise}", q"{SEK}", q"{kr}");
+			case 26: return Currency(q"{Hryvnia ukrainienne}", q"{UAH}", q"{₴}");
+			case 27: return Currency(q"{lire turque}", q"{TRY}", q"{₺}");
+			case 28: return Currency(q"{Argentine Peso}", q"{ARS}", q"{$}");
+			case 29: return Currency(q"{Bolivien bolivien}", q"{BOB}", q"{Bs.}");
+			case 30: return Currency(q"{Real brésilien}", q"{BRL}", q"{R$}");
+			case 31: return Currency(q"{Peso chilien}", q"{CLP}", q"{$}");
+			case 32: return Currency(q"{Peso colombien}", q"{COP}", q"{$}");
+			case 33: return Currency(q"{Nouveau Sol Péruvien}", q"{PEN}", q"{S/.}");
+			case 34: return Currency(q"{Guarani paraguayen}", q"{PYG}", q"{₲}");
+			case 35: return Currency(q"{Peso uruguayen}", q"{UYU}", q"{$}");
+			case 36: return Currency(q"{Bolivar vénézuélien}", q"{VES}", q"{Bs.}");
+			case 37: return Currency(q"{Yen japonais}", q"{JPY}", q"{¥}");
+			case 38: return Currency(q"{Bangladesh Taka}", q"{BDT}", q"{৳}");
+			case 39: return Currency(q"{Le yuan chinois}", q"{CNY}", q"{¥}");
+			case 40: return Currency(q"{Dollar de Hong Kong}", q"{HKD}", q"{$}");
+			case 41: return Currency(q"{Roupie indienne}", q"{INR}", q"{₹}");
+			case 42: return Currency(q"{Riel cambodgien}", q"{KHR}", q"{៛}");
+			case 43: return Currency(q"{Poulet}", q"{LAK}", q"{₭}");
+			case 44: return Currency(q"{Roupie sri lankaise}", q"{LKR}", q"{රු}");
+			case 45: return Currency(q"{Rufiyaa}", q"{MVR}", q"{.ރ}");
+			case 46: return Currency(q"{cloche malaisienne}", q"{MYR}", q"{RM}");
+			case 47: return Currency(q"{Roupie népalaise}", q"{NPR}", q"{रू}");
+			case 48: return Currency(q"{Peso philippin}", q"{PHP}", q"{₱}");
+			case 49: return Currency(q"{Roupie pakistanaise}", q"{PKR}", q"{₨}");
+			case 50: return Currency(q"{Dollar de Singapour}", q"{SGD}", q"{$}");
+			case 51: return Currency(q"{Baht thaïlandais}", q"{THB}", q"{฿}");
+			case 52: return Currency(q"{Nouveau dollar de Taïwan}", q"{TWD}", q"{$}");
+			case 53: return Currency(q"{Dong vietnamien}", q"{VND}", q"{₫}");
+			case 54: return Currency(q"{Dollar australien}", q"{AUD}", q"{$}");
+			case 55: return Currency(q"{Dollar fidjien}", q"{FJD}", q"{$}");
+			case 56: return Currency(q"{Dollar néo-zélandais}", q"{NZD}", q"{$}");
+			case 57: return Currency(q"{Franc CFP}", q"{XPF}", q"{₣}");
+			case 58: return Currency(q"{Livre égyptienne}", q"{EGP}", q"{£}");
+			case 59: return Currency(q"{Cédi ghanéen}", q"{GHS}", q"{₵}");
+			case 60: return Currency(q"{Dalasi}", q"{GMD}", q"{D}");
+			case 61: return Currency(q"{Shilling kenyan}", q"{KES}", q"{Sh}");
+			case 62: return Currency(q"{Dirham marocain}", q"{MAD}", q"{DH}");
+			case 63: return Currency(q"{Ariary malgache}", q"{MGA}", q"{Ar}");
+			case 64: return Currency(q"{Roupie mauricienne}", q"{MUR}", q"{₨}");
+			case 65: return Currency(q"{Dollar namibien}", q"{NAD}", q"{$}");
+			case 66: return Currency(q"{Naira nigérian}", q"{NGN}", q"{₦}");
+			case 67: return Currency(q"{Roupie}", q"{SCR}", q"{₨}");
+			case 68: return Currency(q"{Dinar tunisien}", q"{TND}", q"{DT}");
+			case 69: return Currency(q"{Shilling ougandais}", q"{UGX}", q"{Sh}");
+			case 70: return Currency(q"{CFA Franc BEAC}", q"{XAF}", q"{Fr}");
+			case 71: return Currency(q"{CFA Franc BCEAO}", q"{XOF}", q"{Fr}");
+			case 72: return Currency(q"{Rand sud-africain}", q"{ZAR}", q"{Br}");
+			case 73: return Currency(q"{Dirham des Émirats arabes unis}", q"{AED}", q"{د.إ}");
+			case 74: return Currency(q"{Nouveau Shekel israélien}", q"{ILS}", q"{₪}");
+			case 75: return Currency(q"{Livre syrienne}", q"{SYP}", q"{£}");
+			case 76: return Currency(q"{Dinar jordanien}", q"{JOD}", q"{د.ا}");
+			case 77: return Currency(q"{Dinar koweïtien}", q"{KWD}", q"{د.ك}");
+			case 78: return Currency(q"{Livre libanaise}", q"{LBP}", q"{ل.ل}");
+			case 79: return Currency(q"{Rial omanais}", q"{OMR}", q"{ر.ع.}");
+			case 80: return Currency(q"{Rial qatari}", q"{QAR}", q"{ر.ق}");
+			case 81: return Currency(q"{Riyal saoudien}", q"{SAR}", q"{}");
+			case 82: return Currency(q"{Bitcoin}", q"{BTC}", q"{₿}");
+			case 83: return Currency(q"{Ethereum}", q"{ETH}", q"{Ξ}");
+			case 84: return Currency(q"{Litecoin}", q"{LTC}", q"{Ł}");
+			case 85: return Currency(q"{Ripples}", q"{XRP}", q"{XRP}");
+		}
+		return Currency("", "", "");
+	}
+
 	override string financeTransactionType() {
 		const string[] strs =
 		[ q"{dépôt}", q"{retrait}", q"{paiement}", q"{facture}" ];

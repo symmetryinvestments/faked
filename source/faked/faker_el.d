@@ -254,6 +254,13 @@ class Faker_el : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override Currency financeCurrency() {
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return Currency(q"{Ευρώ}", q"{EUR}", q"{€}");
+		}
+		return Currency("", "", "");
+	}
+
 	override string financeTransactionType() {
 		const string[] strs =
 		[ q"{κατάθεση}", q"{ανάληψη}", q"{πληρωμή}", q"{τιμολόγιο}" ];

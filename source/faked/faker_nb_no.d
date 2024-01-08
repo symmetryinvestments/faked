@@ -272,6 +272,158 @@ class Faker_nb_no : Faker {
 		return numberBuild(choice(str, this.rnd));
 	}
 
+	override ChemicalElement scienceChemicalElement() {
+		final switch(uniform(0, 118, this.rnd)) {
+			case 0: return ChemicalElement(q"{H}", q"{Hydrogen}", 1);
+			case 1: return ChemicalElement(q"{He}", q"{Helium}", 2);
+			case 2: return ChemicalElement(q"{Li}", q"{Litium}", 3);
+			case 3: return ChemicalElement(q"{Be}", q"{Beryllium}", 4);
+			case 4: return ChemicalElement(q"{B}", q"{Bor}", 5);
+			case 5: return ChemicalElement(q"{C}", q"{Karbon}", 6);
+			case 6: return ChemicalElement(q"{N}", q"{Nitrogen}", 7);
+			case 7: return ChemicalElement(q"{O}", q"{Oksygen}", 8);
+			case 8: return ChemicalElement(q"{F}", q"{Fluor}", 9);
+			case 9: return ChemicalElement(q"{Ne}", q"{Neon}", 10);
+			case 10: return ChemicalElement(q"{Na}", q"{Natrium}", 11);
+			case 11: return ChemicalElement(q"{Mg}", q"{Magnesium}", 12);
+			case 12: return ChemicalElement(q"{Al}", q"{Aluminium}", 13);
+			case 13: return ChemicalElement(q"{Si}", q"{Silisium}", 14);
+			case 14: return ChemicalElement(q"{P}", q"{Fosfor}", 15);
+			case 15: return ChemicalElement(q"{S}", q"{Svovel}", 16);
+			case 16: return ChemicalElement(q"{Cl}", q"{Klor}", 17);
+			case 17: return ChemicalElement(q"{Ar}", q"{Argon}", 18);
+			case 18: return ChemicalElement(q"{K}", q"{Kalium}", 19);
+			case 19: return ChemicalElement(q"{Ca}", q"{Kalsium}", 20);
+			case 20: return ChemicalElement(q"{Sc}", q"{Scandium}", 21);
+			case 21: return ChemicalElement(q"{Ti}", q"{Titan}", 22);
+			case 22: return ChemicalElement(q"{V}", q"{Vanadium}", 23);
+			case 23: return ChemicalElement(q"{Cr}", q"{Krom}", 24);
+			case 24: return ChemicalElement(q"{Mn}", q"{Mangan}", 25);
+			case 25: return ChemicalElement(q"{Fe}", q"{Jern}", 26);
+			case 26: return ChemicalElement(q"{Co}", q"{Kobolt}", 27);
+			case 27: return ChemicalElement(q"{Ni}", q"{Nikkel}", 28);
+			case 28: return ChemicalElement(q"{Cu}", q"{Kobber}", 29);
+			case 29: return ChemicalElement(q"{Zn}", q"{Sink}", 30);
+			case 30: return ChemicalElement(q"{Ga}", q"{Gallium}", 31);
+			case 31: return ChemicalElement(q"{Ge}", q"{Germanium}", 32);
+			case 32: return ChemicalElement(q"{As}", q"{Arsen}", 33);
+			case 33: return ChemicalElement(q"{Se}", q"{Selen}", 34);
+			case 34: return ChemicalElement(q"{Br}", q"{Brom}", 35);
+			case 35: return ChemicalElement(q"{Kr}", q"{Krypton}", 36);
+			case 36: return ChemicalElement(q"{Rb}", q"{Rubidium}", 37);
+			case 37: return ChemicalElement(q"{Sr}", q"{Strontium}", 38);
+			case 38: return ChemicalElement(q"{Y}", q"{Yttrium}", 39);
+			case 39: return ChemicalElement(q"{Zr}", q"{Zirkonium}", 40);
+			case 40: return ChemicalElement(q"{Nb}", q"{Niob}", 41);
+			case 41: return ChemicalElement(q"{Mo}", q"{Molybden}", 42);
+			case 42: return ChemicalElement(q"{Tc}", q"{Technetium}", 43);
+			case 43: return ChemicalElement(q"{Ru}", q"{Ruthenium}", 44);
+			case 44: return ChemicalElement(q"{Rh}", q"{Rhodium}", 45);
+			case 45: return ChemicalElement(q"{Pd}", q"{Palladium}", 46);
+			case 46: return ChemicalElement(q"{Ag}", q"{Sølv}", 47);
+			case 47: return ChemicalElement(q"{Cd}", q"{Kadmium}", 48);
+			case 48: return ChemicalElement(q"{In}", q"{Indium}", 49);
+			case 49: return ChemicalElement(q"{Sn}", q"{Tinn}", 50);
+			case 50: return ChemicalElement(q"{Sb}", q"{Antimon}", 51);
+			case 51: return ChemicalElement(q"{Te}", q"{Tellur}", 52);
+			case 52: return ChemicalElement(q"{I}", q"{Jod}", 53);
+			case 53: return ChemicalElement(q"{Xe}", q"{Xenon}", 54);
+			case 54: return ChemicalElement(q"{Cs}", q"{Cesium}", 55);
+			case 55: return ChemicalElement(q"{Ba}", q"{Barium}", 56);
+			case 56: return ChemicalElement(q"{La}", q"{Lantan}", 57);
+			case 57: return ChemicalElement(q"{Ce}", q"{Cerium}", 58);
+			case 58: return ChemicalElement(q"{Pr}", q"{Praseodym}", 59);
+			case 59: return ChemicalElement(q"{Nd}", q"{Neodym}", 60);
+			case 60: return ChemicalElement(q"{Pm}", q"{Promethium}", 61);
+			case 61: return ChemicalElement(q"{Sm}", q"{Samarium}", 62);
+			case 62: return ChemicalElement(q"{Eu}", q"{Europium}", 63);
+			case 63: return ChemicalElement(q"{Gd}", q"{Gadolinium}", 64);
+			case 64: return ChemicalElement(q"{Tb}", q"{Terbium}", 65);
+			case 65: return ChemicalElement(q"{Dy}", q"{Dysprosium}", 66);
+			case 66: return ChemicalElement(q"{Ho}", q"{Holmium}", 67);
+			case 67: return ChemicalElement(q"{Er}", q"{Erbium}", 68);
+			case 68: return ChemicalElement(q"{Tm}", q"{Thulium}", 69);
+			case 69: return ChemicalElement(q"{Yb}", q"{Ytterbium}", 70);
+			case 70: return ChemicalElement(q"{Lu}", q"{Lutetium}", 71);
+			case 71: return ChemicalElement(q"{Hf}", q"{Hafnium}", 72);
+			case 72: return ChemicalElement(q"{Ta}", q"{Tantal}", 73);
+			case 73: return ChemicalElement(q"{W}", q"{Wolfram}", 74);
+			case 74: return ChemicalElement(q"{Re}", q"{Rhenium}", 75);
+			case 75: return ChemicalElement(q"{Os}", q"{Osmium}", 76);
+			case 76: return ChemicalElement(q"{Ir}", q"{Iridium}", 77);
+			case 77: return ChemicalElement(q"{Pt}", q"{Platina}", 78);
+			case 78: return ChemicalElement(q"{Au}", q"{Gull}", 79);
+			case 79: return ChemicalElement(q"{Hg}", q"{Kvikksølv}", 80);
+			case 80: return ChemicalElement(q"{Tl}", q"{Thallium}", 81);
+			case 81: return ChemicalElement(q"{Pb}", q"{Bly}", 82);
+			case 82: return ChemicalElement(q"{Bi}", q"{Vismut}", 83);
+			case 83: return ChemicalElement(q"{Po}", q"{Polonium}", 84);
+			case 84: return ChemicalElement(q"{At}", q"{Astat}", 85);
+			case 85: return ChemicalElement(q"{Rn}", q"{Radon}", 86);
+			case 86: return ChemicalElement(q"{Fr}", q"{Francium}", 87);
+			case 87: return ChemicalElement(q"{Ra}", q"{Radium}", 88);
+			case 88: return ChemicalElement(q"{Ac}", q"{Actinium}", 89);
+			case 89: return ChemicalElement(q"{Th}", q"{Thorium}", 90);
+			case 90: return ChemicalElement(q"{Pa}", q"{Protactinium}", 91);
+			case 91: return ChemicalElement(q"{U}", q"{Uran}", 92);
+			case 92: return ChemicalElement(q"{Np}", q"{Neptunium}", 93);
+			case 93: return ChemicalElement(q"{Pu}", q"{Plutonium}", 94);
+			case 94: return ChemicalElement(q"{Am}", q"{Americium}", 95);
+			case 95: return ChemicalElement(q"{Cm}", q"{Curium}", 96);
+			case 96: return ChemicalElement(q"{Bk}", q"{Berkelium}", 97);
+			case 97: return ChemicalElement(q"{Cf}", q"{Californium}", 98);
+			case 98: return ChemicalElement(q"{Es}", q"{Einsteinium}", 99);
+			case 99: return ChemicalElement(q"{Fm}", q"{Fermium}", 100);
+			case 100: return ChemicalElement(q"{Md}", q"{Mendelevium}", 101);
+			case 101: return ChemicalElement(q"{No}", q"{Nobelium}", 102);
+			case 102: return ChemicalElement(q"{Lr}", q"{Lawrencium}", 103);
+			case 103: return ChemicalElement(q"{Rf}", q"{Rutherfordium}", 104);
+			case 104: return ChemicalElement(q"{Db}", q"{Dubnium}", 105);
+			case 105: return ChemicalElement(q"{Sg}", q"{Seaborgium}", 106);
+			case 106: return ChemicalElement(q"{Bh}", q"{Bohrium}", 107);
+			case 107: return ChemicalElement(q"{Hs}", q"{Hassium}", 108);
+			case 108: return ChemicalElement(q"{Mt}", q"{Meitnerium}", 109);
+			case 109: return ChemicalElement(q"{Ds}", q"{Darmstadtium}", 110);
+			case 110: return ChemicalElement(q"{Rg}", q"{Røntgenium}", 111);
+			case 111: return ChemicalElement(q"{Cn}", q"{Copernicium}", 112);
+			case 112: return ChemicalElement(q"{Nh}", q"{Nihonium}", 113);
+			case 113: return ChemicalElement(q"{Fl}", q"{Flerovium}", 114);
+			case 114: return ChemicalElement(q"{Mc}", q"{Moscovium}", 115);
+			case 115: return ChemicalElement(q"{Lv}", q"{Livermorium}", 116);
+			case 116: return ChemicalElement(q"{Ts}", q"{Tenness}", 117);
+			case 117: return ChemicalElement(q"{Og}", q"{Oganesson}", 118);
+		}
+		return ChemicalElement("", "", 0);
+	}
+
+	override ChemicalUnit scienceUnit() {
+		final switch(uniform(0, 22, this.rnd)) {
+			case 0: return ChemicalUnit(q"{meter}", q"{m}");
+			case 1: return ChemicalUnit(q"{sekund}", q"{s}");
+			case 2: return ChemicalUnit(q"{mole}", q"{mol}");
+			case 3: return ChemicalUnit(q"{ampere}", q"{A}");
+			case 4: return ChemicalUnit(q"{kelvin}", q"{K}");
+			case 5: return ChemicalUnit(q"{candela}", q"{cd}");
+			case 6: return ChemicalUnit(q"{kilogram}", q"{kg}");
+			case 7: return ChemicalUnit(q"{radian}", q"{rad}");
+			case 8: return ChemicalUnit(q"{hertz}", q"{Hz}");
+			case 9: return ChemicalUnit(q"{newton}", q"{N}");
+			case 10: return ChemicalUnit(q"{pascal}", q"{Pa}");
+			case 11: return ChemicalUnit(q"{joule}", q"{J}");
+			case 12: return ChemicalUnit(q"{watt}", q"{W}");
+			case 13: return ChemicalUnit(q"{coulomb}", q"{C}");
+			case 14: return ChemicalUnit(q"{volt}", q"{V}");
+			case 15: return ChemicalUnit(q"{ohm}", q"{Ω}");
+			case 16: return ChemicalUnit(q"{tesla}", q"{T}");
+			case 17: return ChemicalUnit(q"{grad celsius}", q"{°C}");
+			case 18: return ChemicalUnit(q"{lumen}", q"{lm}");
+			case 19: return ChemicalUnit(q"{becquerel}", q"{Bq}");
+			case 20: return ChemicalUnit(q"{gray}", q"{Gy}");
+			case 21: return ChemicalUnit(q"{sievert}", q"{Sv}");
+		}
+		return ChemicalUnit("", "");
+	}
+
 	override string wordAdjective() {
 		const string[] strs =
 		[ q"{aktuell}", q"{alvorlig}", q"{ansvarlig}", q"{berømt}", q"{betydelig}", q"{bevisst}", q"{bred}"

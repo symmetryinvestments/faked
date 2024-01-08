@@ -859,6 +859,158 @@ class Faker_pl : Faker {
 		return numberBuild(choice(str, this.rnd));
 	}
 
+	override ChemicalElement scienceChemicalElement() {
+		final switch(uniform(0, 118, this.rnd)) {
+			case 0: return ChemicalElement(q"{H}", q"{Wodór}", 1);
+			case 1: return ChemicalElement(q"{He}", q"{Hel}", 2);
+			case 2: return ChemicalElement(q"{Li}", q"{Lit}", 3);
+			case 3: return ChemicalElement(q"{Be}", q"{Beryl}", 4);
+			case 4: return ChemicalElement(q"{B}", q"{Bor}", 5);
+			case 5: return ChemicalElement(q"{C}", q"{Węgiel}", 6);
+			case 6: return ChemicalElement(q"{N}", q"{Azot}", 7);
+			case 7: return ChemicalElement(q"{O}", q"{Tlen}", 8);
+			case 8: return ChemicalElement(q"{F}", q"{Fluor}", 9);
+			case 9: return ChemicalElement(q"{Ne}", q"{Neon}", 10);
+			case 10: return ChemicalElement(q"{Na}", q"{Sód}", 11);
+			case 11: return ChemicalElement(q"{Mg}", q"{Magnez}", 12);
+			case 12: return ChemicalElement(q"{Al}", q"{Glin}", 13);
+			case 13: return ChemicalElement(q"{Si}", q"{Krzem}", 14);
+			case 14: return ChemicalElement(q"{P}", q"{Fosfor}", 15);
+			case 15: return ChemicalElement(q"{S}", q"{Siarka}", 16);
+			case 16: return ChemicalElement(q"{Cl}", q"{Chlor}", 17);
+			case 17: return ChemicalElement(q"{Ar}", q"{Argon}", 18);
+			case 18: return ChemicalElement(q"{K}", q"{Potas}", 19);
+			case 19: return ChemicalElement(q"{Ca}", q"{Wapń}", 20);
+			case 20: return ChemicalElement(q"{Sc}", q"{Skand}", 21);
+			case 21: return ChemicalElement(q"{Ti}", q"{Tytan}", 22);
+			case 22: return ChemicalElement(q"{V}", q"{Wanad}", 23);
+			case 23: return ChemicalElement(q"{Cr}", q"{Chrom}", 24);
+			case 24: return ChemicalElement(q"{Mn}", q"{Mangan}", 25);
+			case 25: return ChemicalElement(q"{Fe}", q"{Żelazo}", 26);
+			case 26: return ChemicalElement(q"{Co}", q"{Kobalt}", 27);
+			case 27: return ChemicalElement(q"{Ni}", q"{Nikiel}", 28);
+			case 28: return ChemicalElement(q"{Cu}", q"{Miedź}", 29);
+			case 29: return ChemicalElement(q"{Zn}", q"{Cynk}", 30);
+			case 30: return ChemicalElement(q"{Ga}", q"{Gal}", 31);
+			case 31: return ChemicalElement(q"{Ge}", q"{German}", 32);
+			case 32: return ChemicalElement(q"{As}", q"{Arsen}", 33);
+			case 33: return ChemicalElement(q"{Se}", q"{Selen}", 34);
+			case 34: return ChemicalElement(q"{Br}", q"{Brom}", 35);
+			case 35: return ChemicalElement(q"{Kr}", q"{Krypton}", 36);
+			case 36: return ChemicalElement(q"{Rb}", q"{Rubid}", 37);
+			case 37: return ChemicalElement(q"{Sr}", q"{Stront}", 38);
+			case 38: return ChemicalElement(q"{Y}", q"{Itr}", 39);
+			case 39: return ChemicalElement(q"{Zr}", q"{Cyrkon}", 40);
+			case 40: return ChemicalElement(q"{Nb}", q"{Niob}", 41);
+			case 41: return ChemicalElement(q"{Mo}", q"{Molibden}", 42);
+			case 42: return ChemicalElement(q"{Tc}", q"{Technet}", 43);
+			case 43: return ChemicalElement(q"{Ru}", q"{Ruten}", 44);
+			case 44: return ChemicalElement(q"{Rh}", q"{Rod}", 45);
+			case 45: return ChemicalElement(q"{Pd}", q"{Pallad}", 46);
+			case 46: return ChemicalElement(q"{Ag}", q"{Srebro}", 47);
+			case 47: return ChemicalElement(q"{Cd}", q"{Kadm}", 48);
+			case 48: return ChemicalElement(q"{In}", q"{Ind}", 49);
+			case 49: return ChemicalElement(q"{Sn}", q"{Cyna}", 50);
+			case 50: return ChemicalElement(q"{Sb}", q"{Antymon}", 51);
+			case 51: return ChemicalElement(q"{Te}", q"{Tellur}", 52);
+			case 52: return ChemicalElement(q"{I}", q"{Jod}", 53);
+			case 53: return ChemicalElement(q"{Xe}", q"{Ksenon}", 54);
+			case 54: return ChemicalElement(q"{Cs}", q"{Cez}", 55);
+			case 55: return ChemicalElement(q"{Ba}", q"{Bar}", 56);
+			case 56: return ChemicalElement(q"{La}", q"{Lantan}", 57);
+			case 57: return ChemicalElement(q"{Ce}", q"{Cer}", 58);
+			case 58: return ChemicalElement(q"{Pr}", q"{Prazeodym}", 59);
+			case 59: return ChemicalElement(q"{Nd}", q"{Neodym}", 60);
+			case 60: return ChemicalElement(q"{Pm}", q"{Promet}", 61);
+			case 61: return ChemicalElement(q"{Sm}", q"{Samar}", 62);
+			case 62: return ChemicalElement(q"{Eu}", q"{Europ}", 63);
+			case 63: return ChemicalElement(q"{Gd}", q"{Gadolin}", 64);
+			case 64: return ChemicalElement(q"{Tb}", q"{Terb}", 65);
+			case 65: return ChemicalElement(q"{Dy}", q"{Dysproz}", 66);
+			case 66: return ChemicalElement(q"{Ho}", q"{Holm}", 67);
+			case 67: return ChemicalElement(q"{Er}", q"{Erb}", 68);
+			case 68: return ChemicalElement(q"{Tm}", q"{Tul}", 69);
+			case 69: return ChemicalElement(q"{Yb}", q"{Iterb}", 70);
+			case 70: return ChemicalElement(q"{Lu}", q"{Lutet}", 71);
+			case 71: return ChemicalElement(q"{Hf}", q"{Hafn}", 72);
+			case 72: return ChemicalElement(q"{Ta}", q"{Tantal}", 73);
+			case 73: return ChemicalElement(q"{W}", q"{Wolfram}", 74);
+			case 74: return ChemicalElement(q"{Re}", q"{Ren}", 75);
+			case 75: return ChemicalElement(q"{Os}", q"{Osm}", 76);
+			case 76: return ChemicalElement(q"{Ir}", q"{Iryd}", 77);
+			case 77: return ChemicalElement(q"{Pt}", q"{Platyna}", 78);
+			case 78: return ChemicalElement(q"{Au}", q"{Złoto}", 79);
+			case 79: return ChemicalElement(q"{Hg}", q"{Rtęć}", 80);
+			case 80: return ChemicalElement(q"{Tl}", q"{Tal}", 81);
+			case 81: return ChemicalElement(q"{Pb}", q"{Ołów}", 82);
+			case 82: return ChemicalElement(q"{Bi}", q"{Bizmut}", 83);
+			case 83: return ChemicalElement(q"{Po}", q"{Polon}", 84);
+			case 84: return ChemicalElement(q"{At}", q"{Astat}", 85);
+			case 85: return ChemicalElement(q"{Rn}", q"{Radon}", 86);
+			case 86: return ChemicalElement(q"{Fr}", q"{Frans}", 87);
+			case 87: return ChemicalElement(q"{Ra}", q"{Rad}", 88);
+			case 88: return ChemicalElement(q"{Ac}", q"{Aktyn}", 89);
+			case 89: return ChemicalElement(q"{Th}", q"{Tor}", 90);
+			case 90: return ChemicalElement(q"{Pa}", q"{Protaktyn}", 91);
+			case 91: return ChemicalElement(q"{U}", q"{Uran}", 92);
+			case 92: return ChemicalElement(q"{Np}", q"{Neptun}", 93);
+			case 93: return ChemicalElement(q"{Pu}", q"{Pluton}", 94);
+			case 94: return ChemicalElement(q"{Am}", q"{Ameryk}", 95);
+			case 95: return ChemicalElement(q"{Cm}", q"{Kiur}", 96);
+			case 96: return ChemicalElement(q"{Bk}", q"{Berkel}", 97);
+			case 97: return ChemicalElement(q"{Cf}", q"{Kaliforn}", 98);
+			case 98: return ChemicalElement(q"{Es}", q"{Einstein}", 99);
+			case 99: return ChemicalElement(q"{Fm}", q"{Ferm}", 100);
+			case 100: return ChemicalElement(q"{Md}", q"{Mendelew}", 101);
+			case 101: return ChemicalElement(q"{No}", q"{Nobel}", 102);
+			case 102: return ChemicalElement(q"{Lr}", q"{Lorens}", 103);
+			case 103: return ChemicalElement(q"{Rf}", q"{Rutherford}", 104);
+			case 104: return ChemicalElement(q"{Db}", q"{Dubn}", 105);
+			case 105: return ChemicalElement(q"{Sg}", q"{Seaborg}", 106);
+			case 106: return ChemicalElement(q"{Bh}", q"{Bohr}", 107);
+			case 107: return ChemicalElement(q"{Hs}", q"{Has}", 108);
+			case 108: return ChemicalElement(q"{Mt}", q"{Meitner}", 109);
+			case 109: return ChemicalElement(q"{Ds}", q"{Darmsztadt}", 110);
+			case 110: return ChemicalElement(q"{Rg}", q"{Roentgen}", 111);
+			case 111: return ChemicalElement(q"{Cn}", q"{Kopernik}", 112);
+			case 112: return ChemicalElement(q"{Nh}", q"{Nihon}", 113);
+			case 113: return ChemicalElement(q"{Fl}", q"{Flerow}", 114);
+			case 114: return ChemicalElement(q"{Mc}", q"{Moskow}", 115);
+			case 115: return ChemicalElement(q"{Lv}", q"{Liwermor}", 116);
+			case 116: return ChemicalElement(q"{Ts}", q"{Tenes}", 117);
+			case 117: return ChemicalElement(q"{Og}", q"{Oganeson}", 118);
+		}
+		return ChemicalElement("", "", 0);
+	}
+
+	override ChemicalUnit scienceUnit() {
+		final switch(uniform(0, 22, this.rnd)) {
+			case 0: return ChemicalUnit(q"{metr}", q"{m}");
+			case 1: return ChemicalUnit(q"{sekunda}", q"{s}");
+			case 2: return ChemicalUnit(q"{mol}", q"{mol}");
+			case 3: return ChemicalUnit(q"{amper}", q"{A}");
+			case 4: return ChemicalUnit(q"{kelwin}", q"{K}");
+			case 5: return ChemicalUnit(q"{kandela}", q"{cd}");
+			case 6: return ChemicalUnit(q"{kilogram}", q"{kg}");
+			case 7: return ChemicalUnit(q"{radian}", q"{rad}");
+			case 8: return ChemicalUnit(q"{herc}", q"{Hz}");
+			case 9: return ChemicalUnit(q"{niuton}", q"{N}");
+			case 10: return ChemicalUnit(q"{paskal}", q"{Pa}");
+			case 11: return ChemicalUnit(q"{dżul}", q"{J}");
+			case 12: return ChemicalUnit(q"{wat}", q"{W}");
+			case 13: return ChemicalUnit(q"{kulomb}", q"{C}");
+			case 14: return ChemicalUnit(q"{wolt}", q"{V}");
+			case 15: return ChemicalUnit(q"{om}", q"{Ω}");
+			case 16: return ChemicalUnit(q"{tesla}", q"{T}");
+			case 17: return ChemicalUnit(q"{stopień Celsjusza}", q"{°C}");
+			case 18: return ChemicalUnit(q"{lumen}", q"{lm}");
+			case 19: return ChemicalUnit(q"{bekerel}", q"{Bq}");
+			case 20: return ChemicalUnit(q"{grej}", q"{Gy}");
+			case 21: return ChemicalUnit(q"{siwert}", q"{Sv}");
+		}
+		return ChemicalUnit("", "");
+	}
+
 	override string teamName() {
 		final switch(uniform(0, 1, this.rnd)) {
 			case 0: return teamPrefix() ~ " " ~ locationCity();

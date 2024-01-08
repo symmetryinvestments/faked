@@ -222,6 +222,39 @@ class Faker_fa : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override Currency financeCurrency() {
+		final switch(uniform(0, 27, this.rnd)) {
+			case 0: return Currency(q"{درهم امارات}", q"{AED}", q"{}");
+			case 1: return Currency(q"{افغانی}", q"{AFN}", q"{؋}");
+			case 2: return Currency(q"{پزو آرژانتین}", q"{ARS}", q"{$}");
+			case 3: return Currency(q"{دلار استرالیا}", q"{AUD}", q"{$}");
+			case 4: return Currency(q"{مانات آذربایجان}", q"{AZN}", q"{ман}");
+			case 5: return Currency(q"{دلار کانادا}", q"{CAD}", q"{$}");
+			case 6: return Currency(q"{فرانک سوئیس}", q"{CHF}", q"{CHF}");
+			case 7: return Currency(q"{کرون چک}", q"{CZK}", q"{Kč}");
+			case 8: return Currency(q"{کرون}", q"{EEK}", q"{}");
+			case 9: return Currency(q"{دینار عراق}", q"{IQD}", q"{}");
+			case 10: return Currency(q"{ریال ایران}", q"{IRR}", q"{﷼}");
+			case 11: return Currency(q"{کرون ایسلند}", q"{ISK}", q"{kr}");
+			case 12: return Currency(q"{دینار اردن}", q"{JOD}", q"{}");
+			case 13: return Currency(q"{ین}", q"{JPY}", q"{¥}");
+			case 14: return Currency(q"{دینار کویت}", q"{KWD}", q"{}");
+			case 15: return Currency(q"{دینار لیبی}", q"{LYD}", q"{}");
+			case 16: return Currency(q"{درهم مراکش}", q"{MAD}", q"{}");
+			case 17: return Currency(q"{روپی نپال}", q"{NPR}", q"{₨}");
+			case 18: return Currency(q"{ریال عمان}", q"{OMR}", q"{﷼}");
+			case 19: return Currency(q"{پزو فیلیپین}", q"{PHP}", q"{Php}");
+			case 20: return Currency(q"{روپی پاکستان}", q"{PKR}", q"{₨}");
+			case 21: return Currency(q"{ریال قطر}", q"{QAR}", q"{﷼}");
+			case 22: return Currency(q"{روبل روسیه}", q"{RUB}", q"{руб}");
+			case 23: return Currency(q"{ریال عربستان}", q"{SAR}", q"{﷼}");
+			case 24: return Currency(q"{پوند سودان}", q"{SDG}", q"{}");
+			case 25: return Currency(q"{کرون سوئد}", q"{SEK}", q"{kr}");
+			case 26: return Currency(q"{دلار سنگاپور}", q"{SGD}", q"{$}");
+		}
+		return Currency("", "", "");
+	}
+
 	override string financeTransactionType() {
 		const string[] strs =
 		[ q"{سپرده}", q"{برداشت از حساب}", q"{پرداخت}", q"{صورتحساب}" ];

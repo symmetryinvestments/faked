@@ -57,6 +57,15 @@ void traverse(T,Out)(T t, ref Out o, string[] path, const bool base) {
 		} else static if(is(T == Airport[])) {
 			genAirport(t, o, path, base);
 			formattedWrite(o, "\n\n");
+		} else static if(is(T == Currency[])) {
+			genCurrency(t, o, path, base);
+			formattedWrite(o, "\n\n");
+		} else static if(is(T == ChemicalUnit[])) {
+			genChemicalUnit(t, o, path, base);
+			formattedWrite(o, "\n\n");
+		} else static if(is(T == ChemicalElement[])) {
+			genChemicalElement(t, o, path, base);
+			formattedWrite(o, "\n\n");
 		} else static if(is(T == Airline[])) {
 			genAirline(t, o, path, base);
 			formattedWrite(o, "\n\n");
@@ -124,6 +133,50 @@ void genMustacheAA(Out)(Mustache[string] m, ref Out o, string[] path, const bool
 	}
 	iformat(o, 2, "}\n");
 	iformat(o, 2, "return \"\";\n");
+	iformat(o, 1, "}");
+}
+
+void genChemicalUnit(Out)(ChemicalUnit[] m, ref Out o, string[] path, const bool base) {
+	iformat(o, 1, "%sChemicalUnit %s() {\n", base ? "" : "override ", pathToFuncName(path));
+	iformat(o, 2, "final switch(uniform(0, %s, this.rnd)) {\n", m.length);
+	foreach(idx, it; m) {
+		iformat(o, 3, "case %s: return ChemicalUnit(%s, %s)", idx
+					, `q"{` ~ it.name ~ `}"`
+					, `q"{` ~ it.symbol ~ `}"`);
+		formattedWrite(o, ";\n");
+	}
+	iformat(o, 2, "}\n");
+	iformat(o, 2, "return ChemicalUnit(\"\", \"\");\n");
+	iformat(o, 1, "}");
+}
+
+void genChemicalElement(Out)(ChemicalElement[] m, ref Out o, string[] path, const bool base) {
+	iformat(o, 1, "%sChemicalElement %s() {\n", base ? "" : "override ", pathToFuncName(path));
+	iformat(o, 2, "final switch(uniform(0, %s, this.rnd)) {\n", m.length);
+	foreach(idx, it; m) {
+		iformat(o, 3, "case %s: return ChemicalElement(%s, %s, %s)", idx
+					, `q"{` ~ it.symbol ~ `}"`
+					, `q"{` ~ it.name ~ `}"`
+					, it.atomicNumber);
+		formattedWrite(o, ";\n");
+	}
+	iformat(o, 2, "}\n");
+	iformat(o, 2, "return ChemicalElement(\"\", \"\", 0);\n");
+	iformat(o, 1, "}");
+}
+
+void genCurrency(Out)(Currency[] m, ref Out o, string[] path, const bool base) {
+	iformat(o, 1, "%sCurrency %s() {\n", base ? "" : "override ", pathToFuncName(path));
+	iformat(o, 2, "final switch(uniform(0, %s, this.rnd)) {\n", m.length);
+	foreach(idx, it; m) {
+		iformat(o, 3, "case %s: return Currency(%s, %s, %s)", idx
+					, `q"{` ~ it.name ~ `}"`
+					, `q"{` ~ it.code ~ `}"`
+					, `q"{` ~ it.symbol ~ `}"`);
+		formattedWrite(o, ";\n");
+	}
+	iformat(o, 2, "}\n");
+	iformat(o, 2, "return Currency(\"\", \"\", \"\");\n");
 	iformat(o, 1, "}");
 }
 
