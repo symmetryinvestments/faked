@@ -7,6 +7,8 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_hu : Faker {
@@ -287,7 +289,13 @@ class Faker_hu : Faker {
 	}
 
 	override string companyNamePattern() {
-		assert(false);
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return personLastName() ~ " " ~ companySuffix();
+			case 1: return personLastName() ~ " és " ~ personLastName() ~ " " ~ companySuffix();
+			case 2: return personLastName() ~ " és Tsa. " ~ companySuffix();
+			case 3: return personLastName() ~ " 2000 " ~ companySuffix();
+		}
+		return "";
 	}
 
 	override string companySuffix() {
@@ -445,6 +453,16 @@ class Faker_hu : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personLastName();
+		}
+
+		return "";
+	}
+
 	override string personMaleFirstName() {
 		const string[] strs =
 		[ q"{Bence}", q"{Máté}", q"{Dominik}", q"{Levente}", q"{Noel}", q"{Dániel}", q"{Zalán}", q"{Marcell}"
@@ -472,11 +490,34 @@ class Faker_hu : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personName() {
+		const int rndInt = uniform(0, 10, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personPrefix() ~ " " ~ personLastName() ~ " " ~ personFirstName();
+		}
+		if(rndInt >= 1 && rndInt < 10) {
+			return personLastName() ~ " " ~ personFirstName();
+		}
+
+		return "";
+	}
+
 	override string personPrefix() {
 		const string[] strs =
 		[ q"{Dr.}", q"{Prof.}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{+3620#######}", q"{+3630#######}", q"{+3650#######}", q"{+3670#######}", q"{0620#######}"
+		, q"{0630#######}", q"{0650#######}", q"{0670#######}", q"{+36 20/###-####}", q"{+36 30/###-####}"
+		, q"{+36 50/###-####}", q"{+36 70/###-####}", q"{003620#######}", q"{003630#######}", q"{003650#######}"
+		, q"{003670#######}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string wordAdjective() {

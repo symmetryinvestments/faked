@@ -7,12 +7,30 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_ro : Faker {
 @safe:
 	this(int seed) {
 		super(seed);
+	}
+
+	override string cellPhoneFormats() {
+		const string[] strs =
+		[ q"{0726######}", q"{0723######}", q"{0722######}", q"{0721######}", q"{0720######}", q"{0728######}"
+		, q"{0729######}", q"{0730######}", q"{0739######}", q"{0738######}", q"{0737######}", q"{0736######}"
+		, q"{0735######}", q"{0734######}", q"{0733######}", q"{0732######}", q"{0731######}", q"{0780######}"
+		, q"{0788######}", q"{0753######}", q"{0754######}", q"{0755######}", q"{0756######}", q"{0757######}"
+		, q"{0758######}", q"{0759######}", q"{0748######}", q"{0747######}", q"{0746######}", q"{0740######}"
+		, q"{0741######}", q"{0742######}", q"{0743######}", q"{0744######}", q"{0745######}", q"{0711######}"
+		, q"{0727######}", q"{0725######}", q"{0724######}", q"{0786######}", q"{0760######}", q"{0761######}"
+		, q"{0762######}", q"{0763######}", q"{0764######}", q"{0765######}", q"{0766######}", q"{0767######}"
+		, q"{0785######}", q"{0768######}", q"{0769######}", q"{0784######}", q"{0770######}", q"{0772######}"
+		, q"{0771######}", q"{0749######}", q"{0750######}", q"{0751######}", q"{0752######}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string dateMonthWide() {
@@ -59,6 +77,13 @@ class Faker_ro : Faker {
 		[ q"{gmail.com}", q"{yahoo.com}", q"{hotmail.com}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string locationBuildingNumber() {
+		const string[] strs =
+		[ q"{Bloc ##}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string locationCityName() {
@@ -117,7 +142,10 @@ class Faker_ro : Faker {
 	}
 
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName();
+		}
+		return "";
 	}
 
 	override string locationCounty() {
@@ -137,6 +165,20 @@ class Faker_ro : Faker {
 		[ q"{România}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{######}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	override string locationSecondaryAddress() {
+		const string[] strs =
+		[ q"{Ap. ##}", q"{Ap. ###}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string locationState() {
@@ -159,6 +201,19 @@ class Faker_ro : Faker {
 		, q"{VL}", q"{VS}", q"{VN}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string locationStreetAddress() {
+		const LocationStreetAddressEnum[] enums = [ LocationStreetAddressEnum.normal, LocationStreetAddressEnum.full ];
+		return locationStreetAddress(choice(enums, this.rnd));
+	}
+
+	override string locationStreetAddress(LocationStreetAddressEnum which) {
+		final switch(which) {
+			case LocationStreetAddressEnum.normal: return locationStreet() ~ ", " ~ locationBuildingNumber();
+			case LocationStreetAddressEnum.full: return locationStreet() ~ ", " ~ locationBuildingNumber() ~ ", " ~ locationSecondaryAddress();
+		}
+		return "";
 	}
 
 	override string locationStreetName() {
@@ -188,7 +243,10 @@ class Faker_ro : Faker {
 	}
 
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationStreetSuffix() ~ " " ~ locationStreetName();
+		}
+		return "";
 	}
 
 	override string locationStreetSuffix() {
@@ -407,6 +465,16 @@ class Faker_ro : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personLastName();
+		}
+
+		return "";
+	}
+
 	override string personMaleFirstName() {
 		const string[] strs =
 		[ q"{Achim}", q"{Adam}", q"{Adelin}", q"{Adonis}", q"{Adrian}", q"{Adi}", q"{Agnos}", q"{Albert}", q"{Alex}"
@@ -458,6 +526,22 @@ class Faker_ro : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personName() {
+		const int rndInt = uniform(0, 10, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 8) {
+			return personFirstName() ~ " " ~ personLastName();
+		}
+		if(rndInt >= 8 && rndInt < 9) {
+			return personLastName() ~ " " ~ personFirstName();
+		}
+		if(rndInt >= 9 && rndInt < 10) {
+			return personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+		}
+
+		return "";
+	}
+
 	override string personPrefix() {
 		const string[] strs =
 		[ q"{Dl}", q"{Dna}", q"{Dra}" ];
@@ -470,6 +554,26 @@ class Faker_ro : Faker {
 		[ q"{Jr.}", q"{Sr.}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{021######}", q"{031######}", q"{0258######}", q"{0358######}", q"{0257######}", q"{0357######}"
+		, q"{0248######}", q"{0348######}", q"{0234######}", q"{0334######}", q"{0259######}", q"{0359######}"
+		, q"{0263######}", q"{0363######}", q"{0231######}", q"{0331######}", q"{0239######}", q"{0339######}"
+		, q"{0268######}", q"{0368######}", q"{0238######}", q"{0338######}", q"{0242######}", q"{0342######}"
+		, q"{0255######}", q"{0355######}", q"{0264######}", q"{0364######}", q"{0241######}", q"{0341######}"
+		, q"{0267######}", q"{0367######}", q"{0245######}", q"{0345######}", q"{0251######}", q"{0351######}"
+		, q"{0236######}", q"{0336######}", q"{0246######}", q"{0346######}", q"{0253######}", q"{0353######}"
+		, q"{0266######}", q"{0366######}", q"{0254######}", q"{0354######}", q"{0243######}", q"{0343######}"
+		, q"{0232######}", q"{0332######}", q"{0262######}", q"{0362######}", q"{0252######}", q"{0352######}"
+		, q"{0265######}", q"{0365######}", q"{0233######}", q"{0333######}", q"{0249######}", q"{0349######}"
+		, q"{0244######}", q"{0344######}", q"{0260######}", q"{0360######}", q"{0261######}", q"{0361######}"
+		, q"{0269######}", q"{0369######}", q"{0230######}", q"{0330######}", q"{0247######}", q"{0347######}"
+		, q"{0256######}", q"{0356######}", q"{0240######}", q"{0340######}", q"{0250######}", q"{0350######}"
+		, q"{0235######}", q"{0335######}", q"{0237######}", q"{0337######}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 }

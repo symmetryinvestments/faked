@@ -7,6 +7,8 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 import faker.faker_en_au;
 
@@ -30,6 +32,13 @@ class Faker_en_au_ocker : Faker_en_au {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationBuildingNumber() {
+		const string[] strs =
+		[ q"{####}", q"{###}", q"{##}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string locationCityName() {
 		const string[] strs =
 		[ q"{Bondi}", q"{Burleigh Heads}", q"{Carlton}", q"{Fitzroy}", q"{Fremantle}", q"{Glenelg}", q"{Manly}"
@@ -39,7 +48,10 @@ class Faker_en_au_ocker : Faker_en_au {
 	}
 
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName();
+		}
+		return "";
 	}
 
 	override string locationDefaultCountry() {
@@ -47,6 +59,13 @@ class Faker_en_au_ocker : Faker_en_au {
 		[ q"{Australia}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{0###}", q"{2###}", q"{3###}", q"{4###}", q"{5###}", q"{6###}", q"{7###}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string locationState() {
@@ -72,7 +91,10 @@ class Faker_en_au_ocker : Faker_en_au {
 	}
 
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationStreetName();
+		}
+		return "";
 	}
 
 	override string locationStreetSuffix() {
@@ -113,6 +135,26 @@ class Faker_en_au_ocker : Faker_en_au {
 		, q"{LeQuesne}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 100, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 95) {
+			return personLastName();
+		}
+		if(rndInt >= 95 && rndInt < 100) {
+			return personLastName() ~ "-" ~ personLastName();
+		}
+
+		return "";
+	}
+
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{0# #### ####}", q"{+61 # #### ####}", q"{04## ### ###}", q"{+61 4## ### ###}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 }

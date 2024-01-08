@@ -3,20 +3,12 @@ module defis;
 import std.typecons : Nullable;
 import std.sumtype;
 
-struct Dummy {
-	string alwaysEmpty;
-}
-
 struct Mustache {
 	string str;
 }
 
 struct Number {
 	string num;
-}
-
-struct ForwardToOther {
-	string fwd;
 }
 
 struct MustacheWeight {

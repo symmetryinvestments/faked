@@ -8,11 +8,457 @@ import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
 
+import faker.customtypes;
+
 class Faker {
 @safe:
 	Random rnd;
 	this(int seed) {
 		this.rnd = Random(seed);
+	}
+
+	final string numberBuild(string s, dchar sym = '#') {
+		auto app = appender!string();
+		for(size_t idx = 0; idx < s.length; ++idx) {
+            dchar c = s[idx];
+			if(c == sym) {
+				formattedWrite(app, "%d", uniform(0, 10, this.rnd));
+            } else if(c == '[') {
+                ++idx;
+                size_t start = idx;
+                while(idx < s.length && s[idx] != ']') {
+                    ++idx;
+                }
+                enforce(idx < s.length && s[idx] == ']');
+                string[] ft = s[start .. idx].split("-");
+                enforce(ft.length == 2);
+                int[] ftI = ft.map!(a => to!int(a)).array;
+                enforce(ft.length == 2);
+                int n = uniform(ftI[0], ftI[1], this.rnd);
+                formattedWrite(app, "%d", n);
+            } else if(c == '!') {
+				formattedWrite(app, "%d", uniform(2, 10, this.rnd));
+			} else {
+				app.put(c);
+			}
+		}
+		return app.data;
+	}
+
+	Airline airlineAirline() {
+		final switch(uniform(0, 125, this.rnd)) {
+			case 0: return Airline(nullable(q"{Aegean Airlines}"), nullable(q"{A3}"));
+			case 1: return Airline(nullable(q"{Aeroflot}"), nullable(q"{SU}"));
+			case 2: return Airline(nullable(q"{Aerolineas Argentinas}"), nullable(q"{AR}"));
+			case 3: return Airline(nullable(q"{Aeromexico}"), nullable(q"{AM}"));
+			case 4: return Airline(nullable(q"{Air Algerie}"), nullable(q"{AH}"));
+			case 5: return Airline(nullable(q"{Air Arabia}"), nullable(q"{G9}"));
+			case 6: return Airline(nullable(q"{Air Canada}"), nullable(q"{AC}"));
+			case 7: return Airline(nullable(q"{Air China}"), nullable(q"{CA}"));
+			case 8: return Airline(nullable(q"{Air Europa}"), nullable(q"{UX}"));
+			case 9: return Airline(nullable(q"{Air France-KLM}"), nullable(q"{AF}"));
+			case 10: return Airline(nullable(q"{Air India}"), nullable(q"{AI}"));
+			case 11: return Airline(nullable(q"{Air Mauritius}"), nullable(q"{MK}"));
+			case 12: return Airline(nullable(q"{Air New Zealand}"), nullable(q"{NZ}"));
+			case 13: return Airline(nullable(q"{Air Niugini}"), nullable(q"{PX}"));
+			case 14: return Airline(nullable(q"{Air Tahiti}"), nullable(q"{VT}"));
+			case 15: return Airline(nullable(q"{Air Tahiti Nui}"), nullable(q"{TN}"));
+			case 16: return Airline(nullable(q"{Air Transat}"), nullable(q"{TS}"));
+			case 17: return Airline(nullable(q"{AirAsia X}"), nullable(q"{D7}"));
+			case 18: return Airline(nullable(q"{AirAsia}"), nullable(q"{AK}"));
+			case 19: return Airline(nullable(q"{Aircalin}"), nullable(q"{SB}"));
+			case 20: return Airline(nullable(q"{Alaska Airlines}"), nullable(q"{AS}"));
+			case 21: return Airline(nullable(q"{Alitalia}"), nullable(q"{AZ}"));
+			case 22: return Airline(nullable(q"{All Nippon Airways}"), nullable(q"{NH}"));
+			case 23: return Airline(nullable(q"{Allegiant Air}"), nullable(q"{G4}"));
+			case 24: return Airline(nullable(q"{American Airlines}"), nullable(q"{AA}"));
+			case 25: return Airline(nullable(q"{Asiana Airlines}"), nullable(q"{OZ}"));
+			case 26: return Airline(nullable(q"{Avianca}"), nullable(q"{AV}"));
+			case 27: return Airline(nullable(q"{Azul Linhas Aereas Brasileiras}"), nullable(q"{AD}"));
+			case 28: return Airline(nullable(q"{Azur Air}"), nullable(q"{ZF}"));
+			case 29: return Airline(nullable(q"{Beijing Capital Airlines}"), nullable(q"{JD}"));
+			case 30: return Airline(nullable(q"{Boliviana de Aviacion}"), nullable(q"{OB}"));
+			case 31: return Airline(nullable(q"{British Airways}"), nullable(q"{BA}"));
+			case 32: return Airline(nullable(q"{Cathay Pacific}"), nullable(q"{CX}"));
+			case 33: return Airline(nullable(q"{Cebu Pacific Air}"), nullable(q"{5J}"));
+			case 34: return Airline(nullable(q"{China Airlines}"), nullable(q"{CI}"));
+			case 35: return Airline(nullable(q"{China Eastern Airlines}"), nullable(q"{MU}"));
+			case 36: return Airline(nullable(q"{China Southern Airlines}"), nullable(q"{CZ}"));
+			case 37: return Airline(nullable(q"{Condor}"), nullable(q"{DE}"));
+			case 38: return Airline(nullable(q"{Copa Airlines}"), nullable(q"{CM}"));
+			case 39: return Airline(nullable(q"{Delta Air Lines}"), nullable(q"{DL}"));
+			case 40: return Airline(nullable(q"{Easyfly}"), nullable(q"{VE}"));
+			case 41: return Airline(nullable(q"{EasyJet}"), nullable(q"{U2}"));
+			case 42: return Airline(nullable(q"{EcoJet}"), nullable(q"{8J}"));
+			case 43: return Airline(nullable(q"{Egyptair}"), nullable(q"{MS}"));
+			case 44: return Airline(nullable(q"{El Al}"), nullable(q"{LY}"));
+			case 45: return Airline(nullable(q"{Emirates Airlines}"), nullable(q"{EK}"));
+			case 46: return Airline(nullable(q"{Ethiopian Airlines}"), nullable(q"{ET}"));
+			case 47: return Airline(nullable(q"{Etihad Airways}"), nullable(q"{EY}"));
+			case 48: return Airline(nullable(q"{EVA Air}"), nullable(q"{BR}"));
+			case 49: return Airline(nullable(q"{Fiji Airways}"), nullable(q"{FJ}"));
+			case 50: return Airline(nullable(q"{Finnair}"), nullable(q"{AY}"));
+			case 51: return Airline(nullable(q"{Flybondi}"), nullable(q"{FO}"));
+			case 52: return Airline(nullable(q"{Flydubai}"), nullable(q"{FZ}"));
+			case 53: return Airline(nullable(q"{FlySafair}"), nullable(q"{FA}"));
+			case 54: return Airline(nullable(q"{Frontier Airlines}"), nullable(q"{F9}"));
+			case 55: return Airline(nullable(q"{Garuda Indonesia}"), nullable(q"{GA}"));
+			case 56: return Airline(nullable(q"{Go First}"), nullable(q"{G8}"));
+			case 57: return Airline(nullable(q"{Gol Linhas Aereas Inteligentes}"), nullable(q"{G3}"));
+			case 58: return Airline(nullable(q"{Hainan Airlines}"), nullable(q"{HU}"));
+			case 59: return Airline(nullable(q"{Hawaiian Airlines}"), nullable(q"{HA}"));
+			case 60: return Airline(nullable(q"{IndiGo Airlines}"), nullable(q"{6E}"));
+			case 61: return Airline(nullable(q"{Japan Airlines}"), nullable(q"{JL}"));
+			case 62: return Airline(nullable(q"{Jeju Air}"), nullable(q"{7C}"));
+			case 63: return Airline(nullable(q"{Jet2}"), nullable(q"{LS}"));
+			case 64: return Airline(nullable(q"{JetBlue Airways}"), nullable(q"{B6}"));
+			case 65: return Airline(nullable(q"{JetSMART}"), nullable(q"{JA}"));
+			case 66: return Airline(nullable(q"{Juneyao Airlines}"), nullable(q"{HO}"));
+			case 67: return Airline(nullable(q"{Kenya Airways}"), nullable(q"{KQ}"));
+			case 68: return Airline(nullable(q"{Korean Air}"), nullable(q"{KE}"));
+			case 69: return Airline(nullable(q"{Kulula.com}"), nullable(q"{MN}"));
+			case 70: return Airline(nullable(q"{LATAM Airlines}"), nullable(q"{LA}"));
+			case 71: return Airline(nullable(q"{Lion Air}"), nullable(q"{JT}"));
+			case 72: return Airline(nullable(q"{LOT Polish Airlines}"), nullable(q"{LO}"));
+			case 73: return Airline(nullable(q"{Lufthansa}"), nullable(q"{LH}"));
+			case 74: return Airline(nullable(q"{Libyan Airlines}"), nullable(q"{LN}"));
+			case 75: return Airline(nullable(q"{Linea Aerea Amaszonas}"), nullable(q"{Z8}"));
+			case 76: return Airline(nullable(q"{Malaysia Airlines}"), nullable(q"{MH}"));
+			case 77: return Airline(nullable(q"{Nordwind Airlines}"), nullable(q"{N4}"));
+			case 78: return Airline(nullable(q"{Norwegian Air Shuttle}"), nullable(q"{DY}"));
+			case 79: return Airline(nullable(q"{Oman Air}"), nullable(q"{WY}"));
+			case 80: return Airline(nullable(q"{Pakistan International Airlines}"), nullable(q"{PK}"));
+			case 81: return Airline(nullable(q"{Pegasus Airlines}"), nullable(q"{PC}"));
+			case 82: return Airline(nullable(q"{Philippine Airlines}"), nullable(q"{PR}"));
+			case 83: return Airline(nullable(q"{Qantas Group}"), nullable(q"{QF}"));
+			case 84: return Airline(nullable(q"{Qatar Airways}"), nullable(q"{QR}"));
+			case 85: return Airline(nullable(q"{Republic Airways}"), nullable(q"{YX}"));
+			case 86: return Airline(nullable(q"{Royal Air Maroc}"), nullable(q"{AT}"));
+			case 87: return Airline(nullable(q"{Ryanair}"), nullable(q"{FR}"));
+			case 88: return Airline(nullable(q"{S7 Airlines}"), nullable(q"{S7}"));
+			case 89: return Airline(nullable(q"{SAS}"), nullable(q"{SK}"));
+			case 90: return Airline(nullable(q"{Satena}"), nullable(q"{9R}"));
+			case 91: return Airline(nullable(q"{Saudia}"), nullable(q"{SV}"));
+			case 92: return Airline(nullable(q"{Shandong Airlines}"), nullable(q"{SC}"));
+			case 93: return Airline(nullable(q"{Sichuan Airlines}"), nullable(q"{3U}"));
+			case 94: return Airline(nullable(q"{Singapore Airlines}"), nullable(q"{SQ}"));
+			case 95: return Airline(nullable(q"{Sky Airline}"), nullable(q"{H2}"));
+			case 96: return Airline(nullable(q"{SkyWest Airlines}"), nullable(q"{OO}"));
+			case 97: return Airline(nullable(q"{South African Airways}"), nullable(q"{SA}"));
+			case 98: return Airline(nullable(q"{Southwest Airlines}"), nullable(q"{WN}"));
+			case 99: return Airline(nullable(q"{SpiceJet}"), nullable(q"{SG}"));
+			case 100: return Airline(nullable(q"{Spirit Airlines}"), nullable(q"{NK}"));
+			case 101: return Airline(nullable(q"{Spring Airlines}"), nullable(q"{9S}"));
+			case 102: return Airline(nullable(q"{SriLankan Airlines}"), nullable(q"{UL}"));
+			case 103: return Airline(nullable(q"{Star Peru}"), nullable(q"{2I}"));
+			case 104: return Airline(nullable(q"{Sun Country Airlines}"), nullable(q"{SY}"));
+			case 105: return Airline(nullable(q"{SunExpress}"), nullable(q"{XQ}"));
+			case 106: return Airline(nullable(q"{TAP Air Portugal}"), nullable(q"{TP}"));
+			case 107: return Airline(nullable(q"{Thai AirAsia}"), nullable(q"{FD}"));
+			case 108: return Airline(nullable(q"{Thai Airways}"), nullable(q"{TG}"));
+			case 109: return Airline(nullable(q"{TUI Airways}"), nullable(q"{BY}"));
+			case 110: return Airline(nullable(q"{Tunisair}"), nullable(q"{TU}"));
+			case 111: return Airline(nullable(q"{Turkish Airlines}"), nullable(q"{TK}"));
+			case 112: return Airline(nullable(q"{Ukraine International}"), nullable(q"{PS}"));
+			case 113: return Airline(nullable(q"{United Airlines}"), nullable(q"{UA}"));
+			case 114: return Airline(nullable(q"{Ural Airlines}"), nullable(q"{U6}"));
+			case 115: return Airline(nullable(q"{VietJet Air}"), nullable(q"{VJ}"));
+			case 116: return Airline(nullable(q"{Vietnam Airlines}"), nullable(q"{VN}"));
+			case 117: return Airline(nullable(q"{Virgin Atlantic Airways}"), nullable(q"{VS}"));
+			case 118: return Airline(nullable(q"{Virgin Australia}"), nullable(q"{VA}"));
+			case 119: return Airline(nullable(q"{VivaAerobus}"), nullable(q"{VB}"));
+			case 120: return Airline(nullable(q"{VOEPASS Linhas Aereas}"), nullable(q"{2Z}"));
+			case 121: return Airline(nullable(q"{Volaris}"), nullable(q"{Y4}"));
+			case 122: return Airline(nullable(q"{WestJet}"), nullable(q"{WS}"));
+			case 123: return Airline(nullable(q"{Wingo}"), nullable(q"{P5}"));
+			case 124: return Airline(nullable(q"{Wizz Air}"), nullable(q"{W6}"));
+		}
+		return Airline(Nullable!(string).init, Nullable!(string).init);
+	}
+
+	Airplane airlineAirplane() {
+		final switch(uniform(0, 155, this.rnd)) {
+			case 0: return Airplane(nullable(q"{Aerospatiale/BAC Concorde}"), nullable(q"{SSC}"));
+			case 1: return Airplane(nullable(q"{Airbus A300}"), nullable(q"{AB3}"));
+			case 2: return Airplane(nullable(q"{Airbus A310}"), nullable(q"{310}"));
+			case 3: return Airplane(nullable(q"{Airbus A310-200}"), nullable(q"{312}"));
+			case 4: return Airplane(nullable(q"{Airbus A310-300}"), nullable(q"{313}"));
+			case 5: return Airplane(nullable(q"{Airbus A318}"), nullable(q"{318}"));
+			case 6: return Airplane(nullable(q"{Airbus A319}"), nullable(q"{319}"));
+			case 7: return Airplane(nullable(q"{Airbus A319neo}"), nullable(q"{31N}"));
+			case 8: return Airplane(nullable(q"{Airbus A320}"), nullable(q"{320}"));
+			case 9: return Airplane(nullable(q"{Airbus A320neo}"), nullable(q"{32N}"));
+			case 10: return Airplane(nullable(q"{Airbus A321}"), nullable(q"{321}"));
+			case 11: return Airplane(nullable(q"{Airbus A321neo}"), nullable(q"{32Q}"));
+			case 12: return Airplane(nullable(q"{Airbus A330}"), nullable(q"{330}"));
+			case 13: return Airplane(nullable(q"{Airbus A330-200}"), nullable(q"{332}"));
+			case 14: return Airplane(nullable(q"{Airbus A330-300}"), nullable(q"{333}"));
+			case 15: return Airplane(nullable(q"{Airbus A330-800neo}"), nullable(q"{338}"));
+			case 16: return Airplane(nullable(q"{Airbus A330-900neo}"), nullable(q"{339}"));
+			case 17: return Airplane(nullable(q"{Airbus A340}"), nullable(q"{340}"));
+			case 18: return Airplane(nullable(q"{Airbus A340-200}"), nullable(q"{342}"));
+			case 19: return Airplane(nullable(q"{Airbus A340-300}"), nullable(q"{343}"));
+			case 20: return Airplane(nullable(q"{Airbus A340-500}"), nullable(q"{345}"));
+			case 21: return Airplane(nullable(q"{Airbus A340-600}"), nullable(q"{346}"));
+			case 22: return Airplane(nullable(q"{Airbus A350}"), nullable(q"{350}"));
+			case 23: return Airplane(nullable(q"{Airbus A350-900}"), nullable(q"{359}"));
+			case 24: return Airplane(nullable(q"{Airbus A350-1000}"), nullable(q"{351}"));
+			case 25: return Airplane(nullable(q"{Airbus A380}"), nullable(q"{380}"));
+			case 26: return Airplane(nullable(q"{Airbus A380-800}"), nullable(q"{388}"));
+			case 27: return Airplane(nullable(q"{Antonov An-12}"), nullable(q"{ANF}"));
+			case 28: return Airplane(nullable(q"{Antonov An-24}"), nullable(q"{AN4}"));
+			case 29: return Airplane(nullable(q"{Antonov An-26}"), nullable(q"{A26}"));
+			case 30: return Airplane(nullable(q"{Antonov An-28}"), nullable(q"{A28}"));
+			case 31: return Airplane(nullable(q"{Antonov An-30}"), nullable(q"{A30}"));
+			case 32: return Airplane(nullable(q"{Antonov An-32}"), nullable(q"{A32}"));
+			case 33: return Airplane(nullable(q"{Antonov An-72}"), nullable(q"{AN7}"));
+			case 34: return Airplane(nullable(q"{Antonov An-124 Ruslan}"), nullable(q"{A4F}"));
+			case 35: return Airplane(nullable(q"{Antonov An-140}"), nullable(q"{A40}"));
+			case 36: return Airplane(nullable(q"{Antonov An-148}"), nullable(q"{A81}"));
+			case 37: return Airplane(nullable(q"{Antonov An-158}"), nullable(q"{A58}"));
+			case 38: return Airplane(nullable(q"{Antonov An-225 Mriya}"), nullable(q"{A5F}"));
+			case 39: return Airplane(nullable(q"{Boeing 707}"), nullable(q"{703}"));
+			case 40: return Airplane(nullable(q"{Boeing 717}"), nullable(q"{717}"));
+			case 41: return Airplane(nullable(q"{Boeing 720B}"), nullable(q"{B72}"));
+			case 42: return Airplane(nullable(q"{Boeing 727}"), nullable(q"{727}"));
+			case 43: return Airplane(nullable(q"{Boeing 727-100}"), nullable(q"{721}"));
+			case 44: return Airplane(nullable(q"{Boeing 727-200}"), nullable(q"{722}"));
+			case 45: return Airplane(nullable(q"{Boeing 737 MAX 7}"), nullable(q"{7M7}"));
+			case 46: return Airplane(nullable(q"{Boeing 737 MAX 8}"), nullable(q"{7M8}"));
+			case 47: return Airplane(nullable(q"{Boeing 737 MAX 9}"), nullable(q"{7M9}"));
+			case 48: return Airplane(nullable(q"{Boeing 737 MAX 10}"), nullable(q"{7MJ}"));
+			case 49: return Airplane(nullable(q"{Boeing 737}"), nullable(q"{737}"));
+			case 50: return Airplane(nullable(q"{Boeing 737-100}"), nullable(q"{731}"));
+			case 51: return Airplane(nullable(q"{Boeing 737-200}"), nullable(q"{732}"));
+			case 52: return Airplane(nullable(q"{Boeing 737-300}"), nullable(q"{733}"));
+			case 53: return Airplane(nullable(q"{Boeing 737-400}"), nullable(q"{734}"));
+			case 54: return Airplane(nullable(q"{Boeing 737-500}"), nullable(q"{735}"));
+			case 55: return Airplane(nullable(q"{Boeing 737-600}"), nullable(q"{736}"));
+			case 56: return Airplane(nullable(q"{Boeing 737-700}"), nullable(q"{73G}"));
+			case 57: return Airplane(nullable(q"{Boeing 737-800}"), nullable(q"{738}"));
+			case 58: return Airplane(nullable(q"{Boeing 737-900}"), nullable(q"{739}"));
+			case 59: return Airplane(nullable(q"{Boeing 747}"), nullable(q"{747}"));
+			case 60: return Airplane(nullable(q"{Boeing 747-100}"), nullable(q"{741}"));
+			case 61: return Airplane(nullable(q"{Boeing 747-200}"), nullable(q"{742}"));
+			case 62: return Airplane(nullable(q"{Boeing 747-300}"), nullable(q"{743}"));
+			case 63: return Airplane(nullable(q"{Boeing 747-400}"), nullable(q"{744}"));
+			case 64: return Airplane(nullable(q"{Boeing 747-400D}"), nullable(q"{74J}"));
+			case 65: return Airplane(nullable(q"{Boeing 747-8}"), nullable(q"{748}"));
+			case 66: return Airplane(nullable(q"{Boeing 747SP}"), nullable(q"{74L}"));
+			case 67: return Airplane(nullable(q"{Boeing 747SR}"), nullable(q"{74R}"));
+			case 68: return Airplane(nullable(q"{Boeing 757}"), nullable(q"{757}"));
+			case 69: return Airplane(nullable(q"{Boeing 757-200}"), nullable(q"{752}"));
+			case 70: return Airplane(nullable(q"{Boeing 757-300}"), nullable(q"{753}"));
+			case 71: return Airplane(nullable(q"{Boeing 767}"), nullable(q"{767}"));
+			case 72: return Airplane(nullable(q"{Boeing 767-200}"), nullable(q"{762}"));
+			case 73: return Airplane(nullable(q"{Boeing 767-300}"), nullable(q"{763}"));
+			case 74: return Airplane(nullable(q"{Boeing 767-400}"), nullable(q"{764}"));
+			case 75: return Airplane(nullable(q"{Boeing 777}"), nullable(q"{777}"));
+			case 76: return Airplane(nullable(q"{Boeing 777-200}"), nullable(q"{772}"));
+			case 77: return Airplane(nullable(q"{Boeing 777-200LR}"), nullable(q"{77L}"));
+			case 78: return Airplane(nullable(q"{Boeing 777-300}"), nullable(q"{773}"));
+			case 79: return Airplane(nullable(q"{Boeing 777-300ER}"), nullable(q"{77W}"));
+			case 80: return Airplane(nullable(q"{Boeing 787}"), nullable(q"{787}"));
+			case 81: return Airplane(nullable(q"{Boeing 787-8}"), nullable(q"{788}"));
+			case 82: return Airplane(nullable(q"{Boeing 787-9}"), nullable(q"{789}"));
+			case 83: return Airplane(nullable(q"{Boeing 787-10}"), nullable(q"{781}"));
+			case 84: return Airplane(nullable(q"{Canadair Challenger}"), nullable(q"{CCJ}"));
+			case 85: return Airplane(nullable(q"{Canadair CL-44}"), nullable(q"{CL4}"));
+			case 86: return Airplane(nullable(q"{Canadair Regional Jet 100}"), nullable(q"{CR1}"));
+			case 87: return Airplane(nullable(q"{Canadair Regional Jet 200}"), nullable(q"{CR2}"));
+			case 88: return Airplane(nullable(q"{Canadair Regional Jet 700}"), nullable(q"{CR7}"));
+			case 89: return Airplane(nullable(q"{Canadair Regional Jet 705}"), nullable(q"{CRA}"));
+			case 90: return Airplane(nullable(q"{Canadair Regional Jet 900}"), nullable(q"{CR9}"));
+			case 91: return Airplane(nullable(q"{Canadair Regional Jet 1000}"), nullable(q"{CRK}"));
+			case 92: return Airplane(nullable(q"{De Havilland Canada DHC-2 Beaver}"), nullable(q"{DHP}"));
+			case 93: return Airplane(nullable(q"{De Havilland Canada DHC-2 Turbo-Beaver}"), nullable(q"{DHR}"));
+			case 94: return Airplane(nullable(q"{De Havilland Canada DHC-3 Otter}"), nullable(q"{DHL}"));
+			case 95: return Airplane(nullable(q"{De Havilland Canada DHC-4 Caribou}"), nullable(q"{DHC}"));
+			case 96: return Airplane(nullable(q"{De Havilland Canada DHC-6 Twin Otter}"), nullable(q"{DHT}"));
+			case 97: return Airplane(nullable(q"{De Havilland Canada DHC-7 Dash 7}"), nullable(q"{DH7}"));
+			case 98: return Airplane(nullable(q"{De Havilland Canada DHC-8-100 Dash 8 / 8Q}"), nullable(q"{DH1}"));
+			case 99: return Airplane(nullable(q"{De Havilland Canada DHC-8-200 Dash 8 / 8Q}"), nullable(q"{DH2}"));
+			case 100: return Airplane(nullable(q"{De Havilland Canada DHC-8-300 Dash 8 / 8Q}"), nullable(q"{DH3}"));
+			case 101: return Airplane(nullable(q"{De Havilland Canada DHC-8-400 Dash 8Q}"), nullable(q"{DH4}"));
+			case 102: return Airplane(nullable(q"{De Havilland DH.104 Dove}"), nullable(q"{DHD}"));
+			case 103: return Airplane(nullable(q"{De Havilland DH.114 Heron}"), nullable(q"{DHH}"));
+			case 104: return Airplane(nullable(q"{Douglas DC-3}"), nullable(q"{D3F}"));
+			case 105: return Airplane(nullable(q"{Douglas DC-6}"), nullable(q"{D6F}"));
+			case 106: return Airplane(nullable(q"{Douglas DC-8-50}"), nullable(q"{D8T}"));
+			case 107: return Airplane(nullable(q"{Douglas DC-8-62}"), nullable(q"{D8L}"));
+			case 108: return Airplane(nullable(q"{Douglas DC-8-72}"), nullable(q"{D8Q}"));
+			case 109: return Airplane(nullable(q"{Douglas DC-9-10}"), nullable(q"{D91}"));
+			case 110: return Airplane(nullable(q"{Douglas DC-9-20}"), nullable(q"{D92}"));
+			case 111: return Airplane(nullable(q"{Douglas DC-9-30}"), nullable(q"{D93}"));
+			case 112: return Airplane(nullable(q"{Douglas DC-9-40}"), nullable(q"{D94}"));
+			case 113: return Airplane(nullable(q"{Douglas DC-9-50}"), nullable(q"{D95}"));
+			case 114: return Airplane(nullable(q"{Douglas DC-10}"), nullable(q"{D10}"));
+			case 115: return Airplane(nullable(q"{Douglas DC-10-10}"), nullable(q"{D1X}"));
+			case 116: return Airplane(nullable(q"{Douglas DC-10-30}"), nullable(q"{D1Y}"));
+			case 117: return Airplane(nullable(q"{Embraer 170}"), nullable(q"{E70}"));
+			case 118: return Airplane(nullable(q"{Embraer 175}"), nullable(q"{E75}"));
+			case 119: return Airplane(nullable(q"{Embraer 190}"), nullable(q"{E90}"));
+			case 120: return Airplane(nullable(q"{Embraer 195}"), nullable(q"{E95}"));
+			case 121: return Airplane(nullable(q"{Embraer E190-E2}"), nullable(q"{290}"));
+			case 122: return Airplane(nullable(q"{Embraer E195-E2}"), nullable(q"{295}"));
+			case 123: return Airplane(nullable(q"{Embraer EMB.110 Bandeirante}"), nullable(q"{EMB}"));
+			case 124: return Airplane(nullable(q"{Embraer EMB.120 Brasilia}"), nullable(q"{EM2}"));
+			case 125: return Airplane(nullable(q"{Embraer Legacy 600}"), nullable(q"{ER3}"));
+			case 126: return Airplane(nullable(q"{Embraer Phenom 100}"), nullable(q"{EP1}"));
+			case 127: return Airplane(nullable(q"{Embraer Phenom 300}"), nullable(q"{EP3}"));
+			case 128: return Airplane(nullable(q"{Embraer RJ135}"), nullable(q"{ER3}"));
+			case 129: return Airplane(nullable(q"{Embraer RJ140}"), nullable(q"{ERD}"));
+			case 130: return Airplane(nullable(q"{Embraer RJ145 Amazon}"), nullable(q"{ER4}"));
+			case 131: return Airplane(nullable(q"{Ilyushin IL18}"), nullable(q"{IL8}"));
+			case 132: return Airplane(nullable(q"{Ilyushin IL62}"), nullable(q"{IL6}"));
+			case 133: return Airplane(nullable(q"{Ilyushin IL76}"), nullable(q"{IL7}"));
+			case 134: return Airplane(nullable(q"{Ilyushin IL86}"), nullable(q"{ILW}"));
+			case 135: return Airplane(nullable(q"{Ilyushin IL96-300}"), nullable(q"{I93}"));
+			case 136: return Airplane(nullable(q"{Ilyushin IL114}"), nullable(q"{I14}"));
+			case 137: return Airplane(nullable(q"{Lockheed L-182 / 282 / 382 (L-100) Hercules}"), nullable(q"{LOH}"));
+			case 138: return Airplane(nullable(q"{Lockheed L-188 Electra}"), nullable(q"{LOE}"));
+			case 139: return Airplane(nullable(q"{Lockheed L-1011 Tristar}"), nullable(q"{L10}"));
+			case 140: return Airplane(nullable(q"{Lockheed L-1049 Super Constellation}"), nullable(q"{L49}"));
+			case 141: return Airplane(nullable(q"{McDonnell Douglas MD11}"), nullable(q"{M11}"));
+			case 142: return Airplane(nullable(q"{McDonnell Douglas MD80}"), nullable(q"{M80}"));
+			case 143: return Airplane(nullable(q"{McDonnell Douglas MD81}"), nullable(q"{M81}"));
+			case 144: return Airplane(nullable(q"{McDonnell Douglas MD82}"), nullable(q"{M82}"));
+			case 145: return Airplane(nullable(q"{McDonnell Douglas MD83}"), nullable(q"{M83}"));
+			case 146: return Airplane(nullable(q"{McDonnell Douglas MD87}"), nullable(q"{M87}"));
+			case 147: return Airplane(nullable(q"{McDonnell Douglas MD88}"), nullable(q"{M88}"));
+			case 148: return Airplane(nullable(q"{McDonnell Douglas MD90}"), nullable(q"{M90}"));
+			case 149: return Airplane(nullable(q"{Sukhoi Superjet 100-95}"), nullable(q"{SU9}"));
+			case 150: return Airplane(nullable(q"{Tupolev Tu-134}"), nullable(q"{TU3}"));
+			case 151: return Airplane(nullable(q"{Tupolev Tu-154}"), nullable(q"{TU5}"));
+			case 152: return Airplane(nullable(q"{Tupolev Tu-204}"), nullable(q"{T20}"));
+			case 153: return Airplane(nullable(q"{Yakovlev Yak-40}"), nullable(q"{YK4}"));
+			case 154: return Airplane(nullable(q"{Yakovlev Yak-42}"), nullable(q"{YK2}"));
+		}
+		return Airplane(Nullable!(string).init, Nullable!(string).init);
+	}
+
+	Airport airlineAirport() {
+		final switch(uniform(0, 118, this.rnd)) {
+			case 0: return Airport(nullable(q"{Adelaide International Airport}"), nullable(q"{ADL}"));
+			case 1: return Airport(nullable(q"{Adolfo Suarez Madrid-Barajas Airport}"), nullable(q"{MAD}"));
+			case 2: return Airport(nullable(q"{Aeroparque Jorge Newbery Airport}"), nullable(q"{AEP}"));
+			case 3: return Airport(nullable(q"{Afonso Pena International Airport}"), nullable(q"{CWB}"));
+			case 4: return Airport(nullable(q"{Alfonso Bonilla Aragon International Airport}"), nullable(q"{CLO}"));
+			case 5: return Airport(nullable(q"{Amsterdam Airport Schiphol}"), nullable(q"{AMS}"));
+			case 6: return Airport(nullable(q"{Arturo Merino Benitez International Airport}"), nullable(q"{SCL}"));
+			case 7: return Airport(nullable(q"{Auckland International Airport}"), nullable(q"{AKL}"));
+			case 8: return Airport(nullable(q"{Beijing Capital International Airport}"), nullable(q"{PEK}"));
+			case 9: return Airport(nullable(q"{Belem Val de Cans International Airport}"), nullable(q"{BEL}"));
+			case 10: return Airport(nullable(q"{Belo Horizonte Tancredo Neves International Airport}"), nullable(q"{CNF}"));
+			case 11: return Airport(nullable(q"{Berlin-Tegel Airport}"), nullable(q"{TXL}"));
+			case 12: return Airport(nullable(q"{Bole International Airport}"), nullable(q"{ADD}"));
+			case 13: return Airport(nullable(q"{Brasilia-Presidente Juscelino Kubitschek International Airport}"), nullable(q"{BSB}"));
+			case 14: return Airport(nullable(q"{Brisbane International Airport}"), nullable(q"{BNE}"));
+			case 15: return Airport(nullable(q"{Brussels Airport}"), nullable(q"{BRU}"));
+			case 16: return Airport(nullable(q"{Cairns Airport}"), nullable(q"{CNS}"));
+			case 17: return Airport(nullable(q"{Cairo International Airport}"), nullable(q"{CAI}"));
+			case 18: return Airport(nullable(q"{Canberra Airport}"), nullable(q"{CBR}"));
+			case 19: return Airport(nullable(q"{Capetown International Airport}"), nullable(q"{CPT}"));
+			case 20: return Airport(nullable(q"{Charles de Gaulle International Airport}"), nullable(q"{CDG}"));
+			case 21: return Airport(nullable(q"{Charlotte Douglas International Airport}"), nullable(q"{CLT}"));
+			case 22: return Airport(nullable(q"{Chengdu Shuangliu International Airport}"), nullable(q"{CTU}"));
+			case 23: return Airport(nullable(q"{Chhatrapati Shivaji International Airport}"), nullable(q"{BOM}"));
+			case 24: return Airport(nullable(q"{Chicago O'Hare International Airport}"), nullable(q"{ORD}"));
+			case 25: return Airport(nullable(q"{Chongqing Jiangbei International Airport}"), nullable(q"{CKG}"));
+			case 26: return Airport(nullable(q"{Christchurch International Airport}"), nullable(q"{CHC}"));
+			case 27: return Airport(nullable(q"{Copenhagen Kastrup Airport}"), nullable(q"{CPH}"));
+			case 28: return Airport(nullable(q"{Dallas Fort Worth International Airport}"), nullable(q"{DFW}"));
+			case 29: return Airport(nullable(q"{Daniel K. Inouye International Airport}"), nullable(q"{HNL}"));
+			case 30: return Airport(nullable(q"{Denver International Airport}"), nullable(q"{DEN}"));
+			case 31: return Airport(nullable(q"{Don Mueang International Airport}"), nullable(q"{DMK}"));
+			case 32: return Airport(nullable(q"{Dubai International Airport}"), nullable(q"{DXB}"));
+			case 33: return Airport(nullable(q"{Dublin Airport}"), nullable(q"{DUB}"));
+			case 34: return Airport(nullable(q"{Dusseldorf Airport}"), nullable(q"{DUS}"));
+			case 35: return Airport(nullable(q"{El Dorado International Airport}"), nullable(q"{BOG}"));
+			case 36: return Airport(nullable(q"{Eleftherios Venizelos International Airport}"), nullable(q"{ATH}"));
+			case 37: return Airport(nullable(q"{Faa'a International Airport}"), nullable(q"{PPT}"));
+			case 38: return Airport(nullable(q"{Fort Lauderdale Hollywood International Airport}"), nullable(q"{FLL}"));
+			case 39: return Airport(nullable(q"{Fortaleza Pinto Martins International Airport}"), nullable(q"{FOR}"));
+			case 40: return Airport(nullable(q"{Frankfurt am Main Airport}"), nullable(q"{FRA}"));
+			case 41: return Airport(nullable(q"{George Bush Intercontinental Houston Airport}"), nullable(q"{IAH}"));
+			case 42: return Airport(nullable(q"{Gold Coast Airport}"), nullable(q"{OOL}"));
+			case 43: return Airport(nullable(q"{Guarulhos - Governador Andre Franco Montoro International Airport}"), nullable(q"{GRU}"));
+			case 44: return Airport(nullable(q"{Hartsfield-Jackson Atlanta International Airport}"), nullable(q"{ATL}"));
+			case 45: return Airport(nullable(q"{Helsinki Vantaa Airport}"), nullable(q"{HEL}"));
+			case 46: return Airport(nullable(q"{Hobart International Airport}"), nullable(q"{HBA}"));
+			case 47: return Airport(nullable(q"{Hong Kong International Airport}"), nullable(q"{HKG}"));
+			case 48: return Airport(nullable(q"{Houari Boumediene Airport}"), nullable(q"{ALG}"));
+			case 49: return Airport(nullable(q"{Hurgada International Airport}"), nullable(q"{HRG}"));
+			case 50: return Airport(nullable(q"{Incheon International Airport}"), nullable(q"{ICN}"));
+			case 51: return Airport(nullable(q"{Indira Gandhi International Airport}"), nullable(q"{DEL}"));
+			case 52: return Airport(nullable(q"{Istanbul Airport}"), nullable(q"{IST}"));
+			case 53: return Airport(nullable(q"{Jacksons International Airport}"), nullable(q"{POM}"));
+			case 54: return Airport(nullable(q"{Jeju International Airport}"), nullable(q"{CJU}"));
+			case 55: return Airport(nullable(q"{John F Kennedy International Airport}"), nullable(q"{JFK}"));
+			case 56: return Airport(nullable(q"{Jorge Chavez International Airport}"), nullable(q"{LIM}"));
+			case 57: return Airport(nullable(q"{Jose Maria Cordova International Airport}"), nullable(q"{MDE}"));
+			case 58: return Airport(nullable(q"{Josep Tarradellas Barcelona-El Prat Airport}"), nullable(q"{BCN}"));
+			case 59: return Airport(nullable(q"{Kahului Airport}"), nullable(q"{OGG}"));
+			case 60: return Airport(nullable(q"{King Abdulaziz International Airport}"), nullable(q"{JED}"));
+			case 61: return Airport(nullable(q"{Kuala Lumpur International Airport}"), nullable(q"{KUL}"));
+			case 62: return Airport(nullable(q"{Kunming Changshui International Airport}"), nullable(q"{KMG}"));
+			case 63: return Airport(nullable(q"{La Tontouta International Airport}"), nullable(q"{NOU}"));
+			case 64: return Airport(nullable(q"{Leonardo da Vinci-Fiumicino Airport}"), nullable(q"{FCO}"));
+			case 65: return Airport(nullable(q"{London Heathrow Airport}"), nullable(q"{LHR}"));
+			case 66: return Airport(nullable(q"{Los Angeles International Airport}"), nullable(q"{LAX}"));
+			case 67: return Airport(nullable(q"{McCarran International Airport}"), nullable(q"{LAS}"));
+			case 68: return Airport(nullable(q"{Melbourne International Airport}"), nullable(q"{MEL}"));
+			case 69: return Airport(nullable(q"{Mexico City International Airport}"), nullable(q"{MEX}"));
+			case 70: return Airport(nullable(q"{Miami International Airport}"), nullable(q"{MIA}"));
+			case 71: return Airport(nullable(q"{Ministro Pistarini International Airport}"), nullable(q"{EZE}"));
+			case 72: return Airport(nullable(q"{Minneapolis-St Paul International/Wold-Chamberlain Airport}"), nullable(q"{MSP}"));
+			case 73: return Airport(nullable(q"{Mohammed V International Airport}"), nullable(q"{CMN}"));
+			case 74: return Airport(nullable(q"{Moscow Domodedovo Airport}"), nullable(q"{DME}"));
+			case 75: return Airport(nullable(q"{Munich Airport}"), nullable(q"{MUC}"));
+			case 76: return Airport(nullable(q"{Murtala Muhammed International Airport}"), nullable(q"{LOS}"));
+			case 77: return Airport(nullable(q"{Nadi International Airport}"), nullable(q"{NAN}"));
+			case 78: return Airport(nullable(q"{Nairobi Jomo Kenyatta International Airport}"), nullable(q"{NBO}"));
+			case 79: return Airport(nullable(q"{Narita International Airport}"), nullable(q"{NRT}"));
+			case 80: return Airport(nullable(q"{Newark Liberty International Airport}"), nullable(q"{EWR}"));
+			case 81: return Airport(nullable(q"{Ninoy Aquino International Airport}"), nullable(q"{MNL}"));
+			case 82: return Airport(nullable(q"{Noumea Magenta Airport}"), nullable(q"{GEA}"));
+			case 83: return Airport(nullable(q"{O. R. Tambo International Airport}"), nullable(q"{JNB}"));
+			case 84: return Airport(nullable(q"{Orlando International Airport}"), nullable(q"{MCO}"));
+			case 85: return Airport(nullable(q"{Oslo Lufthavn}"), nullable(q"{OSL}"));
+			case 86: return Airport(nullable(q"{Perth Airport}"), nullable(q"{PER}"));
+			case 87: return Airport(nullable(q"{Phoenix Sky Harbor International Airport}"), nullable(q"{PHX}"));
+			case 88: return Airport(nullable(q"{Recife Guararapes-Gilberto Freyre International Airport}"), nullable(q"{REC}"));
+			case 89: return Airport(nullable(q"{Rio de Janeiro Galeao International Airport}"), nullable(q"{GIG}"));
+			case 90: return Airport(nullable(q"{Salgado Filho International Airport}"), nullable(q"{POA}"));
+			case 91: return Airport(nullable(q"{Salvador Deputado Luis Eduardo Magalhaes International Airport}"), nullable(q"{SSA}"));
+			case 92: return Airport(nullable(q"{San Francisco International Airport}"), nullable(q"{SFO}"));
+			case 93: return Airport(nullable(q"{Santos Dumont Airport}"), nullable(q"{SDU}"));
+			case 94: return Airport(nullable(q"{Sao Paulo-Congonhas Airport}"), nullable(q"{CGH}"));
+			case 95: return Airport(nullable(q"{Seattle Tacoma International Airport}"), nullable(q"{SEA}"));
+			case 96: return Airport(nullable(q"{Shanghai Hongqiao International Airport}"), nullable(q"{SHA}"));
+			case 97: return Airport(nullable(q"{Shanghai Pudong International Airport}"), nullable(q"{PVG}"));
+			case 98: return Airport(nullable(q"{Shenzhen Bao'an International Airport}"), nullable(q"{SZX}"));
+			case 99: return Airport(nullable(q"{Sheremetyevo International Airport}"), nullable(q"{SVO}"));
+			case 100: return Airport(nullable(q"{Singapore Changi Airport}"), nullable(q"{SIN}"));
+			case 101: return Airport(nullable(q"{Soekarno-Hatta International Airport}"), nullable(q"{CGK}"));
+			case 102: return Airport(nullable(q"{Stockholm-Arlanda Airport"}"), nullable(q"{ARN}"));
+			case 103: return Airport(nullable(q"{Suvarnabhumi Airport}"), nullable(q"{BKK}"));
+			case 104: return Airport(nullable(q"{Sydney Kingsford Smith International Airport}"), nullable(q"{SYD}"));
+			case 105: return Airport(nullable(q"{Taiwan Taoyuan International Airport}"), nullable(q"{TPE}"));
+			case 106: return Airport(nullable(q"{Tan Son Nhat International Airport}"), nullable(q"{SGN}"));
+			case 107: return Airport(nullable(q"{Tokyo Haneda International Airport}"), nullable(q"{HND}"));
+			case 108: return Airport(nullable(q"{Toronto Pearson International Airport}"), nullable(q"{YYZ}"));
+			case 109: return Airport(nullable(q"{Tunis Carthage International Airport}"), nullable(q"{TUN}"));
+			case 110: return Airport(nullable(q"{Vancouver International Airport}"), nullable(q"{YVR}"));
+			case 111: return Airport(nullable(q"{Vienna International Airport}"), nullable(q"{VIE}"));
+			case 112: return Airport(nullable(q"{Viracopos International Airport}"), nullable(q"{VCP}"));
+			case 113: return Airport(nullable(q"{Vnukovo International Airport}"), nullable(q"{VKO}"));
+			case 114: return Airport(nullable(q"{Wellington International Airport}"), nullable(q"{WLG}"));
+			case 115: return Airport(nullable(q"{Xi'an Xianyang International Airport}"), nullable(q"{XIY}"));
+			case 116: return Airport(nullable(q"{Zhukovsky International Airport}"), nullable(q"{ZIA}"));
+			case 117: return Airport(nullable(q"{Zurich Airport}"), nullable(q"{ZRH}"));
+		}
+		return Airport(Nullable!(string).init, Nullable!(string).init);
 	}
 
 	string animalBear() {
@@ -900,7 +1346,11 @@ class Faker {
 	}
 
 	string appAuthor() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personName();
+			case 1: return companyName();
+		}
+		return "";
 	}
 
 	string appName() {
@@ -916,6 +1366,20 @@ class Faker {
 		, q"{Lotlux}", q"{Ronstring}", q"{Zathin}", q"{Duobam}", q"{Keylex}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	string appVersion() {
+		const string[] strs =
+		[ q"{0.#.#}", q"{0.##}", q"{#.##}", q"{#.#}", q"{#.#.#}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	string cellPhoneFormats() {
+		const string[] strs =
+		[ q"{###-###-####}", q"{(###) ###-####}", q"{1-###-###-####}", q"{###.###.####}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	string commerceProductDescription() {
@@ -1056,7 +1520,12 @@ class Faker {
 	}
 
 	string companyNamePattern() {
-		assert(false);
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return personLastName() ~ " " ~ companySuffix();
+			case 1: return personLastName() ~ " - " ~ personLastName();
+			case 2: return personLastName() ~ ", " ~ personLastName() ~ " and " ~ personLastName();
+		}
+		return "";
 	}
 
 	string companyNoun() {
@@ -1129,6 +1598,59 @@ class Faker {
 		return choice(strs, this.rnd);
 	}
 
+	string financeCreditCardAmericanExpress() {
+		const string[] strs =
+		[ q"{34##-######-####L}", q"{37##-######-####L}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	string financeCreditCardDinersClub() {
+		const string[] strs =
+		[ q"{30[0-5]#-######-###L}", q"{36##-######-###L}", q"{54##-####-####-###L}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	string financeCreditCardDiscover() {
+		const string[] strs =
+		[ q"{6011-####-####-###L}", q"{65##-####-####-###L}", q"{64[4-9]#-####-####-###L}", q"{6011-62##-####-####-###L}"
+		, q"{65##-62##-####-####-###L}", q"{64[4-9]#-62##-####-####-###L}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	string financeCreditCardJcb() {
+		const string[] strs =
+		[ q"{3528-####-####-###L}", q"{3529-####-####-###L}", q"{35[3-8]#-####-####-###L}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	string financeCreditCardMaestro() {
+		const string[] strs =
+		[ q"{5018-#{4}-#{4}-#{3}L}", q"{5020-#{4}-#{4}-#{3}L}", q"{5038-#{4}-#{4}-#{3}L}", q"{5893-#{4}-#{4}-#{3}L}"
+		, q"{6304-#{4}-#{4}-#{3}L}", q"{6759-#{4}-#{4}-#{3}L}", q"{676[1-3]-####-####-###L}"
+		, q"{5018#{11,15}L}", q"{5020#{11,15}L}", q"{5038#{11,15}L}", q"{5893#{11,15}L}", q"{6304#{11,15}L}"
+		, q"{6759#{11,15}L}", q"{676[1-3]#{11,15}L}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	string financeCreditCardMastercard() {
+		const string[] strs =
+		[ q"{5[1-5]##-####-####-###L}", q"{2[221-720]-####-####-###L}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	string financeCreditCardVisa() {
+		const string[] strs =
+		[ q"{4###########L}", q"{4###-####-####-###L}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	string financeAccountType() {
 		const string[] strs =
 		[ q"{Checking}", q"{Savings}", q"{Money Market}", q"{Investment}", q"{Home Loan}", q"{Credit Card}"
@@ -1173,7 +1695,17 @@ class Faker {
 	}
 
 	string hackerPhrase() {
-		assert(false);
+		final switch(uniform(0, 8, this.rnd)) {
+			case 0: return "If we " ~ verb() ~ " the " ~ noun() ~ ", we can get to the " ~ abbreviation() ~ " " ~ noun() ~ " through the " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ "!";
+			case 1: return "We need to " ~ verb() ~ " the " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ "!";
+			case 2: return "Try to " ~ verb() ~ " the " ~ abbreviation() ~ " " ~ noun() ~ ", maybe it will " ~ verb() ~ " the " ~ adjective() ~ " " ~ noun() ~ "!";
+			case 3: return "You can't " ~ verb() ~ " the " ~ noun() ~ " without " ~ ingverb() ~ " the " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ "!";
+			case 4: return "Use the " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ ", then you can " ~ verb() ~ " the " ~ adjective() ~ " " ~ noun() ~ "!";
+			case 5: return "The " ~ abbreviation() ~ " " ~ noun() ~ " is down, " ~ verb() ~ " the " ~ adjective() ~ " " ~ noun() ~ " so we can " ~ verb() ~ " the " ~ abbreviation() ~ " " ~ noun() ~ "!";
+			case 6: return ingverb() ~ " the " ~ noun() ~ " won't do anything, we need to " ~ verb() ~ " the " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ "!";
+			case 7: return "I'll " ~ verb() ~ " the " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ ", that should " ~ noun() ~ " the " ~ abbreviation() ~ " " ~ noun() ~ "!";
+		}
+		return "";
 	}
 
 	string hackerVerb() {
@@ -1204,6 +1736,13 @@ class Faker {
 		[ q"{gmail.com}", q"{yahoo.com}", q"{hotmail.com}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	string locationBuildingNumber() {
+		const string[] strs =
+		[ q"{#####}", q"{####}", q"{###}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	string locationCityName() {
@@ -1368,7 +1907,14 @@ class Faker {
 	}
 
 	string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return locationCityPrefix() ~ " " ~ personFirstName() ~ locationCitySuffix();
+			case 1: return locationCityPrefix() ~ " " ~ personFirstName();
+			case 2: return personFirstName() ~ locationCitySuffix();
+			case 3: return personLastName() ~ locationCitySuffix();
+			case 4: return locationCityName();
+		}
+		return "";
 	}
 
 	string locationCityPrefix() {
@@ -1485,6 +2031,20 @@ class Faker {
 		return choice(strs, this.rnd);
 	}
 
+	string locationPostcode() {
+		const string[] strs =
+		[ q"{#####}", q"{#####-####}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	string locationSecondaryAddress() {
+		const string[] strs =
+		[ q"{Apt. ###}", q"{Suite ###}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	string locationState() {
 		const string[] strs =
 		[ q"{Alabama}", q"{Alaska}", q"{Arizona}", q"{Arkansas}", q"{California}", q"{Colorado}", q"{Connecticut}"
@@ -1507,6 +2067,19 @@ class Faker {
 		, q"{SC}", q"{SD}", q"{TN}", q"{TX}", q"{UT}", q"{VT}", q"{VA}", q"{WA}", q"{WV}", q"{WI}", q"{WY}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	string locationStreetAddress() {
+		const LocationStreetAddressEnum[] enums = [ LocationStreetAddressEnum.normal, LocationStreetAddressEnum.full ];
+		return locationStreetAddress(choice(enums, this.rnd));
+	}
+
+	string locationStreetAddress(LocationStreetAddressEnum which) {
+		final switch(which) {
+			case LocationStreetAddressEnum.normal: return locationBuildingNumber() ~ " " ~ locationStreet();
+			case LocationStreetAddressEnum.full: return locationBuildingNumber() ~ " " ~ locationStreet() ~ " " ~ locationSecondaryAddress();
+		}
+		return "";
 	}
 
 	string locationStreetName() {
@@ -1669,7 +2242,12 @@ class Faker {
 	}
 
 	string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+			case 2: return locationStreetName();
+		}
+		return "";
 	}
 
 	string locationStreetSuffix() {
@@ -2113,7 +2691,17 @@ class Faker {
 	}
 
 	string personBioPattern() {
-		assert(false);
+		final switch(uniform(0, 8, this.rnd)) {
+			case 0: return personBioPart();
+			case 1: return personBioPart() ~ ", " ~ personBioPart();
+			case 2: return personBioPart() ~ ", " ~ personBioPart() ~ ", " ~ personBioPart();
+			case 3: return personBioPart() ~ ", " ~ personBioPart() ~ ", " ~ personBioPart() ~ " " ~ internetEmoji();
+			case 4: return wordNoun() ~ " " ~ personBioSupporter();
+			case 5: return wordNoun() ~ " " ~ personBioSupporter() ~ "  " ~ internetEmoji();
+			case 6: return wordNoun() ~ " " ~ personBioSupporter() ~ ", " ~ personBioPart();
+			case 7: return wordNoun() ~ " " ~ personBioSupporter() ~ ", " ~ personBioPart() ~ " " ~ internetEmoji();
+		}
+		return "";
 	}
 
 	string personBioSupporter() {
@@ -2647,7 +3235,10 @@ class Faker {
 	}
 
 	string personJobTitlePattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return personJobDescriptor() ~ " " ~ personJobArea() ~ " " ~ personJobType();
+		}
+		return "";
 	}
 
 	string personLastName() {
@@ -2718,6 +3309,19 @@ class Faker {
 		, q"{Yost}", q"{Yundt}", q"{Zboncak}", q"{Zemlak}", q"{Ziemann}", q"{Zieme}", q"{Zulauf}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	string personLastNamePattern() {
+		const int rndInt = uniform(0, 100, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 95) {
+			return personLastName();
+		}
+		if(rndInt >= 95 && rndInt < 100) {
+			return personLastName() ~ "-" ~ personLastName();
+		}
+
+		return "";
 	}
 
 	string personMaleFirstName() {
@@ -2827,6 +3431,25 @@ class Faker {
 		return choice(strs, this.rnd);
 	}
 
+	string personName() {
+		const int rndInt = uniform(0, 64, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 49) {
+			return personFirstName() ~ " " ~ personLastName();
+		}
+		if(rndInt >= 49 && rndInt < 56) {
+			return personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+		}
+		if(rndInt >= 56 && rndInt < 63) {
+			return personFirstName() ~ " " ~ personLastName() ~ " " ~ personSuffix();
+		}
+		if(rndInt >= 63 && rndInt < 64) {
+			return personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName() ~ " " ~ personSuffix();
+		}
+
+		return "";
+	}
+
 	string personPrefix() {
 		const string[] strs =
 		[ q"{Dr.}", q"{Miss}", q"{Mr.}", q"{Mrs.}", q"{Ms.}" ];
@@ -2887,6 +3510,16 @@ class Faker {
 		return choice(strs, this.rnd);
 	}
 
+	string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{!##-!##-####}", q"{(!##) !##-####}", q"{1-!##-!##-####}", q"{!##.!##.####}", q"{!##-!##-#### x###}"
+		, q"{(!##) !##-#### x###}", q"{1-!##-!##-#### x###}", q"{!##.!##.#### x###}", q"{!##-!##-#### x####}"
+		, q"{(!##) !##-#### x####}", q"{1-!##-!##-#### x####}", q"{!##.!##.#### x####}", q"{!##-!##-#### x#####}"
+		, q"{(!##) !##-#### x#####}", q"{1-!##-!##-#### x#####}", q"{!##.!##.#### x#####}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	string teamCreature() {
 		const string[] strs =
 		[ q"{ants}", q"{bats}", q"{bears}", q"{bees}", q"{birds}", q"{buffalo}", q"{cats}", q"{chickens}", q"{cattle}"
@@ -2903,7 +3536,10 @@ class Faker {
 	}
 
 	string teamName() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationState() ~ " " ~ teamCreature();
+		}
+		return "";
 	}
 
 	string vehicleBicycleType() {

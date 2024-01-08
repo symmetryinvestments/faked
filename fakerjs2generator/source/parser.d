@@ -175,8 +175,6 @@ T parseFolder(T)(string[] path) {
 					__traits(getMember, ret, mem) = parseSumType!(TT)(path ~ mem);
 				} else static if(is(MemType == MergeArray)) {
 					__traits(getMember, ret, mem) = parseMergeArray(path ~ mem);
-				} else static if(is(MemType == ForwardToOther)) {
-					__traits(getMember, ret, mem) = parseForwardToOther(path ~ mem);
 				} else static if(is(MemType == Number[])) {
 					//writeln("Number[]");
 				} else {
@@ -287,25 +285,6 @@ T parseStruct(T)(string[] path) {
 	}
 }
 
-Dummy parseDummy(string[] path) {
-	return Dummy.init;
-}
-
-ForwardToOther parseForwardToOther(string[] path) {
-	string f = openAndTrimFile(path);
-	ForwardToOther ret;
-	string t = f.strip();
-	t = t.strip(";");
-	t = t.strip();
-	bool isValidFwd = t.byDchar().all!(c => isAlphaNum(c) || c == '_');
-	if(!t.empty && isValidFwd) {
-		ret.fwd = t;
-	} else {
-		throw new Exception("ForwardToOther failed on '" ~ t ~ "'");
-	}
-	return ret;
-}
-
 T parseStruct(T)(JSONValue j) {
 	static if(is(T == Nullable!F, F)) {
 		return j.isNull()
@@ -321,8 +300,6 @@ T parseStruct(T)(JSONValue j) {
 		return ret;
 	} else static if(isSomeString!(T)) {
 		return j.get!(string)();
-	} else static if(is(T == Dummy)) {
-		return Dummy.init;
 	} else static if(is(T == Mustache)) {
 		enforce(j.type == JSONType.string
 				, format("expected an Mustache got '%s'", j.toPrettyString()));
@@ -394,12 +371,6 @@ SumType!(TT) parseSumType(TT...)(string[] path) {
 			static if(is(T == string[])) {
 				string[] r = parseStringArray(path);
 				if(!r.empty) {
-					ret = r;
-					return ret;
-				}
-			} else static if(is(T == ForwardToOther)) {
-				ForwardToOther r = parseForwardToOther(path);
-				if(!r.fwd.empty) {
 					ret = r;
 					return ret;
 				}

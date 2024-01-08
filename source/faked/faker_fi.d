@@ -7,12 +7,21 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_fi : Faker {
 @safe:
 	this(int seed) {
 		super(seed);
+	}
+
+	override string locationBuildingNumber() {
+		const string[] strs =
+		[ q"{###}", q"{##}", q"{#}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string locationCityName() {
@@ -25,7 +34,24 @@ class Faker_fi : Faker {
 	}
 
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName();
+		}
+		return "";
+	}
+
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{#####}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	override string locationSecondaryAddress() {
+		const string[] strs =
+		[ q"{A}", q"{B}", q"{C}", q"{A #}", q"{A ##}", q"{B #}", q"{B ##}", q"{C #}", q"{C ##}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string locationState() {
@@ -38,8 +64,25 @@ class Faker_fi : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationStreetAddress() {
+		const LocationStreetAddressEnum[] enums = [ LocationStreetAddressEnum.normal, LocationStreetAddressEnum.full ];
+		return locationStreetAddress(choice(enums, this.rnd));
+	}
+
+	override string locationStreetAddress(LocationStreetAddressEnum which) {
+		final switch(which) {
+			case LocationStreetAddressEnum.normal: return locationStreet() ~ " " ~ locationBuildingNumber();
+			case LocationStreetAddressEnum.full: return locationStreet() ~ " " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
+		}
+		return "";
+	}
+
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ locationStreetSuffix();
+			case 1: return personLastName() ~ locationStreetSuffix();
+		}
+		return "";
 	}
 
 	override string locationStreetSuffix() {
@@ -96,6 +139,16 @@ class Faker_fi : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personLastName();
+		}
+
+		return "";
+	}
+
 	override string personMaleFirstName() {
 		const string[] strs =
 		[ q"{Aleksi}", q"{Antero}", q"{Antti}", q"{Ari}", q"{Eero}", q"{Ensio}", q"{Erik}", q"{Erkki}", q"{Hannu}"
@@ -107,6 +160,16 @@ class Faker_fi : Faker {
 		, q"{Ville}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string personName() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personFirstName() ~ " " ~ personLastName();
+		}
+
+		return "";
 	}
 
 }

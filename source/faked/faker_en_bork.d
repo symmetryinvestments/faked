@@ -7,6 +7,8 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_en_bork : Faker {
@@ -33,6 +35,19 @@ class Faker_en_bork : Faker {
 		, q"{ves}", q"{vheech}", q"{vhu}", q"{yuoo}", q"{zee}", q"{zeere-a}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 100, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 95) {
+			return personLastName();
+		}
+		if(rndInt >= 95 && rndInt < 100) {
+			return personLastName() ~ "-" ~ personLastName();
+		}
+
+		return "";
 	}
 
 }

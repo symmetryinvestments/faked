@@ -7,6 +7,8 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_nl : Faker {
@@ -118,7 +120,17 @@ class Faker_nl : Faker {
 	}
 
 	override string hackerPhrase() {
-		assert(false);
+		final switch(uniform(0, 8, this.rnd)) {
+			case 0: return "Als we de " ~ noun() ~ " " ~ verb() ~ ", dan kunnen we naar de " ~ abbreviation() ~ " " ~ noun() ~ " via de " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ "!";
+			case 1: return "We moeten de " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ " " ~ verb() ~ "!";
+			case 2: return "Probeer om de " ~ abbreviation() ~ " " ~ noun() ~ " te " ~ verb() ~ ", misschien gaat dat de " ~ adjective() ~ " " ~ noun() ~ " " ~ verb() ~ "!";
+			case 3: return "Je kan de " ~ noun() ~ " niet " ~ verb() ~ " zonder de " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ " te " ~ verb() ~ "!";
+			case 4: return "Gebruik de " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ ", dan kan je de " ~ adjective() ~ " " ~ noun() ~ " " ~ verb() ~ "!";
+			case 5: return "De " ~ abbreviation() ~ " " ~ noun() ~ " ligt eruit, jullie moeten de " ~ adjective() ~ " " ~ noun() ~ " " ~ verb() ~ " zodat we de " ~ abbreviation() ~ " " ~ noun() ~ " kunnen " ~ verb() ~ "!";
+			case 6: return "Het maakt niet uit of we de " ~ noun() ~ " " ~ verb() ~ ", we moeten de " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ " " ~ verb() ~ "!";
+			case 7: return "Ik ga de " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ " " ~ verb() ~ ", dat zou de " ~ noun() ~ " moeten " ~ verb() ~ "!";
+		}
+		return "";
 	}
 
 	override string hackerVerb() {
@@ -145,8 +157,19 @@ class Faker_nl : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationBuildingNumber() {
+		const string[] strs =
+		[ q"{#}", q"{##}", q"{###}", q"{###a}", q"{###b}", q"{###c}", q"{### I}", q"{### II}", q"{### III}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return locationCityPrefix() ~ locationCitySuffix();
+			case 1: return locationCityPrefix();
+		}
+		return "";
 	}
 
 	override string locationCityPrefix() {
@@ -560,6 +583,21 @@ class Faker_nl : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{1### ??}", q"{2### ??}", q"{3### ??}", q"{4### ??}", q"{5### ??}", q"{6### ??}", q"{7### ??}"
+		, q"{8### ??}", q"{9### ??}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	override string locationSecondaryAddress() {
+		const string[] strs =
+		[ q"{1 hoog}", q"{2 hoog}", q"{3 hoog}", q"{3 hoog achter}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string locationState() {
 		const string[] strs =
 		[ q"{Drenthe}", q"{Flevoland}", q"{Friesland}", q"{Gelderland}", q"{Groningen}", q"{Limburg}"
@@ -575,8 +613,25 @@ class Faker_nl : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationStreetAddress() {
+		const LocationStreetAddressEnum[] enums = [ LocationStreetAddressEnum.normal, LocationStreetAddressEnum.full ];
+		return locationStreetAddress(choice(enums, this.rnd));
+	}
+
+	override string locationStreetAddress(LocationStreetAddressEnum which) {
+		final switch(which) {
+			case LocationStreetAddressEnum.normal: return locationStreet() ~ " " ~ locationBuildingNumber();
+			case LocationStreetAddressEnum.full: return locationStreet() ~ " " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
+		}
+		return "";
+	}
+
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ locationStreetSuffix();
+			case 1: return personLastName() ~ locationStreetSuffix();
+		}
+		return "";
 	}
 
 	override string locationStreetSuffix() {
@@ -730,6 +785,16 @@ class Faker_nl : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personLastName();
+		}
+
+		return "";
+	}
+
 	override string personMaleFirstName() {
 		const string[] strs =
 		[ q"{Tymon}", q"{Steven}", q"{Semih}", q"{Seff}", q"{Sabir}", q"{Nico}", q"{Naoufal}", q"{Nadir}", q"{Mirza}"
@@ -812,6 +877,22 @@ class Faker_nl : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personName() {
+		const int rndInt = uniform(0, 10, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+		}
+		if(rndInt >= 1 && rndInt < 2) {
+			return personFirstName() ~ " " ~ personLastName() ~ " " ~ personSuffix();
+		}
+		if(rndInt >= 2 && rndInt < 10) {
+			return personFirstName() ~ " " ~ personLastName();
+		}
+
+		return "";
+	}
+
 	override string personPrefix() {
 		const string[] strs =
 		[ q"{Bsc}", q"{Dhr.}", q"{Dr.}", q"{Drs.}", q"{Ir.}", q"{Mevr.}", q"{Msc}", q"{Prof.}" ];
@@ -824,6 +905,14 @@ class Faker_nl : Faker {
 		[ q"{Jr.}", q"{Sr.}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{(0###) ######}", q"{06 #### ####}", q"{0#########}", q"{06########}", q"{+31#########}"
+		, q"{+316########}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 }

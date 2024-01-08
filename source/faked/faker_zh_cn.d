@@ -7,12 +7,424 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_zh_cn : Faker {
 @safe:
 	this(int seed) {
 		super(seed);
+	}
+
+	override Airline airlineAirline() {
+		final switch(uniform(0, 119, this.rnd)) {
+			case 0: return Airline(nullable(q"{爱琴海航空公司}"), nullable(q"{A3}"));
+			case 1: return Airline(nullable(q"{俄罗斯航空公司}"), nullable(q"{SU}"));
+			case 2: return Airline(nullable(q"{阿根廷航空公司}"), nullable(q"{AR}"));
+			case 3: return Airline(nullable(q"{墨西哥国际航空公司}"), nullable(q"{AM}"));
+			case 4: return Airline(nullable(q"{阿尔及利亚航空公司}"), nullable(q"{AH}"));
+			case 5: return Airline(nullable(q"{阿拉伯航空公司}"), nullable(q"{G9}"));
+			case 6: return Airline(nullable(q"{加拿大航空公司}"), nullable(q"{AC}"));
+			case 7: return Airline(nullable(q"{中国国际航空公司}"), nullable(q"{CA}"));
+			case 8: return Airline(nullable(q"{西班牙欧洲航空公司}"), nullable(q"{UX}"));
+			case 9: return Airline(nullable(q"{法航荷航集团}"), nullable(q"{AF}"));
+			case 10: return Airline(nullable(q"{印度国际航空公司}"), nullable(q"{AI}"));
+			case 11: return Airline(nullable(q"{毛里求斯航空公司}"), nullable(q"{MK}"));
+			case 12: return Airline(nullable(q"{新西兰航空公司}"), nullable(q"{NZ}"));
+			case 13: return Airline(nullable(q"{新几内亚航空公司}"), nullable(q"{PX}"));
+			case 14: return Airline(nullable(q"{塔希提航空公司}"), nullable(q"{VT}"));
+			case 15: return Airline(nullable(q"{大溪地航空公司}"), nullable(q"{TN}"));
+			case 16: return Airline(nullable(q"{越洋航空公司}"), nullable(q"{TS}"));
+			case 17: return Airline(nullable(q"{亚洲航空X公司}"), nullable(q"{D7}"));
+			case 18: return Airline(nullable(q"{亚洲航空公司}"), nullable(q"{AK}"));
+			case 19: return Airline(nullable(q"{喀里多尼亚国际航空公司}"), nullable(q"{SB}"));
+			case 20: return Airline(nullable(q"{阿拉斯加航空公司}"), nullable(q"{AS}"));
+			case 21: return Airline(nullable(q"{意大利航空公司}"), nullable(q"{AZ}"));
+			case 22: return Airline(nullable(q"{全日空公司}"), nullable(q"{NH}"));
+			case 23: return Airline(nullable(q"{忠实航空公司}"), nullable(q"{G4}"));
+			case 24: return Airline(nullable(q"{美国航空公司}"), nullable(q"{AA}"));
+			case 25: return Airline(nullable(q"{韩亚航空公司}"), nullable(q"{OZ}"));
+			case 26: return Airline(nullable(q"{哥伦比亚航空公司}"), nullable(q"{AV}"));
+			case 27: return Airline(nullable(q"{巴西蔚蓝航空公司}"), nullable(q"{AD}"));
+			case 28: return Airline(nullable(q"{蓝色航空公司}"), nullable(q"{ZF}"));
+			case 29: return Airline(nullable(q"{北京首都航空公司}"), nullable(q"{JD}"));
+			case 30: return Airline(nullable(q"{玻利维亚航空公司}"), nullable(q"{OB}"));
+			case 31: return Airline(nullable(q"{英国航空公司}"), nullable(q"{BA}"));
+			case 32: return Airline(nullable(q"{国泰航空公司}"), nullable(q"{CX}"));
+			case 33: return Airline(nullable(q"{宿雾太平洋航空公司}"), nullable(q"{5J}"));
+			case 34: return Airline(nullable(q"{中华航空公司}"), nullable(q"{CI}"));
+			case 35: return Airline(nullable(q"{中国东方航空公司}"), nullable(q"{MU}"));
+			case 36: return Airline(nullable(q"{中国南方航空公司}"), nullable(q"{CZ}"));
+			case 37: return Airline(nullable(q"{神鹰航空公司}"), nullable(q"{DE}"));
+			case 38: return Airline(nullable(q"{巴拿马航空公司}"), nullable(q"{CM}"));
+			case 39: return Airline(nullable(q"{达美航空公司}"), nullable(q"{DL}"));
+			case 40: return Airline(nullable(q"{易飞航空公司}"), nullable(q"{VE}"));
+			case 41: return Airline(nullable(q"{易捷航空公司}"), nullable(q"{U2}"));
+			case 42: return Airline(nullable(q"{埃及航空公司}"), nullable(q"{MS}"));
+			case 43: return Airline(nullable(q"{以色列艾拉航空公司}"), nullable(q"{LY}"));
+			case 44: return Airline(nullable(q"{阿联酋航空公司}"), nullable(q"{EK}"));
+			case 45: return Airline(nullable(q"{埃塞俄比亚航空公司}"), nullable(q"{ET}"));
+			case 46: return Airline(nullable(q"{阿提哈德航空公司}"), nullable(q"{EY}"));
+			case 47: return Airline(nullable(q"{长荣航空公司}"), nullable(q"{BR}"));
+			case 48: return Airline(nullable(q"{斐济航空公司}"), nullable(q"{FJ}"));
+			case 49: return Airline(nullable(q"{芬兰航空公司}"), nullable(q"{AY}"));
+			case 50: return Airline(nullable(q"{迪拜航空公司公司}"), nullable(q"{FZ}"));
+			case 51: return Airline(nullable(q"{边疆航空公司}"), nullable(q"{F9}"));
+			case 52: return Airline(nullable(q"{印度尼西亚鹰航空公司}"), nullable(q"{GA}"));
+			case 53: return Airline(nullable(q"{高尔航空公司}"), nullable(q"{G3}"));
+			case 54: return Airline(nullable(q"{海南航空公司}"), nullable(q"{HU}"));
+			case 55: return Airline(nullable(q"{夏威夷航空公司}"), nullable(q"{HA}"));
+			case 56: return Airline(nullable(q"{靛蓝航空公司}"), nullable(q"{6E}"));
+			case 57: return Airline(nullable(q"{日本航空公司}"), nullable(q"{JL}"));
+			case 58: return Airline(nullable(q"{济州航空公司}"), nullable(q"{7C}"));
+			case 59: return Airline(nullable(q"{捷特二航空公司}"), nullable(q"{LS}"));
+			case 60: return Airline(nullable(q"{捷蓝航空公司}"), nullable(q"{B6}"));
+			case 61: return Airline(nullable(q"{上海吉祥航空公司}"), nullable(q"{HO}"));
+			case 62: return Airline(nullable(q"{肯尼亚航空公司}"), nullable(q"{KQ}"));
+			case 63: return Airline(nullable(q"{大韩航空公司}"), nullable(q"{KE}"));
+			case 64: return Airline(nullable(q"{酷路拉航空航空公司}"), nullable(q"{MN}"));
+			case 65: return Airline(nullable(q"{南美航空公司}"), nullable(q"{LA}"));
+			case 66: return Airline(nullable(q"{狮子航空公司}"), nullable(q"{JT}"));
+			case 67: return Airline(nullable(q"{波兰航空公司}"), nullable(q"{LO}"));
+			case 68: return Airline(nullable(q"{德国汉莎航空公司}"), nullable(q"{LH}"));
+			case 69: return Airline(nullable(q"{利比亚阿拉伯航空公司}"), nullable(q"{LN}"));
+			case 70: return Airline(nullable(q"{玻利维亚亚马孙航空公司}"), nullable(q"{Z8}"));
+			case 71: return Airline(nullable(q"{马来西亚航空公司}"), nullable(q"{MH}"));
+			case 72: return Airline(nullable(q"{北风航空公司}"), nullable(q"{N4}"));
+			case 73: return Airline(nullable(q"{挪威穿梭航空公司}"), nullable(q"{DY}"));
+			case 74: return Airline(nullable(q"{阿曼航空公司}"), nullable(q"{WY}"));
+			case 75: return Airline(nullable(q"{巴基斯坦国际航空公司}"), nullable(q"{PK}"));
+			case 76: return Airline(nullable(q"{飞马航空公司}"), nullable(q"{PC}"));
+			case 77: return Airline(nullable(q"{菲律宾航空公司}"), nullable(q"{PR}"));
+			case 78: return Airline(nullable(q"{澳洲航空公司}"), nullable(q"{QF}"));
+			case 79: return Airline(nullable(q"{卡塔尔航空公司}"), nullable(q"{QR}"));
+			case 80: return Airline(nullable(q"{共和航空公司}"), nullable(q"{YX}"));
+			case 81: return Airline(nullable(q"{摩洛哥皇家航空公司}"), nullable(q"{AT}"));
+			case 82: return Airline(nullable(q"{瑞安航空公司}"), nullable(q"{FR}"));
+			case 83: return Airline(nullable(q"{西伯利亚航空公司}"), nullable(q"{S7}"));
+			case 84: return Airline(nullable(q"{北欧航空公司}"), nullable(q"{SK}"));
+			case 85: return Airline(nullable(q"{沙特阿拉伯航空公司}"), nullable(q"{SV}"));
+			case 86: return Airline(nullable(q"{山东航空公司}"), nullable(q"{SC}"));
+			case 87: return Airline(nullable(q"{四川航空公司}"), nullable(q"{3U}"));
+			case 88: return Airline(nullable(q"{新加坡航空公司}"), nullable(q"{SQ}"));
+			case 89: return Airline(nullable(q"{天空航空公司}"), nullable(q"{H2}"));
+			case 90: return Airline(nullable(q"{天西航空公司}"), nullable(q"{OO}"));
+			case 91: return Airline(nullable(q"{南非航空公司}"), nullable(q"{SA}"));
+			case 92: return Airline(nullable(q"{西南航空公司}"), nullable(q"{WN}"));
+			case 93: return Airline(nullable(q"{香料航空公司}"), nullable(q"{SG}"));
+			case 94: return Airline(nullable(q"{精神航空公司}"), nullable(q"{NK}"));
+			case 95: return Airline(nullable(q"{春秋航空公司}"), nullable(q"{9S}"));
+			case 96: return Airline(nullable(q"{斯里兰卡航空公司}"), nullable(q"{UL}"));
+			case 97: return Airline(nullable(q"{秘鲁星航空公司}"), nullable(q"{2I}"));
+			case 98: return Airline(nullable(q"{太阳城航空公司}"), nullable(q"{SY}"));
+			case 99: return Airline(nullable(q"{阳光快运航空}"), nullable(q"{XQ}"));
+			case 100: return Airline(nullable(q"{葡萄牙航空公司}"), nullable(q"{TP}"));
+			case 101: return Airline(nullable(q"{泰国亚洲航空}"), nullable(q"{FD}"));
+			case 102: return Airline(nullable(q"{泰国航空公司}"), nullable(q"{TG}"));
+			case 103: return Airline(nullable(q"{途易飞航空}"), nullable(q"{BY}"));
+			case 104: return Airline(nullable(q"{突尼斯航空公司}"), nullable(q"{TU}"));
+			case 105: return Airline(nullable(q"{土耳其航空公司}"), nullable(q"{TK}"));
+			case 106: return Airline(nullable(q"{乌克兰国际航空公司}"), nullable(q"{PS}"));
+			case 107: return Airline(nullable(q"{美国联合航空公司}"), nullable(q"{UA}"));
+			case 108: return Airline(nullable(q"{乌拉航空公司}"), nullable(q"{U6}"));
+			case 109: return Airline(nullable(q"{越南越捷航空公司}"), nullable(q"{VJ}"));
+			case 110: return Airline(nullable(q"{越南航空公司}"), nullable(q"{VN}"));
+			case 111: return Airline(nullable(q"{维珍航空公司}"), nullable(q"{VS}"));
+			case 112: return Airline(nullable(q"{维珍蓝航空公司}"), nullable(q"{VA}"));
+			case 113: return Airline(nullable(q"{万岁空中巴士航空公司}"), nullable(q"{VB}"));
+			case 114: return Airline(nullable(q"{巴西航空公司}"), nullable(q"{2Z}"));
+			case 115: return Airline(nullable(q"{沃拉里斯航空公司}"), nullable(q"{Y4}"));
+			case 116: return Airline(nullable(q"{西捷航空公司}"), nullable(q"{WS}"));
+			case 117: return Airline(nullable(q"{温戈航空公司}"), nullable(q"{P5}"));
+			case 118: return Airline(nullable(q"{维兹航空公司}"), nullable(q"{W6}"));
+		}
+		return Airline(Nullable!(string).init, Nullable!(string).init);
+	}
+
+	override Airplane airlineAirplane() {
+		final switch(uniform(0, 155, this.rnd)) {
+			case 0: return Airplane(nullable(q"{航天/BAC协和式飞机}"), nullable(q"{SSC}"));
+			case 1: return Airplane(nullable(q"{空客A300}"), nullable(q"{AB3}"));
+			case 2: return Airplane(nullable(q"{空客A310}"), nullable(q"{310}"));
+			case 3: return Airplane(nullable(q"{空客A310-200}"), nullable(q"{312}"));
+			case 4: return Airplane(nullable(q"{空客A310-300}"), nullable(q"{313}"));
+			case 5: return Airplane(nullable(q"{空客A318}"), nullable(q"{318}"));
+			case 6: return Airplane(nullable(q"{空客A319}"), nullable(q"{319}"));
+			case 7: return Airplane(nullable(q"{空客A319neo}"), nullable(q"{31N}"));
+			case 8: return Airplane(nullable(q"{空客A320}"), nullable(q"{320}"));
+			case 9: return Airplane(nullable(q"{空客A320neo}"), nullable(q"{32N}"));
+			case 10: return Airplane(nullable(q"{空客A321}"), nullable(q"{321}"));
+			case 11: return Airplane(nullable(q"{空客A321neo}"), nullable(q"{32Q}"));
+			case 12: return Airplane(nullable(q"{空客A330}"), nullable(q"{330}"));
+			case 13: return Airplane(nullable(q"{空客A330-200}"), nullable(q"{332}"));
+			case 14: return Airplane(nullable(q"{空客A330-300}"), nullable(q"{333}"));
+			case 15: return Airplane(nullable(q"{空客A330-800neo}"), nullable(q"{338}"));
+			case 16: return Airplane(nullable(q"{空客A330-900neo}"), nullable(q"{339}"));
+			case 17: return Airplane(nullable(q"{空客A340}"), nullable(q"{340}"));
+			case 18: return Airplane(nullable(q"{空客A340-200}"), nullable(q"{342}"));
+			case 19: return Airplane(nullable(q"{空客A340-300}"), nullable(q"{343}"));
+			case 20: return Airplane(nullable(q"{空客A340-500}"), nullable(q"{345}"));
+			case 21: return Airplane(nullable(q"{空客A340-600}"), nullable(q"{346}"));
+			case 22: return Airplane(nullable(q"{空客A350}"), nullable(q"{350}"));
+			case 23: return Airplane(nullable(q"{空客A350-900}"), nullable(q"{359}"));
+			case 24: return Airplane(nullable(q"{空客A350-1000}"), nullable(q"{351}"));
+			case 25: return Airplane(nullable(q"{空客A380}"), nullable(q"{380}"));
+			case 26: return Airplane(nullable(q"{空客A380-800}"), nullable(q"{388}"));
+			case 27: return Airplane(nullable(q"{安东诺夫 安-12}"), nullable(q"{ANF}"));
+			case 28: return Airplane(nullable(q"{安东诺夫 安-24}"), nullable(q"{AN4}"));
+			case 29: return Airplane(nullable(q"{安东诺夫 安-26}"), nullable(q"{A26}"));
+			case 30: return Airplane(nullable(q"{安东诺夫 安-28}"), nullable(q"{A28}"));
+			case 31: return Airplane(nullable(q"{安东诺夫 安-30}"), nullable(q"{A30}"));
+			case 32: return Airplane(nullable(q"{安东诺夫 安-32}"), nullable(q"{A32}"));
+			case 33: return Airplane(nullable(q"{安东诺夫 安-72}"), nullable(q"{AN7}"));
+			case 34: return Airplane(nullable(q"{安东诺夫 安-124 Ruslan}"), nullable(q"{A4F}"));
+			case 35: return Airplane(nullable(q"{安东诺夫 安-140}"), nullable(q"{A40}"));
+			case 36: return Airplane(nullable(q"{安东诺夫 安-148}"), nullable(q"{A81}"));
+			case 37: return Airplane(nullable(q"{安东诺夫 安-158}"), nullable(q"{A58}"));
+			case 38: return Airplane(nullable(q"{安东诺夫 安-225 Mriya}"), nullable(q"{A5F}"));
+			case 39: return Airplane(nullable(q"{波音707}"), nullable(q"{703}"));
+			case 40: return Airplane(nullable(q"{波音717}"), nullable(q"{717}"));
+			case 41: return Airplane(nullable(q"{波音720B}"), nullable(q"{B72}"));
+			case 42: return Airplane(nullable(q"{波音727}"), nullable(q"{727}"));
+			case 43: return Airplane(nullable(q"{波音727-100}"), nullable(q"{721}"));
+			case 44: return Airplane(nullable(q"{波音727-200}"), nullable(q"{722}"));
+			case 45: return Airplane(nullable(q"{波音737 MAX 7}"), nullable(q"{7M7}"));
+			case 46: return Airplane(nullable(q"{波音737 MAX 8}"), nullable(q"{7M8}"));
+			case 47: return Airplane(nullable(q"{波音737 MAX 9}"), nullable(q"{7M9}"));
+			case 48: return Airplane(nullable(q"{波音737 MAX 10}"), nullable(q"{7MJ}"));
+			case 49: return Airplane(nullable(q"{波音737}"), nullable(q"{737}"));
+			case 50: return Airplane(nullable(q"{波音737-100}"), nullable(q"{731}"));
+			case 51: return Airplane(nullable(q"{波音737-200}"), nullable(q"{732}"));
+			case 52: return Airplane(nullable(q"{波音737-300}"), nullable(q"{733}"));
+			case 53: return Airplane(nullable(q"{波音737-400}"), nullable(q"{734}"));
+			case 54: return Airplane(nullable(q"{波音737-500}"), nullable(q"{735}"));
+			case 55: return Airplane(nullable(q"{波音737-600}"), nullable(q"{736}"));
+			case 56: return Airplane(nullable(q"{波音737-700}"), nullable(q"{73G}"));
+			case 57: return Airplane(nullable(q"{波音737-800}"), nullable(q"{738}"));
+			case 58: return Airplane(nullable(q"{波音737-900}"), nullable(q"{739}"));
+			case 59: return Airplane(nullable(q"{波音747}"), nullable(q"{747}"));
+			case 60: return Airplane(nullable(q"{波音747-100}"), nullable(q"{741}"));
+			case 61: return Airplane(nullable(q"{波音747-200}"), nullable(q"{742}"));
+			case 62: return Airplane(nullable(q"{波音747-300}"), nullable(q"{743}"));
+			case 63: return Airplane(nullable(q"{波音747-400}"), nullable(q"{744}"));
+			case 64: return Airplane(nullable(q"{波音747-400D}"), nullable(q"{74J}"));
+			case 65: return Airplane(nullable(q"{波音747-8}"), nullable(q"{748}"));
+			case 66: return Airplane(nullable(q"{波音747SP}"), nullable(q"{74L}"));
+			case 67: return Airplane(nullable(q"{波音747SR}"), nullable(q"{74R}"));
+			case 68: return Airplane(nullable(q"{波音757}"), nullable(q"{757}"));
+			case 69: return Airplane(nullable(q"{波音757-200}"), nullable(q"{752}"));
+			case 70: return Airplane(nullable(q"{波音757-300}"), nullable(q"{753}"));
+			case 71: return Airplane(nullable(q"{波音767}"), nullable(q"{767}"));
+			case 72: return Airplane(nullable(q"{波音767-200}"), nullable(q"{762}"));
+			case 73: return Airplane(nullable(q"{波音767-300}"), nullable(q"{763}"));
+			case 74: return Airplane(nullable(q"{波音767-400}"), nullable(q"{764}"));
+			case 75: return Airplane(nullable(q"{波音777}"), nullable(q"{777}"));
+			case 76: return Airplane(nullable(q"{波音777-200}"), nullable(q"{772}"));
+			case 77: return Airplane(nullable(q"{波音777-200LR}"), nullable(q"{77L}"));
+			case 78: return Airplane(nullable(q"{波音777-300}"), nullable(q"{773}"));
+			case 79: return Airplane(nullable(q"{波音777-300ER}"), nullable(q"{77W}"));
+			case 80: return Airplane(nullable(q"{波音787}"), nullable(q"{787}"));
+			case 81: return Airplane(nullable(q"{波音787-8}"), nullable(q"{788}"));
+			case 82: return Airplane(nullable(q"{波音787-9}"), nullable(q"{789}"));
+			case 83: return Airplane(nullable(q"{波音787-10}"), nullable(q"{781}"));
+			case 84: return Airplane(nullable(q"{加拿大挑战者飞机}"), nullable(q"{CCJ}"));
+			case 85: return Airplane(nullable(q"{加拿大CL-44}"), nullable(q"{CL4}"));
+			case 86: return Airplane(nullable(q"{加拿大支线喷气机100}"), nullable(q"{CR1}"));
+			case 87: return Airplane(nullable(q"{加拿大支线喷气机200}"), nullable(q"{CR2}"));
+			case 88: return Airplane(nullable(q"{加拿大支线喷气机700}"), nullable(q"{CR7}"));
+			case 89: return Airplane(nullable(q"{加拿大支线喷气机705}"), nullable(q"{CRA}"));
+			case 90: return Airplane(nullable(q"{加拿大支线喷气机900}"), nullable(q"{CR9}"));
+			case 91: return Airplane(nullable(q"{加拿大支线喷气机1000}"), nullable(q"{CRK}"));
+			case 92: return Airplane(nullable(q"{加拿大德哈维兰DHC-2 Beaver}"), nullable(q"{DHP}"));
+			case 93: return Airplane(nullable(q"{加拿大德哈维兰DHC-2 Turbo-Beaver}"), nullable(q"{DHR}"));
+			case 94: return Airplane(nullable(q"{加拿大德哈维兰DHC-3 Otter}"), nullable(q"{DHL}"));
+			case 95: return Airplane(nullable(q"{加拿大德哈维兰DHC-4 Caribou}"), nullable(q"{DHC}"));
+			case 96: return Airplane(nullable(q"{加拿大德哈维兰DHC-6 Twin Otter}"), nullable(q"{DHT}"));
+			case 97: return Airplane(nullable(q"{加拿大德哈维兰DHC-7 Dash 7}"), nullable(q"{DH7}"));
+			case 98: return Airplane(nullable(q"{加拿大德哈维兰DHC-8-100 Dash 8 / 8Q}"), nullable(q"{DH1}"));
+			case 99: return Airplane(nullable(q"{加拿大德哈维兰DHC-8-200 Dash 8 / 8Q}"), nullable(q"{DH2}"));
+			case 100: return Airplane(nullable(q"{加拿大德哈维兰DHC-8-300 Dash 8 / 8Q}"), nullable(q"{DH3}"));
+			case 101: return Airplane(nullable(q"{加拿大德哈维兰DHC-8-400 Dash 8Q}"), nullable(q"{DH4}"));
+			case 102: return Airplane(nullable(q"{德哈维兰DH.104 Dove}"), nullable(q"{DHD}"));
+			case 103: return Airplane(nullable(q"{德哈维兰DH.114 Heron}"), nullable(q"{DHH}"));
+			case 104: return Airplane(nullable(q"{道格拉斯DC-3}"), nullable(q"{D3F}"));
+			case 105: return Airplane(nullable(q"{道格拉斯DC-6}"), nullable(q"{D6F}"));
+			case 106: return Airplane(nullable(q"{道格拉斯DC-8-50}"), nullable(q"{D8T}"));
+			case 107: return Airplane(nullable(q"{道格拉斯DC-8-62}"), nullable(q"{D8L}"));
+			case 108: return Airplane(nullable(q"{道格拉斯DC-8-72}"), nullable(q"{D8Q}"));
+			case 109: return Airplane(nullable(q"{道格拉斯DC-9-10}"), nullable(q"{D91}"));
+			case 110: return Airplane(nullable(q"{道格拉斯DC-9-20}"), nullable(q"{D92}"));
+			case 111: return Airplane(nullable(q"{道格拉斯DC-9-30}"), nullable(q"{D93}"));
+			case 112: return Airplane(nullable(q"{道格拉斯DC-9-40}"), nullable(q"{D94}"));
+			case 113: return Airplane(nullable(q"{道格拉斯DC-9-50}"), nullable(q"{D95}"));
+			case 114: return Airplane(nullable(q"{道格拉斯DC-10}"), nullable(q"{D10}"));
+			case 115: return Airplane(nullable(q"{道格拉斯DC-10-10}"), nullable(q"{D1X}"));
+			case 116: return Airplane(nullable(q"{道格拉斯DC-10-30}"), nullable(q"{D1Y}"));
+			case 117: return Airplane(nullable(q"{巴西工业航空公司170}"), nullable(q"{E70}"));
+			case 118: return Airplane(nullable(q"{巴西工业航空公司175}"), nullable(q"{E75}"));
+			case 119: return Airplane(nullable(q"{巴西工业航空公司190}"), nullable(q"{E90}"));
+			case 120: return Airplane(nullable(q"{巴西工业航空公司195}"), nullable(q"{E95}"));
+			case 121: return Airplane(nullable(q"{巴西工业航空公司E190-E2}"), nullable(q"{290}"));
+			case 122: return Airplane(nullable(q"{巴西工业航空公司E195-E2}"), nullable(q"{295}"));
+			case 123: return Airplane(nullable(q"{巴西工业航空公司EMB.110 Bandeirante}"), nullable(q"{EMB}"));
+			case 124: return Airplane(nullable(q"{巴西工业航空公司EMB.120 Brasilia}"), nullable(q"{EM2}"));
+			case 125: return Airplane(nullable(q"{巴西工业航空公司Legacy 600}"), nullable(q"{ER3}"));
+			case 126: return Airplane(nullable(q"{巴西工业航空公司Phenom 100}"), nullable(q"{EP1}"));
+			case 127: return Airplane(nullable(q"{巴西工业航空公司Phenom 300}"), nullable(q"{EP3}"));
+			case 128: return Airplane(nullable(q"{巴西工业航空公司RJ135}"), nullable(q"{ER3}"));
+			case 129: return Airplane(nullable(q"{巴西工业航空公司RJ140}"), nullable(q"{ERD}"));
+			case 130: return Airplane(nullable(q"{巴西工业航空公司RJ145 Amazon}"), nullable(q"{ER4}"));
+			case 131: return Airplane(nullable(q"{伊留申IL18}"), nullable(q"{IL8}"));
+			case 132: return Airplane(nullable(q"{伊留申IL62}"), nullable(q"{IL6}"));
+			case 133: return Airplane(nullable(q"{伊留申IL76}"), nullable(q"{IL7}"));
+			case 134: return Airplane(nullable(q"{伊留申IL86}"), nullable(q"{ILW}"));
+			case 135: return Airplane(nullable(q"{伊留申IL96-300}"), nullable(q"{I93}"));
+			case 136: return Airplane(nullable(q"{伊留申IL114}"), nullable(q"{I14}"));
+			case 137: return Airplane(nullable(q"{洛克希德L-182 / 282 / 382 (L-100) Hercules}"), nullable(q"{LOH}"));
+			case 138: return Airplane(nullable(q"{洛克希德L-188 Electra}"), nullable(q"{LOE}"));
+			case 139: return Airplane(nullable(q"{洛克希德L-1011 Tristar}"), nullable(q"{L10}"));
+			case 140: return Airplane(nullable(q"{洛克希德L-1049 Super Constellation}"), nullable(q"{L49}"));
+			case 141: return Airplane(nullable(q"{麦克唐纳道格拉斯MD11}"), nullable(q"{M11}"));
+			case 142: return Airplane(nullable(q"{麦克唐纳道格拉斯MD80}"), nullable(q"{M80}"));
+			case 143: return Airplane(nullable(q"{麦克唐纳道格拉斯MD81}"), nullable(q"{M81}"));
+			case 144: return Airplane(nullable(q"{麦克唐纳道格拉斯MD82}"), nullable(q"{M82}"));
+			case 145: return Airplane(nullable(q"{麦克唐纳道格拉斯MD83}"), nullable(q"{M83}"));
+			case 146: return Airplane(nullable(q"{麦克唐纳道格拉斯MD87}"), nullable(q"{M87}"));
+			case 147: return Airplane(nullable(q"{麦克唐纳道格拉斯MD88}"), nullable(q"{M88}"));
+			case 148: return Airplane(nullable(q"{麦克唐纳道格拉斯MD90}"), nullable(q"{M90}"));
+			case 149: return Airplane(nullable(q"{苏霍伊超级喷气机100-95}"), nullable(q"{SU9}"));
+			case 150: return Airplane(nullable(q"{图波列夫Tu-134}"), nullable(q"{TU3}"));
+			case 151: return Airplane(nullable(q"{图波列夫Tu-154}"), nullable(q"{TU5}"));
+			case 152: return Airplane(nullable(q"{图波列夫Tu-204}"), nullable(q"{T20}"));
+			case 153: return Airplane(nullable(q"{雅科夫列夫Yak-40}"), nullable(q"{YK4}"));
+			case 154: return Airplane(nullable(q"{雅科夫列夫Yak-42}"), nullable(q"{YK2}"));
+		}
+		return Airplane(Nullable!(string).init, Nullable!(string).init);
+	}
+
+	override Airport airlineAirport() {
+		final switch(uniform(0, 118, this.rnd)) {
+			case 0: return Airport(nullable(q"{阿德莱德国际机场}"), nullable(q"{ADL}"));
+			case 1: return Airport(nullable(q"{阿道弗·苏亚雷斯马德里-巴拉哈斯机场}"), nullable(q"{MAD}"));
+			case 2: return Airport(nullable(q"{豪尔赫纽伯里机场机场}"), nullable(q"{AEP}"));
+			case 3: return Airport(nullable(q"{阿方索·佩纳国际机场}"), nullable(q"{CWB}"));
+			case 4: return Airport(nullable(q"{阿方索·博尼利亚·阿拉贡国际机场}"), nullable(q"{CLO}"));
+			case 5: return Airport(nullable(q"{阿姆斯特丹史基浦机场}"), nullable(q"{AMS}"));
+			case 6: return Airport(nullable(q"{阿图罗·梅里诺·贝尼特斯国际机场}"), nullable(q"{SCL}"));
+			case 7: return Airport(nullable(q"{奥克兰国际机场}"), nullable(q"{AKL}"));
+			case 8: return Airport(nullable(q"{北京首都国际机场}"), nullable(q"{PEK}"));
+			case 9: return Airport(nullable(q"{贝伦瓦德坎斯国际机场}"), nullable(q"{BEL}"));
+			case 10: return Airport(nullable(q"{贝洛奥里藏特坦克雷多·内维斯国际机场}"), nullable(q"{CNF}"));
+			case 11: return Airport(nullable(q"{柏林泰格尔机场}"), nullable(q"{TXL}"));
+			case 12: return Airport(nullable(q"{博乐国际机场}"), nullable(q"{ADD}"));
+			case 13: return Airport(nullable(q"{巴西利亚儒塞利诺·库比契克总统国际机场}"), nullable(q"{BSB}"));
+			case 14: return Airport(nullable(q"{布里斯班国际机场}"), nullable(q"{BNE}"));
+			case 15: return Airport(nullable(q"{布里斯班机场}"), nullable(q"{BRU}"));
+			case 16: return Airport(nullable(q"{凯恩斯机场}"), nullable(q"{CNS}"));
+			case 17: return Airport(nullable(q"{开罗国际机场}"), nullable(q"{CAI}"));
+			case 18: return Airport(nullable(q"{堪培拉机场}"), nullable(q"{CBR}"));
+			case 19: return Airport(nullable(q"{开普敦国际机场}"), nullable(q"{CPT}"));
+			case 20: return Airport(nullable(q"{戴高乐国际机场}"), nullable(q"{CDG}"));
+			case 21: return Airport(nullable(q"{夏洛特道格拉斯国际机场}"), nullable(q"{CLT}"));
+			case 22: return Airport(nullable(q"{成都双流国际机场}"), nullable(q"{CTU}"));
+			case 23: return Airport(nullable(q"{贾特拉帕蒂·希瓦吉国际机场}"), nullable(q"{BOM}"));
+			case 24: return Airport(nullable(q"{芝加哥奥黑尔国际机场}"), nullable(q"{ORD}"));
+			case 25: return Airport(nullable(q"{重庆江北国际机场}"), nullable(q"{CKG}"));
+			case 26: return Airport(nullable(q"{基督城国际机场}"), nullable(q"{CHC}"));
+			case 27: return Airport(nullable(q"{哥本哈根卡斯特鲁普机场}"), nullable(q"{CPH}"));
+			case 28: return Airport(nullable(q"{达拉斯沃思堡国际机场}"), nullable(q"{DFW}"));
+			case 29: return Airport(nullable(q"{丹尼尔·井上国际机场}"), nullable(q"{HNL}"));
+			case 30: return Airport(nullable(q"{丹佛国际机场}"), nullable(q"{DEN}"));
+			case 31: return Airport(nullable(q"{廊曼国际机场}"), nullable(q"{DMK}"));
+			case 32: return Airport(nullable(q"{迪拜国际机场}"), nullable(q"{DXB}"));
+			case 33: return Airport(nullable(q"{都柏林机场}"), nullable(q"{DUB}"));
+			case 34: return Airport(nullable(q"{杜塞尔多夫机场}"), nullable(q"{DUS}"));
+			case 35: return Airport(nullable(q"{埃尔多拉多国际机场}"), nullable(q"{BOG}"));
+			case 36: return Airport(nullable(q"{埃莱夫塞里奥斯·韦尼泽洛斯国际机场}"), nullable(q"{ATH}"));
+			case 37: return Airport(nullable(q"{法阿国际机场}"), nullable(q"{PPT}"));
+			case 38: return Airport(nullable(q"{劳德代尔堡好莱坞国际机场}"), nullable(q"{FLL}"));
+			case 39: return Airport(nullable(q"{福塔莱萨平托马丁斯国际机场}"), nullable(q"{FOR}"));
+			case 40: return Airport(nullable(q"{美因河畔法兰克福机场}"), nullable(q"{FRA}"));
+			case 41: return Airport(nullable(q"{休斯顿机场乔治·布什洲际酒店}"), nullable(q"{IAH}"));
+			case 42: return Airport(nullable(q"{黄金海岸机场}"), nullable(q"{OOL}"));
+			case 43: return Airport(nullable(q"{瓜鲁柳斯 - 安德烈·佛朗哥·蒙托罗州长国际机场}"), nullable(q"{GRU}"));
+			case 44: return Airport(nullable(q"{哈兹菲尔德-杰克逊亚特兰大国际机场}"), nullable(q"{ATL}"));
+			case 45: return Airport(nullable(q"{赫尔辛基万塔机场}"), nullable(q"{HEL}"));
+			case 46: return Airport(nullable(q"{霍巴特国际机场}"), nullable(q"{HBA}"));
+			case 47: return Airport(nullable(q"{香港国际机场}"), nullable(q"{HKG}"));
+			case 48: return Airport(nullable(q"{胡阿里·布迈丁机场}"), nullable(q"{ALG}"));
+			case 49: return Airport(nullable(q"{赫尔格达国际机场}"), nullable(q"{HRG}"));
+			case 50: return Airport(nullable(q"{仁川国际机场}"), nullable(q"{ICN}"));
+			case 51: return Airport(nullable(q"{英迪拉·甘地国际机场}"), nullable(q"{DEL}"));
+			case 52: return Airport(nullable(q"{伊斯坦布尔机场}"), nullable(q"{IST}"));
+			case 53: return Airport(nullable(q"{杰克逊国际机场}"), nullable(q"{POM}"));
+			case 54: return Airport(nullable(q"{济州国际机场}"), nullable(q"{CJU}"));
+			case 55: return Airport(nullable(q"{约翰肯尼迪国际机场}"), nullable(q"{JFK}"));
+			case 56: return Airport(nullable(q"{豪尔赫·查韦斯国际机场}"), nullable(q"{LIM}"));
+			case 57: return Airport(nullable(q"{何塞·玛丽亚·科尔多瓦国际机场}"), nullable(q"{MDE}"));
+			case 58: return Airport(nullable(q"{何塞普·塔拉德拉斯巴塞罗那埃尔普拉特机场}"), nullable(q"{BCN}"));
+			case 59: return Airport(nullable(q"{卡胡卢伊机场}"), nullable(q"{OGG}"));
+			case 60: return Airport(nullable(q"{阿卜杜勒阿齐兹国王国际机场}"), nullable(q"{JED}"));
+			case 61: return Airport(nullable(q"{吉隆坡国际机场}"), nullable(q"{KUL}"));
+			case 62: return Airport(nullable(q"{昆明长水国际机场}"), nullable(q"{KMG}"));
+			case 63: return Airport(nullable(q"{拉通图塔国际机场}"), nullable(q"{NOU}"));
+			case 64: return Airport(nullable(q"{莱昂纳多达芬奇-菲乌米奇诺机场}"), nullable(q"{FCO}"));
+			case 65: return Airport(nullable(q"{伦敦希思罗机场}"), nullable(q"{LHR}"));
+			case 66: return Airport(nullable(q"{洛杉矶国际机场}"), nullable(q"{LAX}"));
+			case 67: return Airport(nullable(q"{麦卡伦国际机场}"), nullable(q"{LAS}"));
+			case 68: return Airport(nullable(q"{墨尔本国际机场}"), nullable(q"{MEL}"));
+			case 69: return Airport(nullable(q"{墨西哥城国际机场}"), nullable(q"{MEX}"));
+			case 70: return Airport(nullable(q"{迈阿密国际机场}"), nullable(q"{MIA}"));
+			case 71: return Airport(nullable(q"{皮斯塔里尼部长国际机场}"), nullable(q"{EZE}"));
+			case 72: return Airport(nullable(q"{明尼阿波利斯-圣保罗国际机场/沃尔德-张伯伦机场}"), nullable(q"{MSP}"));
+			case 73: return Airport(nullable(q"{穆罕默德五世国际机场}"), nullable(q"{CMN}"));
+			case 74: return Airport(nullable(q"{莫斯科多莫杰多沃机场}"), nullable(q"{DME}"));
+			case 75: return Airport(nullable(q"{慕尼黑机场}"), nullable(q"{MUC}"));
+			case 76: return Airport(nullable(q"{穆尔塔拉穆罕默德国际机场}"), nullable(q"{LOS}"));
+			case 77: return Airport(nullable(q"{楠迪国际机场}"), nullable(q"{NAN}"));
+			case 78: return Airport(nullable(q"{内罗毕乔莫肯雅塔国际机场}"), nullable(q"{NBO}"));
+			case 79: return Airport(nullable(q"{成田国际机场}"), nullable(q"{NRT}"));
+			case 80: return Airport(nullable(q"{纽瓦克自由国际机场}"), nullable(q"{EWR}"));
+			case 81: return Airport(nullable(q"{尼诺·阿基诺国际机场}"), nullable(q"{MNL}"));
+			case 82: return Airport(nullable(q"{努美阿洋红色机场}"), nullable(q"{GEA}"));
+			case 83: return Airport(nullable(q"{奥利弗·R·坦博国际机场}"), nullable(q"{JNB}"));
+			case 84: return Airport(nullable(q"{奥兰多国际机场}"), nullable(q"{MCO}"));
+			case 85: return Airport(nullable(q"{奥斯陆卢夫塔文机场}"), nullable(q"{OSL}"));
+			case 86: return Airport(nullable(q"{珀斯机场}"), nullable(q"{PER}"));
+			case 87: return Airport(nullable(q"{凤凰城天港国际机场}"), nullable(q"{PHX}"));
+			case 88: return Airport(nullable(q"{累西腓瓜拉拉佩斯-吉尔伯托弗雷尔国际机场}"), nullable(q"{REC}"));
+			case 89: return Airport(nullable(q"{里约热内卢加利昂国际机场}"), nullable(q"{GIG}"));
+			case 90: return Airport(nullable(q"{萨尔加多菲略国际机场}"), nullable(q"{POA}"));
+			case 91: return Airport(nullable(q"{萨尔瓦多·德普塔多·路易斯·爱德华多·马加良斯国际机场}"), nullable(q"{SSA}"));
+			case 92: return Airport(nullable(q"{旧金山国际机场}"), nullable(q"{SFO}"));
+			case 93: return Airport(nullable(q"{桑托斯·杜蒙特机场}"), nullable(q"{SDU}"));
+			case 94: return Airport(nullable(q"{圣保罗孔戈尼亚斯机场}"), nullable(q"{CGH}"));
+			case 95: return Airport(nullable(q"{西雅图塔科马国际机场}"), nullable(q"{SEA}"));
+			case 96: return Airport(nullable(q"{上海虹桥国际机场}"), nullable(q"{SHA}"));
+			case 97: return Airport(nullable(q"{上海浦东国际机场}"), nullable(q"{PVG}"));
+			case 98: return Airport(nullable(q"{深圳宝安国际机场}"), nullable(q"{SZX}"));
+			case 99: return Airport(nullable(q"{谢列梅捷沃国际机场}"), nullable(q"{SVO}"));
+			case 100: return Airport(nullable(q"{新加坡樟宜机场}"), nullable(q"{SIN}"));
+			case 101: return Airport(nullable(q"{苏加诺-哈达国际机场}"), nullable(q"{CGK}"));
+			case 102: return Airport(nullable(q"{斯德哥尔摩-阿兰达机场}"), nullable(q"{ARN}"));
+			case 103: return Airport(nullable(q"{素万那普机场}"), nullable(q"{BKK}"));
+			case 104: return Airport(nullable(q"{悉尼金斯福德史密斯国际机场}"), nullable(q"{SYD}"));
+			case 105: return Airport(nullable(q"{台湾桃园国际机场}"), nullable(q"{TPE}"));
+			case 106: return Airport(nullable(q"{新山一国际机场}"), nullable(q"{SGN}"));
+			case 107: return Airport(nullable(q"{东京羽田国际机场}"), nullable(q"{HND}"));
+			case 108: return Airport(nullable(q"{多伦多皮尔逊国际机场}"), nullable(q"{YYZ}"));
+			case 109: return Airport(nullable(q"{突尼斯迦太基国际机场}"), nullable(q"{TUN}"));
+			case 110: return Airport(nullable(q"{温哥华国际机场}"), nullable(q"{YVR}"));
+			case 111: return Airport(nullable(q"{维也纳国际机场}"), nullable(q"{VIE}"));
+			case 112: return Airport(nullable(q"{维拉科波斯国际机场}"), nullable(q"{VCP}"));
+			case 113: return Airport(nullable(q"{伏努科沃国际机场}"), nullable(q"{VKO}"));
+			case 114: return Airport(nullable(q"{惠灵顿国际机场}"), nullable(q"{WLG}"));
+			case 115: return Airport(nullable(q"{西安咸阳国际机场}"), nullable(q"{XIY}"));
+			case 116: return Airport(nullable(q"{茹科夫斯基国际机场}"), nullable(q"{ZIA}"));
+			case 117: return Airport(nullable(q"{苏黎世机场}"), nullable(q"{ZRH}"));
+		}
+		return Airport(Nullable!(string).init, Nullable!(string).init);
 	}
 
 	override string animalBear() {
@@ -102,7 +514,11 @@ class Faker_zh_cn : Faker {
 	}
 
 	override string companyNamePattern() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return locationState() ~ personFirstName() ~ companyCategory() ~ companyType();
+			case 1: return locationCity() ~ personFirstName() ~ companyCategory() ~ companyType();
+		}
+		return "";
 	}
 
 	override string databaseColumn() {
@@ -144,6 +560,20 @@ class Faker_zh_cn : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string financeCreditCardMastercard() {
+		const string[] strs =
+		[ q"{5[1-5]##-####-####-###L}", q"{2[221-720]-####-####-###L}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	override string financeCreditCardVisa() {
+		const string[] strs =
+		[ q"{4###########L}", q"{4###-####-####-###L}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string financeAccountType() {
 		const string[] strs =
 		[ q"{支票}", q"{储蓄}", q"{货币市场}", q"{投资}", q"{房屋贷款}", q"{信用卡}"
@@ -179,7 +609,17 @@ class Faker_zh_cn : Faker {
 	}
 
 	override string hackerPhrase() {
-		assert(false);
+		final switch(uniform(0, 8, this.rnd)) {
+			case 0: return "倘若我们" ~ verb() ~ noun() ~ "，我们就可以通过" ~ adjective() ~ abbreviation() ~ noun() ~ "获得" ~ abbreviation() ~ noun() ~ "！";
+			case 1: return "我们需要" ~ verb() ~ adjective() ~ abbreviation() ~ noun() ~ "！";
+			case 2: return "尝试" ~ verb() ~ abbreviation() ~ noun() ~ "，也许会" ~ verb() ~ adjective() ~ noun() ~ "！";
+			case 3: return "在没有" ~ verb() ~ adjective() ~ abbreviation() ~ noun() ~ "的情况下，你不能" ~ verb() ~ noun() ~ "！";
+			case 4: return "使用" ~ adjective() ~ abbreviation() ~ noun() ~ "，然后你就能" ~ verb() ~ adjective() ~ noun() ~ "！";
+			case 5: return abbreviation() ~ noun() ~ "已关闭，因为" ~ adjective() ~ noun() ~ "所以我们能" ~ verb() ~ abbreviation() ~ noun() ~ "！";
+			case 6: return verb() ~ noun() ~ "是无济于事的，我们需要" ~ verb() ~ adjective() ~ abbreviation() ~ noun() ~ "！";
+			case 7: return "我将" ~ verb() ~ adjective() ~ abbreviation() ~ noun() ~ "，那是应该" ~ noun() ~ abbreviation() ~ noun() ~ "！";
+		}
+		return "";
 	}
 
 	override string hackerVerb() {
@@ -200,8 +640,18 @@ class Faker_zh_cn : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationBuildingNumber() {
+		const string[] strs =
+		[ q"{#####}", q"{####}", q"{###}", q"{##}", q"{#}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityPrefix() ~ locationCitySuffix();
+		}
+		return "";
 	}
 
 	override string locationCityPrefix() {
@@ -228,6 +678,13 @@ class Faker_zh_cn : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{######}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string locationState() {
 		const string[] strs =
 		[ q"{北京市}", q"{上海市}", q"{天津市}", q"{重庆市}", q"{黑龙江省}", q"{吉林省}"
@@ -250,8 +707,24 @@ class Faker_zh_cn : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationStreetAddress() {
+		const LocationStreetAddressEnum[] enums = [ LocationStreetAddressEnum.normal, LocationStreetAddressEnum.full ];
+		return locationStreetAddress(choice(enums, this.rnd));
+	}
+
+	override string locationStreetAddress(LocationStreetAddressEnum which) {
+		final switch(which) {
+			case LocationStreetAddressEnum.normal: return locationStreet() ~ locationBuildingNumber() ~ "号";
+			case LocationStreetAddressEnum.full: return locationStreet() ~ locationBuildingNumber() ~ "号 " ~ locationSecondaryAddress();
+		}
+		return "";
+	}
+
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return personLastName() ~ locationStreetSuffix();
+		}
+		return "";
 	}
 
 	override string locationStreetSuffix() {
@@ -312,7 +785,17 @@ class Faker_zh_cn : Faker {
 	}
 
 	override string personBioPattern() {
-		assert(false);
+		final switch(uniform(0, 8, this.rnd)) {
+			case 0: return personBioPart();
+			case 1: return personBioPart() ~ "，" ~ personBioPart();
+			case 2: return personBioPart() ~ "，" ~ personBioPart() ~ "，" ~ personBioPart();
+			case 3: return personBioPart() ~ "，" ~ personBioPart() ~ "，" ~ personBioPart() ~ internetEmoji();
+			case 4: return wordNoun() ~ personBioSupporter();
+			case 5: return wordNoun() ~ personBioSupporter() ~ internetEmoji();
+			case 6: return wordNoun() ~ personBioSupporter() ~ "，" ~ personBioPart();
+			case 7: return wordNoun() ~ personBioSupporter() ~ "，" ~ personBioPart() ~ internetEmoji();
+		}
+		return "";
 	}
 
 	override string personBioSupporter() {
@@ -465,6 +948,16 @@ class Faker_zh_cn : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personLastName();
+		}
+
+		return "";
+	}
+
 	override string personMaleFirstName() {
 		const string[] strs =
 		[ q"{建华}", q"{建国}", q"{建军}", q"{国强}", q"{国平}", q"{国良}", q"{国栋}", q"{国辉}"
@@ -478,6 +971,23 @@ class Faker_zh_cn : Faker {
 		, q"{治涛}", q"{治文}", q"{文韬}", q"{敬彪}", q"{敬阳}", q"{政君}", q"{立伟}", q"{呈轩}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string personName() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personLastName() ~ personFirstName();
+		}
+
+		return "";
+	}
+
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{0##-########}", q"{0###-########}", q"{1##########}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string vehicleBicycleType() {

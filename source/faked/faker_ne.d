@@ -7,6 +7,8 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_ne : Faker {
@@ -46,7 +48,10 @@ class Faker_ne : Faker {
 	}
 
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName();
+		}
+		return "";
 	}
 
 	override string locationDefaultCountry() {
@@ -54,6 +59,13 @@ class Faker_ne : Faker {
 		[ q"{Nepal}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{1####}", q"{2####}", q"{3####}", q"{4####}", q"{5####}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string locationState() {
@@ -71,7 +83,11 @@ class Faker_ne : Faker {
 	}
 
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+		}
+		return "";
 	}
 
 	override string personFemaleFirstName() {
@@ -107,6 +123,16 @@ class Faker_ne : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personLastName();
+		}
+
+		return "";
+	}
+
 	override string personMaleFirstName() {
 		const string[] strs =
 		[ q"{Aarav}", q"{Amit}", q"{Amrit}", q"{Arijit}", q"{Bibek}", q"{Bijay}", q"{Bikash}", q"{Bishal}", q"{Bishnu}"
@@ -116,6 +142,13 @@ class Faker_ne : Faker {
 		, q"{Subash}", q"{Sumeet}", q"{Suraj}", q"{Sushant}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{##-#######}", q"{+977-#-#######}", q"{+977########}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 }

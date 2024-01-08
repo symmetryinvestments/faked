@@ -7,6 +7,8 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_en_us : Faker {
@@ -23,7 +25,13 @@ class Faker_en_us : Faker {
 	}
 
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return locationCityPrefix() ~ " " ~ personFirstName() ~ locationCitySuffix();
+			case 1: return locationCityPrefix() ~ " " ~ personFirstName();
+			case 2: return personFirstName() ~ locationCitySuffix();
+			case 3: return personLastName() ~ locationCitySuffix();
+		}
+		return "";
 	}
 
 	override string locationCounty() {
@@ -135,7 +143,25 @@ class Faker_en_us : Faker {
 	}
 
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+			case 2: return locationStreetName();
+		}
+		return "";
+	}
+
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 100, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 95) {
+			return personLastName();
+		}
+		if(rndInt >= 95 && rndInt < 100) {
+			return personLastName() ~ "-" ~ personLastName();
+		}
+
+		return "";
 	}
 
 }

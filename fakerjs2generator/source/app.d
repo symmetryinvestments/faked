@@ -23,6 +23,7 @@ void buildBase() {
 }
 
 void main() {
+	genCustomTypes();
 	buildBase();
 	foreach(j; dirEntries("", "*.json", SpanMode.shallow)
 			.filter!(it => it.name != "dub.json")

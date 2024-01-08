@@ -7,6 +7,8 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_pt_br : Faker {
@@ -43,7 +45,12 @@ class Faker_pt_br : Faker {
 	}
 
 	override string companyNamePattern() {
-		assert(false);
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return personLastName() ~ " " ~ companySuffix();
+			case 1: return personLastName() ~ "-" ~ personLastName();
+			case 2: return personLastName() ~ ", " ~ personLastName() ~ " e " ~ personLastName();
+		}
+		return "";
 	}
 
 	override string companySuffix() {
@@ -97,8 +104,19 @@ class Faker_pt_br : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationBuildingNumber() {
+		const string[] strs =
+		[ q"{#####}", q"{####}", q"{###}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ locationCitySuffix();
+			case 1: return personLastName() ~ locationCitySuffix();
+		}
+		return "";
 	}
 
 	override string locationCitySuffix() {
@@ -161,6 +179,20 @@ class Faker_pt_br : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{#####-###}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	override string locationSecondaryAddress() {
+		const string[] strs =
+		[ q"{Apto. ###}", q"{Sobrado ##}", q"{Casa #}", q"{Lote ##}", q"{Quadra ##}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string locationState() {
 		const string[] strs =
 		[ q"{Acre}", q"{Alagoas}", q"{Amapá}", q"{Amazonas}", q"{Bahia}", q"{Ceará}", q"{Distrito Federal}"
@@ -182,7 +214,11 @@ class Faker_pt_br : Faker {
 	}
 
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+		}
+		return "";
 	}
 
 	override string locationStreetSuffix() {
@@ -287,6 +323,16 @@ class Faker_pt_br : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personLastName();
+		}
+
+		return "";
+	}
+
 	override string personMaleFirstName() {
 		const string[] strs =
 		[ q"{Alessandro}", q"{Alexandre}", q"{Anthony}", q"{Antônio}", q"{Arthur}", q"{Benjamin}", q"{Benício}"
@@ -311,6 +357,22 @@ class Faker_pt_br : Faker {
 		[ q"{Sr.}", q"{Dr.}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string personName() {
+		const int rndInt = uniform(0, 10, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+		}
+		if(rndInt >= 1 && rndInt < 2) {
+			return personFirstName() ~ " " ~ personLastName() ~ " " ~ personSuffix();
+		}
+		if(rndInt >= 2 && rndInt < 10) {
+			return personFirstName() ~ " " ~ personLastName();
+		}
+
+		return "";
 	}
 
 	override string personPrefix() {
@@ -373,6 +435,13 @@ class Faker_pt_br : Faker {
 		, q"{Libra}", q"{Escorpião}", q"{Sagitário}", q"{Capricórnio}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{(##) ####-####}", q"{+55 (##) ####-####}", q"{(##) #####-####}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 }

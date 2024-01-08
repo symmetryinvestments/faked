@@ -7,6 +7,8 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_ur : Faker {
@@ -54,7 +56,11 @@ class Faker_ur : Faker {
 	}
 
 	override string appAuthor() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personName();
+			case 1: return companyName();
+		}
+		return "";
 	}
 
 	override string appName() {
@@ -63,6 +69,20 @@ class Faker_ur : Faker {
 		, q"{ڈالر رپیہ}", q"{دراز}", q"{پاک وھیلز}", q"{واٹس ایپ}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string appVersion() {
+		const string[] strs =
+		[ q"{0.#.#}", q"{0.##}", q"{#.##}", q"{#.#}", q"{#.#.#}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	override string cellPhoneFormats() {
+		const string[] strs =
+		[ q"{+92 ###-###-####}", q"{03## ### ####}", q"{03#########}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string commerceProductNameAdjective() {
@@ -119,6 +139,13 @@ class Faker_ur : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationBuildingNumber() {
+		const string[] strs =
+		[ q"{#####}", q"{####}", q"{###}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string locationCityName() {
 		const string[] strs =
 		[ q"{اسلام آباد}", q"{پشاور}", q"{لاہور}", q"{کراچی}", q"{ملتان}"
@@ -135,7 +162,14 @@ class Faker_ur : Faker {
 	}
 
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return locationCityPrefix() ~ " " ~ personFirstName() ~ locationCitySuffix();
+			case 1: return locationCityPrefix() ~ " " ~ personFirstName();
+			case 2: return personFirstName() ~ locationCitySuffix();
+			case 3: return personLastName() ~ locationCitySuffix();
+			case 4: return locationCityName();
+		}
+		return "";
 	}
 
 	override string locationCityPrefix() {
@@ -208,6 +242,20 @@ class Faker_ur : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{#####}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	override string locationSecondaryAddress() {
+		const string[] strs =
+		[ q"{گھر. ###}", q"{گلی ###}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string locationState() {
 		const string[] strs =
 		[ q"{خیبر پختونخواہ}", q"{اسلام آباد}", q"{پنجاب}", q"{سندھ}"
@@ -223,8 +271,25 @@ class Faker_ur : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationStreetAddress() {
+		const LocationStreetAddressEnum[] enums = [ LocationStreetAddressEnum.normal, LocationStreetAddressEnum.full ];
+		return locationStreetAddress(choice(enums, this.rnd));
+	}
+
+	override string locationStreetAddress(LocationStreetAddressEnum which) {
+		final switch(which) {
+			case LocationStreetAddressEnum.normal: return locationBuildingNumber() ~ " " ~ locationStreet();
+			case LocationStreetAddressEnum.full: return locationBuildingNumber() ~ " " ~ locationStreet() ~ " " ~ locationSecondaryAddress();
+		}
+		return "";
+	}
+
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+		}
+		return "";
 	}
 
 	override string locationStreetSuffix() {
@@ -294,6 +359,16 @@ class Faker_ur : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personLastName();
+		}
+
+		return "";
+	}
+
 	override string personMaleFirstName() {
 		const string[] strs =
 		[ q"{عمیر}", q"{ابراہیم}", q"{احسن}", q"{عبداللہ}", q"{عثمان}", q"{حمزہ}"
@@ -308,6 +383,22 @@ class Faker_ur : Faker {
 		[ q"{محترم.}", q"{ڈاکٹر}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string personName() {
+		const int rndInt = uniform(0, 10, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+		}
+		if(rndInt >= 1 && rndInt < 2) {
+			return personFirstName() ~ " " ~ personLastName() ~ " " ~ personSuffix();
+		}
+		if(rndInt >= 2 && rndInt < 10) {
+			return personFirstName() ~ " " ~ personLastName();
+		}
+
+		return "";
 	}
 
 	override string personPrefix() {
@@ -364,7 +455,10 @@ class Faker_ur : Faker {
 	}
 
 	override string teamName() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationState() ~ " " ~ teamCreature();
+		}
+		return "";
 	}
 
 	override string vehicleBicycleType() {

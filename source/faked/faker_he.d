@@ -7,12 +7,24 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_he : Faker {
 @safe:
 	this(int seed) {
 		super(seed);
+	}
+
+	override string cellPhoneFormats() {
+		const string[] strs =
+		[ q"{050-#######}", q"{051-#######}", q"{052-#######}", q"{053-#######}", q"{054-#######}"
+		, q"{055-#######}", q"{057-#######}", q"{058-#######}", q"{+972-50-#######}", q"{+972-51-#######}"
+		, q"{+972-52-#######}", q"{+972-53-#######}", q"{+972-54-#######}", q"{+972-55-#######}"
+		, q"{+972-57-#######}", q"{+972-58-#######}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string commerceProductDescription() {
@@ -86,6 +98,13 @@ class Faker_he : Faker {
 		, q"{יום ו׳}", q"{שבת}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string locationBuildingNumber() {
+		const string[] strs =
+		[ q"{###}", q"{##}", q"{#}", q"{'ב##}", q"{'א##}", q"{'א#}", q"{'ב#}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string locationCityName() {
@@ -362,7 +381,10 @@ class Faker_he : Faker {
 	}
 
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName();
+		}
+		return "";
 	}
 
 	override string locationCountry() {
@@ -445,6 +467,20 @@ class Faker_he : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{#####}", q"{#######}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	override string locationSecondaryAddress() {
+		const string[] strs =
+		[ q"{# דירה}", q"{## דירה}", q"{# חדר}", q"{## חדר}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string locationState() {
 		const string[] strs =
 		[ q"{חיפה}", q"{תל אביב}", q"{הגדה המערבית}", q"{צפון}", q"{דרום}"
@@ -461,6 +497,19 @@ class Faker_he : Faker {
 		, q"{SC}", q"{SD}", q"{TN}", q"{TX}", q"{UT}", q"{VT}", q"{VA}", q"{WA}", q"{WV}", q"{WI}", q"{WY}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string locationStreetAddress() {
+		const LocationStreetAddressEnum[] enums = [ LocationStreetAddressEnum.normal, LocationStreetAddressEnum.full ];
+		return locationStreetAddress(choice(enums, this.rnd));
+	}
+
+	override string locationStreetAddress(LocationStreetAddressEnum which) {
+		final switch(which) {
+			case LocationStreetAddressEnum.normal: return locationStreet() ~ " " ~ locationBuildingNumber();
+			case LocationStreetAddressEnum.full: return locationStreet() ~ " " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
+		}
+		return "";
 	}
 
 	override string locationStreetName() {
@@ -966,7 +1015,10 @@ class Faker_he : Faker {
 	}
 
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationStreetPrefix() ~ " " ~ locationStreetName();
+		}
+		return "";
 	}
 
 	override string loremWords() {
@@ -1290,6 +1342,16 @@ class Faker_he : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personLastName();
+		}
+
+		return "";
+	}
+
 	override string personMaleFirstName() {
 		const string[] strs =
 		[ q"{אביאל}", q"{אביגדור}", q"{אביה}", q"{אביחי}", q"{אבינועם}"
@@ -1353,11 +1415,33 @@ class Faker_he : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personName() {
+		const int rndInt = uniform(0, 10, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+		}
+		if(rndInt >= 1 && rndInt < 10) {
+			return personFirstName() ~ " " ~ personLastName();
+		}
+
+		return "";
+	}
+
 	override string personPrefix() {
 		const string[] strs =
 		[ q"{'פרופ}", q"{גברת}", q"{ד"ר}", q"{מר}", q"{עו"ד}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{02-#######}", q"{03-#######}", q"{04-#######}", q"{08-#######}", q"{09-#######}", q"{077-#######}"
+		, q"{+972-2-#######}", q"{+972-3-#######}", q"{+972-4-#######}", q"{+972-8-#######}", q"{+972-9-#######}"
+		, q"{+972-77-#######}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 }

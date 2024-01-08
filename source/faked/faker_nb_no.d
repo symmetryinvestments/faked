@@ -7,6 +7,8 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_nb_no : Faker {
@@ -16,7 +18,12 @@ class Faker_nb_no : Faker {
 	}
 
 	override string companyNamePattern() {
-		assert(false);
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return personLastName() ~ " " ~ companySuffix();
+			case 1: return personLastName() ~ "-" ~ personLastName();
+			case 2: return personLastName() ~ ", " ~ personLastName() ~ " og " ~ personLastName();
+		}
+		return "";
 	}
 
 	override string companySuffix() {
@@ -33,6 +40,13 @@ class Faker_nb_no : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationBuildingNumber() {
+		const string[] strs =
+		[ q"{#}", q"{##}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string locationCityName() {
 		const string[] strs =
 		[ q"{Fet}", q"{Gjes}", q"{Høy}", q"{Inn}", q"{Fager}", q"{Lille}", q"{Lo}", q"{Mal}", q"{Nord}", q"{Nær}"
@@ -42,7 +56,10 @@ class Faker_nb_no : Faker {
 	}
 
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName() ~ locationCitySuffix();
+		}
+		return "";
 	}
 
 	override string locationCitySuffix() {
@@ -61,11 +78,38 @@ class Faker_nb_no : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{####}", q"{0###}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	override string locationSecondaryAddress() {
+		const string[] strs =
+		[ q"{Leil. ###}", q"{Oppgang A}", q"{Oppgang B}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string locationState() {
 		const string[] strs =
 		[ q"{}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string locationStreetAddress() {
+		const LocationStreetAddressEnum[] enums = [ LocationStreetAddressEnum.normal, LocationStreetAddressEnum.full ];
+		return locationStreetAddress(choice(enums, this.rnd));
+	}
+
+	override string locationStreetAddress(LocationStreetAddressEnum which) {
+		final switch(which) {
+			case LocationStreetAddressEnum.normal: return locationStreet() ~ " " ~ locationBuildingNumber();
+			case LocationStreetAddressEnum.full: return locationStreet() ~ " " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
+		}
+		return "";
 	}
 
 	override string locationStreetName() {
@@ -79,7 +123,13 @@ class Faker_nb_no : Faker {
 	}
 
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return locationStreetName() ~ locationStreetSuffix();
+			case 1: return locationStreetPrefix() ~ " " ~ locationStreetName() ~ locationStreetSuffix();
+			case 2: return personFirstName() ~ locationCommonStreetSuffix();
+			case 3: return personLastName() ~ locationCommonStreetSuffix();
+		}
+		return "";
 	}
 
 	override string locationStreetSuffix() {
@@ -152,6 +202,19 @@ class Faker_nb_no : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 10, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 8) {
+			return personLastName();
+		}
+		if(rndInt >= 8 && rndInt < 10) {
+			return personLastName() ~ " " ~ personLastName();
+		}
+
+		return "";
+	}
+
 	override string personMaleFirstName() {
 		const string[] strs =
 		[ q"{Markus}", q"{Mathias}", q"{Kristian}", q"{Jonas}", q"{Andreas}", q"{Alexander}", q"{Martin}"
@@ -172,6 +235,22 @@ class Faker_nb_no : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personName() {
+		const int rndInt = uniform(0, 11, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+		}
+		if(rndInt >= 1 && rndInt < 2) {
+			return personFirstName() ~ " " ~ personLastName() ~ " " ~ personSuffix();
+		}
+		if(rndInt >= 2 && rndInt < 11) {
+			return personFirstName() ~ " " ~ personLastName();
+		}
+
+		return "";
+	}
+
 	override string personPrefix() {
 		const string[] strs =
 		[ q"{Dr.}", q"{Prof.}" ];
@@ -184,6 +263,13 @@ class Faker_nb_no : Faker {
 		[ q"{Jr.}", q"{Sr.}", q"{I}", q"{II}", q"{III}", q"{IV}", q"{V}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{########}", q"{## ## ## ##}", q"{### ## ###}", q"{+47 ## ## ## ##}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string wordAdjective() {

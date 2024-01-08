@@ -7,12 +7,22 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_en_gb : Faker {
 @safe:
 	this(int seed) {
 		super(seed);
+	}
+
+	override string cellPhoneFormats() {
+		const string[] strs =
+		[ q"{074## ######}", q"{075## ######}", q"{076## ######}", q"{077## ######}", q"{078## ######}"
+		, q"{079## ######}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string internetDomainSuffix() {
@@ -24,8 +34,21 @@ class Faker_en_gb : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationBuildingNumber() {
+		const string[] strs =
+		[ q"{###}", q"{##}", q"{#}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return locationCityPrefix() ~ " " ~ personLastName() ~ locationCitySuffix();
+			case 1: return locationCityPrefix() ~ " " ~ personLastName();
+			case 2: return personLastName() ~ locationCitySuffix();
+			case 3: return personLastName() ~ locationCityInfix() ~ personLastName();
+		}
+		return "";
 	}
 
 	override string locationCityPrefix() {
@@ -70,6 +93,13 @@ class Faker_en_gb : Faker {
 		[ q"{England}", q"{Scotland}", q"{Wales}", q"{Northern Ireland}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{??# #??}", q"{??## #??}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string locationState() {
@@ -171,7 +201,12 @@ class Faker_en_gb : Faker {
 	}
 
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+			case 2: return locationStreetName();
+		}
+		return "";
 	}
 
 	override string locationStreetSuffix() {
@@ -185,6 +220,41 @@ class Faker_en_gb : Faker {
 		, q"{Copse}", q"{Corner}", q"{Ridge}", q"{Glade}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 10, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 9) {
+			return personLastName();
+		}
+		if(rndInt >= 9 && rndInt < 10) {
+			return personLastName() ~ "-" ~ personLastName();
+		}
+
+		return "";
+	}
+
+	override string personName() {
+		const int rndInt = uniform(0, 8, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 7) {
+			return personFirstName() ~ " " ~ personLastName();
+		}
+		if(rndInt >= 7 && rndInt < 8) {
+			return personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+		}
+
+		return "";
+	}
+
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{01#### #####}", q"{01### ######}", q"{01#1 ### ####}", q"{011# ### ####}", q"{02# #### ####}"
+		, q"{03## ### ####}", q"{055 #### ####}", q"{056 #### ####}", q"{0800 ### ####}", q"{08## ### ####}"
+		, q"{09## ### ####}", q"{016977 ####}", q"{01### #####}", q"{0500 ######}", q"{0800 ######}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 }

@@ -7,6 +7,8 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 import faker.faker_fr;
 
@@ -31,7 +33,13 @@ class Faker_fr_ca : Faker_fr {
 	}
 
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return locationCityPrefix() ~ " " ~ personFirstName() ~ locationCitySuffix();
+			case 1: return locationCityPrefix() ~ " " ~ personFirstName();
+			case 2: return personFirstName() ~ locationCitySuffix();
+			case 3: return personLastName() ~ locationCitySuffix();
+		}
+		return "";
 	}
 
 	override string locationDefaultCountry() {
@@ -39,6 +47,15 @@ class Faker_fr_ca : Faker_fr {
 		[ q"{Canada}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{A#? #?#}", q"{B#? #?#}", q"{C#? #?#}", q"{E#? #?#}", q"{G#? #?#}", q"{H#? #?#}", q"{J#? #?#}"
+		, q"{K#? #?#}", q"{L#? #?#}", q"{M#? #?#}", q"{N#? #?#}", q"{P#? #?#}", q"{R#? #?#}", q"{S#? #?#}"
+		, q"{T#? #?#}", q"{V#? #?#}", q"{X#? #?#}", q"{Y#? #?#}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string locationState() {
@@ -58,7 +75,28 @@ class Faker_fr_ca : Faker_fr {
 	}
 
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+		}
+		return "";
+	}
+
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personLastName();
+		}
+
+		return "";
+	}
+
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{### ###-####}", q"{1 ### ###-####}", q"{### ###-####, poste ###}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 }

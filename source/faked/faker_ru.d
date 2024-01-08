@@ -7,6 +7,8 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_ru : Faker {
@@ -45,7 +47,17 @@ class Faker_ru : Faker {
 	}
 
 	override string companyNamePattern() {
-		assert(false);
+		final switch(uniform(0, 8, this.rnd)) {
+			case 0: return companyPrefix() ~ " " ~ personFemaleFirstName();
+			case 1: return companyPrefix() ~ " " ~ personMaleFirstName();
+			case 2: return companyPrefix() ~ " " ~ personMaleLastName();
+			case 3: return companyPrefix() ~ " " ~ companySuffix() ~ companySuffix();
+			case 4: return companyPrefix() ~ " " ~ companySuffix() ~ companySuffix() ~ companySuffix();
+			case 5: return companyPrefix() ~ " " ~ locationCityName() ~ companySuffix();
+			case 6: return companyPrefix() ~ " " ~ locationCityName() ~ companySuffix() ~ companySuffix();
+			case 7: return companyPrefix() ~ " " ~ locationCityName() ~ companySuffix() ~ companySuffix() ~ companySuffix();
+		}
+		return "";
 	}
 
 	override string companySuffix() {
@@ -126,7 +138,17 @@ class Faker_ru : Faker {
 	}
 
 	override string hackerPhrase() {
-		assert(false);
+		final switch(uniform(0, 8, this.rnd)) {
+			case 0: return "Чтобы " ~ verb() ~ " " ~ noun() ~ ", мы можем получить " ~ abbreviation() ~ " " ~ noun() ~ " через " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ "!";
+			case 1: return "Необходимо " ~ verb() ~ " " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ "!";
+			case 2: return "Попробуйте " ~ verb() ~ " " ~ abbreviation() ~ " " ~ noun() ~ ", возможно это позволит " ~ verb() ~ " " ~ adjective() ~ " " ~ noun() ~ "!";
+			case 3: return "Вы не можете " ~ verb() ~ " " ~ noun() ~ ", требуется " ~ ingverb() ~ " или " ~ ingverb() ~ "!";
+			case 4: return "Используйте " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ ", для того чтобы " ~ verb() ~ " " ~ adjective() ~ " " ~ noun() ~ "!";
+			case 5: return abbreviation() ~ " " ~ noun() ~ " недоступен, требуется " ~ verb() ~ " " ~ adjective() ~ " " ~ noun() ~ ", чтобы мы могли " ~ verb() ~ " " ~ abbreviation() ~ " " ~ noun() ~ "!";
+			case 6: return ingverb() ~ " не работает, попробуйте " ~ verb() ~ " " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ "!";
+			case 7: return "Я планирую " ~ verb() ~ " " ~ adjective() ~ " " ~ abbreviation() ~ " " ~ noun() ~ ", это должно помочь " ~ verb() ~ " " ~ abbreviation() ~ " " ~ noun() ~ "!";
+		}
+		return "";
 	}
 
 	override string hackerVerb() {
@@ -156,6 +178,13 @@ class Faker_ru : Faker {
 		[ q"{yandex.ru}", q"{ya.ru}", q"{mail.ru}", q"{gmail.com}", q"{yahoo.com}", q"{hotmail.com}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string locationBuildingNumber() {
+		const string[] strs =
+		[ q"{###}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string locationCityName() {
@@ -328,7 +357,10 @@ class Faker_ru : Faker {
 	}
 
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName();
+		}
+		return "";
 	}
 
 	override string locationCountry() {
@@ -400,6 +432,20 @@ class Faker_ru : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{######}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	override string locationSecondaryAddress() {
+		const string[] strs =
+		[ q"{кв. ###}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string locationState() {
 		const string[] strs =
 		[ q"{Алтайский край}", q"{Амурская область}", q"{Архангельская область}"
@@ -443,6 +489,19 @@ class Faker_ru : Faker {
 		, q"{Ярославская область}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string locationStreetAddress() {
+		const LocationStreetAddressEnum[] enums = [ LocationStreetAddressEnum.normal, LocationStreetAddressEnum.full ];
+		return locationStreetAddress(choice(enums, this.rnd));
+	}
+
+	override string locationStreetAddress(LocationStreetAddressEnum which) {
+		final switch(which) {
+			case LocationStreetAddressEnum.normal: return locationStreet() ~ ", " ~ locationBuildingNumber();
+			case LocationStreetAddressEnum.full: return locationStreet() ~ ", " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
+		}
+		return "";
 	}
 
 	override string locationStreetName() {
@@ -532,7 +591,11 @@ class Faker_ru : Faker {
 	}
 
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return locationStreetSuffix() ~ " " ~ locationStreetName();
+			case 1: return locationStreetName() ~ " " ~ locationStreetSuffix();
+		}
+		return "";
 	}
 
 	override string locationStreetSuffix() {
@@ -851,6 +914,25 @@ class Faker_ru : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personName() {
+		const int rndInt = uniform(0, 4, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personFirstName() ~ " " ~ personLastName();
+		}
+		if(rndInt >= 1 && rndInt < 2) {
+			return personLastName() ~ " " ~ personFirstName();
+		}
+		if(rndInt >= 2 && rndInt < 3) {
+			return personFirstName() ~ " " ~ personMiddleName() ~ " " ~ personLastName();
+		}
+		if(rndInt >= 3 && rndInt < 4) {
+			return personLastName() ~ " " ~ personFirstName() ~ " " ~ personMiddleName();
+		}
+
+		return "";
+	}
+
 	override string personTitleDescriptor() {
 		const string[] strs =
 		[ q"{Ведущий}", q"{Генеральный}", q"{Главный}", q"{Глобальный}"
@@ -878,6 +960,13 @@ class Faker_ru : Faker {
 		, q"{техник}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{(9##)###-##-##}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 }

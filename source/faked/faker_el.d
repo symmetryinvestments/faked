@@ -7,6 +7,8 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_el : Faker {
@@ -16,7 +18,11 @@ class Faker_el : Faker {
 	}
 
 	override string appAuthor() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personName();
+			case 1: return companyName();
+		}
+		return "";
 	}
 
 	override string appName() {
@@ -38,6 +44,20 @@ class Faker_el : Faker {
 		, q"{ΔΕΛΤΑ ΜΗΧΑΝΟΛΟΓΙΚΟΣ ΕΞΟΠΛΙΣΜΟΣ & ΟΛΟΚΛΗΡΩΜΕΝΑ ΕΡΓΑ ΑΒΕΤΕ}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string appVersion() {
+		const string[] strs =
+		[ q"{0.#.#}", q"{0.##}", q"{#.##}", q"{#.#}", q"{#.#.#}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	override string cellPhoneFormats() {
+		const string[] strs =
+		[ q"{697## ######}", q"{698## ######}", q"{699## ######}", q"{692## ######}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string commerceProductNameAdjective() {
@@ -158,7 +178,12 @@ class Faker_el : Faker {
 	}
 
 	override string companyNamePattern() {
-		assert(false);
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return personLastName() ~ " " ~ companySuffix();
+			case 1: return personLastName() ~ "-" ~ personLastName();
+			case 2: return personLastName() ~ ", " ~ personLastName() ~ " and " ~ personLastName();
+		}
+		return "";
 	}
 
 	override string companyNoun() {
@@ -184,6 +209,42 @@ class Faker_el : Faker {
 		[ q"{Ε.Π.Ε.}", q"{Α.Ε.}", q"{και Υιοί}", q"{Όμιλος}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string financeCreditCardAmericanExpress() {
+		const string[] strs =
+		[ q"{/34##-######-####L/}", q"{/37##-######-####L/}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	override string financeCreditCardDiscover() {
+		const string[] strs =
+		[ q"{/6011-####-####-###L/}", q"{/65##-####-####-###L/}", q"{/64[4-9]#-####-####-###L/}"
+		, q"{/6011-62##-####-####-###L/}", q"{/65##-62##-####-####-###L/}", q"{/64[4-9]#-62##-####-####-###L/}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	override string financeCreditCardMaestro() {
+		const string[] strs =
+		[ q"{/50#{9,16}L/}", q"{/5[6-8]#{9,16}L/}", q"{/56##{9,16}L/}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	override string financeCreditCardMastercard() {
+		const string[] strs =
+		[ q"{5[1-5]##-####-####-###L}", q"{2[221-720]-####-####-###L}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
+	override string financeCreditCardVisa() {
+		const string[] strs =
+		[ q"{/4###########L/}", q"{/4###-####-####-###L/}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string financeAccountType() {
@@ -266,7 +327,10 @@ class Faker_el : Faker {
 	}
 
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName();
+		}
+		return "";
 	}
 
 	override string locationDefaultCountry() {
@@ -277,7 +341,11 @@ class Faker_el : Faker {
 	}
 
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+		}
+		return "";
 	}
 
 	override string loremWords() {
@@ -408,6 +476,16 @@ class Faker_el : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personLastName();
+		}
+
+		return "";
+	}
+
 	override string personMaleFirstName() {
 		const string[] strs =
 		[ q"{Γεώργιος}", q"{Ιωάννης}", q"{Κώστας}", q"{Δημήτρης}", q"{Νικόλαος}"
@@ -428,6 +506,22 @@ class Faker_el : Faker {
 		[ q"{Κύριος}", q"{Δόκτορ}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string personName() {
+		const int rndInt = uniform(0, 10, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+		}
+		if(rndInt >= 1 && rndInt < 2) {
+			return personFirstName() ~ " " ~ personLastName() ~ " " ~ personSuffix();
+		}
+		if(rndInt >= 2 && rndInt < 10) {
+			return personFirstName() ~ " " ~ personLastName();
+		}
+
+		return "";
 	}
 
 	override string personPrefix() {
@@ -470,6 +564,23 @@ class Faker_el : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{2310# #####}", q"{2312# #####}", q"{2313# #####}", q"{222# ######}", q"{223# ######}"
+		, q"{227# ######}", q"{224# ######}", q"{226# ######}", q"{225# ######}", q"{232# ######}"
+		, q"{229# ######}", q"{228# ######}", q"{233# ######}", q"{234# ######}", q"{235# ######}"
+		, q"{237# ######}", q"{238# ######}", q"{239# ######}", q"{241# ######}", q"{242# ######}"
+		, q"{243# ######}", q"{244# ######}", q"{246# ######}", q"{249# ######}", q"{251# ######}"
+		, q"{252# ######}", q"{253# ######}", q"{254# ######}", q"{255# ######}", q"{259# ######}"
+		, q"{261# ######}", q"{262# ######}", q"{263# ######}", q"{264# ######}", q"{265# ######}"
+		, q"{266# ######}", q"{267# ######}", q"{268# ######}", q"{269# ######}", q"{271# ######}"
+		, q"{272# ######}", q"{273# ######}", q"{274# ######}", q"{275# ######}", q"{276# ######}"
+		, q"{279# ######}", q"{281# ######}", q"{282# ######}", q"{283# ######}", q"{284# ######}"
+		, q"{289# ######}", q"{0800 ######}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string teamCreature() {
 		const string[] strs =
 		[ q"{μυρμήγκια}", q"{νυχτερίδες}", q"{αρκούδες}", q"{μέλισσες}"
@@ -492,7 +603,10 @@ class Faker_el : Faker {
 	}
 
 	override string teamName() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationState() ~ " " ~ teamCreature();
+		}
+		return "";
 	}
 
 }

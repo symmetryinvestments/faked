@@ -7,6 +7,8 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 import faker.faker_de;
 
@@ -17,7 +19,12 @@ class Faker_de_ch : Faker_de {
 	}
 
 	override string companyNamePattern() {
-		assert(false);
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return personLastName() ~ " " ~ companySuffix();
+			case 1: return personLastName() ~ "-" ~ personLastName();
+			case 2: return personLastName() ~ ", " ~ personLastName() ~ " und " ~ personLastName();
+		}
+		return "";
 	}
 
 	override string companySuffix() {
@@ -56,7 +63,10 @@ class Faker_de_ch : Faker_de {
 	}
 
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName();
+		}
+		return "";
 	}
 
 	override string locationDefaultCountry() {
@@ -64,6 +74,13 @@ class Faker_de_ch : Faker_de {
 		[ q"{Schweiz}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{1###}", q"{2###}", q"{3###}", q"{4###}", q"{5###}", q"{6###}", q"{7###}", q"{8###}", q"{9###}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string locationState() {
@@ -98,7 +115,10 @@ class Faker_de_ch : Faker_de {
 	}
 
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationStreetName();
+		}
+		return "";
 	}
 
 	override string personFemaleFirstName() {
@@ -216,6 +236,16 @@ class Faker_de_ch : Faker_de {
 		return choice(strs, this.rnd);
 	}
 
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personLastName();
+		}
+
+		return "";
+	}
+
 	override string personMaleFirstName() {
 		const string[] strs =
 		[ q"{Alfons}", q"{Alfred}", q"{Alois}", q"{André}", q"{Andreas}", q"{Angelo}", q"{Antoine}", q"{Anton}"
@@ -253,11 +283,29 @@ class Faker_de_ch : Faker_de {
 		return choice(strs, this.rnd);
 	}
 
+	override string personName() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personFirstName() ~ " " ~ personLastName();
+		}
+
+		return "";
+	}
+
 	override string personPrefix() {
 		const string[] strs =
 		[ q"{Dr.}", q"{Frau}", q"{Herr}", q"{Prof. Dr.}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{0800 ### ###}", q"{0800 ## ## ##}", q"{0## ### ## ##}", q"{+41 ## ### ## ##}", q"{0900 ### ###}"
+		, q"{076 ### ## ##}", q"{+4178 ### ## ##}", q"{0041 79 ### ## ##}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 }

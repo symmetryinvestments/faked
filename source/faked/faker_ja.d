@@ -7,6 +7,8 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_ja : Faker {
@@ -15,12 +17,29 @@ class Faker_ja : Faker {
 		super(seed);
 	}
 
+	override string cellPhoneFormats() {
+		const string[] strs =
+		[ q"{090-####-####}", q"{080-####-####}", q"{070-####-####}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string companyNamePattern() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return companyType() ~ personLastName() ~ companyCategory();
+			case 1: return personLastName() ~ companyCategory() ~ companyType();
+		}
+		return "";
 	}
 
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return locationCityPrefix() ~ personFirstName() ~ locationCitySuffix();
+			case 1: return personFirstName() ~ locationCitySuffix();
+			case 2: return locationCityPrefix() ~ personLastName() ~ locationCitySuffix();
+			case 3: return personLastName() ~ locationCitySuffix();
+		}
+		return "";
 	}
 
 	override string locationCityPrefix() {
@@ -84,6 +103,13 @@ class Faker_ja : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{###-####}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string locationState() {
 		const string[] strs =
 		[ q"{北海道}", q"{青森県}", q"{岩手県}", q"{宮城県}", q"{秋田県}", q"{山形県}"
@@ -109,7 +135,11 @@ class Faker_ja : Faker {
 	}
 
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ locationStreetSuffix();
+			case 1: return personLastName() ~ locationStreetSuffix();
+		}
+		return "";
 	}
 
 	override string loremWords() {
@@ -358,6 +388,16 @@ class Faker_ja : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personLastName();
+		}
+
+		return "";
+	}
+
 	override string personMaleFirstName() {
 		const string[] strs =
 		[ q"{正一}", q"{正二}", q"{正三}", q"{清}", q"{辰雄}", q"{三郎}", q"{昭二}", q"{昭三}"
@@ -378,6 +418,23 @@ class Faker_ja : Faker {
 		, q"{優}", q"{雄大}", q"{康平}", q"{智也}", q"{竜}", q"{悠希}", q"{歩夢}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string personName() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personLastName() ~ " " ~ personFirstName();
+		}
+
+		return "";
+	}
+
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{0####-#-####}", q"{0###-##-####}", q"{0##-###-####}", q"{0#-####-####}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 }

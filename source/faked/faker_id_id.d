@@ -7,6 +7,8 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_id_id : Faker {
@@ -16,7 +18,12 @@ class Faker_id_id : Faker {
 	}
 
 	override string companyNamePattern() {
-		assert(false);
+		final switch(uniform(0, 3, this.rnd)) {
+			case 0: return companyPrefix() ~ " " ~ personLastName();
+			case 1: return personLastName() ~ " " ~ companySuffix();
+			case 2: return companyPrefix() ~ " " ~ personLastName() ~ " " ~ companySuffix();
+		}
+		return "";
 	}
 
 	override string companySuffix() {
@@ -72,6 +79,13 @@ class Faker_id_id : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationBuildingNumber() {
+		const string[] strs =
+		[ q"{##}", q"{#}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string locationCityName() {
 		const string[] strs =
 		[ q"{Airmadidi}", q"{Ampana}", q"{Amurang}", q"{Andolo}", q"{Banggai}", q"{Bantaeng}", q"{Barru}"
@@ -112,7 +126,10 @@ class Faker_id_id : Faker {
 	}
 
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName();
+		}
+		return "";
 	}
 
 	override string locationDefaultCountry() {
@@ -120,6 +137,13 @@ class Faker_id_id : Faker {
 		[ q"{Indonesia}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{#####}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string locationState() {
@@ -136,8 +160,25 @@ class Faker_id_id : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationStreetAddress() {
+		const LocationStreetAddressEnum[] enums = [ LocationStreetAddressEnum.normal, LocationStreetAddressEnum.full ];
+		return locationStreetAddress(choice(enums, this.rnd));
+	}
+
+	override string locationStreetAddress(LocationStreetAddressEnum which) {
+		final switch(which) {
+			case LocationStreetAddressEnum.normal: return locationStreet() ~ " no " ~ locationBuildingNumber();
+			case LocationStreetAddressEnum.full: return locationStreet() ~ " no " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
+		}
+		return "";
+	}
+
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return locationStreetPrefix() ~ " " ~ personFirstName();
+			case 1: return locationStreetPrefix() ~ " " ~ personLastName();
+		}
+		return "";
 	}
 
 	override string personFemaleFirstName() {
@@ -346,6 +387,22 @@ class Faker_id_id : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personName() {
+		const int rndInt = uniform(0, 3, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personFirstName() ~ " " ~ personLastName();
+		}
+		if(rndInt >= 1 && rndInt < 2) {
+			return personLastName() ~ " " ~ personFirstName();
+		}
+		if(rndInt >= 2 && rndInt < 3) {
+			return personFirstName() ~ " " ~ personFirstName() ~ " " ~ personLastName();
+		}
+
+		return "";
+	}
+
 	override string personSuffix() {
 		const string[] strs =
 		[ q"{S.Ked}", q"{S.Gz}", q"{S.Pt}", q"{S.IP}", q"{S.E.I}", q"{S.E.}", q"{S.Kom}", q"{S.H.}", q"{S.T.}"
@@ -353,6 +410,21 @@ class Faker_id_id : Faker {
 		, q"{M.Pd}", q"{M.Farm}", q"{M.Ak}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{02# #### ###}", q"{02## #### ###}", q"{03## #### ###}", q"{04## #### ###}", q"{05## #### ###}"
+		, q"{06## #### ###}", q"{07## #### ###}", q"{09## #### ###}", q"{02# #### ####}", q"{02## #### ####}"
+		, q"{03## #### ####}", q"{04## #### ####}", q"{05## #### ####}", q"{06## #### ####}", q"{07## #### ####}"
+		, q"{09## #### ####}", q"{08## ### ###}", q"{08## #### ###}", q"{08## #### ####}", q"{(+62) 8## ### ###}"
+		, q"{(+62) 2# #### ###}", q"{(+62) 2## #### ###}", q"{(+62) 3## #### ###}", q"{(+62) 4## #### ###}"
+		, q"{(+62) 5## #### ###}", q"{(+62) 6## #### ###}", q"{(+62) 7## #### ###}", q"{(+62) 8## #### ###}"
+		, q"{(+62) 9## #### ###}", q"{(+62) 2# #### ####}", q"{(+62) 2## #### ####}", q"{(+62) 3## #### ####}"
+		, q"{(+62) 4## #### ####}", q"{(+62) 5## #### ####}", q"{(+62) 6## #### ####}", q"{(+62) 7## #### ####}"
+		, q"{(+62) 8## #### ####}", q"{(+62) 9## #### ####}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 }

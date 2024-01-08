@@ -7,6 +7,8 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_en_au : Faker {
@@ -29,8 +31,21 @@ class Faker_en_au : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationBuildingNumber() {
+		const string[] strs =
+		[ q"{####}", q"{###}", q"{##}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 4, this.rnd)) {
+			case 0: return locationCityPrefix() ~ " " ~ personFirstName() ~ locationCitySuffix();
+			case 1: return locationCityPrefix() ~ " " ~ personFirstName();
+			case 2: return personFirstName() ~ locationCitySuffix();
+			case 3: return personLastName() ~ locationCitySuffix();
+		}
+		return "";
 	}
 
 	override string locationDefaultCountry() {
@@ -38,6 +53,13 @@ class Faker_en_au : Faker {
 		[ q"{Australia}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{####}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string locationState() {
@@ -56,7 +78,11 @@ class Faker_en_au : Faker {
 	}
 
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+		}
+		return "";
 	}
 
 	override string locationStreetSuffix() {
@@ -164,6 +190,19 @@ class Faker_en_au : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 100, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 95) {
+			return personLastName();
+		}
+		if(rndInt >= 95 && rndInt < 100) {
+			return personLastName() ~ "-" ~ personLastName();
+		}
+
+		return "";
+	}
+
 	override string personMaleFirstName() {
 		const string[] strs =
 		[ q"{William}", q"{Jack}", q"{Oliver}", q"{Joshua}", q"{Thomas}", q"{Lachlan}", q"{Cooper}", q"{Noah}"
@@ -181,6 +220,13 @@ class Faker_en_au : Faker {
 		, q"{Sam}", q"{John}", q"{Joel}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{0# #### ####}", q"{+61 # #### ####}", q"{04## ### ###}", q"{+61 4## ### ###}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 }

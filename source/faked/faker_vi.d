@@ -7,6 +7,8 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_vi : Faker {
@@ -15,8 +17,18 @@ class Faker_vi : Faker {
 		super(seed);
 	}
 
+	override string cellPhoneFormats() {
+		const string[] strs =
+		[ q"{03# ### ####}", q"{05# ### ####}", q"{07# ### ####}", q"{08# ### ####}", q"{09# ### ####}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string companyNamePattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return companyPrefix() ~ " " ~ personLastName();
+		}
+		return "";
 	}
 
 	override string dateMonthWide() {
@@ -71,7 +83,10 @@ class Faker_vi : Faker {
 	}
 
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 1, this.rnd)) {
+			case 0: return locationCityName();
+		}
+		return "";
 	}
 
 	override string locationCountry() {
@@ -118,6 +133,13 @@ class Faker_vi : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{#####}" ];
+
+		return numberBuild(choice(str, this.rnd));
+	}
+
 	override string locationState() {
 		const string[] strs =
 		[ q"{An Giang}", q"{Bà Rịa-Vũng Tàu}", q"{Bắc Giang}", q"{Bắc Kạn}", q"{Bạc Liêu}"
@@ -137,7 +159,11 @@ class Faker_vi : Faker {
 	}
 
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+		}
+		return "";
 	}
 
 	override string loremWords() {
@@ -890,6 +916,16 @@ class Faker_vi : Faker {
 		return choice(strs, this.rnd);
 	}
 
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personLastName();
+		}
+
+		return "";
+	}
+
 	override string personMaleFirstName() {
 		const string[] strs =
 		[ q"{An Cơ}", q"{An Khang}", q"{Ân Lai}", q"{An Nam}", q"{An Nguyên}", q"{An Ninh}", q"{An Tâm}"
@@ -1130,6 +1166,23 @@ class Faker_vi : Faker {
 		, q"{Yên Sơn}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string personName() {
+		const int rndInt = uniform(0, 1, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 1) {
+			return personFirstName() ~ " " ~ personLastName();
+		}
+
+		return "";
+	}
+
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{02# #### ####}", q"{02## #### ####}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 }

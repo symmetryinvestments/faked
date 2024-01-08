@@ -7,6 +7,8 @@ import std.conv : to;
 import std.string : toUpper;
 import std.range : iota, take, repeat;
 import std.algorithm : map, joiner;
+
+import faker.customtypes;
 import faker.base;
 
 class Faker_en_ca : Faker {
@@ -74,7 +76,14 @@ class Faker_en_ca : Faker {
 	}
 
 	override string locationCityPattern() {
-		assert(false);
+		final switch(uniform(0, 5, this.rnd)) {
+			case 0: return locationCityPrefix() ~ " " ~ personFirstName() ~ locationCitySuffix();
+			case 1: return locationCityPrefix() ~ " " ~ personFirstName();
+			case 2: return personFirstName() ~ locationCitySuffix();
+			case 3: return personLastName() ~ locationCitySuffix();
+			case 4: return locationCityName();
+		}
+		return "";
 	}
 
 	override string locationDefaultCountry() {
@@ -82,6 +91,15 @@ class Faker_en_ca : Faker {
 		[ q"{Canada}" ];
 
 		return choice(strs, this.rnd);
+	}
+
+	override string locationPostcode() {
+		const string[] strs =
+		[ q"{A#? #?#}", q"{B#? #?#}", q"{C#? #?#}", q"{E#? #?#}", q"{G#? #?#}", q"{H#? #?#}", q"{J#? #?#}"
+		, q"{K#? #?#}", q"{L#? #?#}", q"{M#? #?#}", q"{N#? #?#}", q"{P#? #?#}", q"{R#? #?#}", q"{S#? #?#}"
+		, q"{T#? #?#}", q"{V#? #?#}", q"{X#? #?#}", q"{Y#? #?#}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 	override string locationState() {
@@ -101,7 +119,34 @@ class Faker_en_ca : Faker {
 	}
 
 	override string locationStreetPattern() {
-		assert(false);
+		final switch(uniform(0, 2, this.rnd)) {
+			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
+			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+		}
+		return "";
+	}
+
+	override string personLastNamePattern() {
+		const int rndInt = uniform(0, 100, this.rnd);
+
+		if(rndInt >= 0 && rndInt < 95) {
+			return personLastName();
+		}
+		if(rndInt >= 95 && rndInt < 100) {
+			return personLastName() ~ "-" ~ personLastName();
+		}
+
+		return "";
+	}
+
+	override string phoneNumberFormats() {
+		const string[] strs =
+		[ q"{!##-!##-####}", q"{(!##)!##-####}", q"{!##.!##.####}", q"{1-!##-###-####}", q"{!##-!##-#### x###}"
+		, q"{(!##)!##-#### x###}", q"{1-!##-!##-#### x###}", q"{!##.!##.#### x###}", q"{!##-!##-#### x####}"
+		, q"{(!##)!##-#### x####}", q"{1-!##-!##-#### x####}", q"{!##.!##.#### x####}", q"{!##-!##-#### x#####}"
+		, q"{(!##)!##-#### x#####}", q"{1-!##-!##-#### x#####}", q"{!##.!##.#### x#####}" ];
+
+		return numberBuild(choice(str, this.rnd));
 	}
 
 }
