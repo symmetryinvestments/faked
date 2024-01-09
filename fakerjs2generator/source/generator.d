@@ -3,6 +3,7 @@ module generator;
 import std.array : array, appender, replace;
 import std.algorithm.iteration : filter, fold, joiner, map, splitter;
 import std.algorithm.searching : any, canFind, endsWith, startsWith;
+import std.algorithm.sorting : sort;
 import std.exception : enforce;
 import std.conv : to;
 import std.uni : toUpper , toLower;
@@ -18,7 +19,42 @@ import std.sumtype;
 import helper;
 import defis;
 
-void generateForward(JsonFile bs, string[] langs) {
+void generatePackage(string[] langs) {
+	auto f = File("../source/faked/package.d", "w");
+	f.writefln(`module faked;
+
+public import faked.customtypes;
+public import faked.fakerenums;
+public import faked.faker_base;
+public import faked.faker_en;
+` ~ "%--(public import faked.faker_%s;\n%);\n", langs.map!(l => l.toLower()));
+}
+
+void generateUnittest(JsonFile bs, JsonFile en, string[] langs, string[] funcs) {
+	auto f = File("../source/faked/tests.d", "w");
+	f.writefln(`module faked.tests;
+
+import faked.customtypes;
+import faked.fakerenums;
+import faked.faker_base;
+import faked.faker_en;
+` ~ "%--(import faked.faker_%s;\n%);\n", langs.map!(l => l.toLower()));
+
+	foreach(l; langs.map!(it => it.toLower())) {
+		f.writefln(`unittest {
+	auto f = new Faker_%s(13);
+`, l);
+		auto ltw = f.lockingTextWriter();
+		foreach(fu; funcs) {
+			iformat(ltw, 1, "foreach(i; 0 .. 4) {\n");
+			iformat(ltw, 2, "f.%s();\n", fu);
+			iformat(ltw, 1, "}\n");
+		}
+		f.writeln("}");
+	}
+}
+
+void generateForward(JsonFile bs, JsonFile en, string[] langs) {
 	auto f = File("../source/faked/fakerforwarder.d", "w");
 	f.writefln(`module faked.fakerforwarder;
 
@@ -37,6 +73,57 @@ class FakerForwarder {
 	this(int seed = 1338) {
 		this.rnd = Random(seed);
 	}
+
+	string companyName() {
+		return choice(this.toPassThrough, this.rnd).companyName();
+	}
+	final string internetEmoji() {
+		return choice(this.toPassThrough, this.rnd).internetEmoji();
+	}
+
+	final string locationCity() {
+		return choice(this.toPassThrough, this.rnd).locationCity();
+	}
+
+	final string personJobDescriptor() {
+		return choice(this.toPassThrough, this.rnd).personJobDescriptor();
+	}
+
+	final string personJobType() {
+		return choice(this.toPassThrough, this.rnd).personJobType();
+	}
+
+	final string personJobArea() {
+		return choice(this.toPassThrough, this.rnd).personJobArea();
+	}
+
+    final string companyCatchPhrase() {
+		return choice(this.toPassThrough, this.rnd).companyCatchPhrase();
+	}
+
+    final string phoneNumber() {
+		return choice(this.toPassThrough, this.rnd).phoneNumber();
+	}
+
+    final string loremText(size_t length = size_t.max) {
+		return choice(this.toPassThrough, this.rnd).loremText(length);
+	}
+
+    final string loremParagraphs(size_t length = size_t.max) {
+		return choice(this.toPassThrough, this.rnd).loremParagraphs(length);
+	}
+
+    final string loremParagraph(size_t length = size_t.max) {
+		return choice(this.toPassThrough, this.rnd).loremParagraph(length);
+	}
+
+    final string loremSentance(size_t length = size_t.max) {
+		return choice(this.toPassThrough, this.rnd).loremSentance(length);
+	}
+
+    final string loremSentances(size_t length = size_t.max) {
+		return choice(this.toPassThrough, this.rnd).loremSentances(length);
+	}
 `
 	, langs.map!(l => "import faked.faker_" ~ l.toLower() ~ ";")
 	, langs.map!(l => "new Faker_" ~ l.toLower() ~ "(1337)")
@@ -44,6 +131,7 @@ class FakerForwarder {
 
 	auto ltw = f.lockingTextWriter();
 	traverseFwd(bs.data, ltw, []);
+	traverseFwd(en.data, ltw, []);
 
 	f.writeln("}");
 }
@@ -71,43 +159,43 @@ void traverseFwd(T,Out)(T t, ref Out o, string[] path) {
 					, ptfn);
 		} else static if(is(T == Mustache[])) {
 			iformat(o, 1, "final string %s() {\n", ptfn);
-			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+			iformat(o, 2, "return choice(this.toPassThrough, this.rnd).%s();\n\t}\n\n"
 					, ptfn);
 		} else static if(is(T == Airplane[])) {
-			iformat(o, 1, "final Airline %s() {\n", ptfn);
-			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+			iformat(o, 1, "final Airplane %s() {\n", ptfn);
+			iformat(o, 2, "return choice(this.toPassThrough, this.rnd).%s();\n\t}\n\n"
 					, ptfn);
 		} else static if(is(T == Airport[])) {
 			iformat(o, 1, "final Airport %s() {\n", ptfn);
-			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+			iformat(o, 2, "return choice(this.toPassThrough, this.rnd).%s();\n\t}\n\n"
 					, ptfn);
 		} else static if(is(T == Currency[])) {
 			iformat(o, 1, "final Currency %s() {\n", ptfn);
-			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+			iformat(o, 2, "return choice(this.toPassThrough, this.rnd).%s();\n\t}\n\n"
 					, ptfn);
 		} else static if(is(T == ChemicalUnit[])) {
 			iformat(o, 1, "final ChemicalUnit %s() {\n", ptfn);
-			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+			iformat(o, 2, "return choice(this.toPassThrough, this.rnd).%s();\n\t}\n\n"
 					, ptfn);
 		} else static if(is(T == ChemicalElement[])) {
 			iformat(o, 1, "final ChemicalElement %s() {\n", ptfn);
-			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+			iformat(o, 2, "return choice(this.toPassThrough, this.rnd).%s();\n\t}\n\n"
 					, ptfn);
 		} else static if(is(T == Airline[])) {
 			iformat(o, 1, "final Airline %s() {\n", ptfn);
-			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+			iformat(o, 2, "return choice(this.toPassThrough, this.rnd).%s();\n\t}\n\n"
 					, ptfn);
 		} else static if(is(T == MustacheWeight[])) {
 			iformat(o, 1, "final string %s() {\n", ptfn);
-			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+			iformat(o, 2, "return choice(this.toPassThrough, this.rnd).%s();\n\t}\n\n"
 					, ptfn);
 		} else static if(is(T == Mustache[string])) {
 			iformat(o, 1, "final string %s() {\n", ptfn);
-			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+			iformat(o, 2, "return choice(this.toPassThrough, this.rnd).%s();\n\t}\n\n"
 					, ptfn);
 		} else static if(is(T == Number[])) {
 			iformat(o, 1, "final string %s() {\n", ptfn);
-			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+			iformat(o, 2, "return choice(this.toPassThrough, this.rnd).%s();\n\t}\n\n"
 					, ptfn);
 		} else {
 			writefln("Unhandled %s", T.stringof);
@@ -636,6 +724,108 @@ class Faker_%1$s%2$s {
 	string companyName() {
 		return companyNamePattern();
 	}
+
+    string loremSentance(size_t length = size_t.max) {
+		import std.algorithm : copy;
+        length = length == size_t.max || length == 0
+            ? uniform(3, 10, this.rnd)
+            : length;
+        auto app = appender!string();
+		copy(iota(length).map!(a => loremWords).joiner(" "), app);
+        //foreach(it; 0 .. length) {
+        //    app.put(loremWords());
+        //    app.put(" ");
+        //}
+        switch(uniform(0, 15, this.rnd)) {
+            case 0: app.put("!"); break;
+            case 1: app.put("?"); break;
+            default: app.put("."); break;
+        }
+
+        string ret = app.data;
+        string f = to!string(toUpper(ret.front));
+        ret.popFront();
+        return f ~ ret;
+    }
+
+	///
+    string loremSentances(size_t length = size_t.max) {
+        import std.algorithm : map, joiner;
+        import std.range : iota;
+        import std.conv : to;
+        length = length == size_t.max || length == 0
+            ? uniform(2, 6, this.rnd)
+            : length;
+
+        return iota(length)
+            .map!(a => loremSentance())
+            .joiner(" ")
+            .to!string();
+    }
+
+	///
+    string loremParagraph(size_t length = size_t.max) {
+        length = length == size_t.max || length == 0
+            ? uniform(2, 6, this.rnd)
+            : length;
+
+        return loremSentances(length + uniform(0, 3, this.rnd));
+    }
+
+	///
+    string loremParagraphs(size_t length = size_t.max) {
+        import std.algorithm : map, joiner;
+        import std.range : iota;
+
+        length = length == size_t.max || length == 0
+            ? uniform(2, 6, this.rnd)
+            : length;
+        return iota(length)
+            .map!(a => loremParagraph())
+            .joiner("\n")
+            .to!string();
+    }
+
+	///
+    string loremText(size_t length = size_t.max) {
+        length = length == size_t.max || length == 0
+            ? uniform(2, 6, this.rnd)
+            : length;
+
+        auto app = appender!string();
+        foreach(it; 0 .. length) {
+            switch(uniform(0, 4, this.rnd)) {
+                case 0:
+                    app.put(loremWords());
+                    continue;
+                case 1:
+                    app.put(loremParagraph());
+                    continue;
+                case 2:
+                    app.put(loremSentance());
+                    continue;
+                case 3:
+                    app.put(loremSentances());
+                    continue;
+                default:
+                    assert(false);
+            }
+        }
+
+        return app.data();
+    }
+
+	///
+    string phoneNumber() {
+        return this.numberBuild(this.phoneNumberFormats());
+    }
+
+	///
+    string companyCatchPhrase() {
+        return companyAdjective() ~ " "
+            ~ companyDescriptor() ~ " "
+            ~ companyNoun();
+    }
 `);
 		}
 	}

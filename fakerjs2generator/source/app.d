@@ -1,6 +1,6 @@
 import std.array;
 import std.stdio;
-import std.algorithm.iteration : filter;
+import std.algorithm.iteration : filter, uniq;
 import std.algorithm.sorting : sort;
 import std.file : DirEntry, dirEntries, SpanMode, readText;
 import std.string : lastIndexOf;
@@ -49,7 +49,18 @@ void main() {
 		}
 		f.writeln("}");
 	}
-	generateForward(bs, langs);
+	generateForward(bs, en, langs);
+	string[] funcs = ([ "companyName", "internetEmoji", "locationCity"
+		, "personJobDescriptor", "personJobType", "personJobArea"
+		, "companyCatchPhrase", "phoneNumber", "loremText", "loremParagraphs"
+		, "loremParagraph", "loremSentance", "loremSentances" ]
+		~ methodsOfLang["base"] ~ methodsOfLang["en"])
+		.sort
+		.array
+		.uniq
+		.array;
+	generateUnittest(bs, en, langs, funcs);
+	generatePackage(langs);
 }
 
 JsonFile buildBase(Out)(string fn, ref string[][string] methodsOfBaseClass
