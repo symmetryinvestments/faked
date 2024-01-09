@@ -872,11 +872,11 @@ class Faker_fr : Faker_en {
 	}
 
 	override string companyNamePattern() {
-		final switch(uniform(0, 2, this.rnd)) {
+		switch(uniform(0, 2, this.rnd)) {
 			case 0: return personLastName() ~ " " ~ companySuffix();
 			case 1: return personLastName() ~ " et " ~ personLastName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string companySuffix() {
@@ -925,7 +925,7 @@ class Faker_fr : Faker_en {
 	}
 
 	override Currency financeCurrency() {
-		final switch(uniform(0, 86, this.rnd)) {
+		switch(uniform(0, 86, this.rnd)) {
 			case 0: return Currency(q"{Dollar}", q"{USD}", q"{$}");
 			case 1: return Currency(q"{Dollar canadien}", q"{CAD}", q"{$}");
 			case 2: return Currency(q"{Peso mexicain}", q"{MXN}", q"{$}");
@@ -1012,8 +1012,8 @@ class Faker_fr : Faker_en {
 			case 83: return Currency(q"{Ethereum}", q"{ETH}", q"{Ξ}");
 			case 84: return Currency(q"{Litecoin}", q"{LTC}", q"{Ł}");
 			case 85: return Currency(q"{Ripples}", q"{XRP}", q"{XRP}");
+			default: return Currency("","","");
 		}
-		return Currency("", "", "");
 	}
 
 	override string financeTransactionType() {
@@ -1068,10 +1068,10 @@ class Faker_fr : Faker_en {
 	}
 
 	override string locationCityPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationCountry() {
@@ -1157,18 +1157,18 @@ class Faker_fr : Faker_en {
 	}
 
 	override string locationStreetAddress(LocationStreetAddressEnum which) {
-		final switch(which) {
+		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationBuildingNumber() ~ " " ~ locationStreet();
 			case LocationStreetAddressEnum.full: return locationBuildingNumber() ~ " " ~ locationStreet() ~ " " ~ locationSecondaryAddress();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationStreetPrefix() ~ " " ~ locationStreetSuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetSuffix() {
@@ -1458,10 +1458,10 @@ class Faker_fr : Faker_en {
 	}
 
 	override string personJobTitlePattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return personJobType() ~ " " ~ personJobArea() ~ " " ~ personJobDescriptor();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string personLastName() {

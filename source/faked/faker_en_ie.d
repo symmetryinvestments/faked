@@ -37,13 +37,13 @@ class Faker_en_ie : Faker_en {
 	}
 
 	override string locationCityPattern() {
-		final switch(uniform(0, 4, this.rnd)) {
+		switch(uniform(0, 4, this.rnd)) {
 			case 0: return locationCityPrefix() ~ " " ~ personFirstName() ~ locationCitySuffix();
 			case 1: return locationCityPrefix() ~ " " ~ personFirstName();
 			case 2: return personFirstName() ~ locationCitySuffix();
 			case 3: return personLastName() ~ locationCitySuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationCounty() {
@@ -72,11 +72,11 @@ class Faker_en_ie : Faker_en {
 	}
 
 	override string locationStreetPattern() {
-		final switch(uniform(0, 2, this.rnd)) {
+		switch(uniform(0, 2, this.rnd)) {
 			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
 			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string personLastNamePattern() {

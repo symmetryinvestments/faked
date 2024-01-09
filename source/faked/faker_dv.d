@@ -40,14 +40,14 @@ class Faker_dv : Faker_en {
 	}
 
 	override string companyNamePattern() {
-		final switch(uniform(0, 5, this.rnd)) {
+		switch(uniform(0, 5, this.rnd)) {
 			case 0: return personFirstName() ~ " " ~ companySuffix();
 			case 1: return personLastName() ~ " " ~ companySuffix();
 			case 2: return personLastName() ~ " & " ~ personLastName() ~ " " ~ companyNoun() ~ " " ~ companySuffix();
 			case 3: return companyAdjective() ~ " " ~ companyNoun() ~ " " ~ companySuffix();
 			case 4: return companyAdjective() ~ " " ~ personLastName() ~ " " ~ personLastName() ~ " " ~ companySuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string companyNoun() {
@@ -129,15 +129,15 @@ class Faker_dv : Faker_en {
 	}
 
 	override string locationCityPattern() {
-		final switch(uniform(0, 6, this.rnd)) {
+		switch(uniform(0, 6, this.rnd)) {
 			case 0: return locationCityPrefix() ~ " " ~ companyNoun() ~ locationCitySuffix();
 			case 1: return companyAdjective() ~ companyNoun() ~ locationCitySuffix();
 			case 2: return locationCityPrefix() ~ " " ~ personFirstName();
 			case 3: return personFirstName() ~ locationCitySuffix();
 			case 4: return personLastName() ~ locationCitySuffix();
 			case 5: return locationCityName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationCityPrefix() {
@@ -169,12 +169,12 @@ class Faker_dv : Faker_en {
 	}
 
 	override string locationStreetPattern() {
-		final switch(uniform(0, 3, this.rnd)) {
+		switch(uniform(0, 3, this.rnd)) {
 			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
 			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
 			case 2: return companyAdjective() ~ " " ~ companyNoun() ~ " " ~ locationStreetSuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetSuffix() {

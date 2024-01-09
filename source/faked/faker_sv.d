@@ -61,12 +61,12 @@ class Faker_sv : Faker_en {
 	}
 
 	override string companyNamePattern() {
-		final switch(uniform(0, 3, this.rnd)) {
+		switch(uniform(0, 3, this.rnd)) {
 			case 0: return personLastName() ~ " " ~ companySuffix();
 			case 1: return personLastName() ~ "-" ~ personLastName();
 			case 2: return personLastName() ~ ", " ~ personLastName() ~ " " ~ companySuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string companySuffix() {
@@ -121,10 +121,10 @@ class Faker_sv : Faker_en {
 	}
 
 	override string locationCityPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityPrefix() ~ locationCitySuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationCityPrefix() {
@@ -220,11 +220,11 @@ class Faker_sv : Faker_en {
 	}
 
 	override string locationStreetAddress(LocationStreetAddressEnum which) {
-		final switch(which) {
+		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationStreet() ~ " " ~ locationBuildingNumber();
 			case LocationStreetAddressEnum.full: return locationStreet() ~ " " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetName() {
@@ -238,13 +238,13 @@ class Faker_sv : Faker_en {
 	}
 
 	override string locationStreetPattern() {
-		final switch(uniform(0, 4, this.rnd)) {
+		switch(uniform(0, 4, this.rnd)) {
 			case 0: return locationStreetName() ~ locationStreetSuffix();
 			case 1: return locationStreetPrefix() ~ " " ~ locationStreetName() ~ locationStreetSuffix();
 			case 2: return personFirstName() ~ locationCommonStreetSuffix();
 			case 3: return personLastName() ~ locationCommonStreetSuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetSuffix() {
@@ -454,10 +454,10 @@ class Faker_sv : Faker_en {
 	}
 
 	override string teamName() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCity() ~ " " ~ teamSuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 }

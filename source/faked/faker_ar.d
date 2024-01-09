@@ -134,10 +134,10 @@ class Faker_ar : Faker_en {
 	}
 
 	override string locationCityPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationCountry() {
@@ -261,19 +261,19 @@ class Faker_ar : Faker_en {
 	}
 
 	override string locationStreetAddress(LocationStreetAddressEnum which) {
-		final switch(which) {
+		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationBuildingNumber() ~ " " ~ locationStreet();
 			case LocationStreetAddressEnum.full: return locationBuildingNumber() ~ " " ~ locationStreet() ~ " " ~ locationSecondaryAddress();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetPattern() {
-		final switch(uniform(0, 2, this.rnd)) {
+		switch(uniform(0, 2, this.rnd)) {
 			case 0: return locationStreetPrefix() ~ " " ~ personFirstName();
 			case 1: return locationStreetPrefix() ~ " " ~ personLastName();
+			default: return "";
 		}
-		return "";
 	}
 
 	string locationStreetPrefix() {
@@ -669,10 +669,10 @@ class Faker_ar : Faker_en {
 	}
 
 	override string teamName() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationState() ~ " " ~ teamCreature();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string vehicleFuel() {

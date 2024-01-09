@@ -22,11 +22,11 @@ class Faker_el : Faker_en {
 	}
 
 	override string appAuthor() {
-		final switch(uniform(0, 2, this.rnd)) {
+		switch(uniform(0, 2, this.rnd)) {
 			case 0: return personName();
 			case 1: return companyName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string appName() {
@@ -193,12 +193,12 @@ class Faker_el : Faker_en {
 	}
 
 	override string companyNamePattern() {
-		final switch(uniform(0, 3, this.rnd)) {
+		switch(uniform(0, 3, this.rnd)) {
 			case 0: return personLastName() ~ " " ~ companySuffix();
 			case 1: return personLastName() ~ "-" ~ personLastName();
 			case 2: return personLastName() ~ ", " ~ personLastName() ~ " and " ~ personLastName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string companyNoun() {
@@ -270,10 +270,10 @@ class Faker_el : Faker_en {
 	}
 
 	override Currency financeCurrency() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return Currency(q"{Ευρώ}", q"{EUR}", q"{€}");
+			default: return Currency("","","");
 		}
-		return Currency("", "", "");
 	}
 
 	override string financeTransactionType() {
@@ -358,10 +358,10 @@ class Faker_el : Faker_en {
 	}
 
 	override string locationCityPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationDefaultCountry() {
@@ -372,11 +372,11 @@ class Faker_el : Faker_en {
 	}
 
 	override string locationStreetPattern() {
-		final switch(uniform(0, 2, this.rnd)) {
+		switch(uniform(0, 2, this.rnd)) {
 			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
 			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string loremWords() {
@@ -634,10 +634,10 @@ class Faker_el : Faker_en {
 	}
 
 	override string teamName() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationState() ~ " " ~ teamCreature();
+			default: return "";
 		}
-		return "";
 	}
 
 }

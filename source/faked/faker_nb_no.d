@@ -31,12 +31,12 @@ class Faker_nb_no : Faker_en {
 	}
 
 	override string companyNamePattern() {
-		final switch(uniform(0, 3, this.rnd)) {
+		switch(uniform(0, 3, this.rnd)) {
 			case 0: return personLastName() ~ " " ~ companySuffix();
 			case 1: return personLastName() ~ "-" ~ personLastName();
 			case 2: return personLastName() ~ ", " ~ personLastName() ~ " og " ~ personLastName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string companySuffix() {
@@ -69,10 +69,10 @@ class Faker_nb_no : Faker_en {
 	}
 
 	override string locationCityPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityName() ~ locationCitySuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationCitySuffix() {
@@ -118,11 +118,11 @@ class Faker_nb_no : Faker_en {
 	}
 
 	override string locationStreetAddress(LocationStreetAddressEnum which) {
-		final switch(which) {
+		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationStreet() ~ " " ~ locationBuildingNumber();
 			case LocationStreetAddressEnum.full: return locationStreet() ~ " " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetName() {
@@ -136,13 +136,13 @@ class Faker_nb_no : Faker_en {
 	}
 
 	override string locationStreetPattern() {
-		final switch(uniform(0, 4, this.rnd)) {
+		switch(uniform(0, 4, this.rnd)) {
 			case 0: return locationStreetName() ~ locationStreetSuffix();
 			case 1: return locationStreetPrefix() ~ " " ~ locationStreetName() ~ locationStreetSuffix();
 			case 2: return personFirstName() ~ locationCommonStreetSuffix();
 			case 3: return personLastName() ~ locationCommonStreetSuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetSuffix() {
@@ -300,7 +300,7 @@ class Faker_nb_no : Faker_en {
 	}
 
 	override ChemicalElement scienceChemicalElement() {
-		final switch(uniform(0, 118, this.rnd)) {
+		switch(uniform(0, 118, this.rnd)) {
 			case 0: return ChemicalElement(q"{H}", q"{Hydrogen}", 1);
 			case 1: return ChemicalElement(q"{He}", q"{Helium}", 2);
 			case 2: return ChemicalElement(q"{Li}", q"{Litium}", 3);
@@ -419,12 +419,12 @@ class Faker_nb_no : Faker_en {
 			case 115: return ChemicalElement(q"{Lv}", q"{Livermorium}", 116);
 			case 116: return ChemicalElement(q"{Ts}", q"{Tenness}", 117);
 			case 117: return ChemicalElement(q"{Og}", q"{Oganesson}", 118);
+			default: return ChemicalElement("","");
 		}
-		return ChemicalElement("", "", 0);
 	}
 
 	override ChemicalUnit scienceUnit() {
-		final switch(uniform(0, 22, this.rnd)) {
+		switch(uniform(0, 22, this.rnd)) {
 			case 0: return ChemicalUnit(q"{meter}", q"{m}");
 			case 1: return ChemicalUnit(q"{sekund}", q"{s}");
 			case 2: return ChemicalUnit(q"{mole}", q"{mol}");
@@ -447,8 +447,8 @@ class Faker_nb_no : Faker_en {
 			case 19: return ChemicalUnit(q"{becquerel}", q"{Bq}");
 			case 20: return ChemicalUnit(q"{gray}", q"{Gy}");
 			case 21: return ChemicalUnit(q"{sievert}", q"{Sv}");
+			default: return ChemicalUnit("","");
 		}
-		return ChemicalUnit("", "");
 	}
 
 	override string wordAdjective() {

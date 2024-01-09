@@ -51,10 +51,10 @@ class Faker_en_au_ocker : Faker_en_au {
 	}
 
 	override string locationCityPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationDefaultCountry() {
@@ -94,10 +94,10 @@ class Faker_en_au_ocker : Faker_en_au {
 	}
 
 	override string locationStreetPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationStreetName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetSuffix() {

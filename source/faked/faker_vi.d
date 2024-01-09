@@ -29,10 +29,10 @@ class Faker_vi : Faker_en {
 	}
 
 	override string companyNamePattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return companyPrefix() ~ " " ~ personLastName();
+			default: return "";
 		}
-		return "";
 	}
 
 	string companyPrefix() {
@@ -94,10 +94,10 @@ class Faker_vi : Faker_en {
 	}
 
 	override string locationCityPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationCountry() {
@@ -170,11 +170,11 @@ class Faker_vi : Faker_en {
 	}
 
 	override string locationStreetPattern() {
-		final switch(uniform(0, 2, this.rnd)) {
+		switch(uniform(0, 2, this.rnd)) {
 			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
 			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string loremWords() {

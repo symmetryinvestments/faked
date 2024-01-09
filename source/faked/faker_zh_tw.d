@@ -60,10 +60,10 @@ class Faker_zh_tw : Faker_en {
 	}
 
 	override string locationCityPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityPrefix() ~ locationCitySuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationCityPrefix() {
@@ -118,18 +118,18 @@ class Faker_zh_tw : Faker_en {
 	}
 
 	override string locationStreetAddress(LocationStreetAddressEnum which) {
-		final switch(which) {
+		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationStreet() ~ locationBuildingNumber() ~ "號";
 			case LocationStreetAddressEnum.full: return locationStreet() ~ locationBuildingNumber() ~ "號 " ~ locationSecondaryAddress();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return personLastName() ~ locationStreetSuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetSuffix() {
