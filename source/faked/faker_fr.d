@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -860,6 +861,16 @@ class Faker_fr : Faker_en {
 		return choice(strs, this.rnd);
 	}
 
+	override string commerceDepartment() {
+		const string[] strs =
+		[ q"{Livres}", q"{Films}", q"{Musique}", q"{Jeux}", q"{Electronique}", q"{Ordinateurs}", q"{Maison}"
+		, q"{Jardin}", q"{Outils}", q"{Épicerie}", q"{Santé}", q"{Beauté}", q"{Jouets}", q"{Enfants}"
+		, q"{Bébé}", q"{Vêtements}", q"{Chaussures}", q"{Bijoux}", q"{Sports}", q"{Plein air}", q"{Automobile}"
+		, q"{Industrie}" ];
+
+		return choice(strs, this.rnd);
+	}
+
 	override string companyNamePattern() {
 		final switch(uniform(0, 2, this.rnd)) {
 			case 0: return personLastName() ~ " " ~ companySuffix();
@@ -1175,6 +1186,14 @@ class Faker_fr : Faker_en {
 		, q"{Saint-Honoré}", q"{Saint-Bernard}", q"{Saint-Denis}", q"{Saint-Dominique}", q"{Saint-Jacques}"
 		, q"{Saint-Séverin}", q"{des Saussaies}", q"{de Seine}", q"{de Solférino}", q"{Du Sommerard}"
 		, q"{de Tilsitt}", q"{Vaneau}", q"{de Vaugirard}", q"{de la Victoire}", q"{Zadkine}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	string locationStreetPrefix() {
+		const string[] strs =
+		[ q"{Allée}", q"{Voie}", q"{Rue}", q"{Avenue}", q"{Boulevard}", q"{Quai}", q"{Passage}", q"{Impasse}"
+		, q"{Place}" ];
 
 		return choice(strs, this.rnd);
 	}

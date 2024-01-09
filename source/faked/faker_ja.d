@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -33,6 +34,21 @@ class Faker_ja : Faker_en {
 			case 1: return personLastName() ~ companyCategory() ~ companyType();
 		}
 		return "";
+	}
+
+	string companyType() {
+		const string[] strs =
+		[ q"{株式会社}", q"{有限会社}", q"{合名会社}", q"{合資会社}", q"{合同会社}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	string companyCategory() {
+		const string[] strs =
+		[ q"{水産}", q"{農林}", q"{鉱業}", q"{建設}", q"{食品}", q"{印刷}", q"{電気}", q"{ガス}"
+		, q"{情報}", q"{通信}", q"{運輸}", q"{銀行}", q"{保険}" ];
+
+		return choice(strs, this.rnd);
 	}
 
 	override string locationCityPattern() {

@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -109,6 +110,15 @@ class Faker_ur : Faker_en {
 		, q"{بال}", q"{دستانے}", q"{پتلون}", q"{قمیص}", q"{میز}", q"{جوتے}"
 		, q"{ٹوپی}", q"{تولیہ}", q"{صابن}", q"{مچھلی}", q"{مرغ}", q"{پنیر}"
 		, q"{سلاد}", q"{سیخ کباب}", q"{پاپڑ}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	override string commerceDepartment() {
+		const string[] strs =
+		[ q"{کتابیہ}", q"{فلم}", q"{گانی}", q"{کھیل}", q"{بجلی}", q"{کمپیوٹر}"
+		, q"{گھر}", q"{باغ}", q"{اوزار}", q"{اشیاء}", q"{صحر}", q"{خوبصورتی}"
+		, q"{کھلونہ}", q"{بچے}", q"{کپڑے}", q"{جوتے}", q"{گاڑیاں}", q"{کارغانے}" ];
 
 		return choice(strs, this.rnd);
 	}

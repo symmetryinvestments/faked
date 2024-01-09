@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -51,6 +52,16 @@ class Faker_lv : Faker_en {
 		return choice(strs, this.rnd);
 	}
 
+	override string commerceDepartment() {
+		const string[] strs =
+		[ q"{Grāmatu}", q"{Filmu}", q"{Mūzikas}", q"{Spēļu}", q"{Elektronikas}", q"{Datoru}", q"{Mājas}"
+		, q"{Dārzkopības}", q"{Bakaleja}", q"{Veselības}", q"{Skaistuma}", q"{Rotaļlietu}", q"{Bērnu}"
+		, q"{Zīdaiņu}", q"{Apģerba}", q"{Apavu}", q"{Dārglietu}", q"{Sporta}", q"{Tūrisma}", q"{Auto}"
+		, q"{Rūpniecības}" ];
+
+		return choice(strs, this.rnd);
+	}
+
 	override string companyNamePattern() {
 		final switch(uniform(0, 5, this.rnd)) {
 			case 0: return companyPrefix() ~ " " ~ personMaleLastName();
@@ -65,6 +76,13 @@ class Faker_lv : Faker_en {
 	override string companySuffix() {
 		const string[] strs =
 		[ q"{un partneri}", q"{holdings}", q"{grupa}", q"{aģentūra}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	string companyPrefix() {
+		const string[] strs =
+		[ q"{SIA}", q"{AS}", q"{IU}", q"{Bezp.Org.}", q"{Firma}", q"{Biedrība}" ];
 
 		return choice(strs, this.rnd);
 	}
@@ -492,6 +510,42 @@ class Faker_lv : Faker_en {
 		return choice(strs, this.rnd);
 	}
 
+	string personFemaleLastName() {
+		const string[] strs =
+		[ q"{Aigare}", q"{Alksne}", q"{Andersone}", q"{Aspere}", q"{Auziņa}", q"{Ābele}", q"{Āboliņa}"
+		, q"{Āboltiņa}", q"{Balode}", q"{Beļavske}", q"{Bergmane}", q"{Bērziņa}", q"{Bērzīte}"
+		, q"{Birziņa}", q"{Birzniece}", q"{Bīriņa}", q"{Blaua}", q"{Blekte}", q"{Breņķe}", q"{Briede}"
+		, q"{Brunkeviča}", q"{Buile}", q"{Buša}", q"{Cauna}", q"{Cālīte}", q"{Cīrule}", q"{Čudara}"
+		, q"{Danielsone}", q"{Dīriķe}", q"{Dombrovska}", q"{Dreimane}", q"{Dzene}", q"{Eglīte}", q"{Endziņa}"
+		, q"{Fogele}", q"{Freimane}", q"{Gaile}", q"{Gailīte}", q"{Gibala}", q"{Graudiņa}", q"{Gribuste}"
+		, q"{Grīnberga}", q"{Grūba}", q"{Jansone}", q"{Jēkabsone}", q"{Jukuma}", q"{Kalēja}", q"{Kalniņa}"
+		, q"{Karlsone}", q"{Kauliņa}", q"{Kārkliņa}", q"{Kļaviņa}", q"{Koha}", q"{Koka}", q"{Krance}"
+		, q"{Krastiņa}", q"{Kraule}", q"{Krauze}", q"{Krēsliņa}", q"{Krieviņa}", q"{Krieva}", q"{Kronberga}"
+		, q"{Krūmiņa}", q"{Kulmane}", q"{Laiviņa}", q"{Landmane}", q"{Lapiņa}", q"{Lapsiņa}", q"{Lasmane}"
+		, q"{Lauberga}", q"{Lāce}", q"{Legzdiņa}", q"{Lielmane}", q"{Liepiņa}", q"{Līce}", q"{Līdaka}"
+		, q"{Loča}", q"{Lodiņa}", q"{Lūse}", q"{Matisone}", q"{Medne}", q"{Meiere}", q"{Mekša}", q"{Meldere}"
+		, q"{Melngaile}", q"{Mihailova}", q"{Miķelsone}", q"{Niedra}", q"{Ose}", q"{Ostrovska}", q"{Ozere}"
+		, q"{Ozoliņa}", q"{Ozola}", q"{Paltere}", q"{Pavlovska}", q"{Pence}", q"{Petrovska}", q"{Pērkona}"
+		, q"{Pētersone}", q"{Podziņa}", q"{Pole}", q"{Pretkalniņa}", q"{Priedīte}", q"{Puķīte}"
+		, q"{Putniņa}", q"{Riekstiņa}", q"{Romanovska}", q"{Rozenbaha}", q"{Rozīte}", q"{Rubene}"
+		, q"{Rudzīte}", q"{Runce}", q"{Salmiņa}", q"{Seržante}", q"{Sietniece}", q"{Siliņa}", q"{Sīle}"
+		, q"{Skudra}", q"{Smuģe}", q"{Sproģe}", q"{Sprūde}", q"{Strautiņa}", q"{Strautmane}", q"{Strazdiņa}"
+		, q"{Širova}", q"{Šīrante}", q"{Šmite}", q"{Šteina}", q"{Tālberga}", q"{Teicāne}", q"{Tiltiņa}"
+		, q"{Tīrele}", q"{Tuča}", q"{Ūdre}", q"{Valtere}", q"{Vasile}", q"{Vecumniece}", q"{Veinberga}"
+		, q"{Veisa}", q"{Vilka}", q"{Vilsone}", q"{Viļuma}", q"{Vintere}", q"{Vītiņa}", q"{Vītoliņa}"
+		, q"{Vītola}", q"{Vītuma}", q"{Volle}", q"{Zariņa}", q"{Zālīte}", q"{Zeidmane}", q"{Zeltiņa}"
+		, q"{Ziemele}", q"{Zībere}", q"{Zunda}", q"{Zvaigzne}", q"{Zvejniece}", q"{Zvinele}", q"{Muceniece}"
+		, q"{Dzirkale}", q"{Arāja}", q"{Sējēja}", q"{Podniece}", q"{Ratniece}", q"{Deģe}", q"{Bondare}"
+		, q"{Sondore}", q"{Namiķe}", q"{Jumiķe}", q"{Muižniece}", q"{Bajāre}", q"{Ķēniņa}", q"{Ķeizare}"
+		, q"{Barone}", q"{Vaivade}", q"{Zviedre}", q"{Vāciete}", q"{Lejiņa}", q"{Vanaga}", q"{Celma}"
+		, q"{Liepa}", q"{Kalna}", q"{Celmiņa}", q"{Lejniece}", q"{Biseniece}", q"{Kurzemniece}", q"{Sauliete}"
+		, q"{Pakalniete}", q"{Pridāne}", q"{Groduma}", q"{Kalnāja}", q"{Porgante}", q"{Sukute}", q"{Meškūna}"
+		, q"{Rožkalne}", q"{Mazjāne}", q"{Latkovska}", q"{Jankovska}", q"{Šileiko}", q"{Budreiko}"
+		, q"{Ivanova}", q"{Morozova}", q"{Logina}", q"{Gasjūne}", q"{Pauļuka}", q"{Sosāre}", q"{Meškūne}" ];
+
+		return choice(strs, this.rnd);
+	}
+
 	override string personFemalePrefix() {
 		const string[] strs =
 		[ q"{Prof.}", q"{Dr.}", q"{Biedrs}" ];
@@ -550,6 +604,44 @@ class Faker_lv : Faker_en {
 		, q"{Rūdolfs}", q"{Rūsiņš}", q"{Tālis}", q"{Tālivaldis}", q"{Tālrīts}", q"{Uģis}", q"{Valdemārs}"
 		, q"{Valentīns}", q"{Valērijs}", q"{Vilmārs}", q"{Vitālijs}", q"{Voldemārs}", q"{Zigfrīds}"
 		, q"{Zigmārs}", q"{Žanis}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	string personMaleLastName() {
+		const string[] strs =
+		[ q"{Aigars}", q"{Alksnis}", q"{Andersons}", q"{Aspers}", q"{Auziņš}", q"{Ābele}", q"{Āboliņš}"
+		, q"{Āboltiņš}", q"{Balodis}", q"{Beļavskis}", q"{Bergmanis}", q"{Bērziņš}", q"{Bērzīts}"
+		, q"{Birziņš}", q"{Birznieks}", q"{Bīriņš}", q"{Blaus}", q"{Blekte}", q"{Breņķis}", q"{Briedis}"
+		, q"{Brunkevičs}", q"{Builis}", q"{Bušs}", q"{Caune}", q"{Cālītis}", q"{Cīrulis}", q"{Čudars}"
+		, q"{Danielsons}", q"{Dīriķis}", q"{Dombrovskis}", q"{Dreimanis}", q"{Dzenis}", q"{Eglītis}"
+		, q"{Endziņš}", q"{Fogelis}", q"{Freimanis}", q"{Gailis}", q"{Gailītis}", q"{Gibala}", q"{Graudiņš}"
+		, q"{Gribusts}", q"{Grīnbergs}", q"{Grūbe}", q"{Jansons}", q"{Jēkabsons}", q"{Jukums}", q"{Kalējs}"
+		, q"{Kalniņš}", q"{Karlsons}", q"{Kauliņš}", q"{Kārkliņš}", q"{Kļaviņš}", q"{Kohs}"
+		, q"{Koks}", q"{Krancis}", q"{Krastiņš}", q"{Kraulis}", q"{Krauze}", q"{Krēsliņš}", q"{Krieviņš}"
+		, q"{Krievs}", q"{Kronbergs}", q"{Krūmiņš}", q"{Kulmanis}", q"{Laiviņš}", q"{Landmanis}"
+		, q"{Lapiņš}", q"{Lapsiņš}", q"{Lasmanis}", q"{Laubergs}", q"{Lācis}", q"{Legzdiņš}"
+		, q"{Lielmanis}", q"{Liepiņš}", q"{Līcis}", q"{Līdaks}", q"{Ločs}", q"{Lodiņš}", q"{Lūsis}"
+		, q"{Matisons}", q"{Mednis}", q"{Meiers}", q"{Mekšs}", q"{Melderis}", q"{Melngailis}", q"{Mihailovs}"
+		, q"{Miķelsons}", q"{Niedra}", q"{Osis}", q"{Ostrovskis}", q"{Ozers}", q"{Ozoliņš}", q"{Ozols}"
+		, q"{Palters}", q"{Pavlovskis}", q"{Pencis}", q"{Petrovskis}", q"{Pērkons}", q"{Pētersons}"
+		, q"{Podziņš}", q"{Polis}", q"{Pretkalniņš}", q"{Priedītis}", q"{Puķītis}", q"{Putniņš}"
+		, q"{Riekstiņš}", q"{Romanovskis}", q"{Rozenbahs}", q"{Rozītis}", q"{Rubenis}", q"{Rudzītis}"
+		, q"{Runcis}", q"{Salmiņš}", q"{Seržants}", q"{Sietnieks}", q"{Siliņš}", q"{Sīlis}", q"{Skudra}"
+		, q"{Smuģis}", q"{Sproģis}", q"{Sprūde}", q"{Strautiņš}", q"{Strautmanis}", q"{Strazdiņš}"
+		, q"{Širovs}", q"{Šīrants}", q"{Šmits}", q"{Šteins}", q"{Tālbergs}", q"{Teicāns}", q"{Tiltiņš}"
+		, q"{Tīrelis}", q"{Tučs}", q"{Ūdris}", q"{Valters}", q"{Vasils}", q"{Vecumnieks}", q"{Veinbergs}"
+		, q"{Veiss}", q"{Vilks}", q"{Vilsons}", q"{Viļums}", q"{Vinters}", q"{Vītiņš}", q"{Vītoliņš}"
+		, q"{Vītols}", q"{Vītums}", q"{Vollis}", q"{Zariņš}", q"{Zālītis}", q"{Zeidmanis}", q"{Zeltiņš}"
+		, q"{Ziemelis}", q"{Zībers}", q"{Zunda}", q"{Zvaigzne}", q"{Zvejnieks}", q"{Zvinelis}", q"{Mucenieks}"
+		, q"{Dzirkalis}", q"{Arājs}", q"{Sējējs}", q"{Podnieks}", q"{Ratnieks}", q"{Deģis}", q"{Bondars}"
+		, q"{Sondors}", q"{Namiķis}", q"{Jumiķis}", q"{Muižnieks}", q"{Bajārs}", q"{Ķēniņš}"
+		, q"{Ķeizars}", q"{Barons}", q"{Vaivads}", q"{Zviedrs}", q"{Vācietis}", q"{Lejiņš}", q"{Vanags}"
+		, q"{Celms}", q"{Liepa}", q"{Kalns}", q"{Celmiņš}", q"{Lejnieks}", q"{Bisenieks}", q"{Kurzemnieks}"
+		, q"{Saulietis}", q"{Pakalnietis}", q"{Pridāns}", q"{Grodums}", q"{Kalnājs}", q"{Porgants}"
+		, q"{Sukuts}", q"{Meškūns}", q"{Rožkalns}", q"{Mazjānis}", q"{Latkovskis}", q"{Jankovskis}"
+		, q"{Šileiko}", q"{Budreiko}", q"{Ivanovs}", q"{Morozovs}", q"{Logins}", q"{Gasjūns}", q"{Pauļuks}"
+		, q"{Sosārs}" ];
 
 		return choice(strs, this.rnd);
 	}

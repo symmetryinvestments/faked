@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -482,6 +483,57 @@ class Faker_sk : Faker_en {
 		return choice(strs, this.rnd);
 	}
 
+	string personFemaleLastName() {
+		const string[] strs =
+		[ q"{Antalová}", q"{Babková}", q"{Bahnová}", q"{Balážová}", q"{Baranová}", q"{Baranková}"
+		, q"{Bartovičová}", q"{Bartošová}", q"{Bačová}", q"{Bernoláková}", q"{Beňová}"
+		, q"{Biceková}", q"{Bieliková}", q"{Blahová}", q"{Bondrová}", q"{Bosáková}", q"{Bošková}"
+		, q"{Brezinová}", q"{Bukovská}", q"{Chalupková}", q"{Chudíková}", q"{Cibulová}", q"{Cibulková}"
+		, q"{Cyprichová}", q"{Cígerová}", q"{Danková}", q"{Daňková}", q"{Daňová}", q"{Debnárová}"
+		, q"{Dejová}", q"{Dekýšová}", q"{Doležalová}", q"{Dočolomanská}", q"{Droppová}"
+		, q"{Dubovská}", q"{Dudeková}", q"{Dulová}", q"{Dullová}", q"{Dusíková}", q"{Dvončová}"
+		, q"{Dzurjaninová}", q"{Dávidová}", q"{Fabianová}", q"{Fabiánová}", q"{Fajnorová}"
+		, q"{Farkašovská}", q"{Ficová}", q"{Filcová}", q"{Filipová}", q"{Finková}", q"{Ftoreková}"
+		, q"{Gašparová}", q"{Gašparovičová}", q"{Gocníková}", q"{Gregorová}", q"{Gregušová}"
+		, q"{Grznárová}", q"{Habláková}", q"{Habšudová}", q"{Haldová}", q"{Halušková}", q"{Haláková}"
+		, q"{Hanková}", q"{Hanzalová}", q"{Haščáková}", q"{Heretiková}", q"{Hečková}", q"{Hlaváčeková}"
+		, q"{Hlinková}", q"{Holubová}", q"{Holubyová}", q"{Hossová}", q"{Hozová}", q"{Hrašková}"
+		, q"{Hricová}", q"{Hrmová}", q"{Hrušovská}", q"{Hubová}", q"{Ihnačáková}", q"{Janečeková}"
+		, q"{Janošková}", q"{Jantošovičová}", q"{Janíková}", q"{Jančeková}", q"{Jedľovská}"
+		, q"{Jendeková}", q"{Jonatová}", q"{Jurinová}", q"{Jurkovičová}", q"{Juríková}", q"{Jánošíková}"
+		, q"{Kafendová}", q"{Kaliská}", q"{Karulová}", q"{Kenížová}", q"{Klapková}", q"{Kmeťová}"
+		, q"{Kolesárová}", q"{Kollárová}", q"{Kolniková}", q"{Kolníková}", q"{Kolárová}"
+		, q"{Korecová}", q"{Kostkaová}", q"{Kostrecová}", q"{Kováčová}", q"{Kováčiková}"
+		, q"{Kozová}", q"{Kočišová}", q"{Krajíčeková}", q"{Krajčová}", q"{Krajčovičová}"
+		, q"{Krajčírová}", q"{Králiková}", q"{Krúpová}", q"{Kubíková}", q"{Kyseľová}"
+		, q"{Kállayová}", q"{Labudová}", q"{Lepšíková}", q"{Liptáková}", q"{Lisická}", q"{Lubinová}"
+		, q"{Lukáčová}", q"{Luptáková}", q"{Líšková}", q"{Madejová}", q"{Majeská}", q"{Malachovská}"
+		, q"{Malíšeková}", q"{Mamojková}", q"{Marcinková}", q"{Mariánová}", q"{Masaryková}"
+		, q"{Maslová}", q"{Matiašková}", q"{Medveďová}", q"{Melcerová}", q"{Mečiarová}", q"{Michalíková}"
+		, q"{Mihaliková}", q"{Mihálová}", q"{Miháliková}", q"{Miklošková}", q"{Mikulíková}"
+		, q"{Mikušová}", q"{Mikúšová}", q"{Milotová}", q"{Mináčová}", q"{Mišíková}", q"{Mojžišová}"
+		, q"{Mokrošová}", q"{Morová}", q"{Moravčíková}", q"{Mydlová}", q"{Nemcová}", q"{Nováková}"
+		, q"{Obšutová}", q"{Ondrušová}", q"{Otčenášová}", q"{Pauková}", q"{Pavlikovská}"
+		, q"{Pavúková}", q"{Pašeková}", q"{Pašková}", q"{Pelikánová}", q"{Petrovická}", q"{Petrušková}"
+		, q"{Pešková}", q"{Plchová}", q"{Plekanecová}", q"{Podhradská}", q"{Podkonická}", q"{Poliaková}"
+		, q"{Pupáková}", q"{Raková}", q"{Repiská}", q"{Romančíková}", q"{Rusová}", q"{Ružičková}"
+		, q"{Rybníčeková}", q"{Rybárová}", q"{Rybáriková}", q"{Samsonová}", q"{Sedliaková}"
+		, q"{Senková}", q"{Sklenková}", q"{Skokanová}", q"{Skutecká}", q"{Slašťanová}", q"{Slobodová}"
+		, q"{Slobodníková}", q"{Slotová}", q"{Slováková}", q"{Smreková}", q"{Stodolová}", q"{Straková}"
+		, q"{Strnisková}", q"{Svrbíková}", q"{Sámelová}", q"{Sýkorová}", q"{Tatarová}", q"{Tatarková}"
+		, q"{Tatárová}", q"{Tatárkaová}", q"{Thomková}", q"{Tomečeková}", q"{Tomková}", q"{Trubenová}"
+		, q"{Turčoková}", q"{Uramová}", q"{Urblíková}", q"{Vajcíková}", q"{Vajdová}", q"{Valachová}"
+		, q"{Valachovičová}", q"{Valentová}", q"{Valušková}", q"{Vaneková}", q"{Veselová}"
+		, q"{Vicenová}", q"{Višňovská}", q"{Vlachová}", q"{Vojteková}", q"{Vydarená}", q"{Zajacová}"
+		, q"{Zimová}", q"{Zimková}", q"{Záborská}", q"{Zúbriková}", q"{Čapkovičová}", q"{Čaplovičová}"
+		, q"{Čarnogurská}", q"{Čierná}", q"{Čobrdová}", q"{Ďaďová}", q"{Ďuricová}", q"{Ďurišová}"
+		, q"{Šidlová}", q"{Šimonovičová}", q"{Škriniarová}", q"{Škultétyová}", q"{Šmajdová}"
+		, q"{Šoltésová}", q"{Šoltýsová}", q"{Štefanová}", q"{Štefanková}", q"{Šulcová}"
+		, q"{Šurková}", q"{Švehlová}", q"{Šťastná}" ];
+
+		return choice(strs, this.rnd);
+	}
+
 	override string personFemalePrefix() {
 		const string[] strs =
 		[ q"{Ing.}", q"{Mgr.}", q"{JUDr.}", q"{MUDr.}" ];
@@ -578,6 +630,49 @@ class Faker_sk : Faker_en {
 		, q"{Félix}", q"{Klement}", q"{Kornel}", q"{Milan}", q"{Vratko}", q"{Ondrej}", q"{Andrej}", q"{Edmund}"
 		, q"{Oldrich}", q"{Oto}", q"{Mikuláš}", q"{Ambróz}", q"{Radúz}", q"{Bohdan}", q"{Adam}", q"{Štefan}"
 		, q"{Dávid}", q"{Silvester}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	string personMaleLastName() {
+		const string[] strs =
+		[ q"{Antal}", q"{Babka}", q"{Bahna}", q"{Bahno}", q"{Baláž}", q"{Baran}", q"{Baranka}", q"{Bartovič}"
+		, q"{Bartoš}", q"{Bača}", q"{Bernolák}", q"{Beňo}", q"{Bicek}", q"{Bielik}", q"{Blaho}", q"{Bondra}"
+		, q"{Bosák}", q"{Boška}", q"{Brezina}", q"{Bukovský}", q"{Chalupka}", q"{Chudík}", q"{Cibula}"
+		, q"{Cibulka}", q"{Cibuľa}", q"{Cyprich}", q"{Cíger}", q"{Danko}", q"{Daňko}", q"{Daňo}", q"{Debnár}"
+		, q"{Dej}", q"{Dekýš}", q"{Doležal}", q"{Dočolomanský}", q"{Droppa}", q"{Dubovský}", q"{Dudek}"
+		, q"{Dula}", q"{Dulla}", q"{Dusík}", q"{Dvonč}", q"{Dzurjanin}", q"{Dávid}", q"{Fabian}", q"{Fabián}"
+		, q"{Fajnor}", q"{Farkašovský}", q"{Fico}", q"{Filc}", q"{Filip}", q"{Finka}", q"{Ftorek}", q"{Gašpar}"
+		, q"{Gašparovič}", q"{Gocník}", q"{Gregor}", q"{Greguš}", q"{Grznár}", q"{Hablák}", q"{Habšuda}"
+		, q"{Halda}", q"{Haluška}", q"{Halák}", q"{Hanko}", q"{Hanzal}", q"{Haščák}", q"{Heretik}"
+		, q"{Hečko}", q"{Hlaváček}", q"{Hlinka}", q"{Holub}", q"{Holuby}", q"{Hossa}", q"{Hoza}", q"{Hraško}"
+		, q"{Hric}", q"{Hrmo}", q"{Hrušovský}", q"{Huba}", q"{Ihnačák}", q"{Janeček}", q"{Janoška}"
+		, q"{Jantošovič}", q"{Janík}", q"{Janček}", q"{Jedľovský}", q"{Jendek}", q"{Jonata}", q"{Jurina}"
+		, q"{Jurkovič}", q"{Jurík}", q"{Jánošík}", q"{Kafenda}", q"{Kaliský}", q"{Karul}", q"{Keníž}"
+		, q"{Klapka}", q"{Kmeť}", q"{Kolesár}", q"{Kollár}", q"{Kolnik}", q"{Kolník}", q"{Kolár}"
+		, q"{Korec}", q"{Kostka}", q"{Kostrec}", q"{Kováč}", q"{Kováčik}", q"{Koza}", q"{Kočiš}"
+		, q"{Krajíček}", q"{Krajči}", q"{Krajčo}", q"{Krajčovič}", q"{Krajčír}", q"{Králik}"
+		, q"{Krúpa}", q"{Kubík}", q"{Kyseľ}", q"{Kállay}", q"{Labuda}", q"{Lepšík}", q"{Lipták}"
+		, q"{Lisický}", q"{Lubina}", q"{Lukáč}", q"{Lupták}", q"{Líška}", q"{Madej}", q"{Majeský}"
+		, q"{Malachovský}", q"{Malíšek}", q"{Mamojka}", q"{Marcinko}", q"{Marián}", q"{Masaryk}"
+		, q"{Maslo}", q"{Matiaško}", q"{Medveď}", q"{Melcer}", q"{Mečiar}", q"{Michalík}", q"{Mihalik}"
+		, q"{Mihál}", q"{Mihálik}", q"{Mikloško}", q"{Mikulík}", q"{Mikuš}", q"{Mikúš}", q"{Milota}"
+		, q"{Mináč}", q"{Mišík}", q"{Mojžiš}", q"{Mokroš}", q"{Mora}", q"{Moravčík}", q"{Mydlo}"
+		, q"{Nemec}", q"{Nitra}", q"{Novák}", q"{Obšut}", q"{Ondruš}", q"{Otčenáš}", q"{Pauko}", q"{Pavlikovský}"
+		, q"{Pavúk}", q"{Pašek}", q"{Paška}", q"{Paško}", q"{Pelikán}", q"{Petrovický}", q"{Petruška}"
+		, q"{Peško}", q"{Plch}", q"{Plekanec}", q"{Podhradský}", q"{Podkonický}", q"{Poliak}", q"{Pupák}"
+		, q"{Rak}", q"{Repiský}", q"{Romančík}", q"{Rus}", q"{Ružička}", q"{Rybníček}", q"{Rybár}"
+		, q"{Rybárik}", q"{Samson}", q"{Sedliak}", q"{Senko}", q"{Sklenka}", q"{Skokan}", q"{Skutecký}"
+		, q"{Slašťan}", q"{Sloboda}", q"{Slobodník}", q"{Slota}", q"{Slovák}", q"{Smrek}", q"{Stodola}"
+		, q"{Straka}", q"{Strnisko}", q"{Svrbík}", q"{Sámel}", q"{Sýkora}", q"{Tatar}", q"{Tatarka}"
+		, q"{Tatár}", q"{Tatárka}", q"{Thomka}", q"{Tomeček}", q"{Tomka}", q"{Tomko}", q"{Truben}", q"{Turčok}"
+		, q"{Uram}", q"{Urblík}", q"{Vajcík}", q"{Vajda}", q"{Valach}", q"{Valachovič}", q"{Valent}"
+		, q"{Valuška}", q"{Vanek}", q"{Vesel}", q"{Vicen}", q"{Višňovský}", q"{Vlach}", q"{Vojtek}"
+		, q"{Vydarený}", q"{Zajac}", q"{Zima}", q"{Zimka}", q"{Záborský}", q"{Zúbrik}", q"{Čapkovič}"
+		, q"{Čaplovič}", q"{Čarnogurský}", q"{Čierny}", q"{Čobrda}", q"{Ďaďo}", q"{Ďurica}"
+		, q"{Ďuriš}", q"{Šidlo}", q"{Šimonovič}", q"{Škriniar}", q"{Škultéty}", q"{Šmajda}"
+		, q"{Šoltés}", q"{Šoltýs}", q"{Štefan}", q"{Štefanka}", q"{Šulc}", q"{Šurka}", q"{Švehla}"
+		, q"{Šťastný}" ];
 
 		return choice(strs, this.rnd);
 	}

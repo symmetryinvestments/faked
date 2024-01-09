@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -42,6 +43,15 @@ class Faker_az : Faker_en {
 		return choice(strs, this.rnd);
 	}
 
+	override string commerceDepartment() {
+		const string[] strs =
+		[ q"{Kitablar}", q"{Filmlər}", q"{musiqi}", q"{oyunlar}", q"{Elektronika}", q"{Kompyuterlər}"
+		, q"{Ev}", q"{садинструмент}", q"{Səhiyyə}", q"{gözəllik}", q"{Oyuncaqlar}"
+		, q"{uşaq üçün}", q"{Geyim}", q"{Ayyaqqabı}", q"{bəzək}", q"{İdman}", q"{turizm}", q"{Avtomobil}" ];
+
+		return choice(strs, this.rnd);
+	}
+
 	override string companyNamePattern() {
 		final switch(uniform(0, 3, this.rnd)) {
 			case 0: return companyPrefix() ~ " " ~ personFemaleFirstName();
@@ -49,6 +59,13 @@ class Faker_az : Faker_en {
 			case 2: return companyPrefix() ~ " " ~ personMaleLastName();
 		}
 		return "";
+	}
+
+	string companyPrefix() {
+		const string[] strs =
+		[ q"{ASC}", q"{MMC}", q"{QSC}" ];
+
+		return choice(strs, this.rnd);
 	}
 
 	override string dateMonthWide() {
@@ -306,6 +323,14 @@ class Faker_az : Faker_en {
 		return choice(strs, this.rnd);
 	}
 
+	string personFemaleLastName() {
+		const string[] strs =
+		[ q"{Qasımova}", q"{Əfəndiyeva}", q"{Soltanova}", q"{Abdullayeva}", q"{Rəşidova}", q"{Ələkbərova}"
+		, q"{Əliyeva}", q"{Tahirova}", q"{Seyidova}", q"{Vəsiyeva}" ];
+
+		return choice(strs, this.rnd);
+	}
+
 	override string personFirstName() {
 		const string[] strs =
 		[ q"{Abbas}", q"{Abdulla}", q"{Adeliya}", q"{Adil}", q"{Afaq}", q"{Afəl}", q"{Afərim}", q"{Afət}"
@@ -333,6 +358,14 @@ class Faker_az : Faker_en {
 		, q"{Natiq}", q"{Rəşad}", q"{Rəşid}", q"{Tahir}", q"{Əhməd}", q"{Zahir}", q"{İlham}", q"{İlqar}"
 		, q"{Nahid}", q"{Nihad}", q"{Faiq}", q"{İxtiyar}", q"{Şəhriyar}", q"{Şaiq}", q"{Bəxtiyar}"
 		, q"{Bəhruz}", q"{Tunar}", q"{Nadir}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	string personMaleLastName() {
+		const string[] strs =
+		[ q"{Əhmədov}", q"{Ələkbərov}", q"{Əliyev}", q"{Vəliyev}", q"{Soltanov}", q"{Quliyev}"
+		, q"{Məmmədov}", q"{Xəlilov}", q"{Nəzərov}", q"{Rəhimov}" ];
 
 		return choice(strs, this.rnd);
 	}

@@ -2,7 +2,7 @@ module generator;
 
 import std.array : array, appender, replace;
 import std.algorithm.iteration : filter, fold, joiner, map, splitter;
-import std.algorithm.searching : endsWith, startsWith;
+import std.algorithm.searching : any, canFind, endsWith, startsWith;
 import std.exception : enforce;
 import std.conv : to;
 import std.uni : toUpper , toLower;
@@ -22,12 +22,21 @@ void generateForward(JsonFile bs, string[] langs) {
 	auto f = File("../source/faked/fakerforwarder.d", "w");
 	f.writefln(`module faked.fakerforwarder;
 
+import std.random;
+
 import faked.customtypes;
+import faked.fakerenums;
+import faked.faker_en;
 ` ~ "%--(%s\n%)" ~ `
 
 class FakerForwarder {
 @safe:
-	Faker[] toPassThrough = [ new Faker(1337), ` ~ "%--(%s, %)" ~ ` ];
+	Random rnd;
+	Faker_en[] toPassThrough = [ ` ~ "%--(%s, %)" ~ ` ];
+
+	this(int seed = 1338) {
+		this.rnd = Random(seed);
+	}
 `
 	, langs.map!(l => "import faked.faker_" ~ l.toLower() ~ ";")
 	, langs.map!(l => "new Faker_" ~ l.toLower() ~ "(1337)")
@@ -58,7 +67,7 @@ void traverseFwd(T,Out)(T t, ref Out o, string[] path) {
 		string ptfn = pathToFuncName(path);
 		static if(is(T == string[])) {
 			iformat(o, 1, "final string %s() {\n", ptfn);
-			iformat(o, 2, "return choice(this.toPassThrought, this.rnd).%s();\n\t}\n\n"
+			iformat(o, 2, "return choice(this.toPassThrough, this.rnd).%s();\n\t}\n\n"
 					, ptfn);
 		} else static if(is(T == Mustache[])) {
 			iformat(o, 1, "final string %s() {\n", ptfn);
@@ -106,15 +115,10 @@ void traverseFwd(T,Out)(T t, ref Out o, string[] path) {
 	}
 }
 
-void generate(Language lang, string langName, const bool base) {
-	auto app = appender!string();
-	traverse(lang, app, [], base);
-	writeln(app.data);
-	writeln("\n\n\n");
-}
-
-void generate(Out)(Language lang, auto ref Out o, string[] path, const bool base) {
-	traverse(lang, o, path, base);
+void generate(Out)(JsonFile jf, const string langName, Language lang, auto ref Out o, string[] path
+		, ref string[][string] methodsOfBaseClass)
+{
+	traverse(jf, langName, lang, o, path, methodsOfBaseClass);
 }
 
 void traverseMustachAAs(T,Out)(T t, auto ref Out o, string[] path) {
@@ -144,7 +148,25 @@ void traverseMustachAAs(T,Out)(T t, auto ref Out o, string[] path) {
 	}
 }
 
-void traverse(T,Out)(T t, ref Out o, string[] path, const bool base) {
+private bool shouldOverride(string funcName, string[] chain
+		, ref string[][string] methodsOfBaseClass)
+{
+	foreach(it; chain) {
+		enforce(it in methodsOfBaseClass, it ~ " " ~
+				methodsOfBaseClass.keys().to!string());
+		if(canFind(methodsOfBaseClass[it], funcName)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+void traverse(T,Out)(JsonFile jf, const string langName, T t, ref Out o, string[] path
+		, ref string[][string] methodsOfBaseClass)
+{
+	if(langName !in methodsOfBaseClass) {
+		methodsOfBaseClass[langName] = [];
+	}
 	static if(T.stringof.endsWith("Folder")
 			|| is(T == Language)
 			|| is(T == Product_Name)
@@ -153,45 +175,48 @@ void traverse(T,Out)(T t, ref Out o, string[] path, const bool base) {
 			|| is(T == DateMonth))
 	{
 		static foreach(string mem; [FieldNameTuple!(T)].filter!(m => !m.empty)) {{
-			traverse(__traits(getMember, t, mem), o, path ~ mem, base);
+			traverse(jf, langName, __traits(getMember, t, mem), o, path ~ mem
+					, methodsOfBaseClass);
 		}}
 	} else static if(is(T == Nullable!F, F)) {
 		if(!t.isNull()) {
-			traverse(t.get(), o, path, base);
+			traverse(jf, langName, t.get(), o, path, methodsOfBaseClass);
 		}
 	} else {
+		const string funcName = pathToFuncName(path);
+		const bool overWrite = shouldOverride(funcName, jf.chain, methodsOfBaseClass);
 		static if(is(T == string[])) {
-			genStringArray(t, o, path, base);
+			methodsOfBaseClass[langName] ~= genStringArray(t, o, path, overWrite);
 			formattedWrite(o, "\n\n");
 		} else static if(is(T == Mustache[])) {
-			genMustache(t, o, path, base);
+			methodsOfBaseClass[langName] ~= genMustache(t, o, path, overWrite);
 			formattedWrite(o, "\n\n");
 		} else static if(is(T == Airplane[])) {
-			genAirplane(t, o, path, base);
+			methodsOfBaseClass[langName] ~= genAirplane(t, o, path, overWrite);
 			formattedWrite(o, "\n\n");
 		} else static if(is(T == Airport[])) {
-			genAirport(t, o, path, base);
+			methodsOfBaseClass[langName] ~= genAirport(t, o, path, overWrite);
 			formattedWrite(o, "\n\n");
 		} else static if(is(T == Currency[])) {
-			genCurrency(t, o, path, base);
+			methodsOfBaseClass[langName] ~= genCurrency(t, o, path, overWrite);
 			formattedWrite(o, "\n\n");
 		} else static if(is(T == ChemicalUnit[])) {
-			genChemicalUnit(t, o, path, base);
+			methodsOfBaseClass[langName] ~= genChemicalUnit(t, o, path, overWrite);
 			formattedWrite(o, "\n\n");
 		} else static if(is(T == ChemicalElement[])) {
-			genChemicalElement(t, o, path, base);
+			methodsOfBaseClass[langName] ~= genChemicalElement(t, o, path, overWrite);
 			formattedWrite(o, "\n\n");
 		} else static if(is(T == Airline[])) {
-			genAirline(t, o, path, base);
+			methodsOfBaseClass[langName] ~= genAirline(t, o, path, overWrite);
 			formattedWrite(o, "\n\n");
 		} else static if(is(T == MustacheWeight[])) {
-			genMustacheWeight(t, o, path, base);
+			methodsOfBaseClass[langName] ~= genMustacheWeight(t, o, path, overWrite);
 			formattedWrite(o, "\n\n");
 		} else static if(is(T == Mustache[string])) {
-			genMustacheAA(t, o, path, base);
+			methodsOfBaseClass[langName] ~= genMustacheAA(t, o, path, overWrite);
 			formattedWrite(o, "\n\n");
 		} else static if(is(T == Number[])) {
-			genNumber(t, o, path, base);
+			methodsOfBaseClass[langName] ~= genNumber(t, o, path, overWrite);
 			formattedWrite(o, "\n\n");
 		} else {
 			writefln("Unhandled %s", T.stringof);
@@ -199,19 +224,24 @@ void traverse(T,Out)(T t, ref Out o, string[] path, const bool base) {
 	}
 }
 
-void genNumber(Out)(Number[] n, ref Out o, string[] path, const bool base) {
-	iformat(o, 1, "%sstring %s() {\n", base ? "" : "override ", pathToFuncName(path));
+string genNumber(Out)(Number[] n, ref Out o, string[] path, const bool overWrite) {
+	string ret = pathToFuncName(path);
+	iformat(o, 1, "%sstring %s() {\n", overWrite ? "override " : "", ret);
 	iformat(o, 2, "const string[] strs =\n\t\t[ ");
 	str80(o, n.map!(it => it.num).array, 2);
 	o.put(" ];\n\n");
 	iformat(o, 2, "return numberBuild(choice(strs, this.rnd));\n");
 	iformat(o, 1, "}");
+	return ret;
 }
 
-void genMustacheWeight(Out)(MustacheWeight[] m, ref Out o, string[] path, const bool base) {
+string genMustacheWeight(Out)(MustacheWeight[] m, ref Out o, string[] path
+		, const bool overWrite)
+{
+	string ret = pathToFuncName(path);
 	int max = m.map!(it => it.weight).fold!((a, b) => a + b);
 	int begin = 0;
-	iformat(o, 1, "%sstring %s() {\n", base ? "" : "override ", pathToFuncName(path));
+	iformat(o, 1, "%sstring %s() {\n", overWrite ? "override " : "", ret);
 	iformat(o, 2, "const int rndInt = uniform(0, %s, this.rnd);\n\n", max);
 	foreach(idx, it; m) {
 		iformat(o, 2, "if(rndInt >= %s && rndInt < %s) {\n", begin
@@ -225,20 +255,24 @@ void genMustacheWeight(Out)(MustacheWeight[] m, ref Out o, string[] path, const 
 	formattedWrite(o, "\n");
 	iformat(o, 2, "return \"\";\n");
 	iformat(o, 1, "}");
+	return ret;
 }
 
-void genMustacheAA(Out)(Mustache[string] m, ref Out o, string[] path, const bool base) {
-	string enumName = toFirstUpper(pathToFuncName(path));
+string genMustacheAA(Out)(Mustache[string] m, ref Out o, string[] path
+		, const bool overWrite)
+{
+	string ret = pathToFuncName(path);
+	string enumName = toFirstUpper(ret);
 	// Non parameter passthrough
-	iformat(o, 1, "%sstring %s() {\n", base ? "" : "override ", pathToFuncName(path));
+	iformat(o, 1, "%sstring %s() {\n", overWrite ? "override " : "", ret);
 	iformat(o, 2, "const %sEnum[] enums = [ %--(%s, %) ];\n", enumName
 			, m.keys().map!(it => enumName ~ "Enum." ~ it));
 	iformat(o, 2, "return %s(choice(enums, this.rnd));\n"
 			, pathToFuncName(path));
 	iformat(o, 1, "}\n\n");
 
-	iformat(o, 1, "%sstring %s(%sEnum which) {\n", base ? "" : "override ", pathToFuncName(path)
-			, enumName
+	iformat(o, 1, "%sstring %s(%sEnum which) {\n", overWrite ? "override " : ""
+			, pathToFuncName(path), enumName
 			);
 	iformat(o, 2, "final switch(which) {\n", m.length);
 	foreach(it; m.byKeyValue()) {
@@ -249,10 +283,14 @@ void genMustacheAA(Out)(Mustache[string] m, ref Out o, string[] path, const bool
 	iformat(o, 2, "}\n");
 	iformat(o, 2, "return \"\";\n");
 	iformat(o, 1, "}");
+	return ret;
 }
 
-void genChemicalUnit(Out)(ChemicalUnit[] m, ref Out o, string[] path, const bool base) {
-	iformat(o, 1, "%sChemicalUnit %s() {\n", base ? "" : "override ", pathToFuncName(path));
+string genChemicalUnit(Out)(ChemicalUnit[] m, ref Out o, string[] path
+		, const bool overWrite)
+{
+	string ret = pathToFuncName(path);
+	iformat(o, 1, "%sChemicalUnit %s() {\n", overWrite ? "override " : "", ret);
 	iformat(o, 2, "final switch(uniform(0, %s, this.rnd)) {\n", m.length);
 	foreach(idx, it; m) {
 		iformat(o, 3, "case %s: return ChemicalUnit(%s, %s)", idx
@@ -263,10 +301,14 @@ void genChemicalUnit(Out)(ChemicalUnit[] m, ref Out o, string[] path, const bool
 	iformat(o, 2, "}\n");
 	iformat(o, 2, "return ChemicalUnit(\"\", \"\");\n");
 	iformat(o, 1, "}");
+	return ret;
 }
 
-void genChemicalElement(Out)(ChemicalElement[] m, ref Out o, string[] path, const bool base) {
-	iformat(o, 1, "%sChemicalElement %s() {\n", base ? "" : "override ", pathToFuncName(path));
+string genChemicalElement(Out)(ChemicalElement[] m, ref Out o, string[] path
+		, const bool overWrite)
+{
+	string ret = pathToFuncName(path);
+	iformat(o, 1, "%sChemicalElement %s() {\n", overWrite ? "override " : "", ret);
 	iformat(o, 2, "final switch(uniform(0, %s, this.rnd)) {\n", m.length);
 	foreach(idx, it; m) {
 		iformat(o, 3, "case %s: return ChemicalElement(%s, %s, %s)", idx
@@ -278,10 +320,14 @@ void genChemicalElement(Out)(ChemicalElement[] m, ref Out o, string[] path, cons
 	iformat(o, 2, "}\n");
 	iformat(o, 2, "return ChemicalElement(\"\", \"\", 0);\n");
 	iformat(o, 1, "}");
+	return ret;
 }
 
-void genCurrency(Out)(Currency[] m, ref Out o, string[] path, const bool base) {
-	iformat(o, 1, "%sCurrency %s() {\n", base ? "" : "override ", pathToFuncName(path));
+string genCurrency(Out)(Currency[] m, ref Out o, string[] path
+		, const bool overWrite)
+{
+	string ret = pathToFuncName(path);
+	iformat(o, 1, "%sCurrency %s() {\n", overWrite ? "override " : "", pathToFuncName(path));
 	iformat(o, 2, "final switch(uniform(0, %s, this.rnd)) {\n", m.length);
 	foreach(idx, it; m) {
 		iformat(o, 3, "case %s: return Currency(%s, %s, %s)", idx
@@ -293,10 +339,14 @@ void genCurrency(Out)(Currency[] m, ref Out o, string[] path, const bool base) {
 	iformat(o, 2, "}\n");
 	iformat(o, 2, "return Currency(\"\", \"\", \"\");\n");
 	iformat(o, 1, "}");
+	return ret;
 }
 
-void genAirplane(Out)(Airplane[] m, ref Out o, string[] path, const bool base) {
-	iformat(o, 1, "%sAirplane %s() {\n", base ? "" : "override ", pathToFuncName(path));
+string genAirplane(Out)(Airplane[] m, ref Out o, string[] path
+		, const bool overWrite)
+{
+	string ret = pathToFuncName(path);
+	iformat(o, 1, "%sAirplane %s() {\n", overWrite ? "override " : "", ret);
 	iformat(o, 2, "final switch(uniform(0, %s, this.rnd)) {\n", m.length);
 	foreach(idx, it; m) {
 		iformat(o, 3, "case %s: return Airplane(%s, %s)", idx
@@ -311,10 +361,14 @@ void genAirplane(Out)(Airplane[] m, ref Out o, string[] path, const bool base) {
 	iformat(o, 2, "}\n");
 	iformat(o, 2, "return Airplane(Nullable!(string).init, Nullable!(string).init);\n");
 	iformat(o, 1, "}");
+	return ret;
 }
 
-void genAirport(Out)(Airport[] m, ref Out o, string[] path, const bool base) {
-	iformat(o, 1, "%sAirport %s() {\n", base ? "" : "override ", pathToFuncName(path));
+string genAirport(Out)(Airport[] m, ref Out o, string[] path
+		, const bool overWrite)
+{
+	string ret = pathToFuncName(path);
+	iformat(o, 1, "%sAirport %s() {\n", overWrite ? "override " : "", ret);
 	iformat(o, 2, "final switch(uniform(0, %s, this.rnd)) {\n", m.length);
 	foreach(idx, it; m) {
 		iformat(o, 3, "case %s: return Airport(%s, %s)", idx
@@ -329,10 +383,14 @@ void genAirport(Out)(Airport[] m, ref Out o, string[] path, const bool base) {
 	iformat(o, 2, "}\n");
 	iformat(o, 2, "return Airport(Nullable!(string).init, Nullable!(string).init);\n");
 	iformat(o, 1, "}");
+	return ret;
 }
 
-void genAirline(Out)(Airline[] m, ref Out o, string[] path, const bool base) {
-	iformat(o, 1, "%sAirline %s() {\n", base ? "" : "override ", pathToFuncName(path));
+string genAirline(Out)(Airline[] m, ref Out o, string[] path
+		, const bool overWrite)
+{
+	string ret = pathToFuncName(path);
+	iformat(o, 1, "%sAirline %s() {\n", overWrite ? "override " : "", ret);
 	iformat(o, 2, "final switch(uniform(0, %s, this.rnd)) {\n", m.length);
 	foreach(idx, it; m) {
 		iformat(o, 3, "case %s: return Airline(%s, %s)", idx
@@ -347,10 +405,14 @@ void genAirline(Out)(Airline[] m, ref Out o, string[] path, const bool base) {
 	iformat(o, 2, "}\n");
 	iformat(o, 2, "return Airline(Nullable!(string).init, Nullable!(string).init);\n");
 	iformat(o, 1, "}");
+	return ret;
 }
 
-void genMustache(Out)(Mustache[] m, ref Out o, string[] path, const bool base) {
-	iformat(o, 1, "%sstring %s() {\n", base ? "" : "override ", pathToFuncName(path));
+string genMustache(Out)(Mustache[] m, ref Out o, string[] path
+		, const bool overWrite)
+{
+	string ret = pathToFuncName(path);
+	iformat(o, 1, "%sstring %s() {\n", overWrite ? "override " : "", ret);
 	iformat(o, 2, "final switch(uniform(0, %s, this.rnd)) {\n", m.length);
 	foreach(idx, it; m) {
 		iformat(o, 3, "case %s: return ", idx);
@@ -360,6 +422,7 @@ void genMustache(Out)(Mustache[] m, ref Out o, string[] path, const bool base) {
 	iformat(o, 2, "}\n");
 	iformat(o, 2, "return \"\";\n");
 	iformat(o, 1, "}");
+	return ret;
 }
 
 void buildSingleMustache(Out)(ref Out o, Mustache mus) {
@@ -463,6 +526,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 class Faker_base {
 @safe:
@@ -499,9 +563,23 @@ class Faker_base {
 		return app.data;
 	}
 
+	final string internetEmoji() {
+		final switch(uniform(0, 10, this.rnd)) {
+			case 0: return this.internetEmojiSmiley();
+			case 1: return this.internetEmojiBody();
+			case 2: return this.internetEmojiPerson();
+			case 3: return this.internetEmojiNature();
+			case 4: return this.internetEmojiFood();
+			case 5: return this.internetEmojiTravel();
+			case 6: return this.internetEmojiActivity();
+			case 7: return this.internetEmojiObject();
+			case 8: return this.internetEmojiSymbol();
+			case 9: return this.internetEmojiFlag();
+		}
+	}
+
 `);
 	} else {
-		writeln(language.toLower, " ", jf.chain);
 		string chain =
 			jf.chain.empty
 				? ""
@@ -524,6 +602,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 %3$s
 
 class Faker_%1$s%2$s {
@@ -533,15 +612,45 @@ class Faker_%1$s%2$s {
 	}
 
 `, language.toLower(), chain, import_);
+		if(language.toLower() == "en") {
+			iformat(o, 1, `string locationStreet() {
+		return this.locationStreetPattern();
+	}
+
+	string locationCity() {
+		return locationCityPattern();
+	}
+
+	string personJobDescriptor() {
+		return personTitleDescriptor();
+	}
+
+	string personJobType() {
+		return personTitleJob();
+	}
+
+	string personJobArea() {
+		return personTitleLevel();
+	}
+
+	string companyName() {
+		return companyNamePattern();
+	}
+`);
+		}
 	}
 }
 
-void genStringArray(Out)(string[] strs, ref Out o, string[] path, const bool base) {
-	iformat(o, 1, "%sstring %s() {\n", base ? "" : "override ", pathToFuncName(path));
+string genStringArray(Out)(string[] strs, ref Out o, string[] path
+		, const bool overWrite)
+{
+	string ret = pathToFuncName(path);
+	iformat(o, 1, "%sstring %s() {\n", overWrite ? "override " : "", ret);
 	iformat(o, 2, "const string[] strs =\n\t\t[ ");
 	str80(o, strs, 2);
 	o.put(" ];\n\n");
 	iformat(o, 2, "return choice(strs, this.rnd);\n\t}");
+	return ret;
 }
 
 string pathToFuncName(string[] path) {

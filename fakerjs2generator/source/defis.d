@@ -83,6 +83,7 @@ struct CommerceFolder {
 	Nullable!(string[]) departments;
 	Nullable!(string[]) product_description;
 	Nullable!(Product_Name) product_name;
+	Nullable!(string[]) department;
 }
 
 struct CompanyFolder {
@@ -94,6 +95,11 @@ struct CompanyFolder {
 	Nullable!(Mustache[]) name_pattern;
 	Nullable!(string[]) noun;
 	Nullable!(string[]) suffix;
+	Nullable!(string[]) prefix;
+	Nullable!(string[]) company_name;
+	Nullable!(string[]) name;
+	Nullable!(string[]) type;
+	Nullable!(string[]) category;
 }
 
 struct DatabaseFolder {
@@ -180,6 +186,7 @@ struct LocationFolder {
 	Nullable!(Number[]) building_number;
 	Nullable!(string[]) city_name;
 	Nullable!(Mustache[]) city_pattern;
+	Nullable!(string[]) city_infix;
 	Nullable!(string[]) city_prefix;
 	Nullable!(string[]) city_suffix;
 	Nullable!(string[]) country;
@@ -195,8 +202,13 @@ struct LocationFolder {
 	Nullable!(string[]) street_name;
 	Nullable!(Mustache[]) street_pattern;
 	Nullable!(string[]) street_suffix;
+	Nullable!(string[]) common_street_suffix;
+	Nullable!(string[]) street_prefix;
+	Nullable!(string[]) street_name_part;
 	Nullable!(Country_Code[]) country_code;
 	Nullable!(string[]) time_zone;
+	Nullable!(string[]) street_cantonese_part;
+	Nullable!(string[]) street_english_part;
 }
 
 struct LoremFolder {
@@ -220,6 +232,7 @@ struct PersonFolder {
 	Nullable!(string[]) bio_supporter;
 	Nullable!(string[]) female_first_name;
 	Nullable!(string[]) female_middle_name;
+	Nullable!(string[]) female_last_name;
 	Nullable!(string[]) female_prefix;
 	Nullable!(string[]) first_name;
 	Nullable!(string[]) gender;
@@ -227,6 +240,7 @@ struct PersonFolder {
 	Nullable!(string[]) last_name;
 	Nullable!(MustacheWeight[]) last_name_pattern;
 	Nullable!(string[]) male_first_name;
+	Nullable!(string[]) male_last_name;
 	Nullable!(string[]) male_middle_name;
 	Nullable!(string[]) male_prefix;
 	Nullable!(string[]) middle_name;
@@ -260,6 +274,8 @@ struct ScienceFolder {
 
 struct TeamFolder {
 	Nullable!(string[]) creature;
+	Nullable!(string[]) prefix;
+	Nullable!(string[]) suffix;
 	Nullable!(Mustache[]) name;
 }
 

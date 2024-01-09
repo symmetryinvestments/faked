@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -32,6 +33,13 @@ class Faker_id_id : Faker_en {
 	override string companySuffix() {
 		const string[] strs =
 		[ q"{(Persero) Tbk}", q"{Tbk}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	string companyPrefix() {
+		const string[] strs =
+		[ q"{PT}", q"{CV}", q"{UD}", q"{PD}", q"{Perum}", q"{Fa}", q"{Yayasan}", q"{KKB}" ];
 
 		return choice(strs, this.rnd);
 	}
@@ -184,6 +192,13 @@ class Faker_id_id : Faker_en {
 		return "";
 	}
 
+	string locationStreetPrefix() {
+		const string[] strs =
+		[ q"{Ds.}", q"{Dk.}", q"{Gg.}", q"{Jln.}", q"{Jr.}", q"{Kpg.}", q"{Ki.}", q"{Psr.}" ];
+
+		return choice(strs, this.rnd);
+	}
+
 	override string personFemaleFirstName() {
 		const string[] strs =
 		[ q"{Ade}", q"{Agnes}", q"{Ajeng}", q"{Amalia}", q"{Anita}", q"{Ayu}", q"{Aisyah}", q"{Ana}", q"{Ami}"
@@ -218,6 +233,29 @@ class Faker_id_id : Faker_en {
 		, q"{Vania}", q"{Winda}", q"{Widya}", q"{Wulan}", q"{Wirda}", q"{Wani}", q"{Wulandari}", q"{Yani}"
 		, q"{Yessi}", q"{Yulia}", q"{Yuliana}", q"{Yuni}", q"{Yunita}", q"{Yance}", q"{Zahra}", q"{Zalindra}"
 		, q"{Zaenab}", q"{Zulfa}", q"{Zizi}", q"{Zulaikha}", q"{Zamira}", q"{Zelda}", q"{Zelaya}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	string personFemaleLastName() {
+		const string[] strs =
+		[ q"{Agustina}", q"{Andriani}", q"{Anggraini}", q"{Aryani}", q"{Astuti}", q"{Ananda}", q"{Anandya}"
+		, q"{Azzahra}", q"{Aqila}", q"{Amanta}", q"{Afifah}", q"{Ardiyanti}", q"{Andini}", q"{Aurelia}"
+		, q"{Aryanti}", q"{Azizah}", q"{Anjani}", q"{Damayanti}", q"{Elvina}", q"{Fujiati}", q"{Farida}"
+		, q"{Fathina}", q"{Fernanda}", q"{Febrianti}", q"{Handayani}", q"{Hassanah}", q"{Hartati}", q"{Hasanah}"
+		, q"{Haryanti}", q"{Hariyah}", q"{Hastuti}", q"{Halimah}", q"{Harini}", q"{Juwita}", q"{Jelita}"
+		, q"{Kusmawati}", q"{Kuswandari}", q"{Kusuma}", q"{Kahyang}", q"{Laksmiwati}", q"{Laksita}"
+		, q"{Lestari}", q"{Lailasari}", q"{Leilani}", q"{Mandasari}", q"{Mardhiyah}", q"{Mayasari}"
+		, q"{Melani}", q"{Mulyani}", q"{Maryati}", q"{Mahestri}", q"{Maharani}", q"{Maheswari}", q"{Melinda}"
+		, q"{Mustika}", q"{Nurdiyanti}", q"{Novitasari}", q"{Nuraini}", q"{Nasyidah}", q"{Nasyiah}"
+		, q"{Namaga}", q"{Nathania}", q"{Nurlaela}", q"{Ningrum}", q"{Palastri}", q"{Pudjiastuti}", q"{Puspasari}"
+		, q"{Puspita}", q"{Purwanti}", q"{Pratiwi}", q"{Purnawati}", q"{Pertiwi}", q"{Permata}", q"{Prastuti}"
+		, q"{Padmasari}", q"{Putri}", q"{Purnama}", q"{Rahmawati}", q"{Rahayu}", q"{Riyanti}", q"{Rahimah}"
+		, q"{Ramadhani}", q"{Rachmawati}", q"{Suartini}", q"{Sudiati}", q"{Suryatmi}", q"{Susanti}"
+		, q"{Safitri}", q"{Salsabilla}", q"{Salma}", q"{Saputri}", q"{Saraswati}", q"{Oktaviani}", q"{Utami}"
+		, q"{Usamah}", q"{Usada}", q"{Uyainah}", q"{Yuniar}", q"{Yuliarti}", q"{Yulianti}", q"{Yolanda}"
+		, q"{Wahyuni}", q"{Wijayanti}", q"{Widiastuti}", q"{Winarsih}", q"{Wulandari}", q"{Wastuti}"
+		, q"{Zulaika}", q"{Zahrah}" ];
 
 		return choice(strs, this.rnd);
 	}
@@ -386,6 +424,34 @@ class Faker_id_id : Faker_en {
 		, q"{Virman}", q"{Wahyu}", q"{Wira}", q"{Wisnu}", q"{Wadi}", q"{Wardi}", q"{Warji}", q"{Waluyo}", q"{Wakiman}"
 		, q"{Wage}", q"{Wardaya}", q"{Warsa}", q"{Warsita}", q"{Warta}", q"{Wasis}", q"{Wawan}", q"{Xanana}"
 		, q"{Yahya}", q"{Yusuf}", q"{Yosef}", q"{Yono}", q"{Yoga}", q"{Zaki}", q"{Zakir}", q"{Zulfikar}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	string personMaleLastName() {
+		const string[] strs =
+		[ q"{Adriansyah}", q"{Ardianto}", q"{Anggriawan}", q"{Ahmad}", q"{Adhitama}", q"{Abiputra}", q"{Antoni}"
+		, q"{Alamsyah}", q"{Airlangga}", q"{Abimanyu}", q"{Agustian}", q"{Arifin}", q"{Ardana}", q"{Aswandi}"
+		, q"{Budiman}", q"{Budiyanto}", q"{Bagaskara}", q"{Damanik}", q"{Darmawan}", q"{Dirgantara}"
+		, q"{Darojat}", q"{Firmansyah}", q"{Firgantoro}", q"{Fabian}", q"{Febian}", q"{Faresta}", q"{Gunarto}"
+		, q"{Gunawan}", q"{Hardiansyah}", q"{Habibi}", q"{Hakim}", q"{Halim}", q"{Haryanto}", q"{Hidayat}"
+		, q"{Hidayanto}", q"{Hutagalung}", q"{Hutapea}", q"{Hutasoit}", q"{Himawan}", q"{Hermawan}"
+		, q"{Herlambang}", q"{Handoko}", q"{Haikal}", q"{Irawan}", q"{Iswahyudi}", q"{Irfandi}", q"{Kuswoyo}"
+		, q"{Januar}", q"{Jailani}", q"{Kurniawan}", q"{Kusumo}", q"{Latupono}", q"{Lazuardi}", q"{Lesmana}"
+		, q"{Maheswara}", q"{Mahendra}", q"{Mustofa}", q"{Mansur}", q"{Mandala}", q"{Megantara}", q"{Maulana}"
+		, q"{Maryadi}", q"{Mangunsong}", q"{Manullang}", q"{Marpaung}", q"{Marbun}", q"{Mahardika}"
+		, q"{Narpati}", q"{Natsir}", q"{Nugroho}", q"{Najmudin}", q"{Nashiruddin}", q"{Nainggolan}"
+		, q"{Nababan}", q"{Napitupulu}", q"{Nugraha}", q"{Nanda}", q"{Oktavian}", q"{Oktovian}", q"{Pangestu}"
+		, q"{Putra}", q"{Pranowo}", q"{Prabowo}", q"{Pratama}", q"{Prasetya}", q"{Prasetyo}", q"{Pradana}"
+		, q"{Pradipta}", q"{Prakasa}", q"{Permadi}", q"{Prasasta}", q"{Prayoga}", q"{Perdana}", q"{Purnawarman}"
+		, q"{Purnama}", q"{Purwadi}", q"{Ramadan}", q"{Rajasa}", q"{Rajata}", q"{Rendra}", q"{Rayhan}"
+		, q"{Rahardian}", q"{Saptono}", q"{Santoso}", q"{Saputra}", q"{Saefullah}", q"{Setiawan}", q"{Suryono}"
+		, q"{Suwarno}", q"{Siregar}", q"{Sihombing}", q"{Salahudin}", q"{Samosir}", q"{Saragih}", q"{Sihotang}"
+		, q"{Simanjuntak}", q"{Sinaga}", q"{Simbolon}", q"{Sitompul}", q"{Sitorus}", q"{Sirait}", q"{Situmorang}"
+		, q"{Syahreza}", q"{Sabian}", q"{Satria}", q"{Supriyanto}", q"{Sudrajat}", q"{Tampubolon}", q"{Thamrin}"
+		, q"{Tamba}", q"{Tarihoran}", q"{Utama}", q"{Uwais}", q"{Wahyudin}", q"{Waluyo}", q"{Wibowo}", q"{Winarno}"
+		, q"{Wibisono}", q"{Wijaya}", q"{Widodo}", q"{Wacana}", q"{Waskita}", q"{Wasita}", q"{Wicaksono}"
+		, q"{Wardana}", q"{Yulianto}", q"{Yanuar}", q"{Yudhistira}", q"{Zulkarnain}" ];
 
 		return choice(strs, this.rnd);
 	}

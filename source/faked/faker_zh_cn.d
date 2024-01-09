@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -516,12 +517,37 @@ class Faker_zh_cn : Faker_en {
 		return choice(strs, this.rnd);
 	}
 
+	override string commerceDepartment() {
+		const string[] strs =
+		[ q"{书籍}", q"{电影}", q"{音乐}", q"{游戏}", q"{电子}", q"{电脑}", q"{主页}", q"{花园}"
+		, q"{工具}", q"{杂货}", q"{健康}", q"{美丽}", q"{玩具}", q"{孩子}", q"{宝宝}", q"{服装}"
+		, q"{鞋子}", q"{珠宝}", q"{运动}", q"{户外}", q"{汽车}", q"{工业}" ];
+
+		return choice(strs, this.rnd);
+	}
+
 	override string companyNamePattern() {
 		final switch(uniform(0, 2, this.rnd)) {
 			case 0: return locationState() ~ personFirstName() ~ companyCategory() ~ companyType();
 			case 1: return locationCity() ~ personFirstName() ~ companyCategory() ~ companyType();
 		}
 		return "";
+	}
+
+	string companyType() {
+		const string[] strs =
+		[ q"{有限责任公司}", q"{股份有限公司}", q"{有限公司}", q"{（集团）有限公司}"
+		, q"{集团有限公司}", q"{无限公司}", q"{无限责任公司}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	string companyCategory() {
+		const string[] strs =
+		[ q"{水产}", q"{林业}", q"{矿业}", q"{建设}", q"{食品}", q"{印刷}", q"{电力}", q"{燃气}"
+		, q"{网络科技}", q"{物流}", q"{保险}", q"{旅游发展}", q"{传媒}", q"{运输}" ];
+
+		return choice(strs, this.rnd);
 	}
 
 	override string databaseColumn() {

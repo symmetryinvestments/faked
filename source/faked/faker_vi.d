@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -32,6 +33,13 @@ class Faker_vi : Faker_en {
 			case 0: return companyPrefix() ~ " " ~ personLastName();
 		}
 		return "";
+	}
+
+	string companyPrefix() {
+		const string[] strs =
+		[ q"{Công ty}", q"{Cty TNHH}", q"{Cty}", q"{Cửa hàng}", q"{Trung tâm}", q"{Chi nhánh}" ];
+
+		return choice(strs, this.rnd);
 	}
 
 	override string dateMonthWide() {

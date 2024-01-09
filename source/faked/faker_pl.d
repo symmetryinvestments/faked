@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -404,6 +405,14 @@ class Faker_pl : Faker_en {
 			case 0: return locationStreetPrefix() ~ " " ~ personLastName();
 		}
 		return "";
+	}
+
+	string locationStreetPrefix() {
+		const string[] strs =
+		[ q"{al.}", q"{bulw.}", q"{droga}", q"{ogród}", q"{os.}", q"{park}", q"{pl.}", q"{rondo}", q"{rynek}"
+		, q"{skwer}", q"{szosa}", q"{ul.}", q"{wyb.}", q"{wyspa}" ];
+
+		return choice(strs, this.rnd);
 	}
 
 	override string loremWords() {
@@ -1012,6 +1021,14 @@ class Faker_pl : Faker_en {
 			case 21: return ChemicalUnit(q"{siwert}", q"{Sv}");
 		}
 		return ChemicalUnit("", "");
+	}
+
+	string teamPrefix() {
+		const string[] strs =
+		[ q"{GKS}", q"{Górnik}", q"{KS}", q"{LZS}", q"{Piast}", q"{Pogoń}", q"{Polonia}", q"{Ruch}", q"{Stal}"
+		, q"{Unia}", q"{Zjednoczenie}" ];
+
+		return choice(strs, this.rnd);
 	}
 
 	override string teamName() {

@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -66,6 +67,17 @@ class Faker_he : Faker_en {
 		, q"{כדור}", q"{כפפות}", q"{מכנסיים}", q"{חולצה}", q"{שולחן}", q"{נעליים}"
 		, q"{כובע}", q"{מגבות}", q"{סבון}", q"{טונה}", q"{עוף}", q"{דג}", q"{גבינה}"
 		, q"{בייקון}", q"{פיצה}", q"{סלט}", q"{נקניקיות}", q"{צ'יפס}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	override string commerceDepartment() {
+		const string[] strs =
+		[ q"{ספרים}", q"{סרטים}", q"{מוסיקה}", q"{משחקים}", q"{מכשירי חשמל}"
+		, q"{מחשבים}", q"{בית}", q"{גן}", q"{כלים}", q"{מכולת}", q"{בריאות}"
+		, q"{יופי}", q"{צעצועים}", q"{ילדים}", q"{תִינוֹק}", q"{ביגוד}"
+		, q"{נעליים}", q"{תכשיטים}", q"{ספורט}", q"{מחוץ לבית}", q"{רכב}"
+		, q"{תעשייתי}" ];
 
 		return choice(strs, this.rnd);
 	}
@@ -1022,6 +1034,13 @@ class Faker_he : Faker_en {
 			case 0: return locationStreetPrefix() ~ " " ~ locationStreetName();
 		}
 		return "";
+	}
+
+	string locationStreetPrefix() {
+		const string[] strs =
+		[ q"{רחוב}", q"{שדרות}", q"{משעול}", q"{דרך}", q"{סמטת}" ];
+
+		return choice(strs, this.rnd);
 	}
 
 	override string loremWords() {

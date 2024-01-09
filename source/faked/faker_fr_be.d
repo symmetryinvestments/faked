@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_fr;
 
@@ -211,6 +212,15 @@ class Faker_fr_be : Faker_fr {
 		, q"{Saint-Honoré}", q"{Saint-Bernard}", q"{Saint-Denis}", q"{Saint-Dominique}", q"{Saint-Jacques}"
 		, q"{Saint-Séverin}", q"{des Saussaies}", q"{de Seine}", q"{de Solférino}", q"{Du Sommerard}"
 		, q"{de Tilsitt}", q"{Vaneau}", q"{de Vaugirard}", q"{de la Victoire}", q"{Zadkine}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	override string locationStreetPrefix() {
+		const string[] strs =
+		[ q"{Allée}", q"{Chemin}", q"{Cours}", q"{Rue}", q"{Avenue}", q"{Boulevard}", q"{Drève}", q"{Galerie}"
+		, q"{Impasse}", q"{Jardin}", q"{Quai}", q"{Passage}", q"{Parc}", q"{Parvis}", q"{Petite rue}", q"{Place}"
+		, q"{Porte}", q"{Square}", q"{Voie}" ];
 
 		return choice(strs, this.rnd);
 	}

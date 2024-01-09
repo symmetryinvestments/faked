@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -50,6 +51,16 @@ class Faker_pt_pt : Faker_en {
 		, q"{Calças}", q"{Camisa}", q"{Mesa}", q"{Sapatos}", q"{Chapéu}", q"{Toalhas}", q"{Sabonete}"
 		, q"{Atum}", q"{Frango}", q"{Peixe}", q"{Queijo}", q"{Bacon}", q"{Pizza}", q"{Salada}", q"{Salsichas}"
 		, q"{Batatas Fritas}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	override string commerceDepartment() {
+		const string[] strs =
+		[ q"{Livros}", q"{Filmes}", q"{Música}", q"{Jogos}", q"{Electrónica}", q"{Computadores}", q"{Casa}"
+		, q"{Jardim}", q"{Ferramentas}", q"{Mercearia}", q"{Saúde}", q"{Beleza}", q"{Brinquedos}", q"{Crianças}"
+		, q"{Bebé}", q"{Roupas}", q"{Sapatos}", q"{Jóias}", q"{Desporto}", q"{Ar Livre}", q"{Automóveis}"
+		, q"{Industrial}" ];
 
 		return choice(strs, this.rnd);
 	}
@@ -251,6 +262,15 @@ class Faker_pt_pt : Faker_en {
 			case 0: return locationStreetPrefix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
 		}
 		return "";
+	}
+
+	string locationStreetPrefix() {
+		const string[] strs =
+		[ q"{Acesso}", q"{Alameda}", q"{Avenida}", q"{Azinhaga}", q"{Bairro}", q"{Beco}", q"{Calçada}", q"{Caminho}"
+		, q"{Escadas}", q"{Estrada}", q"{Jardim}", q"{Ladeira}", q"{Largo}", q"{Praça}", q"{Praceta}"
+		, q"{Quinta}", q"{Rua}", q"{Travessa}", q"{Urbanização}", q"{Viela}" ];
+
+		return choice(strs, this.rnd);
 	}
 
 	override string personFemaleFirstName() {

@@ -14,40 +14,56 @@ import generator;
 
 void main() {
 	genCustomTypes();
-	JsonFile bs = buildBase();
+	string[][string] methodsOfLang;
+	methodsOfLang["base"] = [];
+
+	auto enumFile = File("../source/faked/fakerenums.d", "w");
+	enumFile.writeln(`module faked.fakerenums;
+
+`);
+	auto enumFileLTW = enumFile.lockingTextWriter();
+	JsonFile bs = buildBase("base.json", methodsOfLang, enumFileLTW, true);
+	JsonFile en = buildBase("en.json", methodsOfLang, enumFileLTW, false);
 	string[] langs;
 	DirEntry[] entries = dirEntries("", "*.json", SpanMode.shallow)
 			.filter!(it => it.name != "dub.json")
 			.filter!(it => it.name != "base.json")
+			.filter!(it => it.name != "en.json")
 			.array
 			.sort!((a,b) => a.name < b.name)
 			.array;
 
 	foreach(j; entries) {
-		writeln(j.name);
+		string[] dummy;
 		JSONValue jv = parseJSON(readText(j.name));
 		JsonFile jf = parseJson!(JsonFile)(jv, [j.name]);
+		writeln(j.name, " ", jf.chain);
 		backFillMergeArray(jf);
 		string langName = j.name[0 .. $ - 5];
 		langs ~= langName;
 		auto f = File(format("../source/faked/faker_%s.d", langName.toLower()), "w");
 		genTopMatter(jf, f.lockingTextWriter(), langName, false);
-		generate(jf.data, f.lockingTextWriter(), [], false);
+		generate(jf, langName, jf.data, f.lockingTextWriter(), [], methodsOfLang);
+		if(langName == "en") {
+			traverseMustachAAs(jf.data, enumFileLTW, []);
+		}
 		f.writeln("}");
 	}
 	generateForward(bs, langs);
 }
 
-JsonFile buildBase() {
-	string en = "base.json";
+JsonFile buildBase(Out)(string fn, ref string[][string] methodsOfBaseClass
+		, ref Out o, const bool base)
+{
+	string en = fn;
 	JSONValue jv = parseJSON(readText(en));
 	JsonFile jf = parseJson!(JsonFile)(jv, [en]);
 	backFillMergeArray(jf);
 	string langName = en[0 .. $ - 5];
-	auto f = File("../source/faked/faker_base.d", "w");
-	genTopMatter(jf, f.lockingTextWriter(), "en", true);
-	generate(jf.data, f.lockingTextWriter(), [], true);
+	auto f = File(format("../source/faked/faker_%s.d", langName), "w");
+	genTopMatter(jf, f.lockingTextWriter(), langName, base);
+	generate(jf, langName, jf.data, f.lockingTextWriter(), [], methodsOfBaseClass);
 	f.writeln("}\n");
-	traverseMustachAAs(jf.data, f.lockingTextWriter(), []);
+	traverseMustachAAs(jf.data, o, []);
 	return jf;
 }

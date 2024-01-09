@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -18,6 +19,15 @@ class Faker_nb_no : Faker_en {
 @safe:
 	this(int seed) {
 		super(seed);
+	}
+
+	override string commerceDepartment() {
+		const string[] strs =
+		[ q"{Barn}", q"{Bøker}", q"{Dagligvarer}", q"{Datamaskiner}", q"{Elektronikk}", q"{Filmer}", q"{Hage og utemiljø}"
+		, q"{Helse}", q"{Hjem}", q"{Klær}", q"{Leker}", q"{Musikk}", q"{Sko}", q"{Skjønnhet}", q"{Spill}"
+		, q"{Smykker}", q"{Sport}", q"{Verktøy}" ];
+
+		return choice(strs, this.rnd);
 	}
 
 	override string companyNamePattern() {
@@ -143,6 +153,20 @@ class Faker_nb_no : Faker_en {
 		, q"{løkka}", q"{marka}", q"{moen}", q"{myra}", q"{plassen}", q"{ringen}", q"{roa}", q"{røa}", q"{skogen}"
 		, q"{skrenten}", q"{spranget}", q"{stien}", q"{stranda}", q"{stubben}", q"{stykket}", q"{svingen}"
 		, q"{tjernet}", q"{toppen}", q"{tunet}", q"{vollen}", q"{vika}", q"{åsen}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	string locationCommonStreetSuffix() {
+		const string[] strs =
+		[ q"{sgate}", q"{svei}", q"{s Gate}", q"{s Vei}", q"{gata}", q"{veien}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	string locationStreetPrefix() {
+		const string[] strs =
+		[ q"{Øvre}", q"{Nedre}", q"{Søndre}", q"{Gamle}", q"{Østre}", q"{Vestre}" ];
 
 		return choice(strs, this.rnd);
 	}

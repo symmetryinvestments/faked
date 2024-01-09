@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -32,6 +33,13 @@ class Faker_ko : Faker_en {
 		const string[] strs =
 		[ q"{연구소}", q"{게임즈}", q"{그룹}", q"{전자}", q"{물산}", q"{코리아}", q"{공사}"
 		, q"{증권}", q"{은행}", q"{중공업}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	string companyPrefix() {
+		const string[] strs =
+		[ q"{주식회사}", q"{한국}" ];
 
 		return choice(strs, this.rnd);
 	}

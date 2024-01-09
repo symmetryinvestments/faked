@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_fr;
 
@@ -300,6 +301,13 @@ class Faker_fr_ch : Faker_fr {
 		, q"{Sauvain}", q"{sous la Côte}", q"{sous la Lampe}", q"{Sous Route}", q"{Sous-la-Forêt}"
 		, q"{sur Beaumont}", q"{tendant à Bioley}", q"{vers Dizy}", q"{vers La Chaux}", q"{vers La Sarraz}"
 		, q"{vers Senarclens}", q"{Virgile-Rossel}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	override string locationStreetPrefix() {
+		const string[] strs =
+		[ q"{Rue}", q"{Avenue}", q"{Place}", q"{Route}", q"{Chemin}" ];
 
 		return choice(strs, this.rnd);
 	}

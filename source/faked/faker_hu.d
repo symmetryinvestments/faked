@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -287,6 +288,16 @@ class Faker_hu : Faker_en {
 		, q"{Kesztyű}", q"{Nadrág}", q"{Ing}", q"{Asztal}", q"{Cipő}", q"{Kalap}", q"{Törölköző}"
 		, q"{Szappan}", q"{Tonhal}", q"{Csirke}", q"{Hal}", q"{Sajt}", q"{Szalonna}", q"{Pizza}", q"{Saláta}"
 		, q"{Virsli}", q"{Csipsz}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	override string commerceDepartment() {
+		const string[] strs =
+		[ q"{Könyv}", q"{Film}", q"{Zene}", q"{Játék}", q"{Elektronika}", q"{Számítógép}", q"{Otthon}"
+		, q"{Kert}", q"{Szerszám}", q"{Élelmiszer}", q"{Egészség}", q"{Szépség}", q"{Játékszer}"
+		, q"{Gyermek}", q"{Baba}", q"{Ruházat}", q"{Cipő}", q"{Ékszer}", q"{Sport}", q"{Szabadban}"
+		, q"{Autó}", q"{Ipari}" ];
 
 		return choice(strs, this.rnd);
 	}

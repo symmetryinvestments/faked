@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -46,6 +47,15 @@ class Faker_sv : Faker_en {
 	override string commerceProductNameProduct() {
 		const string[] strs =
 		[ q"{Stol}", q"{Bil}", q"{Dator}", q"{Handskar}", q"{Byxor}", q"{Skjorta}", q"{Bord}", q"{Skor}", q"{Hatt}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	override string commerceDepartment() {
+		const string[] strs =
+		[ q"{Böcker}", q"{Filmer}", q"{Musik}", q"{Spel}", q"{Elektronik}", q"{Datorer}", q"{Hem}", q"{Trädgård}"
+		, q"{Verktyg}", q"{Livsmedel}", q"{Hälsa}", q"{Skönhet}", q"{Leksaker}", q"{Klädsel}", q"{Skor}"
+		, q"{Smycken}", q"{Sport}" ];
 
 		return choice(strs, this.rnd);
 	}
@@ -244,6 +254,20 @@ class Faker_sv : Faker_en {
 		return choice(strs, this.rnd);
 	}
 
+	string locationCommonStreetSuffix() {
+		const string[] strs =
+		[ q"{s Väg}", q"{s Gata}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	string locationStreetPrefix() {
+		const string[] strs =
+		[ q"{Västra}", q"{Östra}", q"{Norra}", q"{Södra}", q"{Övre}", q"{Undre}" ];
+
+		return choice(strs, this.rnd);
+	}
+
 	override string personFemaleFirstName() {
 		const string[] strs =
 		[ q"{Anna}", q"{Eva}", q"{Maria}", q"{Karin}", q"{Sara}", q"{Kristina}", q"{Lena}", q"{Emma}", q"{Kerstin}"
@@ -420,6 +444,13 @@ class Faker_sv : Faker_en {
 		, q"{09########}", q"{+469########}" ];
 
 		return numberBuild(choice(strs, this.rnd));
+	}
+
+	string teamSuffix() {
+		const string[] strs =
+		[ q"{IF}", q"{FF}", q"{BK}", q"{HK}", q"{AIF}", q"{SK}", q"{FC}", q"{BoIS}", q"{FK}", q"{BIS}", q"{FIF}", q"{IK}" ];
+
+		return choice(strs, this.rnd);
 	}
 
 	override string teamName() {

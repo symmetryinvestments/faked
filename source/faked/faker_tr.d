@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -63,6 +64,16 @@ class Faker_tr : Faker_en {
 		, q"{Eldiven}", q"{Pantolon}", q"{Gömlek}", q"{Tablo}", q"{Ayakkabı}", q"{Şapka}", q"{Havlu}"
 		, q"{Sabun}", q"{Tuna}", q"{Tavuk}", q"{Balık}", q"{Peynir}", q"{Kayseri Pastırması}", q"{Pizza}"
 		, q"{Salata}", q"{Sosis}", q"{Cips}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	override string commerceDepartment() {
+		const string[] strs =
+		[ q"{Kitaplar}", q"{Filmler}", q"{Müzikler}", q"{Oyunlar}", q"{Elektronik}", q"{Bilgisayarlar}"
+		, q"{Ev}", q"{Bahçe}", q"{Aletler}", q"{Bakkal}", q"{Sağlık}", q"{Güzellik}", q"{Oyuncaklar}"
+		, q"{Çocuklar}", q"{Bebek}", q"{Giyim}", q"{Ayakkabı}", q"{Mücevher}", q"{Spor Dalları}"
+		, q"{Açık Hava}", q"{Otomotiv}", q"{Sanayi}" ];
 
 		return choice(strs, this.rnd);
 	}

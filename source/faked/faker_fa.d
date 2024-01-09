@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -54,6 +55,17 @@ class Faker_fa : Faker_en {
 		, q"{کفش}", q"{کلاه}", q"{حوله}", q"{صابون}", q"{تن ماهی}", q"{مرغ}"
 		, q"{ماهی}", q"{پنیر}", q"{بیکن}", q"{پیتزا}", q"{سالاد}", q"{سوسیس}"
 		, q"{چیپس}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	override string commerceDepartment() {
+		const string[] strs =
+		[ q"{کتاب ها}", q"{فیلم ها}", q"{موزیک}", q"{بازی ها}", q"{الکترونیک}"
+		, q"{رایانه}", q"{خانه}", q"{باغ}", q"{ابزار}", q"{خواربار}", q"{سلامتی}"
+		, q"{زیبایی}", q"{اسباب بازی}", q"{بچه ها}", q"{بچه}", q"{تن پوش}"
+		, q"{کفش}", q"{زیور آلات}", q"{ورزش ها}", q"{بیرون از خانه}"
+		, q"{اتومبیل}", q"{صنعتی}" ];
 
 		return choice(strs, this.rnd);
 	}
@@ -461,6 +473,13 @@ class Faker_fa : Faker_en {
 		, q"{یادگار امام}", q"{دکتر چمران}", q"{رسالت}", q"{سمیه}"
 		, q"{شهید مطهری}", q"{هویزه}", q"{دماوند}", q"{توحید}", q"{ستارخان}"
 		, q"{کارون}", q"{استادمعین}", q"{رامین}", q"{اندرزگو}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	string locationStreetPrefix() {
+		const string[] strs =
+		[ q"{خیابان}", q"{کوچه}", q"{بن بست}", q"{بلوار}" ];
 
 		return choice(strs, this.rnd);
 	}

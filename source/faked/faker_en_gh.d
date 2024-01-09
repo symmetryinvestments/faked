@@ -11,6 +11,7 @@ import std.string : toUpper;
 import std.typecons : Nullable, nullable;
 
 import faked.customtypes;
+import faked.fakerenums;
 
 import faked.faker_en;
 
@@ -160,6 +161,13 @@ class Faker_en_gh : Faker_en {
 	override string locationStreetSuffix() {
 		const string[] strs =
 		[ q"{Link}", q"{Lane}", q"{Road}", q"{Street}", q"{Lk}", q"{Ln}", q"{Rd}", q"{St}" ];
+
+		return choice(strs, this.rnd);
+	}
+
+	string locationStreetPrefix() {
+		const string[] strs =
+		[ q"{Boame}" ];
 
 		return choice(strs, this.rnd);
 	}
