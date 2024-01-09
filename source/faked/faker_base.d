@@ -60,8 +60,8 @@ class Faker_base {
 			case 7: return this.internetEmojiObject();
 			case 8: return this.internetEmojiSymbol();
 			case 9: return this.internetEmojiFlag();
+			default: return "";
 		}
-		return "";
 	}
 
 	string databaseCollation() {

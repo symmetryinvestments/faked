@@ -46,8 +46,8 @@ class Faker_dv : Faker_en {
 			case 2: return personLastName() ~ " & " ~ personLastName() ~ " " ~ companyNoun() ~ " " ~ companySuffix();
 			case 3: return companyAdjective() ~ " " ~ companyNoun() ~ " " ~ companySuffix();
 			case 4: return companyAdjective() ~ " " ~ personLastName() ~ " " ~ personLastName() ~ " " ~ companySuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string companyNoun() {
@@ -136,8 +136,8 @@ class Faker_dv : Faker_en {
 			case 3: return personFirstName() ~ locationCitySuffix();
 			case 4: return personLastName() ~ locationCitySuffix();
 			case 5: return locationCityName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationCityPrefix() {
@@ -173,8 +173,8 @@ class Faker_dv : Faker_en {
 			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
 			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
 			case 2: return companyAdjective() ~ " " ~ companyNoun() ~ " " ~ locationStreetSuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetSuffix() {

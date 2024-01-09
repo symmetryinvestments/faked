@@ -72,8 +72,8 @@ class Faker_ru : Faker_en {
 			case 5: return companyPrefix() ~ " " ~ locationCityName() ~ companySuffix();
 			case 6: return companyPrefix() ~ " " ~ locationCityName() ~ companySuffix() ~ companySuffix();
 			case 7: return companyPrefix() ~ " " ~ locationCityName() ~ companySuffix() ~ companySuffix() ~ companySuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string companySuffix() {
@@ -171,8 +171,8 @@ class Faker_ru : Faker_en {
 			case 5: return hackerAbbreviation() ~ " " ~ hackerNoun() ~ " недоступен, требуется " ~ hackerVerb() ~ " " ~ hackerAdjective() ~ " " ~ hackerNoun() ~ ", чтобы мы могли " ~ hackerVerb() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
 			case 6: return hackerIngverb() ~ " не работает, попробуйте " ~ hackerVerb() ~ " " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
 			case 7: return "Я планирую " ~ hackerVerb() ~ " " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ ", это должно помочь " ~ hackerVerb() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+			default: return "";
 		}
-		return "";
 	}
 
 	override string hackerVerb() {
@@ -393,8 +393,8 @@ class Faker_ru : Faker_en {
 	override string locationCityPattern() {
 		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationCountry() {
@@ -534,8 +534,8 @@ class Faker_ru : Faker_en {
 		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationStreet() ~ ", " ~ locationBuildingNumber();
 			case LocationStreetAddressEnum.full: return locationStreet() ~ ", " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetName() {
@@ -628,8 +628,8 @@ class Faker_ru : Faker_en {
 		switch(uniform(0, 2, this.rnd)) {
 			case 0: return locationStreetSuffix() ~ " " ~ locationStreetName();
 			case 1: return locationStreetName() ~ " " ~ locationStreetSuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetSuffix() {

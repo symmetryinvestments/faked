@@ -47,8 +47,8 @@ class Faker_fr_lu : Faker_fr {
 	override string locationCityPattern() {
 		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationPostcode() {

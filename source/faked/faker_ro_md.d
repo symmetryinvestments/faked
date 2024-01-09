@@ -119,8 +119,8 @@ class Faker_ro_md : Faker_ro {
 		switch(uniform(0, 2, this.rnd)) {
 			case 0: return locationCityPrefix() ~ " " ~ personFirstName();
 			case 1: return locationCityName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationCityPrefix() {
@@ -171,15 +171,15 @@ class Faker_ro_md : Faker_ro {
 		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationStreet() ~ ", " ~ locationBuildingNumber();
 			case LocationStreetAddressEnum.full: return locationStreet() ~ ", " ~ locationBuildingNumber() ~ ", " ~ locationSecondaryAddress();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetPattern() {
 		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationStreetPrefix() ~ " " ~ locationStreetNamePart();
+			default: return "";
 		}
-		return "";
 	}
 
 	string locationStreetPrefix() {

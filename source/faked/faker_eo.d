@@ -156,8 +156,8 @@ class Faker_eo : Faker_en {
 			case 6: return "Ne funkcios " ~ hackerIngverb() ~ " de la " ~ hackerNoun() ~ ", ni devas " ~ hackerVerb() ~ " la " ~ hackerAdjective() ~ "n " ~ hackerAbbreviation() ~ "-" ~ hackerNoun() ~ "n!";
 			case 7: return "Mi provos " ~ hackerVerb() ~ " la " ~ hackerAdjective() ~ "n " ~ hackerAbbreviation() ~ "-" ~ hackerNoun() ~ "n, tio devus " ~ hackerVerb() ~ " la " ~ hackerAbbreviation() ~ "-" ~ hackerNoun() ~ "n!";
 			case 8: return "Ne gravas, se ni ne povus " ~ hackerVerb() ~ " la " ~ hackerNoun() ~ "n, ni devas nur " ~ hackerVerb() ~ " la " ~ hackerAdjective() ~ "n " ~ hackerAbbreviation() ~ "-" ~ hackerNoun() ~ "!";
+			default: return "";
 		}
-		return "";
 	}
 
 	override string hackerVerb() {
@@ -174,8 +174,8 @@ class Faker_eo : Faker_en {
 		switch(uniform(0, 2, this.rnd)) {
 			case 0: return locationCityPrefix() ~ " " ~ personFirstName() ~ locationCitySuffix();
 			case 1: return personFirstName() ~ locationCitySuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationCityPrefix() {
@@ -280,8 +280,8 @@ class Faker_eo : Faker_en {
 		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationStreet() ~ " " ~ locationBuildingNumber();
 			case LocationStreetAddressEnum.full: return locationStreet() ~ " " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetPattern() {
@@ -290,8 +290,8 @@ class Faker_eo : Faker_en {
 			case 1: return locationStreetPrefix() ~ " de " ~ personLastName();
 			case 2: return personFirstName() ~ locationStreetSuffix();
 			case 3: return locationCityPrefix() ~ " " ~ personFirstName() ~ locationStreetSuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetSuffix() {
@@ -343,8 +343,8 @@ class Faker_eo : Faker_en {
 			case 3: return personBioPart() ~ ", " ~ personBioPart() ~ " " ~ internetEmoji();
 			case 4: return personBioPart() ~ ", " ~ personBioPart() ~ ", " ~ personBioPart();
 			case 5: return personBioPart() ~ ", " ~ personBioPart() ~ ", " ~ personBioPart() ~ " " ~ internetEmoji();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string personFemaleFirstName() {
@@ -630,8 +630,8 @@ class Faker_eo : Faker_en {
 			case 115: return ChemicalElement(q"{Lv}", q"{livermorio}", 116);
 			case 116: return ChemicalElement(q"{Ts}", q"{teneso}", 117);
 			case 117: return ChemicalElement(q"{Og}", q"{oganesono}", 118);
+			default: return ChemicalElement("","");
 		}
-		return ChemicalElement("", "", 0);
 	}
 
 	override ChemicalUnit scienceUnit() {
@@ -665,8 +665,8 @@ class Faker_eo : Faker_en {
 			case 26: return ChemicalUnit(q"{henro}", q"{H}");
 			case 27: return ChemicalUnit(q"{lukso}", q"{lx}");
 			case 28: return ChemicalUnit(q"{katalo}", q"{kat}");
+			default: return ChemicalUnit("","");
 		}
-		return ChemicalUnit("", "");
 	}
 
 	override string vehicleFuel() {

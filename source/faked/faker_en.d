@@ -273,8 +273,8 @@ class Faker_en : Faker_base {
 			case 122: return Airline(nullable(q"{WestJet}"), nullable(q"{WS}"));
 			case 123: return Airline(nullable(q"{Wingo}"), nullable(q"{P5}"));
 			case 124: return Airline(nullable(q"{Wizz Air}"), nullable(q"{W6}"));
+			default: return Airline(Nullable!(string).init, Nullable!(string).init);
 		}
-		return Airline(Nullable!(string).init, Nullable!(string).init);
 	}
 
 	Airplane airlineAirplane() {
@@ -434,8 +434,8 @@ class Faker_en : Faker_base {
 			case 152: return Airplane(nullable(q"{Tupolev Tu-204}"), nullable(q"{T20}"));
 			case 153: return Airplane(nullable(q"{Yakovlev Yak-40}"), nullable(q"{YK4}"));
 			case 154: return Airplane(nullable(q"{Yakovlev Yak-42}"), nullable(q"{YK2}"));
+			default: return Airplane(Nullable!(string).init, Nullable!(string).init);
 		}
-		return Airplane(Nullable!(string).init, Nullable!(string).init);
 	}
 
 	Airport airlineAirport() {
@@ -558,8 +558,8 @@ class Faker_en : Faker_base {
 			case 115: return Airport(nullable(q"{Xi'an Xianyang International Airport}"), nullable(q"{XIY}"));
 			case 116: return Airport(nullable(q"{Zhukovsky International Airport}"), nullable(q"{ZIA}"));
 			case 117: return Airport(nullable(q"{Zurich Airport}"), nullable(q"{ZRH}"));
+			default: return Airport(Nullable!(string).init, Nullable!(string).init);
 		}
-		return Airport(Nullable!(string).init, Nullable!(string).init);
 	}
 
 	string animalBear() {
@@ -1450,8 +1450,8 @@ class Faker_en : Faker_base {
 		switch(uniform(0, 2, this.rnd)) {
 			case 0: return personName();
 			case 1: return companyName();
+			default: return "";
 		}
-		return "";
 	}
 
 	string appName() {
@@ -1634,8 +1634,8 @@ class Faker_en : Faker_base {
 			case 0: return personLastName() ~ " " ~ companySuffix();
 			case 1: return personLastName() ~ " - " ~ personLastName();
 			case 2: return personLastName() ~ ", " ~ personLastName() ~ " and " ~ personLastName();
+			default: return "";
 		}
-		return "";
 	}
 
 	string companyNoun() {
@@ -1925,8 +1925,8 @@ class Faker_en : Faker_base {
 			case 151: return Currency(q"{Namibia Dollar}", q"{NAD}", q"{N$}");
 			case 152: return Currency(q"{Zambian Kwacha}", q"{ZMW}", q"{K}");
 			case 153: return Currency(q"{Zimbabwe Dollar}", q"{ZWL}", q"{}");
+			default: return Currency("","","");
 		}
-		return Currency("", "", "");
 	}
 
 	string financeTransactionType() {
@@ -1974,8 +1974,8 @@ class Faker_en : Faker_base {
 			case 5: return "The " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " is down, " ~ hackerVerb() ~ " the " ~ hackerAdjective() ~ " " ~ hackerNoun() ~ " so we can " ~ hackerVerb() ~ " the " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
 			case 6: return hackerIngverb() ~ " the " ~ hackerNoun() ~ " won't do anything, we need to " ~ hackerVerb() ~ " the " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
 			case 7: return "I'll " ~ hackerVerb() ~ " the " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ ", that should " ~ hackerNoun() ~ " the " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
+			default: return "";
 		}
-		return "";
 	}
 
 	string hackerVerb() {
@@ -2183,8 +2183,8 @@ class Faker_en : Faker_base {
 			case 2: return personFirstName() ~ locationCitySuffix();
 			case 3: return personLastName() ~ locationCitySuffix();
 			case 4: return locationCityName();
+			default: return "";
 		}
-		return "";
 	}
 
 	string locationCityPrefix() {
@@ -2348,8 +2348,8 @@ class Faker_en : Faker_base {
 		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationBuildingNumber() ~ " " ~ locationStreet();
 			case LocationStreetAddressEnum.full: return locationBuildingNumber() ~ " " ~ locationStreet() ~ " " ~ locationSecondaryAddress();
+			default: return "";
 		}
-		return "";
 	}
 
 	string locationStreetName() {
@@ -2516,8 +2516,8 @@ class Faker_en : Faker_base {
 			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
 			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
 			case 2: return locationStreetName();
+			default: return "";
 		}
-		return "";
 	}
 
 	string locationStreetSuffix() {
@@ -2970,8 +2970,8 @@ class Faker_en : Faker_base {
 			case 5: return wordNoun() ~ " " ~ personBioSupporter() ~ "  " ~ internetEmoji();
 			case 6: return wordNoun() ~ " " ~ personBioSupporter() ~ ", " ~ personBioPart();
 			case 7: return wordNoun() ~ " " ~ personBioSupporter() ~ ", " ~ personBioPart() ~ " " ~ internetEmoji();
+			default: return "";
 		}
-		return "";
 	}
 
 	string personBioSupporter() {
@@ -3507,8 +3507,8 @@ class Faker_en : Faker_base {
 	string personJobTitlePattern() {
 		switch(uniform(0, 1, this.rnd)) {
 			case 0: return personJobDescriptor() ~ " " ~ personJobArea() ~ " " ~ personJobType();
+			default: return "";
 		}
-		return "";
 	}
 
 	string personLastName() {
@@ -3910,8 +3910,8 @@ class Faker_en : Faker_base {
 			case 115: return ChemicalElement(q"{Lv}", q"{Livermorium}", 116);
 			case 116: return ChemicalElement(q"{Ts}", q"{Tennessine}", 117);
 			case 117: return ChemicalElement(q"{Og}", q"{Oganesson}", 118);
+			default: return ChemicalElement("","");
 		}
-		return ChemicalElement("", "", 0);
 	}
 
 	ChemicalUnit scienceUnit() {
@@ -3945,8 +3945,8 @@ class Faker_en : Faker_base {
 			case 26: return ChemicalUnit(q"{henry}", q"{H}");
 			case 27: return ChemicalUnit(q"{lux}", q"{lx}");
 			case 28: return ChemicalUnit(q"{katal}", q"{kat}");
+			default: return ChemicalUnit("","");
 		}
-		return ChemicalUnit("", "");
 	}
 
 	string teamCreature() {
@@ -3967,8 +3967,8 @@ class Faker_en : Faker_base {
 	string teamName() {
 		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationState() ~ " " ~ teamCreature();
+			default: return "";
 		}
-		return "";
 	}
 
 	string vehicleBicycleType() {

@@ -86,8 +86,8 @@ class Faker_en_ca : Faker_en {
 			case 2: return personFirstName() ~ locationCitySuffix();
 			case 3: return personLastName() ~ locationCitySuffix();
 			case 4: return locationCityName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationDefaultCountry() {
@@ -126,8 +126,8 @@ class Faker_en_ca : Faker_en {
 		switch(uniform(0, 2, this.rnd)) {
 			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
 			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string personLastNamePattern() {

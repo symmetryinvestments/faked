@@ -142,8 +142,8 @@ class Faker_zh_cn : Faker_en {
 			case 116: return Airline(nullable(q"{西捷航空公司}"), nullable(q"{WS}"));
 			case 117: return Airline(nullable(q"{温戈航空公司}"), nullable(q"{P5}"));
 			case 118: return Airline(nullable(q"{维兹航空公司}"), nullable(q"{W6}"));
+			default: return Airline(Nullable!(string).init, Nullable!(string).init);
 		}
-		return Airline(Nullable!(string).init, Nullable!(string).init);
 	}
 
 	override Airplane airlineAirplane() {
@@ -303,8 +303,8 @@ class Faker_zh_cn : Faker_en {
 			case 152: return Airplane(nullable(q"{图波列夫Tu-204}"), nullable(q"{T20}"));
 			case 153: return Airplane(nullable(q"{雅科夫列夫Yak-40}"), nullable(q"{YK4}"));
 			case 154: return Airplane(nullable(q"{雅科夫列夫Yak-42}"), nullable(q"{YK2}"));
+			default: return Airplane(Nullable!(string).init, Nullable!(string).init);
 		}
-		return Airplane(Nullable!(string).init, Nullable!(string).init);
 	}
 
 	override Airport airlineAirport() {
@@ -427,8 +427,8 @@ class Faker_zh_cn : Faker_en {
 			case 115: return Airport(nullable(q"{西安咸阳国际机场}"), nullable(q"{XIY}"));
 			case 116: return Airport(nullable(q"{茹科夫斯基国际机场}"), nullable(q"{ZIA}"));
 			case 117: return Airport(nullable(q"{苏黎世机场}"), nullable(q"{ZRH}"));
+			default: return Airport(Nullable!(string).init, Nullable!(string).init);
 		}
-		return Airport(Nullable!(string).init, Nullable!(string).init);
 	}
 
 	override string animalBear() {
@@ -530,8 +530,8 @@ class Faker_zh_cn : Faker_en {
 		switch(uniform(0, 2, this.rnd)) {
 			case 0: return locationState() ~ personFirstName() ~ companyCategory() ~ companyType();
 			case 1: return locationCity() ~ personFirstName() ~ companyCategory() ~ companyType();
+			default: return "";
 		}
-		return "";
 	}
 
 	string companyType() {
@@ -768,8 +768,8 @@ class Faker_zh_cn : Faker_en {
 			case 152: return Currency(q"{南非兰特}", q"{ZAR}", q"{R}");
 			case 153: return Currency(q"{赞比亚克瓦查}", q"{ZMW}", q"{ZK}");
 			case 154: return Currency(q"{津巴布韦元}", q"{ZWL}", q"{$}");
+			default: return Currency("","","");
 		}
-		return Currency("", "", "");
 	}
 
 	override string financeTransactionType() {
@@ -808,8 +808,8 @@ class Faker_zh_cn : Faker_en {
 			case 5: return hackerAbbreviation() ~ hackerNoun() ~ "已关闭，因为" ~ hackerAdjective() ~ hackerNoun() ~ "所以我们能" ~ hackerVerb() ~ hackerAbbreviation() ~ hackerNoun() ~ "！";
 			case 6: return hackerVerb() ~ hackerNoun() ~ "是无济于事的，我们需要" ~ hackerVerb() ~ hackerAdjective() ~ hackerAbbreviation() ~ hackerNoun() ~ "！";
 			case 7: return "我将" ~ hackerVerb() ~ hackerAdjective() ~ hackerAbbreviation() ~ hackerNoun() ~ "，那是应该" ~ hackerNoun() ~ hackerAbbreviation() ~ hackerNoun() ~ "！";
+			default: return "";
 		}
-		return "";
 	}
 
 	override string hackerVerb() {
@@ -840,8 +840,8 @@ class Faker_zh_cn : Faker_en {
 	override string locationCityPattern() {
 		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityPrefix() ~ locationCitySuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationCityPrefix() {
@@ -906,15 +906,15 @@ class Faker_zh_cn : Faker_en {
 		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationStreet() ~ locationBuildingNumber() ~ "号";
 			case LocationStreetAddressEnum.full: return locationStreet() ~ locationBuildingNumber() ~ "号 " ~ locationSecondaryAddress();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetPattern() {
 		switch(uniform(0, 1, this.rnd)) {
 			case 0: return personLastName() ~ locationStreetSuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetSuffix() {
@@ -984,8 +984,8 @@ class Faker_zh_cn : Faker_en {
 			case 5: return wordNoun() ~ personBioSupporter() ~ internetEmoji();
 			case 6: return wordNoun() ~ personBioSupporter() ~ "，" ~ personBioPart();
 			case 7: return wordNoun() ~ personBioSupporter() ~ "，" ~ personBioPart() ~ internetEmoji();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string personBioSupporter() {
@@ -1300,8 +1300,8 @@ class Faker_zh_cn : Faker_en {
 			case 115: return ChemicalElement(q"{Lv}", q"{𫟷}", 116);
 			case 116: return ChemicalElement(q"{Ts}", q"{钿}", 117);
 			case 117: return ChemicalElement(q"{Og}", q"{鿫}", 118);
+			default: return ChemicalElement("","");
 		}
-		return ChemicalElement("", "", 0);
 	}
 
 	override ChemicalUnit scienceUnit() {
@@ -1335,8 +1335,8 @@ class Faker_zh_cn : Faker_en {
 			case 26: return ChemicalUnit(q"{亨利}", q"{H}");
 			case 27: return ChemicalUnit(q"{勒克斯}", q"{lx}");
 			case 28: return ChemicalUnit(q"{开特}", q"{kat}");
+			default: return ChemicalUnit("","");
 		}
-		return ChemicalUnit("", "");
 	}
 
 	override string vehicleBicycleType() {

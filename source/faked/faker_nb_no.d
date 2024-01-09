@@ -35,8 +35,8 @@ class Faker_nb_no : Faker_en {
 			case 0: return personLastName() ~ " " ~ companySuffix();
 			case 1: return personLastName() ~ "-" ~ personLastName();
 			case 2: return personLastName() ~ ", " ~ personLastName() ~ " og " ~ personLastName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string companySuffix() {
@@ -71,8 +71,8 @@ class Faker_nb_no : Faker_en {
 	override string locationCityPattern() {
 		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityName() ~ locationCitySuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationCitySuffix() {
@@ -121,8 +121,8 @@ class Faker_nb_no : Faker_en {
 		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationStreet() ~ " " ~ locationBuildingNumber();
 			case LocationStreetAddressEnum.full: return locationStreet() ~ " " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetName() {
@@ -141,8 +141,8 @@ class Faker_nb_no : Faker_en {
 			case 1: return locationStreetPrefix() ~ " " ~ locationStreetName() ~ locationStreetSuffix();
 			case 2: return personFirstName() ~ locationCommonStreetSuffix();
 			case 3: return personLastName() ~ locationCommonStreetSuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetSuffix() {
@@ -419,8 +419,8 @@ class Faker_nb_no : Faker_en {
 			case 115: return ChemicalElement(q"{Lv}", q"{Livermorium}", 116);
 			case 116: return ChemicalElement(q"{Ts}", q"{Tenness}", 117);
 			case 117: return ChemicalElement(q"{Og}", q"{Oganesson}", 118);
+			default: return ChemicalElement("","");
 		}
-		return ChemicalElement("", "", 0);
 	}
 
 	override ChemicalUnit scienceUnit() {
@@ -447,8 +447,8 @@ class Faker_nb_no : Faker_en {
 			case 19: return ChemicalUnit(q"{becquerel}", q"{Bq}");
 			case 20: return ChemicalUnit(q"{gray}", q"{Gy}");
 			case 21: return ChemicalUnit(q"{sievert}", q"{Sv}");
+			default: return ChemicalUnit("","");
 		}
-		return ChemicalUnit("", "");
 	}
 
 	override string wordAdjective() {

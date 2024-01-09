@@ -381,8 +381,8 @@ string genMustacheAA(Out)(Mustache[string] m, ref Out o, string[] path
 		buildSingleMustache(o, it.value);
 		formattedWrite(o, ";\n");
 	}
+	iformat(o, 3, "default: return \"\";\n");
 	iformat(o, 2, "}\n");
-	iformat(o, 2, "return \"\";\n");
 	iformat(o, 1, "}");
 	return ret;
 }
@@ -399,8 +399,8 @@ string genChemicalUnit(Out)(ChemicalUnit[] m, ref Out o, string[] path
 					, `q"{` ~ it.symbol ~ `}"`);
 		formattedWrite(o, ";\n");
 	}
+	iformat(o, 3, "default: return ChemicalUnit(\"\",\"\");\n");
 	iformat(o, 2, "}\n");
-	iformat(o, 2, "return ChemicalUnit(\"\", \"\");\n");
 	iformat(o, 1, "}");
 	return ret;
 }
@@ -418,8 +418,8 @@ string genChemicalElement(Out)(ChemicalElement[] m, ref Out o, string[] path
 					, it.atomicNumber);
 		formattedWrite(o, ";\n");
 	}
+	iformat(o, 3, "default: return ChemicalElement(\"\",\"\");\n");
 	iformat(o, 2, "}\n");
-	iformat(o, 2, "return ChemicalElement(\"\", \"\", 0);\n");
 	iformat(o, 1, "}");
 	return ret;
 }
@@ -437,8 +437,8 @@ string genCurrency(Out)(Currency[] m, ref Out o, string[] path
 					, `q"{` ~ it.symbol ~ `}"`);
 		formattedWrite(o, ";\n");
 	}
+	iformat(o, 3, "default: return Currency(\"\",\"\",\"\");\n");
 	iformat(o, 2, "}\n");
-	iformat(o, 2, "return Currency(\"\", \"\", \"\");\n");
 	iformat(o, 1, "}");
 	return ret;
 }
@@ -459,8 +459,8 @@ string genAirplane(Out)(Airplane[] m, ref Out o, string[] path
 					: "nullable(q\"{" ~ it.iataTypeCode.get() ~ "}\")");
 		formattedWrite(o, ";\n");
 	}
+	iformat(o, 3, "default: return Airplane(Nullable!(string).init, Nullable!(string).init);\n");
 	iformat(o, 2, "}\n");
-	iformat(o, 2, "return Airplane(Nullable!(string).init, Nullable!(string).init);\n");
 	iformat(o, 1, "}");
 	return ret;
 }
@@ -481,8 +481,8 @@ string genAirport(Out)(Airport[] m, ref Out o, string[] path
 					: "nullable(q\"{" ~ it.iataCode.get() ~ "}\")");
 		formattedWrite(o, ";\n");
 	}
+	iformat(o, 3, "default: return Airport(Nullable!(string).init, Nullable!(string).init);\n");
 	iformat(o, 2, "}\n");
-	iformat(o, 2, "return Airport(Nullable!(string).init, Nullable!(string).init);\n");
 	iformat(o, 1, "}");
 	return ret;
 }
@@ -503,8 +503,8 @@ string genAirline(Out)(Airline[] m, ref Out o, string[] path
 					: "nullable(q\"{" ~ it.iataCode.get() ~ "}\")");
 		formattedWrite(o, ";\n");
 	}
+	iformat(o, 3, "default: return Airline(Nullable!(string).init, Nullable!(string).init);\n");
 	iformat(o, 2, "}\n");
-	iformat(o, 2, "return Airline(Nullable!(string).init, Nullable!(string).init);\n");
 	iformat(o, 1, "}");
 	return ret;
 }
@@ -520,8 +520,8 @@ string genMustache(Out)(Mustache[] m, ref Out o, string[] path
 		buildSingleMustache(o, it);
 		formattedWrite(o, ";\n");
 	}
+	iformat(o, 3, "default: return \"\";\n");
 	iformat(o, 2, "}\n");
-	iformat(o, 2, "return \"\";\n");
 	iformat(o, 1, "}");
 	return ret;
 }
@@ -676,8 +676,8 @@ class Faker_base {
 			case 7: return this.internetEmojiObject();
 			case 8: return this.internetEmojiSymbol();
 			case 9: return this.internetEmojiFlag();
+			default: return "";
 		}
-		return "";
 	}
 
 `);

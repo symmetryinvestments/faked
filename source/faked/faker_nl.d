@@ -143,8 +143,8 @@ class Faker_nl : Faker_en {
 			case 5: return "De " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " ligt eruit, jullie moeten de " ~ hackerAdjective() ~ " " ~ hackerNoun() ~ " " ~ hackerVerb() ~ " zodat we de " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " kunnen " ~ hackerVerb() ~ "!";
 			case 6: return "Het maakt niet uit of we de " ~ hackerNoun() ~ " " ~ hackerVerb() ~ ", we moeten de " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " " ~ hackerVerb() ~ "!";
 			case 7: return "Ik ga de " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " " ~ hackerVerb() ~ ", dat zou de " ~ hackerNoun() ~ " moeten " ~ hackerVerb() ~ "!";
+			default: return "";
 		}
-		return "";
 	}
 
 	override string hackerVerb() {
@@ -182,8 +182,8 @@ class Faker_nl : Faker_en {
 		switch(uniform(0, 2, this.rnd)) {
 			case 0: return locationCityPrefix() ~ locationCitySuffix();
 			case 1: return locationCityPrefix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationCityPrefix() {
@@ -636,16 +636,16 @@ class Faker_nl : Faker_en {
 		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationStreet() ~ " " ~ locationBuildingNumber();
 			case LocationStreetAddressEnum.full: return locationStreet() ~ " " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetPattern() {
 		switch(uniform(0, 2, this.rnd)) {
 			case 0: return personFirstName() ~ locationStreetSuffix();
 			case 1: return personLastName() ~ locationStreetSuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetSuffix() {

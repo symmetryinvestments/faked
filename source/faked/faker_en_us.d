@@ -34,8 +34,8 @@ class Faker_en_us : Faker_en {
 			case 1: return locationCityPrefix() ~ " " ~ personFirstName();
 			case 2: return personFirstName() ~ locationCitySuffix();
 			case 3: return personLastName() ~ locationCitySuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationCounty() {
@@ -151,8 +151,8 @@ class Faker_en_us : Faker_en {
 			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
 			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
 			case 2: return locationStreetName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string personLastNamePattern() {

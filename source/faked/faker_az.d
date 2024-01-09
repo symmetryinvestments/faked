@@ -57,8 +57,8 @@ class Faker_az : Faker_en {
 			case 0: return companyPrefix() ~ " " ~ personFemaleFirstName();
 			case 1: return companyPrefix() ~ " " ~ personMaleFirstName();
 			case 2: return companyPrefix() ~ " " ~ personMaleLastName();
+			default: return "";
 		}
-		return "";
 	}
 
 	string companyPrefix() {
@@ -141,8 +141,8 @@ class Faker_az : Faker_en {
 	override string locationCityPattern() {
 		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationCountry() {
@@ -223,8 +223,8 @@ class Faker_az : Faker_en {
 		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationStreet() ~ ", " ~ locationBuildingNumber();
 			case LocationStreetAddressEnum.full: return locationStreet() ~ ", " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetName() {
@@ -296,8 +296,8 @@ class Faker_az : Faker_en {
 		switch(uniform(0, 2, this.rnd)) {
 			case 0: return locationStreetSuffix() ~ " " ~ locationStreetName();
 			case 1: return locationStreetName() ~ " " ~ locationStreetSuffix();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetSuffix() {

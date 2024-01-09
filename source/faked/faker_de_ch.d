@@ -26,8 +26,8 @@ class Faker_de_ch : Faker_de {
 			case 0: return personLastName() ~ " " ~ companySuffix();
 			case 1: return personLastName() ~ "-" ~ personLastName();
 			case 2: return personLastName() ~ ", " ~ personLastName() ~ " und " ~ personLastName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string companySuffix() {
@@ -68,8 +68,8 @@ class Faker_de_ch : Faker_de {
 	override string locationCityPattern() {
 		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationDefaultCountry() {
@@ -120,8 +120,8 @@ class Faker_de_ch : Faker_de {
 	override string locationStreetPattern() {
 		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationStreetName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string personFemaleFirstName() {

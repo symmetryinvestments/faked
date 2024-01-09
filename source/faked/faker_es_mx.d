@@ -162,8 +162,8 @@ class Faker_es_mx : Faker_es {
 			case 1: return personLastName() ~ " y " ~ personLastName();
 			case 2: return personLastName() ~ " " ~ personLastName() ~ " " ~ companySuffix();
 			case 3: return personLastName() ~ ", " ~ personLastName() ~ " y " ~ personLastName() ~ " Asociados";
+			default: return "";
 		}
-		return "";
 	}
 
 	override string companyNoun() {
@@ -253,8 +253,8 @@ class Faker_es_mx : Faker_es {
 	override string locationCityPattern() {
 		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationCountry() {
@@ -341,8 +341,8 @@ class Faker_es_mx : Faker_es {
 		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationStreet() ~ locationBuildingNumber();
 			case LocationStreetAddressEnum.full: return locationStreet() ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetName() {
@@ -364,8 +364,8 @@ class Faker_es_mx : Faker_es {
 			case 0: return locationStreetSuffix() ~ " " ~ personFirstName();
 			case 1: return locationStreetSuffix() ~ " " ~ personFirstName() ~ " " ~ personLastName();
 			case 2: return locationStreetSuffix() ~ " " ~ locationStreetName();
+			default: return "";
 		}
-		return "";
 	}
 
 	override string locationStreetSuffix() {
@@ -764,8 +764,8 @@ class Faker_es_mx : Faker_es {
 	override string teamName() {
 		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationState() ~ " " ~ teamCreature();
+			default: return "";
 		}
-		return "";
 	}
 
 }
