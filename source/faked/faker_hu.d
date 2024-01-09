@@ -303,7 +303,7 @@ class Faker_hu : Faker_en {
 	}
 
 	override string companyNamePattern() {
-		final switch(uniform(0, 4, this.rnd)) {
+		switch(uniform(0, 4, this.rnd)) {
 			case 0: return personLastName() ~ " " ~ companySuffix();
 			case 1: return personLastName() ~ " és " ~ personLastName() ~ " " ~ companySuffix();
 			case 2: return personLastName() ~ " és Tsa. " ~ companySuffix();

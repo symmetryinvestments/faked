@@ -68,7 +68,7 @@ class Faker_hy : Faker_en {
 	}
 
 	override string locationCityPattern() {
-		final switch(uniform(0, 2, this.rnd)) {
+		switch(uniform(0, 2, this.rnd)) {
 			case 0: return locationCityPrefix() ~ " " ~ personLastName();
 			case 1: return personLastName() ~ locationCitySuffix();
 		}
@@ -197,7 +197,7 @@ class Faker_hy : Faker_en {
 	}
 
 	override string locationStreetAddress(LocationStreetAddressEnum which) {
-		final switch(which) {
+		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationStreet() ~ " " ~ locationBuildingNumber();
 			case LocationStreetAddressEnum.full: return locationStreet() ~ " " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
 		}
@@ -205,7 +205,7 @@ class Faker_hy : Faker_en {
 	}
 
 	override string locationStreetPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return personLastName() ~ " " ~ locationStreetSuffix();
 		}
 		return "";

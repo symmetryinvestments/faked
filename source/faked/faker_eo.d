@@ -146,7 +146,7 @@ class Faker_eo : Faker_en {
 	}
 
 	override string hackerPhrase() {
-		final switch(uniform(0, 9, this.rnd)) {
+		switch(uniform(0, 9, this.rnd)) {
 			case 0: return "Se ni povus " ~ hackerVerb() ~ " la " ~ hackerNoun() ~ "n, ni povus aliri la " ~ hackerAbbreviation() ~ "-" ~ hackerNoun() ~ "n per la " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ "-" ~ hackerNoun() ~ "!";
 			case 1: return "Ni devas " ~ hackerVerb() ~ " la " ~ hackerAdjective() ~ "n " ~ hackerAbbreviation() ~ "-" ~ hackerNoun() ~ "n!";
 			case 2: return "Provu " ~ hackerVerb() ~ " la " ~ hackerAbbreviation() ~ "-" ~ hackerNoun() ~ "n, eble ni sukcesos " ~ hackerVerb() ~ " la " ~ hackerAdjective() ~ "n " ~ hackerNoun() ~ "n!";
@@ -171,7 +171,7 @@ class Faker_eo : Faker_en {
 	}
 
 	override string locationCityPattern() {
-		final switch(uniform(0, 2, this.rnd)) {
+		switch(uniform(0, 2, this.rnd)) {
 			case 0: return locationCityPrefix() ~ " " ~ personFirstName() ~ locationCitySuffix();
 			case 1: return personFirstName() ~ locationCitySuffix();
 		}
@@ -277,7 +277,7 @@ class Faker_eo : Faker_en {
 	}
 
 	override string locationStreetAddress(LocationStreetAddressEnum which) {
-		final switch(which) {
+		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationStreet() ~ " " ~ locationBuildingNumber();
 			case LocationStreetAddressEnum.full: return locationStreet() ~ " " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
 		}
@@ -285,7 +285,7 @@ class Faker_eo : Faker_en {
 	}
 
 	override string locationStreetPattern() {
-		final switch(uniform(0, 4, this.rnd)) {
+		switch(uniform(0, 4, this.rnd)) {
 			case 0: return locationStreetPrefix() ~ " de " ~ personFirstName();
 			case 1: return locationStreetPrefix() ~ " de " ~ personLastName();
 			case 2: return personFirstName() ~ locationStreetSuffix();
@@ -336,7 +336,7 @@ class Faker_eo : Faker_en {
 	}
 
 	override string personBioPattern() {
-		final switch(uniform(0, 6, this.rnd)) {
+		switch(uniform(0, 6, this.rnd)) {
 			case 0: return personBioPart();
 			case 1: return personBioPart() ~ " " ~ internetEmoji();
 			case 2: return personBioPart() ~ ", " ~ personBioPart();
@@ -511,7 +511,7 @@ class Faker_eo : Faker_en {
 	}
 
 	override ChemicalElement scienceChemicalElement() {
-		final switch(uniform(0, 118, this.rnd)) {
+		switch(uniform(0, 118, this.rnd)) {
 			case 0: return ChemicalElement(q"{H}", q"{hidrogeno}", 1);
 			case 1: return ChemicalElement(q"{He}", q"{heliumo}", 2);
 			case 2: return ChemicalElement(q"{Li}", q"{litio}", 3);
@@ -635,7 +635,7 @@ class Faker_eo : Faker_en {
 	}
 
 	override ChemicalUnit scienceUnit() {
-		final switch(uniform(0, 29, this.rnd)) {
+		switch(uniform(0, 29, this.rnd)) {
 			case 0: return ChemicalUnit(q"{metro}", q"{m}");
 			case 1: return ChemicalUnit(q"{sekundo}", q"{s}");
 			case 2: return ChemicalUnit(q"{molo}", q"{mol}");

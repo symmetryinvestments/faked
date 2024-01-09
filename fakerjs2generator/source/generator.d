@@ -375,7 +375,7 @@ string genMustacheAA(Out)(Mustache[string] m, ref Out o, string[] path
 	iformat(o, 1, "%sstring %s(%sEnum which) {\n", overWrite ? "override " : ""
 			, pathToFuncName(path), enumName
 			);
-	iformat(o, 2, "final switch(which) {\n", m.length);
+	iformat(o, 2, "switch(which) {\n", m.length);
 	foreach(it; m.byKeyValue()) {
 		iformat(o, 3, "case %sEnum.%s: return ", enumName, it.key);
 		buildSingleMustache(o, it.value);
@@ -392,7 +392,7 @@ string genChemicalUnit(Out)(ChemicalUnit[] m, ref Out o, string[] path
 {
 	string ret = pathToFuncName(path);
 	iformat(o, 1, "%sChemicalUnit %s() {\n", overWrite ? "override " : "", ret);
-	iformat(o, 2, "final switch(uniform(0, %s, this.rnd)) {\n", m.length);
+	iformat(o, 2, "switch(uniform(0, %s, this.rnd)) {\n", m.length);
 	foreach(idx, it; m) {
 		iformat(o, 3, "case %s: return ChemicalUnit(%s, %s)", idx
 					, `q"{` ~ it.name ~ `}"`
@@ -410,7 +410,7 @@ string genChemicalElement(Out)(ChemicalElement[] m, ref Out o, string[] path
 {
 	string ret = pathToFuncName(path);
 	iformat(o, 1, "%sChemicalElement %s() {\n", overWrite ? "override " : "", ret);
-	iformat(o, 2, "final switch(uniform(0, %s, this.rnd)) {\n", m.length);
+	iformat(o, 2, "switch(uniform(0, %s, this.rnd)) {\n", m.length);
 	foreach(idx, it; m) {
 		iformat(o, 3, "case %s: return ChemicalElement(%s, %s, %s)", idx
 					, `q"{` ~ it.symbol ~ `}"`
@@ -429,7 +429,7 @@ string genCurrency(Out)(Currency[] m, ref Out o, string[] path
 {
 	string ret = pathToFuncName(path);
 	iformat(o, 1, "%sCurrency %s() {\n", overWrite ? "override " : "", pathToFuncName(path));
-	iformat(o, 2, "final switch(uniform(0, %s, this.rnd)) {\n", m.length);
+	iformat(o, 2, "switch(uniform(0, %s, this.rnd)) {\n", m.length);
 	foreach(idx, it; m) {
 		iformat(o, 3, "case %s: return Currency(%s, %s, %s)", idx
 					, `q"{` ~ it.name ~ `}"`
@@ -448,7 +448,7 @@ string genAirplane(Out)(Airplane[] m, ref Out o, string[] path
 {
 	string ret = pathToFuncName(path);
 	iformat(o, 1, "%sAirplane %s() {\n", overWrite ? "override " : "", ret);
-	iformat(o, 2, "final switch(uniform(0, %s, this.rnd)) {\n", m.length);
+	iformat(o, 2, "switch(uniform(0, %s, this.rnd)) {\n", m.length);
 	foreach(idx, it; m) {
 		iformat(o, 3, "case %s: return Airplane(%s, %s)", idx
 				, it.name.isNull()
@@ -470,7 +470,7 @@ string genAirport(Out)(Airport[] m, ref Out o, string[] path
 {
 	string ret = pathToFuncName(path);
 	iformat(o, 1, "%sAirport %s() {\n", overWrite ? "override " : "", ret);
-	iformat(o, 2, "final switch(uniform(0, %s, this.rnd)) {\n", m.length);
+	iformat(o, 2, "switch(uniform(0, %s, this.rnd)) {\n", m.length);
 	foreach(idx, it; m) {
 		iformat(o, 3, "case %s: return Airport(%s, %s)", idx
 				, it.name.isNull()
@@ -492,7 +492,7 @@ string genAirline(Out)(Airline[] m, ref Out o, string[] path
 {
 	string ret = pathToFuncName(path);
 	iformat(o, 1, "%sAirline %s() {\n", overWrite ? "override " : "", ret);
-	iformat(o, 2, "final switch(uniform(0, %s, this.rnd)) {\n", m.length);
+	iformat(o, 2, "switch(uniform(0, %s, this.rnd)) {\n", m.length);
 	foreach(idx, it; m) {
 		iformat(o, 3, "case %s: return Airline(%s, %s)", idx
 				, it.name.isNull()
@@ -514,7 +514,7 @@ string genMustache(Out)(Mustache[] m, ref Out o, string[] path
 {
 	string ret = pathToFuncName(path);
 	iformat(o, 1, "%sstring %s() {\n", overWrite ? "override " : "", ret);
-	iformat(o, 2, "final switch(uniform(0, %s, this.rnd)) {\n", m.length);
+	iformat(o, 2, "switch(uniform(0, %s, this.rnd)) {\n", m.length);
 	foreach(idx, it; m) {
 		iformat(o, 3, "case %s: return ", idx);
 		buildSingleMustache(o, it);
@@ -665,7 +665,7 @@ class Faker_base {
 	}
 
 	final string internetEmoji() {
-		final switch(uniform(0, 10, this.rnd)) {
+		switch(uniform(0, 10, this.rnd)) {
 			case 0: return this.internetEmojiSmiley();
 			case 1: return this.internetEmojiBody();
 			case 2: return this.internetEmojiPerson();
@@ -677,6 +677,7 @@ class Faker_base {
 			case 8: return this.internetEmojiSymbol();
 			case 9: return this.internetEmojiFlag();
 		}
+		return "";
 	}
 
 `);

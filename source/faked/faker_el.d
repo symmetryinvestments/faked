@@ -22,7 +22,7 @@ class Faker_el : Faker_en {
 	}
 
 	override string appAuthor() {
-		final switch(uniform(0, 2, this.rnd)) {
+		switch(uniform(0, 2, this.rnd)) {
 			case 0: return personName();
 			case 1: return companyName();
 		}
@@ -193,7 +193,7 @@ class Faker_el : Faker_en {
 	}
 
 	override string companyNamePattern() {
-		final switch(uniform(0, 3, this.rnd)) {
+		switch(uniform(0, 3, this.rnd)) {
 			case 0: return personLastName() ~ " " ~ companySuffix();
 			case 1: return personLastName() ~ "-" ~ personLastName();
 			case 2: return personLastName() ~ ", " ~ personLastName() ~ " and " ~ personLastName();
@@ -270,7 +270,7 @@ class Faker_el : Faker_en {
 	}
 
 	override Currency financeCurrency() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return Currency(q"{Ευρώ}", q"{EUR}", q"{€}");
 		}
 		return Currency("", "", "");
@@ -358,7 +358,7 @@ class Faker_el : Faker_en {
 	}
 
 	override string locationCityPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityName();
 		}
 		return "";
@@ -372,7 +372,7 @@ class Faker_el : Faker_en {
 	}
 
 	override string locationStreetPattern() {
-		final switch(uniform(0, 2, this.rnd)) {
+		switch(uniform(0, 2, this.rnd)) {
 			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
 			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
 		}
@@ -634,7 +634,7 @@ class Faker_el : Faker_en {
 	}
 
 	override string teamName() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationState() ~ " " ~ teamCreature();
 		}
 		return "";

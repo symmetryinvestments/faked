@@ -49,7 +49,7 @@ class Faker_base {
 	}
 
 	final string internetEmoji() {
-		final switch(uniform(0, 10, this.rnd)) {
+		switch(uniform(0, 10, this.rnd)) {
 			case 0: return this.internetEmojiSmiley();
 			case 1: return this.internetEmojiBody();
 			case 2: return this.internetEmojiPerson();
@@ -61,6 +61,7 @@ class Faker_base {
 			case 8: return this.internetEmojiSymbol();
 			case 9: return this.internetEmojiFlag();
 		}
+		return "";
 	}
 
 	string databaseCollation() {

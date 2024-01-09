@@ -147,7 +147,7 @@ class Faker_en : Faker_base {
             ~ companyNoun();
     }
 	Airline airlineAirline() {
-		final switch(uniform(0, 125, this.rnd)) {
+		switch(uniform(0, 125, this.rnd)) {
 			case 0: return Airline(nullable(q"{Aegean Airlines}"), nullable(q"{A3}"));
 			case 1: return Airline(nullable(q"{Aeroflot}"), nullable(q"{SU}"));
 			case 2: return Airline(nullable(q"{Aerolineas Argentinas}"), nullable(q"{AR}"));
@@ -278,7 +278,7 @@ class Faker_en : Faker_base {
 	}
 
 	Airplane airlineAirplane() {
-		final switch(uniform(0, 155, this.rnd)) {
+		switch(uniform(0, 155, this.rnd)) {
 			case 0: return Airplane(nullable(q"{Aerospatiale/BAC Concorde}"), nullable(q"{SSC}"));
 			case 1: return Airplane(nullable(q"{Airbus A300}"), nullable(q"{AB3}"));
 			case 2: return Airplane(nullable(q"{Airbus A310}"), nullable(q"{310}"));
@@ -439,7 +439,7 @@ class Faker_en : Faker_base {
 	}
 
 	Airport airlineAirport() {
-		final switch(uniform(0, 118, this.rnd)) {
+		switch(uniform(0, 118, this.rnd)) {
 			case 0: return Airport(nullable(q"{Adelaide International Airport}"), nullable(q"{ADL}"));
 			case 1: return Airport(nullable(q"{Adolfo Suarez Madrid-Barajas Airport}"), nullable(q"{MAD}"));
 			case 2: return Airport(nullable(q"{Aeroparque Jorge Newbery Airport}"), nullable(q"{AEP}"));
@@ -1447,7 +1447,7 @@ class Faker_en : Faker_base {
 	}
 
 	string appAuthor() {
-		final switch(uniform(0, 2, this.rnd)) {
+		switch(uniform(0, 2, this.rnd)) {
 			case 0: return personName();
 			case 1: return companyName();
 		}
@@ -1630,7 +1630,7 @@ class Faker_en : Faker_base {
 	}
 
 	string companyNamePattern() {
-		final switch(uniform(0, 3, this.rnd)) {
+		switch(uniform(0, 3, this.rnd)) {
 			case 0: return personLastName() ~ " " ~ companySuffix();
 			case 1: return personLastName() ~ " - " ~ personLastName();
 			case 2: return personLastName() ~ ", " ~ personLastName() ~ " and " ~ personLastName();
@@ -1770,7 +1770,7 @@ class Faker_en : Faker_base {
 	}
 
 	Currency financeCurrency() {
-		final switch(uniform(0, 154, this.rnd)) {
+		switch(uniform(0, 154, this.rnd)) {
 			case 0: return Currency(q"{UAE Dirham}", q"{AED}", q"{}");
 			case 1: return Currency(q"{Afghani}", q"{AFN}", q"{؋}");
 			case 2: return Currency(q"{Lek}", q"{ALL}", q"{Lek}");
@@ -1965,7 +1965,7 @@ class Faker_en : Faker_base {
 	}
 
 	string hackerPhrase() {
-		final switch(uniform(0, 8, this.rnd)) {
+		switch(uniform(0, 8, this.rnd)) {
 			case 0: return "If we " ~ hackerVerb() ~ " the " ~ hackerNoun() ~ ", we can get to the " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ " through the " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
 			case 1: return "We need to " ~ hackerVerb() ~ " the " ~ hackerAdjective() ~ " " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ "!";
 			case 2: return "Try to " ~ hackerVerb() ~ " the " ~ hackerAbbreviation() ~ " " ~ hackerNoun() ~ ", maybe it will " ~ hackerVerb() ~ " the " ~ hackerAdjective() ~ " " ~ hackerNoun() ~ "!";
@@ -2177,7 +2177,7 @@ class Faker_en : Faker_base {
 	}
 
 	string locationCityPattern() {
-		final switch(uniform(0, 5, this.rnd)) {
+		switch(uniform(0, 5, this.rnd)) {
 			case 0: return locationCityPrefix() ~ " " ~ personFirstName() ~ locationCitySuffix();
 			case 1: return locationCityPrefix() ~ " " ~ personFirstName();
 			case 2: return personFirstName() ~ locationCitySuffix();
@@ -2345,7 +2345,7 @@ class Faker_en : Faker_base {
 	}
 
 	string locationStreetAddress(LocationStreetAddressEnum which) {
-		final switch(which) {
+		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationBuildingNumber() ~ " " ~ locationStreet();
 			case LocationStreetAddressEnum.full: return locationBuildingNumber() ~ " " ~ locationStreet() ~ " " ~ locationSecondaryAddress();
 		}
@@ -2512,7 +2512,7 @@ class Faker_en : Faker_base {
 	}
 
 	string locationStreetPattern() {
-		final switch(uniform(0, 3, this.rnd)) {
+		switch(uniform(0, 3, this.rnd)) {
 			case 0: return personFirstName() ~ " " ~ locationStreetSuffix();
 			case 1: return personLastName() ~ " " ~ locationStreetSuffix();
 			case 2: return locationStreetName();
@@ -2961,7 +2961,7 @@ class Faker_en : Faker_base {
 	}
 
 	string personBioPattern() {
-		final switch(uniform(0, 8, this.rnd)) {
+		switch(uniform(0, 8, this.rnd)) {
 			case 0: return personBioPart();
 			case 1: return personBioPart() ~ ", " ~ personBioPart();
 			case 2: return personBioPart() ~ ", " ~ personBioPart() ~ ", " ~ personBioPart();
@@ -3505,7 +3505,7 @@ class Faker_en : Faker_base {
 	}
 
 	string personJobTitlePattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return personJobDescriptor() ~ " " ~ personJobArea() ~ " " ~ personJobType();
 		}
 		return "";
@@ -3791,7 +3791,7 @@ class Faker_en : Faker_base {
 	}
 
 	ChemicalElement scienceChemicalElement() {
-		final switch(uniform(0, 118, this.rnd)) {
+		switch(uniform(0, 118, this.rnd)) {
 			case 0: return ChemicalElement(q"{H}", q"{Hydrogen}", 1);
 			case 1: return ChemicalElement(q"{He}", q"{Helium}", 2);
 			case 2: return ChemicalElement(q"{Li}", q"{Lithium}", 3);
@@ -3915,7 +3915,7 @@ class Faker_en : Faker_base {
 	}
 
 	ChemicalUnit scienceUnit() {
-		final switch(uniform(0, 29, this.rnd)) {
+		switch(uniform(0, 29, this.rnd)) {
 			case 0: return ChemicalUnit(q"{meter}", q"{m}");
 			case 1: return ChemicalUnit(q"{second}", q"{s}");
 			case 2: return ChemicalUnit(q"{mole}", q"{mol}");
@@ -3965,7 +3965,7 @@ class Faker_en : Faker_base {
 	}
 
 	string teamName() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationState() ~ " " ~ teamCreature();
 		}
 		return "";

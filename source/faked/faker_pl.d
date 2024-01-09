@@ -91,7 +91,7 @@ class Faker_pl : Faker_en {
 	}
 
 	override string companyNamePattern() {
-		final switch(uniform(0, 3, this.rnd)) {
+		switch(uniform(0, 3, this.rnd)) {
 			case 0: return personLastName() ~ " " ~ companySuffix();
 			case 1: return personLastName() ~ "-" ~ personLastName();
 			case 2: return personLastName() ~ ", " ~ personLastName() ~ " and " ~ personLastName();
@@ -289,7 +289,7 @@ class Faker_pl : Faker_en {
 	}
 
 	override string locationCityPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityName();
 		}
 		return "";
@@ -393,7 +393,7 @@ class Faker_pl : Faker_en {
 	}
 
 	override string locationStreetAddress(LocationStreetAddressEnum which) {
-		final switch(which) {
+		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationStreet() ~ " " ~ locationBuildingNumber();
 			case LocationStreetAddressEnum.full: return locationStreet() ~ " " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
 		}
@@ -401,7 +401,7 @@ class Faker_pl : Faker_en {
 	}
 
 	override string locationStreetPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationStreetPrefix() ~ " " ~ personLastName();
 		}
 		return "";
@@ -872,7 +872,7 @@ class Faker_pl : Faker_en {
 	}
 
 	override ChemicalElement scienceChemicalElement() {
-		final switch(uniform(0, 118, this.rnd)) {
+		switch(uniform(0, 118, this.rnd)) {
 			case 0: return ChemicalElement(q"{H}", q"{Wodór}", 1);
 			case 1: return ChemicalElement(q"{He}", q"{Hel}", 2);
 			case 2: return ChemicalElement(q"{Li}", q"{Lit}", 3);
@@ -996,7 +996,7 @@ class Faker_pl : Faker_en {
 	}
 
 	override ChemicalUnit scienceUnit() {
-		final switch(uniform(0, 22, this.rnd)) {
+		switch(uniform(0, 22, this.rnd)) {
 			case 0: return ChemicalUnit(q"{metr}", q"{m}");
 			case 1: return ChemicalUnit(q"{sekunda}", q"{s}");
 			case 2: return ChemicalUnit(q"{mol}", q"{mol}");
@@ -1032,7 +1032,7 @@ class Faker_pl : Faker_en {
 	}
 
 	override string teamName() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return teamPrefix() ~ " " ~ locationCity();
 		}
 		return "";

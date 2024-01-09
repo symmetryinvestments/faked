@@ -31,7 +31,7 @@ class Faker_nb_no : Faker_en {
 	}
 
 	override string companyNamePattern() {
-		final switch(uniform(0, 3, this.rnd)) {
+		switch(uniform(0, 3, this.rnd)) {
 			case 0: return personLastName() ~ " " ~ companySuffix();
 			case 1: return personLastName() ~ "-" ~ personLastName();
 			case 2: return personLastName() ~ ", " ~ personLastName() ~ " og " ~ personLastName();
@@ -69,7 +69,7 @@ class Faker_nb_no : Faker_en {
 	}
 
 	override string locationCityPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityName() ~ locationCitySuffix();
 		}
 		return "";
@@ -118,7 +118,7 @@ class Faker_nb_no : Faker_en {
 	}
 
 	override string locationStreetAddress(LocationStreetAddressEnum which) {
-		final switch(which) {
+		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationStreet() ~ " " ~ locationBuildingNumber();
 			case LocationStreetAddressEnum.full: return locationStreet() ~ " " ~ locationBuildingNumber() ~ " " ~ locationSecondaryAddress();
 		}
@@ -136,7 +136,7 @@ class Faker_nb_no : Faker_en {
 	}
 
 	override string locationStreetPattern() {
-		final switch(uniform(0, 4, this.rnd)) {
+		switch(uniform(0, 4, this.rnd)) {
 			case 0: return locationStreetName() ~ locationStreetSuffix();
 			case 1: return locationStreetPrefix() ~ " " ~ locationStreetName() ~ locationStreetSuffix();
 			case 2: return personFirstName() ~ locationCommonStreetSuffix();
@@ -300,7 +300,7 @@ class Faker_nb_no : Faker_en {
 	}
 
 	override ChemicalElement scienceChemicalElement() {
-		final switch(uniform(0, 118, this.rnd)) {
+		switch(uniform(0, 118, this.rnd)) {
 			case 0: return ChemicalElement(q"{H}", q"{Hydrogen}", 1);
 			case 1: return ChemicalElement(q"{He}", q"{Helium}", 2);
 			case 2: return ChemicalElement(q"{Li}", q"{Litium}", 3);
@@ -424,7 +424,7 @@ class Faker_nb_no : Faker_en {
 	}
 
 	override ChemicalUnit scienceUnit() {
-		final switch(uniform(0, 22, this.rnd)) {
+		switch(uniform(0, 22, this.rnd)) {
 			case 0: return ChemicalUnit(q"{meter}", q"{m}");
 			case 1: return ChemicalUnit(q"{sekund}", q"{s}");
 			case 2: return ChemicalUnit(q"{mole}", q"{mol}");

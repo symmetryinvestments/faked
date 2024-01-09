@@ -67,7 +67,7 @@ class Faker_en_hk : Faker_en {
 	}
 
 	override string locationCityPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityName();
 		}
 		return "";
@@ -95,7 +95,7 @@ class Faker_en_hk : Faker_en {
 	}
 
 	override string locationStreetPattern() {
-		final switch(uniform(0, 2, this.rnd)) {
+		switch(uniform(0, 2, this.rnd)) {
 			case 0: return locationStreetEnglishPart() ~ " " ~ locationStreetSuffix();
 			case 1: return locationStreetCantonesePart() ~ " " ~ locationStreetCantonesePart() ~ " " ~ locationStreetSuffix();
 		}

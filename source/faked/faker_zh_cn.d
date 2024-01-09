@@ -22,7 +22,7 @@ class Faker_zh_cn : Faker_en {
 	}
 
 	override Airline airlineAirline() {
-		final switch(uniform(0, 119, this.rnd)) {
+		switch(uniform(0, 119, this.rnd)) {
 			case 0: return Airline(nullable(q"{爱琴海航空公司}"), nullable(q"{A3}"));
 			case 1: return Airline(nullable(q"{俄罗斯航空公司}"), nullable(q"{SU}"));
 			case 2: return Airline(nullable(q"{阿根廷航空公司}"), nullable(q"{AR}"));
@@ -147,7 +147,7 @@ class Faker_zh_cn : Faker_en {
 	}
 
 	override Airplane airlineAirplane() {
-		final switch(uniform(0, 155, this.rnd)) {
+		switch(uniform(0, 155, this.rnd)) {
 			case 0: return Airplane(nullable(q"{航天/BAC协和式飞机}"), nullable(q"{SSC}"));
 			case 1: return Airplane(nullable(q"{空客A300}"), nullable(q"{AB3}"));
 			case 2: return Airplane(nullable(q"{空客A310}"), nullable(q"{310}"));
@@ -308,7 +308,7 @@ class Faker_zh_cn : Faker_en {
 	}
 
 	override Airport airlineAirport() {
-		final switch(uniform(0, 118, this.rnd)) {
+		switch(uniform(0, 118, this.rnd)) {
 			case 0: return Airport(nullable(q"{阿德莱德国际机场}"), nullable(q"{ADL}"));
 			case 1: return Airport(nullable(q"{阿道弗·苏亚雷斯马德里-巴拉哈斯机场}"), nullable(q"{MAD}"));
 			case 2: return Airport(nullable(q"{豪尔赫纽伯里机场机场}"), nullable(q"{AEP}"));
@@ -527,7 +527,7 @@ class Faker_zh_cn : Faker_en {
 	}
 
 	override string companyNamePattern() {
-		final switch(uniform(0, 2, this.rnd)) {
+		switch(uniform(0, 2, this.rnd)) {
 			case 0: return locationState() ~ personFirstName() ~ companyCategory() ~ companyType();
 			case 1: return locationCity() ~ personFirstName() ~ companyCategory() ~ companyType();
 		}
@@ -612,7 +612,7 @@ class Faker_zh_cn : Faker_en {
 	}
 
 	override Currency financeCurrency() {
-		final switch(uniform(0, 155, this.rnd)) {
+		switch(uniform(0, 155, this.rnd)) {
 			case 0: return Currency(q"{阿联酋迪拉姆}", q"{AED}", q"{}");
 			case 1: return Currency(q"{阿富汗尼}", q"{AFN}", q"{؋}");
 			case 2: return Currency(q"{列克}", q"{ALL}", q"{Lek}");
@@ -799,7 +799,7 @@ class Faker_zh_cn : Faker_en {
 	}
 
 	override string hackerPhrase() {
-		final switch(uniform(0, 8, this.rnd)) {
+		switch(uniform(0, 8, this.rnd)) {
 			case 0: return "倘若我们" ~ hackerVerb() ~ hackerNoun() ~ "，我们就可以通过" ~ hackerAdjective() ~ hackerAbbreviation() ~ hackerNoun() ~ "获得" ~ hackerAbbreviation() ~ hackerNoun() ~ "！";
 			case 1: return "我们需要" ~ hackerVerb() ~ hackerAdjective() ~ hackerAbbreviation() ~ hackerNoun() ~ "！";
 			case 2: return "尝试" ~ hackerVerb() ~ hackerAbbreviation() ~ hackerNoun() ~ "，也许会" ~ hackerVerb() ~ hackerAdjective() ~ hackerNoun() ~ "！";
@@ -838,7 +838,7 @@ class Faker_zh_cn : Faker_en {
 	}
 
 	override string locationCityPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return locationCityPrefix() ~ locationCitySuffix();
 		}
 		return "";
@@ -903,7 +903,7 @@ class Faker_zh_cn : Faker_en {
 	}
 
 	override string locationStreetAddress(LocationStreetAddressEnum which) {
-		final switch(which) {
+		switch(which) {
 			case LocationStreetAddressEnum.normal: return locationStreet() ~ locationBuildingNumber() ~ "号";
 			case LocationStreetAddressEnum.full: return locationStreet() ~ locationBuildingNumber() ~ "号 " ~ locationSecondaryAddress();
 		}
@@ -911,7 +911,7 @@ class Faker_zh_cn : Faker_en {
 	}
 
 	override string locationStreetPattern() {
-		final switch(uniform(0, 1, this.rnd)) {
+		switch(uniform(0, 1, this.rnd)) {
 			case 0: return personLastName() ~ locationStreetSuffix();
 		}
 		return "";
@@ -975,7 +975,7 @@ class Faker_zh_cn : Faker_en {
 	}
 
 	override string personBioPattern() {
-		final switch(uniform(0, 8, this.rnd)) {
+		switch(uniform(0, 8, this.rnd)) {
 			case 0: return personBioPart();
 			case 1: return personBioPart() ~ "，" ~ personBioPart();
 			case 2: return personBioPart() ~ "，" ~ personBioPart() ~ "，" ~ personBioPart();
@@ -1181,7 +1181,7 @@ class Faker_zh_cn : Faker_en {
 	}
 
 	override ChemicalElement scienceChemicalElement() {
-		final switch(uniform(0, 118, this.rnd)) {
+		switch(uniform(0, 118, this.rnd)) {
 			case 0: return ChemicalElement(q"{H}", q"{氢}", 1);
 			case 1: return ChemicalElement(q"{He}", q"{氦}", 2);
 			case 2: return ChemicalElement(q"{Li}", q"{锂}", 3);
@@ -1305,7 +1305,7 @@ class Faker_zh_cn : Faker_en {
 	}
 
 	override ChemicalUnit scienceUnit() {
-		final switch(uniform(0, 29, this.rnd)) {
+		switch(uniform(0, 29, this.rnd)) {
 			case 0: return ChemicalUnit(q"{米}", q"{m}");
 			case 1: return ChemicalUnit(q"{秒}", q"{s}");
 			case 2: return ChemicalUnit(q"{摩尔}", q"{mol}");
