@@ -1,0 +1,134 @@
+From b54968adde1073f95c8ad7e80b5fab648d163dbb Mon Sep 17 00:00:00 2001
+From: Robert burner Schadek <robert.schadek@informatik.uni-oldenburg.de>
+Date: Mon, 8 Jan 2024 16:05:28 +0100
+Subject: [PATCH] More specific mustache selection for hacker.phrase
+
+to make translating faker.js into other languages easier
+---
+ src/locales/en/hacker/phrase.ts    | 16 ++++++++--------
+ src/locales/eo/hacker/phrase.ts    | 18 +++++++++---------
+ src/locales/nl/hacker/phrase.ts    | 16 ++++++++--------
+ src/locales/ru/hacker/phrase.ts    | 16 ++++++++--------
+ src/locales/zh_CN/hacker/phrase.ts | 16 ++++++++--------
+ 5 files changed, 41 insertions(+), 41 deletions(-)
+
+diff --git a/src/locales/en/hacker/phrase.ts b/src/locales/en/hacker/phrase.ts
+index 07a97c40..97b66a99 100644
+--- a/src/locales/en/hacker/phrase.ts
++++ b/src/locales/en/hacker/phrase.ts
+@@ -1,10 +1,10 @@
+ export default [
+-  'If we {{verb}} the {{noun}}, we can get to the {{abbreviation}} {{noun}} through the {{adjective}} {{abbreviation}} {{noun}}!',
+-  'We need to {{verb}} the {{adjective}} {{abbreviation}} {{noun}}!',
+-  'Try to {{verb}} the {{abbreviation}} {{noun}}, maybe it will {{verb}} the {{adjective}} {{noun}}!',
+-  "You can't {{verb}} the {{noun}} without {{ingverb}} the {{adjective}} {{abbreviation}} {{noun}}!",
+-  'Use the {{adjective}} {{abbreviation}} {{noun}}, then you can {{verb}} the {{adjective}} {{noun}}!',
+-  'The {{abbreviation}} {{noun}} is down, {{verb}} the {{adjective}} {{noun}} so we can {{verb}} the {{abbreviation}} {{noun}}!',
+-  "{{ingverb}} the {{noun}} won't do anything, we need to {{verb}} the {{adjective}} {{abbreviation}} {{noun}}!",
+-  "I'll {{verb}} the {{adjective}} {{abbreviation}} {{noun}}, that should {{noun}} the {{abbreviation}} {{noun}}!",
++  'If we {{hacker.verb}} the {{hacker.noun}}, we can get to the {{hacker.abbreviation}} {{hacker.noun}} through the {{hacker.adjective}} {{hacker.abbreviation}} {{hacker.noun}}!',
++  'We need to {{hacker.verb}} the {{hacker.adjective}} {{hacker.abbreviation}} {{hacker.noun}}!',
++  'Try to {{hacker.verb}} the {{hacker.abbreviation}} {{hacker.noun}}, maybe it will {{hacker.verb}} the {{hacker.adjective}} {{hacker.noun}}!',
++  "You can't {{hacker.verb}} the {{hacker.noun}} without {{hacker.ingverb}} the {{hacker.adjective}} {{hacker.abbreviation}} {{hacker.noun}}!",
++  'Use the {{hacker.adjective}} {{hacker.abbreviation}} {{hacker.noun}}, then you can {{hacker.verb}} the {{hacker.adjective}} {{hacker.noun}}!',
++  'The {{hacker.abbreviation}} {{hacker.noun}} is down, {{hacker.verb}} the {{hacker.adjective}} {{hacker.noun}} so we can {{hacker.verb}} the {{hacker.abbreviation}} {{hacker.noun}}!',
++  "{{hacker.ingverb}} the {{hacker.noun}} won't do anything, we need to {{hacker.verb}} the {{hacker.adjective}} {{hacker.abbreviation}} {{hacker.noun}}!",
++  "I'll {{hacker.verb}} the {{hacker.adjective}} {{hacker.abbreviation}} {{hacker.noun}}, that should {{hacker.noun}} the {{hacker.abbreviation}} {{hacker.noun}}!",
+ ];
+diff --git a/src/locales/eo/hacker/phrase.ts b/src/locales/eo/hacker/phrase.ts
+index 4d3a8b35..5bf91fac 100644
+--- a/src/locales/eo/hacker/phrase.ts
++++ b/src/locales/eo/hacker/phrase.ts
+@@ -1,11 +1,11 @@
+ export default [
+-  'Se ni povus {{verb}} la {{noun}}n, ni povus aliri la {{abbreviation}}-{{noun}}n per la {{adjective}} {{abbreviation}}-{{noun}}!',
+-  'Ni devas {{verb}} la {{adjective}}n {{abbreviation}}-{{noun}}n!',
+-  'Provu {{verb}} la {{abbreviation}}-{{noun}}n, eble ni sukcesos {{verb}} la {{adjective}}n {{noun}}n!',
+-  'Vi ne povas {{verb}} la {{noun}}n sen {{ingverb}} de la {{adjective}} {{abbreviation}}-{{noun}}!',
+-  'Uzu la {{adjective}}n {{abbreviation}}-{{noun}}n, poste vi povos {{verb}} la {{adjective}}n {{noun}}n!',
+-  'La {{abbreviation}}-{{noun}} ne funkcias, provu {{verb}} la {{adjective}}n {{noun}}n, por ke ni povu {{verb}} la {{abbreviation}}-{{noun}}n!',
+-  'Ne funkcios {{ingverb}} de la {{noun}}, ni devas {{verb}} la {{adjective}}n {{abbreviation}}-{{noun}}n!',
+-  'Mi provos {{verb}} la {{adjective}}n {{abbreviation}}-{{noun}}n, tio devus {{verb}} la {{abbreviation}}-{{noun}}n!',
+-  'Ne gravas, se ni ne povus {{verb}} la {{noun}}n, ni devas nur {{verb}} la {{adjective}}n {{abbreviation}}-{{noun}}!',
++  'Se ni povus {{hacker.verb}} la {{hacker.noun}}n, ni povus aliri la {{hacker.abbreviation}}-{{hacker.noun}}n per la {{hacker.adjective}} {{hacker.abbreviation}}-{{hacker.noun}}!',
++  'Ni devas {{hacker.verb}} la {{hacker.adjective}}n {{hacker.abbreviation}}-{{hacker.noun}}n!',
++  'Provu {{hacker.verb}} la {{hacker.abbreviation}}-{{hacker.noun}}n, eble ni sukcesos {{hacker.verb}} la {{hacker.adjective}}n {{hacker.noun}}n!',
++  'Vi ne povas {{hacker.verb}} la {{hacker.noun}}n sen {{hacker.ingverb}} de la {{hacker.adjective}} {{hacker.abbreviation}}-{{hacker.noun}}!',
++  'Uzu la {{hacker.adjective}}n {{hacker.abbreviation}}-{{hacker.noun}}n, poste vi povos {{hacker.verb}} la {{hacker.adjective}}n {{hacker.noun}}n!',
++  'La {{hacker.abbreviation}}-{{hacker.noun}} ne funkcias, provu {{hacker.verb}} la {{hacker.adjective}}n {{hacker.noun}}n, por ke ni povu {{hacker.verb}} la {{hacker.abbreviation}}-{{hacker.noun}}n!',
++  'Ne funkcios {{hacker.ingverb}} de la {{hacker.noun}}, ni devas {{hacker.verb}} la {{hacker.adjective}}n {{hacker.abbreviation}}-{{hacker.noun}}n!',
++  'Mi provos {{hacker.verb}} la {{hacker.adjective}}n {{hacker.abbreviation}}-{{hacker.noun}}n, tio devus {{hacker.verb}} la {{hacker.abbreviation}}-{{hacker.noun}}n!',
++  'Ne gravas, se ni ne povus {{hacker.verb}} la {{hacker.noun}}n, ni devas nur {{hacker.verb}} la {{hacker.adjective}}n {{hacker.abbreviation}}-{{hacker.noun}}!',
+ ];
+diff --git a/src/locales/nl/hacker/phrase.ts b/src/locales/nl/hacker/phrase.ts
+index a0f6c603..0804e626 100644
+--- a/src/locales/nl/hacker/phrase.ts
++++ b/src/locales/nl/hacker/phrase.ts
+@@ -1,10 +1,10 @@
+ export default [
+-  'Als we de {{noun}} {{verb}}, dan kunnen we naar de {{abbreviation}} {{noun}} via de {{adjective}} {{abbreviation}} {{noun}}!',
+-  'We moeten de {{adjective}} {{abbreviation}} {{noun}} {{verb}}!',
+-  'Probeer om de {{abbreviation}} {{noun}} te {{verb}}, misschien gaat dat de {{adjective}} {{noun}} {{verb}}!',
+-  'Je kan de {{noun}} niet {{verb}} zonder de {{adjective}} {{abbreviation}} {{noun}} te {{verb}}!',
+-  'Gebruik de {{adjective}} {{abbreviation}} {{noun}}, dan kan je de {{adjective}} {{noun}} {{verb}}!',
+-  'De {{abbreviation}} {{noun}} ligt eruit, jullie moeten de {{adjective}} {{noun}} {{verb}} zodat we de {{abbreviation}} {{noun}} kunnen {{verb}}!',
+-  'Het maakt niet uit of we de {{noun}} {{verb}}, we moeten de {{adjective}} {{abbreviation}} {{noun}} {{verb}}!',
+-  'Ik ga de {{adjective}} {{abbreviation}} {{noun}} {{verb}}, dat zou de {{noun}} moeten {{verb}}!',
++  'Als we de {{hacker.noun}} {{hacker.verb}}, dan kunnen we naar de {{hacker.abbreviation}} {{hacker.noun}} via de {{hacker.adjective}} {{hacker.abbreviation}} {{hacker.noun}}!',
++  'We moeten de {{hacker.adjective}} {{hacker.abbreviation}} {{hacker.noun}} {{hacker.verb}}!',
++  'Probeer om de {{hacker.abbreviation}} {{hacker.noun}} te {{hacker.verb}}, misschien gaat dat de {{hacker.adjective}} {{hacker.noun}} {{hacker.verb}}!',
++  'Je kan de {{hacker.noun}} niet {{hacker.verb}} zonder de {{hacker.adjective}} {{hacker.abbreviation}} {{hacker.noun}} te {{hacker.verb}}!',
++  'Gebruik de {{hacker.adjective}} {{hacker.abbreviation}} {{hacker.noun}}, dan kan je de {{hacker.adjective}} {{hacker.noun}} {{hacker.verb}}!',
++  'De {{hacker.abbreviation}} {{hacker.noun}} ligt eruit, jullie moeten de {{hacker.adjective}} {{hacker.noun}} {{hacker.verb}} zodat we de {{hacker.abbreviation}} {{hacker.noun}} kunnen {{hacker.verb}}!',
++  'Het maakt niet uit of we de {{hacker.noun}} {{hacker.verb}}, we moeten de {{hacker.adjective}} {{hacker.abbreviation}} {{hacker.noun}} {{hacker.verb}}!',
++  'Ik ga de {{hacker.adjective}} {{hacker.abbreviation}} {{hacker.noun}} {{hacker.verb}}, dat zou de {{hacker.noun}} moeten {{hacker.verb}}!',
+ ];
+diff --git a/src/locales/ru/hacker/phrase.ts b/src/locales/ru/hacker/phrase.ts
+index 344c4992..cb507158 100644
+--- a/src/locales/ru/hacker/phrase.ts
++++ b/src/locales/ru/hacker/phrase.ts
+@@ -1,10 +1,10 @@
+ export default [
+-  'Чтобы {{verb}} {{noun}}, мы можем получить {{abbreviation}} {{noun}} через {{adjective}} {{abbreviation}} {{noun}}!',
+-  'Необходимо {{verb}} {{adjective}} {{abbreviation}} {{noun}}!',
+-  'Попробуйте {{verb}} {{abbreviation}} {{noun}}, возможно это позволит {{verb}} {{adjective}} {{noun}}!',
+-  'Вы не можете {{verb}} {{noun}}, требуется {{ingverb}} или {{ingverb}}!',
+-  'Используйте {{adjective}} {{abbreviation}} {{noun}}, для того чтобы {{verb}} {{adjective}} {{noun}}!',
+-  '{{abbreviation}} {{noun}} недоступен, требуется {{verb}} {{adjective}} {{noun}}, чтобы мы могли {{verb}} {{abbreviation}} {{noun}}!',
+-  '{{ingverb}} не работает, попробуйте {{verb}} {{adjective}} {{abbreviation}} {{noun}}!',
+-  'Я планирую {{verb}} {{adjective}} {{abbreviation}} {{noun}}, это должно помочь {{verb}} {{abbreviation}} {{noun}}!',
++  'Чтобы {{hacker.verb}} {{hacker.noun}}, мы можем получить {{hacker.abbreviation}} {{hacker.noun}} через {{hacker.adjective}} {{hacker.abbreviation}} {{hacker.noun}}!',
++  'Необходимо {{hacker.verb}} {{hacker.adjective}} {{hacker.abbreviation}} {{hacker.noun}}!',
++  'Попробуйте {{hacker.verb}} {{hacker.abbreviation}} {{hacker.noun}}, возможно это позволит {{hacker.verb}} {{hacker.adjective}} {{hacker.noun}}!',
++  'Вы не можете {{hacker.verb}} {{hacker.noun}}, требуется {{hacker.ingverb}} или {{hacker.ingverb}}!',
++  'Используйте {{hacker.adjective}} {{hacker.abbreviation}} {{hacker.noun}}, для того чтобы {{hacker.verb}} {{hacker.adjective}} {{hacker.noun}}!',
++  '{{hacker.abbreviation}} {{hacker.noun}} недоступен, требуется {{hacker.verb}} {{hacker.adjective}} {{hacker.noun}}, чтобы мы могли {{hacker.verb}} {{hacker.abbreviation}} {{hacker.noun}}!',
++  '{{hacker.ingverb}} не работает, попробуйте {{hacker.verb}} {{hacker.adjective}} {{hacker.abbreviation}} {{hacker.noun}}!',
++  'Я планирую {{hacker.verb}} {{hacker.adjective}} {{hacker.abbreviation}} {{hacker.noun}}, это должно помочь {{hacker.verb}} {{hacker.abbreviation}} {{hacker.noun}}!',
+ ];
+diff --git a/src/locales/zh_CN/hacker/phrase.ts b/src/locales/zh_CN/hacker/phrase.ts
+index 6515965d..1b5e8786 100644
+--- a/src/locales/zh_CN/hacker/phrase.ts
++++ b/src/locales/zh_CN/hacker/phrase.ts
+@@ -1,10 +1,10 @@
+ export default [
+-  '倘若我们{{verb}}{{noun}}，我们就可以通过{{adjective}}{{abbreviation}}{{noun}}获得{{abbreviation}}{{noun}}！',
+-  '我们需要{{verb}}{{adjective}}{{abbreviation}}{{noun}}！',
+-  '尝试{{verb}}{{abbreviation}}{{noun}}，也许会{{verb}}{{adjective}}{{noun}}！',
+-  '在没有{{verb}}{{adjective}}{{abbreviation}}{{noun}}的情况下，你不能{{verb}}{{noun}}！',
+-  '使用{{adjective}}{{abbreviation}}{{noun}}，然后你就能{{verb}}{{adjective}}{{noun}}！',
+-  '{{abbreviation}}{{noun}}已关闭，因为{{adjective}}{{noun}}所以我们能{{verb}}{{abbreviation}}{{noun}}！',
+-  '{{verb}}{{noun}}是无济于事的，我们需要{{verb}}{{adjective}}{{abbreviation}}{{noun}}！',
+-  '我将{{verb}}{{adjective}}{{abbreviation}}{{noun}}，那是应该{{noun}}{{abbreviation}}{{noun}}！',
++  '倘若我们{{hacker.verb}}{{hacker.noun}}，我们就可以通过{{hacker.adjective}}{{hacker.abbreviation}}{{hacker.noun}}获得{{hacker.abbreviation}}{{hacker.noun}}！',
++  '我们需要{{hacker.verb}}{{hacker.adjective}}{{hacker.abbreviation}}{{hacker.noun}}！',
++  '尝试{{hacker.verb}}{{hacker.abbreviation}}{{hacker.noun}}，也许会{{hacker.verb}}{{hacker.adjective}}{{hacker.noun}}！',
++  '在没有{{hacker.verb}}{{hacker.adjective}}{{hacker.abbreviation}}{{hacker.noun}}的情况下，你不能{{hacker.verb}}{{hacker.noun}}！',
++  '使用{{hacker.adjective}}{{hacker.abbreviation}}{{hacker.noun}}，然后你就能{{hacker.verb}}{{hacker.adjective}}{{hacker.noun}}！',
++  '{{hacker.abbreviation}}{{hacker.noun}}已关闭，因为{{hacker.adjective}}{{hacker.noun}}所以我们能{{hacker.verb}}{{hacker.abbreviation}}{{hacker.noun}}！',
++  '{{hacker.verb}}{{hacker.noun}}是无济于事的，我们需要{{hacker.verb}}{{hacker.adjective}}{{hacker.abbreviation}}{{hacker.noun}}！',
++  '我将{{hacker.verb}}{{hacker.adjective}}{{hacker.abbreviation}}{{hacker.noun}}，那是应该{{hacker.noun}}{{hacker.abbreviation}}{{hacker.noun}}！',
+ ];
+-- 
+2.43.0
+

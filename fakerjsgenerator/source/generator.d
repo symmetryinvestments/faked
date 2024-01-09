@@ -627,13 +627,16 @@ class Faker_%1$s : Faker%2$s {
 		auto reg = regex(regStr);
 		data = replaceAll!(jsonFixUp)(data, reg);
         JSONValue js = parseJSON(data);
-        auto jsO = js.object();
+		//assert(js.type == JSONType.object, "Must be an Object not " ~ js.toPrettyString());
+        auto jsA = js.array();
         return this.buildStringImpl("financeCurrency",
-            jsO.keys()
-                .map!(a => tuple(a, jsO[a]))
-                .filter!(a => "code" in a[1] && "symbol" in a[1])
-                .map!(a => format("Currency(\"%s\", \"%s\", \"%s\")",
-                        a[0].replace("\"", "\\\""), a[1]["code"].str(), a[1]["symbol"].str())
+            jsA
+                //.map!(a => tuple(a, jsO[a]))
+                .filter!(a => "code" in a && "symbol" in a)
+                .map!(a => format("Currency(\"%s\", \"%s\", \"%s\")"
+                        //, a.replace("\"", "\\\"")
+                        , a["name"].str().replace("\"", "\\\"")
+						, a["code"].str(), a["symbol"].str())
                 ).joiner(",\n\t\t").to!string()
             , "Currency"
         );
@@ -886,8 +889,18 @@ class Faker_%1$s : Faker%2$s {
 			}
 			ptrdiff_t close = line.indexOf("}}", idx);
 			enforce(close != -1, line);
-			ret ~= (cnt == 0 ? "" : " ~ ") ~ line[idx + 2 .. close]
-				.replaceDotOrSection(section).camelCase() ~ "()";
+			string musT = line[idx + 2 .. close];
+			if(musT.startsWith("number.int(") && musT.endsWith(")")) {
+				string musTJS = musT["number.int(".length .. $ - 1];
+				musTJS = musTJS.replace("\\\"", "\"");
+				writeln(musTJS);
+				JSONValue mm = parseJSON(musTJS);
+				ret ~= " ~ uniform(" ~ mm["min"].get!int().to!string() ~ ", "
+					~ mm["min"].get!int().to!string() ~ ").to!string()";
+			} else {
+				ret ~= (cnt == 0 ? "" : " ~ ") ~ line[idx + 2 .. close]
+					.replaceDotOrSection(section).camelCase() ~ "()";
+			}
 			++cnt;
 			cur = close + 2;
 			idx = line.indexOf("{{", cur);

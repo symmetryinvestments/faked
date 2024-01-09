@@ -1,0 +1,9 @@
+{
+	"authors": [
+		"burner"
+	],
+	"copyright": "Copyright © 2023, burner",
+	"description": "faker.js to D converter",
+	"license": "GPL3",
+	"name": "fakerjs2generator"
+}

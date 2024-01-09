@@ -29,16 +29,16 @@ void main() {
 		[ "af_ZA", "de_CH", "en_CA", "en_US", "fr", "hr", "ja", "nl"
 		, "ru", "vi", "ar", "el", "en_GB", "en_ZA", "fr_BE", "hu", "ko"
 		, "nl_BE", "sk", "zh_CN", "az", "en_GH", "es", "fr_CA"
-		, "hy", "lv", "pl", "sv", "zh_TW", "cz", "en_AU", "en_IE"
+		, "hy", "lv", "pl", "sv", "zh_TW", "en_AU", "en_IE"
 		, "es_MX", "fr_CH", "id_ID", "mk", "pt_BR", "tr", "zu_ZA", "de"
-		, "en_AU_ocker", "en_IND", "fa", "ge", "pt_PT"
+		, "en_AU_ocker", /*"en_IND",*/ "fa", /*"ge",*/ "pt_PT"
 		, "uk", "de_AT", "en_BORK", "en_NG", "fi", "he", "it", "ne"
 		, "ro", "ur"
 		, "af_ZA", "de_AT", "en_AU_ocker", "en_IE", "es", "fr_BE", "hr", "it"
-		, "nb_NO", "pt_BR", "sv", "zh_CN" , "ar", "de_CH", "en_BORK", "en_IND"
+		, "nb_NO", "pt_BR", "sv", "zh_CN" , "ar", "de_CH", "en_BORK"/*, "en_IND"*/
 		, "es_MX", "fr_CA", "hu", "ja", "ne", "pt_PT", "tr", "zh_TW", "az"
 		, "el", "en_CA", "en_NG", "fa", "fr_CH", "hy", "ko", "nl", "ro", "uk"
-		, "zu_ZA", "cz", /*"en",*/ "en_GB", "en_US", "fi", "ge", "id_ID", "lv"
+		, "zu_ZA", /*"cz", "en",*/ "en_GB", "en_US", "fi", /*"ge",*/ "id_ID", "lv"
 		, "nl_BE", "ru", "ur", "de", "en_AU", "en_GH", "en_ZA", "fr", "he"
 		, "mk", "pl", "sk", "vi"
 		].sort.uniq.array;
@@ -48,7 +48,7 @@ void main() {
     string[] methods = buildFile("en", en, []);
     methods ~= ["addressLatitude", "addressLongitude", "financeAccount",
         "financeRoutingNumber", "financeMask", "financeBitcoinAddress",
-        /*"phoneNumber", "commerceProductName",*/ "companyCatchPhrase",
+        "phoneNumber", /*"commerceProductName",*/ "companyCatchPhrase",
         "companyBs", "internetUserName", "internetProtocol",
         "internetDomainWord", "internetDomainName", "internetUrl",
         "internetIPv4", "internetIPv6", "internetColor", "internetPassword",

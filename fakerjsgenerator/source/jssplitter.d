@@ -107,7 +107,7 @@ Nullable!TypeLines jssplit(string input, const string path) {
 	lines = lines[0 .. $]
 		.map!(strip)
 		.filter!(l => !l.empty)
-		.map!((a) => {
+		.map!(a => {
 			a = a.startsWith("'") ? a[1 .. $] : a;
 			a = a.endsWith("'") ? a[0 .. $ - 1] : a;
 			return a;
