@@ -36,12 +36,14 @@ void generateUnittest(JsonFile bs, JsonFile en, string[] langs, string[] funcs) 
 
 import faked.customtypes;
 import faked.fakerenums;
+import faked.fakerforwarder;
 import faked.faker_base;
 import faked.faker_en;
 ` ~ "%--(import faked.faker_%s;\n%);\n", langs.map!(l => l.toLower()));
 
 	foreach(l; langs.map!(it => it.toLower())) {
-		f.writefln(`unittest {
+		f.writefln(`
+unittest {
 	auto f = new Faker_%s(13);
 `, l);
 		auto ltw = f.lockingTextWriter();
@@ -52,6 +54,17 @@ import faked.faker_en;
 		}
 		f.writeln("}");
 	}
+	f.writefln(`
+unittest {
+	auto f = new FakerForwarder(13);
+`);
+	auto ltw = f.lockingTextWriter();
+	foreach(fu; funcs) {
+		iformat(ltw, 1, "foreach(i; 0 .. 4) {\n");
+		iformat(ltw, 2, "f.%s();\n", fu);
+		iformat(ltw, 1, "}\n");
+	}
+	f.writeln("}");
 }
 
 void generateForward(JsonFile bs, JsonFile en, string[] langs) {
